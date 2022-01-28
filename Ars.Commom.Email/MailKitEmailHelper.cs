@@ -62,6 +62,7 @@ namespace Ars.Commom.Email
                 Console.WriteLine("Total messages: {0}", inbox.Count);
                 Console.WriteLine("Recent messages: {0}", inbox.Recent);
 
+
                 for (int i = 0; i < inbox.Count; i++)
                 {
                     var message = await inbox.GetMessageAsync(i);
