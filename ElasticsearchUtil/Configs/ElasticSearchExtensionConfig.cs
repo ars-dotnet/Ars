@@ -1,4 +1,5 @@
 ﻿using ElasticsearchUtil.Provider;
+using JetBrains.Annotations;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using MyArsenal.Commom.Tool;
@@ -11,15 +12,13 @@ namespace ElasticsearchUtil.Configs
     public class ElasticSearchExtensionConfig : IConfigExtension
     {
         private Action<ElasticSearchConfig> _action;
-        public ElasticSearchExtensionConfig(Action<ElasticSearchConfig> action)
+        public ElasticSearchExtensionConfig([NotNull]Action<ElasticSearchConfig> action)
         {
             _action = action;
         }
 
         public void AddService(IServiceCollection service)
         {
-            ElasticSearchProvider a = new ElasticSearchProvider(service.BuildServiceProvider().GetService<IOptions<ElasticSearchConfig>>());
-            
             service.Configure(_action);
             service.AddSingleton<IElasticSearchProvider, ElasticSearchProvider>();
         }

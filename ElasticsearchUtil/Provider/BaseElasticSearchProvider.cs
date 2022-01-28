@@ -19,10 +19,6 @@ namespace ElasticsearchUtil.Provider
         public virtual Task<ElasticClient> GetEsClient() 
         {
             Check();
-
-            int i = 10;
-            i.ToString();
-
             return Task.FromResult(new ElasticClient());
         }
 

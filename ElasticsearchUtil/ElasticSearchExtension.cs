@@ -9,7 +9,7 @@ namespace ElasticsearchUtil
 {
     public static class ElasticSearchExtension
     {
-        public static void AddEs(this MyArsenalBaseConfig config, Action<ElasticSearchConfig> action) 
+        public static void AddEs(this ArsBaseConfig config, Action<ElasticSearchConfig> action) 
         {
             if (null == action)
                 throw new ArgumentNullException(nameof(action));

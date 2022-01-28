@@ -1,0 +1,11 @@
+syntax = "proto3";
+package AceLink.Influencer.proto.error.v1;
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/duration.proto";  
+import "google/protobuf/wrappers.proto";
+import "google/protobuf/money.proto";
+option csharp_namespace = "ExpressionDemo.Grpc.v1";
+
+message MyMoney{
+	google.protobuf.money A = 1;
+}

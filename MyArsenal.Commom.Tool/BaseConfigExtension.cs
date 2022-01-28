@@ -7,23 +7,20 @@ namespace MyArsenal.Commom.Tool
 {
     public static class BaseConfigExtension
     {
-        public static IServiceCollection AddMyArsenal(this IServiceCollection services,Action<MyArsenalBaseConfig> action)
+        public static IServiceCollection AddArsConfig(this IServiceCollection services, Action<ArsBaseConfig> action)
         {
             if (null == action)
                 throw new ArgumentNullException(nameof(action));
 
-            MyArsenalBaseConfig config = new MyArsenalBaseConfig();
+            ArsBaseConfig config = new ArsBaseConfig();
             action(config);
 
-            foreach (var e in config.configExtensions) 
+            foreach (var e in config.configExtensions)
             {
                 e.AddService(services);
             }
 
-            services.AddOptions();
-            if (null != action)
-                services.Configure(action);
-
+            services.Configure(action);
             return services;
         }
     }

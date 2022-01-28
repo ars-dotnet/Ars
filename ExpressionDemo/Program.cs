@@ -17,12 +17,37 @@ using System.Threading.Tasks;
 
 namespace ExpressionDemo
 {
+
+
+    public interface IAnimal
+    {
+        public int Age { get; set; }
+    }
+
+    public class Animal : IAnimal
+    {
+        public int Age { get; set; }
+    }
+
     class Program
     {
+        public static void Test(IList<IAnimal> list)
+        {
+            var a = list.First() as Animal;
+        }
+
         static async Task Main(string[] args)
         {
             try
             {
+                decimal cc = 12.67m;
+
+                List<Animal> animals = new List<Animal>() { new Animal { Age = 1 } };
+
+                var aa = animals.First() as IAnimal;
+                var a = animals.Select(r => (IAnimal)r).ToList();
+                Test(a);
+
                 Activetor activetor = new Activetor();
                 activetor.Test();
 
@@ -121,7 +146,7 @@ namespace ExpressionDemo
             return;
         }
 
-        static IServiceProvider BuildScopeServices() 
+        static IServiceProvider BuildScopeServices()
         {
             IServiceCollection services = new ServiceCollection();
             services.AddDbContext<MyDbContext>();
@@ -153,7 +178,7 @@ namespace ExpressionDemo
             Expression.Lambda<Action>(Expression.Call(typeof(Console).GetMethod("Read"))).Compile()();
         }
 
-        private static int Testmm() 
+        private static int Testmm()
         {
             return 3;
         }
@@ -184,27 +209,27 @@ namespace ExpressionDemo
             Console.WriteLine($"{nameof(DelegateMenthod)}:{str}");
         }
 
-        
 
-        
 
-        static TestGc CreateObj() 
+
+
+        static TestGc CreateObj()
         {
             TestGc testGc = new TestGc();
             return testGc;
         }
 
-        static void CreateGC() 
+        static void CreateGC()
         {
             GC.Collect();
         }
 
         static int i = 0;
-        
 
-        
 
-        static void TestObj() 
+
+
+        static void TestObj()
         {
             Demo d = new Demo() { id = 1 };
             //d.id = 1;
@@ -215,14 +240,14 @@ namespace ExpressionDemo
             Console.Read();
         }
 
-        static void TestObj1(Demo demo) 
+        static void TestObj1(Demo demo)
         {
             var c = demo;
             c.id = 2;
-            demo = new Demo { id = 39};
+            demo = new Demo { id = 39 };
         }
 
-        static void TestObjs() 
+        static void TestObjs()
         {
             List<Demo> demos = new List<Demo>
             {
@@ -348,7 +373,7 @@ namespace ExpressionDemo
     {
         private int m = 0;
         private int i = 0;
-        
+
         public async Task TestAdd()
         {
             //Console.WriteLine($"first：{Thread.CurrentThread.ManagedThreadId},{m}");
@@ -365,7 +390,7 @@ namespace ExpressionDemo
             return;
         }
 
-        public void Close() 
+        public void Close()
         {
             Console.WriteLine("Close");
         }
@@ -373,7 +398,7 @@ namespace ExpressionDemo
         /// <summary>
         /// 析构函数
         /// </summary>
-        ~TestGc() 
+        ~TestGc()
         {
             Console.WriteLine("~TestGc()");
         }
