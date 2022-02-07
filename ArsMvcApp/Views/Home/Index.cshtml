@@ -1,0 +1,41 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@model MyIdentityWithGithub.Models.HomeViewModel
+@inject IViewLocalizer L
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
+@{
+    ViewData["Title"] = SharedLocalizer["Home Page"];
+}
+<h2>@ViewData["Title"]</h2>
+<div class="row">
+    <div class="col-md-8">
+        <section>
+            <form asp-controller="Home" asp-action="Index" method="post" class="form-horizontal" novalidate>
+                <h4>@(ViewData["Result"] == null? "Enter details CN" : ViewData["Result"])</h4>
+                <hr />
+                <div class="form-group">
+                    <label asp-for="Email" class="col-md-2 control-label"></label>
+                    <div class="col-md-10">
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <button type="submit" class="btn btn-default">提交</button>
+                    </div>
+                </div>
+            </form>
+        </section>
+    </div>
+</div>
+
+<footer>
+    <div class="row">
+        <div class="col-sm-6">
+            <p>&copy; 2016 - Adding Localization</p>
+        </div>
+        <div class="col-sm-6 text-right">
+            @await Html.PartialAsync("_SelectLanguagePartial")
+        </div>
+    </div>
+</footer>

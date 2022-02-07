@@ -8,6 +8,8 @@ using MailKit;
 using MailKit.Net.Imap;
 using MailKit.Security;
 using Xunit;
+using MimeKit;
+using Ars.Commom.Tool.Extension;
 
 namespace ImapIdle
 {
@@ -31,19 +33,14 @@ namespace ImapIdle
 
                 await client.RunAsync();
 
-                Task.Run(() => {
-                    Console.ReadKey(true);
-                }).Wait();
-
                 client.Exit();
-
             }
         }
     }
 
     class IdleClient : IDisposable
     {
-        List<IMessageSummary> messages;
+        List<(string, IMessageSummary)> messages;
         CancellationTokenSource cancel;
         CancellationTokenSource done;
         bool messagesArrived;
@@ -52,7 +49,7 @@ namespace ImapIdle
         public IdleClient()
         {
             client = new ImapClient(new ProtocolLogger(Console.OpenStandardError()));
-            messages = new List<IMessageSummary>();
+            messages = new List<(string, IMessageSummary)>();
             cancel = new CancellationTokenSource();
         }
 
@@ -71,8 +68,6 @@ namespace ImapIdle
 
         async Task FetchMessageSummariesAsync(bool print)
         {
-            return;
-
             IList<IMessageSummary> fetched;
 
             do
@@ -80,10 +75,14 @@ namespace ImapIdle
                 try
                 {
                     // fetch summary information for messages that we don't already have
-                    //int startIndex = messages.Count;
+                    int startIndex = messages.Count;
 
-                    //fetched = client.Inbox.Fetch(startIndex, -1, MessageSummaryItems.Full | MessageSummaryItems.UniqueId, cancel.Token);
-                    //;
+                    if (print)
+                        fetched = await client.Inbox.FetchAsync(startIndex, -1, MessageSummaryItems.Full | MessageSummaryItems.UniqueId | MessageSummaryItems.EmailId | MessageSummaryItems.Headers, cancel.Token);
+                    else
+                        fetched = await client.Inbox.FetchAsync(startIndex, -1, MessageSummaryItems.Fast | MessageSummaryItems.UniqueId, cancel.Token);
+
+                    break;
                 }
                 catch (ImapProtocolException)
                 {
@@ -95,18 +94,35 @@ namespace ImapIdle
                     // I/O exceptions always result in the client getting disconnected
                     await ReconnectAsync();
                 }
-                catch (Exception e) 
+            } while (true);
+
+            foreach (var message in fetched)
+            {
+                MimeEntity text = null;
+                MimeEntity html = null;
+                if (message.TextBody != null)
+                {
+                    // this will download *just* the text/plain part
+                    text = client.Inbox.GetBodyPart(message.UniqueId, message.TextBody);
+                }
+                else if (message.HtmlBody != null)
+                {
+                    // this will download *just* the text/html part
+                    html = client.Inbox.GetBodyPart(message.UniqueId, message.HtmlBody);
+                }
+
+                //判断回复id，持久化邮件内容到数据库
+                if (print) 
                 {
 
                 }
-            } while (true);
-
-            //foreach (var message in fetched)
-            //{
-            //    if (print)
-            //        Console.WriteLine("{0}: new message: {1}", client.Inbox, message.Envelope.Subject);
-            //    messages.Add(message);
-            //}
+                string key = null == text
+                    ? null == html 
+                        ? string.Empty 
+                        : ((TextPart)html).Text.ToString().Unescape()
+                    : ((MimeKit.TextPart)text).Text.ToString().Unescape();
+                messages.Add((key, message));
+           }
         }
 
         async Task WaitForNewMessagesAsync()
@@ -215,17 +231,14 @@ namespace ImapIdle
             // Note: because we are keeping track of the MessageExpunged event and updating our
             // 'messages' list, we know that if we get a CountChanged event and folder.Count is
             // larger than messages.Count, then it means that new messages have arrived.
-
-            var xx = folder.GetMessage(folder.Count - 1);
-
             if (folder.Count > messages.Count)
             {
                 int arrived = folder.Count - messages.Count;
 
-                if (arrived > 1)
+                if (arrived > 0)
+                {
                     Console.WriteLine("\t{0} new messages have arrived.", arrived);
-                else
-                    Console.WriteLine("\t1 new message has arrived.");
+                }
 
                 // Note: your first instict may be to fetch these new messages now, but you cannot do
                 // that in this event handler (the ImapFolder is not re-entrant).
@@ -245,7 +258,7 @@ namespace ImapIdle
             {
                 var message = messages[e.Index];
 
-                Console.WriteLine("{0}: message #{1} has been expunged: {2}", folder, e.Index, message.Envelope.Subject);
+                Console.WriteLine("{0}: message #{1} has been expunged: {2}", folder, e.Index, message.Item2.Envelope.Subject);
 
                 // Note: If you are keeping a local cache of message information
                 // (e.g. MessageSummary data) for the folder, then you'll need

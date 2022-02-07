@@ -1,16 +1,38 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Localization;
+using MyIdentityWithGithub.Models;
 using MyWebApi.Extensions;
 
 namespace MyWebApi.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IStringLocalizer<HomeController> _stringLocalizer;
+        public HomeController(IStringLocalizer<HomeController> stringLocalizer)
+        {
+            _stringLocalizer = stringLocalizer;
+        }
+
         [HttpGet("~/")]
         public IActionResult Index()
         {
-            return View();
+            ViewData["MyTitle"] = _stringLocalizer["The localised title of my app!"];
+            return View(new HomeViewModel());
+        }
+
+        [HttpPost]
+        public IActionResult SetLanguage(string culture, string returnUrl)
+        {
+            Response.Cookies.Append(
+                CookieRequestCultureProvider.DefaultCookieName,
+                CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)),
+                new CookieOptions { Expires = DateTimeOffset.UtcNow.AddYears(1) }
+            );
+
+            return LocalRedirect(returnUrl);
         }
 
         [HttpGet("~/signin")]

@@ -1,10 +1,40 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Localization;
+using Microsoft.AspNetCore.Mvc.Razor;
+using Microsoft.Extensions.Options;
+using System.Globalization;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddLocalization();
 
-builder.Services.AddMvc();
+// They also allow you to have localised View files (so you can have Views with names like MyView.fr.cshtml) and inject the IViewLocalizer
+// to allow you to use localisation in your view files.
+builder.Services.AddMvc().AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix,
+                options => options.ResourcesPath = "Resource").
+                AddDataAnnotationsLocalization();
+                
+
+builder.Services.Configure<RequestLocalizationOptions>(
+        opts =>
+        {
+            var supportedCultures = new List<CultureInfo>
+            {
+                new CultureInfo("en-GB"),
+                new CultureInfo("en-US"),
+                new CultureInfo("en"),
+                new CultureInfo("fr-FR"),
+                new CultureInfo("fr"),
+            };
+
+            opts.DefaultRequestCulture = new RequestCulture("en-GB");
+            // Formatting numbers, dates, etc.
+            opts.SupportedCultures = supportedCultures;
+            // UI strings that we have localized.
+            opts.SupportedUICultures = supportedCultures;
+        });
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -40,6 +70,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+var options = app.Services.GetService<IOptions<RequestLocalizationOptions>>();
+app.UseRequestLocalization(options!.Value);
 
 app.UseAuthentication();
 app.UseAuthorization();
