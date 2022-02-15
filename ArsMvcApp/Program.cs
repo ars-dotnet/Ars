@@ -2,9 +2,7 @@ using ArsMvcApp;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.Extensions.Options;
-using System.Globalization;
-
-var builder = WebApplication.CreateBuilder(args);
+using System.Globalization;var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews()
