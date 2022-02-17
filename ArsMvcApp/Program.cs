@@ -1,4 +1,5 @@
 using Ars.Commom.Host.Extension;
+using Ars.Common.IdentityServer4.Extension;
 using Ars.Common.Localization.Extension;
 using Ars.Common.Localization.IServiceCollectionExtension;
 using Ars.Common.Localization.ValidProvider;
@@ -17,6 +18,7 @@ provider.AddArsLocalization(option =>
     option.IsAddViewLocalization = true;
     option.Cultures = option.Cultures.Concat(new[] { "en-GB", "en", "fr-FR", "fr" });
 });
+provider.AddArsIdentityServer4();
 
 builder.Services.AddTransient<IUserAppService, User>();
 builder.Services.AddTransient<UserBase, User>();
@@ -36,6 +38,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseArsLocalization();
+app.UseArsIdentityServer4();
 
 app.UseRouting();
 
