@@ -124,15 +124,19 @@
         "netstandard2.0": {
           "targetAlias": "netstandard2.0",
           "dependencies": {
+            "Microsoft.Extensions.Configuration.Abstractions": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
             "Microsoft.Extensions.DependencyInjection.Abstractions": {
               "target": "Package",
               "version": "[6.0.0, )"
             },
             "Microsoft.Extensions.Http": {
-              "target": "Package",
-              "version": "[3.1.0, )"
-            },
-            "Microsoft.Extensions.Localization": {
               "target": "Package",
               "version": "[6.0.0, )"
             },

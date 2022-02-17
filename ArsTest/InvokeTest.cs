@@ -10,6 +10,33 @@ namespace ArsTest
 {
     public class InvokeTest
     {
+
+        interface IABase { }
+        interface IA : IABase{ }
+
+        class A : IA { }
+
+        [Fact]
+        public void TestMulss() 
+        {
+            IServiceCollection services = new ServiceCollection();
+
+            services.AddTransient<IA, A>();
+            services.AddSingleton<IA, A>();
+
+            var provider = services.BuildServiceProvider();
+            var a = provider.GetService<IA>();
+            var b = provider.GetService<IA>();
+
+            Assert.Equal(a.GetHashCode(), b.GetHashCode());
+        }
+
+        [Fact]
+        public void TestInject()
+        {
+            Assert.True(typeof(IABase).IsAssignableFrom(typeof(A)));
+        }
+
         [Fact]
         public void TestGeneric()
         {

@@ -3,7 +3,6 @@ using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Collections.Generic;
-
 using MailKit;
 using MailKit.Net.Imap;
 using MailKit.Security;
@@ -122,7 +121,7 @@ namespace ImapIdle
                         : ((TextPart)html).Text.ToString().Unescape()
                     : ((MimeKit.TextPart)text).Text.ToString().Unescape();
                 messages.Add((key, message));
-           }
+            }
         }
 
         async Task WaitForNewMessagesAsync()

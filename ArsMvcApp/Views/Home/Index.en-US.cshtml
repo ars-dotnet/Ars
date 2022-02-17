@@ -1,8 +1,10 @@
 ﻿@using Microsoft.AspNetCore.Mvc.Localization
+@using Ars.Common.Localization;
 @model MyIdentityWithGithub.Models.HomeViewModel
-@inject IViewLocalizer L
+@*@inject IHtmlLocalizer<SharedResource> L*@
+@inject IArstringLocalizer LL
 @{
-    ViewData["Title"] = L["Home Page"];
+    ViewData["Title"] = LL["Home Page"];
 }
 <h2>@ViewData["Title"]</h2>
 <div class="row">

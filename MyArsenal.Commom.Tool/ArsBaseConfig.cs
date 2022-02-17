@@ -8,12 +8,12 @@ namespace MyArsenal.Commom.Tool
     {
         public ArsBaseConfig()
         {
-            configExtensions = new List<IConfigExtension>();
+            configExtensions = new List<IArsServiceCoreExtension>();
         }
 
-        internal IList<IConfigExtension> configExtensions { get; }
+        internal IList<IArsServiceCoreExtension> configExtensions { get; }
 
-        public void AddConfigExtension(IConfigExtension configExtension) 
+        public void AddConfigExtension(IArsServiceCoreExtension configExtension) 
         {
             if (null == configExtension)
                 throw new ArgumentNullException(nameof(configExtension));

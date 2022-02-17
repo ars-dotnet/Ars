@@ -1,13 +1,23 @@
+using Ars.Commom.Host.Extension;
+using Ars.Common.AutoFac;
+using Ars.Common.Host;
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Localization;
+using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.AspNetCore.Mvc.Razor;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Options;
+using MyIdentityWithGithub;
 using System.Globalization;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddLocalization();
+
+//builder.Services.Replace(ServiceDescriptor.Transient<IControllerActivator, ServiceBasedControllerActivator>());
 
 // They also allow you to have localised View files (so you can have Views with names like MyView.fr.cshtml) and inject the IViewLocalizer
 // to allow you to use localisation in your view files.
@@ -26,6 +36,7 @@ builder.Services.Configure<RequestLocalizationOptions>(
                 new CultureInfo("en"),
                 new CultureInfo("fr-FR"),
                 new CultureInfo("fr"),
+                new CultureInfo("zh-Hans")
             };
 
             opts.DefaultRequestCulture = new RequestCulture("en-GB");
@@ -38,6 +49,8 @@ builder.Services.Configure<RequestLocalizationOptions>(
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddHttpContextAccessor();
 
 var Configuration = builder.Configuration;
 builder.Services.AddAuthentication(option =>
@@ -59,6 +72,7 @@ builder.Services.AddAuthentication(option =>
     options.CallbackPath = "/myars/signin-github";
 });
 
+builder.Services.AddArserviceCore(builder);
 
 var app = builder.Build();
 

@@ -1,4 +1,5 @@
-﻿using ArsMvcApp.Models;
+﻿using Ars.Common.Localization;
+using ArsMvcApp.Models;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
@@ -14,23 +15,32 @@ namespace ArsMvcApp.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly IStringLocalizer _localizer;
         private readonly IStringLocalizer _localizer1;
-
+        private readonly IUserAppService userAppService;
+        private readonly UserBase userBase;
+        private readonly User user;
+        private readonly IArstringLocalizer _arstringLocalizer;
         public HomeController(ILogger<HomeController> logger,
-            IStringLocalizerFactory factory)
+            IStringLocalizerFactory factory,
+            IUserAppService userAppService,
+            UserBase userBase,
+            User user,
+            IArstringLocalizer arstringLocalizer)
         {
-            var type = typeof(SharedResource);
-            var assemblyName = new AssemblyName(type.GetTypeInfo().Assembly.FullName!);
-            _localizer = factory.Create(type);
-            _localizer1 = factory.Create(nameof(SharedResource), assemblyName.Name!);
+            var assemblyName = new AssemblyName(GetType().Assembly.FullName!);
+            _localizer1 = factory.Create("SharedResource", assemblyName.Name!);
+
+            this.userAppService = userAppService;
+            this.userBase = userBase;
+            this.user = user;
+            _arstringLocalizer = arstringLocalizer;
         }
 
         [HttpGet()]
         public IActionResult About()
         {
-            string str = _localizer["RequiredAttribute_ValidationError"]
-                + " loc 2: " + _localizer1["RequiredAttribute_ValidationError"];
+            string str = " loc 2: " + _localizer1["Name"]
+                + " loc 3:" + _arstringLocalizer["Name"];
 
             return Ok(str);
         }
@@ -50,11 +60,13 @@ namespace ArsMvcApp.Controllers
         [HttpPost]
         public IActionResult Index([FromForm]HomeViewModel model)
         {
+            var m = userAppService.GetList().ToList();
+            var n = userBase.GetList().ToList();
             if (!ModelState.IsValid)
             {
                 return View(model);
             }
-            ViewData["Result"] = _localizer["Success!"];
+            ViewData["Result"] = _arstringLocalizer["Success!"];
             return View(model);
         }
 

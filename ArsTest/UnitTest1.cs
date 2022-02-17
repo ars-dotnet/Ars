@@ -1,6 +1,5 @@
 using Microsoft.Extensions.DependencyInjection;
 using Xunit;
-using MyArsenal.Commom.Tool;
 using Ars.Commom.Email.DependencyInjectionExtension;
 using Ars.Commom.Email;
 using System.Threading.Tasks;
@@ -10,6 +9,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using System.Globalization;
 using System.Threading;
+using MyArsenal.Commom.Tool;
 
 namespace ArsTest
 {

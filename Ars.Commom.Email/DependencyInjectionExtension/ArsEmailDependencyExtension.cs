@@ -9,7 +9,7 @@ namespace Ars.Commom.Email.DependencyInjectionExtension
     {
         public static void AddArsEmail(this ArsBaseConfig services,[NotNull]Action<SmtpEmailSenderConfiguration> action) 
         {
-            SmtpEmailExtensionConfig config = new SmtpEmailExtensionConfig(action);
+            SmtpEmailServiceCoreExtension config = new SmtpEmailServiceCoreExtension(action);
             services.AddConfigExtension(config);
         }
     }

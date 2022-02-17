@@ -14,7 +14,7 @@ namespace ElasticsearchUtil
             if (null == action)
                 throw new ArgumentNullException(nameof(action));
 
-            config.AddConfigExtension(new ElasticSearchExtensionConfig(action));
+            config.AddConfigExtension(new ElasticSearchServiceCoreExtension(action));
         }
     }
 }

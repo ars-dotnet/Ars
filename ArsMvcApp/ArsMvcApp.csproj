@@ -7,10 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Resource\**" />
-    <Content Remove="Resource\**" />
-    <EmbeddedResource Remove="Resource\**" />
-    <None Remove="Resource\**" />
+    <ProjectReference Include="..\Ars.Common.Localization\Ars.Common.Localization.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -18,6 +15,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Update="Resources\SharedResource.zh-Hans.resx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\ArshareResource.resx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\ArshareResource.zh-Hans.resx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>

@@ -1,8 +1,11 @@
-﻿using Microsoft.AspNetCore.Authentication;
+﻿using Ars.Common.AutoFac;
+using Autofac;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
+using MyIdentityWithGithub.Application;
 using MyIdentityWithGithub.Models;
 using MyWebApi.Extensions;
 
@@ -10,15 +13,68 @@ namespace MyWebApi.Controllers
 {
     public class HomeController : Controller
     {
+        [Autowired]
+        private IUserAppService userAppService { get; set; }
+        private readonly ITestAppService testAppService;
         private readonly IStringLocalizer<HomeController> _stringLocalizer;
-        public HomeController(IStringLocalizer<HomeController> stringLocalizer)
+        private readonly ILifetimeScope lifetimeScope;
+        private readonly Config config;
+        private readonly UserBase userBase;
+        private readonly IEnumerable<ITestAppService> testAppServices;
+        public HomeController(IStringLocalizer<HomeController> stringLocalizer,
+            //IUserAppService userAppService,
+            ITestAppService testAppService,
+            ILifetimeScope lifetimeScope,
+            Config config,
+            UserBase userBase,
+            IEnumerable<ITestAppService> testAppServices)
         {
             _stringLocalizer = stringLocalizer;
+            //this.userAppService = userAppService;   
+            this.testAppService = testAppService;
+            this.lifetimeScope = lifetimeScope;
+            this.config = config; 
+            this.userBase = userBase;
+            this.testAppServices = testAppServices;
         }
 
         [HttpGet("~/")]
         public IActionResult Index()
         {
+            var a = userAppService.UserName;
+            var b = testAppService.UserName;
+
+            var h1 = userAppService.GetHashCode();
+            var h2 = testAppService.GetHashCode();
+
+            using (var scope = lifetimeScope.BeginLifetimeScope())
+            {
+                var aa = scope.Resolve<ITestAppService>();
+                var bb = scope.Resolve<ITestAppService>();
+
+                var i = aa.GetHashCode();
+                var ii = bb.GetHashCode();
+            }
+
+            using (var scope = lifetimeScope.BeginLifetimeScope())
+            {
+                var aa = scope.Resolve<ITestAppService>();
+                var bb = scope.Resolve<ITestAppService>();
+
+                var i = aa.GetHashCode();
+                var ii = bb.GetHashCode();
+            }
+
+            foreach (var x in testAppServices) 
+            {
+                var t = x.UserName;
+            }
+
+            var age = config.Age;
+            var ageh = config.GetHashCode();
+
+            var xx = userBase.UserName;
+
             ViewData["MyTitle"] = _stringLocalizer["The localised title of my app!"];
             return View(new HomeViewModel());
         }
