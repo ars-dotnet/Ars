@@ -1,6 +1,5 @@
 ﻿using Ars.Common.Localization;
 using ArsMvcApp.Models;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
@@ -40,6 +39,8 @@ namespace ArsMvcApp.Controllers
         [HttpGet()]
         public IActionResult About()
         {
+            var m = System.Configuration.ConfigurationManager.AppSettings["Test"];
+
             string str = " loc 2: " + _localizer1["Name"]
                 + " loc 3:" + _arstringLocalizer["Name"];
 

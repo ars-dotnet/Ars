@@ -5,7 +5,6 @@ namespace MyIdentittServer4.Controllers
 {
     [ApiController]
     [Route("[controller]/[action]")]
-    [Authorize]
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]

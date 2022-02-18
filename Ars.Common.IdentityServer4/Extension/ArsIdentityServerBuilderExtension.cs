@@ -77,7 +77,7 @@ namespace Ars.Common.IdentityServer4.Extension
                 client1.AbsoluteRefreshTokenLifetime = 0;
                 client1.SlidingRefreshTokenLifetime = (int)TimeSpan.FromDays(365.0).TotalSeconds;
                 client1.AllowAccessTokensViaBrowser = true;//控制是否通过浏览器传输此客户端的访问令牌
-                                                           //登录成功跳转地址
+                //登录成功跳转地址                                          
                 client1.RedirectUris = client.RedirectUris;
                 //退出登录跳转地址
                 client1.PostLogoutRedirectUris = client.PostLogoutRedirectUris;

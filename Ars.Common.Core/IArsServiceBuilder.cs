@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Hosting;
 
-namespace Ars.Commom.Host
+namespace Ars.Commom.Core
 {
     public interface IArsServiceBuilder
     {

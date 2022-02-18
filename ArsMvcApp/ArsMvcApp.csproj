@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Ars.Common.IdentityServer4\Ars.Common.IdentityServer4.csproj" />
     <ProjectReference Include="..\Ars.Common.Localization\Ars.Common.Localization.csproj" />
   </ItemGroup>

@@ -67,13 +67,10 @@ namespace Ars.Common.IdentityServer4.options
             public ICollection<string> GrantType { get; set; } = GrantTypes.ResourceOwnerPassword;
 
             public ICollection<string> RedirectUris { get; set; }
-                = new[] { "http://www.baidu.com" };
 
             public ICollection<string> PostLogoutRedirectUris { get; set; }
-                = new[] { "http://www.baidu.com" };
 
             public ICollection<string> AllowedCorsOrigins { get; set; }
-                = new[] { "http://www.baidu.com" };
         }
     }
 }

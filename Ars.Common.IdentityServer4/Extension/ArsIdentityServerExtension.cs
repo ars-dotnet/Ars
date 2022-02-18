@@ -1,8 +1,10 @@
-﻿using Ars.Commom.Host;
+﻿using Ars.Commom.Core;
 using Ars.Commom.Tool.Certificates;
 using Ars.Common.IdentityServer4.options;
 using Ars.Common.IdentityServer4.Validation;
+using IdentityServer4.AccessTokenValidation;
 using IdentityServer4.Validation;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -33,6 +35,18 @@ namespace Ars.Common.IdentityServer4.Extension
 
             if (null != func)
                 services.AddTransient(_ => func());
+
+            return builder;
+        }
+
+        public static IArsServiceBuilder AddArsIs4Authentication(
+            this IArsServiceBuilder builder,
+            string defaultScheme = IdentityServerAuthenticationDefaults.AuthenticationScheme,
+            Action<IdentityServerAuthenticationOptions>? configureOptions = null)  
+        {
+            var services = builder.Services.ServiceCollection;
+            services.AddAuthentication(defaultScheme)
+                .AddIdentityServerAuthentication(configureOptions);
 
             return builder;
         }

@@ -1,4 +1,5 @@
-﻿using Ars.Common.AutoFac.Dependency;
+﻿using Ars.Commom.Core;
+using Ars.Common.AutoFac.Dependency;
 using Ars.Common.AutoFac.IDependency;
 using Ars.Common.AutoFac.Options;
 using Ars.Common.AutoFac.RegisterProvider;

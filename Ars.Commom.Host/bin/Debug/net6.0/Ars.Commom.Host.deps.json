@@ -9,6 +9,7 @@
       "Ars.Commom.Host/1.0.0": {
         "dependencies": {
           "Ars.Common.AutoFac": "1.0.0",
+          "Ars.Common.Core": "1.0.0",
           "Autofac": "6.3.0",
           "Autofac.Extensions.DependencyInjection": "7.2.0"
         },
@@ -610,6 +611,11 @@
         "runtime": {
           "Ars.Common.AutoFac.dll": {}
         }
+      },
+      "Ars.Common.Core/1.0.0": {
+        "runtime": {
+          "Ars.Common.Core.dll": {}
+        }
       }
     }
   },
@@ -1145,6 +1151,11 @@
       "hashPath": "system.xml.xdocument.4.0.11.nupkg.sha512"
     },
     "Ars.Common.AutoFac/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Ars.Common.Core/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

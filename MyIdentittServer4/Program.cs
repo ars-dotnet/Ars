@@ -1,3 +1,5 @@
+using Ars.Commom.Host.Extension;
+using Ars.Common.IdentityServer4.Extension;
 using MyIdentittServer4;
 using MyIdentittServer4.Configs;
 
@@ -10,17 +12,17 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddMyidentityserver();
+var provider = builder.Services.AddArserviceCore(builder);
+provider.AddArsIdentityServer4();
 //builder.Services.AddMyAuthentication();
 
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("test", policy =>
     {
-        policy.WithOrigins(OAuthConfig.CorUrls)
+        policy.AllowAnyOrigin()
             .AllowAnyHeader()
-            .AllowAnyMethod()
-            .AllowCredentials();
+            .AllowAnyMethod();
     });
 });
 
@@ -39,9 +41,7 @@ app.UseHttpsRedirection();
 
 app.UseRouting();
 
-app.UseIdentityServer();
-
-app.UseAuthorization();
+app.UseArsIdentityServer4();
 
 app.MapControllers();
 

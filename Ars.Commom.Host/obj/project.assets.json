@@ -1070,6 +1070,19 @@
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
         ]
+      },
+      "Ars.Common.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Ars.Common.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Ars.Common.Core.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       }
     }
   },
@@ -3973,11 +3986,17 @@
       "type": "project",
       "path": "../Ars.Common.AutoFac/Ars.Common.AutoFac.csproj",
       "msbuildProject": "../Ars.Common.AutoFac/Ars.Common.AutoFac.csproj"
+    },
+    "Ars.Common.Core/1.0.0": {
+      "type": "project",
+      "path": "../Ars.Common.Core/Ars.Common.Core.csproj",
+      "msbuildProject": "../Ars.Common.Core/Ars.Common.Core.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
       "Ars.Common.AutoFac >= 1.0.0",
+      "Ars.Common.Core >= 1.0.0",
       "Autofac >= 6.3.0",
       "Autofac.Extensions.DependencyInjection >= 7.2.0"
     ]
@@ -4016,6 +4035,9 @@
           "projectReferences": {
             "D:\\core\\MyArs\\Ars.Common.AutoFac\\Ars.Common.AutoFac.csproj": {
               "projectPath": "D:\\core\\MyArs\\Ars.Common.AutoFac\\Ars.Common.AutoFac.csproj"
+            },
+            "D:\\core\\MyArs\\Ars.Common.Core\\Ars.Common.Core.csproj": {
+              "projectPath": "D:\\core\\MyArs\\Ars.Common.Core\\Ars.Common.Core.csproj"
             }
           }
         }

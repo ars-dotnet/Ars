@@ -1,4 +1,5 @@
-﻿using Ars.Common.Host;
+﻿using Ars.Commom.Core;
+using Ars.Common.Host;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;

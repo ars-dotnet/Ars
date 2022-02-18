@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ars.Commom.Host
+namespace Ars.Commom.Core
 {
     public interface IArsServiceCollection : IServiceCollection
     {

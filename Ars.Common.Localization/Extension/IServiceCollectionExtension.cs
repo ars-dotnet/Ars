@@ -1,4 +1,4 @@
-﻿using Ars.Commom.Host;
+﻿using Ars.Commom.Core;
 using Ars.Common.Localization.options;
 using Ars.Common.Localization.ValidProvider;
 using Microsoft.AspNetCore.Builder;

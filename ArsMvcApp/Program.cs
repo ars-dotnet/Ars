@@ -8,9 +8,11 @@ using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.Extensions.Options;
 using System.Globalization;
+using System.Configuration;
 
 
 var builder = WebApplication.CreateBuilder(args);
+
 
 var provider = builder.Services.AddArserviceCore(builder);
 provider.AddArsLocalization(option =>
@@ -18,7 +20,7 @@ provider.AddArsLocalization(option =>
     option.IsAddViewLocalization = true;
     option.Cultures = option.Cultures.Concat(new[] { "en-GB", "en", "fr-FR", "fr" });
 });
-provider.AddArsIdentityServer4();
+//provider.AddArsIdentityServer4();
 
 builder.Services.AddTransient<IUserAppService, User>();
 builder.Services.AddTransient<UserBase, User>();
@@ -38,7 +40,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseArsLocalization();
-app.UseArsIdentityServer4();
+
 
 app.UseRouting();
 
@@ -49,3 +51,8 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
+
+
+class Test { 
+    public string ConnectionString { get; set; }
+}

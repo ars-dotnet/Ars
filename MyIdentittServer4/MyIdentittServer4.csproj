@@ -12,4 +12,9 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Ars.Commom.Host\Ars.Commom.Host.csproj" />
+    <ProjectReference Include="..\Ars.Common.IdentityServer4\Ars.Common.IdentityServer4.csproj" />
+  </ItemGroup>
+
 </Project>
