@@ -22,7 +22,8 @@ namespace ArsTest
             IServiceCollection services = new ServiceCollection();
 
             services.AddTransient<IA, A>();
-            services.AddSingleton<IA, A>();
+            services.AddSingleton<IA, A>(); 
+            services.AddTransient(typeof(Sky<>),typeof(SkyChild<>));
 
             var provider = services.BuildServiceProvider();
             var a = provider.GetService<IA>();
@@ -209,6 +210,14 @@ namespace ArsTest
 
             }
 
+        }
+
+        class SkyChild<A> : Sky<A> where A : Animal
+        {
+            public SkyChild(A t) : base(t)
+            {
+
+            }
         }
 
         class Sky<T> where T : Animal
