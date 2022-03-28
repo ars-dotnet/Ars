@@ -2,7 +2,6 @@ using Ars.Commom.Host.Extension;
 using Ars.Common.IdentityServer4.Extension;
 
 var builder = WebApplication.CreateBuilder(args);
-
 // Add services to the container.
 
 var arsbuilder = builder.Services.AddArserviceCore(builder);

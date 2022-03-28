@@ -69,11 +69,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{4DC107F9-B
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ars.Common.Core", "Ars.Common.Core\Ars.Common.Core.csproj", "{9081C272-052D-4496-94AF-C8E78E4BF175}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyApiWithIdentityServer4", "MyApiWithIdentityServer4\MyApiWithIdentityServer4.csproj", "{DDB83017-5277-4744-9E3C-5A4869F70ECC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyApiWithIdentityServer4", "MyApiWithIdentityServer4\MyApiWithIdentityServer4.csproj", "{DDB83017-5277-4744-9E3C-5A4869F70ECC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Redis", "Redis", "{D0283D77-8A65-4402-B7C5-F6AA4D1D6176}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ars.Common.Redis", "Ars.Common.Redis\Ars.Common.Redis.csproj", "{29127E8B-F3E7-41D1-82DB-EF959C49F46E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ars.Common.Redis", "Ars.Common.Redis\Ars.Common.Redis.csproj", "{29127E8B-F3E7-41D1-82DB-EF959C49F46E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalRChat", "..\AspNetCore.Docs\aspnetcore\signalr\javascript-client\samples\6.x\SignalRChat\SignalRChat.csproj", "{36AAA11D-D855-4A67-B9FC-BF999BA6BF8B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalRServer", "SignalRServer\SignalRServer.csproj", "{C0ED70E9-B870-4CDA-8C35-5FF9A4D665EB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -165,6 +169,14 @@ Global
 		{29127E8B-F3E7-41D1-82DB-EF959C49F46E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29127E8B-F3E7-41D1-82DB-EF959C49F46E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29127E8B-F3E7-41D1-82DB-EF959C49F46E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36AAA11D-D855-4A67-B9FC-BF999BA6BF8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36AAA11D-D855-4A67-B9FC-BF999BA6BF8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36AAA11D-D855-4A67-B9FC-BF999BA6BF8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36AAA11D-D855-4A67-B9FC-BF999BA6BF8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0ED70E9-B870-4CDA-8C35-5FF9A4D665EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0ED70E9-B870-4CDA-8C35-5FF9A4D665EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0ED70E9-B870-4CDA-8C35-5FF9A4D665EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0ED70E9-B870-4CDA-8C35-5FF9A4D665EB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -203,6 +215,8 @@ Global
 		{DDB83017-5277-4744-9E3C-5A4869F70ECC} = {3C95177C-1110-468A-B667-0E15027EAE9E}
 		{D0283D77-8A65-4402-B7C5-F6AA4D1D6176} = {36A60E20-28A2-48FE-AC50-06B958238505}
 		{29127E8B-F3E7-41D1-82DB-EF959C49F46E} = {D0283D77-8A65-4402-B7C5-F6AA4D1D6176}
+		{36AAA11D-D855-4A67-B9FC-BF999BA6BF8B} = {E2E4C7C8-766B-4DA7-A40A-9A4E1A538A1A}
+		{C0ED70E9-B870-4CDA-8C35-5FF9A4D665EB} = {E2E4C7C8-766B-4DA7-A40A-9A4E1A538A1A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C746BF35-557D-47FE-87EF-226D0A7C8757}
