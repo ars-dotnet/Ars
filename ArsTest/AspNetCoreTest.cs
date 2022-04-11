@@ -1,5 +1,8 @@
 ﻿using IdentityModel.Client;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -11,7 +14,32 @@ using Xunit;
 
 namespace ArsTest
 {
-    public class AspNetCoreTest
+    public class Person
+    {
+        public string Name { get; set; }
+
+        public int Age { get; set; }
+    }
+
+    public class AspNetCoreBase 
+    {
+        public IServiceCollection services { get; private set; }
+        public AspNetCoreBase()
+        {
+            IHost host = Host.CreateDefaultBuilder()
+                .ConfigureAppConfiguration(builder => 
+                {
+                    builder.AddJsonFile("config.json", true, false);
+                })
+                .ConfigureServices((builder,service) => 
+                {
+                    services = service;
+                })
+                .Build();
+        }
+    }
+
+    public class AspNetCoreTest : AspNetCoreBase
     {
         [Fact]
         public void CreateHost() 
@@ -21,8 +49,6 @@ namespace ArsTest
             {
                 r++;
             });
-            
-            
         }
 
         [Fact]
@@ -69,5 +95,17 @@ namespace ArsTest
             }
         }
 
+        [Fact]
+        public void TestOption() 
+        {
+            var serviceProvider = services.BuildServiceProvider();
+            IConfiguration config = serviceProvider.GetRequiredService<IConfiguration>();
+
+            services.Configure<Person>(config.GetSection(nameof(Person)));
+            var a = services.BuildServiceProvider().GetRequiredService<IOptions<Person>>().Value;
+
+            services.AddSingleton<IOptions<Person>>(new OptionsWrapper<Person>(new Person { Age = 12333 }));
+            var b = services.BuildServiceProvider().GetRequiredService<IOptions<Person>>().Value;
+        }
     }
 }

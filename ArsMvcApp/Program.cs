@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.Extensions.Options;
 using System.Globalization;
 using System.Configuration;
-
+using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +21,8 @@ provider.AddArsLocalization(option =>
     option.Cultures = option.Cultures.Concat(new[] { "en-GB", "en", "fr-FR", "fr" });
 });
 //provider.AddArsIdentityServer4();
+
+builder.Services.Configure<User>(builder.Configuration.GetSection(nameof(User)));
 
 builder.Services.AddTransient<IUserAppService, User>();
 builder.Services.AddTransient<UserBase, User>();

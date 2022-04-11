@@ -48,13 +48,16 @@ namespace ArsTest
         public string Name { get; set; }
 
         public int age { get; set; }
+
+        public bool A { get; set; }
     }
 
     public class AutoMapperProfile : Profile 
     {
         public AutoMapperProfile()
         {
-            CreateMap<MapperA,MapperB>();
+            CreateMap<MapperA,MapperB>()
+                .AfterMap((_,d) => d.A = true);
         }
     }
 }
