@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Ars.Commom.Core
 {
-    public interface IArsServiceCollection : IServiceCollection
+    public interface IArsServiceCollection
     {
         IServiceCollection ServiceCollection { get; }
 
@@ -40,10 +40,6 @@ namespace Ars.Commom.Core
         public IWebHostEnvironment WebHostEnvironment { get; }
 
         public IServiceProvider Provider => ServiceCollection.BuildServiceProvider();
-
-        public IEnumerator<ServiceDescriptor> GetEnumerator() => ServiceCollection.GetEnumerator();
-
-        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 
         public void Add(ServiceDescriptor item) => ServiceCollection.Add(item);
 

@@ -32,10 +32,8 @@ namespace Ars.Common.AutoFac.Dependency
                                 builder.RegisterType(r).As(i).InstancePerDependency();
                             }
                         }
-                        else
-                        {
-                            builder.RegisterType(r).AsSelf().InstancePerDependency();//.PropertiesAutowired(new AutowiredPropertySelector());
-                        }
+
+                        builder.RegisterType(r).AsSelf().InstancePerDependency();//.PropertiesAutowired(new AutowiredPropertySelector());
                     }
                     else if (typeof(ISingletonDependency).IsAssignableFrom(r))
                     {
@@ -50,12 +48,10 @@ namespace Ars.Common.AutoFac.Dependency
                                 builder.RegisterType(r).As(i).SingleInstance();
                             }
                         }
-                        else
-                        {
-                            builder.RegisterType(r).AsSelf().SingleInstance();
-                        }
+
+                        builder.RegisterType(r).AsSelf().SingleInstance();
                     }
-                    else if(typeof(IScopedDependency).IsAssignableFrom(r))
+                    else if (typeof(IScopedDependency).IsAssignableFrom(r))
                     {
                         if (r.BaseType?.IsAbstract ?? false)
                         {
@@ -68,10 +64,8 @@ namespace Ars.Common.AutoFac.Dependency
                                 builder.RegisterType(r).As(i).InstancePerLifetimeScope();
                             }
                         }
-                        else
-                        {
-                            builder.RegisterType(r).AsSelf().InstancePerLifetimeScope();
-                        }
+
+                        builder.RegisterType(r).AsSelf().InstancePerLifetimeScope();
                     }
                 });
         }

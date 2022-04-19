@@ -7,7 +7,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="CSRedisCore" Version="3.6.9" />
+    <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.0" />
     <PackageReference Include="StackExchange.Redis" Version="2.2.88" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Ars.Common.AutoFac\Ars.Common.AutoFac.csproj" />
+    <ProjectReference Include="..\Ars.Common.Core\Ars.Common.Core.csproj" />
+    <ProjectReference Include="..\MyArsenal.Commom.Tool\Ars.Commom.Tool.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="MemeryCache\" />
   </ItemGroup>
 
 </Project>

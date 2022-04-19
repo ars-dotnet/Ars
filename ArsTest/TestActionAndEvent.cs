@@ -11,7 +11,7 @@ namespace ArsTest
     public class TestEvent 
     {
         public event Smoke @event;
-
+        public Smoke smoke;
         [Fact]
         public void testEvent() 
         {
@@ -19,6 +19,7 @@ namespace ArsTest
             atest.Add();
             @event?.Invoke(123);
             atest.Action();
+            smoke.Invoke(1234);
             Console.ReadLine();
         }
     }
@@ -38,6 +39,9 @@ namespace ArsTest
             smoke = new Smoke(SmokeA);
             smoke = null;
             smoke += SmokeB;
+
+            testEvent.smoke = null;
+            testEvent.smoke += SmokeB;
         }
 
         internal void Action() 

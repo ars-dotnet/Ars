@@ -1,9 +1,11 @@
 ﻿using Ars.Commom.Host;
+using Ars.Commom.Tool.Serializer;
 using Ars.Common.AutoFac.RegisterProvider;
 using Autofac;
 using Autofac.Builder;
 using Autofac.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,9 +21,9 @@ namespace Ars.Common.Host
         private readonly ContainerBuildOptions _containerBuildOptions;
         private readonly IRegisterProviderFactory _registerProviderFactory;
 
-        public ArsServiceProviderFactory(IServiceProvider serviceProvider, ContainerBuildOptions containerBuildOptions = ContainerBuildOptions.None, Action<ContainerBuilder> configurationAction = null)
+        public ArsServiceProviderFactory(IRegisterProviderFactory factory, ContainerBuildOptions containerBuildOptions = ContainerBuildOptions.None, Action<ContainerBuilder> configurationAction = null)
         {
-            _registerProviderFactory = serviceProvider.GetRequiredService<IRegisterProviderFactory>();
+            _registerProviderFactory = factory;
             _containerBuildOptions = containerBuildOptions;
             _configurationAction = configurationAction ?? (builder => { });
         }

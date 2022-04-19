@@ -36,15 +36,21 @@ namespace Ars.Common.Redis.Caching
         /// <param name="keys">Keys</param>
         /// <param name="factory">Factory method to create cache item if not exists</param>
         /// <returns>Cached items</returns>
-        Task<TValue[]> GetAsync(TKey[] keys, Func<TKey, Task<TValue>> factory);
+        IAsyncEnumerable<TValue> GetAsync(TKey[] keys, Func<TKey, Task<TValue>> factory);
 
         /// <summary>
-        /// Gets an item from the cache.
+        /// 
         /// </summary>
-        /// <param name="key">Key</param>
-        /// <param name="value">Cache item</param>
-        /// <returns>Result to indicate cache hit</returns>
-        bool TryGetValue(TKey key, out TValue value);
+        /// <param name="key"></param>
+        /// <returns></returns>
+        Task<ConditionalValue<TValue>> GetValueOrDefaultAsync(TKey key);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        IAsyncEnumerable<ConditionalValue<TValue>> GetValueOrDefaultAsync(TKey[] keys);
 
         /// <summary>
         /// Saves/Overrides an item in the cache by a key.
@@ -75,12 +81,12 @@ namespace Ars.Common.Redis.Caching
         /// Removes a cache item by it's key (does nothing if given key does not exists in the cache).
         /// </summary>
         /// <param name="key">Key</param>
-        Task RemoveAsync(TKey key);
+        Task<long> RemoveAsync(TKey key);
 
         /// <summary>
         /// Removes cache items by their keys.
         /// </summary>
         /// <param name="keys">Keys</param>
-        Task RemoveAsync(TKey[] keys);
+        IAsyncEnumerable<long> RemoveAsync(TKey[] keys);
     }
 }

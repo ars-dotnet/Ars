@@ -30,5 +30,16 @@ namespace MyIdentittServer4.Controllers
             })
             .ToArray();
         }
+
+        public class GetDto 
+        {
+            public int[] Id { get; set; }
+        }
+
+        [HttpGet]
+        public IActionResult Get1([FromQuery]GetDto input) 
+        {
+            return Ok();
+        }
     }
 }

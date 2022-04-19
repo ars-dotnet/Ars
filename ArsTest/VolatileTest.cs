@@ -10,7 +10,7 @@ namespace ArsTest
 {
     public class Worker
     {
-        private bool _shouldStop;
+        private volatile bool _shouldStop;
 
         public void DoWork()
         {

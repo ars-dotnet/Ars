@@ -10,6 +10,7 @@ using Microsoft.Extensions.Options;
 using System.Globalization;
 using System.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Ars.Common.Redis;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,6 +28,8 @@ builder.Services.Configure<User>(builder.Configuration.GetSection(nameof(User)))
 builder.Services.AddTransient<IUserAppService, User>();
 builder.Services.AddTransient<UserBase, User>();
 builder.Services.AddTransient<User>();
+
+provider.AddArsRedis();
 
 var app = builder.Build();
 
@@ -52,6 +55,17 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
+app.UseArsRedis(options =>
+{
+    options.RedisConnection = "192.168.2.102";
+    options.DefaultDB = 1;
+}, config =>
+{
+    config.ConfigureAll(cacheoption =>
+    {
+        cacheoption.DefaultAbsoluteExpireTime = DateTime.Now.AddMinutes(10);
+    });
+});
 app.Run();
 
 

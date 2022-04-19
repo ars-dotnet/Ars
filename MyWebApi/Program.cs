@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Options;
 using MyIdentityWithGithub;
 using System.Globalization;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -74,6 +75,14 @@ builder.Services.AddAuthentication(option =>
 
 builder.Services.AddArserviceCore(builder);
 
+var a = Directory.GetCurrentDirectory();
+var b = AppDomain.CurrentDomain.BaseDirectory;
+var location = Assembly.GetExecutingAssembly().Location;
+if (location != null)
+{
+    string c = Directory.GetParent(location)!.FullName;//ºÍbÏàµÈ
+}
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -92,5 +101,8 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.MapGet("/12", Greet);
+static string Greet(int a) => a.ToString();
 
 app.Run();

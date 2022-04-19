@@ -1,16 +1,20 @@
-﻿using System;
+﻿using Microsoft.Extensions.Logging;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Ars.Commom.Tool.Extension;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Ars.Common.Redis.Caching
 {
     public abstract class ArsCacheBase : IArsCache,IDisposable
     {
-        protected ArsCacheBase(string name)
+        public ILogger Logger { get; set; }
+        protected ArsCacheBase(ILogger logger)
         {
-            Name = name;
+            Logger = logger;
         }
 
         public string Name { get; set; }
@@ -19,13 +23,13 @@ namespace Ars.Common.Redis.Caching
 
         public virtual void Dispose()
         {
-
+            
         }
     }
 
     public abstract class ArsCacheBase<TKey, TValue> : ArsCacheBase, IArsCache<TKey, TValue>, IArsCacheOption
     {
-        protected ArsCacheBase(string name) : base(name)
+        protected ArsCacheBase(ILogger logger) : base(logger)
         {
             DefaultSlidingExpireTime = TimeSpan.FromHours(1);
         }
@@ -35,36 +39,90 @@ namespace Ars.Common.Redis.Caching
         public TimeSpan DefaultSlidingExpireTime { get; set; }
         public DateTimeOffset? DefaultAbsoluteExpireTime { get; set; }
 
-        public virtual Task<TValue> GetAsync(TKey key, Func<TKey, Task<TValue>> factory)
+        public virtual async Task<TValue> GetAsync(TKey key, Func<TKey, Task<TValue>> factory)
         {
-            throw new NotImplementedException();
+            ConditionalValue<TValue> result = default;
+            try
+            {
+                result = await GetValueOrDefaultAsync(key);
+            }
+            catch (Exception e)
+            {
+                Logger.LogError(e, e.ToString());
+            }
+
+            if (result.HasValue)
+                return result.Value;
+
+            await using (await SemaphoreSlim.LockAsync()) 
+            {
+                try
+                {
+                    result = await GetValueOrDefaultAsync(key);
+                }
+                catch (Exception e)
+                {
+                    Logger.LogError(e, e.ToString());
+                }
+
+                if (result.HasValue)
+                    return result.Value;
+
+                var value = await factory(key);
+                if (IsDefaultValue(value))
+                    return value;
+
+                try
+                {
+                    await SetAsync(key, value);
+                }
+                catch (Exception e) 
+                {
+                    Logger.LogError(e,e.ToString());
+                }
+
+                return value;
+            }
         }
 
-        public virtual Task<TValue[]> GetAsync(TKey[] keys, Func<TKey, Task<TValue>> factory)
+        public virtual bool IsDefaultValue(TValue value) 
         {
-            throw new NotImplementedException();
+            return EqualityComparer<TValue>.Default.Equals(value, default);
         }
 
-        public abstract bool TryGetValue(TKey key, out TValue value);
-
-        public virtual Task SetAsync(TKey key, TValue value, TimeSpan? slidingExpireTime = null, DateTimeOffset? absoluteExpireTime = null)
+        public virtual async IAsyncEnumerable<TValue> GetAsync([NotNull]TKey[] keys, Func<TKey, Task<TValue>> factory)
         {
-            throw new NotImplementedException();
+            foreach (var k in keys) 
+            {
+                yield return await GetAsync(k,factory);
+            }
         }
 
-        public virtual Task SetAsync(KeyValuePair<TKey, TValue>[] pairs, TimeSpan? slidingExpireTime = null, DateTimeOffset? absoluteExpireTime = null)
+        public abstract Task<ConditionalValue<TValue>> GetValueOrDefaultAsync(TKey key);
+
+        public virtual async IAsyncEnumerable<ConditionalValue<TValue>> GetValueOrDefaultAsync([NotNull] TKey[] keys) 
         {
-            throw new NotImplementedException();
+            foreach (var k in keys) 
+            {
+                yield return await GetValueOrDefaultAsync(k);
+            }
         }
 
-        public virtual Task RemoveAsync(TKey key)
+        public abstract Task SetAsync(TKey key, TValue value, TimeSpan? slidingExpireTime = null, DateTimeOffset? absoluteExpireTime = null);
+
+        public virtual Task SetAsync(KeyValuePair<TKey, TValue>[] pairs, TimeSpan? slidingExpireTime = null, DateTimeOffset? absoluteExpireTime = null) 
         {
-            throw new NotImplementedException();
+            return Task.WhenAll(pairs.Select(r => SetAsync(r.Key,r.Value, slidingExpireTime, absoluteExpireTime)));
         }
 
-        public virtual Task RemoveAsync(TKey[] keys)
+        public abstract Task<long> RemoveAsync(TKey key);
+
+        public virtual async IAsyncEnumerable<long> RemoveAsync([NotNull]TKey[] keys)
         {
-            throw new NotImplementedException();
+            foreach (var k in keys) 
+            {
+                yield return await RemoveAsync(k);
+            }
         }
     }
 }

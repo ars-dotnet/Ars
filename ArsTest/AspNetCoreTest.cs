@@ -6,6 +6,7 @@ using Microsoft.Extensions.Options;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -106,6 +107,13 @@ namespace ArsTest
 
             services.AddSingleton<IOptions<Person>>(new OptionsWrapper<Person>(new Person { Age = 12333 }));
             var b = services.BuildServiceProvider().GetRequiredService<IOptions<Person>>().Value;
+        }
+
+        [Fact]
+        public void TestPath() 
+        {
+            var a = Directory.GetCurrentDirectory();//这个代表当前应用程序的根目录
+            var b = AppDomain.CurrentDomain.BaseDirectory; //web程序中，这个代表当前应用程序运行的根目录
         }
     }
 }

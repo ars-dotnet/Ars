@@ -17,6 +17,10 @@ namespace ArsTest
             int c = a << 2;
 
             int d = c >> 1;
+
+            Assert.True(b == a);
+            Assert.True(c == 8);
+            Assert.True(d == 4);
         }
     }
 }
