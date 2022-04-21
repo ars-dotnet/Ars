@@ -21,6 +21,11 @@ namespace Ars.Common.Redis.Caching
 
         public abstract Task ClearAsync();
 
+        protected virtual string GetLocalizedRedisKey(string key) 
+        {
+            return key;
+        }
+
         public virtual void Dispose()
         {
             

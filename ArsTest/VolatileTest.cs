@@ -52,5 +52,28 @@ namespace ArsTest
             Console.WriteLine("主執行緒：工作執行緒已終止");
             Console.Read();
         }
+
+        [Fact]
+        public void TestTimeSpan() 
+        {
+            var a = TimeSpan.FromMinutes(1);
+            var b = a.Seconds;
+            var c = a.TotalSeconds;
+        }
+    }
+
+    public interface IWoker
+    {
+        void Talk();
+    }
+
+    public abstract class WorkerBase 
+    {
+        public virtual void Talk() => Console.WriteLine("aa");
+    }
+
+    public sealed class WorkerA : WorkerBase, IWoker 
+    {
+
     }
 }

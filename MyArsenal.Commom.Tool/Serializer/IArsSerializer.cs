@@ -33,5 +33,12 @@ namespace Ars.Commom.Tool.Serializer
         /// <param name="obj"></param>
         /// <returns></returns>
         string SerializeToJson<T>(T obj);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        byte[] ConvertFromJson(string json);
     }
 }

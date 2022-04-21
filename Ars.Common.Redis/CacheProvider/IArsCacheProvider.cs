@@ -1,4 +1,5 @@
 ﻿using Ars.Common.Redis.Caching;
+using Ars.Common.Redis.RedisCache.HashCache;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,11 @@ namespace Ars.Common.Redis
     }
 
     public interface IArsCacheProvider : IArsCacheProvider<ICache> 
+    {
+
+    }
+
+    public interface IArsHCacheProvider : IArsCacheProvider<IHCache> 
     {
 
     }

@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Ars.Common.Redis.CacheProvider
 {
-    public abstract class ArsCacheBaseProvider<TCache> : IArsCacheProvider<TCache>, ISingletonDependency
+    public abstract class ArsCacheBaseProvider<TCache> : IArsCacheProvider<TCache>
         where TCache : class,IArsCacheOption
     {
         protected readonly ConcurrentDictionary<string, Lazy<TCache>> Caches;

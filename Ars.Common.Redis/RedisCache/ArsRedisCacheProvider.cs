@@ -20,7 +20,7 @@ namespace Ars.Common.Redis.RedisCache
             _serviceProvider = serviceProvider;
         }
 
-        protected override ArsRedisCache CreateImplementCache(string cachename)
+        protected override ICache CreateImplementCache(string cachename)
         {
             var cache = _serviceProvider.GetRequiredService<ArsRedisCache>();
             cache.Name = cachename;

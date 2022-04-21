@@ -26,5 +26,10 @@ namespace Ars.Commom.Tool.Serializer
         {
             return MessagePackSerializer.SerializeToJson(obj);
         }
+
+        public byte[] ConvertFromJson(string json)
+        {
+            return MessagePackSerializer.ConvertFromJson(json);
+        }
     }
 }

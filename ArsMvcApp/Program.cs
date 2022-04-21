@@ -29,7 +29,11 @@ builder.Services.AddTransient<IUserAppService, User>();
 builder.Services.AddTransient<UserBase, User>();
 builder.Services.AddTransient<User>();
 
-provider.AddArsRedis();
+provider.AddArsRedis(options =>
+{
+    options.RedisConnection = "192.168.2.102";
+    options.DefaultDB = 1;
+});
 
 var app = builder.Build();
 
@@ -55,20 +59,11 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-app.UseArsRedis(options =>
-{
-    options.RedisConnection = "192.168.2.102";
-    options.DefaultDB = 1;
-}, config =>
+app.UseArsRedis(config =>
 {
     config.ConfigureAll(cacheoption =>
     {
-        cacheoption.DefaultAbsoluteExpireTime = DateTime.Now.AddMinutes(10);
+        cacheoption.DefaultSlidingExpireTime = TimeSpan.FromMinutes(10);
     });
 });
 app.Run();
-
-
-class Test { 
-    public string ConnectionString { get; set; }
-}

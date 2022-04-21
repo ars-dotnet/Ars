@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Ars.Common.Redis.RedisCache
 {
-    public class ArsRedisCache : ArsCacheBase<string,object>, ICache, ITransientDependency
+    public class ArsRedisCache : ArsCacheBase<string, object>, ICache, ITransientDependency
     {
         private readonly IArsSerializer _arsSerializer;
 
@@ -43,6 +43,11 @@ end
                 throw;
             }
             return Task.CompletedTask;
+        }
+
+        protected override string GetLocalizedRedisKey(string key)
+        {
+            return "n:" + Name + ",c:" + key;
         }
 
         public override Task<long> RemoveAsync(string key)
@@ -78,11 +83,6 @@ end
         {
             var value = await RedisHelper.GetAsync<object>(GetLocalizedRedisKey(key));
             return new ConditionalValue<object>(null != value,value);
-        }
-
-        protected virtual string GetLocalizedRedisKey(string key) 
-        {
-            return "n:" + Name + ",c:" + key;
         }
     }
 }
