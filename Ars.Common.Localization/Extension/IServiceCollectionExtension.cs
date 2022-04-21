@@ -50,7 +50,7 @@ namespace Ars.Common.Localization.IServiceCollectionExtension
                 option.ApplyCurrentCultureToResponseHeaders = true;
             });
 
-            services.AddTransient<IArstringLocalizer, ArstringLocalizer>();
+            services.AddSingleton<IArstringLocalizer, ArstringLocalizer>();
 
             return arsServiceProvider;
         }
