@@ -20,7 +20,7 @@ namespace GrpcClient
 
             var a = await client.TestAsync(new TestInput());
 
-            Console.WriteLine(res.Message);
+            Console.WriteLine($"{res.Message}");
             Console.Read();
         }
 
