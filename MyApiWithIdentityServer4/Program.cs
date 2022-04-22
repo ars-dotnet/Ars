@@ -5,7 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 var arsbuilder = builder.Services.AddArserviceCore(builder);
-arsbuilder.AddArsIs4Authentication(configureOptions : option =>
+arsbuilder.AddArsIdentityServerAuthentication(configureOptions : option =>
 {
     option.Authority = "http://localhost:7207";
     option.ApiName = "defaultApi";

@@ -23,18 +23,13 @@ namespace Ars.Commom.Host.Extension
     {
         public static IArsServiceBuilder AddArserviceCore(this IServiceCollection services, WebApplicationBuilder builder) 
         {
-            var buildServiceProvider = services.BuildServiceProvider();
-            var configuration = buildServiceProvider.GetRequiredService<IConfiguration>();
-            var webHostEnvironment = buildServiceProvider.GetRequiredService<IWebHostEnvironment>();
-           
-            var arsbuilder = new ArsServiceBuilder(new ArsServiceCollection(services,configuration,webHostEnvironment),builder.Host);
+            var arsbuilder = new ArsServiceBuilder(new ArsServiceCollection(services),builder.Host);
             arsbuilder.AddArsAutofac();
 
-            arsbuilder.Services.ServiceCollection.AddSingleton<IArsSerializer,ArsSerializer>();
-
             var providerfactory = arsbuilder.Services.Provider.GetRequiredService<IRegisterProviderFactory>();
-            arsbuilder.HostBuilder.UseServiceProviderFactory(new ArsServiceProviderFactory(providerfactory));
+            builder.Host.UseServiceProviderFactory(new ArsServiceProviderFactory(providerfactory));
 
+            arsbuilder.Services.ServiceCollection.AddSingleton<IArsSerializer,ArsSerializer>();
             return arsbuilder;
         }
 

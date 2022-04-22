@@ -13,7 +13,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var provider = builder.Services.AddArserviceCore(builder);
-provider.AddArsIdentityServer4();
+provider.AddArsIdentityServer();
 //builder.Services.AddMyAuthentication();
 
 builder.Services.AddCors(options =>
@@ -41,7 +41,7 @@ app.UseHttpsRedirection();
 
 app.UseRouting();
 
-app.UseArsIdentityServer4();
+app.UseArsIdentityServer();
 
 app.MapControllers();
 

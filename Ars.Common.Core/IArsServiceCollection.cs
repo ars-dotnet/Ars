@@ -15,29 +15,17 @@ namespace Ars.Commom.Core
     {
         IServiceCollection ServiceCollection { get; }
 
-        IConfiguration Configuration { get; }
-
-        IWebHostEnvironment WebHostEnvironment { get; }
-
         IServiceProvider Provider { get; }
     }
 
     public class ArsServiceCollection : IArsServiceCollection
     {
-        public ArsServiceCollection(IServiceCollection services,
-            IConfiguration configuration,
-            IWebHostEnvironment webHostEnvironment)
+        public ArsServiceCollection(IServiceCollection services)
         {
             ServiceCollection = services;
-            Configuration = configuration;
-            WebHostEnvironment = webHostEnvironment;
         }
 
         public IServiceCollection ServiceCollection { get; }
-
-        public IConfiguration Configuration { get; }
-
-        public IWebHostEnvironment WebHostEnvironment { get; }
 
         public IServiceProvider Provider => ServiceCollection.BuildServiceProvider();
 

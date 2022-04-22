@@ -16,7 +16,14 @@ namespace Ars.Common.IdentityServer4.Extension
 {
     public static class ArsIdentityServerExtension
     {
-        public static IArsServiceBuilder AddArsIdentityServer4(
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="builder"></param>
+        /// <param name="action"></param>
+        /// <param name="func">自定义实现类</param>
+        /// <returns></returns>
+        public static IArsServiceBuilder AddArsIdentityServer(
             this IArsServiceBuilder builder,
             Action<ArsIdentityServerOption>? action = null,
             Func<IResourceOwnerPasswordValidator>? func = null)
@@ -39,7 +46,7 @@ namespace Ars.Common.IdentityServer4.Extension
             return builder;
         }
 
-        public static IArsServiceBuilder AddArsIs4Authentication(
+        public static IArsServiceBuilder AddArsIdentityServerAuthentication(
             this IArsServiceBuilder builder,
             string defaultScheme = IdentityServerAuthenticationDefaults.AuthenticationScheme,
             Action<IdentityServerAuthenticationOptions>? configureOptions = null)  

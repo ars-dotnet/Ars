@@ -19,5 +19,10 @@ namespace GrpcGreeter.Services
                 Value = 12121
             });
         }
+
+        public override Task<TestOutput> Test(TestInput request, ServerCallContext context)
+        {
+            return Task.FromResult(new TestOutput { Code = 200 });
+        }
     }
 }

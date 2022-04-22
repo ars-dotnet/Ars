@@ -52,6 +52,10 @@ namespace GrpcGreeter.greet {
     static readonly grpc::Marshaller<global::GrpcGreeter.greet.HelloRequest> __Marshaller_greet_HelloRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcGreeter.greet.HelloRequest.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::GrpcGreeter.greet.HelloReply> __Marshaller_greet_HelloReply = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcGreeter.greet.HelloReply.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GrpcGreeter.greet.TestInput> __Marshaller_greet_TestInput = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcGreeter.greet.TestInput.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GrpcGreeter.greet.TestOutput> __Marshaller_greet_TestOutput = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcGreeter.greet.TestOutput.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::GrpcGreeter.greet.HelloRequest, global::GrpcGreeter.greet.HelloReply> __Method_SayHello = new grpc::Method<global::GrpcGreeter.greet.HelloRequest, global::GrpcGreeter.greet.HelloReply>(
@@ -60,6 +64,14 @@ namespace GrpcGreeter.greet {
         "SayHello",
         __Marshaller_greet_HelloRequest,
         __Marshaller_greet_HelloReply);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::GrpcGreeter.greet.TestInput, global::GrpcGreeter.greet.TestOutput> __Method_Test = new grpc::Method<global::GrpcGreeter.greet.TestInput, global::GrpcGreeter.greet.TestOutput>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "Test",
+        __Marshaller_greet_TestInput,
+        __Marshaller_greet_TestOutput);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -79,6 +91,12 @@ namespace GrpcGreeter.greet {
       /// <returns>The response to send back to the client (wrapped by a task).</returns>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::System.Threading.Tasks.Task<global::GrpcGreeter.greet.HelloReply> SayHello(global::GrpcGreeter.greet.HelloRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::GrpcGreeter.greet.TestOutput> Test(global::GrpcGreeter.greet.TestInput request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -160,6 +178,26 @@ namespace GrpcGreeter.greet {
       {
         return CallInvoker.AsyncUnaryCall(__Method_SayHello, null, options, request);
       }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::GrpcGreeter.greet.TestOutput Test(global::GrpcGreeter.greet.TestInput request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return Test(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::GrpcGreeter.greet.TestOutput Test(global::GrpcGreeter.greet.TestInput request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_Test, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::GrpcGreeter.greet.TestOutput> TestAsync(global::GrpcGreeter.greet.TestInput request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return TestAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::GrpcGreeter.greet.TestOutput> TestAsync(global::GrpcGreeter.greet.TestInput request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_Test, null, options, request);
+      }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       protected override GreeterClient NewInstance(ClientBaseConfiguration configuration)
@@ -174,7 +212,8 @@ namespace GrpcGreeter.greet {
     public static grpc::ServerServiceDefinition BindService(GreeterBase serviceImpl)
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
-          .AddMethod(__Method_SayHello, serviceImpl.SayHello).Build();
+          .AddMethod(__Method_SayHello, serviceImpl.SayHello)
+          .AddMethod(__Method_Test, serviceImpl.Test).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the  service binding logic.
@@ -185,6 +224,7 @@ namespace GrpcGreeter.greet {
     public static void BindService(grpc::ServiceBinderBase serviceBinder, GreeterBase serviceImpl)
     {
       serviceBinder.AddMethod(__Method_SayHello, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GrpcGreeter.greet.HelloRequest, global::GrpcGreeter.greet.HelloReply>(serviceImpl.SayHello));
+      serviceBinder.AddMethod(__Method_Test, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GrpcGreeter.greet.TestInput, global::GrpcGreeter.greet.TestOutput>(serviceImpl.Test));
     }
 
   }

@@ -9,7 +9,7 @@ namespace Ars.Common.IdentityServer4.Extension
 {
     public static class IApplicationBuilderExtension
     {
-        public static IApplicationBuilder UseArsIdentityServer4(this IApplicationBuilder builder, IdentityServerMiddlewareOptions options = null) 
+        public static IApplicationBuilder UseArsIdentityServer(this IApplicationBuilder builder, IdentityServerMiddlewareOptions options = null) 
         {
             builder.UseIdentityServer(options);
             return builder;
