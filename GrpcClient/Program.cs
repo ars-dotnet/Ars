@@ -1,6 +1,8 @@
-﻿using Grpc.Core;
+﻿using Ars.Common.Consul;
+using Grpc.Core;
 using Grpc.Net.Client;
 using GrpcGreeter.greet;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Threading.Tasks;
 
@@ -25,7 +27,8 @@ namespace GrpcClient
         static T Get<T>()
             where T : ClientBase<T>
         {
-            var channel = GrpcChannel.ForAddress("https://localhost:7902");
+            string url = ConsulHelper.GetDomainByServiceName("apigrpc", "http://127.0.0.1:8500");
+            var channel = GrpcChannel.ForAddress(url);
             return (T)Activator.CreateInstance(typeof(T), channel);
         }
     }

@@ -11,9 +11,16 @@ namespace Ars.Common.Consul.IApplicationBuilderExtension
 {
     public static class IServiceCollectionExtension
     {
-        public static IServiceCollection AddArsConsul(this IServiceCollection services,IConfiguration configuration) 
+        public static IServiceCollection AddArsConsulRegister(this IServiceCollection services,IConfiguration configuration) 
         {
-            services.Configure<ConsulOption>(configuration.GetSection(nameof(ConsulOption)));
+            services.Configure<ConsulRegisteOption>(configuration.GetSection(nameof(ConsulRegisteOption)));
+            return services;
+        }
+
+        public static IServiceCollection AddArsConsulDiscover(this IServiceCollection services, IConfiguration configuration) 
+        {
+            services.AddSingleton<ConsulHelper>();
+            services.Configure<ConsulDiscoverOption>(configuration.GetSection(nameof(ConsulDiscoverOption)));
             return services;
         }
     }

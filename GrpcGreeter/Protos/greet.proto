@@ -13,6 +13,15 @@ service Greeter {
   // Sends a greeting
   rpc SayHello (HelloRequest) returns (HelloReply);
   rpc Test(TestInput) returns(TestOutput);
+  rpc Check(RpcCheckInput) returns(RpcCheckOutput);
+}
+
+message RpcCheckOutput{
+	string res = 1;
+}
+
+message RpcCheckInput{
+
 }
 
 message TestOutput{

@@ -17,6 +17,7 @@
     <Import Project="$(NuGetPackageRoot)grpc.tools\2.42.0\build\Grpc.Tools.props" Condition="Exists('$(NuGetPackageRoot)grpc.tools\2.42.0\build\Grpc.Tools.props')" />
   </ImportGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgNewtonsoft_Json Condition=" '$(PkgNewtonsoft_Json)' == '' ">C:\Users\cd-dev-host-3\.nuget\packages\newtonsoft.json\10.0.3</PkgNewtonsoft_Json>
     <PkgGrpc_Tools Condition=" '$(PkgGrpc_Tools)' == '' ">C:\Users\cd-dev-host-3\.nuget\packages\grpc.tools\2.42.0</PkgGrpc_Tools>
   </PropertyGroup>
 </Project>

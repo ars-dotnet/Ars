@@ -15,6 +15,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Ars.Common.Consul\Ars.Common.Consul.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Protobuf Include="..\GrpcGreeter\Protos\customTypes.proto" GrpcServices="Client">
       <Link>Protos\customTypes.proto</Link>
     </Protobuf>

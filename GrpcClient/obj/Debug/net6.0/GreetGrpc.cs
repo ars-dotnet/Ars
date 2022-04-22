@@ -56,6 +56,10 @@ namespace GrpcGreeter.greet {
     static readonly grpc::Marshaller<global::GrpcGreeter.greet.TestInput> __Marshaller_greet_TestInput = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcGreeter.greet.TestInput.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::GrpcGreeter.greet.TestOutput> __Marshaller_greet_TestOutput = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcGreeter.greet.TestOutput.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GrpcGreeter.greet.RpcCheckInput> __Marshaller_greet_RpcCheckInput = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcGreeter.greet.RpcCheckInput.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GrpcGreeter.greet.RpcCheckOutput> __Marshaller_greet_RpcCheckOutput = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcGreeter.greet.RpcCheckOutput.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::GrpcGreeter.greet.HelloRequest, global::GrpcGreeter.greet.HelloReply> __Method_SayHello = new grpc::Method<global::GrpcGreeter.greet.HelloRequest, global::GrpcGreeter.greet.HelloReply>(
@@ -72,6 +76,14 @@ namespace GrpcGreeter.greet {
         "Test",
         __Marshaller_greet_TestInput,
         __Marshaller_greet_TestOutput);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::GrpcGreeter.greet.RpcCheckInput, global::GrpcGreeter.greet.RpcCheckOutput> __Method_Check = new grpc::Method<global::GrpcGreeter.greet.RpcCheckInput, global::GrpcGreeter.greet.RpcCheckOutput>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "Check",
+        __Marshaller_greet_RpcCheckInput,
+        __Marshaller_greet_RpcCheckOutput);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -173,6 +185,26 @@ namespace GrpcGreeter.greet {
       public virtual grpc::AsyncUnaryCall<global::GrpcGreeter.greet.TestOutput> TestAsync(global::GrpcGreeter.greet.TestInput request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_Test, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::GrpcGreeter.greet.RpcCheckOutput Check(global::GrpcGreeter.greet.RpcCheckInput request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return Check(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::GrpcGreeter.greet.RpcCheckOutput Check(global::GrpcGreeter.greet.RpcCheckInput request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_Check, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::GrpcGreeter.greet.RpcCheckOutput> CheckAsync(global::GrpcGreeter.greet.RpcCheckInput request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return CheckAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::GrpcGreeter.greet.RpcCheckOutput> CheckAsync(global::GrpcGreeter.greet.RpcCheckInput request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_Check, null, options, request);
       }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]

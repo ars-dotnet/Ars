@@ -24,5 +24,10 @@ namespace GrpcGreeter.Services
         {
             return Task.FromResult(new TestOutput { Code = 200 });
         }
+
+        public override Task<RpcCheckOutput> Check(RpcCheckInput request, ServerCallContext context)
+        {
+            return Task.FromResult(new RpcCheckOutput { Res = "ok" });
+        }
     }
 }
