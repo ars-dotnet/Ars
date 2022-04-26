@@ -8,6 +8,7 @@ namespace Ars.Commom.Tool
 {
     public class DisposeAction : IAsyncDisposable, IDisposable
     {
+        private int a;
         private Func<Task> _action;
 
         public DisposeAction(Func<Task> action)

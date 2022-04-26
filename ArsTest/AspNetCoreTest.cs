@@ -1,4 +1,5 @@
-﻿using IdentityModel.Client;
+﻿using Ars.Commom.Tool;
+using IdentityModel.Client;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -10,6 +11,7 @@ using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Xunit;
 
@@ -22,17 +24,17 @@ namespace ArsTest
         public int Age { get; set; }
     }
 
-    public class AspNetCoreBase 
+    public class AspNetCoreBase
     {
         public IServiceCollection services { get; private set; }
         public AspNetCoreBase()
         {
             IHost host = Host.CreateDefaultBuilder()
-                .ConfigureAppConfiguration(builder => 
+                .ConfigureAppConfiguration(builder =>
                 {
                     builder.AddJsonFile("config.json", true, false);
                 })
-                .ConfigureServices((builder,service) => 
+                .ConfigureServices((builder, service) =>
                 {
                     services = service;
                 })
@@ -40,8 +42,106 @@ namespace ArsTest
         }
     }
 
+    public class TestIncrement
+    {
+        public int i;
+        public int j;
+
+        public async Task<int> Set() 
+        {
+            await Task.Yield();
+            var m = Interlocked.Increment(ref i);
+            return m;
+        }
+    }
+
+    public abstract class A 
+    {
+        public abstract void Get();
+    }
+
+    public class AA : A 
+    {
+        public override void Get()
+        {
+
+        }
+    }
+
+    public class AAA : AA 
+    {
+        public override void Get()
+        {
+
+        }
+    }
+
     public class AspNetCoreTest : AspNetCoreBase
     {
+        [Fact]
+        public void TestOverride() 
+        {
+            A a = new AAA();
+            a.Get();
+            a = new AA();
+            a.Get();
+        }
+
+        [Fact]
+        public async Task TestIncrement1() 
+        {
+            IList<Task<int>> tasks = new List<Task<int>>();
+            TestIncrement obj = new TestIncrement();
+            var b = Task.Run(() =>
+            {
+                for (int i = 0; i < 500; i++)
+                {
+                    tasks.Add(obj.Set());
+                }
+            });
+            var a = Task.Run(() =>
+            {
+                for (int i = 0; i < 500; i++)
+                {
+                    tasks.Add(obj.Set());
+                }
+            });
+
+            await Task.WhenAll(a, b);
+            var m = await Task.WhenAll(tasks);
+            m = m.OrderBy(r => r).ToArray();
+            var x = string.Join(",", m);
+        }
+
+        [Fact]
+        public void TestA() 
+        {
+            int a = 0;
+            TestB(a);
+            Testc(ref a);
+        }
+
+        private void TestB(int a)
+        {
+            a = 2;
+        }
+        private void Testc(ref int a) 
+        {
+            a = 3;
+        }
+
+        [Fact]
+        public void TestDispose() 
+        {
+            DisposeAction dispose = new DisposeAction(() =>
+            {
+                return Task.FromResult(0);
+            });
+
+            dispose.Dispose();
+            dispose.Dispose();
+        }
+
         [Fact]
         public void CreateHost() 
         {

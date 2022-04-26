@@ -1,4 +1,5 @@
-﻿using IdentityServer4.Models;
+﻿using Ars.Common.Core.AspNetCore;
+using IdentityServer4.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace Ars.Common.IdentityServer4.options
                 { 
                     Name = "defaultApi",
                     DisplayName = "my default api" ,
-                    UserClaims = new [] { ClaimTypes.Role },
+                    UserClaims = new [] { ArsClaimTypes.Role,ArsClaimTypes.TenantId,ArsClaimTypes.UserId },
                     Scopes = new []{ "defaultApi-scope" } 
                 }
             };
@@ -29,7 +30,7 @@ namespace Ars.Common.IdentityServer4.options
                 {
                     AppKey = "default-Key",
                     AppSecret = "default-Secret",
-                    AccessTokenLifetime = 3600,
+                    AccessTokenLifetime = 99900,
                     AllowedScopes = new [] { "defaultApi-scope" }
                 }
             };

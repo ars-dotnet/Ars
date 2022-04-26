@@ -18,6 +18,7 @@
     <PackageReference Include="Grpc.AspNetCore" Version="2.42.0" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Ars.Commom.Host\Ars.Commom.Host.csproj" />
     <ProjectReference Include="..\Ars.Common.Consul\Ars.Common.Consul.csproj" />
   </ItemGroup>
 

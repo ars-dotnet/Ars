@@ -1,4 +1,5 @@
-﻿using Autofac.Core;
+﻿using Ars.Common.Core.IDependency;
+using Autofac.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;

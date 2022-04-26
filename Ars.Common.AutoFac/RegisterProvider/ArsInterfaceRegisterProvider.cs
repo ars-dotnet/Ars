@@ -1,5 +1,6 @@
 ﻿using Ars.Common.AutoFac.Extension;
 using Ars.Common.AutoFac.IDependency;
+using Ars.Common.Core.IDependency;
 using Autofac;
 using Autofac.Util;
 using System;

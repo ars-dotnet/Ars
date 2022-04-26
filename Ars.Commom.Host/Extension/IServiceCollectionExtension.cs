@@ -4,6 +4,7 @@ using Ars.Common.AutoFac.Dependency;
 using Ars.Common.AutoFac.IDependency;
 using Ars.Common.AutoFac.Options;
 using Ars.Common.AutoFac.RegisterProvider;
+using Ars.Common.Core;
 using Ars.Common.Host;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;

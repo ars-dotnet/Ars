@@ -46,7 +46,7 @@ namespace Ars.Common.IdentityServer4.Extension
             return builder;
         }
 
-        public static IArsServiceBuilder AddArsIdentityServerAuthentication(
+        public static IArsServiceBuilder AddArsIdentityClient(
             this IArsServiceBuilder builder,
             string defaultScheme = IdentityServerAuthenticationDefaults.AuthenticationScheme,
             Action<IdentityServerAuthenticationOptions>? configureOptions = null)  

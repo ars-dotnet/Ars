@@ -1,4 +1,5 @@
 ﻿using Ars.Common.AutoFac;
+using Ars.Common.Core.IDependency;
 using Autofac;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;

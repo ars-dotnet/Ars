@@ -1,5 +1,6 @@
 ﻿using Ars.Commom.Tool.Serializer;
 using Ars.Common.AutoFac.IDependency;
+using Ars.Common.Core.IDependency;
 using Ars.Common.Redis.CacheProvider;
 using Ars.Common.Redis.Caching;
 using Microsoft.Extensions.DependencyInjection;

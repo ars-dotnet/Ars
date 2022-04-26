@@ -1,4 +1,5 @@
-﻿using IdentityModel;
+﻿using Ars.Common.Core.AspNetCore;
+using IdentityModel;
 using IdentityServer4.Models;
 using IdentityServer4.Validation;
 using System;
@@ -18,7 +19,7 @@ namespace Ars.Common.IdentityServer4.Validation
             bool flag = true;
             if (flag)
             {
-                var identity = GetIdentityPrincipal("test", "test", "Bearer", DateTime.Now, "ars");
+                var identity = GetIdentityPrincipal("1","1", "admin", "Bearer", DateTime.Now, "ars");
                 context.Result = new GrantValidationResult(new ClaimsPrincipal(identity));
             }
             else
@@ -31,6 +32,7 @@ namespace Ars.Common.IdentityServer4.Validation
 
         private static ClaimsPrincipal GetIdentityPrincipal(
             string subject,
+            string tenant,
             string userrole,
             string authenticationMethod,
             DateTime authTime,
@@ -38,8 +40,9 @@ namespace Ars.Common.IdentityServer4.Validation
         {
             var source = new List<Claim>()
             {
-                new Claim("sub", subject),
-                new Claim(ClaimTypes.Role, userrole),
+                new Claim(ArsClaimTypes.UserId, subject),
+                new Claim(ArsClaimTypes.TenantId, tenant),
+                new Claim(ArsClaimTypes.Role, userrole),
                 new Claim("amr", authenticationMethod),
                 new Claim("idp", identityProvider),
                 new Claim("auth_time", DateTimeExtensions.ToEpochTime(authTime).ToString(),

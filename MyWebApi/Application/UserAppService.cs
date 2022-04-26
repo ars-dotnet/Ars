@@ -1,5 +1,6 @@
 ﻿using Ars.Common.AutoFac;
 using Ars.Common.AutoFac.IDependency;
+using Ars.Common.Core.IDependency;
 
 namespace MyIdentityWithGithub.Application
 {

@@ -1,4 +1,5 @@
 ﻿using Ars.Common.AutoFac.IDependency;
+using Ars.Common.Core.IDependency;
 using Ars.Common.Redis.CacheProvider;
 using Microsoft.Extensions.DependencyInjection;
 using System;

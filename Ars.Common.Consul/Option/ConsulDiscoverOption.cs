@@ -8,8 +8,13 @@ namespace Ars.Common.Consul.Option
 {
     public class ConsulDiscoverOption
     {
-        public string ConsulAddress { get; set; }
+        public IEnumerable<ConsulDiscover> ConsulDiscovers { get; set; }
+    }
 
+    public class ConsulDiscover
+    {
         public string ServiceName { get; set; }
+
+        public string ConsulAddress { get; set; }
     }
 }

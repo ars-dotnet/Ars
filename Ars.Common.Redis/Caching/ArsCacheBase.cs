@@ -36,7 +36,7 @@ namespace Ars.Common.Redis.Caching
     {
         protected ArsCacheBase(ILogger logger) : base(logger)
         {
-            DefaultSlidingExpireTime = TimeSpan.FromHours(1);
+            DefaultSlidingExpireTime = TimeSpan.FromHours(1).Add(TimeSpan.FromMinutes(new Random().Next(5)));
         }
 
         protected readonly SemaphoreSlim SemaphoreSlim = new SemaphoreSlim(1, 1);

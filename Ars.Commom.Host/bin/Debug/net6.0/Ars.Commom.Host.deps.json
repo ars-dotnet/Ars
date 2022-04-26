@@ -655,6 +655,7 @@
       },
       "Ars.Common.AutoFac/1.0.0": {
         "dependencies": {
+          "Ars.Common.Core": "1.0.0",
           "Autofac": "6.3.0",
           "Autofac.Extensions.DependencyInjection": "7.2.0",
           "Microsoft.AspNetCore.Mvc.Core": "2.2.5"
@@ -664,6 +665,9 @@
         }
       },
       "Ars.Common.Core/1.0.0": {
+        "dependencies": {
+          "Ars.Commom.Tool": "1.0.0"
+        },
         "runtime": {
           "Ars.Common.Core.dll": {}
         }

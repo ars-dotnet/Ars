@@ -19,6 +19,13 @@ namespace ArsTest
         [Fact]
         public void TestMulss() 
         {
+            void get(string a,string b) => Console.WriteLine(a,b);
+
+            string m = "11";
+            string n = "12";
+            Action<string, string> aa = (a,b) => get(a,b);
+            aa(m, n);
+
             IServiceCollection services = new ServiceCollection();
 
             services.AddTransient<IA, A>();

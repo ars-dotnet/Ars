@@ -72,7 +72,7 @@ namespace Ars.Common.IdentityServer4.Extension
                 client1.AllowedScopes = client.AllowedScopes;
                 client1.AllowedGrantTypes = client.GrantType;
                 client1.AllowOfflineAccess = true;
-                client1.AccessTokenLifetime = (int)TimeSpan.FromDays(7.0).TotalSeconds;
+                client1.AccessTokenLifetime = client.AccessTokenLifetime;
                 client1.RefreshTokenExpiration = TokenExpiration.Sliding;
                 client1.AbsoluteRefreshTokenLifetime = 0;
                 client1.SlidingRefreshTokenLifetime = (int)TimeSpan.FromDays(365.0).TotalSeconds;

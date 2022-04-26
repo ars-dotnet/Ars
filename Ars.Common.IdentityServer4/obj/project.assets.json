@@ -397,6 +397,9 @@
       "Ars.Common.Core/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Ars.Commom.Tool": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/Ars.Common.Core.dll": {}
         },

@@ -1,3 +1,4 @@
+using Ars.Commom.Host.Extension;
 using Ars.Common.Consul.IApplicationBuilderExtension;
 using GrpcGreeter.greet;
 using GrpcGreeter.Services;
@@ -11,7 +12,14 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddGrpc();
 
-builder.Services.AddArsConsulRegister(builder.Configuration);
+var arsbuilder = builder.Services.AddArserviceCore(builder);
+arsbuilder.AddArsConsulRegister(option => 
+{
+    option.ConsulAddress = "http://127.0.0.1:8500";
+    option.ServiceName = "apigrpc";
+    option.ServiceIp = "127.0.0.1";
+    option.ServicePort = 7903;
+});
 
 var app = builder.Build();
 

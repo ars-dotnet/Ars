@@ -1,4 +1,4 @@
-﻿using Ars.Common.AutoFac.IDependency;
+﻿using Ars.Common.Core.IDependency;
 using Autofac;
 using Autofac.Core;
 using System;

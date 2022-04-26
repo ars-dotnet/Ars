@@ -114,7 +114,11 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "D:\\core\\MyArs\\Ars.Common.Core\\Ars.Common.Core.csproj": {
+                "projectPath": "D:\\core\\MyArs\\Ars.Common.Core\\Ars.Common.Core.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -190,7 +194,11 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "D:\\core\\MyArs\\MyArsenal.Commom.Tool\\Ars.Commom.Tool.csproj": {
+                "projectPath": "D:\\core\\MyArs\\MyArsenal.Commom.Tool\\Ars.Commom.Tool.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -202,6 +210,78 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\core\\MyArs\\Ars.Common.EFCore\\Ars.Common.EFCore.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\core\\MyArs\\Ars.Common.EFCore\\Ars.Common.EFCore.csproj",
+        "projectName": "Ars.Common.EFCore",
+        "projectPath": "D:\\core\\MyArs\\Ars.Common.EFCore\\Ars.Common.EFCore.csproj",
+        "packagesPath": "C:\\Users\\cd-dev-host-3\\.nuget\\packages\\",
+        "outputPath": "D:\\core\\MyArs\\Ars.Common.EFCore\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\cd-dev-host-3\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "http://gitlab.geekbuy.cn:8082/nuget": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "D:\\core\\MyArs\\Ars.Common.AutoFac\\Ars.Common.AutoFac.csproj": {
+                "projectPath": "D:\\core\\MyArs\\Ars.Common.AutoFac\\Ars.Common.AutoFac.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -335,6 +415,9 @@
               "D:\\core\\MyArs\\Ars.Commom.Host\\Ars.Commom.Host.csproj": {
                 "projectPath": "D:\\core\\MyArs\\Ars.Commom.Host\\Ars.Commom.Host.csproj"
               },
+              "D:\\core\\MyArs\\Ars.Common.EFCore\\Ars.Common.EFCore.csproj": {
+                "projectPath": "D:\\core\\MyArs\\Ars.Common.EFCore\\Ars.Common.EFCore.csproj"
+              },
               "D:\\core\\MyArs\\Ars.Common.IdentityServer4\\Ars.Common.IdentityServer4.csproj": {
                 "projectPath": "D:\\core\\MyArs\\Ars.Common.IdentityServer4\\Ars.Common.IdentityServer4.csproj"
               }
@@ -354,6 +437,22 @@
             "CSRedisCore": {
               "target": "Package",
               "version": "[3.6.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Pomelo.EntityFrameworkCore.MySql": {
+              "target": "Package",
+              "version": "[6.0.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

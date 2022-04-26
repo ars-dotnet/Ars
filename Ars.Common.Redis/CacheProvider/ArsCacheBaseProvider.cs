@@ -1,5 +1,6 @@
 ﻿using Ars.Common.AutoFac;
 using Ars.Common.AutoFac.IDependency;
+using Ars.Common.Core.IDependency;
 using Ars.Common.Redis.CacheConfiguration;
 using Ars.Common.Redis.Caching;
 using System;
