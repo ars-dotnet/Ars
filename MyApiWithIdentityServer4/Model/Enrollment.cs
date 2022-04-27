@@ -1,4 +1,7 @@
-﻿namespace MyApiWithIdentityServer4.Model
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace MyApiWithIdentityServer4.Model
 {
     public enum Grade
     {
@@ -7,9 +10,15 @@
 
     public class Enrollment
     {
+        [Key]
         public int EnrollmentID { get; set; }
+
+        [ForeignKey(nameof(CourseID))]
         public int CourseID { get; set; }
+
+        [ForeignKey(nameof(StudentID))]
         public int StudentID { get; set; }
+
         public Grade? Grade { get; set; }
 
         public virtual Course Course { get; set; }

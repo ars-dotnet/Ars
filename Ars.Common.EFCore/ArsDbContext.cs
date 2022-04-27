@@ -4,8 +4,10 @@ using Ars.Common.Core.AspNetCore;
 using Ars.Common.Core.Extension;
 using Ars.Common.Core.IDependency;
 using Ars.Common.EFCore.Entities;
+using Ars.Common.EFCore.Options;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,19 +20,24 @@ namespace Ars.Common.EFCore
 {
     public abstract class ArsDbContext : DbContext,ITransientDependency
     {
-        [Autowired]
-        public IArsSession arsSession { get; set; }
+        private readonly IArsSession? _arsSession;
+
+        private readonly DbContextOption? _options;
 
         private static MethodInfo ConfigureGlobalFiltersMethodInfo = typeof(ArsDbContext).GetMethod(nameof(ConfigureGlobalFilters), BindingFlags.Instance | BindingFlags.NonPublic)!;
 
-        protected ArsDbContext(DbContextOptions dbContextOptions) : base(dbContextOptions)
+        protected ArsDbContext(DbContextOptions dbContextOptions, IArsSession? arsSession, DbContextOption? options) : base(dbContextOptions)
         {
-
+            _arsSession = arsSession;
+            _options = options;
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
+
+            if (_options?.UseLazyLoadingProxies ?? true)
+                optionsBuilder.UseLazyLoadingProxies();
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -82,7 +89,15 @@ namespace Ars.Common.EFCore
 
             if (typeof(IMayHaveTenant).IsAssignableFrom(typeof(TEntity))) 
             {
-                Expression<Func<TEntity, bool>> mayhavetenantFilter = e => ((IMayHaveTenant)e).TenantId == arsSession.TenantId;
+                Expression<Func<TEntity, bool>> mayhavetenantFilter = null;
+                if (null == _arsSession)
+                    mayhavetenantFilter = e => true;
+                else 
+                {
+                    int? sessionid = _arsSession.TenantId;
+                    mayhavetenantFilter = e => ((IMayHaveTenant)e).TenantId == sessionid;
+                }
+
                 queryFilter = null == queryFilter ? mayhavetenantFilter : queryFilter.CombinExpression(mayhavetenantFilter);
             }
 

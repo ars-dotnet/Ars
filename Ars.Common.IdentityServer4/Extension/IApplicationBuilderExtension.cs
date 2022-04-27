@@ -14,5 +14,13 @@ namespace Ars.Common.IdentityServer4.Extension
             builder.UseIdentityServer(options);
             return builder;
         }
+
+        public static IApplicationBuilder UseArsIdentityClient(this IApplicationBuilder builder) 
+        {
+            builder.UseAuthentication();
+            builder.UseAuthorization();
+
+            return builder;
+        }
     }
 }

@@ -5,6 +5,7 @@ using Ars.Common.AutoFac.IDependency;
 using Ars.Common.AutoFac.Options;
 using Ars.Common.AutoFac.RegisterProvider;
 using Ars.Common.Core;
+using Ars.Common.Core.AspNetCore;
 using Ars.Common.Host;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -22,15 +23,17 @@ namespace Ars.Commom.Host.Extension
 {
     public static class IServiceCollectionExtension
     {
-        public static IArsServiceBuilder AddArserviceCore(this IServiceCollection services, WebApplicationBuilder builder) 
+        public static IArsServiceBuilder AddArserviceCore(this IServiceCollection services, WebApplicationBuilder builder)
         {
-            var arsbuilder = new ArsServiceBuilder(new ArsServiceCollection(services),builder.Host);
+            var arsbuilder = new ArsServiceBuilder(new ArsServiceCollection(services), builder.Host);
+            arsbuilder.AddAspNetCore();
             arsbuilder.AddArsAutofac();
-
             var providerfactory = arsbuilder.Services.Provider.GetRequiredService<IRegisterProviderFactory>();
             builder.Host.UseServiceProviderFactory(new ArsServiceProviderFactory(providerfactory));
 
-            arsbuilder.Services.ServiceCollection.AddSingleton<IArsSerializer,ArsSerializer>();
+            arsbuilder.Services.ServiceCollection.AddSingleton<IArsSerializer, ArsSerializer>();
+
+
             return arsbuilder;
         }
 
@@ -64,5 +67,16 @@ namespace Ars.Commom.Host.Extension
 
             return services;
         }
+
+        internal static IArsServiceBuilder AddAspNetCore(this IArsServiceBuilder arsServiceBuilder)
+        {
+            var services = arsServiceBuilder.Services.ServiceCollection;
+            services.AddHttpContextAccessor();
+            services.AddSingleton<IPrincipalAccessor, AspNetCorePrincipalAccessor>();
+            services.AddScoped<IArsSession, ArsSession>();
+
+            return arsServiceBuilder;
+        }
+
     }
 }

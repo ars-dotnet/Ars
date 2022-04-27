@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Ars.Common.Core.AspNetCore
 {
-    internal class ArsSession : IArsSession, IScopedDependency
+    public class ArsSession : IArsSession
     {
         private readonly IPrincipalAccessor _principalAccessor;
         public ArsSession(IPrincipalAccessor principalAccessor)

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Ars.Common.Core.AspNetCore
 {
-    internal class AspNetCorePrincipalAccessor : IPrincipalAccessor,ISingletonDependency
+    public class AspNetCorePrincipalAccessor : IPrincipalAccessor
     {
         private readonly IHttpContextAccessor _httpContextAccessor;
         public AspNetCorePrincipalAccessor(IHttpContextAccessor httpContextAccessor)
