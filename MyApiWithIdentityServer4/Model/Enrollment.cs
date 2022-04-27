@@ -17,7 +17,7 @@ namespace MyApiWithIdentityServer4.Model
         public int CourseID { get; set; }
 
         [ForeignKey(nameof(StudentID))]
-        public int StudentID { get; set; }
+        public Guid StudentID { get; set; }
 
         public Grade? Grade { get; set; }
 

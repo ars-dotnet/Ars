@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Ars.Common.EFCore.Entities
 {
-    public interface IModifyEntity
+    public interface IDeleteEntity
     {
-        int? UpdateUserId { get; set; }
+        public int? DeleteUserId { get; set; }
 
-        DateTime? UpdateTime { get; set; }
+        public DateTime? DeleteTime { get; set; }
     }
 }

@@ -8,8 +8,8 @@ namespace Ars.Common.EFCore.Entities
 {
     public interface ICreateEntity
     {
-        int UserId { get; set; }
+        int? CreationUserId { get; set; }
 
-        DateTime CreateTime { get; set; }
+        DateTime? CreationTime { get; set; }
     }
 }

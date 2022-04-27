@@ -1,11 +1,14 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Ars.Common.EFCore.Entities;
+using System.ComponentModel.DataAnnotations;
 
 namespace MyApiWithIdentityServer4.Model
 {
-    public class Student
+    public class Student : IEntity<Guid>,IMayHaveTenant,
+        ICreateEntity, IModifyEntity, ISoftDelete, IDeleteEntity
     {
         [Key]
-        public int ID { get; set; }
+        public Guid Id { get; set; }
+
         public string LastName { get; set; }
         public string FirstMidName { get; set; }
 
@@ -18,5 +21,19 @@ namespace MyApiWithIdentityServer4.Model
         public byte[] TimeStamp { get; set; }
 
         public virtual ICollection<Enrollment> Enrollments { get; set; }
+
+        public int? TenantId { get; set; }
+
+        public int? CreationUserId { get; set; }
+
+        public DateTime? CreationTime { get; set; }
+
+        public int? UpdateUserId { get; set; }
+
+        public DateTime? UpdateTime { get; set; }
+
+        public bool IsDeleted { get; set; }
+        public int? DeleteUserId { get; set; }
+        public DateTime? DeleteTime { get; set; }
     }
 }

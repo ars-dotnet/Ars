@@ -37,24 +37,23 @@ namespace MyApiWithIdentityServer4.Controllers
 
         [HttpPost(nameof(Action))]
         [Authorize]
-        public async Task Action() 
+        public async Task Action()
         {
-            var a = await myDbContext.Students.FirstOrDefaultAsync(r => r.ID == 1);
-            if (a == null) 
+            Guid id = Guid.NewGuid();
+
+            await myDbContext.Students.AddAsync(new Model.Student
             {
-                await myDbContext.Students.AddAsync(new Model.Student 
+                Id = id,
+                EnrollmentDate = DateTime.Now,
+                FirstMidName = "Boo",
+                LastName = "Yang",
+                Enrollments = new[]
                 {
-                    ID = 1,
-                    EnrollmentDate = DateTime.Now,
-                    FirstMidName = "Boo",
-                    LastName = "Yang",
-                    Enrollments = new[] 
-                    {
                         new Model.Enrollment
                         {
                             EnrollmentID = 1,
                             CourseID = 1,
-                            StudentID = 1,
+                            StudentID = id,
                             Grade = Model.Grade.A,
                             Course = new Model.Course
                             {
@@ -65,15 +64,15 @@ namespace MyApiWithIdentityServer4.Controllers
                             }
                         }
                     }
-                });
+            });
 
-                await myDbContext.SaveChangesAsync();
-            }
+            await myDbContext.SaveChangesAsync();
+
         }
 
         [HttpGet(nameof(Query))]
         [Authorize]
-        public async Task<IActionResult> Query() 
+        public async Task<IActionResult> Query()
         {
             var m = await myDbContext.Students.ToListAsync();
             var n = await myDbContext.Students.Include(r => r.Enrollments).ToListAsync();
@@ -82,6 +81,40 @@ namespace MyApiWithIdentityServer4.Controllers
             var a = m.First().Enrollments;
 
             return Ok();
+        }
+
+        [Authorize]
+        [HttpPost(nameof(Add))]
+        public async Task Add() 
+        {
+            await myDbContext.Students.AddAsync(new Model.Student
+            {
+                LastName = "bo",
+                FirstMidName = "Yang",
+                EnrollmentDate = DateTime.UtcNow,
+            });
+
+            await myDbContext.SaveChangesAsync();
+        }
+
+        [Authorize]
+        [HttpPost(nameof(Modify))]
+        public async Task Modify()
+        {
+            var info = await myDbContext.Students.FirstOrDefaultAsync();
+            info.LastName = "boo";
+
+            await myDbContext.SaveChangesAsync();
+        }
+
+        [Authorize]
+        [HttpPost(nameof(Delete))]
+        public async Task Delete()
+        {
+            var info = await myDbContext.Students.FirstOrDefaultAsync();
+            myDbContext.Students.Remove(info);
+
+            await myDbContext.SaveChangesAsync();
         }
     }
 }

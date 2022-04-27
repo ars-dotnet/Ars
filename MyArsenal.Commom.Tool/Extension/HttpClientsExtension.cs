@@ -8,7 +8,7 @@ using System.Text;
 
 namespace MyArsenal.Commom.Tool.ServiceExtension
 {
-    public static class HttpClientsExt
+    public static class HttpClientsExtension
     {
         public static void AddHcdHttpClient(this IServiceCollection services)
         {
