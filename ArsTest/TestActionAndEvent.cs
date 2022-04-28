@@ -8,23 +8,22 @@ using Xunit;
 namespace ArsTest
 {
     public delegate void Smoke(int a);
-    public class TestEvent 
+    public class TestEvent
     {
         public event Smoke @event;
         public Smoke smoke;
         [Fact]
-        public void testEvent() 
+        public void testEvent()
         {
-            Atest atest = new (this);
+            Atest atest = new(this);
             atest.Add();
             @event?.Invoke(123);
             atest.Action();
             smoke.Invoke(1234);
-            Console.ReadLine();
         }
     }
 
-    public class Atest 
+    public class Atest
     {
         private readonly TestEvent testEvent;
         private Smoke smoke;
@@ -33,9 +32,13 @@ namespace ArsTest
             this.testEvent = @event;
         }
 
-        internal void Add() 
+        internal void Add()
         {
-            testEvent.@event += SmokeA;
+            foreach (var i in new[] { 0,1,2,3,4,5 })
+            {
+                testEvent.@event += _ => SmokeA(i);
+            }
+            
             smoke = new Smoke(SmokeA);
             smoke = null;
             smoke += SmokeB;
@@ -44,12 +47,12 @@ namespace ArsTest
             testEvent.smoke += SmokeB;
         }
 
-        internal void Action() 
+        internal void Action()
         {
             smoke(123);
         }
 
-        private void SmokeA(int  a) 
+        private void SmokeA(int a)
         {
             Console.WriteLine("SmokeA" + a);
         }

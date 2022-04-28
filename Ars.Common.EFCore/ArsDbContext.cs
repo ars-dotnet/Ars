@@ -120,6 +120,28 @@ namespace Ars.Common.EFCore
             return queryFilter;
         }
 
+        public override int SaveChanges()
+        {
+            try
+            {
+                foreach (var entry in ChangeTracker.Entries())
+                {
+                    if (entry.State != EntityState.Modified && CheckOwnedEntityChange(entry))
+                    {
+                        entry.State = EntityState.Modified;
+                    }
+
+                    ConceptEntry(entry);
+                }
+
+                return base.SaveChanges();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                throw;
+            }
+        }
+
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
             try
