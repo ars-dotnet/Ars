@@ -6,7 +6,7 @@ namespace MyApiWithIdentityServer4.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class WeatherForecastController : ControllerBase
+    public class WeatherForecastController : MyControllerBase
     {
         private static readonly string[] Summaries = new[]
         {
@@ -14,12 +14,12 @@ namespace MyApiWithIdentityServer4.Controllers
     };
 
         private readonly ILogger<WeatherForecastController> _logger;
-        private readonly MyDbContext myDbContext;
+        //private readonly MyDbContext myDbContext;
 
         public WeatherForecastController(ILogger<WeatherForecastController> logger, MyDbContext myDbContext)
         {
             _logger = logger;
-            this.myDbContext = myDbContext;
+            //this.myDbContext = myDbContext;
         }
 
         [HttpGet(Name = "GetWeatherForecast")]
@@ -71,9 +71,12 @@ namespace MyApiWithIdentityServer4.Controllers
         }
 
         [HttpGet(nameof(Query))]
-        [Authorize]
+        //[Authorize]
         public async Task<IActionResult> Query()
         {
+            var ccc = testService;
+            await ccc.Test();
+
             var m = await myDbContext.Students.ToListAsync();
             var n = await myDbContext.Students.Include(r => r.Enrollments).ToListAsync();
             var o = await myDbContext.Students.Include(r => r.Enrollments).ThenInclude(r => r.Course).ToListAsync();

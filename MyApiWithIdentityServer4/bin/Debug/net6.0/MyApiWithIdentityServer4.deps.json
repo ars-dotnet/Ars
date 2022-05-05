@@ -8,8 +8,8 @@
     ".NETCoreApp,Version=v6.0": {
       "MyApiWithIdentityServer4/1.0.0": {
         "dependencies": {
-          "Ars.Commom.Host": "1.0.0",
           "Ars.Common.EFCore": "1.0.0",
+          "Ars.Common.Host": "1.0.0",
           "Ars.Common.IdentityServer4": "1.0.0",
           "CSRedisCore": "3.6.3",
           "Microsoft.EntityFrameworkCore.Design": "6.0.0",
@@ -1364,31 +1364,6 @@
           "System.Xml.ReaderWriter": "4.3.0"
         }
       },
-      "Ars.Commom.Host/1.0.0": {
-        "dependencies": {
-          "Ars.Commom.Tool": "1.0.0",
-          "Ars.Common.AutoFac": "1.0.0",
-          "Ars.Common.Core": "1.0.0",
-          "Autofac": "6.3.0",
-          "Autofac.Extensions.DependencyInjection": "7.2.0"
-        },
-        "runtime": {
-          "Ars.Commom.Host.dll": {}
-        }
-      },
-      "Ars.Commom.Tool/1.0.0": {
-        "dependencies": {
-          "MessagePack": "2.3.85",
-          "Microsoft.Extensions.Configuration.Abstractions": "6.0.0",
-          "Microsoft.Extensions.DependencyInjection": "6.0.0",
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0",
-          "Microsoft.Extensions.Http": "6.0.0",
-          "Microsoft.Extensions.Options": "6.0.0"
-        },
-        "runtime": {
-          "Ars.Commom.Tool.dll": {}
-        }
-      },
       "Ars.Common.AutoFac/1.0.0": {
         "dependencies": {
           "Ars.Common.Core": "1.0.0",
@@ -1402,7 +1377,7 @@
       },
       "Ars.Common.Core/1.0.0": {
         "dependencies": {
-          "Ars.Commom.Tool": "1.0.0"
+          "Ars.Common.Tool": "1.0.0"
         },
         "runtime": {
           "Ars.Common.Core.dll": {}
@@ -1419,15 +1394,40 @@
           "Ars.Common.EFCore.dll": {}
         }
       },
+      "Ars.Common.Host/1.0.0": {
+        "dependencies": {
+          "Ars.Common.AutoFac": "1.0.0",
+          "Ars.Common.Core": "1.0.0",
+          "Ars.Common.Tool": "1.0.0",
+          "Autofac": "6.3.0",
+          "Autofac.Extensions.DependencyInjection": "7.2.0"
+        },
+        "runtime": {
+          "Ars.Common.Host.dll": {}
+        }
+      },
       "Ars.Common.IdentityServer4/1.0.0": {
         "dependencies": {
-          "Ars.Commom.Tool": "1.0.0",
           "Ars.Common.Core": "1.0.0",
+          "Ars.Common.Tool": "1.0.0",
           "IdentityServer4": "4.1.2",
           "IdentityServer4.AccessTokenValidation": "3.0.1"
         },
         "runtime": {
           "Ars.Common.IdentityServer4.dll": {}
+        }
+      },
+      "Ars.Common.Tool/1.0.0": {
+        "dependencies": {
+          "MessagePack": "2.3.85",
+          "Microsoft.Extensions.Configuration.Abstractions": "6.0.0",
+          "Microsoft.Extensions.DependencyInjection": "6.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0",
+          "Microsoft.Extensions.Http": "6.0.0",
+          "Microsoft.Extensions.Options": "6.0.0"
+        },
+        "runtime": {
+          "Ars.Common.Tool.dll": {}
         }
       }
     }
@@ -2509,16 +2509,6 @@
       "path": "system.xml.xmldocument/4.3.0",
       "hashPath": "system.xml.xmldocument.4.3.0.nupkg.sha512"
     },
-    "Ars.Commom.Host/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Ars.Commom.Tool/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
     "Ars.Common.AutoFac/1.0.0": {
       "type": "project",
       "serviceable": false,
@@ -2534,7 +2524,17 @@
       "serviceable": false,
       "sha512": ""
     },
+    "Ars.Common.Host/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
     "Ars.Common.IdentityServer4/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Ars.Common.Tool/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

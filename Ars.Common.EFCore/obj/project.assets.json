@@ -2050,24 +2050,6 @@
           "lib/netstandard1.3/System.Xml.XmlDocument.dll": {}
         }
       },
-      "Ars.Commom.Tool/1.0.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v2.0",
-        "dependencies": {
-          "MessagePack": "2.3.85",
-          "Microsoft.Extensions.Configuration.Abstractions": "6.0.0",
-          "Microsoft.Extensions.DependencyInjection": "6.0.0",
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0",
-          "Microsoft.Extensions.Http": "6.0.0",
-          "Microsoft.Extensions.Options": "6.0.0"
-        },
-        "compile": {
-          "bin/placeholder/Ars.Commom.Tool.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Ars.Commom.Tool.dll": {}
-        }
-      },
       "Ars.Common.AutoFac/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -2091,7 +2073,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Ars.Commom.Tool": "1.0.0"
+          "Ars.Common.Tool": "1.0.0"
         },
         "compile": {
           "bin/placeholder/Ars.Common.Core.dll": {}
@@ -2102,6 +2084,24 @@
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
         ]
+      },
+      "Ars.Common.Tool/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "MessagePack": "2.3.85",
+          "Microsoft.Extensions.Configuration.Abstractions": "6.0.0",
+          "Microsoft.Extensions.DependencyInjection": "6.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0",
+          "Microsoft.Extensions.Http": "6.0.0",
+          "Microsoft.Extensions.Options": "6.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Ars.Common.Tool.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Ars.Common.Tool.dll": {}
+        }
       }
     }
   },
@@ -6776,11 +6776,6 @@
         "system.xml.xmldocument.nuspec"
       ]
     },
-    "Ars.Commom.Tool/1.0.0": {
-      "type": "project",
-      "path": "../MyArsenal.Commom.Tool/Ars.Commom.Tool.csproj",
-      "msbuildProject": "../MyArsenal.Commom.Tool/Ars.Commom.Tool.csproj"
-    },
     "Ars.Common.AutoFac/1.0.0": {
       "type": "project",
       "path": "../Ars.Common.AutoFac/Ars.Common.AutoFac.csproj",
@@ -6790,6 +6785,11 @@
       "type": "project",
       "path": "../Ars.Common.Core/Ars.Common.Core.csproj",
       "msbuildProject": "../Ars.Common.Core/Ars.Common.Core.csproj"
+    },
+    "Ars.Common.Tool/1.0.0": {
+      "type": "project",
+      "path": "../MyArsenal.Commom.Tool/Ars.Common.Tool.csproj",
+      "msbuildProject": "../MyArsenal.Commom.Tool/Ars.Common.Tool.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -6801,8 +6801,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\cd-dev-host-3\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Admin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
@@ -6810,15 +6809,11 @@
       "projectUniqueName": "D:\\core\\MyArs\\Ars.Common.EFCore\\Ars.Common.EFCore.csproj",
       "projectName": "Ars.Common.EFCore",
       "projectPath": "D:\\core\\MyArs\\Ars.Common.EFCore\\Ars.Common.EFCore.csproj",
-      "packagesPath": "C:\\Users\\cd-dev-host-3\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
       "outputPath": "D:\\core\\MyArs\\Ars.Common.EFCore\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\cd-dev-host-3\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6826,7 +6821,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "http://gitlab.geekbuy.cn:8082/nuget": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

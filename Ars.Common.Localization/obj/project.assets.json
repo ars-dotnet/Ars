@@ -1104,44 +1104,6 @@
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
       },
-      "Ars.Commom.Host/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "Ars.Commom.Tool": "1.0.0",
-          "Ars.Common.AutoFac": "1.0.0",
-          "Ars.Common.Core": "1.0.0",
-          "Autofac": "6.3.0",
-          "Autofac.Extensions.DependencyInjection": "7.2.0"
-        },
-        "compile": {
-          "bin/placeholder/Ars.Commom.Host.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Ars.Commom.Host.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.AspNetCore.App"
-        ]
-      },
-      "Ars.Commom.Tool/1.0.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v2.0",
-        "dependencies": {
-          "MessagePack": "2.3.85",
-          "Microsoft.Extensions.Configuration.Abstractions": "6.0.0",
-          "Microsoft.Extensions.DependencyInjection": "6.0.0",
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0",
-          "Microsoft.Extensions.Http": "6.0.0",
-          "Microsoft.Extensions.Options": "6.0.0"
-        },
-        "compile": {
-          "bin/placeholder/Ars.Commom.Tool.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Ars.Commom.Tool.dll": {}
-        }
-      },
       "Ars.Common.AutoFac/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -1165,7 +1127,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Ars.Commom.Tool": "1.0.0"
+          "Ars.Common.Tool": "1.0.0"
         },
         "compile": {
           "bin/placeholder/Ars.Common.Core.dll": {}
@@ -1176,6 +1138,44 @@
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
         ]
+      },
+      "Ars.Common.Host/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Ars.Common.AutoFac": "1.0.0",
+          "Ars.Common.Core": "1.0.0",
+          "Ars.Common.Tool": "1.0.0",
+          "Autofac": "6.3.0",
+          "Autofac.Extensions.DependencyInjection": "7.2.0"
+        },
+        "compile": {
+          "bin/placeholder/Ars.Common.Host.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Ars.Common.Host.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
+      "Ars.Common.Tool/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "MessagePack": "2.3.85",
+          "Microsoft.Extensions.Configuration.Abstractions": "6.0.0",
+          "Microsoft.Extensions.DependencyInjection": "6.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0",
+          "Microsoft.Extensions.Http": "6.0.0",
+          "Microsoft.Extensions.Options": "6.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Ars.Common.Tool.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Ars.Common.Tool.dll": {}
+        }
       }
     }
   },
@@ -4107,16 +4107,6 @@
         "system.xml.xdocument.nuspec"
       ]
     },
-    "Ars.Commom.Host/1.0.0": {
-      "type": "project",
-      "path": "../Ars.Commom.Host/Ars.Commom.Host.csproj",
-      "msbuildProject": "../Ars.Commom.Host/Ars.Commom.Host.csproj"
-    },
-    "Ars.Commom.Tool/1.0.0": {
-      "type": "project",
-      "path": "../MyArsenal.Commom.Tool/Ars.Commom.Tool.csproj",
-      "msbuildProject": "../MyArsenal.Commom.Tool/Ars.Commom.Tool.csproj"
-    },
     "Ars.Common.AutoFac/1.0.0": {
       "type": "project",
       "path": "../Ars.Common.AutoFac/Ars.Common.AutoFac.csproj",
@@ -4126,16 +4116,25 @@
       "type": "project",
       "path": "../Ars.Common.Core/Ars.Common.Core.csproj",
       "msbuildProject": "../Ars.Common.Core/Ars.Common.Core.csproj"
+    },
+    "Ars.Common.Host/1.0.0": {
+      "type": "project",
+      "path": "../Ars.Commom.Host/Ars.Common.Host.csproj",
+      "msbuildProject": "../Ars.Commom.Host/Ars.Common.Host.csproj"
+    },
+    "Ars.Common.Tool/1.0.0": {
+      "type": "project",
+      "path": "../MyArsenal.Commom.Tool/Ars.Common.Tool.csproj",
+      "msbuildProject": "../MyArsenal.Commom.Tool/Ars.Common.Tool.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "Ars.Commom.Host >= 1.0.0"
+      "Ars.Common.Host >= 1.0.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\cd-dev-host-3\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Admin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
@@ -4143,15 +4142,11 @@
       "projectUniqueName": "D:\\core\\MyArs\\Ars.Common.Localization\\Ars.Common.Localization.csproj",
       "projectName": "Ars.Common.Localization",
       "projectPath": "D:\\core\\MyArs\\Ars.Common.Localization\\Ars.Common.Localization.csproj",
-      "packagesPath": "C:\\Users\\cd-dev-host-3\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
       "outputPath": "D:\\core\\MyArs\\Ars.Common.Localization\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\cd-dev-host-3\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4159,15 +4154,14 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "http://gitlab.geekbuy.cn:8082/nuget": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\core\\MyArs\\Ars.Commom.Host\\Ars.Commom.Host.csproj": {
-              "projectPath": "D:\\core\\MyArs\\Ars.Commom.Host\\Ars.Commom.Host.csproj"
+            "D:\\core\\MyArs\\Ars.Commom.Host\\Ars.Common.Host.csproj": {
+              "projectPath": "D:\\core\\MyArs\\Ars.Commom.Host\\Ars.Common.Host.csproj"
             }
           }
         }

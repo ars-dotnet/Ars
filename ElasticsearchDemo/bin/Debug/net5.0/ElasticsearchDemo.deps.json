@@ -530,7 +530,7 @@
           "lib/netcoreapp3.1/System.Runtime.CompilerServices.Unsafe.dll": {}
         }
       },
-      "Ars.Commom.Tool/1.0.0": {
+      "Ars.Common.Tool/1.0.0": {
         "dependencies": {
           "MessagePack": "2.3.85",
           "Microsoft.Extensions.Configuration.Abstractions": "6.0.0",
@@ -540,15 +540,15 @@
           "Microsoft.Extensions.Options": "6.0.0"
         },
         "runtime": {
-          "Ars.Commom.Tool.dll": {}
+          "Ars.Common.Tool.dll": {}
         },
         "compile": {
-          "Ars.Commom.Tool.dll": {}
+          "Ars.Common.Tool.dll": {}
         }
       },
       "ElasticsearchUtil/1.0.0": {
         "dependencies": {
-          "Ars.Commom.Tool": "1.0.0",
+          "Ars.Common.Tool": "1.0.0",
           "JetBrains.Annotations": "2021.3.0",
           "Microsoft.Extensions.Configuration.Abstractions": "6.0.0",
           "Microsoft.Extensions.DependencyInjection": "6.0.0",
@@ -2342,7 +2342,7 @@
       "path": "system.runtime.compilerservices.unsafe/6.0.0",
       "hashPath": "system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
     },
-    "Ars.Commom.Tool/1.0.0": {
+    "Ars.Common.Tool/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

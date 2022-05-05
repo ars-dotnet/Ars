@@ -1418,7 +1418,7 @@
           "build/netcoreapp2.1/xunit.runner.visualstudio.props": {}
         }
       },
-      "Ars.Commom.Tool/1.0.0": {
+      "Ars.Common.Tool/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
@@ -1430,10 +1430,10 @@
           "Microsoft.Extensions.Options": "6.0.0"
         },
         "compile": {
-          "bin/placeholder/Ars.Commom.Tool.dll": {}
+          "bin/placeholder/Ars.Common.Tool.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Ars.Commom.Tool.dll": {}
+          "bin/placeholder/Ars.Common.Tool.dll": {}
         }
       }
     }
@@ -5164,23 +5164,22 @@
         "xunit.runner.visualstudio.nuspec"
       ]
     },
-    "Ars.Commom.Tool/1.0.0": {
+    "Ars.Common.Tool/1.0.0": {
       "type": "project",
-      "path": "../MyArsenal.Commom.Tool/Ars.Commom.Tool.csproj",
-      "msbuildProject": "../MyArsenal.Commom.Tool/Ars.Commom.Tool.csproj"
+      "path": "../MyArsenal.Commom.Tool/Ars.Common.Tool.csproj",
+      "msbuildProject": "../MyArsenal.Commom.Tool/Ars.Common.Tool.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "Ars.Commom.Tool >= 1.0.0",
+      "Ars.Common.Tool >= 1.0.0",
       "coverlet.collector >= 3.1.0",
       "xunit >= 2.4.1",
       "xunit.runner.visualstudio >= 2.4.3"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\cd-dev-host-3\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Admin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
@@ -5188,15 +5187,11 @@
       "projectUniqueName": "D:\\core\\MyArs\\Ars.Common.Test\\Ars.Common.Test.csproj",
       "projectName": "Ars.Common.Test",
       "projectPath": "D:\\core\\MyArs\\Ars.Common.Test\\Ars.Common.Test.csproj",
-      "packagesPath": "C:\\Users\\cd-dev-host-3\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
       "outputPath": "D:\\core\\MyArs\\Ars.Common.Test\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\cd-dev-host-3\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5204,15 +5199,14 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "http://gitlab.geekbuy.cn:8082/nuget": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\core\\MyArs\\MyArsenal.Commom.Tool\\Ars.Commom.Tool.csproj": {
-              "projectPath": "D:\\core\\MyArs\\MyArsenal.Commom.Tool\\Ars.Commom.Tool.csproj"
+            "D:\\core\\MyArs\\MyArsenal.Commom.Tool\\Ars.Common.Tool.csproj": {
+              "projectPath": "D:\\core\\MyArs\\MyArsenal.Commom.Tool\\Ars.Common.Tool.csproj"
             }
           }
         }

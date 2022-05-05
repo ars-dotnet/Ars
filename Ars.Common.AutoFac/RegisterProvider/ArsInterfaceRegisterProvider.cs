@@ -34,7 +34,7 @@ namespace Ars.Common.AutoFac.Dependency
                             }
                         }
 
-                        builder.RegisterType(r).AsSelf().InstancePerDependency();//.PropertiesAutowired(new AutowiredPropertySelector());
+                        //builder.RegisterType(r).AsSelf().InstancePerDependency();//.PropertiesAutowired(new AutowiredPropertySelector());
                     }
                     else if (typeof(ISingletonDependency).IsAssignableFrom(r))
                     {

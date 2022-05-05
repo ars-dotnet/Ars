@@ -376,7 +376,23 @@
           "lib/netstandard2.1/System.Text.Encodings.Web.dll": {}
         }
       },
-      "Ars.Commom.Tool/1.0.0": {
+      "Ars.Common.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Ars.Common.Tool": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Ars.Common.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Ars.Common.Core.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
+      "Ars.Common.Tool/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
@@ -388,27 +404,11 @@
           "Microsoft.Extensions.Options": "6.0.0"
         },
         "compile": {
-          "bin/placeholder/Ars.Commom.Tool.dll": {}
+          "bin/placeholder/Ars.Common.Tool.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Ars.Commom.Tool.dll": {}
+          "bin/placeholder/Ars.Common.Tool.dll": {}
         }
-      },
-      "Ars.Common.Core/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "Ars.Commom.Tool": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/Ars.Common.Core.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Ars.Common.Core.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.AspNetCore.App"
-        ]
       }
     }
   },
@@ -1052,28 +1052,27 @@
         "version.txt"
       ]
     },
-    "Ars.Commom.Tool/1.0.0": {
-      "type": "project",
-      "path": "../MyArsenal.Commom.Tool/Ars.Commom.Tool.csproj",
-      "msbuildProject": "../MyArsenal.Commom.Tool/Ars.Commom.Tool.csproj"
-    },
     "Ars.Common.Core/1.0.0": {
       "type": "project",
       "path": "../Ars.Common.Core/Ars.Common.Core.csproj",
       "msbuildProject": "../Ars.Common.Core/Ars.Common.Core.csproj"
+    },
+    "Ars.Common.Tool/1.0.0": {
+      "type": "project",
+      "path": "../MyArsenal.Commom.Tool/Ars.Common.Tool.csproj",
+      "msbuildProject": "../MyArsenal.Commom.Tool/Ars.Common.Tool.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "Ars.Commom.Tool >= 1.0.0",
       "Ars.Common.Core >= 1.0.0",
+      "Ars.Common.Tool >= 1.0.0",
       "IdentityServer4 >= 4.1.2",
       "IdentityServer4.AccessTokenValidation >= 3.0.1"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\cd-dev-host-3\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Admin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
@@ -1081,15 +1080,11 @@
       "projectUniqueName": "D:\\core\\MyArs\\Ars.Common.IdentityServer4\\Ars.Common.IdentityServer4.csproj",
       "projectName": "Ars.Common.IdentityServer4",
       "projectPath": "D:\\core\\MyArs\\Ars.Common.IdentityServer4\\Ars.Common.IdentityServer4.csproj",
-      "packagesPath": "C:\\Users\\cd-dev-host-3\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
       "outputPath": "D:\\core\\MyArs\\Ars.Common.IdentityServer4\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\cd-dev-host-3\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1097,7 +1092,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "http://gitlab.geekbuy.cn:8082/nuget": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -1107,8 +1101,8 @@
             "D:\\core\\MyArs\\Ars.Common.Core\\Ars.Common.Core.csproj": {
               "projectPath": "D:\\core\\MyArs\\Ars.Common.Core\\Ars.Common.Core.csproj"
             },
-            "D:\\core\\MyArs\\MyArsenal.Commom.Tool\\Ars.Commom.Tool.csproj": {
-              "projectPath": "D:\\core\\MyArs\\MyArsenal.Commom.Tool\\Ars.Commom.Tool.csproj"
+            "D:\\core\\MyArs\\MyArsenal.Commom.Tool\\Ars.Common.Tool.csproj": {
+              "projectPath": "D:\\core\\MyArs\\MyArsenal.Commom.Tool\\Ars.Common.Tool.csproj"
             }
           }
         }

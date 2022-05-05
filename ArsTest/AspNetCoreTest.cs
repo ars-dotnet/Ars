@@ -3,6 +3,7 @@ using IdentityModel.Client;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json.Linq;
 using System;
@@ -37,6 +38,11 @@ namespace ArsTest
                 .ConfigureServices((builder, service) =>
                 {
                     services = service;
+                    service.AddLogging();
+                }).
+                ConfigureLogging((hostingContext, logging) => 
+                {
+                    logging.AddDebug();
                 })
                 .Build();
         }
@@ -81,10 +87,14 @@ namespace ArsTest
         [Fact]
         public void TestOverride() 
         {
+            var factory = services.BuildServiceProvider().GetRequiredService<ILoggerFactory>();
+            var logger = factory.CreateLogger<AspNetCoreTest>();
             A a = new AAA();
             a.Get();
             a = new AA();
             a.Get();
+
+            logger.LogDebug("my-test");
         }
 
         [Fact]

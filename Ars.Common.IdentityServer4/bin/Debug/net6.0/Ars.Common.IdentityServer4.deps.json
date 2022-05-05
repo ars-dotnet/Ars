@@ -8,8 +8,8 @@
     ".NETCoreApp,Version=v6.0": {
       "Ars.Common.IdentityServer4/1.0.0": {
         "dependencies": {
-          "Ars.Commom.Tool": "1.0.0",
           "Ars.Common.Core": "1.0.0",
+          "Ars.Common.Tool": "1.0.0",
           "IdentityServer4": "4.1.2",
           "IdentityServer4.AccessTokenValidation": "3.0.1"
         },
@@ -247,7 +247,15 @@
       "System.Runtime.CompilerServices.Unsafe/6.0.0": {},
       "System.Security.Cryptography.Cng/4.5.0": {},
       "System.Text.Encodings.Web/4.7.0": {},
-      "Ars.Commom.Tool/1.0.0": {
+      "Ars.Common.Core/1.0.0": {
+        "dependencies": {
+          "Ars.Common.Tool": "1.0.0"
+        },
+        "runtime": {
+          "Ars.Common.Core.dll": {}
+        }
+      },
+      "Ars.Common.Tool/1.0.0": {
         "dependencies": {
           "MessagePack": "2.3.85",
           "Microsoft.Extensions.Configuration.Abstractions": "6.0.0",
@@ -257,15 +265,7 @@
           "Microsoft.Extensions.Options": "6.0.0"
         },
         "runtime": {
-          "Ars.Commom.Tool.dll": {}
-        }
-      },
-      "Ars.Common.Core/1.0.0": {
-        "dependencies": {
-          "Ars.Commom.Tool": "1.0.0"
-        },
-        "runtime": {
-          "Ars.Common.Core.dll": {}
+          "Ars.Common.Tool.dll": {}
         }
       }
     }
@@ -472,12 +472,12 @@
       "path": "system.text.encodings.web/4.7.0",
       "hashPath": "system.text.encodings.web.4.7.0.nupkg.sha512"
     },
-    "Ars.Commom.Tool/1.0.0": {
+    "Ars.Common.Core/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "Ars.Common.Core/1.0.0": {
+    "Ars.Common.Tool/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

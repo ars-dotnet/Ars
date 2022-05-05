@@ -1707,7 +1707,7 @@
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
       },
-      "Ars.Commom.Tool/1.0.0": {
+      "Ars.Common.Tool/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
@@ -1719,10 +1719,10 @@
           "Microsoft.Extensions.Options": "6.0.0"
         },
         "compile": {
-          "bin/placeholder/Ars.Commom.Tool.dll": {}
+          "bin/placeholder/Ars.Common.Tool.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Ars.Commom.Tool.dll": {}
+          "bin/placeholder/Ars.Common.Tool.dll": {}
         }
       }
     }
@@ -5892,15 +5892,15 @@
         "system.xml.xdocument.nuspec"
       ]
     },
-    "Ars.Commom.Tool/1.0.0": {
+    "Ars.Common.Tool/1.0.0": {
       "type": "project",
-      "path": "../MyArsenal.Commom.Tool/Ars.Commom.Tool.csproj",
-      "msbuildProject": "../MyArsenal.Commom.Tool/Ars.Commom.Tool.csproj"
+      "path": "../MyArsenal.Commom.Tool/Ars.Common.Tool.csproj",
+      "msbuildProject": "../MyArsenal.Commom.Tool/Ars.Common.Tool.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "Ars.Commom.Tool >= 1.0.0",
+      "Ars.Common.Tool >= 1.0.0",
       "MailKit >= 3.1.0",
       "Microsoft.CodeAnalysis.Workspaces.Common >= 4.0.1",
       "Microsoft.Extensions.Configuration.Abstractions >= 6.0.0",
@@ -5908,24 +5908,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\cd-dev-host-3\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Admin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\core\\MyArs\\Ars.Commom.Email\\Ars.Commom.Email.csproj",
-      "projectName": "Ars.Commom.Email",
-      "projectPath": "D:\\core\\MyArs\\Ars.Commom.Email\\Ars.Commom.Email.csproj",
-      "packagesPath": "C:\\Users\\cd-dev-host-3\\.nuget\\packages\\",
+      "projectUniqueName": "D:\\core\\MyArs\\Ars.Commom.Email\\Ars.Common.Email.csproj",
+      "projectName": "Ars.Common.Email",
+      "projectPath": "D:\\core\\MyArs\\Ars.Commom.Email\\Ars.Common.Email.csproj",
+      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
       "outputPath": "D:\\core\\MyArs\\Ars.Commom.Email\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\cd-dev-host-3\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5933,15 +5928,14 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "http://gitlab.geekbuy.cn:8082/nuget": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\core\\MyArs\\MyArsenal.Commom.Tool\\Ars.Commom.Tool.csproj": {
-              "projectPath": "D:\\core\\MyArs\\MyArsenal.Commom.Tool\\Ars.Commom.Tool.csproj"
+            "D:\\core\\MyArs\\MyArsenal.Commom.Tool\\Ars.Common.Tool.csproj": {
+              "projectPath": "D:\\core\\MyArs\\MyArsenal.Commom.Tool\\Ars.Common.Tool.csproj"
             }
           }
         }

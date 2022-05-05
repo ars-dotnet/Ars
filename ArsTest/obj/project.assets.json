@@ -1230,6 +1230,29 @@
           }
         }
       },
+      "Serilog/2.10.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.1/Serilog.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/Serilog.dll": {}
+        }
+      },
+      "Serilog.Sinks.XUnit/3.0.3": {
+        "type": "package",
+        "dependencies": {
+          "Serilog": "2.10.0",
+          "xunit.abstractions": "2.0.3",
+          "xunit.core": "2.4.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/Serilog.Sinks.XUnit.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Serilog.Sinks.XUnit.dll": {}
+        }
+      },
       "System.AppContext/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -2554,24 +2577,24 @@
           "build/netcoreapp2.1/xunit.runner.visualstudio.props": {}
         }
       },
-      "Ars.Commom.Email/1.0.0": {
+      "Ars.Common.Email/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Ars.Commom.Tool": "1.0.0",
+          "Ars.Common.Tool": "1.0.0",
           "MailKit": "3.1.0",
           "Microsoft.CodeAnalysis.Workspaces.Common": "4.0.1",
           "Microsoft.Extensions.Configuration.Abstractions": "6.0.0",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0"
         },
         "compile": {
-          "bin/placeholder/Ars.Commom.Email.dll": {}
+          "bin/placeholder/Ars.Common.Email.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Ars.Commom.Email.dll": {}
+          "bin/placeholder/Ars.Common.Email.dll": {}
         }
       },
-      "Ars.Commom.Tool/1.0.0": {
+      "Ars.Common.Tool/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
@@ -2583,10 +2606,10 @@
           "Microsoft.Extensions.Options": "6.0.0"
         },
         "compile": {
-          "bin/placeholder/Ars.Commom.Tool.dll": {}
+          "bin/placeholder/Ars.Common.Tool.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Ars.Commom.Tool.dll": {}
+          "bin/placeholder/Ars.Common.Tool.dll": {}
         }
       }
     }
@@ -4623,6 +4646,45 @@
         "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
         "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.nuspec",
         "runtimes/ubuntu.16.10-x64/native/System.Security.Cryptography.Native.OpenSsl.so"
+      ]
+    },
+    "Serilog/2.10.0": {
+      "sha512": "+QX0hmf37a0/OZLxM3wL7V6/ADvC1XihXN4Kq/p6d8lCPfgkRdiuhbWlMaFjR9Av0dy5F0+MBeDmDdRZN/YwQA==",
+      "type": "package",
+      "path": "serilog/2.10.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "icon.png",
+        "lib/net45/Serilog.dll",
+        "lib/net45/Serilog.xml",
+        "lib/net46/Serilog.dll",
+        "lib/net46/Serilog.xml",
+        "lib/netstandard1.0/Serilog.dll",
+        "lib/netstandard1.0/Serilog.xml",
+        "lib/netstandard1.3/Serilog.dll",
+        "lib/netstandard1.3/Serilog.xml",
+        "lib/netstandard2.0/Serilog.dll",
+        "lib/netstandard2.0/Serilog.xml",
+        "lib/netstandard2.1/Serilog.dll",
+        "lib/netstandard2.1/Serilog.xml",
+        "serilog.2.10.0.nupkg.sha512",
+        "serilog.nuspec"
+      ]
+    },
+    "Serilog.Sinks.XUnit/3.0.3": {
+      "sha512": "HUgvrr7BixliThe4oIFjMSFZICkbAT0kQ3cKibG4XqNAMFabbYKEKEDDU233TGj5XL36z40+19uvoWXvxGFM2Q==",
+      "type": "package",
+      "path": "serilog.sinks.xunit/3.0.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net461/Serilog.Sinks.XUnit.dll",
+        "lib/net461/Serilog.Sinks.XUnit.xml",
+        "lib/netstandard2.0/Serilog.Sinks.XUnit.dll",
+        "lib/netstandard2.0/Serilog.Sinks.XUnit.xml",
+        "serilog.sinks.xunit.3.0.3.nupkg.sha512",
+        "serilog.sinks.xunit.nuspec"
       ]
     },
     "System.AppContext/4.3.0": {
@@ -8311,21 +8373,21 @@
         "xunit.runner.visualstudio.nuspec"
       ]
     },
-    "Ars.Commom.Email/1.0.0": {
+    "Ars.Common.Email/1.0.0": {
       "type": "project",
-      "path": "../Ars.Commom.Email/Ars.Commom.Email.csproj",
-      "msbuildProject": "../Ars.Commom.Email/Ars.Commom.Email.csproj"
+      "path": "../Ars.Commom.Email/Ars.Common.Email.csproj",
+      "msbuildProject": "../Ars.Commom.Email/Ars.Common.Email.csproj"
     },
-    "Ars.Commom.Tool/1.0.0": {
+    "Ars.Common.Tool/1.0.0": {
       "type": "project",
-      "path": "../MyArsenal.Commom.Tool/Ars.Commom.Tool.csproj",
-      "msbuildProject": "../MyArsenal.Commom.Tool/Ars.Commom.Tool.csproj"
+      "path": "../MyArsenal.Commom.Tool/Ars.Common.Tool.csproj",
+      "msbuildProject": "../MyArsenal.Commom.Tool/Ars.Common.Tool.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "Ars.Commom.Email >= 1.0.0",
-      "Ars.Commom.Tool >= 1.0.0",
+      "Ars.Common.Email >= 1.0.0",
+      "Ars.Common.Tool >= 1.0.0",
       "AutoMapper >= 11.0.1",
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 11.0.0",
       "IdentityModel >= 6.0.0",
@@ -8333,14 +8395,14 @@
       "Microsoft.Extensions.DependencyInjection.Abstractions >= 6.0.0",
       "Microsoft.Extensions.Hosting >= 6.0.0",
       "Microsoft.NET.Test.Sdk >= 16.11.0",
+      "Serilog.Sinks.XUnit >= 3.0.3",
       "coverlet.collector >= 3.1.0",
       "xunit >= 2.4.1",
       "xunit.runner.visualstudio >= 2.4.3"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\cd-dev-host-3\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Admin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
@@ -8348,15 +8410,11 @@
       "projectUniqueName": "D:\\core\\MyArs\\ArsTest\\ArsTest.csproj",
       "projectName": "ArsTest",
       "projectPath": "D:\\core\\MyArs\\ArsTest\\ArsTest.csproj",
-      "packagesPath": "C:\\Users\\cd-dev-host-3\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
       "outputPath": "D:\\core\\MyArs\\ArsTest\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\cd-dev-host-3\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -8364,18 +8422,17 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "http://gitlab.geekbuy.cn:8082/nuget": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\core\\MyArs\\Ars.Commom.Email\\Ars.Commom.Email.csproj": {
-              "projectPath": "D:\\core\\MyArs\\Ars.Commom.Email\\Ars.Commom.Email.csproj"
+            "D:\\core\\MyArs\\Ars.Commom.Email\\Ars.Common.Email.csproj": {
+              "projectPath": "D:\\core\\MyArs\\Ars.Commom.Email\\Ars.Common.Email.csproj"
             },
-            "D:\\core\\MyArs\\MyArsenal.Commom.Tool\\Ars.Commom.Tool.csproj": {
-              "projectPath": "D:\\core\\MyArs\\MyArsenal.Commom.Tool\\Ars.Commom.Tool.csproj"
+            "D:\\core\\MyArs\\MyArsenal.Commom.Tool\\Ars.Common.Tool.csproj": {
+              "projectPath": "D:\\core\\MyArs\\MyArsenal.Commom.Tool\\Ars.Common.Tool.csproj"
             }
           }
         }
@@ -8418,6 +8475,10 @@
             "target": "Package",
             "version": "[16.11.0, )"
           },
+          "Serilog.Sinks.XUnit": {
+            "target": "Package",
+            "version": "[3.0.3, )"
+          },
           "coverlet.collector": {
             "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
             "suppressParent": "All",
@@ -8446,6 +8507,9 @@
         "assetTargetFallback": true,
         "warn": true,
         "frameworkReferences": {
+          "Microsoft.AspNetCore.App": {
+            "privateAssets": "none"
+          },
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
