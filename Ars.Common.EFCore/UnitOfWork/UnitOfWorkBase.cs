@@ -1,4 +1,6 @@
 ﻿using Ars.Common.EFCore.Options;
+using Ars.Common.Tool;
+using Ars.Common.Tool.Extension;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +11,13 @@ namespace Ars.Common.EFCore.UnitOfWork
 {
     public abstract class UnitOfWorkBase : IUnitOfWork
     {
+        public string Id { get; private set; }
+
+        public IUnitOfWork Outer { get; set; }
+
         public UnitOfWorkOptions Options { get; private set; }
 
         public bool IsDisposed { get; private set; }
-
-        public string Id => throw new NotImplementedException();
 
         public event EventHandler Completed;
 
@@ -21,24 +25,91 @@ namespace Ars.Common.EFCore.UnitOfWork
 
         public event EventHandler Disposed;
 
+        /// <summary>
+        /// Is <see cref="Complete"/> method called before?
+        /// </summary>
+        private bool _isCompleteCalledBefore;
+
+        private Exception _exception;
+
+        private bool _succeed;
+
         public void Begin(UnitOfWorkOptions options)
         {
-            throw new NotImplementedException();
+            Options = options;
+
+            Id = Guid.NewGuid().ToString("N");
+
+            BeginUow();
         }
 
-        public Task CompleteAsync()
+        protected virtual void BeginUow() 
         {
-            throw new NotImplementedException();
+
+        }
+
+        protected abstract Task CompleteUowAsync();
+
+        protected abstract void DisposeUow();
+
+        public async Task CompleteAsync()
+        {
+            PreventMultipleComplete();
+
+            try
+            {
+                await CompleteUowAsync();
+                _succeed = true;
+                CompletedHandler();
+            }
+            catch (Exception ex) 
+            {
+                _exception = ex;
+            }
+        }
+
+        protected virtual void CompletedHandler() 
+        {
+            Completed.InvokeSafely(this);
+        }
+
+        protected virtual void FailedHandler()
+        {
+            Failed.InvokeSafely(this,new ArsUnitOfWorfEventFailedArgs(_exception));
+        }
+
+        protected virtual void DisposedHandler()
+        {
+            Disposed.InvokeSafely(this);
         }
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            if (!_isCompleteCalledBefore || IsDisposed) 
+            {
+                return;
+            }
+
+            IsDisposed = true;
+
+            if (!_succeed)
+                FailedHandler();
+
+            DisposeUow();
+            DisposedHandler();
         }
 
         public Task SaveChangesAsync()
         {
             throw new NotImplementedException();
+        }
+
+        private void PreventMultipleComplete() 
+        {
+            if (_isCompleteCalledBefore)
+                throw new ArsException("Complete is called before!");
+
+            _isCompleteCalledBefore = true;
         }
     }
 }
