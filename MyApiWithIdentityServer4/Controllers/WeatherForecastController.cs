@@ -1,26 +1,36 @@
+using Ars.Common.Core.AspNetCore.OutputDtos;
+using IdentityModel.Client;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using MyApiWithIdentityServer4.Dtos;
+using Newtonsoft.Json;
 
 namespace MyApiWithIdentityServer4.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class WeatherForecastController : MyControllerBase
     {
+        private IHttpClientFactory _httpClientFactory;
+        private readonly ILogger<WeatherForecastController> _logger;
+        //private readonly MyDbContext myDbContext;
+
+        public WeatherForecastController(ILogger<WeatherForecastController> logger,
+            MyDbContext myDbContext,
+            IHttpClientFactory httpClientFactory)
+        {
+            _logger = logger;
+            _httpClientFactory = httpClientFactory; 
+            //this.myDbContext = myDbContext;
+        }
+
         private static readonly string[] Summaries = new[]
         {
         "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
     };
 
-        private readonly ILogger<WeatherForecastController> _logger;
-        //private readonly MyDbContext myDbContext;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger, MyDbContext myDbContext)
-        {
-            _logger = logger;
-            //this.myDbContext = myDbContext;
-        }
 
         [HttpGet(Name = "GetWeatherForecast")]
         [Authorize]
@@ -118,6 +128,59 @@ namespace MyApiWithIdentityServer4.Controllers
             myDbContext.Students.Remove(info);
 
             await myDbContext.SaveChangesAsync();
+        }
+
+        /// <summary>
+        /// µÇÂ¼
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [HttpPost(nameof(Login))]
+        public async Task<ArsOutput<LoginOutput>> Login(LoginInput input) 
+        {
+            using var httpclient = _httpClientFactory.CreateClient("http");
+            var tokenresponse = await httpclient.RequestClientCredentialsTokenAsync(new ClientCredentialsTokenRequest
+            {
+                ClientId = input.client_id,
+                ClientSecret = input.client_secret,
+                Scope = "defaultApi-scope",
+                GrantType = "client_credentials",
+                Address = "http://localhost:5105/connect/token"
+            });
+
+            if (tokenresponse.IsError)
+                return ArsOutput<LoginOutput>.Failed(1, tokenresponse.Error);
+
+            var datas = JsonConvert.DeserializeObject<LoginOutput>(tokenresponse.Json.ToString());
+            return ArsOutput<LoginOutput>.Success(datas);
+        }
+
+        /// <summary>
+        /// Ë¢ÐÂtoken
+        /// </summary>
+        /// <param name="access_token"></param>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [HttpPost(nameof(RefreshToken))]
+        public async Task<ArsOutput<LoginOutput>> RefreshToken(RefreshTokenInput input) 
+        {
+            using var httpclient = _httpClientFactory.CreateClient("http");
+            var tokenresponse = await httpclient.RequestRefreshTokenAsync(new RefreshTokenRequest
+            {
+                ClientId = input.client_id,
+                ClientSecret = input.client_secret,
+                RefreshToken = input.refresh_token,
+                Scope = "defaultApi-scope",
+                GrantType = "refresh_token",
+                Address = "http://localhost:5105/connect/token"
+            });
+
+            if (tokenresponse.IsError)
+                return ArsOutput<LoginOutput>.Failed(1, tokenresponse.Error);
+
+            var datas = JsonConvert.DeserializeObject<LoginOutput>(tokenresponse.Json.ToString());
+            return ArsOutput<LoginOutput>.Success(datas);
         }
     }
 }

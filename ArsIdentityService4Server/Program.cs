@@ -1,5 +1,7 @@
 using Ars.Commom.Host.Extension;
 using Ars.Common.IdentityServer4.Extension;
+using IdentityServer4.Models;
+using static Ars.Common.IdentityServer4.options.ArsIdentityServerOption;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,7 +9,22 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 
 var arsbuilder = builder.Services.AddArserviceCore(builder);
-arsbuilder.AddArsIdentityServer();
+arsbuilder.AddArsIdentityServer(
+    option => 
+    {
+        option.ArsClients = option.ArsClients.Concat(
+            new List<ArsApiClient>
+            {
+                new ArsApiClient 
+                {
+                    AppKey = "admin",
+                    AppSecret = "123456",
+                    AccessTokenLifetime = 99900,
+                    AllowedScopes = new [] { "defaultApi-scope" },
+                    GrantType = GrantTypes.ClientCredentials
+                }
+            });
+    });
 
 
 var app = builder.Build();

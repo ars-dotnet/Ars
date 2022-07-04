@@ -71,7 +71,7 @@ namespace Ars.Common.IdentityServer4.Extension
                 client1.ClientSecrets.Add(new Secret(client.AppSecret.Sha256(), new DateTime?()));
                 client1.AllowedScopes = client.AllowedScopes;
                 client1.AllowedGrantTypes = client.GrantType;
-                client1.AllowOfflineAccess = true;
+                client1.AllowOfflineAccess = client.AllowOfflineAccess;
                 client1.AccessTokenLifetime = client.AccessTokenLifetime;
                 client1.RefreshTokenExpiration = TokenExpiration.Sliding;
                 client1.AbsoluteRefreshTokenLifetime = 0;
