@@ -2,6 +2,7 @@ using Ars.Commom.Host.Extension;
 using Ars.Common.IdentityServer4.Extension;
 using IdentityServer4.Models;
 using static Ars.Common.IdentityServer4.options.ArsIdentityServerOption;
+using static IdentityServer4.IdentityServerConstants;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,7 +21,7 @@ arsbuilder.AddArsIdentityServer(
                     AppKey = "admin",
                     AppSecret = "123456",
                     AccessTokenLifetime = 99900,
-                    AllowedScopes = new [] { "defaultApi-scope" },
+                    AllowedScopes = new [] { "defaultApi-scope",StandardScopes.OfflineAccess },
                     GrantType = GrantTypes.ClientCredentials
                 }
             });
