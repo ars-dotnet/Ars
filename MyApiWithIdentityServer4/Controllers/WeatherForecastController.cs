@@ -3,8 +3,10 @@ using IdentityModel.Client;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Primitives;
 using MyApiWithIdentityServer4.Dtos;
 using Newtonsoft.Json;
+using System.Text;
 
 namespace MyApiWithIdentityServer4.Controllers
 {
@@ -14,15 +16,18 @@ namespace MyApiWithIdentityServer4.Controllers
     {
         private IHttpClientFactory _httpClientFactory;
         private readonly ILogger<WeatherForecastController> _logger;
+        private readonly IHttpContextAccessor _httpContextAccessor;
         //private readonly MyDbContext myDbContext;
 
         public WeatherForecastController(ILogger<WeatherForecastController> logger,
             MyDbContext myDbContext,
-            IHttpClientFactory httpClientFactory)
+            IHttpClientFactory httpClientFactory,
+            IHttpContextAccessor httpContextAccessor)
         {
             _logger = logger;
-            _httpClientFactory = httpClientFactory; 
+            _httpClientFactory = httpClientFactory;
             //this.myDbContext = myDbContext;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         private static readonly string[] Summaries = new[]
@@ -98,7 +103,7 @@ namespace MyApiWithIdentityServer4.Controllers
 
         [Authorize]
         [HttpPost(nameof(Add))]
-        public async Task Add() 
+        public async Task Add()
         {
             await myDbContext.Students.AddAsync(new Model.Student
             {
@@ -137,23 +142,35 @@ namespace MyApiWithIdentityServer4.Controllers
         /// <returns></returns>
         [AllowAnonymous]
         [HttpPost(nameof(Login))]
-        public async Task<ArsOutput<LoginOutput>> Login(LoginInput input) 
+        public async Task<ArsOutput<LoginOutput>> Login()
         {
-            using var httpclient = _httpClientFactory.CreateClient("http");
-            var tokenresponse = await httpclient.RequestClientCredentialsTokenAsync(new ClientCredentialsTokenRequest
+            var a = _httpContextAccessor.HttpContext?.Request.Headers;
+            if (a?.TryGetValue("Authorization", out StringValues value) ?? false)
             {
-                ClientId = input.client_id,
-                ClientSecret = input.client_secret,
-                Scope = "defaultApi-scope",
-                GrantType = "client_credentials",
-                Address = "http://localhost:5105/connect/token"
-            });
+                var m = value.ToString().Split(" ");
+                string[]? cc = Encoding.UTF8.GetString(Convert.FromBase64String(m[1]))?.Split(":");
+                if (cc?.Any() ?? false) 
+                {
+                    using var httpclient = _httpClientFactory.CreateClient("http");
+                    var tokenresponse = await httpclient.RequestClientCredentialsTokenAsync(new ClientCredentialsTokenRequest
+                    {
+                        ClientId = cc[0],
+                        ClientSecret = cc[1],
+                        Scope = "defaultApi-scope",
+                        GrantType = "client_credentials",
+                        Address = "http://localhost:5105/connect/token"
+                    });
 
-            if (tokenresponse.IsError)
-                return ArsOutput<LoginOutput>.Failed(1, tokenresponse.Error);
+                    if (tokenresponse.IsError)
+                        return ArsOutput<LoginOutput>.Failed(1, tokenresponse.Error);
 
-            var datas = JsonConvert.DeserializeObject<LoginOutput>(tokenresponse.Json.ToString());
-            return ArsOutput<LoginOutput>.Success(datas);
+                    var datas = JsonConvert.DeserializeObject<LoginOutput>(tokenresponse.Json.ToString());
+                    return ArsOutput<LoginOutput>.Success(datas);
+                }
+            }
+
+            return ArsOutput<LoginOutput>.Failed(1,"²ÎÊý´íÎó");
+            
         }
 
         /// <summary>
@@ -163,7 +180,7 @@ namespace MyApiWithIdentityServer4.Controllers
         /// <returns></returns>
         [AllowAnonymous]
         [HttpPost(nameof(RefreshToken))]
-        public async Task<ArsOutput<LoginOutput>> RefreshToken(RefreshTokenInput input) 
+        public async Task<ArsOutput<LoginOutput>> RefreshToken(RefreshTokenInput input)
         {
             using var httpclient = _httpClientFactory.CreateClient("http");
             var tokenresponse = await httpclient.RequestRefreshTokenAsync(new RefreshTokenRequest

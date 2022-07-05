@@ -1,4 +1,6 @@
-﻿namespace MyApiWithIdentityServer4.Dtos
+﻿using Microsoft.AspNetCore.Mvc;
+
+namespace MyApiWithIdentityServer4.Dtos
 {
     public class LoginInput
     {
