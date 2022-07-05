@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Primitives;
 using MyApiWithIdentityServer4.Dtos;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System.Text;
 
 namespace MyApiWithIdentityServer4.Controllers
@@ -198,6 +199,26 @@ namespace MyApiWithIdentityServer4.Controllers
 
             var datas = JsonConvert.DeserializeObject<LoginOutput>(tokenresponse.Json.ToString());
             return ArsOutput<LoginOutput>.Success(datas);
+        }
+
+        [HttpPost(nameof(TestJObject))]
+        public async Task TestJObject() 
+        {
+            using var httpclient = _httpClientFactory.CreateClient("http");
+            Dictionary<string, string> data = new Dictionary<string, string>
+            {
+                { "name","bill"}
+            };
+            StringContent stringContent = new StringContent(JsonConvert.SerializeObject(data),Encoding.UTF8,"application/json");
+            var res = await httpclient.PostAsync("http://localhost:5196/api/WeatherForecast/TestJObject1", stringContent);
+            res.EnsureSuccessStatusCode();
+            var result = await res.Content.ReadAsStringAsync();
+        }
+
+        [HttpPost(nameof(TestJObject1))]
+        public async Task TestJObject1(JObject obj)
+        {
+
         }
     }
 }
