@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using MyApiWithIdentityServer4;
 using Ars.Common.EFCore.Extension;
+using Ars.Common.Core.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
@@ -17,16 +18,19 @@ arsbuilder.AddArsIdentityClient(configureOptions : option =>
 });
 arsbuilder.AddArsDbContext<MyDbContext>(builder.Configuration);
 
-builder.Services.AddControllers().AddNewtonsoftJson();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddHttpClient();
-
 //builder.Services.AddDbContext<MyDbContext>();
 
 var app = builder.Build();
+
+app.UseArsCore(option =>
+{
+    option.UnitOfWorkDefaultConfiguration.TimeOut = TimeSpan.FromMinutes(1);
+});
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

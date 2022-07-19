@@ -1,4 +1,6 @@
 using Ars.Common.Core.AspNetCore.OutputDtos;
+using Ars.Common.Core.Uow.Attributes;
+using Ars.Common.EFCore.Extension;
 using IdentityModel.Client;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -8,6 +10,7 @@ using MyApiWithIdentityServer4.Dtos;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Text;
+using System.Transactions;
 
 namespace MyApiWithIdentityServer4.Controllers
 {
@@ -57,7 +60,7 @@ namespace MyApiWithIdentityServer4.Controllers
         {
             Guid id = Guid.NewGuid();
 
-            await myDbContext.Students.AddAsync(new Model.Student
+            await MyDbContext.Students.AddAsync(new Model.Student
             {
                 Id = id,
                 EnrollmentDate = DateTime.Now,
@@ -82,7 +85,7 @@ namespace MyApiWithIdentityServer4.Controllers
                     }
             });
 
-            await myDbContext.SaveChangesAsync();
+            await MyDbContext.SaveChangesAsync();
 
         }
 
@@ -90,12 +93,12 @@ namespace MyApiWithIdentityServer4.Controllers
         //[Authorize]
         public async Task<IActionResult> Query()
         {
-            var ccc = testService;
+            var ccc = TestService;
             await ccc.Test();
 
-            var m = await myDbContext.Students.ToListAsync();
-            var n = await myDbContext.Students.Include(r => r.Enrollments).ToListAsync();
-            var o = await myDbContext.Students.Include(r => r.Enrollments).ThenInclude(r => r.Course).ToListAsync();
+            var m = await MyDbContext.Students.ToListAsync();
+            var n = await MyDbContext.Students.Include(r => r.Enrollments).ToListAsync();
+            var o = await MyDbContext.Students.Include(r => r.Enrollments).ThenInclude(r => r.Course).ToListAsync();
 
             var a = m.First().Enrollments;
 
@@ -106,34 +109,34 @@ namespace MyApiWithIdentityServer4.Controllers
         [HttpPost(nameof(Add))]
         public async Task Add()
         {
-            await myDbContext.Students.AddAsync(new Model.Student
+            await MyDbContext.Students.AddAsync(new Model.Student
             {
                 LastName = "bo",
                 FirstMidName = "Yang",
                 EnrollmentDate = DateTime.UtcNow,
             });
 
-            await myDbContext.SaveChangesAsync();
+            await MyDbContext.SaveChangesAsync();
         }
 
         [Authorize]
         [HttpPost(nameof(Modify))]
         public async Task Modify()
         {
-            var info = await myDbContext.Students.FirstOrDefaultAsync();
+            var info = await MyDbContext.Students.FirstOrDefaultAsync();
             info.LastName = "boo";
 
-            await myDbContext.SaveChangesAsync();
+            await MyDbContext.SaveChangesAsync();
         }
 
         [Authorize]
         [HttpPost(nameof(Delete))]
         public async Task Delete()
         {
-            var info = await myDbContext.Students.FirstOrDefaultAsync();
-            myDbContext.Students.Remove(info);
+            var info = await MyDbContext.Students.FirstOrDefaultAsync();
+            MyDbContext.Students.Remove(info);
 
-            await myDbContext.SaveChangesAsync();
+            await MyDbContext.SaveChangesAsync();
         }
 
         /// <summary>
@@ -219,6 +222,36 @@ namespace MyApiWithIdentityServer4.Controllers
         public async Task TestJObject1(JObject obj)
         {
 
+        }
+
+        [HttpPost(nameof(TestUow))]
+        public async Task TestUow() 
+        {
+            using var scope = UnitOfWorkManager.Begin(TransactionScopeOption.Suppress);
+            using var scope1 = UnitOfWorkManager.Begin(TransactionScopeOption.Required);
+            MyDbContext _dbContext = await UnitOfWorkManager.Current.GetDbContextAsync<MyDbContext>();
+            await _dbContext.Students.AddAsync(new Model.Student
+            {
+                LastName = "test1",
+                FirstMidName = "test1",
+                EnrollmentDate = DateTime.UtcNow,
+            });
+            await scope1.CompleteAsync();
+            await scope.CompleteAsync();
+        }
+
+        [UnitOfWork(IsDisabled = true)]
+        [HttpPost(nameof(TestUowWithDispose))]
+        public async Task TestUowWithDispose()
+        {
+            MyDbContext _dbContext = await UnitOfWorkManager.Current.GetDbContextAsync<MyDbContext>();
+            await _dbContext.Students.AddAsync(new Model.Student
+            {
+                LastName = "test1",
+                FirstMidName = "test1",
+                EnrollmentDate = DateTime.UtcNow,
+            });
+            await _dbContext.SaveChangesAsync();
         }
     }
 }

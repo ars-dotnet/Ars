@@ -4,7 +4,6 @@ using Ars.Common.Core.AspNetCore;
 using Ars.Common.Core.Extension;
 using Ars.Common.Core.IDependency;
 using Ars.Common.EFCore.Entities;
-using Ars.Common.EFCore.Options;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Metadata;
@@ -17,6 +16,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Ars.Commom.Tool.Extension;
+using Ars.Common.Core.Uow.Options;
 
 namespace Ars.Common.EFCore
 {

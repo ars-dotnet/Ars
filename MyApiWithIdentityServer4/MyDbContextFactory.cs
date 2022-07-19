@@ -1,5 +1,4 @@
 ﻿using Ars.Common.Core.IDependency;
-using Ars.Common.EFCore.Options;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 
@@ -16,7 +15,8 @@ namespace MyApiWithIdentityServer4
 
             DbContextOptionsBuilder<MyDbContext> builder = new DbContextOptionsBuilder<MyDbContext>();
             string connectstring = configuration.GetSection("DefaultString").Get<string>();
-            builder.UseMySql(connectstring,ServerVersion.AutoDetect(connectstring));
+            //builder.UseMySql(connectstring,ServerVersion.AutoDetect(connectstring));
+            builder.UseSqlServer(connectstring);
 
             return new MyDbContext(builder.Options);
         }

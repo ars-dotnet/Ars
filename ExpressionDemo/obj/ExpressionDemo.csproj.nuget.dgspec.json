@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\core\\MyArs\\ExpressionDemo\\ExpressionDemo.csproj": {}
+    "C:\\core\\MyArs\\ExpressionDemo\\ExpressionDemo.csproj": {}
   },
   "projects": {
-    "D:\\core\\MyArs\\ExpressionDemo\\ExpressionDemo.csproj": {
+    "C:\\core\\MyArs\\ExpressionDemo\\ExpressionDemo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\core\\MyArs\\ExpressionDemo\\ExpressionDemo.csproj",
+        "projectUniqueName": "C:\\core\\MyArs\\ExpressionDemo\\ExpressionDemo.csproj",
         "projectName": "ExpressionDemo",
-        "projectPath": "D:\\core\\MyArs\\ExpressionDemo\\ExpressionDemo.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "D:\\core\\MyArs\\ExpressionDemo\\obj\\",
+        "projectPath": "C:\\core\\MyArs\\ExpressionDemo\\ExpressionDemo.csproj",
+        "packagesPath": "C:\\Users\\boo\\.nuget\\packages\\",
+        "outputPath": "C:\\core\\MyArs\\ExpressionDemo\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\boo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -65,8 +65,20 @@
           "warn": true,
           "downloadDependencies": [
             {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.1.10, 3.1.10]"
+            },
+            {
               "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[3.1.24, 3.1.24]"
+              "version": "[3.1.27, 3.1.27]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[3.1.0, 3.1.0]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[3.1.0, 3.1.0]"
             }
           ],
           "frameworkReferences": {
@@ -74,7 +86,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }

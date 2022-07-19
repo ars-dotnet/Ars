@@ -1,5 +1,5 @@
 ﻿using Ars.Commom.Core;
-using Ars.Common.EFCore.Options;
+using Ars.Common.Core.Uow.Options;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -30,11 +30,21 @@ namespace Ars.Common.EFCore.Extension
                 if (string.IsNullOrEmpty(option.DefaultString))
                     throw new ArgumentNullException(nameof(option.DefaultString));
             }
+            option.DbType = configuration.GetSection("DbType").Get<int>();
             services.AddSingleton<IOptions<DbContextOption>>(new OptionsWrapper<DbContextOption>(option));
 
             if (null == optionsAction) 
             {
-                optionsAction = bulider => bulider.UseMySql(option.DefaultString, ServerVersion.AutoDetect(option.DefaultString));
+                switch (option.DbType) 
+                {
+                    case 1:
+                        optionsAction = bulider => bulider.UseMySql(option.DefaultString, ServerVersion.AutoDetect(option.DefaultString));
+                        break;
+                    case 2:
+                        optionsAction = bulider => bulider.UseSqlServer(option.DefaultString);
+                        break;
+                    default: throw new ArgumentException("Configuration => DbType is null");
+                }
             }
             services.AddDbContextFactory<TDbContext>(optionsAction);
 

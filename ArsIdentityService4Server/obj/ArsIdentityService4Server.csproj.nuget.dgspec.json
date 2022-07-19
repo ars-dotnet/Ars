@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\core\\MyArs\\ArsIdentityService4Server\\ArsIdentityService4Server.csproj": {}
+    "C:\\core\\MyArs\\ArsIdentityService4Server\\ArsIdentityService4Server.csproj": {}
   },
   "projects": {
-    "D:\\core\\MyArs\\Ars.Commom.Host\\Ars.Common.Host.csproj": {
+    "C:\\core\\MyArs\\Ars.Commom.Host\\Ars.Common.Host.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\core\\MyArs\\Ars.Commom.Host\\Ars.Common.Host.csproj",
+        "projectUniqueName": "C:\\core\\MyArs\\Ars.Commom.Host\\Ars.Common.Host.csproj",
         "projectName": "Ars.Common.Host",
-        "projectPath": "D:\\core\\MyArs\\Ars.Commom.Host\\Ars.Common.Host.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "D:\\core\\MyArs\\Ars.Commom.Host\\obj\\",
+        "projectPath": "C:\\core\\MyArs\\Ars.Commom.Host\\Ars.Common.Host.csproj",
+        "packagesPath": "C:\\Users\\boo\\.nuget\\packages\\",
+        "outputPath": "C:\\core\\MyArs\\Ars.Commom.Host\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\boo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,14 +28,14 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\core\\MyArs\\Ars.Common.AutoFac\\Ars.Common.AutoFac.csproj": {
-                "projectPath": "D:\\core\\MyArs\\Ars.Common.AutoFac\\Ars.Common.AutoFac.csproj"
+              "C:\\core\\MyArs\\Ars.Common.AutoFac\\Ars.Common.AutoFac.csproj": {
+                "projectPath": "C:\\core\\MyArs\\Ars.Common.AutoFac\\Ars.Common.AutoFac.csproj"
               },
-              "D:\\core\\MyArs\\Ars.Common.Core\\Ars.Common.Core.csproj": {
-                "projectPath": "D:\\core\\MyArs\\Ars.Common.Core\\Ars.Common.Core.csproj"
+              "C:\\core\\MyArs\\Ars.Common.Core\\Ars.Common.Core.csproj": {
+                "projectPath": "C:\\core\\MyArs\\Ars.Common.Core\\Ars.Common.Core.csproj"
               },
-              "D:\\core\\MyArs\\MyArsenal.Commom.Tool\\Ars.Common.Tool.csproj": {
-                "projectPath": "D:\\core\\MyArs\\MyArsenal.Commom.Tool\\Ars.Common.Tool.csproj"
+              "C:\\core\\MyArs\\MyArsenal.Commom.Tool\\Ars.Common.Tool.csproj": {
+                "projectPath": "C:\\core\\MyArs\\MyArsenal.Commom.Tool\\Ars.Common.Tool.csproj"
               }
             }
           }
@@ -57,6 +57,10 @@
             "Autofac.Extensions.DependencyInjection": {
               "target": "Package",
               "version": "[7.2.0, )"
+            },
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[6.0.0, )"
             }
           },
           "imports": [
@@ -77,21 +81,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\core\\MyArs\\Ars.Common.AutoFac\\Ars.Common.AutoFac.csproj": {
+    "C:\\core\\MyArs\\Ars.Common.AutoFac\\Ars.Common.AutoFac.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\core\\MyArs\\Ars.Common.AutoFac\\Ars.Common.AutoFac.csproj",
+        "projectUniqueName": "C:\\core\\MyArs\\Ars.Common.AutoFac\\Ars.Common.AutoFac.csproj",
         "projectName": "Ars.Common.AutoFac",
-        "projectPath": "D:\\core\\MyArs\\Ars.Common.AutoFac\\Ars.Common.AutoFac.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "D:\\core\\MyArs\\Ars.Common.AutoFac\\obj\\",
+        "projectPath": "C:\\core\\MyArs\\Ars.Common.AutoFac\\Ars.Common.AutoFac.csproj",
+        "packagesPath": "C:\\Users\\boo\\.nuget\\packages\\",
+        "outputPath": "C:\\core\\MyArs\\Ars.Common.AutoFac\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\boo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -105,8 +109,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\core\\MyArs\\Ars.Common.Core\\Ars.Common.Core.csproj": {
-                "projectPath": "D:\\core\\MyArs\\Ars.Common.Core\\Ars.Common.Core.csproj"
+              "C:\\core\\MyArs\\Ars.Common.Core\\Ars.Common.Core.csproj": {
+                "projectPath": "C:\\core\\MyArs\\Ars.Common.Core\\Ars.Common.Core.csproj"
               }
             }
           }
@@ -152,21 +156,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\core\\MyArs\\Ars.Common.Core\\Ars.Common.Core.csproj": {
+    "C:\\core\\MyArs\\Ars.Common.Core\\Ars.Common.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\core\\MyArs\\Ars.Common.Core\\Ars.Common.Core.csproj",
+        "projectUniqueName": "C:\\core\\MyArs\\Ars.Common.Core\\Ars.Common.Core.csproj",
         "projectName": "Ars.Common.Core",
-        "projectPath": "D:\\core\\MyArs\\Ars.Common.Core\\Ars.Common.Core.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "D:\\core\\MyArs\\Ars.Common.Core\\obj\\",
+        "projectPath": "C:\\core\\MyArs\\Ars.Common.Core\\Ars.Common.Core.csproj",
+        "packagesPath": "C:\\Users\\boo\\.nuget\\packages\\",
+        "outputPath": "C:\\core\\MyArs\\Ars.Common.Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\boo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -180,8 +184,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\core\\MyArs\\MyArsenal.Commom.Tool\\Ars.Common.Tool.csproj": {
-                "projectPath": "D:\\core\\MyArs\\MyArsenal.Commom.Tool\\Ars.Common.Tool.csproj"
+              "C:\\core\\MyArs\\MyArsenal.Commom.Tool\\Ars.Common.Tool.csproj": {
+                "projectPath": "C:\\core\\MyArs\\MyArsenal.Commom.Tool\\Ars.Common.Tool.csproj"
               }
             }
           }
@@ -195,6 +199,12 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "System.Configuration.ConfigurationManager": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -213,21 +223,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\core\\MyArs\\Ars.Common.IdentityServer4\\Ars.Common.IdentityServer4.csproj": {
+    "C:\\core\\MyArs\\Ars.Common.IdentityServer4\\Ars.Common.IdentityServer4.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\core\\MyArs\\Ars.Common.IdentityServer4\\Ars.Common.IdentityServer4.csproj",
+        "projectUniqueName": "C:\\core\\MyArs\\Ars.Common.IdentityServer4\\Ars.Common.IdentityServer4.csproj",
         "projectName": "Ars.Common.IdentityServer4",
-        "projectPath": "D:\\core\\MyArs\\Ars.Common.IdentityServer4\\Ars.Common.IdentityServer4.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "D:\\core\\MyArs\\Ars.Common.IdentityServer4\\obj\\",
+        "projectPath": "C:\\core\\MyArs\\Ars.Common.IdentityServer4\\Ars.Common.IdentityServer4.csproj",
+        "packagesPath": "C:\\Users\\boo\\.nuget\\packages\\",
+        "outputPath": "C:\\core\\MyArs\\Ars.Common.IdentityServer4\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\boo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -241,11 +251,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\core\\MyArs\\Ars.Common.Core\\Ars.Common.Core.csproj": {
-                "projectPath": "D:\\core\\MyArs\\Ars.Common.Core\\Ars.Common.Core.csproj"
+              "C:\\core\\MyArs\\Ars.Common.Core\\Ars.Common.Core.csproj": {
+                "projectPath": "C:\\core\\MyArs\\Ars.Common.Core\\Ars.Common.Core.csproj"
               },
-              "D:\\core\\MyArs\\MyArsenal.Commom.Tool\\Ars.Common.Tool.csproj": {
-                "projectPath": "D:\\core\\MyArs\\MyArsenal.Commom.Tool\\Ars.Common.Tool.csproj"
+              "C:\\core\\MyArs\\MyArsenal.Commom.Tool\\Ars.Common.Tool.csproj": {
+                "projectPath": "C:\\core\\MyArs\\MyArsenal.Commom.Tool\\Ars.Common.Tool.csproj"
               }
             }
           }
@@ -287,21 +297,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\core\\MyArs\\ArsIdentityService4Server\\ArsIdentityService4Server.csproj": {
+    "C:\\core\\MyArs\\ArsIdentityService4Server\\ArsIdentityService4Server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\core\\MyArs\\ArsIdentityService4Server\\ArsIdentityService4Server.csproj",
+        "projectUniqueName": "C:\\core\\MyArs\\ArsIdentityService4Server\\ArsIdentityService4Server.csproj",
         "projectName": "ArsIdentityService4Server",
-        "projectPath": "D:\\core\\MyArs\\ArsIdentityService4Server\\ArsIdentityService4Server.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "D:\\core\\MyArs\\ArsIdentityService4Server\\obj\\",
+        "projectPath": "C:\\core\\MyArs\\ArsIdentityService4Server\\ArsIdentityService4Server.csproj",
+        "packagesPath": "C:\\Users\\boo\\.nuget\\packages\\",
+        "outputPath": "C:\\core\\MyArs\\ArsIdentityService4Server\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\boo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -315,11 +325,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\core\\MyArs\\Ars.Commom.Host\\Ars.Common.Host.csproj": {
-                "projectPath": "D:\\core\\MyArs\\Ars.Commom.Host\\Ars.Common.Host.csproj"
+              "C:\\core\\MyArs\\Ars.Commom.Host\\Ars.Common.Host.csproj": {
+                "projectPath": "C:\\core\\MyArs\\Ars.Commom.Host\\Ars.Common.Host.csproj"
               },
-              "D:\\core\\MyArs\\Ars.Common.IdentityServer4\\Ars.Common.IdentityServer4.csproj": {
-                "projectPath": "D:\\core\\MyArs\\Ars.Common.IdentityServer4\\Ars.Common.IdentityServer4.csproj"
+              "C:\\core\\MyArs\\Ars.Common.IdentityServer4\\Ars.Common.IdentityServer4.csproj": {
+                "projectPath": "C:\\core\\MyArs\\Ars.Common.IdentityServer4\\Ars.Common.IdentityServer4.csproj"
               }
             }
           }
@@ -351,21 +361,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\core\\MyArs\\MyArsenal.Commom.Tool\\Ars.Common.Tool.csproj": {
+    "C:\\core\\MyArs\\MyArsenal.Commom.Tool\\Ars.Common.Tool.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\core\\MyArs\\MyArsenal.Commom.Tool\\Ars.Common.Tool.csproj",
+        "projectUniqueName": "C:\\core\\MyArs\\MyArsenal.Commom.Tool\\Ars.Common.Tool.csproj",
         "projectName": "Ars.Common.Tool",
-        "projectPath": "D:\\core\\MyArs\\MyArsenal.Commom.Tool\\Ars.Common.Tool.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "D:\\core\\MyArs\\MyArsenal.Commom.Tool\\obj\\",
+        "projectPath": "C:\\core\\MyArs\\MyArsenal.Commom.Tool\\Ars.Common.Tool.csproj",
+        "packagesPath": "C:\\Users\\boo\\.nuget\\packages\\",
+        "outputPath": "C:\\core\\MyArs\\MyArsenal.Commom.Tool\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\boo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -432,7 +442,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }

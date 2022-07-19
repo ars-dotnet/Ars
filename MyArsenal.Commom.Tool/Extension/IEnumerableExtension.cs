@@ -9,7 +9,7 @@ namespace Ars.Commom.Tool.Extension
     {
         public static bool HasValue<T>(this IEnumerable<T> ts) 
         {
-            return null != ts && ts.Any();
+            return ts?.Any() ?? false;
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using Ars.Common.Core.AspNetCore;
+using Ars.Common.Core.Uow.Options;
 using Ars.Common.EFCore;
-using Ars.Common.EFCore.Options;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using MyApiWithIdentityServer4.Model;
