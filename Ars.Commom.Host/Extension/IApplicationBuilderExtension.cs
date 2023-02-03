@@ -1,4 +1,6 @@
-﻿using Ars.Common.Core;
+﻿using Ars.Common.Consul.IApplicationBuilderExtension;
+using Ars.Common.Core.Configs;
+using Ars.Common.IdentityServer4.Extension;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -6,13 +8,25 @@ namespace Ars.Commom.Host.Extension
 {
     public static class IApplicationBuilderExtension
     {
-        public static IApplicationBuilder UseArsCore(this IApplicationBuilder applicationBuilder, 
-            Action<IArsConfiguration> configuAction = null) 
+        public static IApplicationBuilder UseArsCore(this IApplicationBuilder applicationBuilder) 
         {
-            if (null != configuAction)
+            var config = applicationBuilder.ApplicationServices.GetRequiredService<IArsConfiguration>();
+
+            //consul
+            if (null != config.ConsulRegisterConfiguration) 
             {
-                var arsConfigure = applicationBuilder.ApplicationServices.GetRequiredService<IArsConfiguration>();
-                configuAction.Invoke(arsConfigure);
+                applicationBuilder.UseArsConsul(config.ConsulRegisterConfiguration);
+            }
+
+            //IdentityServer4 client
+            if (null != config.ArsIdentityClientConfiguration) 
+            {
+                applicationBuilder.UseArsIdentityClient();
+            }
+            //IdentityServer4 server
+            if (null != config.ArsIdentityServerConfiguration) 
+            {
+                applicationBuilder.UseArsIdentityServer();
             }
 
             return applicationBuilder;

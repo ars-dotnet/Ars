@@ -57,9 +57,9 @@ namespace Ars.Common.Redis.Caching
             }
 
             if (result.HasValue)
-                return result.Value;
+                return result.Value!;
 
-            await using (await SemaphoreSlim.LockAsync()) 
+            var res = await SemaphoreSlim.LockAsync(async () =>
             {
                 try
                 {
@@ -81,13 +81,14 @@ namespace Ars.Common.Redis.Caching
                 {
                     await SetAsync(key, value);
                 }
-                catch (Exception e) 
+                catch (Exception e)
                 {
-                    Logger.LogError(e,e.ToString());
+                    Logger.LogError(e, e.ToString());
                 }
 
                 return value;
-            }
+            });
+            return res!;
         }
 
         public virtual bool IsDefaultValue(TValue value) 

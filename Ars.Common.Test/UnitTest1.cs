@@ -11,7 +11,7 @@ namespace Ars.Common.Test
         {
             DisposeAction dispose = new DisposeAction(() => 
             {
-                return Task.FromResult(0);
+                Task.FromResult(0);
             });
 
             dispose.Dispose();

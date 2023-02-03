@@ -1418,9 +1418,9 @@
           "build/netcoreapp2.1/xunit.runner.visualstudio.props": {}
         }
       },
-      "Ars.Common.Tool/1.0.0": {
+      "Ars.Common.Tool/1.1.5": {
         "type": "project",
-        "framework": ".NETStandard,Version=v2.0",
+        "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "MessagePack": "2.3.85",
           "Microsoft.Extensions.Configuration.Abstractions": "6.0.0",
@@ -5164,7 +5164,7 @@
         "xunit.runner.visualstudio.nuspec"
       ]
     },
-    "Ars.Common.Tool/1.0.0": {
+    "Ars.Common.Tool/1.1.5": {
       "type": "project",
       "path": "../MyArsenal.Commom.Tool/Ars.Common.Tool.csproj",
       "msbuildProject": "../MyArsenal.Commom.Tool/Ars.Common.Tool.csproj"
@@ -5172,17 +5172,18 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "Ars.Common.Tool >= 1.0.0",
+      "Ars.Common.Tool >= 1.1.5",
       "coverlet.collector >= 3.1.0",
       "xunit >= 2.4.1",
       "xunit.runner.visualstudio >= 2.4.3"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\boo\\.nuget\\packages\\": {}
+    "C:\\Users\\boo\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
-    "version": "1.0.0",
+    "version": "1.1.5",
     "restore": {
       "projectUniqueName": "C:\\core\\MyArs\\Ars.Common.Test\\Ars.Common.Test.csproj",
       "projectName": "Ars.Common.Test",
@@ -5190,8 +5191,12 @@
       "packagesPath": "C:\\Users\\boo\\.nuget\\packages\\",
       "outputPath": "C:\\core\\MyArs\\Ars.Common.Test\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
         "C:\\Users\\boo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

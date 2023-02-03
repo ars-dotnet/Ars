@@ -1,4 +1,5 @@
 ﻿using Ars.Commom.Core;
+using Ars.Common.Core.Configs;
 using Ars.Common.Core.Uow.Options;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -16,38 +17,41 @@ namespace Ars.Common.EFCore.Extension
     {
         public static IArsServiceBuilder AddArsDbContext<TDbContext>(
             this IArsServiceBuilder arsServiceBuilder,
-            IConfiguration configuration, 
             Action<DbContextOption>? action = null, 
-            Action<DbContextOptionsBuilder>? optionsAction = null)
+            Action<DbContextOptionsBuilder>? optAction = null)
             where TDbContext : ArsDbContext
         {
-            var services = arsServiceBuilder.Services.ServiceCollection;
-            DbContextOption option = new DbContextOption();
+            DbContextOption option = new();
             action?.Invoke(option);
-            if (string.IsNullOrEmpty(option.DefaultString)) 
+
+            var service = arsServiceBuilder.Services;
+            IConfiguration configuration = service.Provider.GetRequiredService<IConfiguration>();
+            if (string.IsNullOrEmpty(option.DefaultString))
             {
                 option.DefaultString = configuration.GetSection("DefaultString").Get<string>();
                 if (string.IsNullOrEmpty(option.DefaultString))
                     throw new ArgumentNullException(nameof(option.DefaultString));
             }
-            option.DbType = configuration.GetSection("DbType").Get<int>();
-            services.AddSingleton<IOptions<DbContextOption>>(new OptionsWrapper<DbContextOption>(option));
 
-            if (null == optionsAction) 
+            option.DbType = configuration.GetSection("DbType").Get<int>();
+            service.ServiceCollection
+                .AddSingleton<IOptions<DbContextOption>>(new OptionsWrapper<DbContextOption>(option));
+
+            if (null == optAction)
             {
-                switch (option.DbType) 
+                switch (option.DbType)
                 {
                     case 1:
-                        optionsAction = bulider => bulider.UseMySql(option.DefaultString, ServerVersion.AutoDetect(option.DefaultString));
+                        optAction = bulider => bulider.UseMySql(option.DefaultString, ServerVersion.AutoDetect(option.DefaultString));
                         break;
                     case 2:
-                        optionsAction = bulider => bulider.UseSqlServer(option.DefaultString);
+                        optAction = bulider => bulider.UseSqlServer(option.DefaultString);
                         break;
                     default: throw new ArgumentException("Configuration => DbType is null");
                 }
             }
-            services.AddDbContextFactory<TDbContext>(optionsAction);
-
+            service.ServiceCollection.AddDbContextFactory<TDbContext>(optAction);
+            
             return arsServiceBuilder;
         }
     }

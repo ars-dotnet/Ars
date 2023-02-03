@@ -16,7 +16,7 @@ using Ars.Common.Redis.RedisExtension;
 var builder = WebApplication.CreateBuilder(args);
 
 
-var provider = builder.Services.AddArserviceCore(builder);
+var provider = builder.Services.AddArserviceCore(builder.Host);
 provider.AddArsLocalization(option =>
 {
     option.IsAddViewLocalization = true;

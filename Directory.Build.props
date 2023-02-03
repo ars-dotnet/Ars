@@ -1,0 +1,11 @@
+<Project>
+	<Import Project="version.props" />
+
+	<PropertyGroup>
+		<Product>Ars</Product>
+		<Authors>MyArs</Authors>
+		<PackageTags>Ars</PackageTags>
+		<RepositoryType>git</RepositoryType>
+		<RepositoryRoot>$(MSBuildThisFileDirectory)</RepositoryRoot>
+	</PropertyGroup>
+</Project>

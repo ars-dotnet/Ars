@@ -7,7 +7,12 @@
     "**/obj",
     "**/platforms"
   ],
-  "ConsulDiscoverOption": {
-    "ConsulAddress": "http://127.0.0.1:8500"
+  "ConsulDiscoverConfiguration": {
+    "ConsulDiscovers": [
+      {
+        "ConsulAddress": "http://127.0.0.1:8500",
+        "ServiceName": "apigrpc"
+      }
+    ]
   }
 }

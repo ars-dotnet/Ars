@@ -2,6 +2,7 @@ using Ars.Common.Core.AspNetCore.OutputDtos;
 using Ars.Common.Core.Uow.Attributes;
 using Ars.Common.EFCore.Extension;
 using IdentityModel.Client;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -21,17 +22,20 @@ namespace MyApiWithIdentityServer4.Controllers
         private IHttpClientFactory _httpClientFactory;
         private readonly ILogger<WeatherForecastController> _logger;
         private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly ITestScopeService _testScopeService;
         //private readonly MyDbContext myDbContext;
 
         public WeatherForecastController(ILogger<WeatherForecastController> logger,
             MyDbContext myDbContext,
             IHttpClientFactory httpClientFactory,
-            IHttpContextAccessor httpContextAccessor)
+            IHttpContextAccessor httpContextAccessor,
+            ITestScopeService testScopeService)
         {
             _logger = logger;
             _httpClientFactory = httpClientFactory;
             //this.myDbContext = myDbContext;
             _httpContextAccessor = httpContextAccessor;
+            _testScopeService = testScopeService;
         }
 
         private static readonly string[] Summaries = new[]
@@ -42,7 +46,7 @@ namespace MyApiWithIdentityServer4.Controllers
 
 
         [HttpGet(Name = "GetWeatherForecast")]
-        [Authorize]
+        //[Authorize]
         public IEnumerable<WeatherForecast> Get()
         {
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
@@ -90,7 +94,7 @@ namespace MyApiWithIdentityServer4.Controllers
         }
 
         [HttpGet(nameof(Query))]
-        //[Authorize]
+        [Authorize]
         public async Task<IActionResult> Query()
         {
             var ccc = TestService;

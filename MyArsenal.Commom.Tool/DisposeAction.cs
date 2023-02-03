@@ -8,10 +8,9 @@ namespace Ars.Commom.Tool
 {
     public class DisposeAction : IAsyncDisposable, IDisposable
     {
-        private int a;
-        private Func<Task> _action;
+        private Action _action;
 
-        public DisposeAction(Func<Task> action)
+        public DisposeAction(Action action)
         {
             _action = action;
         }
@@ -37,14 +36,16 @@ namespace Ars.Commom.Tool
             if (disposing)
             {
                 var action = Interlocked.Exchange(ref _action, null);
-                action?.Invoke()?.Wait();
+                action?.Invoke();
             }
         }
 
-        protected virtual async ValueTask DisposeAsyncCore()
+        protected virtual ValueTask DisposeAsyncCore()
         {
             var action = Interlocked.Exchange(ref _action, null);
-            await action?.Invoke();
+            action?.Invoke();
+
+            return ValueTask.CompletedTask;
         }
     }
 }

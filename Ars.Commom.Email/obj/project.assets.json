@@ -1707,9 +1707,9 @@
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
       },
-      "Ars.Common.Tool/1.0.0": {
+      "Ars.Common.Tool/1.1.5": {
         "type": "project",
-        "framework": ".NETStandard,Version=v2.0",
+        "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "MessagePack": "2.3.85",
           "Microsoft.Extensions.Configuration.Abstractions": "6.0.0",
@@ -5892,7 +5892,7 @@
         "system.xml.xdocument.nuspec"
       ]
     },
-    "Ars.Common.Tool/1.0.0": {
+    "Ars.Common.Tool/1.1.5": {
       "type": "project",
       "path": "../MyArsenal.Commom.Tool/Ars.Common.Tool.csproj",
       "msbuildProject": "../MyArsenal.Commom.Tool/Ars.Common.Tool.csproj"
@@ -5900,7 +5900,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "Ars.Common.Tool >= 1.0.0",
+      "Ars.Common.Tool >= 1.1.5",
       "MailKit >= 3.1.0",
       "Microsoft.CodeAnalysis.Workspaces.Common >= 4.0.1",
       "Microsoft.Extensions.Configuration.Abstractions >= 6.0.0",
@@ -5908,10 +5908,11 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\boo\\.nuget\\packages\\": {}
+    "C:\\Users\\boo\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
-    "version": "1.0.0",
+    "version": "1.1.5",
     "restore": {
       "projectUniqueName": "C:\\core\\MyArs\\Ars.Commom.Email\\Ars.Common.Email.csproj",
       "projectName": "Ars.Common.Email",
@@ -5919,8 +5920,12 @@
       "packagesPath": "C:\\Users\\boo\\.nuget\\packages\\",
       "outputPath": "C:\\core\\MyArs\\Ars.Commom.Email\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
         "C:\\Users\\boo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

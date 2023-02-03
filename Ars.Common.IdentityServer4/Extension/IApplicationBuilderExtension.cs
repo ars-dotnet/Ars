@@ -9,9 +9,9 @@ namespace Ars.Common.IdentityServer4.Extension
 {
     public static class IApplicationBuilderExtension
     {
-        public static IApplicationBuilder UseArsIdentityServer(this IApplicationBuilder builder, IdentityServerMiddlewareOptions options = null) 
+        public static IApplicationBuilder UseArsIdentityServer(this IApplicationBuilder builder) 
         {
-            builder.UseIdentityServer(options);
+            builder.UseIdentityServer();
             return builder;
         }
 

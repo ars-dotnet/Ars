@@ -9,14 +9,21 @@ namespace GrpcGreeterService.Protos
         {
             Console.WriteLine($"This is {nameof(HealthCheckService)} Check ");
             //TODO:检查逻辑
-            return Task.FromResult(new HealthCheckResponse() { Status = HealthCheckResponse.Types.ServingStatus.Serving });
+            return Task.FromResult(
+                new HealthCheckResponse()
+                {
+                    Status = HealthCheckResponse.Types.ServingStatus.Serving
+                });
         }
 
         public override async Task Watch(HealthCheckRequest request, IServerStreamWriter<HealthCheckResponse> responseStream, ServerCallContext context)
         {
             //TODO:检查逻辑
-            await responseStream.WriteAsync(new HealthCheckResponse()
-            { Status = HealthCheckResponse.Types.ServingStatus.Serving });
+            await responseStream.WriteAsync(
+                new HealthCheckResponse()
+                {
+                    Status = HealthCheckResponse.Types.ServingStatus.Serving
+                });
         }
     }
 }

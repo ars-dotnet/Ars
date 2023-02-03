@@ -11,13 +11,13 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("GrpcClient")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("MyArs")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
-[assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
-[assembly: System.Reflection.AssemblyProductAttribute("GrpcClient")]
+[assembly: System.Reflection.AssemblyFileVersionAttribute("1.1.5.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.1.5")]
+[assembly: System.Reflection.AssemblyProductAttribute("Ars")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GrpcClient")]
-[assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
+[assembly: System.Reflection.AssemblyVersionAttribute("1.1.5.0")]
 
 // 由 MSBuild WriteCodeFragment 类生成。
 

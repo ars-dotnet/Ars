@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MyApiWithIdentityServer4.Controllers
 {
-    public abstract class MyControllerBase : ControllerBase, ITransientDependency
+    public abstract class MyControllerBase : ControllerBase, IScopedDependency
     {
         [Autowired]
         public MyDbContext MyDbContext { get; set; }

@@ -9,24 +9,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 
-var arsbuilder = builder.Services.AddArserviceCore(builder);
-arsbuilder.AddArsIdentityServer(
-    option => 
-    {
-        option.ArsClients = option.ArsClients.Concat(
-            new List<ArsApiClient>
-            {
-                new ArsApiClient 
-                {
-                    AppKey = "admin",
-                    AppSecret = "123456",
-                    AccessTokenLifetime = 99900,
-                    AllowedScopes = new [] { "defaultApi-scope",StandardScopes.OfflineAccess },
-                    GrantType = GrantTypes.ClientCredentials
-                }
-            });
-    });
-
+var arsbuilder = builder.Services.AddArserviceCore(builder.Host);
+arsbuilder.AddArsIdentityServer();
 
 var app = builder.Build();
 
@@ -39,7 +23,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseAuthorization();
+//app.UseAuthorization();
 
 app.UseArsIdentityServer();
 

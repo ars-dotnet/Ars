@@ -48,6 +48,18 @@
           "lib/netstandard1.5/Castle.Core.dll": {}
         }
       },
+      "Consul/1.6.10.4": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "10.0.3"
+        },
+        "compile": {
+          "lib/netstandard2.0/Consul.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Consul.dll": {}
+        }
+      },
       "CSRedisCore/3.6.3": {
         "type": "package",
         "dependencies": {
@@ -59,6 +71,52 @@
         },
         "runtime": {
           "lib/netstandard2.0/CSRedisCore.dll": {}
+        }
+      },
+      "Grpc.Core.Api/2.42.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Memory": "4.5.3"
+        },
+        "compile": {
+          "lib/netstandard2.0/Grpc.Core.Api.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Grpc.Core.Api.dll": {}
+        }
+      },
+      "Grpc.Net.Client/2.42.0": {
+        "type": "package",
+        "dependencies": {
+          "Grpc.Net.Common": "2.42.0",
+          "Microsoft.Extensions.Logging.Abstractions": "3.0.3"
+        },
+        "compile": {
+          "lib/net6.0/Grpc.Net.Client.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/Grpc.Net.Client.dll": {}
+        }
+      },
+      "Grpc.Net.Client.Web/2.42.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/Grpc.Net.Client.Web.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/Grpc.Net.Client.Web.dll": {}
+        }
+      },
+      "Grpc.Net.Common/2.42.0": {
+        "type": "package",
+        "dependencies": {
+          "Grpc.Core.Api": "2.42.0"
+        },
+        "compile": {
+          "lib/net6.0/Grpc.Net.Common.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/Grpc.Net.Common.dll": {}
         }
       },
       "Humanizer.Core/2.8.26": {
@@ -1824,6 +1882,15 @@
           "lib/netstandard1.6/System.Linq.Expressions.dll": {}
         }
       },
+      "System.Memory/4.5.3": {
+        "type": "package",
+        "compile": {
+          "ref/netcoreapp2.1/_._": {}
+        },
+        "runtime": {
+          "lib/netcoreapp2.1/_._": {}
+        }
+      },
       "System.Net.Http/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -2613,11 +2680,11 @@
           "lib/netstandard1.3/System.Xml.XmlDocument.dll": {}
         }
       },
-      "Ars.Common.AutoFac/1.0.0": {
+      "Ars.Common.AutoFac/1.1.5": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Ars.Common.Core": "1.0.0",
+          "Ars.Common.Core": "1.1.5",
           "Autofac": "6.3.0",
           "Autofac.Extensions.DependencyInjection": "7.2.0",
           "Microsoft.AspNetCore.Mvc.Core": "2.2.5"
@@ -2632,11 +2699,32 @@
           "Microsoft.AspNetCore.App"
         ]
       },
-      "Ars.Common.Core/1.0.0": {
+      "Ars.Common.Consul/1.1.5": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Ars.Common.Tool": "1.0.0",
+          "Ars.Common.Core": "1.1.5",
+          "Consul": "1.6.10.4",
+          "Grpc.Core.Api": "2.42.0",
+          "Grpc.Net.Client": "2.42.0",
+          "Grpc.Net.Client.Web": "2.42.0"
+        },
+        "compile": {
+          "bin/placeholder/Ars.Common.Consul.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Ars.Common.Consul.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
+      "Ars.Common.Core/1.1.5": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Ars.Common.Tool": "1.1.5",
+          "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "6.0.0",
           "System.Configuration.ConfigurationManager": "6.0.0"
         },
         "compile": {
@@ -2649,11 +2737,11 @@
           "Microsoft.AspNetCore.App"
         ]
       },
-      "Ars.Common.EFCore/1.0.0": {
+      "Ars.Common.EFCore/1.1.5": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Ars.Common.AutoFac": "1.0.0",
+          "Ars.Common.AutoFac": "1.1.5",
           "Microsoft.EntityFrameworkCore": "6.0.0",
           "Microsoft.EntityFrameworkCore.Proxies": "6.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.0",
@@ -2669,16 +2757,17 @@
           "Microsoft.AspNetCore.App"
         ]
       },
-      "Ars.Common.Host/1.0.0": {
+      "Ars.Common.Host/1.1.5": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Ars.Common.AutoFac": "1.0.0",
-          "Ars.Common.Core": "1.0.0",
-          "Ars.Common.Tool": "1.0.0",
+          "Ars.Common.AutoFac": "1.1.5",
+          "Ars.Common.Consul": "1.1.5",
+          "Ars.Common.Core": "1.1.5",
+          "Ars.Common.IdentityServer4": "1.1.5",
+          "Ars.Common.Tool": "1.1.5",
           "Autofac": "6.3.0",
-          "Autofac.Extensions.DependencyInjection": "7.2.0",
-          "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "6.0.0"
+          "Autofac.Extensions.DependencyInjection": "7.2.0"
         },
         "compile": {
           "bin/placeholder/Ars.Common.Host.dll": {}
@@ -2690,12 +2779,12 @@
           "Microsoft.AspNetCore.App"
         ]
       },
-      "Ars.Common.IdentityServer4/1.0.0": {
+      "Ars.Common.IdentityServer4/1.1.5": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Ars.Common.Core": "1.0.0",
-          "Ars.Common.Tool": "1.0.0",
+          "Ars.Common.Core": "1.1.5",
+          "Ars.Common.Tool": "1.1.5",
           "IdentityServer4": "4.1.2",
           "IdentityServer4.AccessTokenValidation": "3.0.1"
         },
@@ -2709,9 +2798,9 @@
           "Microsoft.AspNetCore.App"
         ]
       },
-      "Ars.Common.Tool/1.0.0": {
+      "Ars.Common.Tool/1.1.5": {
         "type": "project",
-        "framework": ".NETStandard,Version=v2.0",
+        "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "MessagePack": "2.3.85",
           "Microsoft.Extensions.Configuration.Abstractions": "6.0.0",
@@ -2800,6 +2889,19 @@
         "readme.txt"
       ]
     },
+    "Consul/1.6.10.4": {
+      "sha512": "5L3O7XirEx3bJ03OjMVdi/hdRLpkH/gRilgMZzk55Is5ttJ4GamwW+aONfFVneTKRKBpcCw/gIH5qoz4zomi1g==",
+      "type": "package",
+      "path": "consul/1.6.10.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "consul.1.6.10.4.nupkg.sha512",
+        "consul.nuspec",
+        "lib/net461/Consul.dll",
+        "lib/netstandard2.0/Consul.dll"
+      ]
+    },
     "CSRedisCore/3.6.3": {
       "sha512": "ETzj7hF8Xs0MXCdMDQjE1rv9Zd4nOie9V9kKLrUx26yHFAKrBvJLBaM84IkI2ZOGuzYbt4KmyA6ECQIUwx6YDQ==",
       "type": "package",
@@ -2815,6 +2917,98 @@
         "lib/net45/CSRedisCore.xml",
         "lib/netstandard2.0/CSRedisCore.dll",
         "lib/netstandard2.0/CSRedisCore.xml"
+      ]
+    },
+    "Grpc.Core.Api/2.42.0": {
+      "sha512": "12ciAZrp8orzYFZcruvzshhMEbbD4CAFOe9an1Fa4/c5ZrCtqUjWVPa1Dpk/1Pnv5E1KTeIHPuOtPTkpMLOCoQ==",
+      "type": "package",
+      "path": "grpc.core.api/2.42.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "grpc.core.api.2.42.0.nupkg.sha512",
+        "grpc.core.api.nuspec",
+        "lib/net45/Grpc.Core.Api.dll",
+        "lib/net45/Grpc.Core.Api.pdb",
+        "lib/net45/Grpc.Core.Api.xml",
+        "lib/netstandard1.5/Grpc.Core.Api.dll",
+        "lib/netstandard1.5/Grpc.Core.Api.pdb",
+        "lib/netstandard1.5/Grpc.Core.Api.xml",
+        "lib/netstandard2.0/Grpc.Core.Api.dll",
+        "lib/netstandard2.0/Grpc.Core.Api.pdb",
+        "lib/netstandard2.0/Grpc.Core.Api.xml"
+      ]
+    },
+    "Grpc.Net.Client/2.42.0": {
+      "sha512": "UrVBlzAiYh04bwOjBMUlh0THwieOhoVdmhpvY1LXCdlgRUAYicoDn9SHUZEnLP/xq3lsbhhkTEOeZcFpyOLE+w==",
+      "type": "package",
+      "path": "grpc.net.client/2.42.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "grpc.net.client.2.42.0.nupkg.sha512",
+        "grpc.net.client.nuspec",
+        "lib/net5.0/Grpc.Net.Client.dll",
+        "lib/net5.0/Grpc.Net.Client.pdb",
+        "lib/net5.0/Grpc.Net.Client.xml",
+        "lib/net6.0/Grpc.Net.Client.dll",
+        "lib/net6.0/Grpc.Net.Client.pdb",
+        "lib/net6.0/Grpc.Net.Client.xml",
+        "lib/netstandard2.0/Grpc.Net.Client.dll",
+        "lib/netstandard2.0/Grpc.Net.Client.pdb",
+        "lib/netstandard2.0/Grpc.Net.Client.xml",
+        "lib/netstandard2.1/Grpc.Net.Client.dll",
+        "lib/netstandard2.1/Grpc.Net.Client.pdb",
+        "lib/netstandard2.1/Grpc.Net.Client.xml",
+        "packageIcon.png"
+      ]
+    },
+    "Grpc.Net.Client.Web/2.42.0": {
+      "sha512": "rSvYpUPfAr+YEMBYSyjHmvDeyuQ/rzPRH77Uc3DsvXt272cMD+fzyOCQGUvs90eIkb8TGNomBOPxnup4U+p5tA==",
+      "type": "package",
+      "path": "grpc.net.client.web/2.42.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "grpc.net.client.web.2.42.0.nupkg.sha512",
+        "grpc.net.client.web.nuspec",
+        "lib/net5.0/Grpc.Net.Client.Web.dll",
+        "lib/net5.0/Grpc.Net.Client.Web.pdb",
+        "lib/net5.0/Grpc.Net.Client.Web.xml",
+        "lib/net6.0/Grpc.Net.Client.Web.dll",
+        "lib/net6.0/Grpc.Net.Client.Web.pdb",
+        "lib/net6.0/Grpc.Net.Client.Web.xml",
+        "lib/netstandard2.0/Grpc.Net.Client.Web.dll",
+        "lib/netstandard2.0/Grpc.Net.Client.Web.pdb",
+        "lib/netstandard2.0/Grpc.Net.Client.Web.xml",
+        "lib/netstandard2.1/Grpc.Net.Client.Web.dll",
+        "lib/netstandard2.1/Grpc.Net.Client.Web.pdb",
+        "lib/netstandard2.1/Grpc.Net.Client.Web.xml",
+        "packageIcon.png"
+      ]
+    },
+    "Grpc.Net.Common/2.42.0": {
+      "sha512": "+nYAAvpc3yg/HS+uleYoNUBR0sf0EVpY5FAos5v8PILnTbGU552QfxAaToY/wCMYExkde/zIJM/l+JvHMezYSg==",
+      "type": "package",
+      "path": "grpc.net.common/2.42.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "grpc.net.common.2.42.0.nupkg.sha512",
+        "grpc.net.common.nuspec",
+        "lib/net5.0/Grpc.Net.Common.dll",
+        "lib/net5.0/Grpc.Net.Common.pdb",
+        "lib/net5.0/Grpc.Net.Common.xml",
+        "lib/net6.0/Grpc.Net.Common.dll",
+        "lib/net6.0/Grpc.Net.Common.pdb",
+        "lib/net6.0/Grpc.Net.Common.xml",
+        "lib/netstandard2.0/Grpc.Net.Common.dll",
+        "lib/netstandard2.0/Grpc.Net.Common.pdb",
+        "lib/netstandard2.0/Grpc.Net.Common.xml",
+        "lib/netstandard2.1/Grpc.Net.Common.dll",
+        "lib/netstandard2.1/Grpc.Net.Common.pdb",
+        "lib/netstandard2.1/Grpc.Net.Common.xml",
+        "packageIcon.png"
       ]
     },
     "Humanizer.Core/2.8.26": {
@@ -6072,6 +6266,27 @@
         "system.linq.expressions.nuspec"
       ]
     },
+    "System.Memory/4.5.3": {
+      "sha512": "3oDzvc/zzetpTKWMShs1AADwZjQ/36HnsufHRPcOjyRAAMLDlu2iD33MBI2opxnezcVUtXyqDXXjoFMOU9c7SA==",
+      "type": "package",
+      "path": "system.memory/4.5.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/netcoreapp2.1/_._",
+        "lib/netstandard1.1/System.Memory.dll",
+        "lib/netstandard1.1/System.Memory.xml",
+        "lib/netstandard2.0/System.Memory.dll",
+        "lib/netstandard2.0/System.Memory.xml",
+        "ref/netcoreapp2.1/_._",
+        "system.memory.4.5.3.nupkg.sha512",
+        "system.memory.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
     "System.Net.Http/4.3.0": {
       "sha512": "sYg+FtILtRQuYWSIAuNOELwVuVsxVyJGWQyOnlAzhV4xvhyFnON1bAzYYC+jjRW8JREM45R0R5Dgi8MTC5sEwA==",
       "type": "package",
@@ -8417,32 +8632,37 @@
         "system.xml.xmldocument.nuspec"
       ]
     },
-    "Ars.Common.AutoFac/1.0.0": {
+    "Ars.Common.AutoFac/1.1.5": {
       "type": "project",
       "path": "../Ars.Common.AutoFac/Ars.Common.AutoFac.csproj",
       "msbuildProject": "../Ars.Common.AutoFac/Ars.Common.AutoFac.csproj"
     },
-    "Ars.Common.Core/1.0.0": {
+    "Ars.Common.Consul/1.1.5": {
+      "type": "project",
+      "path": "../Ars.Common.Consul/Ars.Common.Consul.csproj",
+      "msbuildProject": "../Ars.Common.Consul/Ars.Common.Consul.csproj"
+    },
+    "Ars.Common.Core/1.1.5": {
       "type": "project",
       "path": "../Ars.Common.Core/Ars.Common.Core.csproj",
       "msbuildProject": "../Ars.Common.Core/Ars.Common.Core.csproj"
     },
-    "Ars.Common.EFCore/1.0.0": {
+    "Ars.Common.EFCore/1.1.5": {
       "type": "project",
       "path": "../Ars.Common.EFCore/Ars.Common.EFCore.csproj",
       "msbuildProject": "../Ars.Common.EFCore/Ars.Common.EFCore.csproj"
     },
-    "Ars.Common.Host/1.0.0": {
+    "Ars.Common.Host/1.1.5": {
       "type": "project",
       "path": "../Ars.Commom.Host/Ars.Common.Host.csproj",
       "msbuildProject": "../Ars.Commom.Host/Ars.Common.Host.csproj"
     },
-    "Ars.Common.IdentityServer4/1.0.0": {
+    "Ars.Common.IdentityServer4/1.1.5": {
       "type": "project",
       "path": "../Ars.Common.IdentityServer4/Ars.Common.IdentityServer4.csproj",
       "msbuildProject": "../Ars.Common.IdentityServer4/Ars.Common.IdentityServer4.csproj"
     },
-    "Ars.Common.Tool/1.0.0": {
+    "Ars.Common.Tool/1.1.5": {
       "type": "project",
       "path": "../MyArsenal.Commom.Tool/Ars.Common.Tool.csproj",
       "msbuildProject": "../MyArsenal.Commom.Tool/Ars.Common.Tool.csproj"
@@ -8450,9 +8670,9 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "Ars.Common.EFCore >= 1.0.0",
-      "Ars.Common.Host >= 1.0.0",
-      "Ars.Common.IdentityServer4 >= 1.0.0",
+      "Ars.Common.EFCore >= 1.1.5",
+      "Ars.Common.Host >= 1.1.5",
+      "Ars.Common.IdentityServer4 >= 1.1.5",
       "CSRedisCore >= 3.6.3",
       "Microsoft.AspNetCore.Mvc.NewtonsoftJson >= 6.0.6",
       "Microsoft.EntityFrameworkCore.Design >= 6.0.0",
@@ -8462,10 +8682,11 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\boo\\.nuget\\packages\\": {}
+    "C:\\Users\\boo\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
-    "version": "1.0.0",
+    "version": "1.1.5",
     "restore": {
       "projectUniqueName": "C:\\core\\MyArs\\MyApiWithIdentityServer4\\MyApiWithIdentityServer4.csproj",
       "projectName": "MyApiWithIdentityServer4",
@@ -8473,8 +8694,12 @@
       "packagesPath": "C:\\Users\\boo\\.nuget\\packages\\",
       "outputPath": "C:\\core\\MyArs\\MyApiWithIdentityServer4\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
         "C:\\Users\\boo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

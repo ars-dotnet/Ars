@@ -4,9 +4,9 @@ option csharp_namespace = "GrpcGreeter.greet";
 
 package greet;
 
-import "google/protobuf/duration.proto";  
-import "google/protobuf/wrappers.proto";
-import "customTypes.proto";
+//import "google/protobuf/duration.proto";  
+//import "google/protobuf/wrappers.proto";
+import "customTypess.proto";
 
 // The greeting service definition.
 service Greeter {

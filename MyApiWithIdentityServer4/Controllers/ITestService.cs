@@ -8,7 +8,7 @@ namespace MyApiWithIdentityServer4.Controllers
 
     }
 
-    public class TestService : TestServiceBase, ITestService, ITransientDependency
+    public class TestService : TestServiceBase, ITestService, IScopedDependency
     {
         public TestService()
         {

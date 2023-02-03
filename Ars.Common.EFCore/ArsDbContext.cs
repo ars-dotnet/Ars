@@ -168,7 +168,9 @@ namespace Ars.Common.EFCore
         {
             return entry.State == EntityState.Modified ||
                    entry.References.Any(r =>
-                       r.TargetEntry != null && r.TargetEntry.Metadata.IsOwned() && CheckOwnedEntityChange(r.TargetEntry));
+                       r.TargetEntry != null &&
+                       r.TargetEntry.Metadata.IsOwned() && 
+                       CheckOwnedEntityChange(r.TargetEntry));
         }
 
         protected virtual void ConceptEntry(EntityEntry entityEntry) 

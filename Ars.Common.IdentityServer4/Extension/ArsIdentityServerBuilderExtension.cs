@@ -11,6 +11,7 @@ using Ars.Common.IdentityServer4.options;
 using IdentityServer4.Services;
 using Microsoft.IdentityModel.Tokens;
 using System.Security.Cryptography.X509Certificates;
+using Ars.Common.Core.Configs;
 
 namespace Ars.Common.IdentityServer4.Extension
 {
@@ -28,7 +29,7 @@ namespace Ars.Common.IdentityServer4.Extension
             return builder;
         }
 
-        internal static IIdentityServerBuilder AddArsApiResource(this IIdentityServerBuilder builder, IEnumerable<ArsIdentityServerOption.ArsApiResource> apiResources) 
+        internal static IIdentityServerBuilder AddArsApiResource(this IIdentityServerBuilder builder, IEnumerable<IArsIdentityServerConfiguration.ArsApiResource> apiResources) 
         {
             if(!apiResources.HasValue())
                 return builder;
@@ -42,7 +43,7 @@ namespace Ars.Common.IdentityServer4.Extension
             return builder;
         }
 
-        internal static IIdentityServerBuilder AddArsClients(this IIdentityServerBuilder builder,IEnumerable<ArsIdentityServerOption.ArsApiClient> arsApiClients) 
+        internal static IIdentityServerBuilder AddArsClients(this IIdentityServerBuilder builder,IEnumerable<IArsIdentityServerConfiguration.ArsApiClient> arsApiClients) 
         {
             if (!arsApiClients.HasValue())
                 return builder;
@@ -62,7 +63,7 @@ namespace Ars.Common.IdentityServer4.Extension
         }
 
         private static IEnumerable<Client> CastArsClientToClient(
-            IEnumerable<ArsIdentityServerOption.ArsApiClient> clients)
+            IEnumerable<IArsIdentityServerConfiguration.ArsApiClient> clients)
         {
             var clientList = new List<Client>();
             foreach (var client in clients)

@@ -7,16 +7,24 @@ namespace MyApiWithIdentityServer4.Controllers
         Task Test();
     }
 
-    public class TestDomain : ITestDomain ,ITransientDependency
+    public class TestDomain : ITestDomain ,ISingletonDependency
     {
         private ITestService testService;
-        public TestDomain(ITestService testService)
+        private IServiceScopeFactory _serviceScopeFactory;
+        public TestDomain(ITestService testService, IServiceScopeFactory serviceScopeFactory)
         {
+            int code = testService.GetHashCode();
             this.testService = testService;
+            this._serviceScopeFactory = serviceScopeFactory;
         }
 
         public Task Test() 
         {
+            using (var scope = _serviceScopeFactory.CreateScope()) 
+            {
+                var m = scope.ServiceProvider.GetService<ITestService>();
+                int code = m.GetHashCode();
+            }
             return Task.CompletedTask;
         }
     }

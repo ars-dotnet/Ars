@@ -4,6 +4,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <Description>简单自用的封装</Description>
   </PropertyGroup>
 
   <ItemGroup>
@@ -13,12 +14,13 @@
   <ItemGroup>
     <PackageReference Include="Autofac" Version="6.3.0" />
     <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="7.2.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Ars.Common.AutoFac\Ars.Common.AutoFac.csproj" />
+    <ProjectReference Include="..\Ars.Common.Consul\Ars.Common.Consul.csproj" />
     <ProjectReference Include="..\Ars.Common.Core\Ars.Common.Core.csproj" />
+    <ProjectReference Include="..\Ars.Common.IdentityServer4\Ars.Common.IdentityServer4.csproj" />
     <ProjectReference Include="..\MyArsenal.Commom.Tool\Ars.Common.Tool.csproj" />
   </ItemGroup>
 

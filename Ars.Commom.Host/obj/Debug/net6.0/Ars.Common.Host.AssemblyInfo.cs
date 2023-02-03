@@ -11,13 +11,14 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("Ars.Common.Host")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("MyArs")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
-[assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
-[assembly: System.Reflection.AssemblyProductAttribute("Ars.Common.Host")]
+[assembly: System.Reflection.AssemblyDescriptionAttribute("简单自用的封装")]
+[assembly: System.Reflection.AssemblyFileVersionAttribute("1.1.5.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.1.5")]
+[assembly: System.Reflection.AssemblyProductAttribute("Ars")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Ars.Common.Host")]
-[assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
+[assembly: System.Reflection.AssemblyVersionAttribute("1.1.5.0")]
 
 // 由 MSBuild WriteCodeFragment 类生成。
 

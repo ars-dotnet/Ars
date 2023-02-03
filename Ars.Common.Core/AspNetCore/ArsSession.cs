@@ -20,6 +20,7 @@ namespace Ars.Common.Core.AspNetCore
             get => int.TryParse(_principalAccessor.claimsPrincipal?.Claims?.FirstOrDefault(r => r.Type == ArsClaimTypes.UserId)?.Value, out int userid) ? userid : null;
             set => UserId = value; 
         }
+
         public int? TenantId 
         { 
             get => int.TryParse(_principalAccessor.claimsPrincipal?.Claims?.FirstOrDefault(r => r.Type == ArsClaimTypes.TenantId)?.Value, out int tenantid) ? tenantid : null;

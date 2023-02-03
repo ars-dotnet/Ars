@@ -44,7 +44,7 @@ namespace Ars.Common.Core.AspNetCore
             }
         }
 
-        private UnitOfWorkAttribute GetUnitOfWorkAttribute(ActionExecutingContext context) 
+        private UnitOfWorkAttribute? GetUnitOfWorkAttribute(ActionExecutingContext context) 
         {
             MethodInfo method = context.ActionDescriptor.GetMethodInfo();
 
@@ -54,7 +54,7 @@ namespace Ars.Common.Core.AspNetCore
                 return attrs.First();
             }
 
-            var classAttrs = method.DeclaringType.GetTypeInfo().GetCustomAttributes<UnitOfWorkAttribute>(true);
+            var classAttrs = method.DeclaringType!.GetTypeInfo().GetCustomAttributes<UnitOfWorkAttribute>(true);
             if (classAttrs?.Any() ?? false) 
             {
                 return classAttrs.First();

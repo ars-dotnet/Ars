@@ -40,7 +40,7 @@ namespace ArsTest
                     services = service;
                     service.AddLogging();
                 }).
-                ConfigureLogging((hostingContext, logging) => 
+                ConfigureLogging((hostingContext, logging) =>
                 {
                     logging.AddDebug();
                 })
@@ -53,7 +53,7 @@ namespace ArsTest
         public int i;
         public int j;
 
-        public async Task<int> Set() 
+        public async Task<int> Set()
         {
             await Task.Yield();
             var m = Interlocked.Increment(ref i);
@@ -61,12 +61,12 @@ namespace ArsTest
         }
     }
 
-    public abstract class A 
+    public abstract class A
     {
         public abstract void Get();
     }
 
-    public class AA : A 
+    public class AA : A
     {
         public override void Get()
         {
@@ -74,7 +74,7 @@ namespace ArsTest
         }
     }
 
-    public class AAA : AA 
+    public class AAA : AA
     {
         public override void Get()
         {
@@ -85,7 +85,7 @@ namespace ArsTest
     public class AspNetCoreTest : AspNetCoreBase
     {
         [Fact]
-        public void TestOverride() 
+        public void TestOverride()
         {
             var factory = services.BuildServiceProvider().GetRequiredService<ILoggerFactory>();
             var logger = factory.CreateLogger<AspNetCoreTest>();
@@ -98,7 +98,7 @@ namespace ArsTest
         }
 
         [Fact]
-        public async Task TestIncrement1() 
+        public async Task TestIncrement1()
         {
             IList<Task<int>> tasks = new List<Task<int>>();
             TestIncrement obj = new TestIncrement();
@@ -124,7 +124,7 @@ namespace ArsTest
         }
 
         [Fact]
-        public void TestA() 
+        public void TestA()
         {
             int a = 0;
             TestB(a);
@@ -135,17 +135,17 @@ namespace ArsTest
         {
             a = 2;
         }
-        private void Testc(ref int a) 
+        private void Testc(ref int a)
         {
             a = 3;
         }
 
         [Fact]
-        public void TestDispose() 
+        public void TestDispose()
         {
             DisposeAction dispose = new DisposeAction(() =>
             {
-                return Task.FromResult(0);
+                Task.FromResult(0);
             });
 
             dispose.Dispose();
@@ -153,17 +153,17 @@ namespace ArsTest
         }
 
         [Fact]
-        public void CreateHost() 
+        public void CreateHost()
         {
             int[] array = { 1, 2, 3, 4, 5, 6 };
-            Array.ForEach(array, r => 
+            Array.ForEach(array, r =>
             {
                 r++;
             });
         }
 
         [Fact]
-        public async Task TestIdentityServer() 
+        public async Task TestIdentityServer()
         {
             using HttpClient client = new HttpClient();
             var disco = await client.GetDiscoveryDocumentAsync("http://localhost:7207");
@@ -181,7 +181,7 @@ namespace ArsTest
                 Password = "test",
                 Address = "http://localhost:7207/connect/token"
             });
-            if(tokenresponse.IsError)
+            if (tokenresponse.IsError)
             {
                 Console.WriteLine(tokenresponse.Error);
                 return;
@@ -207,7 +207,7 @@ namespace ArsTest
         }
 
         [Fact]
-        public void TestOption() 
+        public void TestOption()
         {
             var serviceProvider = services.BuildServiceProvider();
             IConfiguration config = serviceProvider.GetRequiredService<IConfiguration>();
@@ -220,10 +220,75 @@ namespace ArsTest
         }
 
         [Fact]
-        public void TestPath() 
+        public void TestPath()
         {
             var a = Directory.GetCurrentDirectory();//这个代表当前应用程序的根目录
             var b = AppDomain.CurrentDomain.BaseDirectory; //web程序中，这个代表当前应用程序运行的根目录
         }
+
+        [Fact]
+        public void TestAA()
+        {
+            services.AddSingleton<IM, M>();
+
+            var serviceProvider = services.BuildServiceProvider();
+            var a = serviceProvider.GetRequiredService<IM>();
+            a.Age = 1234;
+
+            var v = serviceProvider.GetRequiredService<IM>();
+        }
+
+        [Fact]
+        public void TestBB()
+        {
+            services.AddTransient<IM, M>();
+            services.AddTransient<IM, MM>();
+            
+            services.AddTransient<ICheck, Check>();
+            var serviceProvider = services.BuildServiceProvider();
+            var a = serviceProvider.GetRequiredService<IM>();
+        }
+
+        [Fact]
+        public void TestChunk() 
+        {
+            IEnumerable<int> datas = new List<int>
+            {
+                1,2,3,4,5,6,7
+            };
+
+            var m = datas.Chunk(3);
+        }
+    }
+
+    public interface ICheck
+    {
+
+    }
+
+    public class Check : ICheck 
+    {
+
+    }
+
+    public interface IM 
+    {
+        int Age { get; set; }
+    }
+
+    public class M : IM
+    {
+        private ICheck check;
+        public M(ICheck check)
+        {
+            this.check = check;
+        }
+
+        public int Age { get; set; } = 100;
+    }
+
+    public class MM : IM 
+    {
+        public int Age { get; set; } = 123;
     }
 }

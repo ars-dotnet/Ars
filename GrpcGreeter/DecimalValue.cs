@@ -1,4 +1,4 @@
-﻿namespace GrpcGreeter.customTypes
+﻿namespace GrpcGreeter.customTypess
 {
     public partial class DecimalValue
     {

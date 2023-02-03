@@ -52,8 +52,9 @@ namespace Ars.Common.EFCore.EfCoreUnitOfWorks
             {
                 dbContext = dbContextResolver.Resolve<TDbContext>(connectionString, null);
 
+                //默认采用可重复读事务隔离级别
                 var dbTransaction = await dbContext.Database.BeginTransactionAsync(
-                        (_options.IsolationLevel ?? IsolationLevel.ReadUncommitted).ToSystemDataIsolationLevel());
+                        (_options.IsolationLevel ?? IsolationLevel.RepeatableRead).ToSystemDataIsolationLevel());
 
                 activeinfo = new ActiveTransactionInfo(dbTransaction, dbContext);
                 ActiveTransactionInfos[connectionString] = activeinfo;

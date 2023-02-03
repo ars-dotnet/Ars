@@ -1,4 +1,4 @@
-﻿using Ars.Common.Core.Uow;
+﻿using Ars.Common.Core.Configs;
 using Ars.Common.Core.Uow.Options;
 using System;
 using System.Collections.Generic;

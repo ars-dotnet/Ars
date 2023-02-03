@@ -219,7 +219,7 @@ namespace ArsTest
 
         }
 
-        class SkyChild<A> : Sky<A> where A : Animal
+        class SkyChild<A> : Sky<A> where A : Animal,new()
         {
             public SkyChild(A t) : base(t)
             {
@@ -227,8 +227,9 @@ namespace ArsTest
             }
         }
 
-        class Sky<T> where T : Animal
+        class Sky<T> where T : Animal,new()
         {
+            public const string A = "aaa";
             private T _t;
             public Sky(T t)
             {
@@ -242,7 +243,7 @@ namespace ArsTest
 
             public string skyFluence<Tp>(string a)
             {
-                return string.Concat(typeof(Tp).Name,"_",a);
+                return string.Concat(typeof(Tp).Name,"_",a,A);
             }
 
             public Task<string> skyFluenceAsync<Tp>(string a)

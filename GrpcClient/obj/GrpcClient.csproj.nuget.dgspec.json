@@ -5,7 +5,7 @@
   },
   "projects": {
     "C:\\core\\MyArs\\Ars.Commom.Host\\Ars.Common.Host.csproj": {
-      "version": "1.0.0",
+      "version": "1.1.5",
       "restore": {
         "projectUniqueName": "C:\\core\\MyArs\\Ars.Commom.Host\\Ars.Common.Host.csproj",
         "projectName": "Ars.Common.Host",
@@ -13,8 +13,12 @@
         "packagesPath": "C:\\Users\\boo\\.nuget\\packages\\",
         "outputPath": "C:\\core\\MyArs\\Ars.Commom.Host\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
           "C:\\Users\\boo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -31,8 +35,14 @@
               "C:\\core\\MyArs\\Ars.Common.AutoFac\\Ars.Common.AutoFac.csproj": {
                 "projectPath": "C:\\core\\MyArs\\Ars.Common.AutoFac\\Ars.Common.AutoFac.csproj"
               },
+              "C:\\core\\MyArs\\Ars.Common.Consul\\Ars.Common.Consul.csproj": {
+                "projectPath": "C:\\core\\MyArs\\Ars.Common.Consul\\Ars.Common.Consul.csproj"
+              },
               "C:\\core\\MyArs\\Ars.Common.Core\\Ars.Common.Core.csproj": {
                 "projectPath": "C:\\core\\MyArs\\Ars.Common.Core\\Ars.Common.Core.csproj"
+              },
+              "C:\\core\\MyArs\\Ars.Common.IdentityServer4\\Ars.Common.IdentityServer4.csproj": {
+                "projectPath": "C:\\core\\MyArs\\Ars.Common.IdentityServer4\\Ars.Common.IdentityServer4.csproj"
               },
               "C:\\core\\MyArs\\MyArsenal.Commom.Tool\\Ars.Common.Tool.csproj": {
                 "projectPath": "C:\\core\\MyArs\\MyArsenal.Commom.Tool\\Ars.Common.Tool.csproj"
@@ -57,10 +67,6 @@
             "Autofac.Extensions.DependencyInjection": {
               "target": "Package",
               "version": "[7.2.0, )"
-            },
-            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
-              "target": "Package",
-              "version": "[6.0.0, )"
             }
           },
           "imports": [
@@ -86,7 +92,7 @@
       }
     },
     "C:\\core\\MyArs\\Ars.Common.AutoFac\\Ars.Common.AutoFac.csproj": {
-      "version": "1.0.0",
+      "version": "1.1.5",
       "restore": {
         "projectUniqueName": "C:\\core\\MyArs\\Ars.Common.AutoFac\\Ars.Common.AutoFac.csproj",
         "projectName": "Ars.Common.AutoFac",
@@ -94,8 +100,12 @@
         "packagesPath": "C:\\Users\\boo\\.nuget\\packages\\",
         "outputPath": "C:\\core\\MyArs\\Ars.Common.AutoFac\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
           "C:\\Users\\boo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -161,7 +171,7 @@
       }
     },
     "C:\\core\\MyArs\\Ars.Common.Consul\\Ars.Common.Consul.csproj": {
-      "version": "1.0.0",
+      "version": "1.1.5",
       "restore": {
         "projectUniqueName": "C:\\core\\MyArs\\Ars.Common.Consul\\Ars.Common.Consul.csproj",
         "projectName": "Ars.Common.Consul",
@@ -169,8 +179,12 @@
         "packagesPath": "C:\\Users\\boo\\.nuget\\packages\\",
         "outputPath": "C:\\core\\MyArs\\Ars.Common.Consul\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
           "C:\\Users\\boo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -203,6 +217,18 @@
             "Consul": {
               "target": "Package",
               "version": "[1.6.10.4, )"
+            },
+            "Grpc.Core.Api": {
+              "target": "Package",
+              "version": "[2.42.0, )"
+            },
+            "Grpc.Net.Client": {
+              "target": "Package",
+              "version": "[2.42.0, )"
+            },
+            "Grpc.Net.Client.Web": {
+              "target": "Package",
+              "version": "[2.42.0, )"
             }
           },
           "imports": [
@@ -228,7 +254,7 @@
       }
     },
     "C:\\core\\MyArs\\Ars.Common.Core\\Ars.Common.Core.csproj": {
-      "version": "1.0.0",
+      "version": "1.1.5",
       "restore": {
         "projectUniqueName": "C:\\core\\MyArs\\Ars.Common.Core\\Ars.Common.Core.csproj",
         "projectName": "Ars.Common.Core",
@@ -236,8 +262,12 @@
         "packagesPath": "C:\\Users\\boo\\.nuget\\packages\\",
         "outputPath": "C:\\core\\MyArs\\Ars.Common.Core\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
           "C:\\Users\\boo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -267,6 +297,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
             "System.Configuration.ConfigurationManager": {
               "target": "Package",
               "version": "[6.0.0, )"
@@ -294,8 +328,86 @@
         }
       }
     },
+    "C:\\core\\MyArs\\Ars.Common.IdentityServer4\\Ars.Common.IdentityServer4.csproj": {
+      "version": "1.1.5",
+      "restore": {
+        "projectUniqueName": "C:\\core\\MyArs\\Ars.Common.IdentityServer4\\Ars.Common.IdentityServer4.csproj",
+        "projectName": "Ars.Common.IdentityServer4",
+        "projectPath": "C:\\core\\MyArs\\Ars.Common.IdentityServer4\\Ars.Common.IdentityServer4.csproj",
+        "packagesPath": "C:\\Users\\boo\\.nuget\\packages\\",
+        "outputPath": "C:\\core\\MyArs\\Ars.Common.IdentityServer4\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\boo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\core\\MyArs\\Ars.Common.Core\\Ars.Common.Core.csproj": {
+                "projectPath": "C:\\core\\MyArs\\Ars.Common.Core\\Ars.Common.Core.csproj"
+              },
+              "C:\\core\\MyArs\\MyArsenal.Commom.Tool\\Ars.Common.Tool.csproj": {
+                "projectPath": "C:\\core\\MyArs\\MyArsenal.Commom.Tool\\Ars.Common.Tool.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "IdentityServer4": {
+              "target": "Package",
+              "version": "[4.1.2, )"
+            },
+            "IdentityServer4.AccessTokenValidation": {
+              "target": "Package",
+              "version": "[3.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "C:\\core\\MyArs\\GrpcClient\\GrpcClient.csproj": {
-      "version": "1.0.0",
+      "version": "1.1.5",
       "restore": {
         "projectUniqueName": "C:\\core\\MyArs\\GrpcClient\\GrpcClient.csproj",
         "projectName": "GrpcClient",
@@ -303,8 +415,12 @@
         "packagesPath": "C:\\Users\\boo\\.nuget\\packages\\",
         "outputPath": "C:\\core\\MyArs\\GrpcClient\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
           "C:\\Users\\boo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -341,15 +457,19 @@
               "target": "Package",
               "version": "[3.18.0, )"
             },
+            "Grpc.Net.Client.Web": {
+              "target": "Package",
+              "version": "[2.42.0, )"
+            },
             "Grpc.Net.ClientFactory": {
               "target": "Package",
-              "version": "[2.40.0, )"
+              "version": "[2.42.0, )"
             },
             "Grpc.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[2.40.0, )"
+              "version": "[2.42.0, )"
             }
           },
           "imports": [
@@ -372,7 +492,7 @@
       }
     },
     "C:\\core\\MyArs\\MyArsenal.Commom.Tool\\Ars.Common.Tool.csproj": {
-      "version": "1.0.0",
+      "version": "1.1.5",
       "restore": {
         "projectUniqueName": "C:\\core\\MyArs\\MyArsenal.Commom.Tool\\Ars.Common.Tool.csproj",
         "projectName": "Ars.Common.Tool",
@@ -380,20 +500,24 @@
         "packagesPath": "C:\\Users\\boo\\.nuget\\packages\\",
         "outputPath": "C:\\core\\MyArs\\MyArsenal.Commom.Tool\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
           "C:\\Users\\boo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "netstandard2.0"
+          "net6.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "netstandard2.0": {
-            "targetAlias": "netstandard2.0",
+          "net6.0": {
+            "targetAlias": "net6.0",
             "projectReferences": {}
           }
         },
@@ -404,8 +528,8 @@
         }
       },
       "frameworks": {
-        "netstandard2.0": {
-          "targetAlias": "netstandard2.0",
+        "net6.0": {
+          "targetAlias": "net6.0",
           "dependencies": {
             "MessagePack": {
               "target": "Package",
@@ -430,12 +554,6 @@
             "Microsoft.Extensions.Options": {
               "target": "Package",
               "version": "[6.0.0, )"
-            },
-            "NETStandard.Library": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[2.0.3, )",
-              "autoReferenced": true
             }
           },
           "imports": [
@@ -448,6 +566,11 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
         }
       }

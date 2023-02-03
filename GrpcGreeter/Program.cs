@@ -12,14 +12,16 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddGrpc();
 
-var arsbuilder = builder.Services.AddArserviceCore(builder);
-arsbuilder.AddArsConsulRegister(option => 
-{
-    option.ConsulAddress = "http://127.0.0.1:8500";
-    option.ServiceName = "apigrpc";
-    option.ServiceIp = "127.0.0.1";
-    option.ServicePort = 7903;
-});
+var arsbuilder = builder.Services.AddArserviceCore(builder.Host);
+arsbuilder.AddArsConsulRegisterServer(
+    //option => 
+    //{
+    //    option.ConsulAddress = "http://127.0.0.1:8500";
+    //    option.ServiceName = "apigrpc";
+    //    option.ServiceIp = "127.0.0.1";
+    //    option.ServicePort = 7903;
+    //}
+);
 
 var app = builder.Build();
 
@@ -28,6 +30,6 @@ app.MapGrpcService<GreeterService>();
 app.MapGrpcService<HealthCheckService>();
 app.MapGet("/", () => "Communication with gRPC endpoints must be made through a gRPC client. To learn how to create a client, visit: https://go.microsoft.com/fwlink/?linkid=2086909");
 
-app.UseConsul(builder.Configuration);
+//app.UseArsConsul();
 
 app.Run();
