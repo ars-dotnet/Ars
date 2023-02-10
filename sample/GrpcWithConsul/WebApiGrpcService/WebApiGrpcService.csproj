@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Remove="Protos\customType.proto" />
+		<None Remove="Protos\greet.proto" />
+		<None Remove="Protos\health.proto" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="IdentityServer4" Version="4.1.2" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+		<PackageReference Include="Grpc.AspNetCore" Version="2.42.0" />
+		<PackageReference Include="Grpc.AspNetCore.Web" Version="2.42.0" />
+		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.15.1" />
+		<PackageReference Include="System.Linq.Async" Version="6.0.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Protobuf Include="Protos\customType.proto" GrpcServices="Server">
+			<Root>GrpcHelper\Protos\</Root>
+		</Protobuf>
+		<Protobuf Include="Protos\greet.proto" GrpcServices="Server">
+			<ProtoRoot>Protos\</ProtoRoot>
+		</Protobuf>
+		<Protobuf Include="Protos\health.proto" GrpcServices="Server">
+			<Root>GrpcHelper\Protos\</Root>
+		</Protobuf>
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\..\src\Ars.Commom.Host\Ars.Common.Host.csproj" />
+		<ProjectReference Include="..\..\..\src\Ars.Common.Consul\Ars.Common.Consul.csproj" />
+	</ItemGroup>
+
+</Project>

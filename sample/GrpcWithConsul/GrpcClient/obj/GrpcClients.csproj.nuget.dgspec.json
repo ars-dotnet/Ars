@@ -1,0 +1,90 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\core\\MyArs\\sample\\GrpcWithConsul\\GrpcClient\\GrpcClients.csproj": {}
+  },
+  "projects": {
+    "C:\\core\\MyArs\\sample\\GrpcWithConsul\\GrpcClient\\GrpcClients.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\core\\MyArs\\sample\\GrpcWithConsul\\GrpcClient\\GrpcClients.csproj",
+        "projectName": "GrpcClients",
+        "projectPath": "C:\\core\\MyArs\\sample\\GrpcWithConsul\\GrpcClient\\GrpcClients.csproj",
+        "packagesPath": "C:\\Users\\boo\\.nuget\\packages\\",
+        "outputPath": "C:\\core\\MyArs\\sample\\GrpcWithConsul\\GrpcClient\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\boo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\core\\MyArs\\sample\\GrpcWithConsul\\Ars.Commom.Host\\Ars.Common.Host.csproj": {
+                "projectPath": "C:\\core\\MyArs\\sample\\GrpcWithConsul\\Ars.Commom.Host\\Ars.Common.Host.csproj"
+              },
+              "C:\\core\\MyArs\\sample\\GrpcWithConsul\\Ars.Common.Consul\\Ars.Common.Consul.csproj": {
+                "projectPath": "C:\\core\\MyArs\\sample\\GrpcWithConsul\\Ars.Common.Consul\\Ars.Common.Consul.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Google.Protobuf": {
+              "target": "Package",
+              "version": "[3.18.1, )"
+            },
+            "Grpc.AspNetCore": {
+              "target": "Package",
+              "version": "[2.42.0, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.2.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

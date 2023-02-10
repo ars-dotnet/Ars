@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Grpc.AspNetCore" Version="2.42.0" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+		<PackageReference Include="Google.Protobuf" Version="3.18.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\..\..\src\Ars.Commom.Host\Ars.Common.Host.csproj" />
+	  <ProjectReference Include="..\..\..\src\Ars.Common.Consul\Ars.Common.Consul.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Protobuf Include="..\GrpcService\Protos\customType.proto" GrpcServices="Client">
+	    <Link>Protos\customType.proto</Link>
+	  </Protobuf>
+	  <Protobuf Include="..\GrpcService\Protos\greet.proto" GrpcServices="Client">
+	    <Link>Protos\greet.proto</Link>
+	  </Protobuf>
+	  <Protobuf Include="..\GrpcService\Protos\health.proto" GrpcServices="Client">
+	    <Link>Protos\health.proto</Link>
+	  </Protobuf>
+	</ItemGroup>
+</Project>
