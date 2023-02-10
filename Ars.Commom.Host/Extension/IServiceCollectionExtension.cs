@@ -31,8 +31,7 @@ namespace Ars.Commom.Host.Extension
     {
         public static IArsServiceBuilder AddArserviceCore(
             this IServiceCollection services,
-            IHostBuilder host,
-            Action<IArsConfiguration>? action = null)
+            IHostBuilder host)
         {
             var arsbuilder = new ArsServiceBuilder(new ArsServiceCollection(services), host);
             arsbuilder.AddArsAspNetCore();

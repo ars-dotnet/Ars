@@ -1,7 +1,7 @@
 ﻿namespace MyApiWithIdentityServer4.Dtos
 {
-    public class RefreshTokenInput : LoginInput
+    public class RefreshTokenInput
     {
-        public string refresh_token { get; set; }
+        public string Refresh_token { get; set; }
     }
 }

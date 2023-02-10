@@ -1,4 +1,5 @@
 ﻿using Ars.Commom.Core;
+using Ars.Common.Core.Configs;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;

@@ -1,6 +1,5 @@
 using Ars.Commom.Host.Extension;
 using Ars.Common.Consul.IApplicationBuilderExtension;
-using Ars.Common.IdentityServer4.Extension;
 using GrpcService.Services;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.AspNetCore.Server.Kestrel.Https;
@@ -21,8 +20,7 @@ builder.Services.AddSwaggerGen();
 //builder.Services.AddTransient<ArsResourcePasswordValidator>();
 builder.Services
     .AddArserviceCore(builder.Host)
-    .AddArsConsulRegisterServer()
-    .AddArsIdentityServer();
+    .AddArsConsulRegisterServer();
 builder.Services.AddGrpc();
 
 builder.WebHost.ConfigureKestrel(kestrel => 
@@ -51,16 +49,15 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+    app.UseDeveloperExceptionPage();
 }
 
 app.UseGrpcWeb(new GrpcWebOptions { DefaultEnabled = true });
 
 app.UseHttpsRedirection();
 
-//app.MapGrpcService<GreeterService>();
-//app.MapGrpcService<HealthCheckService>();
-
 app.UseRouting();
+app.UseArsCore();
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllers();
@@ -71,9 +68,5 @@ app.UseEndpoints(endpoints =>
         return context.Response.WriteAsync("ok");
     });
 });
-
-app.MapControllers();
-
-app.UseArsCore();
 
 app.Run();

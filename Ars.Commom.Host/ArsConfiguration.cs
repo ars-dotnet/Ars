@@ -14,6 +14,8 @@ namespace Ars.Common.Host
     {
         public IList<IArsOptExtension> ArsOptExtensions { get; }
 
+        public IList<IArsAppExtension> ArsAppExtensions { get; }
+
         public IUnitOfWorkDefaultConfiguration? UnitOfWorkDefaultConfiguration { get; set; } = default;
 
         public IConsulDiscoverConfiguration? ConsulDiscoverConfiguration { get; set; } = default;
@@ -24,16 +26,20 @@ namespace Ars.Common.Host
 
         public IArsIdentityClientConfiguration? ArsIdentityClientConfiguration { get; set; } = default;
 
-        public bool AddArsIdentityServerClient { get; set; }
-
         public ArsConfiguration()
         {
             ArsOptExtensions = new List<IArsOptExtension>(0);
+            ArsAppExtensions = new List<IArsAppExtension>(0);
         }
 
         public void AddArsOptExtension(IArsOptExtension optExtension)
         {
             ArsOptExtensions.Add(optExtension);
+        }
+
+        public void AddArsAppExtension(IArsAppExtension appExtension)
+        {
+            ArsAppExtensions.Add(appExtension);
         }
     }
 }

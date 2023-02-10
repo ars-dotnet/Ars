@@ -1,0 +1,18 @@
+{
+  "exclude": [
+    "**/bin",
+    "**/bower_components",
+    "**/jspm_packages",
+    "**/node_modules",
+    "**/obj",
+    "**/platforms"
+  ],
+  "ConsulDiscoverConfiguration": {
+    "ConsulDiscovers": [
+      {
+        "ConsulAddress": "http://127.0.0.1:8500",
+        "ServiceName": "apigrpc"
+      }
+    ]
+  }
+}

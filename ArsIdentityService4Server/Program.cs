@@ -1,16 +1,17 @@
 using Ars.Commom.Host.Extension;
 using Ars.Common.IdentityServer4.Extension;
+using ArsIdentityService4Server;
 using IdentityServer4.Models;
-using static Ars.Common.IdentityServer4.options.ArsIdentityServerOption;
-using static IdentityServer4.IdentityServerConstants;
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddRazorPages();
+builder.Services.AddControllersWithViews();
 
-var arsbuilder = builder.Services.AddArserviceCore(builder.Host);
-arsbuilder.AddArsIdentityServer();
+builder.Services
+    .AddArserviceCore(builder.Host)
+    .AddArsIdentityServer();
+
+builder.Services.ConfigureNonBreakingSameSiteCookies();
 
 var app = builder.Build();
 
@@ -20,13 +21,8 @@ if (!app.Environment.IsDevelopment())
     app.UseExceptionHandler("/Error");
 }
 app.UseStaticFiles();
-
 app.UseRouting();
-
-//app.UseAuthorization();
-
-app.UseArsIdentityServer();
-
-app.MapRazorPages();
-
+app.UseCookiePolicy();
+app.UseArsCore();
+app.MapDefaultControllerRoute();
 app.Run();

@@ -18,16 +18,24 @@ namespace GrpcClients
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            var client = await _grpcClientProvider.GetGrpcClient<Greeter.GreeterClient>("apigrpc");
-            using var req = client.StreamingFromClient();
-
-            var channel = _channelProvider.GetOrAddChannel<StreamingRequest>("grpc");
-            while (await channel.Reader.WaitToReadAsync())
+            try
             {
-                while (channel.Reader.TryRead(out var msg))
+                var client = await _grpcClientProvider.GetGrpcClient<Greeter.GreeterClient>("apigrpc");
+                using (var req = client.StreamingFromClient())
                 {
-                    await req.RequestStream.WriteAsync(msg);
+                    var channel = _channelProvider.GetOrAddChannel<StreamingRequest>("grpc");
+                    while (await channel.Reader.WaitToReadAsync())
+                    {
+                        while (channel.Reader.TryRead(out var msg))
+                        {
+                            await req.RequestStream.WriteAsync(msg);
+                        }
+                    }
                 }
+            }
+            catch (Exception e)
+            {
+
             }
 
             return;

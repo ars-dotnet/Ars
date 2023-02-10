@@ -12,5 +12,7 @@ namespace Ars.Common.IdentityServer4.Options
         public string Authority { get; set; }
 
         public string ApiName { get; set; }
+
+        public bool RequireHttpsMetadata { get; set; }
     }
 }

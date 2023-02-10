@@ -12,6 +12,7 @@ using IdentityServer4.Services;
 using Microsoft.IdentityModel.Tokens;
 using System.Security.Cryptography.X509Certificates;
 using Ars.Common.Core.Configs;
+using IdentityServer4;
 
 namespace Ars.Common.IdentityServer4.Extension
 {
@@ -75,8 +76,8 @@ namespace Ars.Common.IdentityServer4.Extension
                 client1.AllowOfflineAccess = client.AllowOfflineAccess;
                 client1.AccessTokenLifetime = client.AccessTokenLifetime;
                 client1.RefreshTokenExpiration = TokenExpiration.Sliding;
-                client1.AbsoluteRefreshTokenLifetime = 0;
-                client1.SlidingRefreshTokenLifetime = (int)TimeSpan.FromDays(365.0).TotalSeconds;
+                //client1.AbsoluteRefreshTokenLifetime = 0;
+                //client1.SlidingRefreshTokenLifetime = (int)TimeSpan.FromDays(365.0).TotalSeconds;
                 client1.AllowAccessTokensViaBrowser = true;//控制是否通过浏览器传输此客户端的访问令牌
                 //登录成功跳转地址                                          
                 client1.RedirectUris = client.RedirectUris;
@@ -84,6 +85,7 @@ namespace Ars.Common.IdentityServer4.Extension
                 client1.PostLogoutRedirectUris = client.PostLogoutRedirectUris;
                 //跨域地址
                 client1.AllowedCorsOrigins = client.AllowedCorsOrigins;
+                client1.RequireConsent = true;
 
                 clientList.Add(client1);
             }

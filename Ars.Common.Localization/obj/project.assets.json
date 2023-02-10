@@ -27,139 +27,6 @@
           "lib/net6.0/Autofac.Extensions.DependencyInjection.dll": {}
         }
       },
-      "Consul/1.6.10.4": {
-        "type": "package",
-        "dependencies": {
-          "Newtonsoft.Json": "10.0.3"
-        },
-        "compile": {
-          "lib/netstandard2.0/Consul.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/Consul.dll": {}
-        }
-      },
-      "Grpc.Core.Api/2.42.0": {
-        "type": "package",
-        "dependencies": {
-          "System.Memory": "4.5.3"
-        },
-        "compile": {
-          "lib/netstandard2.0/Grpc.Core.Api.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/Grpc.Core.Api.dll": {}
-        }
-      },
-      "Grpc.Net.Client/2.42.0": {
-        "type": "package",
-        "dependencies": {
-          "Grpc.Net.Common": "2.42.0",
-          "Microsoft.Extensions.Logging.Abstractions": "3.0.3"
-        },
-        "compile": {
-          "lib/net6.0/Grpc.Net.Client.dll": {}
-        },
-        "runtime": {
-          "lib/net6.0/Grpc.Net.Client.dll": {}
-        }
-      },
-      "Grpc.Net.Client.Web/2.42.0": {
-        "type": "package",
-        "compile": {
-          "lib/net6.0/Grpc.Net.Client.Web.dll": {}
-        },
-        "runtime": {
-          "lib/net6.0/Grpc.Net.Client.Web.dll": {}
-        }
-      },
-      "Grpc.Net.Common/2.42.0": {
-        "type": "package",
-        "dependencies": {
-          "Grpc.Core.Api": "2.42.0"
-        },
-        "compile": {
-          "lib/net6.0/Grpc.Net.Common.dll": {}
-        },
-        "runtime": {
-          "lib/net6.0/Grpc.Net.Common.dll": {}
-        }
-      },
-      "IdentityModel/4.4.0": {
-        "type": "package",
-        "dependencies": {
-          "Newtonsoft.Json": "11.0.2",
-          "System.Text.Encodings.Web": "4.7.0"
-        },
-        "compile": {
-          "lib/netstandard2.0/IdentityModel.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/IdentityModel.dll": {}
-        }
-      },
-      "IdentityModel.AspNetCore.OAuth2Introspection/4.0.1": {
-        "type": "package",
-        "dependencies": {
-          "IdentityModel": "4.0.0"
-        },
-        "compile": {
-          "lib/netcoreapp3.0/IdentityModel.AspNetCore.OAuth2Introspection.dll": {}
-        },
-        "runtime": {
-          "lib/netcoreapp3.0/IdentityModel.AspNetCore.OAuth2Introspection.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.AspNetCore.App"
-        ]
-      },
-      "IdentityServer4/4.1.2": {
-        "type": "package",
-        "dependencies": {
-          "IdentityModel": "4.4.0",
-          "IdentityServer4.Storage": "4.1.2",
-          "Microsoft.AspNetCore.Authentication.OpenIdConnect": "3.1.0",
-          "Microsoft.IdentityModel.Protocols.OpenIdConnect": "5.6.0",
-          "Newtonsoft.Json": "12.0.2"
-        },
-        "compile": {
-          "lib/netcoreapp3.1/IdentityServer4.dll": {}
-        },
-        "runtime": {
-          "lib/netcoreapp3.1/IdentityServer4.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.AspNetCore.App"
-        ]
-      },
-      "IdentityServer4.AccessTokenValidation/3.0.1": {
-        "type": "package",
-        "dependencies": {
-          "IdentityModel.AspNetCore.OAuth2Introspection": "4.0.1",
-          "Microsoft.AspNetCore.Authentication.JwtBearer": "3.0.0"
-        },
-        "compile": {
-          "lib/netcoreapp3.0/IdentityServer4.AccessTokenValidation.dll": {}
-        },
-        "runtime": {
-          "lib/netcoreapp3.0/IdentityServer4.AccessTokenValidation.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.AspNetCore.App"
-        ]
-      },
-      "IdentityServer4.Storage/4.1.2": {
-        "type": "package",
-        "dependencies": {
-          "IdentityModel": "4.4.0"
-        },
-        "compile": {
-          "lib/netstandard2.0/IdentityServer4.Storage.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/IdentityServer4.Storage.dll": {}
-        }
-      },
       "MessagePack/2.3.85": {
         "type": "package",
         "dependencies": {
@@ -208,36 +75,6 @@
         "runtime": {
           "lib/netstandard2.0/Microsoft.AspNetCore.Authentication.Core.dll": {}
         }
-      },
-      "Microsoft.AspNetCore.Authentication.JwtBearer/3.0.0": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.IdentityModel.Protocols.OpenIdConnect": "5.5.0"
-        },
-        "compile": {
-          "lib/netcoreapp3.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll": {}
-        },
-        "runtime": {
-          "lib/netcoreapp3.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.AspNetCore.App"
-        ]
-      },
-      "Microsoft.AspNetCore.Authentication.OpenIdConnect/3.1.0": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.IdentityModel.Protocols.OpenIdConnect": "5.5.0"
-        },
-        "compile": {
-          "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.OpenIdConnect.dll": {}
-        },
-        "runtime": {
-          "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.OpenIdConnect.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.AspNetCore.App"
-        ]
       },
       "Microsoft.AspNetCore.Authorization/2.2.0": {
         "type": "package",
@@ -661,69 +498,6 @@
           "buildTransitive/netcoreapp3.1/_._": {}
         }
       },
-      "Microsoft.IdentityModel.JsonWebTokens/5.6.0": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.IdentityModel.Tokens": "5.6.0",
-          "Newtonsoft.Json": "10.0.1"
-        },
-        "compile": {
-          "lib/netstandard2.0/Microsoft.IdentityModel.JsonWebTokens.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.IdentityModel.JsonWebTokens.dll": {}
-        }
-      },
-      "Microsoft.IdentityModel.Logging/5.6.0": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/Microsoft.IdentityModel.Logging.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.IdentityModel.Logging.dll": {}
-        }
-      },
-      "Microsoft.IdentityModel.Protocols/5.6.0": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.IdentityModel.Logging": "5.6.0",
-          "Microsoft.IdentityModel.Tokens": "5.6.0"
-        },
-        "compile": {
-          "lib/netstandard2.0/Microsoft.IdentityModel.Protocols.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.IdentityModel.Protocols.dll": {}
-        }
-      },
-      "Microsoft.IdentityModel.Protocols.OpenIdConnect/5.6.0": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.IdentityModel.Protocols": "5.6.0",
-          "Newtonsoft.Json": "10.0.1",
-          "System.IdentityModel.Tokens.Jwt": "5.6.0"
-        },
-        "compile": {
-          "lib/netstandard2.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll": {}
-        }
-      },
-      "Microsoft.IdentityModel.Tokens/5.6.0": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.IdentityModel.Logging": "5.6.0",
-          "Newtonsoft.Json": "10.0.1",
-          "System.Security.Cryptography.Cng": "4.5.0"
-        },
-        "compile": {
-          "lib/netstandard2.0/Microsoft.IdentityModel.Tokens.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.IdentityModel.Tokens.dll": {}
-        }
-      },
       "Microsoft.Net.Http.Headers/2.2.0": {
         "type": "package",
         "dependencies": {
@@ -943,20 +717,6 @@
           "ref/netstandard1.3/_._": {}
         }
       },
-      "System.IdentityModel.Tokens.Jwt/5.6.0": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.IdentityModel.JsonWebTokens": "5.6.0",
-          "Microsoft.IdentityModel.Tokens": "5.6.0",
-          "Newtonsoft.Json": "10.0.1"
-        },
-        "compile": {
-          "lib/netstandard2.0/System.IdentityModel.Tokens.Jwt.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/System.IdentityModel.Tokens.Jwt.dll": {}
-        }
-      },
       "System.IO/4.1.0": {
         "type": "package",
         "dependencies": {
@@ -1040,15 +800,6 @@
         },
         "runtime": {
           "lib/netstandard1.6/System.Linq.Expressions.dll": {}
-        }
-      },
-      "System.Memory/4.5.3": {
-        "type": "package",
-        "compile": {
-          "ref/netcoreapp2.1/_._": {}
-        },
-        "runtime": {
-          "lib/netcoreapp2.1/_._": {}
         }
       },
       "System.ObjectModel/4.0.12": {
@@ -1275,21 +1026,6 @@
           }
         }
       },
-      "System.Security.Cryptography.Cng/4.5.0": {
-        "type": "package",
-        "compile": {
-          "ref/netcoreapp2.1/System.Security.Cryptography.Cng.dll": {}
-        },
-        "runtime": {
-          "lib/netcoreapp2.1/System.Security.Cryptography.Cng.dll": {}
-        },
-        "runtimeTargets": {
-          "runtimes/win/lib/netcoreapp2.1/System.Security.Cryptography.Cng.dll": {
-            "assetType": "runtime",
-            "rid": "win"
-          }
-        }
-      },
       "System.Security.Cryptography.ProtectedData/6.0.0": {
         "type": "package",
         "compile": {
@@ -1335,13 +1071,13 @@
           "ref/netstandard1.3/System.Text.Encoding.dll": {}
         }
       },
-      "System.Text.Encodings.Web/4.7.0": {
+      "System.Text.Encodings.Web/4.5.0": {
         "type": "package",
         "compile": {
-          "lib/netstandard2.1/System.Text.Encodings.Web.dll": {}
+          "lib/netstandard2.0/System.Text.Encodings.Web.dll": {}
         },
         "runtime": {
-          "lib/netstandard2.1/System.Text.Encodings.Web.dll": {}
+          "lib/netstandard2.0/System.Text.Encodings.Web.dll": {}
         }
       },
       "System.Threading/4.0.11": {
@@ -1395,11 +1131,11 @@
           }
         }
       },
-      "Ars.Common.AutoFac/1.1.5": {
+      "Ars.Common.AutoFac/1.3.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Ars.Common.Core": "1.1.5",
+          "Ars.Common.Core": "1.3.0",
           "Autofac": "6.3.0",
           "Autofac.Extensions.DependencyInjection": "7.2.0",
           "Microsoft.AspNetCore.Mvc.Core": "2.2.5"
@@ -1414,31 +1150,11 @@
           "Microsoft.AspNetCore.App"
         ]
       },
-      "Ars.Common.Consul/1.1.5": {
+      "Ars.Common.Core/1.3.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Ars.Common.Core": "1.1.5",
-          "Consul": "1.6.10.4",
-          "Grpc.Core.Api": "2.42.0",
-          "Grpc.Net.Client": "2.42.0",
-          "Grpc.Net.Client.Web": "2.42.0"
-        },
-        "compile": {
-          "bin/placeholder/Ars.Common.Consul.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Ars.Common.Consul.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.AspNetCore.App"
-        ]
-      },
-      "Ars.Common.Core/1.1.5": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "Ars.Common.Tool": "1.1.5",
+          "Ars.Common.Tool": "1.3.0",
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "6.0.0",
           "System.Configuration.ConfigurationManager": "6.0.0"
         },
@@ -1452,15 +1168,13 @@
           "Microsoft.AspNetCore.App"
         ]
       },
-      "Ars.Common.Host/1.1.5": {
+      "Ars.Common.Host/1.3.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Ars.Common.AutoFac": "1.1.5",
-          "Ars.Common.Consul": "1.1.5",
-          "Ars.Common.Core": "1.1.5",
-          "Ars.Common.IdentityServer4": "1.1.5",
-          "Ars.Common.Tool": "1.1.5",
+          "Ars.Common.AutoFac": "1.3.0",
+          "Ars.Common.Core": "1.3.0",
+          "Ars.Common.Tool": "1.3.0",
           "Autofac": "6.3.0",
           "Autofac.Extensions.DependencyInjection": "7.2.0"
         },
@@ -1474,26 +1188,7 @@
           "Microsoft.AspNetCore.App"
         ]
       },
-      "Ars.Common.IdentityServer4/1.1.5": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "Ars.Common.Core": "1.1.5",
-          "Ars.Common.Tool": "1.1.5",
-          "IdentityServer4": "4.1.2",
-          "IdentityServer4.AccessTokenValidation": "3.0.1"
-        },
-        "compile": {
-          "bin/placeholder/Ars.Common.IdentityServer4.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Ars.Common.IdentityServer4.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.AspNetCore.App"
-        ]
-      },
-      "Ars.Common.Tool/1.1.5": {
+      "Ars.Common.Tool/1.3.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
@@ -1559,192 +1254,6 @@
         "lib/netstandard2.1/Autofac.Extensions.DependencyInjection.xml"
       ]
     },
-    "Consul/1.6.10.4": {
-      "sha512": "5L3O7XirEx3bJ03OjMVdi/hdRLpkH/gRilgMZzk55Is5ttJ4GamwW+aONfFVneTKRKBpcCw/gIH5qoz4zomi1g==",
-      "type": "package",
-      "path": "consul/1.6.10.4",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "consul.1.6.10.4.nupkg.sha512",
-        "consul.nuspec",
-        "lib/net461/Consul.dll",
-        "lib/netstandard2.0/Consul.dll"
-      ]
-    },
-    "Grpc.Core.Api/2.42.0": {
-      "sha512": "12ciAZrp8orzYFZcruvzshhMEbbD4CAFOe9an1Fa4/c5ZrCtqUjWVPa1Dpk/1Pnv5E1KTeIHPuOtPTkpMLOCoQ==",
-      "type": "package",
-      "path": "grpc.core.api/2.42.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "grpc.core.api.2.42.0.nupkg.sha512",
-        "grpc.core.api.nuspec",
-        "lib/net45/Grpc.Core.Api.dll",
-        "lib/net45/Grpc.Core.Api.pdb",
-        "lib/net45/Grpc.Core.Api.xml",
-        "lib/netstandard1.5/Grpc.Core.Api.dll",
-        "lib/netstandard1.5/Grpc.Core.Api.pdb",
-        "lib/netstandard1.5/Grpc.Core.Api.xml",
-        "lib/netstandard2.0/Grpc.Core.Api.dll",
-        "lib/netstandard2.0/Grpc.Core.Api.pdb",
-        "lib/netstandard2.0/Grpc.Core.Api.xml"
-      ]
-    },
-    "Grpc.Net.Client/2.42.0": {
-      "sha512": "UrVBlzAiYh04bwOjBMUlh0THwieOhoVdmhpvY1LXCdlgRUAYicoDn9SHUZEnLP/xq3lsbhhkTEOeZcFpyOLE+w==",
-      "type": "package",
-      "path": "grpc.net.client/2.42.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "grpc.net.client.2.42.0.nupkg.sha512",
-        "grpc.net.client.nuspec",
-        "lib/net5.0/Grpc.Net.Client.dll",
-        "lib/net5.0/Grpc.Net.Client.pdb",
-        "lib/net5.0/Grpc.Net.Client.xml",
-        "lib/net6.0/Grpc.Net.Client.dll",
-        "lib/net6.0/Grpc.Net.Client.pdb",
-        "lib/net6.0/Grpc.Net.Client.xml",
-        "lib/netstandard2.0/Grpc.Net.Client.dll",
-        "lib/netstandard2.0/Grpc.Net.Client.pdb",
-        "lib/netstandard2.0/Grpc.Net.Client.xml",
-        "lib/netstandard2.1/Grpc.Net.Client.dll",
-        "lib/netstandard2.1/Grpc.Net.Client.pdb",
-        "lib/netstandard2.1/Grpc.Net.Client.xml",
-        "packageIcon.png"
-      ]
-    },
-    "Grpc.Net.Client.Web/2.42.0": {
-      "sha512": "rSvYpUPfAr+YEMBYSyjHmvDeyuQ/rzPRH77Uc3DsvXt272cMD+fzyOCQGUvs90eIkb8TGNomBOPxnup4U+p5tA==",
-      "type": "package",
-      "path": "grpc.net.client.web/2.42.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "grpc.net.client.web.2.42.0.nupkg.sha512",
-        "grpc.net.client.web.nuspec",
-        "lib/net5.0/Grpc.Net.Client.Web.dll",
-        "lib/net5.0/Grpc.Net.Client.Web.pdb",
-        "lib/net5.0/Grpc.Net.Client.Web.xml",
-        "lib/net6.0/Grpc.Net.Client.Web.dll",
-        "lib/net6.0/Grpc.Net.Client.Web.pdb",
-        "lib/net6.0/Grpc.Net.Client.Web.xml",
-        "lib/netstandard2.0/Grpc.Net.Client.Web.dll",
-        "lib/netstandard2.0/Grpc.Net.Client.Web.pdb",
-        "lib/netstandard2.0/Grpc.Net.Client.Web.xml",
-        "lib/netstandard2.1/Grpc.Net.Client.Web.dll",
-        "lib/netstandard2.1/Grpc.Net.Client.Web.pdb",
-        "lib/netstandard2.1/Grpc.Net.Client.Web.xml",
-        "packageIcon.png"
-      ]
-    },
-    "Grpc.Net.Common/2.42.0": {
-      "sha512": "+nYAAvpc3yg/HS+uleYoNUBR0sf0EVpY5FAos5v8PILnTbGU552QfxAaToY/wCMYExkde/zIJM/l+JvHMezYSg==",
-      "type": "package",
-      "path": "grpc.net.common/2.42.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "grpc.net.common.2.42.0.nupkg.sha512",
-        "grpc.net.common.nuspec",
-        "lib/net5.0/Grpc.Net.Common.dll",
-        "lib/net5.0/Grpc.Net.Common.pdb",
-        "lib/net5.0/Grpc.Net.Common.xml",
-        "lib/net6.0/Grpc.Net.Common.dll",
-        "lib/net6.0/Grpc.Net.Common.pdb",
-        "lib/net6.0/Grpc.Net.Common.xml",
-        "lib/netstandard2.0/Grpc.Net.Common.dll",
-        "lib/netstandard2.0/Grpc.Net.Common.pdb",
-        "lib/netstandard2.0/Grpc.Net.Common.xml",
-        "lib/netstandard2.1/Grpc.Net.Common.dll",
-        "lib/netstandard2.1/Grpc.Net.Common.pdb",
-        "lib/netstandard2.1/Grpc.Net.Common.xml",
-        "packageIcon.png"
-      ]
-    },
-    "IdentityModel/4.4.0": {
-      "sha512": "b18wrIx5wnZlMxAX7oVsE+nDtAJ4hajYlH0xPlaRvo4r/fz08K6pPeZvbiqS9nfNbzfIgLFmNX+FL9qR9ZR5PA==",
-      "type": "package",
-      "path": "identitymodel/4.4.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "icon.jpg",
-        "identitymodel.4.4.0.nupkg.sha512",
-        "identitymodel.nuspec",
-        "lib/net461/IdentityModel.dll",
-        "lib/net461/IdentityModel.pdb",
-        "lib/net461/IdentityModel.xml",
-        "lib/net472/IdentityModel.dll",
-        "lib/net472/IdentityModel.pdb",
-        "lib/net472/IdentityModel.xml",
-        "lib/netstandard2.0/IdentityModel.dll",
-        "lib/netstandard2.0/IdentityModel.pdb",
-        "lib/netstandard2.0/IdentityModel.xml"
-      ]
-    },
-    "IdentityModel.AspNetCore.OAuth2Introspection/4.0.1": {
-      "sha512": "ZNdMZMaj9fqR3j50vYsu+1U3QGd6n8+fqwf+a8mCTcmXGor+HgFDfdq0mM34bsmD6uEgAQup7sv2ZW5kR36dbA==",
-      "type": "package",
-      "path": "identitymodel.aspnetcore.oauth2introspection/4.0.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "icon.jpg",
-        "identitymodel.aspnetcore.oauth2introspection.4.0.1.nupkg.sha512",
-        "identitymodel.aspnetcore.oauth2introspection.nuspec",
-        "lib/netcoreapp3.0/IdentityModel.AspNetCore.OAuth2Introspection.dll",
-        "lib/netcoreapp3.0/IdentityModel.AspNetCore.OAuth2Introspection.pdb",
-        "lib/netcoreapp3.0/IdentityModel.AspNetCore.OAuth2Introspection.xml"
-      ]
-    },
-    "IdentityServer4/4.1.2": {
-      "sha512": "blaxxGuOA7v/w1q+fxn97wZ+x2ecG1ZD4mc/N/ZOXMNeFZZhqv+4LF26Gecyik3nWrJPmbMEtQbLmRsKG8k61w==",
-      "type": "package",
-      "path": "identityserver4/4.1.2",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "icon.jpg",
-        "identityserver4.4.1.2.nupkg.sha512",
-        "identityserver4.nuspec",
-        "lib/netcoreapp3.1/IdentityServer4.dll",
-        "lib/netcoreapp3.1/IdentityServer4.pdb",
-        "lib/netcoreapp3.1/IdentityServer4.xml"
-      ]
-    },
-    "IdentityServer4.AccessTokenValidation/3.0.1": {
-      "sha512": "qu/M6UyN4o9NVep7q545Ms7hYAnsQqSdLbN1Fjjrn4m35lyBfeQPSSNzDryAKHbodyWOQfHaOqKEyMEJQ5Rpgw==",
-      "type": "package",
-      "path": "identityserver4.accesstokenvalidation/3.0.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "icon.jpg",
-        "identityserver4.accesstokenvalidation.3.0.1.nupkg.sha512",
-        "identityserver4.accesstokenvalidation.nuspec",
-        "lib/netcoreapp3.0/IdentityServer4.AccessTokenValidation.dll",
-        "lib/netcoreapp3.0/IdentityServer4.AccessTokenValidation.pdb",
-        "lib/netcoreapp3.0/IdentityServer4.AccessTokenValidation.xml"
-      ]
-    },
-    "IdentityServer4.Storage/4.1.2": {
-      "sha512": "KoSffyZyyeCNTIyJiZnCuPakJ1QbCHlpty6gbWUj/7yl+w0PXIchgmmJnJSvddzBb8iZ2xew/vGlxWUIP17P2g==",
-      "type": "package",
-      "path": "identityserver4.storage/4.1.2",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "icon.jpg",
-        "identityserver4.storage.4.1.2.nupkg.sha512",
-        "identityserver4.storage.nuspec",
-        "lib/netstandard2.0/IdentityServer4.Storage.dll",
-        "lib/netstandard2.0/IdentityServer4.Storage.pdb",
-        "lib/netstandard2.0/IdentityServer4.Storage.xml"
-      ]
-    },
     "MessagePack/2.3.85": {
       "sha512": "wOabnqkrXp7oeEYLY4Kd0m0eT4falJQukqvErfz5Y4FKKo9mSQQ1+rMxx9mapF2el+P0XQxiZOBKFm+oCvu0aw==",
       "type": "package",
@@ -1803,33 +1312,6 @@
         "lib/netstandard2.0/Microsoft.AspNetCore.Authentication.Core.xml",
         "microsoft.aspnetcore.authentication.core.2.2.0.nupkg.sha512",
         "microsoft.aspnetcore.authentication.core.nuspec"
-      ]
-    },
-    "Microsoft.AspNetCore.Authentication.JwtBearer/3.0.0": {
-      "sha512": "FrlxgBG6+FKlYr1IVxXNXSK7jpxiIYf036VNR1UgopKSIUNjaK2zvkhfVgFZVavagitQ/+UZ8Snnm6axyAVRNg==",
-      "type": "package",
-      "path": "microsoft.aspnetcore.authentication.jwtbearer/3.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/netcoreapp3.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll",
-        "lib/netcoreapp3.0/Microsoft.AspNetCore.Authentication.JwtBearer.xml",
-        "microsoft.aspnetcore.authentication.jwtbearer.3.0.0.nupkg.sha512",
-        "microsoft.aspnetcore.authentication.jwtbearer.nuspec"
-      ]
-    },
-    "Microsoft.AspNetCore.Authentication.OpenIdConnect/3.1.0": {
-      "sha512": "O1cAQYUTU8EfRqwc5/rfTns4E4hKlFlg59fuKRrST+PzsxI6H07KqRN/JjdYhAuVYxF8jPnIGbj+zuc5paOWUw==",
-      "type": "package",
-      "path": "microsoft.aspnetcore.authentication.openidconnect/3.1.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Icon.png",
-        "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.OpenIdConnect.dll",
-        "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.OpenIdConnect.xml",
-        "microsoft.aspnetcore.authentication.openidconnect.3.1.0.nupkg.sha512",
-        "microsoft.aspnetcore.authentication.openidconnect.nuspec"
       ]
     },
     "Microsoft.AspNetCore.Authorization/2.2.0": {
@@ -2394,111 +1876,6 @@
         "microsoft.extensions.primitives.6.0.0.nupkg.sha512",
         "microsoft.extensions.primitives.nuspec",
         "useSharedDesignerContext.txt"
-      ]
-    },
-    "Microsoft.IdentityModel.JsonWebTokens/5.6.0": {
-      "sha512": "0q0U1W+gX1jmfmv7uU7GXFGB518atmSwucxsVwPGpuaGS3jwd2tUi+Gau+ezxR6oAFEBFKG9lz/fxRZzGMeDXg==",
-      "type": "package",
-      "path": "microsoft.identitymodel.jsonwebtokens/5.6.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net45/Microsoft.IdentityModel.JsonWebTokens.dll",
-        "lib/net45/Microsoft.IdentityModel.JsonWebTokens.xml",
-        "lib/net451/Microsoft.IdentityModel.JsonWebTokens.dll",
-        "lib/net451/Microsoft.IdentityModel.JsonWebTokens.xml",
-        "lib/net461/Microsoft.IdentityModel.JsonWebTokens.dll",
-        "lib/net461/Microsoft.IdentityModel.JsonWebTokens.xml",
-        "lib/netstandard1.4/Microsoft.IdentityModel.JsonWebTokens.dll",
-        "lib/netstandard1.4/Microsoft.IdentityModel.JsonWebTokens.xml",
-        "lib/netstandard2.0/Microsoft.IdentityModel.JsonWebTokens.dll",
-        "lib/netstandard2.0/Microsoft.IdentityModel.JsonWebTokens.xml",
-        "microsoft.identitymodel.jsonwebtokens.5.6.0.nupkg.sha512",
-        "microsoft.identitymodel.jsonwebtokens.nuspec"
-      ]
-    },
-    "Microsoft.IdentityModel.Logging/5.6.0": {
-      "sha512": "zEDrfEVW5x5w2hbTV94WwAcWvtue5hNTXYqoPh3ypF6U8csm09JazEYy+VPp2RtczkyMfcsvWY9Fea17e+isYQ==",
-      "type": "package",
-      "path": "microsoft.identitymodel.logging/5.6.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net45/Microsoft.IdentityModel.Logging.dll",
-        "lib/net45/Microsoft.IdentityModel.Logging.xml",
-        "lib/net451/Microsoft.IdentityModel.Logging.dll",
-        "lib/net451/Microsoft.IdentityModel.Logging.xml",
-        "lib/net461/Microsoft.IdentityModel.Logging.dll",
-        "lib/net461/Microsoft.IdentityModel.Logging.xml",
-        "lib/netstandard1.4/Microsoft.IdentityModel.Logging.dll",
-        "lib/netstandard1.4/Microsoft.IdentityModel.Logging.xml",
-        "lib/netstandard2.0/Microsoft.IdentityModel.Logging.dll",
-        "lib/netstandard2.0/Microsoft.IdentityModel.Logging.xml",
-        "microsoft.identitymodel.logging.5.6.0.nupkg.sha512",
-        "microsoft.identitymodel.logging.nuspec"
-      ]
-    },
-    "Microsoft.IdentityModel.Protocols/5.6.0": {
-      "sha512": "ei7YqYx0pIFL6JjK8ZnPK0MXZRWUNHtJPUl3KqSvj9+2f5CMa6GRSEC+BMDHr17tP6yujYUg0IQOcKzmC7qN5g==",
-      "type": "package",
-      "path": "microsoft.identitymodel.protocols/5.6.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net45/Microsoft.IdentityModel.Protocols.dll",
-        "lib/net45/Microsoft.IdentityModel.Protocols.xml",
-        "lib/net451/Microsoft.IdentityModel.Protocols.dll",
-        "lib/net451/Microsoft.IdentityModel.Protocols.xml",
-        "lib/net461/Microsoft.IdentityModel.Protocols.dll",
-        "lib/net461/Microsoft.IdentityModel.Protocols.xml",
-        "lib/netstandard1.4/Microsoft.IdentityModel.Protocols.dll",
-        "lib/netstandard1.4/Microsoft.IdentityModel.Protocols.xml",
-        "lib/netstandard2.0/Microsoft.IdentityModel.Protocols.dll",
-        "lib/netstandard2.0/Microsoft.IdentityModel.Protocols.xml",
-        "microsoft.identitymodel.protocols.5.6.0.nupkg.sha512",
-        "microsoft.identitymodel.protocols.nuspec"
-      ]
-    },
-    "Microsoft.IdentityModel.Protocols.OpenIdConnect/5.6.0": {
-      "sha512": "yh3n+uXiwpBy/5+t67tYcmRxb9kwQdaKRyG/DNipRMF37bg5Jr0vENOo1BQz6OySMl5WIK544SzPjtr7/KkucA==",
-      "type": "package",
-      "path": "microsoft.identitymodel.protocols.openidconnect/5.6.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net45/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll",
-        "lib/net45/Microsoft.IdentityModel.Protocols.OpenIdConnect.xml",
-        "lib/net451/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll",
-        "lib/net451/Microsoft.IdentityModel.Protocols.OpenIdConnect.xml",
-        "lib/net461/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll",
-        "lib/net461/Microsoft.IdentityModel.Protocols.OpenIdConnect.xml",
-        "lib/netstandard1.4/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll",
-        "lib/netstandard1.4/Microsoft.IdentityModel.Protocols.OpenIdConnect.xml",
-        "lib/netstandard2.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll",
-        "lib/netstandard2.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.xml",
-        "microsoft.identitymodel.protocols.openidconnect.5.6.0.nupkg.sha512",
-        "microsoft.identitymodel.protocols.openidconnect.nuspec"
-      ]
-    },
-    "Microsoft.IdentityModel.Tokens/5.6.0": {
-      "sha512": "C3OqR3QfBQ7wcC7yAsdMQqay87OsV6yWPYG/Ai3n7dvmWIGkouQhXoVxRP0xz3cAFL4hxZBXyw4aLTC421PaMg==",
-      "type": "package",
-      "path": "microsoft.identitymodel.tokens/5.6.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net45/Microsoft.IdentityModel.Tokens.dll",
-        "lib/net45/Microsoft.IdentityModel.Tokens.xml",
-        "lib/net451/Microsoft.IdentityModel.Tokens.dll",
-        "lib/net451/Microsoft.IdentityModel.Tokens.xml",
-        "lib/net461/Microsoft.IdentityModel.Tokens.dll",
-        "lib/net461/Microsoft.IdentityModel.Tokens.xml",
-        "lib/netstandard1.4/Microsoft.IdentityModel.Tokens.dll",
-        "lib/netstandard1.4/Microsoft.IdentityModel.Tokens.xml",
-        "lib/netstandard2.0/Microsoft.IdentityModel.Tokens.dll",
-        "lib/netstandard2.0/Microsoft.IdentityModel.Tokens.xml",
-        "microsoft.identitymodel.tokens.5.6.0.nupkg.sha512",
-        "microsoft.identitymodel.tokens.nuspec"
       ]
     },
     "Microsoft.Net.Http.Headers/2.2.0": {
@@ -3083,27 +2460,6 @@
         "system.globalization.nuspec"
       ]
     },
-    "System.IdentityModel.Tokens.Jwt/5.6.0": {
-      "sha512": "KMvPpX4exs2fe7Upq5zHMSR4yupc+jy8WG8yjucZL0XvT+r/T0hRvLIe9fP/SeN8/UVxFYBRAkRI5k1zbRGqmA==",
-      "type": "package",
-      "path": "system.identitymodel.tokens.jwt/5.6.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net45/System.IdentityModel.Tokens.Jwt.dll",
-        "lib/net45/System.IdentityModel.Tokens.Jwt.xml",
-        "lib/net451/System.IdentityModel.Tokens.Jwt.dll",
-        "lib/net451/System.IdentityModel.Tokens.Jwt.xml",
-        "lib/net461/System.IdentityModel.Tokens.Jwt.dll",
-        "lib/net461/System.IdentityModel.Tokens.Jwt.xml",
-        "lib/netstandard1.4/System.IdentityModel.Tokens.Jwt.dll",
-        "lib/netstandard1.4/System.IdentityModel.Tokens.Jwt.xml",
-        "lib/netstandard2.0/System.IdentityModel.Tokens.Jwt.dll",
-        "lib/netstandard2.0/System.IdentityModel.Tokens.Jwt.xml",
-        "system.identitymodel.tokens.jwt.5.6.0.nupkg.sha512",
-        "system.identitymodel.tokens.jwt.nuspec"
-      ]
-    },
     "System.IO/4.1.0": {
       "sha512": "3KlTJceQc3gnGIaHZ7UBZO26SHL1SHE4ddrmiwumFnId+CEHP+O8r386tZKaE6zlk5/mF8vifMBzHj9SaXN+mQ==",
       "type": "package",
@@ -3416,27 +2772,6 @@
         "runtimes/aot/lib/netcore50/System.Linq.Expressions.dll",
         "system.linq.expressions.4.1.0.nupkg.sha512",
         "system.linq.expressions.nuspec"
-      ]
-    },
-    "System.Memory/4.5.3": {
-      "sha512": "3oDzvc/zzetpTKWMShs1AADwZjQ/36HnsufHRPcOjyRAAMLDlu2iD33MBI2opxnezcVUtXyqDXXjoFMOU9c7SA==",
-      "type": "package",
-      "path": "system.memory/4.5.3",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE.TXT",
-        "THIRD-PARTY-NOTICES.TXT",
-        "lib/netcoreapp2.1/_._",
-        "lib/netstandard1.1/System.Memory.dll",
-        "lib/netstandard1.1/System.Memory.xml",
-        "lib/netstandard2.0/System.Memory.dll",
-        "lib/netstandard2.0/System.Memory.xml",
-        "ref/netcoreapp2.1/_._",
-        "system.memory.4.5.3.nupkg.sha512",
-        "system.memory.nuspec",
-        "useSharedDesignerContext.txt",
-        "version.txt"
       ]
     },
     "System.ObjectModel/4.0.12": {
@@ -4302,69 +3637,6 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "System.Security.Cryptography.Cng/4.5.0": {
-      "sha512": "WG3r7EyjUe9CMPFSs6bty5doUqT+q9pbI80hlNzo2SkPkZ4VTuZkGWjpp77JB8+uaL4DFPRdBsAY+DX3dBK92A==",
-      "type": "package",
-      "path": "system.security.cryptography.cng/4.5.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE.TXT",
-        "THIRD-PARTY-NOTICES.TXT",
-        "lib/MonoAndroid10/_._",
-        "lib/MonoTouch10/_._",
-        "lib/net46/System.Security.Cryptography.Cng.dll",
-        "lib/net461/System.Security.Cryptography.Cng.dll",
-        "lib/net462/System.Security.Cryptography.Cng.dll",
-        "lib/net47/System.Security.Cryptography.Cng.dll",
-        "lib/netcoreapp2.1/System.Security.Cryptography.Cng.dll",
-        "lib/netstandard1.3/System.Security.Cryptography.Cng.dll",
-        "lib/netstandard1.4/System.Security.Cryptography.Cng.dll",
-        "lib/netstandard1.6/System.Security.Cryptography.Cng.dll",
-        "lib/netstandard2.0/System.Security.Cryptography.Cng.dll",
-        "lib/uap10.0.16299/_._",
-        "lib/xamarinios10/_._",
-        "lib/xamarinmac20/_._",
-        "lib/xamarintvos10/_._",
-        "lib/xamarinwatchos10/_._",
-        "ref/MonoAndroid10/_._",
-        "ref/MonoTouch10/_._",
-        "ref/net46/System.Security.Cryptography.Cng.dll",
-        "ref/net461/System.Security.Cryptography.Cng.dll",
-        "ref/net461/System.Security.Cryptography.Cng.xml",
-        "ref/net462/System.Security.Cryptography.Cng.dll",
-        "ref/net462/System.Security.Cryptography.Cng.xml",
-        "ref/net47/System.Security.Cryptography.Cng.dll",
-        "ref/net47/System.Security.Cryptography.Cng.xml",
-        "ref/netcoreapp2.0/System.Security.Cryptography.Cng.dll",
-        "ref/netcoreapp2.0/System.Security.Cryptography.Cng.xml",
-        "ref/netcoreapp2.1/System.Security.Cryptography.Cng.dll",
-        "ref/netcoreapp2.1/System.Security.Cryptography.Cng.xml",
-        "ref/netstandard1.3/System.Security.Cryptography.Cng.dll",
-        "ref/netstandard1.4/System.Security.Cryptography.Cng.dll",
-        "ref/netstandard1.6/System.Security.Cryptography.Cng.dll",
-        "ref/netstandard2.0/System.Security.Cryptography.Cng.dll",
-        "ref/netstandard2.0/System.Security.Cryptography.Cng.xml",
-        "ref/uap10.0.16299/_._",
-        "ref/xamarinios10/_._",
-        "ref/xamarinmac20/_._",
-        "ref/xamarintvos10/_._",
-        "ref/xamarinwatchos10/_._",
-        "runtimes/win/lib/net46/System.Security.Cryptography.Cng.dll",
-        "runtimes/win/lib/net461/System.Security.Cryptography.Cng.dll",
-        "runtimes/win/lib/net462/System.Security.Cryptography.Cng.dll",
-        "runtimes/win/lib/net47/System.Security.Cryptography.Cng.dll",
-        "runtimes/win/lib/netcoreapp2.0/System.Security.Cryptography.Cng.dll",
-        "runtimes/win/lib/netcoreapp2.1/System.Security.Cryptography.Cng.dll",
-        "runtimes/win/lib/netstandard1.4/System.Security.Cryptography.Cng.dll",
-        "runtimes/win/lib/netstandard1.6/System.Security.Cryptography.Cng.dll",
-        "runtimes/win/lib/uap10.0.16299/_._",
-        "system.security.cryptography.cng.4.5.0.nupkg.sha512",
-        "system.security.cryptography.cng.nuspec",
-        "useSharedDesignerContext.txt",
-        "version.txt"
-      ]
-    },
     "System.Security.Cryptography.ProtectedData/6.0.0": {
       "sha512": "rp1gMNEZpvx9vP0JW0oHLxlf8oSiQgtno77Y4PLUBjSiDYoD77Y8uXHr1Ea5XG4/pIKhqAdxZ8v8OTUtqo9PeQ==",
       "type": "package",
@@ -4497,10 +3769,10 @@
         "system.text.encoding.nuspec"
       ]
     },
-    "System.Text.Encodings.Web/4.7.0": {
-      "sha512": "IJanJWPQvya2sbGStt3Fkdy4IaomUBSadAfYWeJDQw0zclMk9ixSvMeei6cSmTTQ6ZkGIIAbhHZVCoLR7GgX7Q==",
+    "System.Text.Encodings.Web/4.5.0": {
+      "sha512": "Xg4G4Indi4dqP1iuAiMSwpiWS54ZghzR644OtsRCm/m/lBMG8dUBhLVN7hLm8NNrNTR+iGbshCPTwrvxZPlm4g==",
       "type": "package",
-      "path": "system.text.encodings.web/4.7.0",
+      "path": "system.text.encodings.web/4.5.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -4510,9 +3782,7 @@
         "lib/netstandard1.0/System.Text.Encodings.Web.xml",
         "lib/netstandard2.0/System.Text.Encodings.Web.dll",
         "lib/netstandard2.0/System.Text.Encodings.Web.xml",
-        "lib/netstandard2.1/System.Text.Encodings.Web.dll",
-        "lib/netstandard2.1/System.Text.Encodings.Web.xml",
-        "system.text.encodings.web.4.7.0.nupkg.sha512",
+        "system.text.encodings.web.4.5.0.nupkg.sha512",
         "system.text.encodings.web.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
@@ -4719,32 +3989,22 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Ars.Common.AutoFac/1.1.5": {
+    "Ars.Common.AutoFac/1.3.0": {
       "type": "project",
       "path": "../Ars.Common.AutoFac/Ars.Common.AutoFac.csproj",
       "msbuildProject": "../Ars.Common.AutoFac/Ars.Common.AutoFac.csproj"
     },
-    "Ars.Common.Consul/1.1.5": {
-      "type": "project",
-      "path": "../Ars.Common.Consul/Ars.Common.Consul.csproj",
-      "msbuildProject": "../Ars.Common.Consul/Ars.Common.Consul.csproj"
-    },
-    "Ars.Common.Core/1.1.5": {
+    "Ars.Common.Core/1.3.0": {
       "type": "project",
       "path": "../Ars.Common.Core/Ars.Common.Core.csproj",
       "msbuildProject": "../Ars.Common.Core/Ars.Common.Core.csproj"
     },
-    "Ars.Common.Host/1.1.5": {
+    "Ars.Common.Host/1.3.0": {
       "type": "project",
       "path": "../Ars.Commom.Host/Ars.Common.Host.csproj",
       "msbuildProject": "../Ars.Commom.Host/Ars.Common.Host.csproj"
     },
-    "Ars.Common.IdentityServer4/1.1.5": {
-      "type": "project",
-      "path": "../Ars.Common.IdentityServer4/Ars.Common.IdentityServer4.csproj",
-      "msbuildProject": "../Ars.Common.IdentityServer4/Ars.Common.IdentityServer4.csproj"
-    },
-    "Ars.Common.Tool/1.1.5": {
+    "Ars.Common.Tool/1.3.0": {
       "type": "project",
       "path": "../MyArsenal.Commom.Tool/Ars.Common.Tool.csproj",
       "msbuildProject": "../MyArsenal.Commom.Tool/Ars.Common.Tool.csproj"
@@ -4752,7 +4012,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "Ars.Common.Host >= 1.1.5"
+      "Ars.Common.Host >= 1.3.0"
     ]
   },
   "packageFolders": {
@@ -4760,7 +4020,7 @@
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
-    "version": "1.1.5",
+    "version": "1.3.0",
     "restore": {
       "projectUniqueName": "C:\\core\\MyArs\\Ars.Common.Localization\\Ars.Common.Localization.csproj",
       "projectName": "Ars.Common.Localization",

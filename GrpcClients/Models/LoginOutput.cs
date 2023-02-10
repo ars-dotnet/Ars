@@ -1,6 +1,4 @@
-﻿using IdentityModel.Client;
-
-namespace GrpcClients
+﻿namespace GrpcClients
 {
     public class LoginOutput
     {

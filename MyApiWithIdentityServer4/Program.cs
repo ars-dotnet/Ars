@@ -11,12 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 var arsbuilder = builder.Services.AddArserviceCore(builder.Host);
-arsbuilder.AddArsIdentityClient(configureOptions : option =>
-{
-    option.Authority = "http://localhost:5105";
-    option.ApiName = "grpcapi";
-    option.RequireHttpsMetadata = false;
-});
+arsbuilder.AddArsIdentityValidApi();
 arsbuilder.AddArsDbContext<MyDbContext>();
 
 arsbuilder.Services.ServiceCollection.AddScoped<ITestScopeService,TestScopeService>();
@@ -34,17 +29,13 @@ builder.Services.AddHttpClient();
 
 var app = builder.Build();
 
-app.UseArsCore();
-
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
-app.UseArsIdentityClient();
-
+app.UseArsCore();
 app.MapControllers();
 
 app.Run();

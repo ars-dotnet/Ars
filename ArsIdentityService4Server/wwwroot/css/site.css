@@ -1,18 +1,24 @@
-html {
-  font-size: 14px;
-}
+﻿.body-container {
+  margin-top: 60px;
+  padding-bottom: 40px; }
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
+.welcome-page li {
+  list-style: none;
+  padding: 4px; }
 
-html {
-  position: relative;
-  min-height: 100%;
-}
+.logged-out-page iframe {
+  display: none;
+  width: 0;
+  height: 0; }
 
-body {
-  margin-bottom: 60px;
-}
+.grants-page .card {
+  margin-top: 20px;
+  border-bottom: 1px solid lightgray; }
+  .grants-page .card .card-title {
+    font-size: 120%;
+    font-weight: bold; }
+    .grants-page .card .card-title img {
+      width: 100px;
+      height: 100px; }
+  .grants-page .card label {
+    font-weight: bold; }

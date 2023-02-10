@@ -3,15 +3,19 @@ using Ars.Common.Core.IDependency;
 using Autofac;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
+using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 using MyIdentityWithGithub.Application;
 using MyIdentityWithGithub.Models;
 using MyWebApi.Extensions;
 
 namespace MyWebApi.Controllers
 {
+    [ApiController]
+    [Route("[controller]/[action]")]
     public class HomeController : Controller
     {
         [Autowired]
@@ -125,6 +129,19 @@ namespace MyWebApi.Controllers
             // after a successful authentication flow (e.g Google or Facebook).
             return SignOut(new AuthenticationProperties { RedirectUri = "/" },
                 CookieAuthenticationDefaults.AuthenticationScheme);
+        }
+
+        [HttpPost]
+        [Authorize]
+        public async Task<IActionResult> Authorize()
+        {
+            var accessToken = await HttpContext.GetTokenAsync(OpenIdConnectParameterNames.AccessToken);
+            // 获取idToken
+            var idToken = await HttpContext.GetTokenAsync(OpenIdConnectParameterNames.IdToken);
+            // 获取刷新Token
+            var refreshToken = await HttpContext.GetTokenAsync(OpenIdConnectParameterNames.RefreshToken);
+
+            return Json("OK");
         }
     }
 }

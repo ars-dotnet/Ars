@@ -6,14 +6,14 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v6.0": {
-      "ArsTest/1.1.5": {
+      "ArsTest/1.2.0": {
         "dependencies": {
-          "Ars.Common.Email": "1.1.5",
-          "Ars.Common.Tool": "1.1.5",
+          "Ars.Common.Email": "1.2.0",
+          "Ars.Common.Tool": "1.2.0",
           "AutoMapper": "11.0.1",
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "11.0.0",
           "HslCommunication": "11.0.2",
-          "IdentityModel": "6.0.0",
+          "IdentityModel": "4.0.0",
           "Microsoft.Extensions.DependencyInjection": "6.0.0",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0",
           "Microsoft.Extensions.Hosting": "6.0.0",
@@ -79,11 +79,15 @@
           }
         }
       },
-      "IdentityModel/6.0.0": {
+      "IdentityModel/4.0.0": {
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.3",
+          "System.Text.Encodings.Web": "6.0.0"
+        },
         "runtime": {
-          "lib/net6.0/IdentityModel.dll": {
-            "assemblyVersion": "6.0.0.0",
-            "fileVersion": "6.0.0.0"
+          "lib/netstandard2.0/IdentityModel.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "4.0.0.0"
           }
         }
       },
@@ -1692,9 +1696,9 @@
         }
       },
       "xunit.runner.visualstudio/2.4.3": {},
-      "Ars.Common.Email/1.1.5": {
+      "Ars.Common.Email/1.2.0": {
         "dependencies": {
-          "Ars.Common.Tool": "1.1.5",
+          "Ars.Common.Tool": "1.2.0",
           "MailKit": "3.1.0",
           "Microsoft.CodeAnalysis.Workspaces.Common": "4.0.1",
           "Microsoft.Extensions.Configuration.Abstractions": "6.0.0",
@@ -1704,7 +1708,7 @@
           "Ars.Common.Email.dll": {}
         }
       },
-      "Ars.Common.Tool/1.1.5": {
+      "Ars.Common.Tool/1.2.0": {
         "dependencies": {
           "MessagePack": "2.3.85",
           "Microsoft.Extensions.Configuration.Abstractions": "6.0.0",
@@ -1720,7 +1724,7 @@
     }
   },
   "libraries": {
-    "ArsTest/1.1.5": {
+    "ArsTest/1.2.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -1760,12 +1764,12 @@
       "path": "humanizer.core/2.2.0",
       "hashPath": "humanizer.core.2.2.0.nupkg.sha512"
     },
-    "IdentityModel/6.0.0": {
+    "IdentityModel/4.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-eVHCR7a6m/dm5RFcBzE3qs/Jg5j9R5Rjpu8aTOv9e4AFvaQtBXb5ah7kmwU+YwA0ufRwz4wf1hnIvsD2hSnI4g==",
-      "path": "identitymodel/6.0.0",
-      "hashPath": "identitymodel.6.0.0.nupkg.sha512"
+      "sha512": "sha512-Y7i2fezKKKnmxdENfEOpby4Es84e76D16SYcxWKggYraFOvvfKfQAn5KGuuR1X2h1aTrlKZy0lct0NxHg4aVVw==",
+      "path": "identitymodel/4.0.0",
+      "hashPath": "identitymodel.4.0.0.nupkg.sha512"
     },
     "MailKit/3.1.0": {
       "type": "package",
@@ -2824,12 +2828,12 @@
       "path": "xunit.runner.visualstudio/2.4.3",
       "hashPath": "xunit.runner.visualstudio.2.4.3.nupkg.sha512"
     },
-    "Ars.Common.Email/1.1.5": {
+    "Ars.Common.Email/1.2.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "Ars.Common.Tool/1.1.5": {
+    "Ars.Common.Tool/1.2.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

@@ -1,6 +1,5 @@
 using Ars.Commom.Host.Extension;
 using Ars.Common.Consul.IApplicationBuilderExtension;
-using Ars.Common.IdentityServer4.Extension;
 using GrpcClients;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,8 +13,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services
     .AddArserviceCore(builder.Host)
-    .AddArsConsulDiscoverClient()
-    .AddArsIdentityClient();
+    .AddArsConsulDiscoverClient();
 
 builder.Services.AddScoped<IChannelManager, ChannelManager>();
 builder.Services.AddSingleton<IChannelProvider, ChannelProvider>();
@@ -41,8 +39,6 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseArsCore();
-
-app.UseAuthorization();
 
 app.MapControllers();
 

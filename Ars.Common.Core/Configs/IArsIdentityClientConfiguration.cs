@@ -11,5 +11,7 @@ namespace Ars.Common.Core.Configs
         string Authority { get; }
 
         string ApiName { get; }
+
+        bool RequireHttpsMetadata { get; }
     }
 }

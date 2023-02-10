@@ -24,10 +24,12 @@ namespace Ars.Common.Consul.IApplicationBuilderExtension
                 ?? 
                 throw new ArgumentNullException("appsettings => ConsulRegisterConfiguration not be null");
 
-            arsServiceBuilder.Services.Provider
-                .GetRequiredService<IArsConfiguration>()
-                .ConsulRegisterConfiguration ??= config;
+            var arscfg = arsServiceBuilder.Services.Provider
+                .GetRequiredService<IArsConfiguration>();
+            arscfg.ConsulRegisterConfiguration ??= config;
             arsServiceBuilder.Services.ServiceCollection.AddSingleton<IConsulRegisterConfiguration>(config);
+
+            arscfg.AddArsAppExtension(new ArsConsulAppExtension());
             return arsServiceBuilder;
         }
 

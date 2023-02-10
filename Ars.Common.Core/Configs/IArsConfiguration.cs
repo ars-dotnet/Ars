@@ -9,11 +9,17 @@ namespace Ars.Common.Core.Configs
 {
     public interface IArsConfiguration
     {
-        //扩展集合
+        //服务配置集合
         IList<IArsOptExtension> ArsOptExtensions { get; }
 
-        //添加配置扩展到集合
+        //添加服务配置集合
         void AddArsOptExtension(IArsOptExtension optExtension);
+
+        //中间件集合
+        IList<IArsAppExtension> ArsAppExtensions { get; }
+
+        //添加中间件到集合
+        void AddArsAppExtension(IArsAppExtension appExtension);
 
         /// <summary>
         /// efcore事务

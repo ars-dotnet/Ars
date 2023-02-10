@@ -1,10 +1,13 @@
 ﻿using Ars.Commom.Core;
 using Ars.Commom.Tool.Certificates;
+using Ars.Common.Core.AspNetCore;
 using Ars.Common.Core.Configs;
 using Ars.Common.IdentityServer4.options;
 using Ars.Common.IdentityServer4.Options;
 using Ars.Common.IdentityServer4.Validation;
+using IdentityModel;
 using IdentityServer4.AccessTokenValidation;
+using IdentityServer4.Test;
 using IdentityServer4.Validation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
@@ -13,6 +16,7 @@ using Microsoft.Extensions.DependencyInjection.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -38,7 +42,9 @@ namespace Ars.Common.IdentityServer4.Extension
                 .Get<ArsIdentityServerOption>() ?? new ArsIdentityServerOption();
 
             services.AddSingleton<IArsIdentityServerConfiguration>(option);
-            builder.Services.Provider.GetRequiredService<IArsConfiguration>().ArsIdentityServerConfiguration ??= option;
+            var arscfg = builder.Services.Provider.GetRequiredService<IArsConfiguration>();
+            arscfg.ArsIdentityServerConfiguration ??= option;
+            arscfg.AddArsAppExtension(new ArsIdentityServerAppExtension());
 
             services.AddIdentityServer()
                 .AddArsIdentityResource()
@@ -49,7 +55,24 @@ namespace Ars.Common.IdentityServer4.Extension
                     string.IsNullOrEmpty(option.CertPath) 
                         ? Certificate.Get() 
                         : Certificate.Get(option.CertPath,option.Password))
-                .AddResourceOwnerValidator<DefaultResourceOwnerPasswordValidator>();
+                .AddResourceOwnerValidator<DefaultResourceOwnerPasswordValidator>()
+                .AddTestUsers(new List<TestUser> 
+                {
+                    new TestUser
+                    {
+                        Username = "MyArs",
+                        Claims = new Claim[] {
+                            new Claim(ArsClaimTypes.TenantId, "1"),
+                            new Claim(ArsClaimTypes.Role, "admin"),
+                            new Claim("idp", "ars"),
+                            new Claim("auth_time", DateTimeExtensions.ToEpochTime(DateTime.Now).ToString(),
+                                    "http://www.w3.org/2001/XMLSchema#integer")
+                        },
+                        Password = "MyArs@1234",
+                        IsActive = true,
+                        SubjectId = Guid.NewGuid().ToString(),
+                    }
+                });
 
             if (null != func) 
             {
@@ -62,7 +85,7 @@ namespace Ars.Common.IdentityServer4.Extension
             return builder;
         }
 
-        public static IArsServiceBuilder AddArsIdentityClient(
+        public static IArsServiceBuilder AddArsIdentityValidApi(
             this IArsServiceBuilder builder,
             string defaultScheme = IdentityServerAuthenticationDefaults.AuthenticationScheme,
             Action<IdentityServerAuthenticationOptions>? configureOptions = null)  
@@ -74,9 +97,10 @@ namespace Ars.Common.IdentityServer4.Extension
                 .Get<ArsIdentityClientOption>() 
                 ?? 
                 throw new Exception("appsetting => ArsIdentityClientOption not be null!");
-            builder.Services.Provider
-                .GetRequiredService<IArsConfiguration>()
-                .ArsIdentityClientConfiguration ??= option;
+            var arscfg = builder.Services.Provider
+                .GetRequiredService<IArsConfiguration>();
+            arscfg.ArsIdentityClientConfiguration ??= option;
+            arscfg.AddArsAppExtension(new ArsIdentityValidApiAppExtension());
             services.AddSingleton<IArsIdentityClientConfiguration>(option);
 
             if (null == configureOptions) 
@@ -90,7 +114,6 @@ namespace Ars.Common.IdentityServer4.Extension
             }
             services.AddAuthentication(defaultScheme)
                 .AddIdentityServerAuthentication(configureOptions);
-
             return builder;
         }
     }

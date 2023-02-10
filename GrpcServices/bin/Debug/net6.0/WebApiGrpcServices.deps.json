@@ -6,12 +6,13 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v6.0": {
-      "WebApiGrpcServices/1.1.5": {
+      "WebApiGrpcServices/1.2.0": {
         "dependencies": {
-          "Ars.Common.Consul": "1.1.5",
-          "Ars.Common.Host": "1.1.5",
+          "Ars.Common.Consul": "1.2.0",
+          "Ars.Common.Host": "1.2.0",
           "Grpc.AspNetCore": "2.42.0",
           "Grpc.AspNetCore.Web": "2.42.0",
+          "IdentityServer4": "4.1.2",
           "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.15.1",
           "Swashbuckle.AspNetCore": "6.2.3",
           "System.Linq.Async": "6.0.1"
@@ -167,17 +168,6 @@
           }
         }
       },
-      "IdentityModel.AspNetCore.OAuth2Introspection/4.0.1": {
-        "dependencies": {
-          "IdentityModel": "4.4.0"
-        },
-        "runtime": {
-          "lib/netcoreapp3.0/IdentityModel.AspNetCore.OAuth2Introspection.dll": {
-            "assemblyVersion": "4.0.0.0",
-            "fileVersion": "4.0.1.0"
-          }
-        }
-      },
       "IdentityServer4/4.1.2": {
         "dependencies": {
           "IdentityModel": "4.4.0",
@@ -190,18 +180,6 @@
           "lib/netcoreapp3.1/IdentityServer4.dll": {
             "assemblyVersion": "4.1.2.0",
             "fileVersion": "4.1.2.0"
-          }
-        }
-      },
-      "IdentityServer4.AccessTokenValidation/3.0.1": {
-        "dependencies": {
-          "IdentityModel.AspNetCore.OAuth2Introspection": "4.0.1",
-          "Microsoft.AspNetCore.Authentication.JwtBearer": "3.0.0"
-        },
-        "runtime": {
-          "lib/netcoreapp3.0/IdentityServer4.AccessTokenValidation.dll": {
-            "assemblyVersion": "3.0.0.0",
-            "fileVersion": "3.0.1.0"
           }
         }
       },
@@ -247,17 +225,6 @@
           "Microsoft.AspNetCore.Authentication.Abstractions": "2.2.0",
           "Microsoft.AspNetCore.Http": "2.2.0",
           "Microsoft.AspNetCore.Http.Extensions": "2.2.0"
-        }
-      },
-      "Microsoft.AspNetCore.Authentication.JwtBearer/3.0.0": {
-        "dependencies": {
-          "Microsoft.IdentityModel.Protocols.OpenIdConnect": "5.6.0"
-        },
-        "runtime": {
-          "lib/netcoreapp3.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll": {
-            "assemblyVersion": "3.0.0.0",
-            "fileVersion": "3.0.19.46502"
-          }
         }
       },
       "Microsoft.AspNetCore.Authentication.OpenIdConnect/3.1.0": {
@@ -1005,9 +972,9 @@
           }
         }
       },
-      "Ars.Common.AutoFac/1.1.5": {
+      "Ars.Common.AutoFac/1.2.0": {
         "dependencies": {
-          "Ars.Common.Core": "1.1.5",
+          "Ars.Common.Core": "1.2.0",
           "Autofac": "6.3.0",
           "Autofac.Extensions.DependencyInjection": "7.2.0",
           "Microsoft.AspNetCore.Mvc.Core": "2.2.5"
@@ -1016,9 +983,9 @@
           "Ars.Common.AutoFac.dll": {}
         }
       },
-      "Ars.Common.Consul/1.1.5": {
+      "Ars.Common.Consul/1.2.0": {
         "dependencies": {
-          "Ars.Common.Core": "1.1.5",
+          "Ars.Common.Core": "1.2.0",
           "Consul": "1.6.10.4",
           "Grpc.Core.Api": "2.42.0",
           "Grpc.Net.Client": "2.42.0",
@@ -1028,9 +995,9 @@
           "Ars.Common.Consul.dll": {}
         }
       },
-      "Ars.Common.Core/1.1.5": {
+      "Ars.Common.Core/1.2.0": {
         "dependencies": {
-          "Ars.Common.Tool": "1.1.5",
+          "Ars.Common.Tool": "1.2.0",
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "6.0.0",
           "System.Configuration.ConfigurationManager": "6.0.0"
         },
@@ -1038,13 +1005,11 @@
           "Ars.Common.Core.dll": {}
         }
       },
-      "Ars.Common.Host/1.1.5": {
+      "Ars.Common.Host/1.2.0": {
         "dependencies": {
-          "Ars.Common.AutoFac": "1.1.5",
-          "Ars.Common.Consul": "1.1.5",
-          "Ars.Common.Core": "1.1.5",
-          "Ars.Common.IdentityServer4": "1.1.5",
-          "Ars.Common.Tool": "1.1.5",
+          "Ars.Common.AutoFac": "1.2.0",
+          "Ars.Common.Core": "1.2.0",
+          "Ars.Common.Tool": "1.2.0",
           "Autofac": "6.3.0",
           "Autofac.Extensions.DependencyInjection": "7.2.0"
         },
@@ -1052,18 +1017,7 @@
           "Ars.Common.Host.dll": {}
         }
       },
-      "Ars.Common.IdentityServer4/1.1.5": {
-        "dependencies": {
-          "Ars.Common.Core": "1.1.5",
-          "Ars.Common.Tool": "1.1.5",
-          "IdentityServer4": "4.1.2",
-          "IdentityServer4.AccessTokenValidation": "3.0.1"
-        },
-        "runtime": {
-          "Ars.Common.IdentityServer4.dll": {}
-        }
-      },
-      "Ars.Common.Tool/1.1.5": {
+      "Ars.Common.Tool/1.2.0": {
         "dependencies": {
           "MessagePack": "2.3.85",
           "Microsoft.Extensions.Configuration.Abstractions": "6.0.0",
@@ -1079,7 +1033,7 @@
     }
   },
   "libraries": {
-    "WebApiGrpcServices/1.1.5": {
+    "WebApiGrpcServices/1.2.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -1189,26 +1143,12 @@
       "path": "identitymodel/4.4.0",
       "hashPath": "identitymodel.4.4.0.nupkg.sha512"
     },
-    "IdentityModel.AspNetCore.OAuth2Introspection/4.0.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-ZNdMZMaj9fqR3j50vYsu+1U3QGd6n8+fqwf+a8mCTcmXGor+HgFDfdq0mM34bsmD6uEgAQup7sv2ZW5kR36dbA==",
-      "path": "identitymodel.aspnetcore.oauth2introspection/4.0.1",
-      "hashPath": "identitymodel.aspnetcore.oauth2introspection.4.0.1.nupkg.sha512"
-    },
     "IdentityServer4/4.1.2": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-blaxxGuOA7v/w1q+fxn97wZ+x2ecG1ZD4mc/N/ZOXMNeFZZhqv+4LF26Gecyik3nWrJPmbMEtQbLmRsKG8k61w==",
       "path": "identityserver4/4.1.2",
       "hashPath": "identityserver4.4.1.2.nupkg.sha512"
-    },
-    "IdentityServer4.AccessTokenValidation/3.0.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-qu/M6UyN4o9NVep7q545Ms7hYAnsQqSdLbN1Fjjrn4m35lyBfeQPSSNzDryAKHbodyWOQfHaOqKEyMEJQ5Rpgw==",
-      "path": "identityserver4.accesstokenvalidation/3.0.1",
-      "hashPath": "identityserver4.accesstokenvalidation.3.0.1.nupkg.sha512"
     },
     "IdentityServer4.Storage/4.1.2": {
       "type": "package",
@@ -1244,13 +1184,6 @@
       "sha512": "sha512-XlVJzJ5wPOYW+Y0J6Q/LVTEyfS4ssLXmt60T0SPP+D8abVhBTl+cgw2gDHlyKYIkcJg7btMVh383NDkMVqD/fg==",
       "path": "microsoft.aspnetcore.authentication.core/2.2.0",
       "hashPath": "microsoft.aspnetcore.authentication.core.2.2.0.nupkg.sha512"
-    },
-    "Microsoft.AspNetCore.Authentication.JwtBearer/3.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-FrlxgBG6+FKlYr1IVxXNXSK7jpxiIYf036VNR1UgopKSIUNjaK2zvkhfVgFZVavagitQ/+UZ8Snnm6axyAVRNg==",
-      "path": "microsoft.aspnetcore.authentication.jwtbearer/3.0.0",
-      "hashPath": "microsoft.aspnetcore.authentication.jwtbearer.3.0.0.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Authentication.OpenIdConnect/3.1.0": {
       "type": "package",
@@ -1903,32 +1836,27 @@
       "path": "system.windows.extensions/6.0.0",
       "hashPath": "system.windows.extensions.6.0.0.nupkg.sha512"
     },
-    "Ars.Common.AutoFac/1.1.5": {
+    "Ars.Common.AutoFac/1.2.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "Ars.Common.Consul/1.1.5": {
+    "Ars.Common.Consul/1.2.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "Ars.Common.Core/1.1.5": {
+    "Ars.Common.Core/1.2.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "Ars.Common.Host/1.1.5": {
+    "Ars.Common.Host/1.2.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "Ars.Common.IdentityServer4/1.1.5": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Ars.Common.Tool/1.1.5": {
+    "Ars.Common.Tool/1.2.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

@@ -58,7 +58,7 @@ builder.Services.AddAuthentication(option =>
 {
     option.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
 })
-.AddCookie(option => 
+.AddCookie(option =>
 {
     option.LoginPath = "/signin";
     option.LogoutPath = "/signout";

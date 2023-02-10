@@ -14,11 +14,12 @@ using System.Reflection;
 [assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("6bb32dd5-a9e9-453f-bdaf-3db38c0c7067")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("MyArs")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
-[assembly: System.Reflection.AssemblyFileVersionAttribute("1.1.5.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.1.5")]
+[assembly: System.Reflection.AssemblyFileVersionAttribute("1.3.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.3.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("Ars")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GrpcService")]
-[assembly: System.Reflection.AssemblyVersionAttribute("1.1.5.0")]
+[assembly: System.Reflection.AssemblyVersionAttribute("1.3.0.0")]
+[assembly: System.Reflection.AssemblyMetadataAttribute("RepositoryUrl", "https://github.com/aabb1212/MyArs")]
 
 // 由 MSBuild WriteCodeFragment 类生成。
 

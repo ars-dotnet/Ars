@@ -1,6 +1,5 @@
 using Ars.Commom.Host.Extension;
 using Ars.Common.Consul.IApplicationBuilderExtension;
-using Ars.Common.IdentityServer4.Extension;
 using GrpcService;
 using GrpcService.Services;
 using Microsoft.Extensions.Options;
@@ -32,7 +31,6 @@ app.MapGrpcService<GreeterService>();
 app.MapGrpcService<HealthCheckService>();
 app.MapGet("/", () => "Communication with gRPC endpoints must be made through a gRPC client. To learn how to create a client, visit: https://go.microsoft.com/fwlink/?linkid=2086909");
 
-app.UseAuthorization();
 app.UseArsCore();
 
 app.Run();
