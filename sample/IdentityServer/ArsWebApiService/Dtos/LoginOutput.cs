@@ -13,5 +13,7 @@ namespace MyApiWithIdentityServer4.Dtos
         public string refresh_token { get; set; }
 
         public string scope { get; set; }
+
+        public string user_num { get; set; } 
     }
 }

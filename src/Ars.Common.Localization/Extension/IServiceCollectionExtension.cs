@@ -1,9 +1,11 @@
 ﻿using Ars.Commom.Core;
+using Ars.Common.Core.Configs;
 using Ars.Common.Localization.options;
 using Ars.Common.Localization.ValidProvider;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc.Razor;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -17,10 +19,17 @@ namespace Ars.Common.Localization.IServiceCollectionExtension
 {
     public static class IServiceCollectionExtension
     {
-        public static IArsServiceBuilder AddArsLocalization(this IArsServiceBuilder arsServiceProvider, Action<ArsLocalizationOption>? action = null)
+        public static IArsServiceBuilder AddArsLocalization(this IArsServiceBuilder arsServiceProvider)
         {
-            ArsLocalizationOption arsLocalizationOption = new ArsLocalizationOption();
-            action?.Invoke(arsLocalizationOption);
+           var arsLocalizationOption = arsServiceProvider.Services.Provider.GetRequiredService<IConfiguration>()
+                .GetSection(nameof(ArsLocalizationConfiguration))
+                .Get<ArsLocalizationConfiguration>() 
+                ?? new ArsLocalizationConfiguration();
+            var arsconfig = arsServiceProvider.Services.Provider.GetRequiredService<IArsConfiguration>();
+            arsconfig.ArsLocalizationConfiguration ??= arsLocalizationOption;
+            arsServiceProvider.Services.ServiceCollection.AddSingleton<IArsLocalizationConfiguration>(arsLocalizationOption);
+            arsconfig.AddArsAppExtension(new ArsLocalizationAppExtension());
+
             var services = arsServiceProvider.Services.ServiceCollection;
             services.AddLocalization(
                 option =>
@@ -52,10 +61,12 @@ namespace Ars.Common.Localization.IServiceCollectionExtension
 
             services.AddSingleton<IArstringLocalizer, ArstringLocalizer>();
 
+
+
             return arsServiceProvider;
         }
 
-        private static IMvcBuilder AddArsViewLocalization(this IMvcBuilder mvcBuilder, ArsLocalizationOption arsLocalizationOption)
+        private static IMvcBuilder AddArsViewLocalization(this IMvcBuilder mvcBuilder, ArsLocalizationConfiguration arsLocalizationOption)
         {
             mvcBuilder.AddMvcOptions(option => option.ModelMetadataDetailsProviders.Add(new ValidationMetadataLocalizationProvider()));
             if (arsLocalizationOption.IsAddViewLocalization)

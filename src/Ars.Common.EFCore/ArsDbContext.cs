@@ -1,7 +1,6 @@
 ﻿using Ars.Common.AutoFac;
 using Ars.Common.AutoFac.IDependency;
 using Ars.Common.Core.AspNetCore;
-using Ars.Common.Core.Extension;
 using Ars.Common.Core.IDependency;
 using Ars.Common.EFCore.Entities;
 using Microsoft.EntityFrameworkCore;
@@ -17,6 +16,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Ars.Commom.Tool.Extension;
 using Ars.Common.Core.Uow.Options;
+using Ars.Common.Core.Configs;
+using Ars.Common.Tool.Extension;
+using Ars.Common.Core.AspNetCore.Extensions;
 
 namespace Ars.Common.EFCore
 {
@@ -24,11 +26,14 @@ namespace Ars.Common.EFCore
     {
         private readonly IArsSession? _arsSession;
 
-        private readonly DbContextOption? _options;
+        private readonly IArsDbContextConfiguration? _options;
 
         private static MethodInfo ConfigureGlobalFiltersMethodInfo = typeof(ArsDbContext).GetMethod(nameof(ConfigureGlobalFilters), BindingFlags.Instance | BindingFlags.NonPublic)!;
 
-        protected ArsDbContext(DbContextOptions dbContextOptions, IArsSession? arsSession, DbContextOption? options) : base(dbContextOptions)
+        protected ArsDbContext(
+            DbContextOptions dbContextOptions, 
+            IArsSession? arsSession, 
+            IArsDbContextConfiguration? options) : base(dbContextOptions)
         {
             _arsSession = arsSession;
             _options = options;
@@ -80,7 +85,7 @@ namespace Ars.Common.EFCore
 
         protected virtual bool ShouldSetValueFilterEntity<TEntity>()
         {
-            if (typeof(IEntity).IsAssignableFrom(typeof(TEntity)))
+            if (typeof(IEntity<>).IsAssignableFrom(typeof(TEntity)))
                 return true;
 
             if (typeof(ICreateEntity).IsAssignableFrom(typeof(TEntity)))
@@ -92,10 +97,24 @@ namespace Ars.Common.EFCore
             return false;
         }
 
+        protected virtual bool ShouldSetValueFilterEntity(Type type)
+        {
+            if (typeof(IEntity<>).IsAssignableGenericFrom(type))
+                return true;
+
+            if (typeof(ICreateEntity).IsAssignableFrom(type))
+                return true;
+
+            if (typeof(IMayHaveTenant).IsAssignableFrom(type))
+                return true;
+
+            return false;
+        }
+
         protected virtual Expression<Func<TEntity, bool>>? CreateQueryFilterExpression<TEntity>()
             where TEntity : class
         {
-            Expression<Func<TEntity, bool>> queryFilter = null;
+            Expression<Func<TEntity, bool>>? queryFilter = null;
 
             if (typeof(ISoftDelete).IsAssignableFrom(typeof(TEntity)))
             {
@@ -105,7 +124,7 @@ namespace Ars.Common.EFCore
 
             if (typeof(IMayHaveTenant).IsAssignableFrom(typeof(TEntity))) 
             {
-                Expression<Func<TEntity, bool>> mayhavetenantFilter = null;
+                Expression<Func<TEntity, bool>>? mayhavetenantFilter = null;
                 if (null == _arsSession)
                     mayhavetenantFilter = e => true;
                 else 
@@ -192,9 +211,12 @@ namespace Ars.Common.EFCore
         #region add-set
         protected virtual void ConceptsForAddEntity(EntityEntry entityEntry) 
         {
-            CheckAndSetId(entityEntry);
-            CheckAndSetMayHaveTenantIdProperty(entityEntry);
-            CheckAndSetCreationProperty(entityEntry);
+            if (ShouldSetValueFilterEntity(entityEntry.Entity.GetType()))
+            {
+                CheckAndSetId(entityEntry);
+                CheckAndSetMayHaveTenantIdProperty(entityEntry);
+                CheckAndSetCreationProperty(entityEntry);
+            }
         }
 
         protected virtual void CheckAndSetId(EntityEntry entry) 

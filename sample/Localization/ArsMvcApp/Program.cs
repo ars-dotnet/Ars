@@ -12,16 +12,24 @@ using System.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Ars.Common.Redis;
 using Ars.Common.Redis.RedisExtension;
+using Ars.Common.Redis.Extension;
 
 var builder = WebApplication.CreateBuilder(args);
 
 
-var provider = builder.Services.AddArserviceCore(builder.Host);
-provider.AddArsLocalization(option =>
-{
-    option.IsAddViewLocalization = true;
-    option.Cultures = option.Cultures.Concat(new[] { "en-GB", "en", "fr-FR", "fr" });
-});
+var provider = builder.Services.AddArserviceCore(
+    builder.Host,
+    config => 
+    {
+        config.AddArsRedis(provider =>
+        {
+            provider.ConfigureAll(cacheoption =>
+            {
+                cacheoption.DefaultSlidingExpireTime = TimeSpan.FromMinutes(10);
+            });
+        });
+    });
+provider.AddArsLocalization();
 //provider.AddArsIdentityServer4();
 
 builder.Services.Configure<User>(builder.Configuration.GetSection(nameof(User)));
@@ -30,11 +38,6 @@ builder.Services.AddTransient<IUserAppService, User>();
 builder.Services.AddTransient<UserBase, User>();
 builder.Services.AddTransient<User>();
 
-provider.AddArsRedis(options =>
-{
-    options.RedisConnection = "192.168.2.102";
-    options.DefaultDB = 1;
-});
 
 var app = builder.Build();
 
@@ -62,11 +65,4 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-app.UseArsRedis(config =>
-{
-    config.ConfigureAll(cacheoption =>
-    {
-        cacheoption.DefaultSlidingExpireTime = TimeSpan.FromMinutes(10);
-    });
-});
 app.Run();

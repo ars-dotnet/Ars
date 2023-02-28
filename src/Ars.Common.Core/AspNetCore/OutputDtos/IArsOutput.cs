@@ -10,6 +10,6 @@ namespace Ars.Common.Core.AspNetCore.OutputDtos
     {
         public int Code { get; set; }
 
-        public string Error { get; set; }
+        public string Message { get; set; }
     }
 }

@@ -17,9 +17,29 @@ namespace Ars.Commom.Tool.Extension
             return string.IsNullOrEmpty(str);
         }
 
+        public static bool IsNotNullOrEmpty(this string str)
+        {
+            return !string.IsNullOrEmpty(str);
+        }
+
         public static bool IsNullOrWhiteSpace(this string str)
         {
             return string.IsNullOrWhiteSpace(str);
+        }
+
+        public static string LowerCamel(this string str)
+        {
+            if (str.IsNullOrEmpty())
+            {
+                return str;
+            }
+
+            if (str.Length <= 1)
+            {
+                return str.ToLower();
+            }
+
+            return str.Substring(0, 1).ToLower() + str.Substring(1);
         }
     }
 }

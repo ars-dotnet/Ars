@@ -33,7 +33,11 @@ namespace Ars.Common.Redis.CacheProvider
                     {
                         var cache = CreateImplementCache(key);
 
-                        var config = cacheConfigurationProvider.cacheConfigurations.FirstOrDefault(r => string.IsNullOrEmpty(r.CacheName) || r.CacheName.Equals(key, StringComparison.OrdinalIgnoreCase));
+                        var config = cacheConfigurationProvider.
+                            cacheConfigurations.
+                            FirstOrDefault(
+                                r => string.IsNullOrEmpty(r.CacheName) ||
+                                     r.CacheName.Equals(key, StringComparison.OrdinalIgnoreCase));
                         if (null != config) 
                         {
                             config.Action(cache);

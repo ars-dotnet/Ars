@@ -47,7 +47,7 @@ namespace Ars.Common.Consul.IApplicationBuilderExtension
             }
             else 
             {
-                check.HTTP = $"http://{ip}:{port}/healthCheck";
+                check.HTTP = $"http://{ip}:{port}/{option.HttpHealthAction}";
             }
             //服务注册
             client.Agent.ServiceRegister(new AgentServiceRegistration()

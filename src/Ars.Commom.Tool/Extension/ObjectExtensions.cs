@@ -8,10 +8,15 @@ namespace Ars.Commom.Tool.Extension
 {
     public static class ObjectExtensions
     {
-        public static T As<T>(this object obj)
+        public static T? As<T>(this object obj)
             where T : class
         {
-            return (T)obj;
+            return obj.Is<T>() ? (T)obj : null;
+        }
+
+        public static bool Is<T>(this object obj) 
+        {
+            return obj is T;
         }
 
         public static T To<T>(this object obj)
@@ -19,13 +24,13 @@ namespace Ars.Commom.Tool.Extension
         {
             if (typeof(T) == typeof(Guid) || typeof(T) == typeof(TimeSpan))
             {
-                return (T)TypeDescriptor.GetConverter(typeof(T)).ConvertFromInvariantString(obj.ToString());
+                return (T)TypeDescriptor.GetConverter(typeof(T)).ConvertFromInvariantString(obj.ToString()!)!;
             }
             if (typeof(T).IsEnum)
             {
                 if (Enum.IsDefined(typeof(T), obj))
                 {
-                    return (T)Enum.Parse(typeof(T), obj.ToString());
+                    return (T)Enum.Parse(typeof(T), obj.ToString()!);
                 }
                 else
                 {

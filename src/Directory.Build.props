@@ -1,0 +1,13 @@
+<Project>
+	<Import Project="..\build\version.props" />
+
+	<PropertyGroup>
+		<Product>Ars</Product>
+		<Authors>MyArs</Authors>
+		<PackageTags>Ars</PackageTags>
+		<RepositoryUrl>https://github.com/aabb1212/MyArs</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<RepositoryRoot>$(MSBuildThisFileDirectory)</RepositoryRoot>
+		<PackageProjectUrl>https://github.com/aabb1212/MyArs</PackageProjectUrl>
+	</PropertyGroup>
+</Project>

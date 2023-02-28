@@ -26,15 +26,12 @@ namespace Ars.Common.AutoFac.Dependency
                         {
                             builder.RegisterType(r).As(r.BaseType!).InstancePerDependency();
                         }
-                        if (r.GetInterfaces().Where(t => !ignore.Contains(t) && typeof(ITransientDependency) != t).Any())
+                        foreach (var i in r.GetInterfaces().Where(t => !ignore.Contains(t) && typeof(ITransientDependency) != t))
                         {
-                            foreach (var i in r.GetInterfaces().Where(t => !ignore.Contains(t) && typeof(ITransientDependency) != t))
-                            {
-                                builder.RegisterType(r).As(i).InstancePerDependency();
-                            }
+                            builder.RegisterType(r).As(i).InstancePerDependency();
                         }
 
-                        //builder.RegisterType(r).AsSelf().InstancePerDependency();//.PropertiesAutowired(new AutowiredPropertySelector());
+                        builder.RegisterType(r).AsSelf().InstancePerDependency();//.PropertiesAutowired(new AutowiredPropertySelector());
                     }
                     else if (typeof(ISingletonDependency).IsAssignableFrom(r))
                     {
@@ -42,12 +39,9 @@ namespace Ars.Common.AutoFac.Dependency
                         {
                             builder.RegisterType(r).As(r.BaseType!).SingleInstance();
                         }
-                        if (r.GetInterfaces().Where(t => !ignore.Contains(t) && typeof(ISingletonDependency) != t).Any())
+                        foreach (var i in r.GetInterfaces().Where(t => !ignore.Contains(t) && typeof(ISingletonDependency) != t))
                         {
-                            foreach (var i in r.GetInterfaces().Where(t => !ignore.Contains(t) && typeof(ISingletonDependency) != t))
-                            {
-                                builder.RegisterType(r).As(i).SingleInstance();
-                            }
+                            builder.RegisterType(r).As(i).SingleInstance();
                         }
 
                         builder.RegisterType(r).AsSelf().SingleInstance();
@@ -58,12 +52,9 @@ namespace Ars.Common.AutoFac.Dependency
                         {
                             builder.RegisterType(r).As(r.BaseType!).InstancePerLifetimeScope();
                         }
-                        if (r.GetInterfaces().Where(t => !ignore.Contains(t) && typeof(IScopedDependency) != t).Any())
+                        foreach (var i in r.GetInterfaces().Where(t => !ignore.Contains(t) && typeof(IScopedDependency) != t))
                         {
-                            foreach (var i in r.GetInterfaces().Where(t => !ignore.Contains(t) && typeof(IScopedDependency) != t))
-                            {
-                                builder.RegisterType(r).As(i).InstancePerLifetimeScope();
-                            }
+                            builder.RegisterType(r).As(i).InstancePerLifetimeScope();
                         }
 
                         builder.RegisterType(r).AsSelf().InstancePerLifetimeScope();

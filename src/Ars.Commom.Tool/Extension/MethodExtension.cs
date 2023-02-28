@@ -10,16 +10,16 @@ namespace Ars.Commom.Tool.Extension
     {
         public static object Invoke(MethodInfo methodInfo,object obj,params object[] @params) 
         {
-            return methodInfo.Invoke(obj, @params);
+            return methodInfo.Invoke(obj, @params)!;
         }
 
         public static async Task<object> InvokeAsync(MethodInfo methodInfo, object obj, params object[] @params)
         {
-            var task = (Task)methodInfo.Invoke(obj, @params);
+            var task = (Task)methodInfo.Invoke(obj, @params)!;
             await task;
 
             var resultProperty = task.GetType().GetProperty("Result");
-            return resultProperty?.GetValue(task);
+            return resultProperty?.GetValue(task)!;
         }
     }
 }

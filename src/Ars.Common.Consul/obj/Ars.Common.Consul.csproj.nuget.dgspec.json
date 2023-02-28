@@ -5,7 +5,7 @@
   },
   "projects": {
     "C:\\core\\MyArs\\src\\Ars.Commom.Tool\\Ars.Common.Tool.csproj": {
-      "version": "1.0.0",
+      "version": "1.4.0",
       "restore": {
         "projectUniqueName": "C:\\core\\MyArs\\src\\Ars.Commom.Tool\\Ars.Common.Tool.csproj",
         "projectName": "Ars.Common.Tool",
@@ -64,9 +64,17 @@
               "target": "Package",
               "version": "[6.0.0, )"
             },
+            "Microsoft.Extensions.Http.Polly": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
             "Microsoft.Extensions.Options": {
               "target": "Package",
               "version": "[6.0.0, )"
+            },
+            "Swashbuckle.AspNetCore.SwaggerGen": {
+              "target": "Package",
+              "version": "[6.5.0, )"
             }
           },
           "imports": [
@@ -89,7 +97,7 @@
       }
     },
     "C:\\core\\MyArs\\src\\Ars.Common.Consul\\Ars.Common.Consul.csproj": {
-      "version": "1.0.0",
+      "version": "1.4.0",
       "restore": {
         "projectUniqueName": "C:\\core\\MyArs\\src\\Ars.Common.Consul\\Ars.Common.Consul.csproj",
         "projectName": "Ars.Common.Consul",
@@ -172,7 +180,7 @@
       }
     },
     "C:\\core\\MyArs\\src\\Ars.Common.Core\\Ars.Common.Core.csproj": {
-      "version": "1.0.0",
+      "version": "1.4.0",
       "restore": {
         "projectUniqueName": "C:\\core\\MyArs\\src\\Ars.Common.Core\\Ars.Common.Core.csproj",
         "projectName": "Ars.Common.Core",
@@ -215,6 +223,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Grpc.Core.Api": {
+              "target": "Package",
+              "version": "[2.42.0, )"
+            },
             "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
               "target": "Package",
               "version": "[6.0.0, )"

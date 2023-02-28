@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Ars.Common.Redis.CacheConfiguration
 {
-    public class CacheConfigurationProvider : ICacheConfigurationProvider,ISingletonDependency
+    public class CacheConfigurationProvider : ICacheConfigurationProvider
     {
         public CacheConfigurationProvider()
         {

@@ -16,12 +16,12 @@ namespace Ars.Common.Core.AspNetCore.OutputDtos
         public ArsOutput(int code,string error)
         {
             Code = code;
-            Error = error;
+            Message = error;
         }
 
         public int Code { get; set; }
 
-        public string Error { get; set; }
+        public string Message { get; set; }
     }
 
     public class ArsOutput<T> : ArsOutput

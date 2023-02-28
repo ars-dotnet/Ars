@@ -1,4 +1,5 @@
 ﻿using Ars.Common.Core.AspNetCore;
+using Ars.Common.Core.Configs;
 using Ars.Common.Core.Uow.Options;
 using Ars.Common.EFCore;
 using Microsoft.EntityFrameworkCore;
@@ -11,9 +12,9 @@ namespace MyApiWithIdentityServer4
     {
         public MyDbContext(
             DbContextOptions<MyDbContext> dbContextOptions, 
-            IArsSession? arsSession = null, 
-            IOptions<DbContextOption>? options = null) 
-            : base(dbContextOptions,arsSession,options?.Value)
+            IArsSession? arsSession = null,
+            IArsDbContextConfiguration options = null) 
+            : base(dbContextOptions,arsSession,options)
         {
 
         }

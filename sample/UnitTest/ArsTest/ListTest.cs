@@ -20,5 +20,23 @@ namespace ArsTest
             var e = a.Except(b).ToList();
             var e1 = b.Except(a).ToList();
         }
+
+        [Fact]
+        public void Test1() 
+        {
+            IEnumerable<string> strs = new List<string>
+            {
+                "123",
+                "233",
+                "2323"
+            };
+
+            StringBuilder str = new StringBuilder();
+            str.Append("('");
+            str.Append(string.Join("','", strs));
+            str.Append("')");
+
+            var x = str.ToString();
+        }
     }
 }

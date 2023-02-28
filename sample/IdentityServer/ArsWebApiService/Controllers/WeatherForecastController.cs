@@ -23,7 +23,7 @@ namespace MyApiWithIdentityServer4.Controllers
         private IHttpClientFactory _httpClientFactory;
         private readonly ILogger<WeatherForecastController> _logger;
         private readonly IHttpContextAccessor _httpContextAccessor;
-        private readonly ITestScopeService _testScopeService;
+        //private readonly ITestScopeService _testScopeService;
         private readonly IArsIdentityClientConfiguration _clientConfiguration;
         //private readonly MyDbContext myDbContext;
 
@@ -31,14 +31,14 @@ namespace MyApiWithIdentityServer4.Controllers
             MyDbContext myDbContext,
             IHttpClientFactory httpClientFactory,
             IHttpContextAccessor httpContextAccessor,
-            ITestScopeService testScopeService,
+            //ITestScopeService testScopeService,
             IArsIdentityClientConfiguration arsIdentityClientConfiguration)
         {
             _logger = logger;
             _httpClientFactory = httpClientFactory;
             //this.myDbContext = myDbContext;
             _httpContextAccessor = httpContextAccessor;
-            _testScopeService = testScopeService;
+            //_testScopeService = testScopeService;
             _clientConfiguration = arsIdentityClientConfiguration;
         }
 
@@ -75,21 +75,21 @@ namespace MyApiWithIdentityServer4.Controllers
                 LastName = "Yang",
                 Enrollments = new[]
                 {
-                        new Model.Enrollment
+                    new Model.Enrollment
+                    {
+                        EnrollmentID = 1,
+                        CourseID = 1,
+                        StudentID = id,
+                        Grade = Model.Grade.A,
+                        Course = new Model.Course
                         {
-                            EnrollmentID = 1,
                             CourseID = 1,
-                            StudentID = id,
-                            Grade = Model.Grade.A,
-                            Course = new Model.Course
-                            {
-                                CourseID = 1,
-                                Title = "°¥Ñ½",
-                                Credits = 100.11m,
-                                Name = "°¥Ñ½"
-                            }
+                            Title = "°¥Ñ½",
+                            Credits = 100.11m,
+                            Name = "°¥Ñ½"
                         }
                     }
+                }
             });
 
             await MyDbContext.SaveChangesAsync();
@@ -145,105 +145,7 @@ namespace MyApiWithIdentityServer4.Controllers
             await MyDbContext.SaveChangesAsync();
         }
 
-        [HttpPost]
-        [AllowAnonymous]
-        public async Task<ArsOutput<LoginOutput>> ClientCredentials()
-        {
-            if (_httpContextAccessor.HttpContext?.Request?.Headers?.TryGetValue("Authorization", out StringValues value) ?? false)
-            {
-                var m = value.ToString().Split(" ");
-                string[]? cc = Encoding.UTF8.GetString(Convert.FromBase64String(m[1]))?.Split(":");
-                if (cc?.Any() ?? false)
-                {
-                    using var httpclient = _httpClientFactory.CreateClient("http");
-                    var tokenresponse = await httpclient.RequestClientCredentialsTokenAsync(new ClientCredentialsTokenRequest
-                    {
-                        ClientId = cc[0],
-                        ClientSecret = cc[1],
-                        Scope = "grpcapi-scope",
-                        GrantType = "client_credentials",
-                        Address = $"{_clientConfiguration.Authority}/connect/token"
-                    });
-
-                    if (tokenresponse.IsError)
-                        return ArsOutput<LoginOutput>.Failed(1, tokenresponse.Error);
-
-                    var datas = JsonConvert.DeserializeObject<LoginOutput>(tokenresponse.Json.ToString())!;
-                    return ArsOutput<LoginOutput>.Success(datas);
-                }
-            }
-
-            return ArsOutput<LoginOutput>.Failed(1, "²ÎÊý´íÎó");
-        }
-
-        [HttpPost]
-        [AllowAnonymous]
-        public async Task<ArsOutput<LoginOutput>> Password([FromBody] LoginInput input)
-        {
-            if (_httpContextAccessor.HttpContext?.Request?.Headers?.TryGetValue("Authorization", out StringValues value) ?? false)
-            {
-                var m = value.ToString().Split(" ");
-                string[]? cc = Encoding.UTF8.GetString(Convert.FromBase64String(m[1]))?.Split(":");
-                if (cc?.Any() ?? false)
-                {
-                    using var httpclient = _httpClientFactory.CreateClient("http");
-                    var tokenresponse = await httpclient.RequestPasswordTokenAsync(new PasswordTokenRequest
-                    {
-                        ClientId = cc[0],
-                        ClientSecret = cc[1],
-                        Scope = "grpcapi-scope",
-                        GrantType = "password",
-                        Address = $"{_clientConfiguration.Authority}/connect/token",
-                        UserName = input.UserName,
-                        Password = input.PassWord
-                    });
-
-                    if (tokenresponse.IsError)
-                        return ArsOutput<LoginOutput>.Failed(1, tokenresponse.Error);
-
-                    var datas = JsonConvert.DeserializeObject<LoginOutput>(tokenresponse.Json.ToString())!;
-                    return ArsOutput<LoginOutput>.Success(datas);
-                }
-            }
-
-            return ArsOutput<LoginOutput>.Failed(1, "²ÎÊý´íÎó");
-        }
-
-        /// <summary>
-        /// Ë¢ÐÂtoken
-        /// </summary>
-        /// <param name="access_token"></param>
-        /// <returns></returns>
-        [AllowAnonymous]
-        [HttpPost(nameof(RefreshToken))]
-        public async Task<ArsOutput<LoginOutput>> RefreshToken(RefreshTokenInput input)
-        {
-            if (_httpContextAccessor.HttpContext?.Request?.Headers?.TryGetValue("Authorization", out StringValues value) ?? false)
-            {
-                var m = value.ToString().Split(" ");
-                string[]? cc = Encoding.UTF8.GetString(Convert.FromBase64String(m[1]))?.Split(":");
-                if (cc?.Any() ?? false) 
-                {
-                    using var httpclient = _httpClientFactory.CreateClient("http");
-                    var tokenresponse = await httpclient.RequestRefreshTokenAsync(new RefreshTokenRequest
-                    {
-                        ClientId = cc[0],
-                        ClientSecret = cc[1],
-                        RefreshToken = input.Refresh_token,
-                        Scope = "grpcapi-scope",
-                        GrantType = "refresh_token",
-                        Address = "http://localhost:5105/connect/token"
-                    });
-
-                    if (tokenresponse.IsError)
-                        return ArsOutput<LoginOutput>.Failed(1, tokenresponse.Error);
-
-                    var datas = JsonConvert.DeserializeObject<LoginOutput>(tokenresponse.Json.ToString())!;
-                    return ArsOutput<LoginOutput>.Success(datas);
-                }
-            }
-            return ArsOutput<LoginOutput>.Failed(1, "²ÎÊý´íÎó");
-        }
+        
 
         [HttpPost(nameof(TestJObject))]
         public async Task TestJObject() 

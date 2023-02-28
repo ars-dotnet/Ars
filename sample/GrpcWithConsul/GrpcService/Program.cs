@@ -1,4 +1,5 @@
 using Ars.Commom.Host.Extension;
+using Ars.Common.Consul.Extension;
 using Ars.Common.Consul.IApplicationBuilderExtension;
 using GrpcService;
 using GrpcService.Services;

@@ -9,6 +9,7 @@ using IdentityModel;
 using IdentityServer4.AccessTokenValidation;
 using IdentityServer4.Test;
 using IdentityServer4.Validation;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -38,8 +39,8 @@ namespace Ars.Common.IdentityServer4.Extension
             var services = builder.Services.ServiceCollection;
             var option = builder.Services.Provider
                 .GetRequiredService<IConfiguration>()
-                .GetSection(nameof(ArsIdentityServerOption))
-                .Get<ArsIdentityServerOption>() ?? new ArsIdentityServerOption();
+                .GetSection(nameof(ArsIdentityServerConfiguration))
+                .Get<ArsIdentityServerConfiguration>() ?? throw new Exception("appsettings => ArsIdentityServerConfiguration not be null!");
 
             services.AddSingleton<IArsIdentityServerConfiguration>(option);
             var arscfg = builder.Services.Provider.GetRequiredService<IArsConfiguration>();
@@ -52,11 +53,10 @@ namespace Ars.Common.IdentityServer4.Extension
                 .AddArsClients(option.ArsClients)
                 .AddArsScopes(option.ArsApiScopes)
                 .AddArsSigningCredential(
-                    string.IsNullOrEmpty(option.CertPath) 
-                        ? Certificate.Get() 
-                        : Certificate.Get(option.CertPath,option.Password))
-                .AddResourceOwnerValidator<DefaultResourceOwnerPasswordValidator>()
-                .AddTestUsers(new List<TestUser> 
+                    string.IsNullOrEmpty(option.CertPath)
+                        ? Certificate.Get()
+                        : Certificate.Get(option.CertPath, option.Password))
+                .AddTestUsers(new List<TestUser>
                 {
                     new TestUser
                     {
@@ -70,9 +70,10 @@ namespace Ars.Common.IdentityServer4.Extension
                         },
                         Password = "MyArs@1234",
                         IsActive = true,
-                        SubjectId = Guid.NewGuid().ToString(),
+                        SubjectId = "1",
                     }
-                });
+                })
+               .AddResourceOwnerValidator<DefaultResourceOwnerPasswordValidator>();
 
             if (null != func) 
             {
@@ -85,22 +86,23 @@ namespace Ars.Common.IdentityServer4.Extension
             return builder;
         }
 
-        public static IArsServiceBuilder AddArsIdentityValidApi(
+        public static IArsServiceBuilder AddArsIdentityClient(
             this IArsServiceBuilder builder,
             string defaultScheme = IdentityServerAuthenticationDefaults.AuthenticationScheme,
-            Action<IdentityServerAuthenticationOptions>? configureOptions = null)  
+            Action<IdentityServerAuthenticationOptions>? configureOptions = null,
+            Action<AuthorizationOptions>? configure = null)  
         {
             var services = builder.Services.ServiceCollection;
             var option = builder.Services.Provider
                 .GetRequiredService<IConfiguration>()
-                .GetSection(nameof(ArsIdentityClientOption))
-                .Get<ArsIdentityClientOption>() 
+                .GetSection(nameof(ArsIdentityClientConfiguration))
+                .Get<ArsIdentityClientConfiguration>() 
                 ?? 
-                throw new Exception("appsetting => ArsIdentityClientOption not be null!");
+                throw new Exception("appsetting => ArsIdentityClientConfiguration not be null!");
             var arscfg = builder.Services.Provider
                 .GetRequiredService<IArsConfiguration>();
             arscfg.ArsIdentityClientConfiguration ??= option;
-            arscfg.AddArsAppExtension(new ArsIdentityValidApiAppExtension());
+            arscfg.AddArsAppExtension(new ArsIdentityClientAppExtension());
             services.AddSingleton<IArsIdentityClientConfiguration>(option);
 
             if (null == configureOptions) 
@@ -112,8 +114,15 @@ namespace Ars.Common.IdentityServer4.Extension
                     t.RequireHttpsMetadata = false;
                 };
             }
-            services.AddAuthentication(defaultScheme)
-                .AddIdentityServerAuthentication(configureOptions);
+            if (null == configure) 
+            {
+                configure = t => 
+                {
+                    t.AddPolicy("default",policy =>policy.AddRequirements(new DefaultAuthorizationRequirement()));
+                };
+            }
+            services.AddAuthentication(defaultScheme).AddIdentityServerAuthentication(configureOptions);
+            services.AddAuthorization(configure);
             return builder;
         }
     }

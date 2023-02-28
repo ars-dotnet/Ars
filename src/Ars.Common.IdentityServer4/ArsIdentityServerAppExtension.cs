@@ -14,7 +14,7 @@ namespace Ars.Common.IdentityServer4
     {
         public void UseApplication(IApplicationBuilder builder, IArsConfiguration configuration)
         {
-            if (null != configuration.ArsIdentityServerConfiguration) 
+            if (null != configuration.ArsIdentityServerConfiguration)
             {
                 builder.UseArsIdentityServer();
             }

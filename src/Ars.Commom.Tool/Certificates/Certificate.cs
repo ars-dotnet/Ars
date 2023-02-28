@@ -10,16 +10,8 @@ namespace Ars.Commom.Tool.Certificates
 {
     public class Certificate
     {
-        //private const string CertName = "AceLink.Influencer.IdentityServer4.pfx";secret[SVJZ4hfjA1]
-        //private const string CertName = "AceLink.Influencer.Ids4.Certificates.IS4.pfx";
-
         public static X509Certificate2 Get()
         {
-            //Assembly assembly = typeof(Certificate).Assembly;
-            //using (Stream manifestResourceStream = assembly.GetManifestResourceStream(
-            //    string.Concat(new AssemblyName(assembly.FullName!).Name, ".Certificates.IS4.pfx"))!)
-            //    return new X509Certificate2(ReadStream(manifestResourceStream), "aabb1212");
-
             string allpath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Certificates\\IS4.pfx");
             return new X509Certificate2(allpath, "aabb1212");
         }

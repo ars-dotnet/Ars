@@ -259,6 +259,17 @@ namespace ArsTest
 
             var m = datas.Chunk(3);
         }
+
+        [Fact]
+        public void TestIOptions() 
+        {
+            var a = services.BuildServiceProvider().GetRequiredService<IOptions<Configs>>();
+            Assert.True("Bill".Equals(a.Value.Name));
+        }
+    }
+    public class Configs
+    {
+        public string Name { get; set; } = "Bill";
     }
 
     public interface ICheck

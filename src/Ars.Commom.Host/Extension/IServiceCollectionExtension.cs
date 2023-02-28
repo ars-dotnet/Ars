@@ -5,9 +5,10 @@ using Ars.Common.AutoFac.Extension;
 using Ars.Common.AutoFac.IDependency;
 using Ars.Common.AutoFac.Options;
 using Ars.Common.AutoFac.RegisterProvider;
+using Ars.Common.Core;
 using Ars.Common.Core.AspNetCore;
+using Ars.Common.Core.AspNetCore.Extensions;
 using Ars.Common.Core.Configs;
-using Ars.Common.Core.Extension;
 using Ars.Common.Host;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -31,15 +32,23 @@ namespace Ars.Commom.Host.Extension
     {
         public static IArsServiceBuilder AddArserviceCore(
             this IServiceCollection services,
-            IHostBuilder host)
+            IHostBuilder host,
+            Action<IArsConfiguration>? action = null)
         {
             var arsbuilder = new ArsServiceBuilder(new ArsServiceCollection(services), host);
-            arsbuilder.AddArsAspNetCore();
-            arsbuilder.AddArsAutofac();
-          
             services.AddSingleton<IArsSerializer, ArsSerializer>();
             services.AddSingleton<IArsConfiguration>(new ArsConfiguration());
-            
+
+            action ??= _ => Console.WriteLine("Default Ars Start");
+            action += r => r.AddArsAspNetCore();
+            action += r => r.AddArsAutofac();
+            IArsConfiguration arsConfig = new ArsConfiguration();
+            action?.Invoke(arsConfig);
+            foreach (var serviceExtension in arsConfig.ArsServiceExtensions) 
+            {
+                serviceExtension.AddService(arsbuilder);
+            }
+
             return arsbuilder;
         }
     }

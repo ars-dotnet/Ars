@@ -10,11 +10,11 @@ namespace MyApiWithIdentityServer4
         {
             IConfigurationRoot configuration = new ConfigurationBuilder()
                .SetBasePath(Directory.GetCurrentDirectory())
-               .AddJsonFile("appsettings.json")
+               .AddJsonFile("appsettings.Development.json")
                .Build();
 
             DbContextOptionsBuilder<MyDbContext> builder = new DbContextOptionsBuilder<MyDbContext>();
-            string connectstring = configuration.GetSection("DefaultString").Get<string>();
+            string connectstring = configuration.GetSection("ArsDbContextConfiguration:DefaultString").Get<string>();
             //builder.UseMySql(connectstring,ServerVersion.AutoDetect(connectstring));
             builder.UseSqlServer(connectstring);
 

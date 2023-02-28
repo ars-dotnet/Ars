@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Ars.Common.Core.Configs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Ars.Common.Localization.options
 {
-    public class ArsLocalizationOption
+    public class ArsLocalizationConfiguration : IArsLocalizationConfiguration
     {
         public string ResourcesPath { get; set; } = "Resources";
 
@@ -14,8 +15,8 @@ namespace Ars.Common.Localization.options
 
         public bool IsAddDataAnnotationsLocalization { get; set; } = true;
 
-        public IEnumerable<string> Cultures = new[] { "en-US", "zh-Hans" };
+        public IEnumerable<string> Cultures { get; set; } = new[] { "en-US", "zh-Hans" };
 
-        public string DefaultRequestCulture = "en-US";
+        public string DefaultRequestCulture { get; set; } = "en-US";
     }
 }

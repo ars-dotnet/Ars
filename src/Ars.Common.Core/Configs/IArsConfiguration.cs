@@ -10,10 +10,10 @@ namespace Ars.Common.Core.Configs
     public interface IArsConfiguration
     {
         //服务配置集合
-        IList<IArsOptExtension> ArsOptExtensions { get; }
+        IList<IArsServiceExtension> ArsServiceExtensions { get; }
 
         //添加服务配置集合
-        void AddArsOptExtension(IArsOptExtension optExtension);
+        void AddArsServiceExtension(IArsServiceExtension optExtension);
 
         //中间件集合
         IList<IArsAppExtension> ArsAppExtensions { get; }
@@ -22,17 +22,17 @@ namespace Ars.Common.Core.Configs
         void AddArsAppExtension(IArsAppExtension appExtension);
 
         /// <summary>
-        /// efcore事务
+        /// efcore transaction
         /// </summary>
         public IUnitOfWorkDefaultConfiguration? UnitOfWorkDefaultConfiguration { get; set; }
 
         /// <summary>
-        /// consul discover
+        /// consul discover config
         /// </summary>
         public IConsulDiscoverConfiguration? ConsulDiscoverConfiguration { get; set; }
 
         /// <summary>
-        /// consul register
+        /// consul register config
         /// </summary>
         public IConsulRegisterConfiguration? ConsulRegisterConfiguration { get; set; }
 
@@ -42,8 +42,23 @@ namespace Ars.Common.Core.Configs
         public IArsIdentityServerConfiguration? ArsIdentityServerConfiguration { get; set; }
 
         /// <summary>
-        /// add IdentityServer4 client
+        /// IdentityServer4 client config
         /// </summary>
         public IArsIdentityClientConfiguration? ArsIdentityClientConfiguration { get; set; }
+
+        /// <summary>
+        /// EfCore Dbcontext config
+        /// </summary>
+        public IArsDbContextConfiguration? ArsDbContextConfiguration { get; set; }
+
+        /// <summary>
+        /// Localization config
+        /// </summary>
+        public IArsLocalizationConfiguration? ArsLocalizationConfiguration { get; set; }
+
+        /// <summary>
+        /// Redis config
+        /// </summary>
+        public IArsRedisConfiguration? ArsRedisConfiguration { get; set; }
     }
 }

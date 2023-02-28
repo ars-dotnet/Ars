@@ -3,6 +3,7 @@ using Ars.Common.AutoFac.Dependency;
 using Ars.Common.AutoFac.IDependency;
 using Ars.Common.AutoFac.Options;
 using Ars.Common.AutoFac.RegisterProvider;
+using Ars.Common.Core;
 using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
@@ -16,13 +17,12 @@ namespace Ars.Common.AutoFac.Extension
 {
     public static class IServiceCollectionExtension
     {
-        public static IArsServiceBuilder AddArsAutofac(
+        public static IArsServiceBuilder AddAutofac(
             this IArsServiceBuilder arsServiceBuilder,
-            Action<PropertyAutowiredOption>? autowiredAction = null)
+            Action<PropertyAutowiredOption>? _autowiredAction) 
         {
             var services = arsServiceBuilder.Services.ServiceCollection;
-
-            services.AddPropertyAutowired(autowiredAction);
+            AddPropertyAutowired(services, _autowiredAction);
             services.TryAddEnumerable(new[]
             {
                 ServiceDescriptor.Singleton<IArsRegisterProvider,ArsInterfaceRegisterProvider>(),
@@ -32,14 +32,13 @@ namespace Ars.Common.AutoFac.Extension
             services.AddSingleton<IRegisterProviderFactory, RegisterProviderFactory>();
             var providerfactory = arsServiceBuilder.Services.Provider.GetRequiredService<IRegisterProviderFactory>();
             arsServiceBuilder.HostBuilder.UseServiceProviderFactory(new ArsServiceProviderFactory(providerfactory));
-            //services.AddSingleton<IServiceProviderFactory<ContainerBuilder>>(new ArsServiceProviderFactory(ContainerBuildOptions.None,services.BuildServiceProvider().GetService<IRegisterProviderFactory>(), containerAction));
 
             return arsServiceBuilder;
         }
 
-        private static IServiceCollection AddPropertyAutowired(this IServiceCollection services, Action<PropertyAutowiredOption>? action = null)
+        private static IServiceCollection AddPropertyAutowired(IServiceCollection services, Action<PropertyAutowiredOption>? _autowiredAction)
         {
-            if (null != action) services.Configure(action);
+            if (null != _autowiredAction) services.Configure(_autowiredAction);
             services.Replace(ServiceDescriptor.Transient<IControllerActivator, ServiceBasedControllerActivator>());
 
             return services;

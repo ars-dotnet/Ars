@@ -28,7 +28,7 @@ namespace Ars.Common.Core.AspNetCore.Extensions
                 throw new ArsException($"{nameof(actionDescriptor)} should be type of {typeof(ControllerActionDescriptor).AssemblyQualifiedName}");
             }
 
-            return actionDescriptor as ControllerActionDescriptor;
+            return (actionDescriptor as ControllerActionDescriptor)!;
         }
 
     }

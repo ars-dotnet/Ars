@@ -11,6 +11,7 @@ namespace MyApiWithIdentityServer4.Model
     public class Enrollment
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int EnrollmentID { get; set; }
 
         [ForeignKey(nameof(CourseID))]

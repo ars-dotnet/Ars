@@ -17,25 +17,17 @@ namespace Ars.Common.EFCore.Extension
     {
         public static IArsServiceBuilder AddArsDbContext<TDbContext>(
             this IArsServiceBuilder arsServiceBuilder,
-            Action<DbContextOption>? action = null, 
             Action<DbContextOptionsBuilder>? optAction = null)
             where TDbContext : ArsDbContext
         {
-            DbContextOption option = new();
-            action?.Invoke(option);
-
             var service = arsServiceBuilder.Services;
-            IConfiguration configuration = service.Provider.GetRequiredService<IConfiguration>();
-            if (string.IsNullOrEmpty(option.DefaultString))
-            {
-                option.DefaultString = configuration.GetSection("DefaultString").Get<string>();
-                if (string.IsNullOrEmpty(option.DefaultString))
-                    throw new ArgumentNullException(nameof(option.DefaultString));
-            }
+            var option = 
+                service.Provider.GetRequiredService<IConfiguration>()
+                .GetSection(nameof(ArsDbContextConfiguration))
+                .Get<ArsDbContextConfiguration>() ?? throw new Exception("appsetting => ArsDbContextConfiguration not be null!");
 
-            option.DbType = configuration.GetSection("DbType").Get<int>();
-            service.ServiceCollection
-                .AddSingleton<IOptions<DbContextOption>>(new OptionsWrapper<DbContextOption>(option));
+            service.ServiceCollection.AddSingleton<IArsDbContextConfiguration>(option);
+            service.Provider.GetRequiredService<IArsConfiguration>().ArsDbContextConfiguration ??= option;
 
             if (null == optAction)
             {
@@ -47,7 +39,7 @@ namespace Ars.Common.EFCore.Extension
                     case 2:
                         optAction = bulider => bulider.UseSqlServer(option.DefaultString);
                         break;
-                    default: throw new ArgumentException("Configuration => DbType is null");
+                    default: throw new ArgumentException("暂时只支持mysql和mssql数据库");
                 }
             }
             service.ServiceCollection.AddDbContextFactory<TDbContext>(optAction);

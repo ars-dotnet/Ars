@@ -12,7 +12,7 @@ namespace Ars.Common.Host
 {
     internal class ArsConfiguration : IArsConfiguration
     {
-        public IList<IArsOptExtension> ArsOptExtensions { get; }
+        public IList<IArsServiceExtension> ArsServiceExtensions { get; }
 
         public IList<IArsAppExtension> ArsAppExtensions { get; }
 
@@ -26,15 +26,24 @@ namespace Ars.Common.Host
 
         public IArsIdentityClientConfiguration? ArsIdentityClientConfiguration { get; set; } = default;
 
+        public IArsDbContextConfiguration? ArsDbContextConfiguration { get; set; } = default;
+        
+        public IArsLocalizationConfiguration? ArsLocalizationConfiguration { get; set; } = default;
+
+        /// <summary>
+        /// Redis config
+        /// </summary>
+        public IArsRedisConfiguration? ArsRedisConfiguration { get; set; } = default;
+
         public ArsConfiguration()
         {
-            ArsOptExtensions = new List<IArsOptExtension>(0);
+            ArsServiceExtensions = new List<IArsServiceExtension>(0);
             ArsAppExtensions = new List<IArsAppExtension>(0);
         }
 
-        public void AddArsOptExtension(IArsOptExtension optExtension)
+        public void AddArsServiceExtension(IArsServiceExtension optExtension)
         {
-            ArsOptExtensions.Add(optExtension);
+            ArsServiceExtensions.Add(optExtension);
         }
 
         public void AddArsAppExtension(IArsAppExtension appExtension)

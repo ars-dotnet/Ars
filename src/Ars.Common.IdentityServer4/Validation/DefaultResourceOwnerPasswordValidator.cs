@@ -1,6 +1,7 @@
 ﻿using Ars.Common.Core.AspNetCore;
 using IdentityModel;
 using IdentityServer4.Models;
+using IdentityServer4.Test;
 using IdentityServer4.Validation;
 using System;
 using System.Collections.Generic;
@@ -14,9 +15,15 @@ namespace Ars.Common.IdentityServer4.Validation
 {
     internal class DefaultResourceOwnerPasswordValidator : IResourceOwnerPasswordValidator
     {
+        private readonly TestUserStore _users;
+        public DefaultResourceOwnerPasswordValidator(TestUserStore users)
+        {
+            _users = users;
+        }
+
         public Task ValidateAsync(ResourceOwnerPasswordValidationContext context)
         {
-            bool flag = true;
+            bool flag = _users.ValidateCredentials(context.UserName, context.Password);
             if (flag)
             {
                 var identity = GetIdentityPrincipal("1","1", "admin", "Bearer", DateTime.Now, "ars");
@@ -24,7 +31,7 @@ namespace Ars.Common.IdentityServer4.Validation
             }
             else
             {
-                context.Result = new GrantValidationResult(TokenRequestErrors.InvalidClient, "error");
+                context.Result = new GrantValidationResult(TokenRequestErrors.InvalidClient, "用户名或密码错误，默认用户名密码为[MyArs:MyArs@1234]");
             }
 
             return Task.CompletedTask;

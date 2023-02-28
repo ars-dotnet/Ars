@@ -9,7 +9,6 @@ namespace Ars.Commom.Host.Extension
         public static IApplicationBuilder UseArsCore(this IApplicationBuilder applicationBuilder) 
         {
             var config = applicationBuilder.ApplicationServices.GetRequiredService<IArsConfiguration>();
-
             foreach (var appext in config.ArsAppExtensions)
             {
                 appext.UseApplication(applicationBuilder, config);
