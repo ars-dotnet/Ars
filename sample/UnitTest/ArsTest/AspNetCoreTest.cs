@@ -23,6 +23,8 @@ namespace ArsTest
         public string Name { get; set; }
 
         public int Age { get; set; }
+
+        public int Top { get; set; }
     }
 
     public class AspNetCoreBase
