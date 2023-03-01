@@ -15,7 +15,7 @@ namespace Ars.Common.Localization.options
 
         public bool IsAddDataAnnotationsLocalization { get; set; } = true;
 
-        public IEnumerable<string> Cultures { get; set; } = new[] { "en-US", "zh-Hans" };
+        public IEnumerable<string> Cultures { get; set; }
 
         public string DefaultRequestCulture { get; set; } = "en-US";
     }

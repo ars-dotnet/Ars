@@ -8,8 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services
-    .AddArserviceCore(builder.Host)
-    .AddArsIdentityServer();
+    .AddArserviceCore(builder.Host,config => config.AddArsIdentityServer());
 
 builder.Services.ConfigureNonBreakingSameSiteCookies();
 

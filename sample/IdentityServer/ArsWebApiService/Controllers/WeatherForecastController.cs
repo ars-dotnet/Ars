@@ -61,9 +61,10 @@ namespace MyApiWithIdentityServer4.Controllers
             .ToArray();
         }
 
-        [HttpPost(nameof(Action))]
+        #region DbContext Without Transaction
+        [HttpPost(nameof(ActionWithOutTransaction))]
         [Authorize]
-        public async Task Action()
+        public async Task ActionWithOutTransaction()
         {
             Guid id = Guid.NewGuid();
 
@@ -77,16 +78,16 @@ namespace MyApiWithIdentityServer4.Controllers
                 {
                     new Model.Enrollment
                     {
-                        EnrollmentID = 1,
-                        CourseID = 1,
+                        EnrollmentID = 3,
+                        CourseID = 3,
                         StudentID = id,
                         Grade = Model.Grade.A,
                         Course = new Model.Course
                         {
-                            CourseID = 1,
-                            Title = "哎呀",
+                            CourseID = 3,
+                            Title = "2023.03.01.001",
                             Credits = 100.11m,
-                            Name = "哎呀"
+                            Name = "2023.03.01.001"
                         }
                     }
                 }
@@ -112,22 +113,8 @@ namespace MyApiWithIdentityServer4.Controllers
         }
 
         [Authorize]
-        [HttpPost(nameof(Add))]
-        public async Task Add()
-        {
-            await MyDbContext.Students.AddAsync(new Model.Student
-            {
-                LastName = "bo",
-                FirstMidName = "Yang",
-                EnrollmentDate = DateTime.UtcNow,
-            });
-
-            await MyDbContext.SaveChangesAsync();
-        }
-
-        [Authorize]
-        [HttpPost(nameof(Modify))]
-        public async Task Modify()
+        [HttpPost(nameof(ModifyWithOutTransaction))]
+        public async Task ModifyWithOutTransaction()
         {
             var info = await MyDbContext.Students.FirstOrDefaultAsync();
             info.LastName = "boo";
@@ -136,59 +123,116 @@ namespace MyApiWithIdentityServer4.Controllers
         }
 
         [Authorize]
-        [HttpPost(nameof(Delete))]
-        public async Task Delete()
+        [HttpPost(nameof(DeleteWithOutTransaction))]
+        public async Task DeleteWithOutTransaction()
         {
             var info = await MyDbContext.Students.FirstOrDefaultAsync();
             MyDbContext.Students.Remove(info);
 
             await MyDbContext.SaveChangesAsync();
         }
+        #endregion
 
-        
+        #region DbContext with Transaction
 
-        [HttpPost(nameof(TestJObject))]
-        public async Task TestJObject() 
+        [HttpPost(nameof(TestUowDefault))]
+        public async Task TestUowDefault()
         {
-            using var httpclient = _httpClientFactory.CreateClient("http");
-            Dictionary<string, string> data = new Dictionary<string, string>
+            MyDbContext _dbContext = await UnitOfWorkManager.Current.GetDbContextAsync<MyDbContext>();
+            await _dbContext.Students.AddAsync(new Model.Student
             {
-                { "name","bill"}
-            };
-            StringContent stringContent = new StringContent(JsonConvert.SerializeObject(data),Encoding.UTF8,"application/json");
-            var res = await httpclient.PostAsync("http://localhost:5196/api/WeatherForecast/TestJObject1", stringContent);
-            res.EnsureSuccessStatusCode();
-            var result = await res.Content.ReadAsStringAsync();
+                LastName = "TestUowDefault",
+                FirstMidName = "TestUowDefault",
+                EnrollmentDate = DateTime.UtcNow,
+            });
         }
 
-        [HttpPost(nameof(TestUow))]
-        public async Task TestUow() 
+        [HttpPost(nameof(TestUowRequired))]
+        public async Task TestUowRequired() 
         {
-            using var scope = UnitOfWorkManager.Begin(TransactionScopeOption.Suppress);
             using var scope1 = UnitOfWorkManager.Begin(TransactionScopeOption.Required);
             MyDbContext _dbContext = await UnitOfWorkManager.Current.GetDbContextAsync<MyDbContext>();
             await _dbContext.Students.AddAsync(new Model.Student
             {
-                LastName = "test1",
-                FirstMidName = "test1",
+                LastName = "TestUowRequired",
+                FirstMidName = "TestUowRequired",
                 EnrollmentDate = DateTime.UtcNow,
             });
             await scope1.CompleteAsync();
-            await scope.CompleteAsync();
+        }
+
+        [HttpPost(nameof(TestUowRequiredNew))]
+        public async Task TestUowRequiredNew()
+        {
+            using var scope1 = UnitOfWorkManager.Begin(TransactionScopeOption.RequiresNew);
+            MyDbContext _dbContext = await UnitOfWorkManager.Current.GetDbContextAsync<MyDbContext>();
+            await _dbContext.Students.AddAsync(new Model.Student
+            {
+                LastName = "TestUowNewRequired",
+                FirstMidName = "TestUowNewRequired",
+                EnrollmentDate = DateTime.UtcNow,
+            });
+            await scope1.CompleteAsync();
+        }
+
+        [HttpPost(nameof(TestSuppress))]
+        public async Task TestSuppress()
+        {
+            using (var scope = UnitOfWorkManager.Begin(TransactionScopeOption.Suppress)) 
+            {
+                MyDbContext _dbContext = await UnitOfWorkManager.Current.GetDbContextAsync<MyDbContext>();
+                await _dbContext.Students.AddAsync(new Model.Student
+                {
+                    LastName = "Suppress",
+                    FirstMidName = "Suppress",
+                    EnrollmentDate = DateTime.UtcNow,
+                });
+                await scope.CompleteAsync();
+            }
+        }
+
+        [HttpPost(nameof(TestSuppressInnerRequired))]
+        public async Task TestSuppressInnerRequired()
+        {
+            using (var scope = UnitOfWorkManager.Begin(TransactionScopeOption.Suppress))
+            {
+                MyDbContext _dbContext = await UnitOfWorkManager.Current.GetDbContextAsync<MyDbContext>();
+                await _dbContext.Students.AddAsync(new Model.Student
+                {
+                    LastName = "SuppressOut",
+                    FirstMidName = "SuppressOut",
+                    EnrollmentDate = DateTime.UtcNow,
+                });
+
+                using var scope1 = UnitOfWorkManager.Begin(TransactionScopeOption.Required);
+                MyDbContext dbContext1 = await UnitOfWorkManager.Current.GetDbContextAsync<MyDbContext>();
+                await dbContext1.Students.AddAsync(new Model.Student
+                {
+                    LastName = "SuppressInner",
+                    FirstMidName = "SuppressInner",
+                    EnrollmentDate = DateTime.UtcNow,
+                });
+                await scope1.CompleteAsync(); //不提交事务
+                await scope.CompleteAsync();//提交事务
+            }
         }
 
         [UnitOfWork(IsDisabled = true)]
         [HttpPost(nameof(TestUowWithDispose))]
         public async Task TestUowWithDispose()
         {
+            using var scope = UnitOfWorkManager.Begin(TransactionScopeOption.Required);
             MyDbContext _dbContext = await UnitOfWorkManager.Current.GetDbContextAsync<MyDbContext>();
             await _dbContext.Students.AddAsync(new Model.Student
             {
-                LastName = "test1",
-                FirstMidName = "test1",
+                LastName = "TestUowWithDispose",
+                FirstMidName = "TestUowWithDispose",
                 EnrollmentDate = DateTime.UtcNow,
             });
             await _dbContext.SaveChangesAsync();
+            await scope.CompleteAsync();
         }
+
+        #endregion
     }
 }

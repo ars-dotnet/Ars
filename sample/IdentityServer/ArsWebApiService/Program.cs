@@ -17,10 +17,12 @@ using Ars.Common.Tool.Extension;
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
-var arsbuilder = 
+var arsbuilder =
     builder.Services
-    .AddArserviceCore(builder.Host)
-    .AddArsIdentityClient()
+    .AddArserviceCore(builder.Host, config =>
+    {
+        config.AddArsIdentityClient();
+    })
     .AddArsDbContext<MyDbContext>();
 builder.Services.AddArsHttpClient();
 
@@ -35,7 +37,7 @@ builder.Services.AddCors(cors =>
     });
 });
 
-var idscfg = builder.Services.BuildServiceProvider().GetRequiredService<IArsIdentityClientConfiguration>();
+var idscfg = builder.Services.BuildServiceProvider().CreateScope().ServiceProvider.GetRequiredService<IArsIdentityClientConfiguration>();
 
 builder.Services.AddSwaggerGen(c =>
 {

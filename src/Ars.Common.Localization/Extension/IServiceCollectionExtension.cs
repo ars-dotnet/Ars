@@ -24,7 +24,7 @@ namespace Ars.Common.Localization.IServiceCollectionExtension
            var arsLocalizationOption = arsServiceProvider.Services.Provider.GetRequiredService<IConfiguration>()
                 .GetSection(nameof(ArsLocalizationConfiguration))
                 .Get<ArsLocalizationConfiguration>() 
-                ?? new ArsLocalizationConfiguration();
+                ?? new ArsLocalizationConfiguration() { Cultures = new[] { "en-US", "zh-Hans" } };
             var arsconfig = arsServiceProvider.Services.Provider.GetRequiredService<IArsConfiguration>();
             arsconfig.ArsLocalizationConfiguration ??= arsLocalizationOption;
             arsServiceProvider.Services.ServiceCollection.AddSingleton<IArsLocalizationConfiguration>(arsLocalizationOption);
@@ -60,9 +60,6 @@ namespace Ars.Common.Localization.IServiceCollectionExtension
             });
 
             services.AddSingleton<IArstringLocalizer, ArstringLocalizer>();
-
-
-
             return arsServiceProvider;
         }
 

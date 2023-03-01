@@ -23,7 +23,7 @@ namespace Ars.Common.Core.Uow.Impl
             _unitOfWork = unitOfWork;
         }
 
-        public IActiveUnitOfWork Current => _unitOfWorkProvider.Current;
+        public IActiveUnitOfWork Current => _unitOfWorkProvider.Current!;
 
         public IUnitOfWorkCompleteHandler Begin()
         {

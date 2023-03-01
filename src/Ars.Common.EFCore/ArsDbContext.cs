@@ -287,7 +287,7 @@ namespace Ars.Common.EFCore
 
             entityEntry.Reload();
             entityEntry.State = EntityState.Modified;
-            entityEntry.Entity.As<ISoftDelete>().IsDeleted = true;
+            entityEntry.Entity.As<ISoftDelete>()!.IsDeleted = true;
 
             var entity = entityEntry.Entity.As<IDeleteEntity>();
             if (null != entity)
