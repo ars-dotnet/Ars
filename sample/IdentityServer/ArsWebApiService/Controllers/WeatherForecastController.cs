@@ -1,7 +1,10 @@
 using Ars.Common.Core.AspNetCore.OutputDtos;
 using Ars.Common.Core.Configs;
+using Ars.Common.Core.IDependency;
 using Ars.Common.Core.Uow.Attributes;
 using Ars.Common.EFCore.Extension;
+using Ars.Common.EFCore.Repository;
+using ArsWebApiService.Model;
 using IdentityModel.Client;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
@@ -9,8 +12,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Primitives;
 using MyApiWithIdentityServer4.Dtos;
+using MyApiWithIdentityServer4.Model;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using NUnit.Framework;
 using System.Text;
 using System.Transactions;
 
@@ -41,6 +46,15 @@ namespace MyApiWithIdentityServer4.Controllers
             //_testScopeService = testScopeService;
             _clientConfiguration = arsIdentityClientConfiguration;
         }
+
+        [Autowired]
+        public IRepository<Student, Guid> _repo { get; set; }
+
+        [Autowired]
+        public IRepository<ClassRoom> _classRepo { get; set; }
+
+        [Autowired]
+        public IRepository<ClassRoom, int> _classRepo1 { get; set; }
 
         private static readonly string[] Summaries = new[]
         {
@@ -148,7 +162,7 @@ namespace MyApiWithIdentityServer4.Controllers
         }
 
         [HttpPost(nameof(TestUowRequired))]
-        public async Task TestUowRequired() 
+        public async Task TestUowRequired()
         {
             using var scope1 = UnitOfWorkManager.Begin(TransactionScopeOption.Required);
             MyDbContext _dbContext = await UnitOfWorkManager.Current.GetDbContextAsync<MyDbContext>();
@@ -178,7 +192,7 @@ namespace MyApiWithIdentityServer4.Controllers
         [HttpPost(nameof(TestSuppress))]
         public async Task TestSuppress()
         {
-            using (var scope = UnitOfWorkManager.Begin(TransactionScopeOption.Suppress)) 
+            using (var scope = UnitOfWorkManager.Begin(TransactionScopeOption.Suppress))
             {
                 MyDbContext _dbContext = await UnitOfWorkManager.Current.GetDbContextAsync<MyDbContext>();
                 await _dbContext.Students.AddAsync(new Model.Student
@@ -231,6 +245,115 @@ namespace MyApiWithIdentityServer4.Controllers
             });
             await _dbContext.SaveChangesAsync();
             await scope.CompleteAsync();
+        }
+
+        #endregion
+
+        #region IRepository
+
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
+        {
+            var a = await _repo.GetAll().ToListAsync();
+            var b = await _repo.GetAllIncluding(r => r.Enrollments).ToListAsync();
+            var c = _repo.GetAllList();
+            var d = _repo.GetAllList(r => r.Enrollments.Any(t => t.EnrollmentID == 1));
+            var e = _repo.FirstOrDefault(r => r.Id == new Guid("8FB45ADF-3F80-45ED-93CB-10A61CE644E9"));
+
+            return Ok();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> InsertWithIdAsync()
+        {
+            Guid id = Guid.NewGuid();
+            var f = await _repo.InsertAsync(new Student
+            {
+                Id = id,
+                EnrollmentDate = DateTime.Now,
+                FirstMidName = "7777",
+                LastName = "77778",
+                Enrollments = new[]
+                {
+                    new Model.Enrollment
+                    {
+                        EnrollmentID = 6,
+                        CourseID = 6,
+                        StudentID = id,
+                        Grade = Model.Grade.A,
+                        Course = new Model.Course
+                        {
+                            CourseID = 6,
+                            Title = "2023.03.06.002",
+                            Credits = 100.11m,
+                            Name = "2023.03.06.002"
+                        }
+                    }
+                }
+            });
+
+            return Ok();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> InsertWithOutIdAsync()
+        {
+            var f = await _repo.InsertAsync(new Student
+            {
+                Id = Guid.NewGuid(),
+                EnrollmentDate = DateTime.Now,
+                FirstMidName = "6666",
+                LastName = "6666",
+            });
+
+            return Ok();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateAsync()
+        {
+            var e = await _repo.FirstOrDefaultAsync(r => r.Id == new Guid("8FB45ADF-3F80-45ED-93CB-10A61CE644E9"));
+            e.LastName = "8888";
+
+            foreach (var en in e.Enrollments)
+            {
+                en.Grade = Grade.C;
+                en.Course.Name = "8888";
+            }
+
+            await _repo.UpdateAsync(e);
+
+            return Ok();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteAsync()
+        {
+            var h = await _repo.FirstOrDefaultAsync(r => r.Id == new Guid("CAEF9CEF-EBA3-47DA-AAF9-CF2802413F97"));
+            await _repo.DeleteAsync(h);
+
+            return Ok();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllAsyncTest()
+        {
+            var a = await (await _repo.GetAllAsync()).ToListAsync();
+            var b = await (await _repo.GetAllIncludingAsync(r => r.Enrollments)).ToListAsync();
+            var c = await _repo.GetAllListAsync();
+            var d = await _repo.GetAllListAsync(r => r.Enrollments.Any(t => t.EnrollmentID == 1));
+            var e = await _repo.FirstOrDefaultAsync(r => r.Id == new Guid("8FB45ADF-3F80-45ED-93CB-10A61CE644E9"));
+
+            return Ok(a);
+        }
+
+        [HttpGet]
+        [UnitOfWork(IsDisabled=true)]
+        public async Task<IActionResult> GetWithOutTransaction()
+        {
+            Assert.ThrowsAsync<Exception>(() => _repo.GetAll().ToListAsync());
+
+            return Ok();
         }
 
         #endregion

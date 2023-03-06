@@ -2,6 +2,7 @@
 using Ars.Common.Core.Configs;
 using Ars.Common.Core.Uow.Options;
 using Ars.Common.EFCore;
+using ArsWebApiService.Model;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using MyApiWithIdentityServer4.Model;
@@ -28,7 +29,11 @@ namespace MyApiWithIdentityServer4
         }
 
         public DbSet<Student> Students { get; set; }
+
         public DbSet<Enrollment> Enrollments { get; set; }
+
         public DbSet<Course> Courses { get; set; }
+
+        public DbSet<ClassRoom> ClassRoom { get; set; }
     }
 }

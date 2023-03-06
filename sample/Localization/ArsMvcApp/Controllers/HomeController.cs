@@ -41,7 +41,7 @@ namespace ArsMvcApp.Controllers
             IArsHCacheProvider arsHCacheProvider)
         {
             var assemblyName = new AssemblyName(GetType().Assembly.FullName!);
-            _localizer1 = factory.Create("SharedResource", assemblyName.Name!);
+            _localizer1 = factory.Create("ArshareResource", assemblyName.Name!);
 
             this.userAppService = userAppService;
             this.userBase = userBase;
@@ -76,7 +76,7 @@ namespace ArsMvcApp.Controllers
         }
 
         [HttpPost]
-        public IActionResult Index([FromForm]HomeViewModel model)
+        public IActionResult Index([FromForm] HomeViewModel model)
         {
             var m = userAppService.GetList().ToList();
             var n = userBase.GetList().ToList();
@@ -89,7 +89,7 @@ namespace ArsMvcApp.Controllers
         }
 
         [HttpPost]
-        public IActionResult SetLanguage([FromForm]string culture, [FromQuery]string returnUrl)
+        public IActionResult SetLanguage([FromForm] string culture, [FromQuery] string returnUrl)
         {
             Response.Cookies.Append(
                 CookieRequestCultureProvider.DefaultCookieName,
@@ -115,7 +115,7 @@ namespace ArsMvcApp.Controllers
         [HttpGet]
         public async Task<IActionResult> GetCacheAsType()
         {
-            var data = await _arsCacheProvider.AsType<string,People>("GetCacheAsType").GetAsync("People", async (k) =>
+            var data = await _arsCacheProvider.AsType<string, People>("GetCacheAsType").GetAsync("People", async (k) =>
             {
                 return new People("白居易", 168);
             });
@@ -133,17 +133,14 @@ namespace ArsMvcApp.Controllers
             string a = string.Empty;
             string b = string.Empty;
             string c = string.Empty;
-            if (data.GetType() == typeof(People))
-            {
-                a = _arsSerializer.SerializeToJson(data);
-                b = _arsSerializer.SerializeToJson(data1);
-                c = _arsSerializer.SerializeToJson(data3);
-            }
+            a = _arsSerializer.SerializeToJson(data);
+            b = _arsSerializer.SerializeToJson(data1);
+            c = _arsSerializer.SerializeToJson(data3);
 
-            return Ok(string.Concat(a, "||", b,"||", c));
+            return Ok(string.Concat(a, "||", b, "||", c));
         }
 
-        [HttpPost]
+        [HttpGet]
         public async Task<IActionResult> RemoveCacheAsType()
         {
             var id = await _arsCacheProvider.AsType<string, People>("GetCacheAsType").RemoveAsync("People");
@@ -151,7 +148,7 @@ namespace ArsMvcApp.Controllers
             return Ok(id);
         }
 
-        [HttpPost]
+        [HttpGet]
         public async Task<IActionResult> ClearCacheAsType()
         {
             await _arsCacheProvider.AsType<string, People>("GetCacheAsType").ClearAsync();
@@ -164,11 +161,11 @@ namespace ArsMvcApp.Controllers
         #region test ICache
 
         [HttpGet]
-        public async Task<IActionResult> GetWithCache() 
+        public async Task<IActionResult> GetWithCache()
         {
-            var data = await _arsCacheProvider.GetArsCache("GetWithCache").GetAsync("People" ,async (k) => 
+            var data = await _arsCacheProvider.GetArsCache("GetWithCache").GetAsync("People", async (k) =>
             {
-                return new People("Bill",168);
+                return new People("Bill", 168);
             });
 
             var data1 = await _arsCacheProvider.GetArsCache("GetWithCache").GetAsync("People1", async (k) =>
@@ -184,7 +181,7 @@ namespace ArsMvcApp.Controllers
             string a = string.Empty;
             string b = string.Empty;
             string c = string.Empty;
-            if (data.GetType() == typeof(JObject)) 
+            if (data.GetType() == typeof(JObject))
             {
                 a = _arsSerializer.SerializeToJson(((JObject)data).ToObject<People>());
                 b = _arsSerializer.SerializeToJson(((JObject)data1).ToObject<People>());
@@ -199,11 +196,11 @@ namespace ArsMvcApp.Controllers
                         break;
                 }
             }
-            else if (data.GetType() == typeof(People)) 
+            else if (data.GetType() == typeof(People))
             {
                 a = _arsSerializer.SerializeToJson((People)data);
                 b = _arsSerializer.SerializeToJson((People)data1);
-                switch (data3.GetType().Name) 
+                switch (data3.GetType().Name)
                 {
                     case nameof(People):
                         c = _arsSerializer.SerializeToJson((People)data3);
@@ -212,14 +209,14 @@ namespace ArsMvcApp.Controllers
                         c = data3?.ToString();
                         break;
                 }
-                
+
             }
 
-            return Ok(string.Concat(a,"||",b, "||" ,c));
+            return Ok(string.Concat(a, "||", b, "||", c));
         }
 
         [HttpPost]
-        public async Task<IActionResult> RemoveCache() 
+        public async Task<IActionResult> RemoveCache()
         {
             var id = await _arsCacheProvider.GetArsCache("GetWithCache").RemoveAsync("People");
 
@@ -237,39 +234,40 @@ namespace ArsMvcApp.Controllers
         #endregion
 
         #region test hashcache
-        
-        [HttpPost]
-        public async Task HSet() 
+
+
+        [HttpGet]
+        public async Task HSet()
         {
-            await _arsHCacheProvider.GetArsCache("HCache").HSetAsync("peopel","name","白居易");
+            await _arsHCacheProvider.GetArsCache("HCache").HSetAsync("peopel", "name", "白居易");
             await _arsHCacheProvider.GetArsCache("HCache").HSetAsync("peopel", "top", 180);
 
-            await _arsHCacheProvider.GetArsCache("HCache").HMSetAsync("peopel1", new Dictionary<string, object> { {"name","李白" },{ "top",181 } });
+            await _arsHCacheProvider.GetArsCache("HCache").HMSetAsync("peopel1", new Dictionary<string, object> { { "name", "李白" }, { "top", 181 } });
 
-            await _arsHCacheProvider.GetArsCache("HCache").HSetAsync("peopel2","p1", new People("杜甫",182));
+            await _arsHCacheProvider.GetArsCache("HCache").HSetAsync("peopel2", "p1", new People("杜甫", 182));
         }
 
         [HttpGet]
-        public async Task<IActionResult> HGet() 
+        public async Task<IActionResult> HGet()
         {
-            var a = await _arsHCacheProvider.GetArsCache("HCache").HGetAsync<string>("peopel","name");
+            var a = await _arsHCacheProvider.GetArsCache("HCache").HGetAsync<string>("peopel", "name");
             var b = await _arsHCacheProvider.GetArsCache("HCache").HGetAllAsync<string>("peopel");
-            var c = await _arsHCacheProvider.GetArsCache("HCache").HMGetAsync<string>("peopel1","name","top");
+            var c = await _arsHCacheProvider.GetArsCache("HCache").HMGetAsync<string>("peopel1", "name", "top");
 
             var d = await _arsHCacheProvider.GetArsCache("HCache").HGetAsync<People>("peopel2", "p1");
 
             return Ok();
         }
 
-        [HttpPost]
-        public async Task HDel() 
+        [HttpGet]
+        public async Task HDel()
         {
             var a = await _arsHCacheProvider.GetArsCache("HCache").HDelAsync("peopel", "name");
-            var b = await _arsHCacheProvider.GetArsCache("HCache").HDelAsync("peopel1","top");
+            var b = await _arsHCacheProvider.GetArsCache("HCache").HDelAsync("peopel1", "top");
         }
 
-        [HttpPost]
-        public async Task HClear() 
+        [HttpGet]
+        public async Task HClear()
         {
             await _arsHCacheProvider.GetArsCache("HCache").ClearAsync();
         }
@@ -277,9 +275,9 @@ namespace ArsMvcApp.Controllers
         #endregion
 
         [MessagePackObject]
-        public class People 
+        public class People
         {
-            public People(string name,double top)
+            public People(string name, double top)
             {
                 Name = name;
                 Top = top;

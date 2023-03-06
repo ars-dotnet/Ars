@@ -39,12 +39,16 @@ namespace Ars.Common.Redis.Caching
             DefaultSlidingExpireTime = TimeSpan.FromHours(1).Add(TimeSpan.FromMinutes(new Random().Next(5)));
         }
 
+        /// <summary>
+        /// 锁同一个ArsCacheBase的子类实例
+        /// </summary>
         protected readonly SemaphoreSlim SemaphoreSlim = new SemaphoreSlim(1, 1);
 
         public TimeSpan DefaultSlidingExpireTime { get; set; }
+
         public DateTimeOffset? DefaultAbsoluteExpireTime { get; set; }
 
-        public virtual async Task<TValue> GetAsync(TKey key, Func<TKey, Task<TValue>> factory)
+        public virtual async Task<TValue?> GetAsync(TKey key, Func<TKey, Task<TValue>>? factory = null)
         {
             ConditionalValue<TValue> result = default;
             try
@@ -73,6 +77,8 @@ namespace Ars.Common.Redis.Caching
                 if (result.HasValue)
                     return result.Value;
 
+                if (null == factory)
+                    return default;
                 var value = await factory(key);
                 if (IsDefaultValue(value))
                     return value;
@@ -96,7 +102,7 @@ namespace Ars.Common.Redis.Caching
             return EqualityComparer<TValue>.Default.Equals(value, default);
         }
 
-        public virtual async IAsyncEnumerable<TValue> GetAsync([NotNull]TKey[] keys, Func<TKey, Task<TValue>> factory)
+        public virtual async IAsyncEnumerable<TValue?> GetAsync([NotNull]TKey[] keys, Func<TKey, Task<TValue>>? factory = null)
         {
             foreach (var k in keys) 
             {

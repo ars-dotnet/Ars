@@ -31,8 +31,8 @@ namespace Ars.Common.EFCore
         private static MethodInfo ConfigureGlobalFiltersMethodInfo = typeof(ArsDbContext).GetMethod(nameof(ConfigureGlobalFilters), BindingFlags.Instance | BindingFlags.NonPublic)!;
 
         protected ArsDbContext(
-            DbContextOptions dbContextOptions, 
-            IArsSession? arsSession, 
+            DbContextOptions dbContextOptions,
+            IArsSession? arsSession,
             IArsDbContextConfiguration? options) : base(dbContextOptions)
         {
             _arsSession = arsSession;
@@ -43,7 +43,7 @@ namespace Ars.Common.EFCore
         {
             base.OnConfiguring(optionsBuilder);
 
-            if (_options?.UseLazyLoadingProxies ?? true)
+            if (_options?.UseLazyLoadingProxies ?? false)
                 optionsBuilder.UseLazyLoadingProxies();
         }
 
@@ -62,17 +62,17 @@ namespace Ars.Common.EFCore
         protected void ConfigureGlobalFilters<TEntity>(ModelBuilder modelBuilder, IMutableEntityType mutableEntityType)
             where TEntity : class
         {
-            if (null == mutableEntityType.BaseType && ShouldFilterEntity<TEntity>()) 
+            if (null == mutableEntityType.BaseType && ShouldFilterEntity<TEntity>())
             {
                 var filter = CreateQueryFilterExpression<TEntity>();
-                if (null != filter) 
+                if (null != filter)
                 {
                     modelBuilder.Entity<TEntity>().HasQueryFilter(filter);
                 }
             }
         }
 
-        protected virtual bool ShouldFilterEntity<TEntity>() 
+        protected virtual bool ShouldFilterEntity<TEntity>()
         {
             if (typeof(ISoftDelete).IsAssignableFrom(typeof(TEntity)))
                 return true;
@@ -122,15 +122,15 @@ namespace Ars.Common.EFCore
                 queryFilter = softfilter;
             }
 
-            if (typeof(IMayHaveTenant).IsAssignableFrom(typeof(TEntity))) 
+            if (typeof(IMayHaveTenant).IsAssignableFrom(typeof(TEntity)))
             {
                 Expression<Func<TEntity, bool>>? mayhavetenantFilter = null;
                 if (null == _arsSession)
                     mayhavetenantFilter = e => true;
-                else 
+                else
                 {
                     int? sessionid = _arsSession.TenantId;
-                    mayhavetenantFilter = e => ((IMayHaveTenant)e).TenantId == sessionid;
+                    mayhavetenantFilter = e => sessionid.HasValue ? ((IMayHaveTenant)e).TenantId == sessionid : true;
                 }
 
                 queryFilter = null == queryFilter ? mayhavetenantFilter : queryFilter.CombinExpression(mayhavetenantFilter);
@@ -168,7 +168,7 @@ namespace Ars.Common.EFCore
                 foreach (var entry in ChangeTracker.Entries())
                 {
                     if (entry.State != EntityState.Modified && CheckOwnedEntityChange(entry))
-                    { 
+                    {
                         entry.State = EntityState.Modified;
                     }
 
@@ -177,24 +177,24 @@ namespace Ars.Common.EFCore
 
                 return base.SaveChangesAsync(cancellationToken);
             }
-            catch (DbUpdateConcurrencyException) 
+            catch (DbUpdateConcurrencyException)
             {
                 throw;
             }
         }
 
-        protected virtual bool CheckOwnedEntityChange(EntityEntry entry) 
+        protected virtual bool CheckOwnedEntityChange(EntityEntry entry)
         {
             return entry.State == EntityState.Modified ||
                    entry.References.Any(r =>
                        r.TargetEntry != null &&
-                       r.TargetEntry.Metadata.IsOwned() && 
+                       r.TargetEntry.Metadata.IsOwned() &&
                        CheckOwnedEntityChange(r.TargetEntry));
         }
 
-        protected virtual void ConceptEntry(EntityEntry entityEntry) 
+        protected virtual void ConceptEntry(EntityEntry entityEntry)
         {
-            switch (entityEntry.State) 
+            switch (entityEntry.State)
             {
                 case EntityState.Added:
                     ConceptsForAddEntity(entityEntry);
@@ -209,7 +209,7 @@ namespace Ars.Common.EFCore
         }
 
         #region add-set
-        protected virtual void ConceptsForAddEntity(EntityEntry entityEntry) 
+        protected virtual void ConceptsForAddEntity(EntityEntry entityEntry)
         {
             if (ShouldSetValueFilterEntity(entityEntry.Entity.GetType()))
             {
@@ -219,10 +219,10 @@ namespace Ars.Common.EFCore
             }
         }
 
-        protected virtual void CheckAndSetId(EntityEntry entry) 
+        protected virtual void CheckAndSetId(EntityEntry entry)
         {
             var entity = entry.Entity.As<IEntity<Guid>>();
-            if (null != entity && entity.Id == Guid.Empty) 
+            if (null != entity && entity.Id == Guid.Empty)
             {
                 var idPropertyEntry = entry.Property("Id");
 
@@ -233,19 +233,19 @@ namespace Ars.Common.EFCore
             }
         }
 
-        protected virtual void CheckAndSetMayHaveTenantIdProperty(EntityEntry entry) 
+        protected virtual void CheckAndSetMayHaveTenantIdProperty(EntityEntry entry)
         {
             var entity = entry.Entity.As<IMayHaveTenant>();
-            if(null != entity && !entity.TenantId.HasValue)
+            if (null != entity && !entity.TenantId.HasValue)
             {
                 entity.TenantId = _arsSession?.TenantId;
             }
         }
 
-        protected virtual void CheckAndSetCreationProperty(EntityEntry entry) 
+        protected virtual void CheckAndSetCreationProperty(EntityEntry entry)
         {
             var entity = entry.Entity.As<ICreateEntity>();
-            if (null != entity) 
+            if (null != entity)
             {
                 if (!entity.CreationUserId.HasValue)
                     entity.CreationUserId = _arsSession?.UserId;
@@ -261,14 +261,17 @@ namespace Ars.Common.EFCore
             SetModificationAuditProperties(entityEntry);
         }
 
-        protected virtual void SetModificationAuditProperties(EntityEntry entityEntry) 
+        protected virtual void SetModificationAuditProperties(EntityEntry entityEntry)
         {
+            if (!entityEntry.Entity.Is<IModifyEntity>())
+                return;
+
             var entity = entityEntry.Entity.As<IModifyEntity>();
-            if(null != entity)
+            if (null != entity)
             {
-                if(!entity.UpdateUserId.HasValue)
+                if (!entity.UpdateUserId.HasValue)
                     entity.UpdateUserId = _arsSession?.UserId;
-                if(!entity.UpdateTime.HasValue)
+                if (!entity.UpdateTime.HasValue)
                     entity.UpdateTime = DateTime.UtcNow;
             }
         }
@@ -278,20 +281,18 @@ namespace Ars.Common.EFCore
             CancelDeletionForSoftDelete(entityEntry);
         }
 
-        protected virtual void CancelDeletionForSoftDelete(EntityEntry entityEntry) 
+        protected virtual void CancelDeletionForSoftDelete(EntityEntry entityEntry)
         {
-            if (!(entityEntry.Entity is ISoftDelete))
+            if (entityEntry.Entity.Is<ISoftDelete>())
             {
-                return;
+                entityEntry.Reload();
+                entityEntry.State = EntityState.Modified;
+                entityEntry.Entity.As<ISoftDelete>()!.IsDeleted = true;
             }
 
-            entityEntry.Reload();
-            entityEntry.State = EntityState.Modified;
-            entityEntry.Entity.As<ISoftDelete>()!.IsDeleted = true;
-
-            var entity = entityEntry.Entity.As<IDeleteEntity>();
-            if (null != entity)
+            if (entityEntry.Entity.Is<IDeleteEntity>())
             {
+                var entity = entityEntry.Entity.As<IDeleteEntity>()!;
                 if (!entity.DeleteUserId.HasValue)
                     entity.DeleteUserId = _arsSession?.UserId;
                 if (!entity.DeleteTime.HasValue)

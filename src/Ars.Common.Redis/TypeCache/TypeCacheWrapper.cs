@@ -43,25 +43,28 @@ namespace Ars.Common.Redis.TypeCache
             _cache.Dispose();
         }
 
-        private TValue CastOrDefault(object obj) 
+        private TValue? CastOrDefault(object? obj) 
         {
             if (null == obj)
                 return default;
 
-            if (obj.GetType() == typeof(JObject)) 
+            if(obj is TValue)
+                return (TValue)obj;
+
+            if (obj.GetType() == typeof(JObject))
             {
                 return ((JObject)obj).ToObject<TValue>();
             }
 
-            return (TValue)obj;
+            return (TValue)Convert.ChangeType(obj,obj.GetType());
         }
 
-        public async Task<TValue> GetAsync(TKey key, Func<TKey, Task<TValue>> factory)
+        public async Task<TValue?> GetAsync(TKey key, Func<TKey, Task<TValue>>? factory = null)
         {
-            return CastOrDefault(await _cache.GetAsync(key.ToString(),async k => await factory?.Invoke(key)));
+            return CastOrDefault(await _cache.GetAsync(key!.ToString()!,null == factory ? null : async k => (await factory(key))!));
         }
 
-        public async IAsyncEnumerable<TValue> GetAsync(TKey[] keys, Func<TKey, Task<TValue>> factory)
+        public async IAsyncEnumerable<TValue?> GetAsync(TKey[] keys, Func<TKey, Task<TValue>>? factory = null)
         {
             foreach (var k in keys) 
             {
@@ -71,8 +74,8 @@ namespace Ars.Common.Redis.TypeCache
 
         public async Task<ConditionalValue<TValue>> GetValueOrDefaultAsync(TKey key)
         {
-            var value = await _cache.GetValueOrDefaultAsync(key.ToString());
-            return new ConditionalValue<TValue>(value.HasValue, CastOrDefault(value.Value));
+            var value = await _cache.GetValueOrDefaultAsync(key!.ToString()!);
+            return new ConditionalValue<TValue>(value.HasValue, CastOrDefault(value.Value!));
         }
 
         public async IAsyncEnumerable<ConditionalValue<TValue>> GetValueOrDefaultAsync(TKey[] keys)
@@ -85,17 +88,17 @@ namespace Ars.Common.Redis.TypeCache
 
         public Task<long> RemoveAsync(TKey key)
         {
-            return _cache.RemoveAsync(key.ToString());
+            return _cache.RemoveAsync(key!.ToString()!);
         }
 
         public IAsyncEnumerable<long> RemoveAsync(TKey[] keys)
         {
-            return _cache.RemoveAsync(keys.Select(r => r.ToString()).ToArray());
+            return _cache.RemoveAsync(keys.Select(r => r.ToString()).ToArray()!);
         }
 
         public Task SetAsync(TKey key, TValue value, TimeSpan? slidingExpireTime = null, DateTimeOffset? absoluteExpireTime = null)
         {
-            return _cache.SetAsync(key.ToString(), value, slidingExpireTime, absoluteExpireTime);
+            return _cache.SetAsync(key!.ToString()!, value, slidingExpireTime, absoluteExpireTime);
         }
 
         public async Task SetAsync(KeyValuePair<TKey, TValue>[] pairs, TimeSpan? slidingExpireTime = null, DateTimeOffset? absoluteExpireTime = null)

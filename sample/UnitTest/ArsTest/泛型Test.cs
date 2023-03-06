@@ -47,4 +47,9 @@ namespace ArsTest
     {
         public T Name { get; set; }
     }
+
+    public class Animal<T> : IAnimal<T>
+    {
+        public T Type { get; set; }
+    }
 }

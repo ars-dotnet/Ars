@@ -20,4 +20,11 @@
             yield return "bb";
         }
     }
+
+    public class Configs 
+    {
+        public string Name { get; set; }
+
+        public int Age { get; set; }
+    }
 }

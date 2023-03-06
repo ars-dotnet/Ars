@@ -12,31 +12,30 @@ namespace ArsTest
     {
 
         interface IABase { }
-        interface IA : IABase{ }
+        interface IA : IABase { }
 
         class A : IA { }
 
         [Fact]
-        public void TestMulss() 
+        public void TestMulss()
         {
-            void get(string a,string b) => Console.WriteLine(a,b);
+            void get(string a, string b) => Console.WriteLine(a, b);
 
             string m = "11";
             string n = "12";
-            Action<string, string> aa = (a,b) => get(a,b);
+            Action<string, string> aa = (a, b) => get(a, b);
             aa(m, n);
 
             IServiceCollection services = new ServiceCollection();
 
             services.AddTransient<IA, A>();
-            services.AddSingleton<IA, A>(); 
-            services.AddTransient(typeof(Sky<>),typeof(SkyChild<>));
+            services.AddSingleton<IA, A>();
 
             var provider = services.BuildServiceProvider();
             var a = provider.GetService<IA>();
             var b = provider.GetService<IA>();
 
-            Assert.Equal(a.GetHashCode(), b.GetHashCode());
+            Assert.True(a == b);
         }
 
         [Fact]
@@ -106,36 +105,33 @@ namespace ArsTest
         public void TestServiceCollection()
         {
             IServiceCollection services = new ServiceCollection();
+            services.AddScoped<Animal>();
             services.AddScoped<Sky<Animal>>();
 
             var provider = services.BuildServiceProvider();
             int xx = 0;
-            int x = 0;
-
-            int y = 0;
             int yy = 0;
             using (var scope = provider.CreateScope())
             {
                 var b = scope.ServiceProvider.GetService<Sky<Animal>>();
-                xx = b.GetHashCode();
-
                 var c = scope.ServiceProvider.GetService<Sky<Animal>>();
-                x = c.GetHashCode();
+                Assert.True(b == c);
+                xx = b.GetHashCode();
             }
 
             using (var scope = provider.CreateScope())
             {
                 var b = scope.ServiceProvider.GetService<Sky<Animal>>();
-                y = b.GetHashCode();
-
                 var c = scope.ServiceProvider.GetService<Sky<Animal>>();
-                yy = c.GetHashCode();
+                Assert.True(b == c);
+                yy = b.GetHashCode();
             }
 
             var a = provider.GetService<Sky<Animal>>();
-            var xxx = a.GetHashCode();
             var aa = provider.GetService<Sky<Animal>>();
-            var xxxx = aa.GetHashCode();
+            Assert.True(a == aa);
+            Assert.False(xx == yy);
+
         }
 
         [Fact]
@@ -143,13 +139,72 @@ namespace ArsTest
         {
             IServiceCollection serviceCollection = new ServiceCollection();
             serviceCollection.AddTransient<Animal>();
-            serviceCollection.AddTransient(typeof(Sky<>));
+            serviceCollection.AddTransient(typeof(Sky<Animal>));
 
-            var a = serviceCollection.BuildServiceProvider().GetService(typeof(Sky<Animal>))! as Sky<Animal>;
+            var a = serviceCollection.BuildServiceProvider().CreateScope().ServiceProvider.GetService(typeof(Sky<Animal>))! as Sky<Animal>;
             var mm = a.skyFluence<string>("123");
+            Assert.True("String_123aaa".Equals(mm));
         }
 
-        private ScopeResolve<T> GetScope<T>(ScopeContriner contriner) 
+        [Fact]
+        public void TestGenerics() 
+        {
+            IServiceCollection serviceCollection = new ServiceCollection();
+            serviceCollection.AddTransient(typeof(IRepository<>),typeof(Repo<>));
+
+            using var scope = serviceCollection.BuildServiceProvider().CreateScope();
+            var repo = scope.ServiceProvider.GetService<IRepository<int>>();
+            Assert.True(0 == repo.Get());
+
+            IRepository<object> repo1 = scope.ServiceProvider.GetService<IRepository<object>>();
+            Assert.True(null == repo1.Get());
+
+            IRepository<Animal> repo2 = scope.ServiceProvider.GetService<IRepository<Animal>>();
+            Assert.True(null == repo2.Get());
+        }
+
+        [Fact]
+        public void TestGenericss()
+        {
+            IServiceCollection serviceCollection = new ServiceCollection();
+            serviceCollection.AddTransient<IRepositoryInstance<object>, RepoInstance<object>>();
+            serviceCollection.AddTransient<IRepositoryInstance<Animal>, RepoInstance<Animal>>();
+            serviceCollection.AddTransient<RepoInstance<Animal>>();
+
+            using var scope = serviceCollection.BuildServiceProvider().CreateScope();
+
+            IRepositoryInstance<object> repo1 = scope.ServiceProvider.GetService<IRepositoryInstance<object>>();
+            Assert.True(null == repo1.Get());
+
+            IRepositoryInstance<Animal> repo2 = scope.ServiceProvider.GetService<IRepositoryInstance<Animal>>();
+            Assert.True(null == repo2.Get());
+
+            IRepositoryInstance<Animal> repo3 = scope.ServiceProvider.GetService(typeof(IRepositoryInstance<Animal>)) as IRepositoryInstance<Animal>;
+            Assert.True(null == repo3.Get());
+
+            RepoInstance<Animal> repo4 = scope.ServiceProvider.GetService<RepoInstance<Animal>>();
+            Assert.True(null == repo4.Get());
+        }
+
+        [Fact]
+        public void TestGenericsss()
+        {
+            IServiceCollection serviceCollection = new ServiceCollection();
+            serviceCollection.AddTransient<IRepositoryInstances<Animal>, RepoInstances<Animal>>();
+            serviceCollection.AddTransient<RepoInstances<Animal>>();
+
+            using var scope = serviceCollection.BuildServiceProvider().CreateScope();
+            IRepositoryInstances<Animal> repo2 = scope.ServiceProvider.GetService<IRepositoryInstances<Animal>>();
+            Assert.True(null == repo2.Get());
+
+            IRepositoryInstances<Animal> repo3 = scope.ServiceProvider.GetService(typeof(IRepositoryInstances<Animal>)) as IRepositoryInstances<Animal>;
+            Assert.True(null == repo3.Get());
+
+            RepoInstances<Animal> repo4 = scope.ServiceProvider.GetService<RepoInstances<Animal>>();
+            Assert.True(null == repo4.Get());
+        }
+
+        private ScopeResolve<T> GetScope<T>(ScopeContriner contriner)
         {
             ScopeResolve<T> scope = new ScopeResolve<T>(contriner, (T)contriner.list[typeof(T).Name]);
             return scope;
@@ -159,7 +214,7 @@ namespace ArsTest
         {
             private ScopeContriner _scopeContriner;
             public T _obj;
-            public ScopeResolve(ScopeContriner scopeContriner,T obj)
+            public ScopeResolve(ScopeContriner scopeContriner, T obj)
             {
                 _scopeContriner = scopeContriner;
                 _obj = obj;
@@ -197,10 +252,10 @@ namespace ArsTest
 
         class ScopeContriner : IDisposable
         {
-            public IDictionary<string,object> list;
+            public IDictionary<string, object> list;
             protected ScopeContriner()
             {
-                list = new Dictionary<string,object>();
+                list = new Dictionary<string, object>();
             }
 
             public static ScopeContriner Empty => new ScopeContriner();
@@ -210,7 +265,7 @@ namespace ArsTest
             }
         }
 
-        class Animal 
+        public class Animal
         {
             public Animal()
             {
@@ -219,7 +274,7 @@ namespace ArsTest
 
         }
 
-        class SkyChild<A> : Sky<A> where A : Animal,new()
+        class SkyChild<A> : Sky<A> where A : Animal, new()
         {
             public SkyChild(A t) : base(t)
             {
@@ -227,7 +282,7 @@ namespace ArsTest
             }
         }
 
-        class Sky<T> where T : Animal,new()
+        class Sky<T> where T : Animal, new()
         {
             public const string A = "aaa";
             private T _t;
@@ -243,7 +298,7 @@ namespace ArsTest
 
             public string skyFluence<Tp>(string a)
             {
-                return string.Concat(typeof(Tp).Name,"_",a,A);
+                return string.Concat(typeof(Tp).Name, "_", a, A);
             }
 
             public Task<string> skyFluenceAsync<Tp>(string a)
@@ -259,9 +314,48 @@ namespace ArsTest
             {
                 return Task.Run(() =>
                 {
-                    var aa = string.Concat(typeof(Tp).Name, "_", string.Join(".",a));
+                    var aa = string.Concat(typeof(Tp).Name, "_", string.Join(".", a));
                     return aa;
                 });
+            }
+        }
+
+        public interface IRepository<T> 
+        {
+            T Get();
+        }
+
+        public class Repo<T> : IRepository<T>
+        {
+            public T Get()
+            {
+                return default;
+            }
+        }
+
+        public interface IRepositoryInstance<T> where T:class,new()
+        {
+            T Get();
+        }
+
+        public class RepoInstance<T> : IRepositoryInstance<T> where T : class,new()
+        {
+            public T Get()
+            {
+                return default;
+            }
+        }
+
+        public interface IRepositoryInstances<T> where T : Animal, new()
+        {
+            T Get();
+        }
+
+        public class RepoInstances<T> : IRepositoryInstances<T> where T : Animal, new()
+        {
+            public T Get()
+            {
+                return default;
             }
         }
     }

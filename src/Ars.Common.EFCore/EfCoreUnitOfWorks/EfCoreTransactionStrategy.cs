@@ -63,7 +63,7 @@ namespace Ars.Common.EFCore.EfCoreUnitOfWorks
             {
                 dbContext = dbContextResolver.Resolve<TDbContext>(
                     connectionString,
-                    activeinfo.DbContextTransaction.GetDbTransaction().Connection
+                    activeinfo.DbContextTransaction.GetDbTransaction().Connection!
                 );
 
                 if (dbContext.HasRelationalTransactionManager())
@@ -73,6 +73,44 @@ namespace Ars.Common.EFCore.EfCoreUnitOfWorks
                 else
                 {
                     await dbContext.Database.BeginTransactionAsync();
+                }
+
+                activeinfo.AttendedDbContexts.Add(dbContext);
+            }
+
+            return dbContext;
+        }
+
+        public TDbContext CreateDbContext<TDbContext>(string connectionString, IDbContextResolver dbContextResolver) where TDbContext : DbContext
+        {
+            TDbContext dbContext;
+
+            var activeinfo = ActiveTransactionInfos.GetValueOrDefault(connectionString);
+            if (null == activeinfo)
+            {
+                dbContext = dbContextResolver.Resolve<TDbContext>(connectionString, null);
+
+                //默认采用可重复读事务隔离级别
+                var dbTransaction = dbContext.Database.BeginTransaction(
+                        (_options.IsolationLevel ?? IsolationLevel.RepeatableRead).ToSystemDataIsolationLevel());
+
+                activeinfo = new ActiveTransactionInfo(dbTransaction, dbContext);
+                ActiveTransactionInfos[connectionString] = activeinfo;
+            }
+            else
+            {
+                dbContext = dbContextResolver.Resolve<TDbContext>(
+                    connectionString,
+                    activeinfo.DbContextTransaction.GetDbTransaction().Connection!
+                );
+
+                if (dbContext.HasRelationalTransactionManager())
+                {
+                    dbContext.Database.UseTransaction(activeinfo.DbContextTransaction.GetDbTransaction());
+                }
+                else
+                {
+                    dbContext.Database.BeginTransaction();
                 }
 
                 activeinfo.AttendedDbContexts.Add(dbContext);

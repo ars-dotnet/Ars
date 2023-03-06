@@ -29,9 +29,14 @@ var provider = builder.Services.
         });
     }).
     AddArsLocalization();
-//provider.AddArsIdentityServer4();
 
-builder.Services.Configure<User>(builder.Configuration.GetSection(nameof(User)));
+//builder.Services.Configure<Configs>(builder.Configuration.GetSection(nameof(Configs)));
+//builder.Services.Configure<Configs>(option =>
+//{
+//    option.Name = "xx";
+//    option.Age = 111;
+//});
+//var a = builder.Services.BuildServiceProvider().CreateScope().ServiceProvider.GetRequiredService<IOptions<Configs>>();
 
 builder.Services.AddTransient<IUserAppService, User>();
 builder.Services.AddTransient<UserBase, User>();
