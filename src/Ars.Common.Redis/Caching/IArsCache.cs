@@ -26,7 +26,7 @@ namespace Ars.Common.Redis.Caching
         /// <param name="key">Key</param>
         /// <param name="factory">Factory method to create cache item if not exists</param>
         /// <returns>Cached item</returns>
-        Task<TValue> GetAsync(TKey key, Func<TKey, Task<TValue>> factory);
+        Task<TValue?> GetAsync(TKey key, Func<TKey, Task<TValue>>? factory = null);
 
         /// <summary>
         /// Gets items from the cache.
@@ -36,7 +36,7 @@ namespace Ars.Common.Redis.Caching
         /// <param name="keys">Keys</param>
         /// <param name="factory">Factory method to create cache item if not exists</param>
         /// <returns>Cached items</returns>
-        IAsyncEnumerable<TValue> GetAsync(TKey[] keys, Func<TKey, Task<TValue>> factory);
+        IAsyncEnumerable<TValue?> GetAsync(TKey[] keys, Func<TKey, Task<TValue>>? factory = null);
 
         /// <summary>
         /// 

@@ -9,11 +9,11 @@ namespace Ars.Common.Core.Uow.Impl
 {
     internal class CurrentUnitOfWorkProvider : ICurrentUnitOfWorkProvider
     {
-        public IUnitOfWork Current { get { return GetCurrentUow(); } set { SetCurrentUow(value); } }
+        public IUnitOfWork? Current { get { return GetCurrentUow(); } set { SetCurrentUow(value); } }
 
-        private static readonly AsyncLocal<LocalUowWrapper> AsyncLocalUow = new AsyncLocal<LocalUowWrapper>();
+        private static readonly AsyncLocal<LocalUowWrapper?> AsyncLocalUow = new AsyncLocal<LocalUowWrapper?>();
 
-        private static IUnitOfWork GetCurrentUow()
+        private static IUnitOfWork? GetCurrentUow()
         {
             var uow = AsyncLocalUow.Value?.UnitOfWork;
             if (uow == null)
@@ -30,7 +30,7 @@ namespace Ars.Common.Core.Uow.Impl
             return uow;
         }
 
-        private static void SetCurrentUow(IUnitOfWork value)
+        private static void SetCurrentUow(IUnitOfWork? value)
         {
             lock (AsyncLocalUow)
             {
@@ -71,7 +71,7 @@ namespace Ars.Common.Core.Uow.Impl
 
         private class LocalUowWrapper
         {
-            public IUnitOfWork UnitOfWork { get; set; }
+            public IUnitOfWork? UnitOfWork { get; set; }
 
             public LocalUowWrapper(IUnitOfWork unitOfWork)
             {

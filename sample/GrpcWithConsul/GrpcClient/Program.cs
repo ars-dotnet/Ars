@@ -13,8 +13,10 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services
-    .AddArserviceCore(builder.Host)
-    .AddArsConsulDiscoverClient();
+    .AddArserviceCore(builder.Host, config =>
+    {
+        config.AddArsConsulDiscoverClient();
+    });
 
 builder.Services.AddScoped<IChannelManager, ChannelManager>();
 builder.Services.AddSingleton<IChannelProvider, ChannelProvider>();

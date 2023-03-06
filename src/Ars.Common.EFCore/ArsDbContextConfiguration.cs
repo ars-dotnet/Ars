@@ -13,6 +13,6 @@ namespace Ars.Common.Core.Uow.Options
 
         public int? DbType { get; set; }
 
-        public bool UseLazyLoadingProxies { get; set; } = true;
+        public bool UseLazyLoadingProxies { get; set; }
     }
 }

@@ -13,8 +13,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services
-    .AddArserviceCore(builder.Host)
-    .AddArsConsulRegisterServer();
+    .AddArserviceCore(builder.Host,config => 
+    {
+        config.AddArsConsulRegisterServer();
+    });
 builder.Services.AddGrpc();
 
 builder.WebHost.UseKestrel(kestrel =>

@@ -18,14 +18,7 @@ using Xunit;
 
 namespace ArsTest
 {
-    public class Person
-    {
-        public string Name { get; set; }
 
-        public int Age { get; set; }
-
-        public int Top { get; set; }
-    }
 
     public class AspNetCoreBase
     {
@@ -50,39 +43,6 @@ namespace ArsTest
         }
     }
 
-    public class TestIncrement
-    {
-        public int i;
-        public int j;
-
-        public async Task<int> Set()
-        {
-            await Task.Yield();
-            var m = Interlocked.Increment(ref i);
-            return m;
-        }
-    }
-
-    public abstract class A
-    {
-        public abstract void Get();
-    }
-
-    public class AA : A
-    {
-        public override void Get()
-        {
-
-        }
-    }
-
-    public class AAA : AA
-    {
-        public override void Get()
-        {
-
-        }
-    }
 
     public class AspNetCoreTest : AspNetCoreBase
     {
@@ -269,6 +229,76 @@ namespace ArsTest
             Assert.True("Bill".Equals(a.Value.Name));
         }
     }
+
+    public class Person
+    {
+        public string Name { get; set; }
+
+        public int Age { get; set; }
+
+        public int Top { get; set; }
+    }
+
+    public interface IRepo<T> where T : class
+    {
+        T Get();
+    }
+
+    public abstract class RepoBase<T> : IRepo<T> where T : class, new()
+    {
+        public RepoBase()
+        {
+
+        }
+
+        public virtual T Get()
+        {
+            return new T();
+        }
+    }
+
+    public class Repo<T> : RepoBase<T> where T : class, new()
+    {
+        public override T Get()
+        {
+            return new T();
+        }
+    }
+
+    public class TestIncrement
+    {
+        public int i;
+        public int j;
+
+        public async Task<int> Set()
+        {
+            await Task.Yield();
+            var m = Interlocked.Increment(ref i);
+            return m;
+        }
+    }
+
+    public abstract class A
+    {
+        public abstract void Get();
+    }
+
+    public class AA : A
+    {
+        public override void Get()
+        {
+
+        }
+    }
+
+    public class AAA : AA
+    {
+        public override void Get()
+        {
+
+        }
+    }
+
     public class Configs
     {
         public string Name { get; set; } = "Bill";

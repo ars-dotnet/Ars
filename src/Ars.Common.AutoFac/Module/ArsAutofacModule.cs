@@ -12,11 +12,8 @@ using Module = Autofac.Module;
 
 namespace Ars.Common.AutoFac
 {
-    public class ArsAutofacModule : Module
+    public abstract class ArsAutofacModule : Module
     {
-        protected override void Load(ContainerBuilder builder)
-        {
-            
-        }
+
     }
 }

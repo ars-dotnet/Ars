@@ -16,6 +16,10 @@ namespace Ars.Common.Core.Configs
         /// </summary>
         int? DbType { get; set; }
 
+        /// <summary>
+        /// 是否启用延迟加载
+        /// 默认不启用
+        /// </summary>
         bool UseLazyLoadingProxies { get; set; }
     }
 }

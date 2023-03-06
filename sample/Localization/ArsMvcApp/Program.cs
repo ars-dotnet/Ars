@@ -17,9 +17,8 @@ using Ars.Common.Redis.Extension;
 var builder = WebApplication.CreateBuilder(args);
 
 
-var provider = builder.Services.AddArserviceCore(
-    builder.Host,
-    config => 
+var provider = builder.Services.
+    AddArserviceCore(builder.Host,config => 
     {
         config.AddArsRedis(provider =>
         {
@@ -28,11 +27,16 @@ var provider = builder.Services.AddArserviceCore(
                 cacheoption.DefaultSlidingExpireTime = TimeSpan.FromMinutes(10);
             });
         });
-    });
-provider.AddArsLocalization();
-//provider.AddArsIdentityServer4();
+    }).
+    AddArsLocalization();
 
-builder.Services.Configure<User>(builder.Configuration.GetSection(nameof(User)));
+//builder.Services.Configure<Configs>(builder.Configuration.GetSection(nameof(Configs)));
+//builder.Services.Configure<Configs>(option =>
+//{
+//    option.Name = "xx";
+//    option.Age = 111;
+//});
+//var a = builder.Services.BuildServiceProvider().CreateScope().ServiceProvider.GetRequiredService<IOptions<Configs>>();
 
 builder.Services.AddTransient<IUserAppService, User>();
 builder.Services.AddTransient<UserBase, User>();

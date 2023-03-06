@@ -6,11 +6,26 @@ using System.Threading.Tasks;
 
 namespace Ars.Common.Core.DomainObject
 {
-    public class ValueObject : IEquatable<ValueObject>
+    public abstract class ValueObject
     {
-        public bool Equals(ValueObject? other)
+        protected abstract IEnumerable<object> GetAtomicValues();
+
+        public bool ValueEquals(ValueObject? other)
         {
-            return ReferenceEquals(this, other);
+            if(null == other || this.GetType() != other.GetType())
+                return false;
+
+            IEnumerator<object> currentvalue = this.GetAtomicValues().GetEnumerator();
+            IEnumerator<object> othervalue = other.GetAtomicValues().GetEnumerator();
+            while (currentvalue.MoveNext() && othervalue.MoveNext()) 
+            {
+                if (currentvalue.Current == null ^ othervalue.Current == null) //只有一个为null
+                    return false;
+                if (!Equals(currentvalue.Current, othervalue.Current))
+                    return false;
+            }
+
+            return !currentvalue.MoveNext() && !othervalue.MoveNext();
         }
     }
 }

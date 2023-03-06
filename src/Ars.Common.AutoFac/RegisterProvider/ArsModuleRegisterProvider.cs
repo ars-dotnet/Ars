@@ -39,7 +39,7 @@ namespace Ars.Common.AutoFac.Dependency
                     continue;
 
                 var @params = constructorInfo.GetParameters()?.Select(r => _serviceProvider.GetService(r.ParameterType)).ToArray();
-                yield return constructorInfo.Invoke(@params) as ArsAutofacModule;
+                yield return (constructorInfo.Invoke(@params) as ArsAutofacModule)!;
             }
         }
     }

@@ -26,5 +26,20 @@ namespace Ars.Common.EFCore.Extension
 
            return coreUnitOfWork.GetOrCreateDbContextAsync<TDbContext>(name);
         }
+
+        public static TDbContext GetDbContext<TDbContext>(this IActiveUnitOfWork activeUnitOfWork, string name = null)
+            where TDbContext : DbContext
+        {
+            if (null == activeUnitOfWork)
+            {
+                throw new ArgumentNullException(nameof(activeUnitOfWork));
+            }
+            if (!(activeUnitOfWork is EfCoreUnitOfWork coreUnitOfWork))
+            {
+                throw new ArgumentException($"{nameof(activeUnitOfWork)} is not type of {typeof(EfCoreUnitOfWork).FullName}", nameof(activeUnitOfWork));
+            }
+
+            return coreUnitOfWork.GetOrCreateDbContext<TDbContext>(name);
+        }
     }
 }

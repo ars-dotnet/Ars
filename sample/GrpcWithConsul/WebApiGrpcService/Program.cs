@@ -20,8 +20,10 @@ builder.Services.AddSwaggerGen();
 
 //builder.Services.AddTransient<ArsResourcePasswordValidator>();
 builder.Services
-    .AddArserviceCore(builder.Host)
-    .AddArsConsulRegisterServer();
+    .AddArserviceCore(builder.Host, config =>
+    {
+        config.AddArsConsulRegisterServer();
+    });
 builder.Services.AddGrpc();
 
 builder.WebHost.ConfigureKestrel(kestrel => 

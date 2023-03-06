@@ -59,7 +59,8 @@ end
         public override async Task SetAsync(string key, object value, TimeSpan? slidingExpireTime = null, DateTimeOffset? absoluteExpireTime = null)
         {
             string rediskey = GetLocalizedRedisKey(key);
-            string redisvalue = _arsSerializer.SerializeToJson(value);
+            var redisvalue = value;
+            //string redisvalue = _arsSerializer.SerializeToJson(value);
             if (absoluteExpireTime.HasValue)
             {
                 await RedisHelper.SetAsync(rediskey, redisvalue);

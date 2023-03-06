@@ -20,6 +20,10 @@ namespace Ars.Common.EFCore.EfCoreUnitOfWorks
         Task<TDbContext> CreateDbContextAsync<TDbContext>(string connectionString, IDbContextResolver dbContextResolver)
             where TDbContext : DbContext;
 
+        //获取存活的DbContext
+        TDbContext CreateDbContext<TDbContext>(string connectionString, IDbContextResolver dbContextResolver)
+            where TDbContext : DbContext;
+
         //提交事务
         Task CommitAsync();
 

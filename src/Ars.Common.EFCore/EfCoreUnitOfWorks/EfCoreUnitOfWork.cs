@@ -75,7 +75,7 @@ namespace Ars.Common.EFCore.EfCoreUnitOfWorks
 
         public virtual string GetConnectionName() 
         {
-            if (ConfigurationManager.ConnectionStrings["Default"] != null)
+            if (ConfigurationManager.ConnectionStrings["ArsDbContextConfiguration:DefaultString"] != null)
             {
                 return "Default";
             }
@@ -85,7 +85,7 @@ namespace Ars.Common.EFCore.EfCoreUnitOfWorks
                 return ConfigurationManager.ConnectionStrings[0].ConnectionString;
             }
 
-            throw new ArsException("Could not find a connection string definition for the application. Set IAbpStartupConfiguration.DefaultNameOrConnectionString or add a 'Default' connection string to application .config file.");
+            throw new ArsException("Could not find a connection string definition for the application.");
         }
 
         public virtual async Task<TDbContext> GetOrCreateDbContextAsync<TDbContext>(string name = null)
@@ -112,6 +112,38 @@ namespace Ars.Common.EFCore.EfCoreUnitOfWorks
                    .CreateDbContextAsync<TDbContext>(connectionName, _dbContextResolver);
             }
             else 
+            {
+                dbContext = _dbContextResolver.Resolve<TDbContext>();
+            }
+
+            ActiveDbContexts.TryAdd(dbcontextKey, dbContext);
+            return (TDbContext)dbContext;
+        }
+
+        public virtual TDbContext GetOrCreateDbContext<TDbContext>(string name = null)
+            where TDbContext : DbContext
+        {
+            if (typeof(TDbContext).GetTypeInfo().IsAbstract)
+            {
+                throw new ArgumentException($"{nameof(TDbContext)} not support abstract class");
+            }
+
+            string connectionName = GetConnectionName();
+            string dbcontextKey = typeof(TDbContext).FullName + connectionName;
+            if (!name.IsNullOrEmpty())
+                dbcontextKey += "." + name;
+
+            if (ActiveDbContexts.TryGetValue(dbcontextKey, out var dbContext))
+            {
+                return (TDbContext)dbContext;
+            }
+
+            if (Options.IsTransactional == true)
+            {
+                dbContext = _efCoreTransactionStrategy
+                   .CreateDbContext<TDbContext>(connectionName, _dbContextResolver);
+            }
+            else
             {
                 dbContext = _dbContextResolver.Resolve<TDbContext>();
             }
