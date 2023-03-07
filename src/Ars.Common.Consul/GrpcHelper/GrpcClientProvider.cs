@@ -60,7 +60,7 @@ namespace Ars.Common.Consul.GrpcHelper
 
             var httpclient = new HttpClient(grpchandler)
             {
-                Timeout = TimeSpan.FromDays(10),
+                Timeout = TimeSpan.FromMinutes(5),
             };
 
             return httpclient;

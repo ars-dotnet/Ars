@@ -2735,11 +2735,11 @@
           "build/netcoreapp2.1/xunit.runner.visualstudio.props": {}
         }
       },
-      "Ars.Common.Email/1.4.0": {
+      "Ars.Common.Email/1.4.1": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Ars.Common.Tool": "1.4.0",
+          "Ars.Common.Tool": "1.4.1",
           "MailKit": "3.1.0",
           "Microsoft.CodeAnalysis.Workspaces.Common": "4.0.1",
           "Microsoft.Extensions.Configuration.Abstractions": "6.0.0",
@@ -2752,7 +2752,7 @@
           "bin/placeholder/Ars.Common.Email.dll": {}
         }
       },
-      "Ars.Common.Tool/1.4.0": {
+      "Ars.Common.Tool/1.4.1": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
@@ -8786,12 +8786,12 @@
         "xunit.runner.visualstudio.nuspec"
       ]
     },
-    "Ars.Common.Email/1.4.0": {
+    "Ars.Common.Email/1.4.1": {
       "type": "project",
       "path": "../../../src/Ars.Commom.Email/Ars.Common.Email.csproj",
       "msbuildProject": "../../../src/Ars.Commom.Email/Ars.Common.Email.csproj"
     },
-    "Ars.Common.Tool/1.4.0": {
+    "Ars.Common.Tool/1.4.1": {
       "type": "project",
       "path": "../../../src/Ars.Commom.Tool/Ars.Common.Tool.csproj",
       "msbuildProject": "../../../src/Ars.Commom.Tool/Ars.Common.Tool.csproj"
@@ -8799,7 +8799,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "Ars.Common.Email >= 1.4.0",
+      "Ars.Common.Email >= 1.4.1",
       "AutoMapper >= 11.0.1",
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 11.0.0",
       "HslCommunication >= 11.0.2",

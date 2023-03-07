@@ -1,6 +1,7 @@
 using Ars.Commom.Host.Extension;
 using Ars.Common.Consul.Extension;
 using Ars.Common.Consul.IApplicationBuilderExtension;
+using Ars.Common.IdentityServer4.Extension;
 using GrpcClients;
 
 var builder = WebApplication.CreateBuilder(args);

@@ -1,6 +1,7 @@
 using Ars.Commom.Host.Extension;
 using Ars.Common.Consul.Extension;
 using Ars.Common.Consul.IApplicationBuilderExtension;
+using Ars.Common.IdentityServer4.Extension;
 using GrpcService;
 using GrpcService.Services;
 using Microsoft.Extensions.Options;
@@ -16,6 +17,7 @@ builder.Services
     .AddArserviceCore(builder.Host,config => 
     {
         config.AddArsConsulRegisterServer();
+        config.AddArsIdentityServer();
     });
 builder.Services.AddGrpc();
 
