@@ -17,6 +17,6 @@ namespace Ars.Common.EFCore.AdoNet
     {
         Task<IDbContextTransaction> BeginAsync(IsolationLevel isolationLevel = IsolationLevel.RepeatableRead);
 
-        Task<int> ExecuteNonQuery(string commandText, SqlParameter[]? parameters, IDbContextTransaction dbTransaction = null);
+        Task<int> ExecuteNonQuery(string commandText, SqlParameter[]? parameters, IDbContextTransaction? dbTransaction = null);
     }
 }

@@ -37,7 +37,7 @@ namespace Ars.Common.EFCore.AdoNet
 
         }
 
-        public async Task<int> ExecuteNonQuery(string commandText, SqlParameter[]? parameters, IDbContextTransaction dbTransaction = null)
+        public async Task<int> ExecuteNonQuery(string commandText, SqlParameter[]? parameters, IDbContextTransaction? dbTransaction = null)
         {
             if(SqlConnection.State == ConnectionState.Closed)
                 SqlConnection.Open();
