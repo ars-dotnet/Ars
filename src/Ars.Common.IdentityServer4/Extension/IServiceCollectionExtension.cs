@@ -71,6 +71,20 @@ namespace Ars.Common.IdentityServer4.Extension
                         Password = "MyArs@1234",
                         IsActive = true,
                         SubjectId = "1",
+                    },
+                    new TestUser
+                    {
+                        Username = "H123",
+                        Claims = new Claim[] {
+                            new Claim(ArsClaimTypes.TenantId, "1"),
+                            new Claim(ArsClaimTypes.Role, "admin"),
+                            new Claim("idp", "ars"),
+                            new Claim("auth_time", DateTimeExtensions.ToEpochTime(DateTime.Now).ToString(),
+                                    "http://www.w3.org/2001/XMLSchema#integer")
+                        },
+                        Password = "H123",
+                        IsActive = true,
+                        SubjectId = "1",
                     }
                 })
                .AddResourceOwnerValidator<DefaultResourceOwnerPasswordValidator>();

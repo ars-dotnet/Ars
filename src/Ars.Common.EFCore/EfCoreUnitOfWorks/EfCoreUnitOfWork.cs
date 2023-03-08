@@ -12,6 +12,7 @@ using System.Collections.Immutable;
 using Ars.Common.Core.Uow.Impl;
 using System.Configuration;
 using Ars.Common.Tool;
+using Microsoft.EntityFrameworkCore.Storage;
 
 namespace Ars.Common.EFCore.EfCoreUnitOfWorks
 {
@@ -31,7 +32,7 @@ namespace Ars.Common.EFCore.EfCoreUnitOfWorks
 
         protected override void BeginUow()
         {
-            if (Options.IsTransactional == true) 
+            if (Options.IsTransactional == true)
             {
                 _efCoreTransactionStrategy.InitOptions(Options);
             }
@@ -39,7 +40,7 @@ namespace Ars.Common.EFCore.EfCoreUnitOfWorks
 
         public override async Task SaveChangesAsync()
         {
-            foreach (var dbContext in ActiveDbContexts.Values.ToImmutableList()) 
+            foreach (var dbContext in ActiveDbContexts.Values.ToImmutableList())
             {
                 await SaveChangesInDbContextAsync(dbContext);
             }
@@ -57,9 +58,9 @@ namespace Ars.Common.EFCore.EfCoreUnitOfWorks
             {
                 _efCoreTransactionStrategy.Dispose();
             }
-            else 
+            else
             {
-                foreach (var dbContext in ActiveDbContexts.Values.ToImmutableList()) 
+                foreach (var dbContext in ActiveDbContexts.Values.ToImmutableList())
                 {
                     dbContext.Dispose();
                 }
@@ -68,12 +69,12 @@ namespace Ars.Common.EFCore.EfCoreUnitOfWorks
             ActiveDbContexts.Clear();
         }
 
-        protected virtual Task SaveChangesInDbContextAsync(DbContext dbContext) 
+        protected virtual Task SaveChangesInDbContextAsync(DbContext dbContext)
         {
             return dbContext.SaveChangesAsync();
         }
 
-        public virtual string GetConnectionName() 
+        public virtual string GetConnectionName()
         {
             if (ConfigurationManager.ConnectionStrings["ArsDbContextConfiguration:DefaultString"] != null)
             {
@@ -91,17 +92,8 @@ namespace Ars.Common.EFCore.EfCoreUnitOfWorks
         public virtual async Task<TDbContext> GetOrCreateDbContextAsync<TDbContext>(string name = null)
             where TDbContext : DbContext
         {
-            if (typeof(TDbContext).GetTypeInfo().IsAbstract) 
-            {
-                throw new ArgumentException($"{nameof(TDbContext)} not support abstract class");
-            }
-
-            string connectionName = GetConnectionName();
-            string dbcontextKey = typeof(TDbContext).FullName + connectionName;
-            if (!name.IsNullOrEmpty())
-                dbcontextKey += "." + name;
-
-            if (ActiveDbContexts.TryGetValue(dbcontextKey,out var dbContext)) 
+            var dbcontextKey = GetKeyName<TDbContext>(out string connectionName, name);
+            if (ActiveDbContexts.TryGetValue(dbcontextKey, out var dbContext))
             {
                 return (TDbContext)dbContext;
             }
@@ -111,7 +103,7 @@ namespace Ars.Common.EFCore.EfCoreUnitOfWorks
                 dbContext = await _efCoreTransactionStrategy
                    .CreateDbContextAsync<TDbContext>(connectionName, _dbContextResolver);
             }
-            else 
+            else
             {
                 dbContext = _dbContextResolver.Resolve<TDbContext>();
             }
@@ -120,18 +112,17 @@ namespace Ars.Common.EFCore.EfCoreUnitOfWorks
             return (TDbContext)dbContext;
         }
 
+        public virtual IDbContextTransaction? GetContextTransaction<TDbContext>(string name = null)
+             where TDbContext : DbContext
+        {
+            GetKeyName<TDbContext>(out string connectionName, name);
+            return _efCoreTransactionStrategy.GetContextTransaction(connectionName);
+        }
+
         public virtual TDbContext GetOrCreateDbContext<TDbContext>(string name = null)
             where TDbContext : DbContext
         {
-            if (typeof(TDbContext).GetTypeInfo().IsAbstract)
-            {
-                throw new ArgumentException($"{nameof(TDbContext)} not support abstract class");
-            }
-
-            string connectionName = GetConnectionName();
-            string dbcontextKey = typeof(TDbContext).FullName + connectionName;
-            if (!name.IsNullOrEmpty())
-                dbcontextKey += "." + name;
+            var dbcontextKey = GetKeyName<TDbContext>(out string connectionName,name);
 
             if (ActiveDbContexts.TryGetValue(dbcontextKey, out var dbContext))
             {
@@ -158,6 +149,22 @@ namespace Ars.Common.EFCore.EfCoreUnitOfWorks
             {
                 await _efCoreTransactionStrategy.CommitAsync();
             }
+        }
+
+        private string GetKeyName<TDbContext>(out string connectionName, string name = null)
+            where TDbContext : DbContext
+        {
+            if (typeof(TDbContext).GetTypeInfo().IsAbstract)
+            {
+                throw new ArgumentException($"{nameof(TDbContext)} not support abstract class");
+            }
+
+            connectionName = GetConnectionName();
+            string dbcontextKey = typeof(TDbContext).FullName + connectionName;
+            if (!name.IsNullOrEmpty())
+                dbcontextKey += "." + name;
+
+            return dbcontextKey;
         }
     }
 }

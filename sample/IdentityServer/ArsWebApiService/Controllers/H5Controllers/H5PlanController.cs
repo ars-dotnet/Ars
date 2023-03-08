@@ -11,9 +11,9 @@ namespace ArsWebApiService.Controllers.H5Controllers
     public class H5PlanController : ControllerBase
     {
         [HttpGet]
-        public Task<ArsOutput<GetPlanByNumberOutput>> GetPlanByNumber([FromQuery]string PlanNumber)
+        public ArsOutput<GetPlanByNumberOutput> GetPlanByNumber([FromQuery]string PlanNumber)
         {
-            return Task.FromResult(
+            return 
                 ArsOutput<GetPlanByNumberOutput>.Success(
                     new GetPlanByNumberOutput 
                     {
@@ -25,7 +25,121 @@ namespace ArsWebApiService.Controllers.H5Controllers
                         BarCode = "B123",
                         BomNumber = "Bom123",
                         PlanQty = 666
-                    }));
+                    });
+        }
+
+        [HttpGet]
+        public ArsOutput<IEnumerable<GetPageOutput>> GetPage([FromQuery]GetPageInput input) 
+        {
+            IEnumerable<GetPageOutput> datas = new List<GetPageOutput>()
+            {
+                new GetPageOutput()
+                {
+                    SendTime = "2023-03-07 17:01:01",
+                    PartBarCode = "P001",
+                    DemQty = 100,
+                    RealQty = 101,
+                    BatchNum = "B001"
+                },
+                new GetPageOutput()
+                {
+                    SendTime = "2023-03-07 17:01:02",
+                    PartBarCode = "P002",
+                    DemQty = 200,
+                    RealQty = 201,
+                    BatchNum = "B002"
+                },
+                new GetPageOutput()
+                {
+                    SendTime = "2023-03-07 17:01:02",
+                    PartBarCode = "P002",
+                    DemQty = 200,
+                    RealQty = 201,
+                    BatchNum = "B002"
+                },
+                new GetPageOutput()
+                {
+                    SendTime = "2023-03-07 17:01:02",
+                    PartBarCode = "P002",
+                    DemQty = 200,
+                    RealQty = 201,
+                    BatchNum = "B002"
+                },
+                new GetPageOutput()
+                {
+                    SendTime = "2023-03-07 17:01:02",
+                    PartBarCode = "P002",
+                    DemQty = 200,
+                    RealQty = 201,
+                    BatchNum = "B002"
+                },
+                new GetPageOutput()
+                {
+                    SendTime = "2023-03-07 17:01:02",
+                    PartBarCode = "P002",
+                    DemQty = 200,
+                    RealQty = 201,
+                    BatchNum = "B002"
+                },
+                new GetPageOutput()
+                {
+                    SendTime = "2023-03-07 17:01:02",
+                    PartBarCode = "P002",
+                    DemQty = 200,
+                    RealQty = 201,
+                    BatchNum = "B002"
+                },
+                new GetPageOutput()
+                {
+                    SendTime = "2023-03-07 17:01:02",
+                    PartBarCode = "P002",
+                    DemQty = 200,
+                    RealQty = 201,
+                    BatchNum = "B002"
+                },
+                new GetPageOutput()
+                {
+                    SendTime = "2023-03-07 17:01:02",
+                    PartBarCode = "P002",
+                    DemQty = 200,
+                    RealQty = 201,
+                    BatchNum = "B002"
+                },
+                new GetPageOutput()
+                {
+                    SendTime = "2023-03-07 17:01:02",
+                    PartBarCode = "P002",
+                    DemQty = 200,
+                    RealQty = 201,
+                    BatchNum = "B002"
+                },
+                new GetPageOutput()
+                {
+                    SendTime = "2023-03-07 17:01:02",
+                    PartBarCode = "P002",
+                    DemQty = 200,
+                    RealQty = 201,
+                    BatchNum = "B002"
+                },
+                new GetPageOutput()
+                {
+                    SendTime = "2023-03-07 17:01:02",
+                    PartBarCode = "P002",
+                    DemQty = 200,
+                    RealQty = 201,
+                    BatchNum = "B002"
+                },
+                new GetPageOutput()
+                {
+                    SendTime = "2023-03-07 17:01:02",
+                    PartBarCode = "P002",
+                    DemQty = 200,
+                    RealQty = 201,
+                    BatchNum = "B002"
+                },
+            };
+
+            return ArsOutput<IEnumerable<GetPageOutput>>.Success(datas); 
         }
     }
 }

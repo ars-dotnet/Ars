@@ -1,5 +1,6 @@
 ﻿using Ars.Common.Core.Uow.Options;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,5 +29,7 @@ namespace Ars.Common.EFCore.EfCoreUnitOfWorks
         Task CommitAsync();
 
         void Dispose();
+
+        IDbContextTransaction? GetContextTransaction(string name = null);
     }
 }

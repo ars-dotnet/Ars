@@ -25,6 +25,11 @@ namespace Ars.Common.EFCore.EfCoreUnitOfWorks
                 StringComparer.OrdinalIgnoreCase);
         }
 
+        public IDbContextTransaction? GetContextTransaction(string name = null)
+        {
+            return ActiveTransactionInfos.TryGetValue(name, out var value) ? value.DbContextTransaction : null;
+        }
+
         public async Task CommitAsync()
         {
             foreach (var activeTrans in ActiveTransactionInfos.Values.ToImmutableList()) 

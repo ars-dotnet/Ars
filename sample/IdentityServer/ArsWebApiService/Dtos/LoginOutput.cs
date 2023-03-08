@@ -14,6 +14,6 @@ namespace MyApiWithIdentityServer4.Dtos
 
         public string scope { get; set; }
 
-        public string user_num { get; set; } 
+        public string user_name { get; set; } 
     }
 }

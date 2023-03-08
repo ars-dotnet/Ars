@@ -2,6 +2,7 @@ using Ars.Common.Core.AspNetCore.OutputDtos;
 using Ars.Common.Core.Configs;
 using Ars.Common.Core.IDependency;
 using Ars.Common.Core.Uow.Attributes;
+using Ars.Common.EFCore.AdoNet;
 using Ars.Common.EFCore.Extension;
 using Ars.Common.EFCore.Repository;
 using ArsWebApiService.Model;
@@ -9,6 +10,7 @@ using IdentityModel.Client;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Primitives;
 using MyApiWithIdentityServer4.Dtos;
@@ -55,6 +57,9 @@ namespace MyApiWithIdentityServer4.Controllers
 
         [Autowired]
         public IRepository<ClassRoom, int> _classRepo1 { get; set; }
+
+        [Autowired]
+        public IDbWriter<MyDbContext> DbWriter { get; set; }
 
         private static readonly string[] Summaries = new[]
         {
@@ -356,6 +361,95 @@ namespace MyApiWithIdentityServer4.Controllers
             return Ok();
         }
 
+        #endregion
+
+        #region ado.net
+        [HttpPost]
+        public async Task<IActionResult> AdoNetInsert() 
+        {
+            string sql = @"insert into Students(Id,LastName,FirstMidName,EnrollmentDate,TenantId,CreationUserId,IsDeleted) " +
+                "values(@Id,@LastName,@FirstMidName,@EnrollmentDate,@TenantId,@CreationUserId,@IsDeleted)";
+            SqlParameter[] sqlParameters = 
+            {
+                new SqlParameter("@Id",Guid.NewGuid()),
+                new SqlParameter("@LastName",123),
+                new SqlParameter("@FirstMidName",223),
+                new SqlParameter("@EnrollmentDate",DateTime.Now),
+                new SqlParameter("@TenantId",1),
+                new SqlParameter("@CreationUserId",1),
+                new SqlParameter("@IsDeleted",false),
+            };
+            var count = await DbWriter.ExecuteNonQuery(sql, sqlParameters);
+            return Ok(count);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AdoNetInsertWithTransaction()
+        {
+            string sql = @"insert into Students(Id,LastName,FirstMidName,EnrollmentDate,TenantId,CreationUserId,IsDeleted) " +
+                "values(@Id,@LastName,@FirstMidName,@EnrollmentDate,@TenantId,@CreationUserId,@IsDeleted)";
+            SqlParameter[] sqlParameters =
+            {
+                new SqlParameter("@Id",Guid.NewGuid()),
+                new SqlParameter("@LastName",123),
+                new SqlParameter("@FirstMidName","aabb1212"),
+                new SqlParameter("@EnrollmentDate",DateTime.Now),
+                new SqlParameter("@TenantId",1),
+                new SqlParameter("@CreationUserId",1),
+                new SqlParameter("@IsDeleted",false),
+            };
+
+            using var scope = await DbWriter.BeginAsync();
+            var count = await DbWriter.ExecuteNonQuery(sql, sqlParameters, scope);
+
+            string updatesql = $"update Students set LastName = @LastName where FirstMidName = @FirstMidName";
+            SqlParameter[] upsqlParameters = 
+            {
+                 new SqlParameter("@LastName",1234),
+                 new SqlParameter("@FirstMidName","aabb1212"),
+            };
+            count = await DbWriter.ExecuteNonQuery(updatesql, upsqlParameters, scope);
+
+            await scope.CommitAsync();
+            return Ok(count);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AdoNetUpdate() 
+        {
+            var guids = new Guid[] { new Guid("AE5CA8B0-61C7-4008-A330-98D3DBBD8A00"), new Guid("4C395F7F-FA13-4DFC-8D29-647696FD3245") };
+            List<SqlParameter> sqlParameters = new List<SqlParameter>
+            {
+                new SqlParameter("@LastName","最好的克伦克"),
+            };
+            StringBuilder ids = new();
+            for (var i = 0; i < guids.Count(); i++)
+            {
+                ids.Append($"@id{i},");
+                sqlParameters.Add(new SqlParameter($"@id{i}", guids[i]));
+            }
+            string @id = ids.ToString().TrimEnd(',');
+            string sql = $"update Students set LastName = @LastName where id in ({@id})";
+            var count = await DbWriter.ExecuteNonQuery(sql, sqlParameters.ToArray());
+            return Ok(count);
+         }
+
+        [HttpPost]
+        public async Task<IActionResult> AdoNetDelete() 
+        {
+            var guids = new Guid[] { new Guid("AE5CA8B0-61C7-4008-A330-98D3DBBD8A00"), new Guid("4C395F7F-FA13-4DFC-8D29-647696FD3245") };
+            List<SqlParameter> sqlParameters = new List<SqlParameter>();
+            StringBuilder ids = new();
+            for (var i = 0; i < guids.Count(); i++)
+            {
+                ids.Append($"@id{i},");
+                sqlParameters.Add(new SqlParameter($"@id{i}", guids[i]));
+            }
+            string @id = ids.ToString().TrimEnd(',');
+            string sql = $"delete from Students where id in ({@id})";
+            var count = await DbWriter.ExecuteNonQuery(sql, sqlParameters.ToArray());
+            return Ok(count);
+        }
         #endregion
     }
 }
