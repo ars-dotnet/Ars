@@ -8,10 +8,9 @@ namespace Ars.Commom.Tool.Extension
 {
     public static class ObjectExtensions
     {
-        public static T? As<T>(this object obj)
-            where T : class
+        public static T? As<T>(this object? obj)
         {
-            return obj.Is<T>() ? (T)obj : null;
+            return obj?.Is<T>() ?? false ? (T)obj : default(T);
         }
 
         public static bool Is<T>(this object obj) 
