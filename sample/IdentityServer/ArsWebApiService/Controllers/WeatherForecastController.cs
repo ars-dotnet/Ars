@@ -59,7 +59,7 @@ namespace MyApiWithIdentityServer4.Controllers
         public IRepository<ClassRoom, int> _classRepo1 { get; set; }
 
         [Autowired]
-        public IDbExecuter<MyDbContext> DbWriter { get; set; }
+        public IDbExecuter<MyDbContext> DbExecuter { get; set; }
 
         private static readonly string[] Summaries = new[]
         {
@@ -160,10 +160,34 @@ namespace MyApiWithIdentityServer4.Controllers
             MyDbContext _dbContext = await UnitOfWorkManager.Current.GetDbContextAsync<MyDbContext>();
             await _dbContext.Students.AddAsync(new Model.Student
             {
-                LastName = "TestUowDefault",
-                FirstMidName = "TestUowDefault",
-                EnrollmentDate = DateTime.UtcNow,
+                LastName = "TestUowDefault11",
+                FirstMidName = "TestUowDefault11",
+                EnrollmentDate = DateTime.Now,
             });
+
+            string sql = @"insert into Students(Id,LastName,FirstMidName,EnrollmentDate,TenantId,CreationUserId,IsDeleted) " +
+                "values(@Id,@LastName,@FirstMidName,@EnrollmentDate,@TenantId,@CreationUserId,@IsDeleted)";
+            SqlParameter[] sqlParameters =
+            {
+                new SqlParameter("@Id",Guid.NewGuid()),
+                new SqlParameter("@LastName",8899),
+                new SqlParameter("@FirstMidName","aabb121211"),
+                new SqlParameter("@EnrollmentDate",DateTime.Now),
+                new SqlParameter("@TenantId",1),
+                new SqlParameter("@CreationUserId",1),
+                new SqlParameter("@IsDeleted",false),
+            };
+
+            await DbExecuter.BeginWithEfCoreTransactionAsync(UnitOfWorkManager.Current!.GetContextTransaction<MyDbContext>()!);
+            var count = await DbExecuter.ExecuteNonQuery(sql, sqlParameters);
+
+            string updatesql = $"update Students set LastName = @LastName where FirstMidName = @FirstMidName";
+            SqlParameter[] upsqlParameters =
+            {
+                 new SqlParameter("@LastName",889999),
+                 new SqlParameter("@FirstMidName","aabb121211"),
+            };
+            count = await DbExecuter.ExecuteNonQuery(updatesql, upsqlParameters);
         }
 
         [HttpPost(nameof(TestUowRequired))]
@@ -189,8 +213,33 @@ namespace MyApiWithIdentityServer4.Controllers
             {
                 LastName = "TestUowNewRequired",
                 FirstMidName = "TestUowNewRequired",
-                EnrollmentDate = DateTime.UtcNow,
+                EnrollmentDate = DateTime.Now,
             });
+
+            string sql = @"insert into Students(Id,LastName,FirstMidName,EnrollmentDate,TenantId,CreationUserId,IsDeleted) " +
+                "values(@Id,@LastName,@FirstMidName,@EnrollmentDate,@TenantId,@CreationUserId,@IsDeleted)";
+            SqlParameter[] sqlParameters =
+            {
+                new SqlParameter("@Id",Guid.NewGuid()),
+                new SqlParameter("@LastName",8899),
+                new SqlParameter("@FirstMidName","aabb121212"),
+                new SqlParameter("@EnrollmentDate",DateTime.Now),
+                new SqlParameter("@TenantId",1),
+                new SqlParameter("@CreationUserId",1),
+                new SqlParameter("@IsDeleted",false),
+            };
+
+            await DbExecuter.BeginWithEfCoreTransactionAsync(UnitOfWorkManager.Current!.GetContextTransaction<MyDbContext>()!);
+            var count = await DbExecuter.ExecuteNonQuery(sql, sqlParameters);
+
+            string updatesql = $"update Students set LastName = @LastName where FirstMidName = @FirstMidName";
+            SqlParameter[] upsqlParameters =
+            {
+                 new SqlParameter("@LastName",889999),
+                 new SqlParameter("@FirstMidName","aabb121212"),
+            };
+            count = await DbExecuter.ExecuteNonQuery(updatesql, upsqlParameters);
+
             await scope1.CompleteAsync();
         }
 
@@ -379,7 +428,7 @@ namespace MyApiWithIdentityServer4.Controllers
                 new SqlParameter("@CreationUserId",1),
                 new SqlParameter("@IsDeleted",false),
             };
-            var count = await DbWriter.ExecuteNonQuery(sql, sqlParameters);
+            var count = await DbExecuter.ExecuteNonQuery(sql, sqlParameters);
             return Ok(count);
         }
 
@@ -392,23 +441,23 @@ namespace MyApiWithIdentityServer4.Controllers
             {
                 new SqlParameter("@Id",Guid.NewGuid()),
                 new SqlParameter("@LastName",8899),
-                new SqlParameter("@FirstMidName","1212aabb"),
+                new SqlParameter("@FirstMidName","aabb1212"),
                 new SqlParameter("@EnrollmentDate",DateTime.Now),
                 new SqlParameter("@TenantId",1),
                 new SqlParameter("@CreationUserId",1),
                 new SqlParameter("@IsDeleted",false),
             };
 
-            using var scope = await DbWriter.BeginAsync();
-            var count = await DbWriter.ExecuteNonQuery(sql, sqlParameters);
+            using var scope = await DbExecuter.BeginAsync();
+            var count = await DbExecuter.ExecuteNonQuery(sql, sqlParameters);
 
             string updatesql = $"update Students set LastName = @LastName where FirstMidName = @FirstMidName";
             SqlParameter[] upsqlParameters = 
             {
                  new SqlParameter("@LastName",889999),
-                 new SqlParameter("@FirstMidName","1212aabb"),
+                 new SqlParameter("@FirstMidName","aabb1212"),
             };
-            count = await DbWriter.ExecuteNonQuery(updatesql, upsqlParameters);
+            count = await DbExecuter.ExecuteNonQuery(updatesql, upsqlParameters);
 
             await scope.CommitAsync();
             return Ok(count);
@@ -417,10 +466,11 @@ namespace MyApiWithIdentityServer4.Controllers
         [HttpPost]
         public async Task<IActionResult> AdoNetUpdate() 
         {
-            var guids = new Guid[] { new Guid("AE5CA8B0-61C7-4008-A330-98D3DBBD8A00"), new Guid("4C395F7F-FA13-4DFC-8D29-647696FD3245") };
+            using var scope = await DbExecuter.BeginAsync();
+            var guids = new Guid[] { new Guid("83A1A9DB-2537-4915-3B13-08DA69640D94") };
             List<SqlParameter> sqlParameters = new List<SqlParameter>
             {
-                new SqlParameter("@LastName","最好的克伦克"),
+                new SqlParameter("@LastName","最好的克伦克丶"),
             };
             StringBuilder ids = new();
             for (var i = 0; i < guids.Count(); i++)
@@ -430,8 +480,23 @@ namespace MyApiWithIdentityServer4.Controllers
             }
             string @id = ids.ToString().TrimEnd(',');
             string sql = $"update Students set LastName = @LastName where id in ({@id})";
-            var count = await DbWriter.ExecuteNonQuery(sql, sqlParameters.ToArray());
-            return Ok(count);
+            var count = await DbExecuter.ExecuteNonQuery(sql, sqlParameters.ToArray());
+
+            var guids1 = new Guid[] { new Guid("83A1A9DB-2537-4915-3B13-08DA69640D94") };
+            List<SqlParameter> sqlParameters1 = new List<SqlParameter>();
+            StringBuilder ids1 = new();
+            for (var i = 0; i < guids1.Count(); i++)
+            {
+                ids1.Append($"@id{i},");
+                sqlParameters1.Add(new SqlParameter($"@id{i}", guids[i]));
+            }
+            string @id1 = ids1.ToString().TrimEnd(',');
+            string sql1 = $"select * from Students where id in ({@id1})";
+            var datas = await DbExecuter.QueryAsync<Student>(sql1, sqlParameters1.ToArray());
+
+            await scope.CommitAsync();
+
+            return Ok((count,datas));
          }
 
         [HttpPost]
@@ -447,7 +512,7 @@ namespace MyApiWithIdentityServer4.Controllers
             }
             string @id = ids.ToString().TrimEnd(',');
             string sql = $"delete from Students where id in ({@id})";
-            var count = await DbWriter.ExecuteNonQuery(sql, sqlParameters.ToArray());
+            var count = await DbExecuter.ExecuteNonQuery(sql, sqlParameters.ToArray());
             return Ok(count);
         }
 
@@ -464,14 +529,18 @@ namespace MyApiWithIdentityServer4.Controllers
             }
             string @id = ids.ToString().TrimEnd(',');
             string sql = $"select * from Students where id in ({@id})";
-            var datas = await DbWriter.QueryAsync<Student>(sql, sqlParameters.ToArray());
-            return Ok(datas);
+            var datas = await DbExecuter.QueryAsync<Student>(sql, sqlParameters.ToArray());
+
+            sql = "select count(FirstMidName) as count,FirstMidName from students group by FirstMidName";
+            var data2 = await DbExecuter.QueryAsync<object>(sql);
+
+            return Ok((datas,data2));
         }
 
         [HttpGet]
         public async Task<IActionResult> AdoNetQueryOne()
         {
-            var guids = new Guid[] { new Guid("C8498ADF-0BC0-4403-A45B-F3DB44018A03"), new Guid("A41AB308-25FD-42DD-B583-5DE94CD6EFC9") };
+            var guids = new Guid[] { new Guid("C8498ADF-0BC0-4403-A45B-F3DB44018A03") };
             List<SqlParameter> sqlParameters = new List<SqlParameter>();
             StringBuilder ids = new();
             for (var i = 0; i < guids.Count(); i++)
@@ -481,12 +550,12 @@ namespace MyApiWithIdentityServer4.Controllers
             }
             string @id = ids.ToString().TrimEnd(',');
             string sql = $"select * from Students where id in ({@id})";
-            var datas = await DbWriter.QueryFirstOrDefaultAsync<Student>(sql, sqlParameters.ToArray());
+            var datas = await DbExecuter.QueryFirstOrDefaultAsync<Student>(sql, sqlParameters.ToArray());
             return Ok(datas);
         }
 
         [HttpGet]
-        public async Task<IActionResult> AdoNetQueryCount()
+        public async Task<IActionResult> AdoNetScalar()
         {
             var guids = new Guid[] { new Guid("C8498ADF-0BC0-4403-A45B-F3DB44018A03"), new Guid("A41AB308-25FD-42DD-B583-5DE94CD6EFC9") };
             List<SqlParameter> sqlParameters = new List<SqlParameter>();
@@ -498,8 +567,9 @@ namespace MyApiWithIdentityServer4.Controllers
             }
             string @id = ids.ToString().TrimEnd(',');
             string sql = $"select count(*) from Students where id in ({@id})";
-            var datas = await DbWriter.QueryFirstOrDefaultAsync<int>(sql, sqlParameters.ToArray());
-            return Ok(datas);
+            var data1 = await DbExecuter.ExecuteScalarAsync<int>(sql, sqlParameters.ToArray());
+
+            return Ok(data1);
         }
         #endregion
     }
