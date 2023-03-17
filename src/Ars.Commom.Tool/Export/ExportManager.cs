@@ -75,15 +75,17 @@ namespace Ars.Common.Tool.Export
             Valid.ThrowException(null == itemtype, "获取集合泛型具体类型失败");
 
             //导出列组装
-            if (null == input.Column || !input.Column.Any()) 
+            if (!input.Column.HasValue()) 
             {
                 input.Column = SetColumn(itemtype!);
             }
 
             //生成excel
-            return ExcelTool.ExportExcel(new Tools.ExportExcelInput 
+            return ExportExcel(new Tools.ExcelToolInput 
             {
                 ExportFileName = input.ExportFileName, 
+                Title = input.Title,
+                Header = input.Header,
                 Column = input.Column, 
                 List = list!, 
                 ItemType = itemtype!
@@ -161,6 +163,11 @@ namespace Ars.Common.Tool.Export
                 .GetProperties(BindingFlags.Instance | BindingFlags.Public)
                 .Select(r => r.Name)
                 .ToDictionary(t => t,t => _xmlFileManager.GetPropertyXmlSummary(itemtype,t));
+        }
+
+        public virtual FileStreamResult ExportExcel(ExcelToolInput input) 
+        {
+            return ExcelTool.ExportExcel(input);
         }
     }
 }

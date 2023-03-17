@@ -12,24 +12,58 @@ namespace Ars.Common.Tool.Tools
 {
     public static class ExcelTool
     {
-        public static FileStreamResult ExportExcel(ExportExcelInput input) 
+        public static FileStreamResult ExportExcel(ExcelToolInput input) 
         {
             XSSFWorkbook workbook = new XSSFWorkbook();
             ISheet sheet = workbook.CreateSheet("sheet");
-            ICellStyle headCellStyle = GetNPOITitleStyle(workbook);
-            
-            //渲染表头
             int index = 0;
-            IRow rhead = sheet.CreateRow(index);
-            rhead.Height = 100 * 5;
-
-            List<int> columnMaxWidthList = new List<int>(input.Column.Count);//每列的最大列宽
-            int col = 0;
             ICell cell;
+
+            //渲染title
+            if (input.Title.IsNotNullOrEmpty()) 
+            {
+                IRow rhead = sheet.CreateRow(index);
+                rhead.Height = 100 * 5;
+
+                cell = rhead.CreateCell(index);
+                cell.CellStyle = GetNPOITitleStyle(workbook);
+                cell.SetCellValue(input.Title);
+                sheet.AddMergedRegion(new NPOI.SS.Util.CellRangeAddress(index, index, 0, input.Column.Count - 1));
+
+                index++;
+            }
+
+            int col = 0;
+            //渲染header
+            if (input.Header.HasValue()) 
+            {
+                IRow rhead = sheet.CreateRow(index);
+                rhead.Height = 100 * 5;
+
+                foreach (var header in input.Header) 
+                {
+                    cell = rhead.CreateCell(col);
+                    col += header.Value.Item2 - header.Value.Item1 + 1;
+                    cell.CellStyle = GetNPOIHeaderStyle(workbook);
+                    cell.SetCellValue(header.Key);
+                    if (header.Value.Item1 == header.Value.Item2)
+                        continue;
+
+                    sheet.AddMergedRegion(new NPOI.SS.Util.CellRangeAddress(index, index, header.Value.Item1, header.Value.Item2));
+                }
+
+                index++;
+            }
+
+            //渲染行名称
+            col = 0;
+            IRow columnR = sheet.CreateRow(index);
+            List<int> columnMaxWidthList = new List<int>(input.Column.Count);//每列的最大列宽
+            var columnNameStyle = GetNPOIColumnStyle(workbook);
             foreach (var column in input.Column) 
             {
-                cell = rhead.CreateCell(col);
-                cell.CellStyle = headCellStyle;
+                cell = columnR.CreateCell(col);
+                cell.CellStyle = columnNameStyle;
                 cell.SetCellValue(column.Value);
                 //以列头最为初始值
                 columnMaxWidthList.Add(System.Text.Encoding.Default.GetBytes(column.Value).Length + 1);
@@ -41,8 +75,8 @@ namespace Ars.Common.Tool.Tools
             //第二个参数表示要冻结的行数；
             //第三个参数表示右边区域可见的首列序号，从0开始计算；
             //第四个参数表示下边区域可见的首行序号，从1开始计算；
-            sheet.CreateFreezePane(0, index+1, 0, index+1);
-            sheet.SetAutoFilter(new NPOI.SS.Util.CellRangeAddress(0, 0, 0, input.Column.Count - 1)); //首行筛选
+            sheet.CreateFreezePane(0, index + 1, 0, index + 1);
+            sheet.SetAutoFilter(new NPOI.SS.Util.CellRangeAddress(index, index, 0, input.Column.Count - 1)); //首行筛选
 
             //渲染数据
             IRow rbody;
@@ -66,10 +100,11 @@ namespace Ars.Common.Tool.Tools
                 }
             }
 
+            //设置行宽
             col = -1;
             while (++col < columnMaxWidthList.Count)
             {
-                rhead.Sheet.SetColumnWidth(col, columnMaxWidthList[col] * 256);
+                columnR.Sheet.SetColumnWidth(col, columnMaxWidthList[col] * 256);
             }
 
             input.ExportFileName = 
@@ -82,21 +117,56 @@ namespace Ars.Common.Tool.Tools
             return new FileStreamResult(ms, "application/octet-stream") { FileDownloadName = string.Concat(input.ExportFileName, ".xls") };
         }
 
+        /// <summary>
+        /// 定义title样式
+        /// </summary>
+        /// <param name="workbook"></param>
+        /// <returns></returns>
         public static ICellStyle GetNPOITitleStyle(XSSFWorkbook workbook) 
         {
-            //定义表头样式
+            ICellStyle titleCellStyle = workbook.CreateCellStyle();
+            IFont fontStyle = workbook.CreateFont();
+            fontStyle.FontHeightInPoints = 22;
+            fontStyle.IsBold = true;
+            titleCellStyle.VerticalAlignment = VerticalAlignment.Center;//上下居中
+            titleCellStyle.Alignment = HorizontalAlignment.Center;//左右居中
+            titleCellStyle.SetFont(fontStyle);
+            return titleCellStyle;
+        }
+
+        /// <summary>
+        /// 定义header样式
+        /// </summary>
+        /// <param name="workbook"></param>
+        /// <returns></returns>
+        public static ICellStyle GetNPOIHeaderStyle(XSSFWorkbook workbook) 
+        {
             ICellStyle headCellStyle = workbook.CreateCellStyle();
+            headCellStyle.VerticalAlignment = VerticalAlignment.Center;//上下居中
+            headCellStyle.Alignment = HorizontalAlignment.Center;//左右居中
+
+            return headCellStyle;
+        }
+
+        /// <summary>
+        /// 定义行名称样式
+        /// </summary>
+        /// <param name="workbook"></param>
+        /// <returns></returns>
+        public static ICellStyle GetNPOIColumnStyle(XSSFWorkbook workbook) 
+        {
+            ICellStyle columnNameCellStyle = workbook.CreateCellStyle();
             IFont fontStyle = workbook.CreateFont();
             fontStyle.FontHeightInPoints = 10;//字体大小(字号方式)
             fontStyle.Color = NPOI.HSSF.Util.HSSFColor.White.Index;//白色字体
             fontStyle.IsBold = true;
-            headCellStyle.SetFont(fontStyle);
-            headCellStyle.FillPattern = FillPattern.SolidForeground;//必须开启这个才有背景色 且背景色不叫背景色 叫前景色 
-            headCellStyle.FillForegroundColor = NPOI.HSSF.Util.HSSFColor.Indigo.Index;//靛蓝背景
-            headCellStyle.VerticalAlignment = VerticalAlignment.Center;//上下居中
-            headCellStyle.Alignment = HorizontalAlignment.Center;//左右居中
-            headCellStyle.WrapText = true;
-            return headCellStyle;
+            columnNameCellStyle.SetFont(fontStyle);
+            columnNameCellStyle.FillPattern = FillPattern.SolidForeground;//必须开启这个才有背景色 且背景色不叫背景色 叫前景色 
+            columnNameCellStyle.FillForegroundColor = NPOI.HSSF.Util.HSSFColor.Indigo.Index;//靛蓝背景
+            columnNameCellStyle.VerticalAlignment = VerticalAlignment.Center;//上下居中
+            columnNameCellStyle.Alignment = HorizontalAlignment.Center;//左右居中
+            columnNameCellStyle.WrapText = true;
+            return columnNameCellStyle;
         }
     }
 }
