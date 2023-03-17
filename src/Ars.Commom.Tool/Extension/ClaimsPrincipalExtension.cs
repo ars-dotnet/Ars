@@ -10,7 +10,7 @@ namespace Ars.Common.Tool.Extension
 {
     public static class ClaimsPrincipalExtension
     {
-        public static bool Login(this ClaimsPrincipal claimsPrincipal)
+        public static bool Logined(this ClaimsPrincipal claimsPrincipal)
         {
             return claimsPrincipal.Claims.FirstOrDefault(r => r.Type.Equals("sub"))?.Value?.IsNotNullOrEmpty() ?? false;
         }

@@ -98,7 +98,7 @@ namespace Ars.Common.EFCore.AdoNet
                 using DataTable table = new();
                 table.Load(datas);
                 var res = JsonConvert.DeserializeObject<IEnumerable<T>>(JsonConvert.SerializeObject(table));
-                return null == res ? Enumerable.Empty<T>() : res;
+                return !res.HasValue() ? Enumerable.Empty<T>() : res!;
             }
         }
 

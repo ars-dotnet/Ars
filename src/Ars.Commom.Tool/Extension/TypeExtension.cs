@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Ars.Common.Tool.Export;
+using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,6 +21,20 @@ namespace Ars.Common.Tool.Extension
             Type? bType = type.BaseType;
             if (bType == null) return false;
             return baseType.IsAssignableGenericFrom(bType);
+        }
+
+        public static bool IsExportController(this Type type) 
+        {
+            return type.IsClass && 
+                !type.IsAbstract && 
+                !type.IsInterface && 
+                typeof(ControllerBase).IsAssignableFrom(type) && 
+                type.IsDefined(typeof(ExportControllerAttribute),true);
+        }
+
+        public static Type GetActuallyType(this Type type) 
+        {
+            return typeof(Task<>).IsAssignableGenericFrom(type) ? type.GetGenericArguments()[0] : type;
         }
     }
 }

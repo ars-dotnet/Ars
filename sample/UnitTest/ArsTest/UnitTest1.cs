@@ -1,6 +1,5 @@
 using Microsoft.Extensions.DependencyInjection;
 using Xunit;
-using Ars.Commom.Email.DependencyInjectionExtension;
 using Ars.Commom.Email;
 using System.Threading.Tasks;
 using System;
@@ -19,18 +18,6 @@ namespace ArsTest
         public UnitTest1()
         {
             _services = new ServiceCollection();
-            _services.AddArsConfig(option =>
-            {
-                option.AddArsEmail(eopt =>
-                {
-                    eopt.Host = "smtp.qq.com";
-                    eopt.Port = 587;
-                    eopt.EnableSsl = false;
-                    eopt.UserName = "1432507436@qq.com";
-                    eopt.Password = "xmyezgingmucbacd";
-                    eopt.UseDefaultCredentials = false;
-                });
-            });
         }
 
         [Fact]

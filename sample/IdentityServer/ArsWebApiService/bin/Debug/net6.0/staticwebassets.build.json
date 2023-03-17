@@ -1,11 +1,19 @@
 {
   "Version": 1,
-  "Hash": "Z29C816K4Aiaz5Bj1Cab3Xe3wKjExraie4p9A5v3D5I=",
+  "Hash": "wSMH2vupgAdqbJUdk6dMN3RijEW/XMmRzcJZtcbe8nI=",
   "Source": "ArsWebApiService",
   "BasePath": "_content/ArsWebApiService",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "ArsWebApiService\\wwwroot",
+      "Source": "ArsWebApiService",
+      "ContentRoot": "C:\\core\\MyArs\\sample\\IdentityServer\\ArsWebApiService\\wwwroot\\",
+      "BasePath": "_content/ArsWebApiService",
+      "Pattern": "**"
+    }
+  ],
   "Assets": []
 }

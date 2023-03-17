@@ -250,7 +250,7 @@ namespace Ars.Common.EFCore
                 if (!entity.CreationUserId.HasValue)
                     entity.CreationUserId = _arsSession?.UserId;
                 if (!entity.CreationTime.HasValue)
-                    entity.CreationTime = DateTime.UtcNow;
+                    entity.CreationTime = DateTime.Now;
             }
         }
 
@@ -272,7 +272,7 @@ namespace Ars.Common.EFCore
                 if (!entity.UpdateUserId.HasValue)
                     entity.UpdateUserId = _arsSession?.UserId;
                 if (!entity.UpdateTime.HasValue)
-                    entity.UpdateTime = DateTime.UtcNow;
+                    entity.UpdateTime = DateTime.Now;
             }
         }
 
@@ -296,7 +296,7 @@ namespace Ars.Common.EFCore
                 if (!entity.DeleteUserId.HasValue)
                     entity.DeleteUserId = _arsSession?.UserId;
                 if (!entity.DeleteTime.HasValue)
-                    entity.DeleteTime = DateTime.UtcNow;
+                    entity.DeleteTime = DateTime.Now;
             }
         }
     }

@@ -35,5 +35,7 @@ namespace MyApiWithIdentityServer4
         public DbSet<Course> Courses { get; set; }
 
         public DbSet<ClassRoom> ClassRoom { get; set; }
+
+        public DbSet<AppVersion> AppVersion { get; set; }
     }
 }

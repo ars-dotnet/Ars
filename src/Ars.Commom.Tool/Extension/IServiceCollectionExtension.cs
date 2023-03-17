@@ -1,9 +1,11 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Ars.Common.Tool.Export;
+using Microsoft.Extensions.DependencyInjection;
 using Polly;
 using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
+using System.Reflection;
 using System.Security.Authentication;
 using System.Text;
 
@@ -11,7 +13,12 @@ namespace Ars.Common.Tool.Extension
 {
     public static class IServiceCollectionExtension
     {
-        public static void AddArsHttpClient(this IServiceCollection services)
+        /// <summary>
+        /// http client services
+        /// </summary>
+        /// <param name="services"></param>
+        /// <returns></returns>
+        public static IServiceCollection AddArsHttpClient(this IServiceCollection services)
         {
             services.AddHttpClient();
             services
@@ -49,6 +56,26 @@ namespace Ars.Common.Tool.Extension
                 {
                     return policyBuilder.WaitAndRetryAsync(new TimeSpan[] { TimeSpan.FromSeconds(1), TimeSpan.FromSeconds(2) });
                 });
+
+            return services;
+        }
+
+        /// <summary>
+        /// export services
+        /// </summary>
+        /// <param name="services"></param>
+        /// <param name="assembly"></param>
+        /// <returns></returns>
+        public static IServiceCollection AddArsExportService(this IServiceCollection services,Assembly assembly)
+        {
+            var provider = new ExportApiSchemeProvider();
+            services.AddSingleton<IExportApiSchemeProvider>(provider);
+            services.AddScoped<IExportManager, ExportManager>();
+            services.AddSingleton<IXmlFileManager, XmlFileManager>();
+
+            provider.SetExportApiSchemed(assembly);
+
+            return services;
         }
     }
 }
