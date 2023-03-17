@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Ars.Common.Tool.Tools;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -15,5 +16,7 @@ namespace Ars.Common.Tool.Export
         IEnumerable? ToEnumerable(object value, Type returnType, string returnEnumerablePropertyName, out Type? itemtype);
 
         IDictionary<string, string> SetColumn(Type returnType);
+
+        FileStreamResult ExportExcel(ExcelToolInput input);
     }
 }

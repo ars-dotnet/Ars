@@ -165,6 +165,11 @@ namespace Ars.Common.Tool.Export
                 .ToDictionary(t => t,t => _xmlFileManager.GetPropertyXmlSummary(itemtype,t));
         }
 
+        /// <summary>
+        /// 生成excel
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
         public virtual FileStreamResult ExportExcel(ExcelToolInput input) 
         {
             return ExcelTool.ExportExcel(input);
