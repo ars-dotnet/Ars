@@ -11,5 +11,10 @@ namespace Ars.Commom.Tool.Extension
         {
             return ts?.Any() ?? false;
         }
+
+        public static bool HasNotValue<T>(this IEnumerable<T>? ts)
+        {
+            return !ts.HasValue<T>();
+        }
     }
 }

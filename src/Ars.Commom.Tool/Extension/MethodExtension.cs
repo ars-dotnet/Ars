@@ -21,5 +21,15 @@ namespace Ars.Commom.Tool.Extension
             var resultProperty = task.GetType().GetProperty("Result");
             return resultProperty?.GetValue(task)!;
         }
+
+        public static object InvokeGeneric(this MethodInfo methodInfo, object obj, object?[]? @params, params Type[] genericType)
+        {
+            return methodInfo.MakeGenericMethod(genericType).Invoke(obj, @params)!;
+        }
+
+        public static object InvokeGenericAsync(this MethodInfo methodInfo, object obj, object?[]? @params, params Type[] genericType)
+        {
+            return methodInfo.MakeGenericMethod(genericType).InvokeAsync(obj, @params)!;
+        }
     }
 }

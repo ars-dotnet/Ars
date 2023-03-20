@@ -9,9 +9,9 @@ namespace Ars.Common.Tool
     {
         public int Code { get; }
 
-        public ArsException()
+        public ArsException() : this(string.Empty)
         {
-
+            
         }
 
         public ArsException(string message) : this(500, message) 
@@ -27,12 +27,12 @@ namespace Ars.Common.Tool
 
         public ArsException(string message, System.Exception innerException) : base(message,innerException)
         {
-
+            Code = 500;
         }
 
-        public ArsException(SerializationInfo info, StreamingContext context)
+        public ArsException(SerializationInfo info, StreamingContext context) : base(info,context)
         {
-
+            Code = 500;
         }
     }
 }

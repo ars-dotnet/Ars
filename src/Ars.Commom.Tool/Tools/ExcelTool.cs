@@ -12,7 +12,7 @@ namespace Ars.Common.Tool.Tools
 {
     public static class ExcelTool
     {
-        public static FileStreamResult ExportExcel(ExcelToolInput input) 
+        public static MemoryStream GetStream(ExcelExportScheme input) 
         {
             XSSFWorkbook workbook = new XSSFWorkbook();
             ISheet sheet = workbook.CreateSheet("sheet");
@@ -20,7 +20,7 @@ namespace Ars.Common.Tool.Tools
             ICell cell;
 
             //渲染title
-            if (input.Title.IsNotNullOrEmpty()) 
+            if (input.Title.IsNotNullOrEmpty())
             {
                 IRow rhead = sheet.CreateRow(index);
                 rhead.Height = 100 * 5;
@@ -35,12 +35,12 @@ namespace Ars.Common.Tool.Tools
 
             int col = 0;
             //渲染header
-            if (input.Header.HasValue()) 
+            if (input.Header.HasValue())
             {
                 IRow rhead = sheet.CreateRow(index);
                 rhead.Height = 100 * 5;
 
-                foreach (var header in input.Header) 
+                foreach (var header in input.Header)
                 {
                     cell = rhead.CreateCell(col);
                     col += header.Value.Item2 - header.Value.Item1 + 1;
@@ -60,7 +60,7 @@ namespace Ars.Common.Tool.Tools
             IRow columnR = sheet.CreateRow(index);
             List<int> columnMaxWidthList = new List<int>(input.Column.Count);//每列的最大列宽
             var columnNameStyle = GetNPOIColumnStyle(workbook);
-            foreach (var column in input.Column) 
+            foreach (var column in input.Column)
             {
                 cell = columnR.CreateCell(col);
                 cell.CellStyle = columnNameStyle;
@@ -80,14 +80,14 @@ namespace Ars.Common.Tool.Tools
 
             //渲染数据
             IRow rbody;
-            foreach (var item in input.List) 
+            foreach (var item in input.List)
             {
                 col = 0;
                 index++;
                 rbody = sheet.CreateRow(index);
 
                 string value;
-                foreach (var c in input.Column) 
+                foreach (var c in input.Column)
                 {
                     cell = rbody.CreateCell(col);
                     value = input.ItemType.GetProperty(c.Key)!.GetValue(item)!.ToString()!;
@@ -106,14 +106,37 @@ namespace Ars.Common.Tool.Tools
             {
                 columnR.Sheet.SetColumnWidth(col, columnMaxWidthList[col] * 256);
             }
-
-            input.ExportFileName = 
-                input.ExportFileName.IsNullOrEmpty()
-                ? DateTime.Now.ToString("yyyyMMddHHmmss") 
-                : input.ExportFileName;
+            
             MemoryStream ms = new MemoryStream();
             workbook.Write(ms, true);
             ms.Position = 0;
+
+            return ms;
+        }
+
+        public static async Task<bool> SaveExcel(ExcelSaveScheme input) 
+        {
+            using var ms = GetStream(input);
+
+            input.ExportFileName =
+                input.ExportFileName.IsNullOrEmpty()
+                ? DateTime.Now.ToString("yyyyMMddHHmmss")
+                : input.ExportFileName;
+
+            using var fileStream = new FileStream(string.Concat(input.SavePath,input.ExportFileName,".xls"),FileMode.Create);
+            await ms.CopyToAsync(fileStream);
+
+            return true;
+        }
+
+        public static FileStreamResult ExportExcel(ExcelExportScheme input) 
+        {
+            var ms = GetStream(input);
+
+            input.ExportFileName =
+                input.ExportFileName.IsNullOrEmpty()
+                ? DateTime.Now.ToString("yyyyMMddHHmmss")
+                : input.ExportFileName;
             return new FileStreamResult(ms, "application/octet-stream") { FileDownloadName = string.Concat(input.ExportFileName, ".xls") };
         }
 

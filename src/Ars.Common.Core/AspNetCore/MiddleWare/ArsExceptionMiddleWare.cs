@@ -1,9 +1,11 @@
 ﻿using Ars.Common.Core.AspNetCore.OutputDtos;
 using Ars.Common.Tool;
 using Ars.Common.Tool.Extension;
+using Ars.Common.Tool.UploadExcel;
 using Grpc.Core;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Hosting;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -16,8 +18,8 @@ namespace Ars.Common.Core.AspNetCore.MiddleWare
     public class ArsExceptionMiddleWare
     {
         private readonly RequestDelegate _next;
-        private readonly IHostingEnvironment _environment;
-        public ArsExceptionMiddleWare(RequestDelegate next, IHostingEnvironment environment)
+        private readonly IWebHostEnvironment _environment;
+        public ArsExceptionMiddleWare(RequestDelegate next, IWebHostEnvironment environment)
         {
             _next = next;
             _environment = environment;
@@ -44,6 +46,12 @@ namespace Ars.Common.Core.AspNetCore.MiddleWare
             {
                 code = 500;
                 errorMsg = rpcException.Status.Detail;
+            }
+            else if (e is ArsExcelException excelException) 
+            {
+                code = excelException.Code;
+                errorMsg = excelException.Message;
+                data = new { ErrExcelDownUrl = excelException.ErrExcelDownUrl };
             }
             else if (e is ArsException uexception)
             {
