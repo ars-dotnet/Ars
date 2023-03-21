@@ -5,6 +5,7 @@ using NPOI.XSSF.UserModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -86,14 +87,16 @@ namespace Ars.Common.Tool.Tools
                 index++;
                 rbody = sheet.CreateRow(index);
 
-                string value;
+                string? value;
                 foreach (var c in input.Column)
                 {
                     cell = rbody.CreateCell(col);
-                    value = input.ItemType.GetProperty(c.Key)!.GetValue(item)!.ToString()!;
+                    value = ConvertTool.ToString(input.ItemType.GetProperty(c.Key)!.GetValue(item));
                     cell.SetCellValue(value);
 
-                    int length = System.Text.Encoding.Default.GetBytes(value).Length + 1;
+                    int length = value.IsNullOrEmpty() 
+                        ? 0 
+                        : System.Text.Encoding.Default.GetBytes(value).Length + 1;
                     if (length > columnMaxWidthList[col]) { columnMaxWidthList[col] = length; }
 
                     col++;
@@ -116,14 +119,25 @@ namespace Ars.Common.Tool.Tools
 
         public static async Task<bool> SaveExcel(ExcelSaveScheme input) 
         {
-            using var ms = GetStream(input);
+            if (Directory.Exists(input.SavePath))
+            {
+                var fiels = Directory.GetFiles(input.SavePath).Where(r => File.GetLastWriteTime(r) + input.SlidingExpireTime < DateTime.Now);
+                foreach (var item in fiels)
+                {
+                    File.Delete(item);
+                }
+            }
+            else 
+            {
+                Directory.CreateDirectory(input.SavePath);
+            }
 
-            input.ExportFileName =
-                input.ExportFileName.IsNullOrEmpty()
-                ? DateTime.Now.ToString("yyyyMMddHHmmss")
+            input.ExportFileName = 
+                input.ExportFileName.IsNullOrEmpty() 
+                ? DateTime.Now.ToString("yyyyMMddHHmmss") 
                 : input.ExportFileName;
-
-            using var fileStream = new FileStream(string.Concat(input.SavePath,input.ExportFileName,".xls"),FileMode.Create);
+            using var ms = GetStream(input);
+            using var fileStream = new FileStream(string.Concat(input.SavePath,"/",input.ExportFileName,".xls"),FileMode.Create);
             await ms.CopyToAsync(fileStream);
 
             return true;

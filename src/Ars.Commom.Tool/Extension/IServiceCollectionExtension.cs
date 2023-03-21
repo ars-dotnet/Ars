@@ -1,5 +1,10 @@
-﻿using Ars.Common.Tool.Export;
+﻿using Ars.Common.Tool.Configs;
+using Ars.Common.Tool.Export;
+using Ars.Common.Tool.UploadExcel;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 using Polly;
 using System;
 using System.Collections.Generic;
@@ -14,7 +19,7 @@ namespace Ars.Common.Tool.Extension
     public static class IServiceCollectionExtension
     {
         /// <summary>
-        /// http client services
+        /// add http client services
         /// </summary>
         /// <param name="services"></param>
         /// <returns></returns>
@@ -61,12 +66,12 @@ namespace Ars.Common.Tool.Extension
         }
 
         /// <summary>
-        /// export services
+        /// add export excel services
         /// </summary>
         /// <param name="services"></param>
         /// <param name="assembly"></param>
         /// <returns></returns>
-        public static IServiceCollection AddArsExportService(this IServiceCollection services,Assembly assembly)
+        public static IServiceCollection AddArsExportExcelService(this IServiceCollection services,Assembly assembly)
         {
             var provider = new ExportApiSchemeProvider();
             services.AddSingleton<IExportApiSchemeProvider>(provider);
@@ -74,6 +79,29 @@ namespace Ars.Common.Tool.Extension
             services.AddSingleton<IXmlFileManager, XmlFileManager>();
 
             provider.SetExportApiSchemed(assembly);
+
+            return services;
+        }
+
+        /// <summary>
+        /// add upload excel services
+        /// </summary>
+        /// <param name="services"></param>
+        /// <returns></returns>
+        public static IServiceCollection AddArsUploadExcelService(this IServiceCollection services,Action<IArsUploadExcelConfiguration> action) 
+        {
+            IArsUploadExcelConfiguration config = new ArsUploadExcelConfiguration();
+            action(config);
+            services.AddSingleton<IOptions<IArsUploadExcelConfiguration>>(new OptionsWrapper<IArsUploadExcelConfiguration>(config));
+
+            services.AddScoped<IExcelResolve, ExcelResolve>();
+            services.AddScoped<IExcelStorage, ExcelStorage>();
+            services.AddScoped<ArsModelBinder>();
+
+            services.AddControllers(options =>
+            {
+                options.ModelBinderProviders.Insert(0, new ArsModelBinderProvider());
+            });
 
             return services;
         }

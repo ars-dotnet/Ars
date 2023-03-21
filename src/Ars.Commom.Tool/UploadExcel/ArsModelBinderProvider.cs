@@ -14,9 +14,9 @@ namespace Ars.Common.Tool.UploadExcel
     {
         public IModelBinder? GetBinder(ModelBinderProviderContext context)
         {
-            //var metadata = (DefaultModelMetadata)context.Metadata;
             var metadata = context.Metadata;
-            if (typeof(IExcelData<>).IsAssignableGenericFrom(metadata.ContainerType!) && 
+            if (null != metadata.ContainerType && 
+                typeof(IExcelData<>).IsAssignableGenericFrom(metadata.ContainerType) && 
                 metadata.Name == nameof(IExcelData<IExcelModel>.ExcelModels)) 
             {
                 return context.Services.GetService<ArsModelBinder>();

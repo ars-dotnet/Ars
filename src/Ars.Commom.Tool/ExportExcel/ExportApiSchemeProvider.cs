@@ -1,5 +1,6 @@
 ﻿using Ars.Common.Tool.Extension;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -13,7 +14,7 @@ namespace Ars.Common.Tool.Export
         private readonly IDictionary<string, ExportApiScheme> apis;
         public ExportApiSchemeProvider()
         {
-            apis = new Dictionary<string, ExportApiScheme>();
+            apis = new ConcurrentDictionary<string, ExportApiScheme>();
         }
 
         public ExportApiScheme? GetExportApiScheme(string key)
@@ -26,10 +27,10 @@ namespace Ars.Common.Tool.Export
             Array.ForEach(assembly.DefinedTypes.Select(t => t.AsType()).Where(r => r.IsExportController()).ToArray(),
                 t =>
                 {
-                    ExportApiScheme exportApiScheme = null;
+                    ExportApiScheme? exportApiScheme = null;
+                    ExportMethodScheme? exportMethodScheme = null;
+                    IDictionary<string, Type>? param = null;
                     List<ExportMethodScheme> methodSchemes = new List<ExportMethodScheme>(0);
-                    ExportMethodScheme exportMethodScheme = null;
-                    IDictionary<string, Type> param = null;
                     foreach (var @method in t.GetMethods(BindingFlags.Instance | BindingFlags.Public).Where(r => r.IsDefined(typeof(ExportActionAttribute), false))) 
                     {
                         if (methodSchemes.Any(r => r.ActionName.Equals(@method.Name))) 

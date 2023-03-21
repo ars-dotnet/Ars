@@ -9,7 +9,7 @@ namespace Ars.Common.Tool.UploadExcel.Validation
 {
     public class ExcelRequiredAttribute : ExcelBaseValidationAttribute
     {
-        public override bool Validation(object value)
+        public override bool Validation(string filed, object value)
         {
             bool check = value.ToString().IsNotNullOrEmpty();
             if(!check)

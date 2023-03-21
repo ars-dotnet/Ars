@@ -9,5 +9,7 @@ namespace Ars.Common.Tool.Tools
     public class ExcelSaveScheme : ExcelExportScheme
     {
         public string SavePath { get; set; }
+
+        public TimeSpan SlidingExpireTime { get; set; }
     }
 }

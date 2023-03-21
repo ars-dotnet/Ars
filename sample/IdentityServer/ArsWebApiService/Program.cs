@@ -23,12 +23,19 @@ var arsbuilder =
     builder.Services
     .AddArserviceCore(builder.Host, config =>
     {
+        config.ApplicationUrl = "http://192.168.110.67:5196";
         config.AddArsIdentityClient();
     })
     .AddArsDbContext<MyDbContext>();
 builder.Services
     .AddArsHttpClient()
-    .AddArsExportService(typeof(Program).Assembly);
+    .AddArsExportExcelService(typeof(Program).Assembly)
+    .AddArsUploadExcelService(option => 
+    {
+        option.UploadRoot = "wwwroot/upload";
+        option.RequestPath = "apps/upload";
+        option.SlidingExpireTime = TimeSpan.FromMinutes(30);
+    });
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -100,7 +107,8 @@ if (app.Environment.IsDevelopment())
 
 app.UseCors("*");
 string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "wwwroot", "AppDownload");
-
+if (!Directory.Exists(path))
+    Directory.CreateDirectory(path);
 app.UseDirectoryBrowser(new DirectoryBrowserOptions 
 { 
     FileProvider = new PhysicalFileProvider(path),
@@ -117,7 +125,7 @@ app.UseStaticFiles(new StaticFileOptions
         })
 });
 
-app.UseArsCore();
+app.UseArsCore().UseArsUploadExcel();
 app.MapControllers();
 
 app.Run();

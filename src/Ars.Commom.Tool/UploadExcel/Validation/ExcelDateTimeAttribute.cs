@@ -9,9 +9,9 @@ namespace Ars.Common.Tool.UploadExcel.Validation
 {
     public class ExcelDateTimeAttribute : ExcelRequiredAttribute
     {
-        public override bool Validation(object value)
+        public override bool Validation(string filed, object value)
         {
-			bool check = base.Validation(value);
+			bool check = base.Validation(filed,value);
 			if (!check)
 				return check;
 

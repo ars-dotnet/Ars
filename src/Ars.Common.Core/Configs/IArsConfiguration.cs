@@ -1,4 +1,5 @@
 ﻿using Ars.Common.Core.IDependency;
+using Ars.Common.Tool.Configs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Ars.Common.Core.Configs
 {
-    public interface IArsConfiguration
+    public interface IArsConfiguration : IArsBasicConfiguration
     {
         //服务配置集合
         IList<IArsServiceExtension> ArsServiceExtensions { get; }
@@ -24,41 +25,41 @@ namespace Ars.Common.Core.Configs
         /// <summary>
         /// efcore transaction
         /// </summary>
-        public IUnitOfWorkDefaultConfiguration? UnitOfWorkDefaultConfiguration { get; set; }
+        IUnitOfWorkDefaultConfiguration? UnitOfWorkDefaultConfiguration { get; set; }
 
         /// <summary>
         /// consul discover config
         /// </summary>
-        public IConsulDiscoverConfiguration? ConsulDiscoverConfiguration { get; set; }
+        IConsulDiscoverConfiguration? ConsulDiscoverConfiguration { get; set; }
 
         /// <summary>
         /// consul register config
         /// </summary>
-        public IConsulRegisterConfiguration? ConsulRegisterConfiguration { get; set; }
+        IConsulRegisterConfiguration? ConsulRegisterConfiguration { get; set; }
 
         /// <summary>
         /// IdentityServer4 server config
         /// </summary>
-        public IArsIdentityServerConfiguration? ArsIdentityServerConfiguration { get; set; }
+        IArsIdentityServerConfiguration? ArsIdentityServerConfiguration { get; set; }
 
         /// <summary>
         /// IdentityServer4 client config
         /// </summary>
-        public IArsIdentityClientConfiguration? ArsIdentityClientConfiguration { get; set; }
+        IArsIdentityClientConfiguration? ArsIdentityClientConfiguration { get; set; }
 
         /// <summary>
         /// EfCore Dbcontext config
         /// </summary>
-        public IArsDbContextConfiguration? ArsDbContextConfiguration { get; set; }
+        IArsDbContextConfiguration? ArsDbContextConfiguration { get; set; }
 
         /// <summary>
         /// Localization config
         /// </summary>
-        public IArsLocalizationConfiguration? ArsLocalizationConfiguration { get; set; }
+        IArsLocalizationConfiguration? ArsLocalizationConfiguration { get; set; }
 
         /// <summary>
         /// Redis config
         /// </summary>
-        public IArsRedisConfiguration? ArsRedisConfiguration { get; set; }
+        IArsRedisConfiguration? ArsRedisConfiguration { get; set; }
     }
 }

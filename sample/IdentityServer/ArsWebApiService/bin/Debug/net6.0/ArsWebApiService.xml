@@ -4,9 +4,16 @@
         <name>ArsWebApiService</name>
     </assembly>
     <members>
-        <member name="M:ArsWebApiService.Controllers.ExportController.Export(Ars.Common.Tool.Export.ExportExcelInput)">
+        <member name="M:ArsWebApiService.Controllers.ExcelController.Export(Ars.Common.Tool.Export.ExportExcelInput)">
             <summary>
             导出excel
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ArsWebApiService.Controllers.ExcelController.Uplaod(ArsWebApiService.Dtos.UploadInput)">
+            <summary>
+            上传excel
             </summary>
             <param name="input"></param>
             <returns></returns>

@@ -1,6 +1,7 @@
 ﻿using Ars.Commom.Core;
 using Ars.Common.Core;
 using Ars.Common.Core.Configs;
+using Ars.Common.Tool.Configs;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,10 @@ namespace Ars.Common.Host
 {
     internal class ArsConfiguration : IArsConfiguration
     {
+        public string Root { get; private set; }
+
+        public string ApplicationUrl { get; set; }
+
         public IList<IArsServiceExtension> ArsServiceExtensions { get; }
 
         public IList<IArsAppExtension> ArsAppExtensions { get; }
@@ -37,6 +42,7 @@ namespace Ars.Common.Host
 
         public ArsConfiguration()
         {
+            Root = AppDomain.CurrentDomain.BaseDirectory;
             ArsServiceExtensions = new List<IArsServiceExtension>(0);
             ArsAppExtensions = new List<IArsAppExtension>(0);
         }

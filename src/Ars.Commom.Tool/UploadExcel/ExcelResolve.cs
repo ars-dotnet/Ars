@@ -8,6 +8,7 @@ using System.Data;
 using Ars.Common.Tool.Extension;
 using Ars.Commom.Tool.Extension;
 using Ars.Common.Tool.UploadExcel.Validation;
+using Ars.Common.Tool.Tools;
 
 namespace Ars.Common.Tool.UploadExcel
 {
@@ -45,18 +46,20 @@ namespace Ars.Common.Tool.UploadExcel
                 }
 
                 //校验行明细,组装list
-                if (!CheckAndReturnRows(dataTable, mappingAttributes, out list)) 
+                if (!CheckAndReturnRows(dataTable, mappingAttributes, out list))
                 {
                     ValidCellFailed = true;
                     Successed = false;
                     ErrorMsg = "行数据校验失败";
-                    goto over;
+                }
+                else 
+                {
+                    Successed = true;
                 }
 
                 result.Column = mappingAttributes.ToDictionary(r => r.Property,t => t.Column);
                 result.ItemType = typeof(T);
                 result.List = list;
-                Successed = true;
             }
             catch (Exception e) 
             {
@@ -89,17 +92,17 @@ namespace Ars.Common.Tool.UploadExcel
         {
             DataTable dataTable = new DataTable();
 
-            for (var i = 0; i < cells.MaxDataColumn; i++)
+            for (var i = 0; i < cells.MaxDataColumn + 1; i++)
             {
                 dataTable.Columns.Add(new DataColumn(cells[ExcelColumnFromRow,i].StringValue,typeof(string)));
             }
 
             DataRow dataRow;
-            for (var h = ExcelColumnFromRow + 1; h < cells.MaxDataRow;h++) //行
+            for (var h = ExcelColumnFromRow + 1; h < cells.MaxDataRow + 1;h++) //行
             {
                 dataRow = dataTable.NewRow();//每行数据一个row
 
-                for (int j = 0; j < cells.MaxDataColumn; j++) //列
+                for (int j = 0; j < cells.MaxDataColumn + 1; j++) //列
                 {
                     dataRow[j] = cells[h,j].Value;
                 }
@@ -148,8 +151,8 @@ namespace Ars.Common.Tool.UploadExcel
             IEnumerable<IExcelValidation>? iValidations;
             foreach (DataRow row in dataTable.Rows) //每一行明细
             {
-                t = new T();
-                foreach (var attr in excelMappingAttributes) //每一个字段
+                t = Activator.CreateInstance<T>();
+                foreach (var attr in excelMappingAttributes.Where(r => r.ReadOrWrite == ReadOrWrite.Read)) //每一个字段
                 {
                     var value = row[attr.Column];
                     if (iexcelValidation.TryGetValue(attr.Property,out iValidations)) 
@@ -158,7 +161,7 @@ namespace Ars.Common.Tool.UploadExcel
                         {
                             bool? iserr = null;
                             StringBuilder? stringBuilder = null;
-                            if (!valid.Validation(value)) 
+                            if (!valid.Validation(attr.Property, value)) 
                             {
                                 iserr ??= true;
                                 stringBuilder ??= new StringBuilder();
@@ -173,13 +176,22 @@ namespace Ars.Common.Tool.UploadExcel
                         }
                     }
 
-                    t.GetType().GetProperty(attr.Property)!.SetValue(t,value);
+                    if (ConvertTool.TryChangeType(value, attr.PropertyType, out object? newvalue))
+                    {
+                        t.GetType().GetProperty(attr.Property)!.SetValue(t, newvalue);
+                    }
+                    else 
+                    {
+                        t.IsErr = true;
+                        t.FieldErrMsg ??= new Dictionary<string, string>();
+                        t.FieldErrMsg.Add(attr.Property, $"数据{value}转化类型为{attr.PropertyType.Name}失败");
+                    }
                 }
 
                 list.Add(t);
             }
 
-            return list.Any(r => r.IsErr);
+            return !list.Any(r => r.IsErr);
         }
     }
 }

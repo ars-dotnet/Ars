@@ -16,11 +16,11 @@ namespace Ars.Common.Tool.UploadExcel.Validation
 
         public string? ErrorMsg { get; protected set; }
 
-        public bool Validation(object value)
+        public bool Validation(string filed, object value)
         {
             var check = base.IsValid(value);
             if (!check)
-                ErrorMsg = ErrorMessage;
+                ErrorMsg = string.Format(ErrorMessageString!, filed,MaximumLength);
 
             return check;
         }

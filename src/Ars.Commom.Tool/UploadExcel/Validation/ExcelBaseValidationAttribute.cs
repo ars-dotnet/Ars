@@ -11,6 +11,6 @@ namespace Ars.Common.Tool.UploadExcel.Validation
     {
         public string? ErrorMsg { get; protected set; }
 
-        public abstract bool Validation(object value);
+        public abstract bool Validation(string filed, object value);
     }
 }

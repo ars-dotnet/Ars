@@ -10,6 +10,6 @@ namespace Ars.Common.Tool.UploadExcel.Validation
     {
         string? ErrorMsg { get; }
 
-        bool Validation(object value);
+        bool Validation(string filed,object value);
     }
 }
