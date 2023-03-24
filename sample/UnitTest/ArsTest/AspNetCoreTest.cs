@@ -205,14 +205,14 @@ namespace ArsTest
         {
             services.AddTransient<IM, M>();
             services.AddTransient<IM, MM>();
-            
+
             services.AddTransient<ICheck, Check>();
             var serviceProvider = services.BuildServiceProvider();
             var a = serviceProvider.GetRequiredService<IM>();
         }
 
         [Fact]
-        public void TestChunk() 
+        public void TestChunk()
         {
             IEnumerable<int> datas = new List<int>
             {
@@ -223,10 +223,25 @@ namespace ArsTest
         }
 
         [Fact]
-        public void TestIOptions() 
+        public void TestIOptions()
         {
             var a = services.BuildServiceProvider().GetRequiredService<IOptions<Configs>>();
             Assert.True("Bill".Equals(a.Value.Name));
+        }
+
+        [Fact]
+        public void Test123()
+        {
+            IServiceCollection services = new ServiceCollection();
+
+            services.AddTransient<ICheck, Check>();
+            services.AddTransient<ICheck, Check>();
+
+            using var scope = services.BuildServiceProvider().CreateScope();
+            var m = scope.ServiceProvider.GetServices<ICheck>();
+
+            var a = m.First().GetHashCode();
+            var b = m.Last().GetHashCode();
         }
     }
 

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Ars.Common.Tool.UploadExcel
 {
-    public interface IExcelData<T>
+    public interface IExcelData<T> : IExcelDataValidation
         where T : IExcelModel
     {
         IFormFile File { get; set; }

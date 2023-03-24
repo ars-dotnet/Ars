@@ -51,6 +51,44 @@ namespace ArsTest
             var c = GetList().As<IEnumerable<int>>();
         }
 
+        [Fact]
+        public void Test3() 
+        {
+            IEnumerable<BB> bs = new List<BB>
+            {
+                new BB{ A = "1",B = "2"},
+                new BB{ A = "11",B = "22"},
+            };
+
+            var a = bs.As<IEnumerable<IA>>();
+
+            var aa = a.As<IEnumerable<IB>>();
+            var aaa = a.As<IEnumerable<BB>>();
+        }
+
+        [Fact]
+        public void Test4() 
+        {
+
+            try
+            {
+                BB bb = new BB
+                {
+                    A = "a",
+                    B = "b",
+                };
+                CC cc = bb.As<CC>();
+                return;
+            }
+            catch { }
+            finally 
+            {
+
+            }
+
+            
+        }
+
         private IEnumerable<int> Get(int i)
         {
             if (0 == i)
@@ -74,12 +112,32 @@ namespace ArsTest
         {
             return Get(0);
         }
+
+        private class Data
+        {
+            public IEnumerable<string> A { get; set; }
+
+            public string Name { get; set; }
+        }
+
+        public interface IA 
+        {
+            string A { get; set; }
+        }
+
+        public interface IB : IA 
+        {
+            string B { get; set; }
+        }
+
+        public class BB : IB
+        {
+            public string A { get; set; }
+            public string B { get; set; }
+        }
+
+        public class CC : BB { }
     }
 
-    public class Data 
-    {
-        public IEnumerable<string> A { get; set; }
 
-        public string Name { get; set; }
-    }
 }

@@ -18,5 +18,10 @@ namespace Ars.Common.Tool.UploadExcel
 
         [Required]
         public int ExcelColumnFromRow { get; set; }
+
+        public virtual bool Validation()
+        {
+            return true;
+        }
     }
 }

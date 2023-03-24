@@ -5,7 +5,10 @@ namespace ArsWebApiService.Dtos
 {
     public class UploadInput : ExcelBaseData<UploadModel>
     {
-        
+        public override bool Validation()
+        {
+            return true;
+        }
     }
 
     public class UploadModel : ExcelBaseModel
@@ -14,7 +17,7 @@ namespace ArsWebApiService.Dtos
         public DateTime Time { get; set; }
 
         [ExcelMapping("托盘号")]
-        [ExcelStringLength(2)]
+        [ExcelStringLength(10)]
         public string Barcode { get; set; }
 
         [ExcelMapping("销售计划数量")]

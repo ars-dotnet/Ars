@@ -9,6 +9,6 @@ namespace Ars.Common.Tool.UploadExcel
 {
     public interface IExcelStorage
     {
-        Task<bool> ExcelSave(ExcelSaveScheme input);
+        Task<bool> SaveExcel(ExcelSaveScheme input);
     }
 }

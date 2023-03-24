@@ -98,9 +98,12 @@ namespace Ars.Common.Tool.Extension
             services.AddScoped<IExcelStorage, ExcelStorage>();
             services.AddScoped<ArsModelBinder>();
 
+            services.AddTransient<ArsExcelActionFilter>();
+
             services.AddControllers(options =>
             {
                 options.ModelBinderProviders.Insert(0, new ArsModelBinderProvider());
+                options.Filters.Add<ArsExcelActionFilter>();
             });
 
             return services;

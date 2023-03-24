@@ -17,6 +17,6 @@ namespace Ars.Common.Tool.UploadExcel
         /// key 错误列
         /// value 具体错误
         /// </summary>
-        IDictionary<string, string> FieldErrMsg { get; set; }
+        IDictionary<string, string>? FieldErrMsg { get; set; }
     }
 }

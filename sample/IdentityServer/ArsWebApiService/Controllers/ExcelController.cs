@@ -1,4 +1,5 @@
 ﻿using Ars.Common.Tool.Export;
+using Ars.Common.Tool.UploadExcel;
 using ArsWebApiService.Dtos;
 using Microsoft.AspNetCore.Mvc;
 
@@ -33,6 +34,11 @@ namespace ArsWebApiService.Controllers
         [HttpPost]
         public Task Uplaod([FromForm] UploadInput input) 
         {
+            var a = input.ExcelModels.FirstOrDefault();
+            a.IsErr = true;
+            a.FieldErrMsg = new Dictionary<string,string>{ { "Barcode", "托盘错误" } };
+            throw new ArsExcelSaveErrOnlyException("错误");
+
             return Task.CompletedTask;
         }
     }

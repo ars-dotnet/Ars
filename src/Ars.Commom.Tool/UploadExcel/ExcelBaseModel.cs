@@ -11,6 +11,6 @@ namespace Ars.Common.Tool.UploadExcel
         public bool IsErr { get; set; }
 
         [ExcelMapping("错误汇总", ReadOrWrite.Write)]
-        public IDictionary<string, string> FieldErrMsg { get; set; }
+        public IDictionary<string, string>? FieldErrMsg { get; set; }
     }
 }

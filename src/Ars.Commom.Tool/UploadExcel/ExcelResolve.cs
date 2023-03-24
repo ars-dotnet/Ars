@@ -117,7 +117,7 @@ namespace Ars.Common.Tool.UploadExcel
              where T : IExcelModel, new()
         {
             bool check = false;
-             mappingAttributes = typeof(T).GetExcelMappingAttributes().ToArray();
+            mappingAttributes = typeof(T).GetExcelMappingAttributes().ToArray();
             if (mappingAttributes.HasNotValue()) 
             {
                 Successed = false;

@@ -69,7 +69,7 @@ namespace Ars.Common.Tool.UploadExcel
                             SlidingExpireTime = _uploadConfig.Value.SlidingExpireTime
                         };
                         //保存新的excel
-                        var save = await _excelStorage.ExcelSave(savescheme);
+                        var save = await _excelStorage.SaveExcel(savescheme);
                         if (save)
                         {
                             throw new ArsExcelException(
