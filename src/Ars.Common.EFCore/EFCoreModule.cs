@@ -1,4 +1,5 @@
 ﻿using Ars.Common.AutoFac;
+using Ars.Common.EFCore.AdoNet;
 using Ars.Common.EFCore.Entities;
 using Ars.Common.EFCore.Extension;
 using Ars.Common.EFCore.Repository;
@@ -23,7 +24,9 @@ namespace Ars.Common.EFCore
             Type repoType = typeof(IRepository<>);
             Type repoTypeTwo = typeof(IRepository<,>);
             Type implrepoTypeTwo = typeof(EfCoreRepositoryBase<,>);
-            Type implrepoTypeThree = typeof(EfCoreRepositoryBase<,,>); 
+            Type implrepoTypeThree = typeof(EfCoreRepositoryBase<,,>);
+            Type adonetType = typeof(IDbExecuter<>);
+            Type adonetimplType = typeof(DbExecuter<>);
             Type? servicetype = null;
             Type? implementtype = null;
             Type? keytype = null;
@@ -36,6 +39,10 @@ namespace Ars.Common.EFCore
                 .ToArray(),
                 r =>
                 {
+                    servicetype = adonetType.MakeGenericType(r);
+                    implementtype = adonetimplType.MakeGenericType(r);
+                    builder.RegisterType(implementtype).As(servicetype).InstancePerLifetimeScope();
+
                     foreach(var info in r.GetProperties(BindingFlags.Instance | BindingFlags.Public)
                      .Where(t => typeof(DbSet<>).IsAssignableGenericFrom(t.PropertyType) &&
                                  typeof(IEntity<>).IsAssignableGenericFrom(t.PropertyType.GetGenericArguments()[0]))

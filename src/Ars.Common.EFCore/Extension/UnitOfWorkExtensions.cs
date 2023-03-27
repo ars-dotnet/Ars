@@ -1,6 +1,7 @@
 ﻿using Ars.Common.Core.Uow;
 using Ars.Common.EFCore.EfCoreUnitOfWorks;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
@@ -40,6 +41,21 @@ namespace Ars.Common.EFCore.Extension
             }
 
             return coreUnitOfWork.GetOrCreateDbContext<TDbContext>(name);
+        }
+
+        public static IDbContextTransaction? GetContextTransaction<TDbContext>(this IActiveUnitOfWork activeUnitOfWork, string name = null)
+             where TDbContext : DbContext
+        {
+            if (null == activeUnitOfWork)
+            {
+                throw new ArgumentNullException(nameof(activeUnitOfWork));
+            }
+            if (!(activeUnitOfWork is EfCoreUnitOfWork coreUnitOfWork))
+            {
+                throw new ArgumentException($"{nameof(activeUnitOfWork)} is not type of {typeof(EfCoreUnitOfWork).FullName}", nameof(activeUnitOfWork));
+            }
+
+            return coreUnitOfWork.GetContextTransaction<TDbContext>(name);
         }
     }
 }

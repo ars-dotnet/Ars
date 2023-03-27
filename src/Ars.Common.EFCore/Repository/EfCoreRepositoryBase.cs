@@ -14,7 +14,7 @@ namespace Ars.Common.EFCore.Repository
 {
     public class EfCoreRepositoryBase<TDbContext, TEntity, TPrimaryKey> : ArsRepositoryBase<TDbContext, TEntity, TPrimaryKey>
         where TEntity : class, IEntity<TPrimaryKey>
-        where TDbContext : ArsDbContext
+        where TDbContext : DbContext
     {
 
         [Autowired]
@@ -38,13 +38,13 @@ namespace Ars.Common.EFCore.Repository
             return (await GetDbContextAsync()).Set<TEntity>();
         }
 
-        public override IQueryable<TEntity> GetAllIncluding(params Expression<Func<TEntity, object>>[] selectors) 
+        public override IQueryable<TEntity> GetAllIncluding(params Expression<Func<TEntity, object>>[] selectors)
         {
             var query = GetAll();
             if (null == selectors)
                 return query;
 
-            foreach (var selector in selectors) 
+            foreach (var selector in selectors)
             {
                 query = query.Include(selector);
             }
@@ -58,7 +58,7 @@ namespace Ars.Common.EFCore.Repository
             if (null == selectors)
                 return query;
 
-            foreach (var selector in selectors) 
+            foreach (var selector in selectors)
             {
                 query = query.Include(selector);
             }
@@ -116,11 +116,21 @@ namespace Ars.Common.EFCore.Repository
         {
             GetTable().Remove(entity);
         }
+
+        public override async Task<int> CountAsync()
+        {
+            return await (await GetAllAsync()).CountAsync();
+        }
+
+        public override async Task<int> CountAsync(Expression<Func<TEntity, bool>> predicate)
+        {
+            return await (await GetAllAsync()).CountAsync(predicate);
+        }
     }
 
     public class EfCoreRepositoryBase<TDbContext, TEntity> : EfCoreRepositoryBase<TDbContext, TEntity, int>, IRepository<TEntity>
         where TEntity : class, IEntity<int>
-        where TDbContext : ArsDbContext
+        where TDbContext : DbContext
     {
 
     }

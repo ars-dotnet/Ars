@@ -13,6 +13,8 @@ using Ars.Common.IdentityServer4.Validation;
 using System.Net;
 using Ars.Common.Core.AspNetCore.Extensions;
 using Ars.Common.Tool.Extension;
+using Microsoft.Extensions.FileProviders;
+using Microsoft.AspNetCore.StaticFiles;
 
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
@@ -21,10 +23,19 @@ var arsbuilder =
     builder.Services
     .AddArserviceCore(builder.Host, config =>
     {
+        config.ApplicationUrl = "http://192.168.110.67:5196";
         config.AddArsIdentityClient();
     })
     .AddArsDbContext<MyDbContext>();
-builder.Services.AddArsHttpClient();
+builder.Services
+    .AddArsHttpClient()
+    .AddArsExportExcelService(typeof(Program).Assembly)
+    .AddArsUploadExcelService(option => 
+    {
+        option.UploadRoot = "wwwroot/upload";
+        option.RequestPath = "apps/upload";
+        option.SlidingExpireTime = TimeSpan.FromMinutes(30);
+    });
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -37,7 +48,8 @@ builder.Services.AddCors(cors =>
     });
 });
 
-var idscfg = builder.Services.BuildServiceProvider().CreateScope().ServiceProvider.GetRequiredService<IArsIdentityClientConfiguration>();
+using var scope = builder.Services.BuildServiceProvider().CreateScope();
+var idscfg = scope.ServiceProvider.GetRequiredService<IArsIdentityClientConfiguration>();
 
 builder.Services.AddSwaggerGen(c =>
 {
@@ -94,9 +106,26 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseCors("*");
-app.UseStaticFiles();
+string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "wwwroot", "AppDownload");
+if (!Directory.Exists(path))
+    Directory.CreateDirectory(path);
+app.UseDirectoryBrowser(new DirectoryBrowserOptions 
+{ 
+    FileProvider = new PhysicalFileProvider(path),
+    RequestPath = "/apps/download"
+});
+app.UseStaticFiles(new StaticFileOptions 
+{
+    FileProvider = new PhysicalFileProvider(path),
+    RequestPath = "/apps/download",
+    ContentTypeProvider = new FileExtensionContentTypeProvider(
+        new Dictionary<string, string> 
+        {
+            { ".apk","application/vnd.android.package-archive"},
+        })
+});
 
-app.UseArsCore();
+app.UseArsCore().UseArsUploadExcel();
 app.MapControllers();
 
 app.Run();

@@ -39,7 +39,7 @@ namespace ArsWebApiService.Controllers.H5Controllers
 
                     var datas = JsonConvert.DeserializeObject<LoginOutput>(tokenresponse.Json.ToString())!;
 
-                    datas.user_num = "1";
+                    datas.user_name = input.UserName;
                     return ArsOutput<LoginOutput>.Success(datas);
                 }
             }

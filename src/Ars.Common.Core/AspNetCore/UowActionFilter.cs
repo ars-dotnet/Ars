@@ -2,6 +2,7 @@
 using Ars.Common.Core.IDependency;
 using Ars.Common.Core.Uow;
 using Ars.Common.Core.Uow.Attributes;
+using Ars.Common.Tool.Extension;
 using Microsoft.AspNetCore.Mvc.Filters;
 using System;
 using System.Collections.Generic;

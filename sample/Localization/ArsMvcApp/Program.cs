@@ -1,8 +1,4 @@
 using Ars.Commom.Host.Extension;
-using Ars.Common.IdentityServer4.Extension;
-using Ars.Common.Localization.Extension;
-using Ars.Common.Localization.IServiceCollectionExtension;
-using Ars.Common.Localization.ValidProvider;
 using ArsMvcApp;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc.Razor;
@@ -13,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Ars.Common.Redis;
 using Ars.Common.Redis.RedisExtension;
 using Ars.Common.Redis.Extension;
+using Ars.Common.Core.Localization.Extension;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,8 +24,8 @@ var provider = builder.Services.
                 cacheoption.DefaultSlidingExpireTime = TimeSpan.FromMinutes(10);
             });
         });
-    }).
-    AddArsLocalization();
+        config.AddArsLocalization();
+    });
 
 //builder.Services.Configure<Configs>(builder.Configuration.GetSection(nameof(Configs)));
 //builder.Services.Configure<Configs>(option =>

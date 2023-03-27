@@ -14,7 +14,7 @@ namespace Ars.Common.EFCore.Repository
 {
     public abstract class ArsRepositoryBase<TDbContext, TEntity, TPrimaryKey> : IRepository<TEntity, TPrimaryKey>
           where TEntity : class, IEntity<TPrimaryKey>
-          where TDbContext : ArsDbContext
+          where TDbContext : DbContext
     {
         public abstract IQueryable<TEntity> GetAll();
 
@@ -100,6 +100,5 @@ namespace Ars.Common.EFCore.Repository
         {
             return Task.FromResult(Count(predicate));
         }
-
     }
 }

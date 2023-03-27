@@ -99,7 +99,7 @@
       }
     },
     "C:\\core\\MyArs\\src\\Ars.Commom.Host\\Ars.Common.Host.csproj": {
-      "version": "1.4.0",
+      "version": "1.5.1",
       "restore": {
         "projectUniqueName": "C:\\core\\MyArs\\src\\Ars.Commom.Host\\Ars.Common.Host.csproj",
         "projectName": "Ars.Common.Host",
@@ -180,7 +180,7 @@
       }
     },
     "C:\\core\\MyArs\\src\\Ars.Commom.Tool\\Ars.Common.Tool.csproj": {
-      "version": "1.4.0",
+      "version": "1.5.1",
       "restore": {
         "projectUniqueName": "C:\\core\\MyArs\\src\\Ars.Commom.Tool\\Ars.Common.Tool.csproj",
         "projectName": "Ars.Common.Tool",
@@ -219,6 +219,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Aspose.Cells": {
+              "target": "Package",
+              "version": "[23.3.0, )"
+            },
             "MessagePack": {
               "target": "Package",
               "version": "[2.3.85, )"
@@ -247,6 +251,14 @@
               "target": "Package",
               "version": "[6.0.0, )"
             },
+            "NPOI": {
+              "target": "Package",
+              "version": "[2.6.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
             "Swashbuckle.AspNetCore.SwaggerGen": {
               "target": "Package",
               "version": "[6.5.0, )"
@@ -272,7 +284,7 @@
       }
     },
     "C:\\core\\MyArs\\src\\Ars.Common.AutoFac\\Ars.Common.AutoFac.csproj": {
-      "version": "1.4.0",
+      "version": "1.5.1",
       "restore": {
         "projectUniqueName": "C:\\core\\MyArs\\src\\Ars.Common.AutoFac\\Ars.Common.AutoFac.csproj",
         "projectName": "Ars.Common.AutoFac",
@@ -351,7 +363,7 @@
       }
     },
     "C:\\core\\MyArs\\src\\Ars.Common.Core\\Ars.Common.Core.csproj": {
-      "version": "1.4.0",
+      "version": "1.5.1",
       "restore": {
         "projectUniqueName": "C:\\core\\MyArs\\src\\Ars.Common.Core\\Ars.Common.Core.csproj",
         "projectName": "Ars.Common.Core",

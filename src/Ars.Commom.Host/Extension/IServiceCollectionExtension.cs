@@ -10,6 +10,7 @@ using Ars.Common.Core.AspNetCore;
 using Ars.Common.Core.AspNetCore.Extensions;
 using Ars.Common.Core.Configs;
 using Ars.Common.Host;
+using Ars.Common.Tool.Configs;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Controllers;
@@ -17,6 +18,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Serialization;
@@ -42,12 +44,17 @@ namespace Ars.Commom.Host.Extension
             action ??= _ => Console.WriteLine("Default Ars Start");
             action += r => r.AddArsAspNetCore();
             action += r => r.AddArsAutofac();
-            IArsConfiguration arsConfig = new ArsConfiguration();
+
+            using var scope = services.BuildServiceProvider().CreateScope();
+            IArsConfiguration arsConfig = scope.ServiceProvider.GetRequiredService<IArsConfiguration>();
             action?.Invoke(arsConfig);
             foreach (var serviceExtension in arsConfig.ArsServiceExtensions) 
             {
                 serviceExtension.AddService(arsbuilder);
             }
+
+            services.AddSingleton<IOptions<IArsBasicConfiguration>>(
+                new OptionsWrapper<IArsBasicConfiguration>(arsConfig));
 
             return arsbuilder;
         }

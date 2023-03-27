@@ -4,6 +4,41 @@
         <name>ArsWebApiService</name>
     </assembly>
     <members>
+        <member name="M:ArsWebApiService.Controllers.ExcelController.Export(Ars.Common.Tool.Export.ExportExcelInput)">
+            <summary>
+            导出excel
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ArsWebApiService.Controllers.ExcelController.Uplaod(ArsWebApiService.Dtos.UploadInput)">
+            <summary>
+            上传excel
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ArsWebApiService.Controllers.H5Controllers.H5DownloadController.DownloadApp(System.String)">
+            <summary>
+            下载app
+            </summary>
+            <param name="version"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ArsWebApiService.Controllers.H5Controllers.H5DownloadController.GetAppLastVersion">
+            <summary>
+            获取最新版本
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ArsWebApiService.Controllers.H5Controllers.H5DownloadController.UploadApp(Microsoft.AspNetCore.Http.IFormFile,System.String)">
+            <summary>
+            上传app
+            </summary>
+            <param name="file">app文件</param>
+            <param name="version">版本号，格式如v1.0.0, v1.1.0</param>
+            <returns></returns>
+        </member>
         <member name="M:ArsWebApiService.Controllers.IdentityServer4Controller.ClientCredentials">
             <summary>
             
@@ -23,6 +58,71 @@
             </summary>
             <param name="input"></param>
             <returns></returns>
+        </member>
+        <member name="P:ArsWebApiService.Dtos.GetPageOutput.SendTime">
+            <summary>
+            时间
+            </summary>
+        </member>
+        <member name="P:ArsWebApiService.Dtos.GetPageOutput.PartBarCode">
+            <summary>
+            托盘号
+            </summary>
+        </member>
+        <member name="P:ArsWebApiService.Dtos.GetPageOutput.DemQty">
+            <summary>
+            销售计划数量
+            </summary>
+        </member>
+        <member name="P:ArsWebApiService.Dtos.GetPageOutput.RealQty">
+            <summary>
+            销售实际数量
+            </summary>
+        </member>
+        <member name="P:ArsWebApiService.Dtos.GetPageOutput.BatchNum">
+            <summary>
+            批次号
+            </summary>
+        </member>
+        <member name="P:ArsWebApiService.Dtos.GetPlanByNumberOutput.PlanNumber">
+            <summary>
+            PlanNumber1
+            </summary>
+        </member>
+        <member name="P:ArsWebApiService.Dtos.GetPlanByNumberOutput.OrderNum">
+            <summary>
+            OrderNum1
+            </summary>
+        </member>
+        <member name="P:ArsWebApiService.Dtos.GetPlanByNumberOutput.SnNum">
+            <summary>
+            SnNum1
+            </summary>
+        </member>
+        <member name="P:ArsWebApiService.Dtos.GetPlanByNumberOutput.CusName">
+            <summary>
+            CusName1
+            </summary>
+        </member>
+        <member name="P:ArsWebApiService.Dtos.GetPlanByNumberOutput.ProductName">
+            <summary>
+            ProductName
+            </summary>
+        </member>
+        <member name="P:ArsWebApiService.Dtos.GetPlanByNumberOutput.BarCode">
+            <summary>
+            BarCode1
+            </summary>
+        </member>
+        <member name="P:ArsWebApiService.Dtos.GetPlanByNumberOutput.BomNumber">
+            <summary>
+            BomNumber
+            </summary>
+        </member>
+        <member name="P:ArsWebApiService.Dtos.GetPlanByNumberOutput.PlanQty">
+            <summary>
+            PlanQty
+            </summary>
         </member>
         <member name="P:MyApiWithIdentityServer4.Model.Student.TimeStamp">
             <summary>

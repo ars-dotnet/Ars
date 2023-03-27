@@ -40,6 +40,12 @@ namespace ArsTest
                 }
             }
         }
+
+        [Fact]
+        public void Test2() 
+        {
+
+        }
     }
 
     public class Animals

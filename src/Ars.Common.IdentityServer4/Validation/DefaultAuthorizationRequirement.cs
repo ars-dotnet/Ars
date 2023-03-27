@@ -22,7 +22,7 @@ namespace Ars.Common.IdentityServer4.Validation
             AuthorizationHandlerContext context, DefaultAuthorizationRequirement requirement)
         {
             var user = context.User;
-            if (!user.Login())
+            if (!user.Logined())
             {
                 Valid.ThrowException(401, "身份未认证，请重新登录");
             }

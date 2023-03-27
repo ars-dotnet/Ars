@@ -1,5 +1,5 @@
 ﻿using Ars.Commom.Tool.Serializer;
-using Ars.Common.Localization;
+using Ars.Common.Core;
 using Ars.Common.Redis;
 using Ars.Common.Redis.Extension;
 using ArsMvcApp.Models;
