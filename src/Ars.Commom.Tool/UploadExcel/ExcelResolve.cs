@@ -57,7 +57,12 @@ namespace Ars.Common.Tool.UploadExcel
                     Successed = true;
                 }
 
-                result.Column = mappingAttributes.ToDictionary(r => r.Property,t => t.Column);
+                result.Column = mappingAttributes.Select(r => new ExcelExportColumn 
+                { 
+                    Field = r.Property,
+                    Column = r.Column,
+                    IsRequired = r.IsRequired 
+                });
                 result.ItemType = typeof(T);
                 result.List = list;
             }
@@ -165,13 +170,13 @@ namespace Ars.Common.Tool.UploadExcel
                             {
                                 iserr ??= true;
                                 stringBuilder ??= new StringBuilder();
-                                stringBuilder.Append(valid.ErrorMsg).Append("\r\n");
+                                stringBuilder.Append(valid.ErrorMsg);
                             }
                             if (iserr ?? false) 
                             {
                                 t.IsErr = true;
                                 t.FieldErrMsg ??= new Dictionary<string, string>();
-                                t.FieldErrMsg.Add(attr.Property, stringBuilder!.ToString());
+                                t.FieldErrMsg.TryAdd(attr.Column, stringBuilder!.ToString());
                             }
                         }
                     }
@@ -184,7 +189,7 @@ namespace Ars.Common.Tool.UploadExcel
                     {
                         t.IsErr = true;
                         t.FieldErrMsg ??= new Dictionary<string, string>();
-                        t.FieldErrMsg.Add(attr.Property, $"数据{value}转化类型为{attr.PropertyType.Name}失败");
+                        t.FieldErrMsg.TryAdd(attr.Column, $"数据{value}转化类型为{attr.PropertyType.Name}失败");
                     }
                 }
 

@@ -13,7 +13,8 @@ namespace ArsWebApiService.Dtos
 
     public class UploadModel : ExcelBaseModel
     {
-        [ExcelMapping("时间")]
+        [ExcelMapping("时间",true)]
+        [ExcelRequired]
         public DateTime Time { get; set; }
 
         [ExcelMapping("托盘号")]

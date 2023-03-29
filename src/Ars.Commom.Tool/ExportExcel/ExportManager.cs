@@ -86,7 +86,7 @@ namespace Ars.Common.Tool.Export
                 ExportFileName = input.ExportFileName, 
                 Title = input.Title,
                 Header = input.Header,
-                Column = input.Column, 
+                Column = input.Column.Select(r => new ExcelExportColumn { Field = r.Key,Column = r.Value }), 
                 List = list!, 
                 ItemType = itemtype!
             });

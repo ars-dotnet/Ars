@@ -19,10 +19,12 @@ namespace Ars.Common.Tool.Tools
         /// </summary>
         public IDictionary<string, (int, int)> Header { get; set; }
 
+        //public IDictionary<string, string> Column { get; set; }
+
         /// <summary>
-        /// 导出列[字段名、显示名]
+        /// 
         /// </summary>
-        public IDictionary<string, string> Column { get; set; }
+        public IEnumerable<ExcelExportColumn> Column { get; set; }
 
         /// <summary>
         /// 数据

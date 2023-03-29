@@ -45,7 +45,12 @@ namespace Ars.Common.Tool.UploadExcel
                     savescheme = new ExcelSaveScheme
                     {
                         SavePath = Path.Combine(_basicConfig.Value.Root, _uploadConfig.Value.UploadRoot),
-                        Column = itemType.GetExcelMappingAttributes().ToDictionary(r => r.Property, t => t.Column),
+                        Column = itemType.GetExcelMappingAttributes().Select(r => new ExcelExportColumn 
+                        {
+                            Field = r.Property,
+                            Column = r.Column,
+                            IsRequired = r.IsRequired
+                        }),
                         List = idatavalidation.GetType().GetProperty(nameof(IExcelData<IExcelModel>.ExcelModels))!.GetValue(idatavalidation).As<IEnumerable>()!,
                         ItemType = itemType,
                         SlidingExpireTime = _uploadConfig.Value.SlidingExpireTime
@@ -62,7 +67,12 @@ namespace Ars.Common.Tool.UploadExcel
                         savescheme = new ExcelSaveScheme()
                         {
                             SavePath = Path.Combine(_basicConfig.Value.Root, _uploadConfig.Value.UploadRoot),
-                            Column = itemType.GetExcelMappingAttributes().ToDictionary(r => r.Property, t => t.Column),
+                            Column = itemType.GetExcelMappingAttributes().Select(r => new ExcelExportColumn
+                            {
+                                Field = r.Property,
+                                Column = r.Column,
+                                IsRequired = r.IsRequired
+                            }),
                             ItemType = itemType,
                             SlidingExpireTime = _uploadConfig.Value.SlidingExpireTime
                         };

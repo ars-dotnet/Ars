@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Ars.Commom.Tool.Extension;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace Ars.Common.Tool.Tools
         public static bool TryChangeType(object? value, Type conversionType, out object? newvalue)
         {
             bool isConvert = false;
-            if (null == value) 
+            if (null == value || value.ToString().IsNullOrEmpty()) 
             {
                 newvalue = null;
                 isConvert = true;
