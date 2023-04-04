@@ -154,11 +154,6 @@ namespace Ars.Common.IdentityServer4.Extension
 
             services
                 .AddAuthentication(defaultScheme)
-                //.AddCertificate(options =>
-                //{
-                //    options.AllowedCertificateTypes = CertificateTypes.All;
-                //    options.RevocationMode = X509RevocationMode.NoCheck;
-                //})
                 .AddIdentityServerAuthentication(configureOptions);
             services.AddAuthorization(configure);
             return builder;
