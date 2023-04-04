@@ -81,7 +81,9 @@ appsettings.Development.json
 	  "ArsIdentityClientConfiguration": {
 		"Authority": "http://ip:port",
 		"ApiName": "apiIds4Second", 
-		"RequireHttpsMetadata": false
+		"RequireHttpsMetadata": true,
+	    "CertificatePath": "xxx",
+        "CertificatePassWord": "xxx"
 	  },
 	  //redis config
 	  "ArsCacheConfiguration": {
