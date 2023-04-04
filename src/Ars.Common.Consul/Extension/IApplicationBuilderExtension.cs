@@ -1,4 +1,5 @@
-﻿using Ars.Common.Consul.Option;
+﻿using Ars.Commom.Tool.Certificates;
+using Ars.Common.Consul.Option;
 using Ars.Common.Core.Configs;
 using Consul;
 using Microsoft.AspNetCore.Builder;
@@ -12,6 +13,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http.Headers;
 using System.Security.Authentication;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -26,7 +28,7 @@ namespace Ars.Common.Consul.IApplicationBuilderExtension
                 {
                     Address = new Uri(option.ConsulAddress),
                     Datacenter = "dc1"
-                }, CreateHttpClient());
+                }, CreateHttpClient(option));
 
             IConfiguration configuration = app.ApplicationServices.GetRequiredService<IConfiguration>();
             string ip = option.ServiceIp;
@@ -43,11 +45,23 @@ namespace Ars.Common.Consul.IApplicationBuilderExtension
             if (string.IsNullOrEmpty(option.HttpHealthAction))
             {
                 check.GRPC = $"{ip}:{port}";
-                check.GRPCUseTLS = false;
+                if (option.UseHttps) 
+                {
+                    check.TLSSkipVerify = true;
+                    check.GRPCUseTLS = true;
+                }
             }
             else 
             {
-                check.HTTP = $"http://{ip}:{port}/{option.HttpHealthAction}";
+                if (option.UseHttps)
+                {
+                    check.TLSSkipVerify = true;
+                    check.HTTP = $"https://{ip}:{port}/{option.HttpHealthAction}";
+                }
+                else 
+                {
+                    check.HTTP = $"http://{ip}:{port}/{option.HttpHealthAction}";
+                }
             }
             //服务注册
             client.Agent.ServiceRegister(new AgentServiceRegistration()
@@ -69,13 +83,20 @@ namespace Ars.Common.Consul.IApplicationBuilderExtension
             return app;
         }
 
-        private static HttpClient CreateHttpClient()
+        private static HttpClient CreateHttpClient(IConsulRegisterConfiguration option)
         {
             var handler = new HttpClientHandler
             {
                 ClientCertificateOptions = ClientCertificateOption.Manual,
                 SslProtocols = SslProtocols.Tls12,
             };
+
+            if (option.UseHttps) 
+            {
+                handler.ClientCertificates.Add(Certificate.Get(option.CertificatePath,option.CertificatePassWord));
+                handler.ServerCertificateCustomValidationCallback =
+                    HttpClientHandler.DangerousAcceptAnyServerCertificateValidator;
+            }
 
             var httpclient = new HttpClient(handler)
             {

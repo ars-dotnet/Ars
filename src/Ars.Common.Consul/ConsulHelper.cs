@@ -16,12 +16,6 @@ namespace Ars.Common.Consul
     /// </summary>
     public class ConsulHelper
     {
-        private readonly IConsulDiscoverConfiguration _options;
-        public ConsulHelper(IConsulDiscoverConfiguration options)
-        {
-            _options = options;
-        }
-
         /// <summary>
         /// 根据服务名称获取服务地址
         /// </summary>
@@ -47,16 +41,6 @@ namespace Ars.Common.Consul
                 domain = $"http://{node.Service.Address}:{node.Service.Port}";
             }
             return domain;
-        }
-
-        public Task<string> GetServiceDomain(string serviceName,out bool useHttp1Protocol) 
-        {
-            var option = _options.ConsulDiscovers?.FirstOrDefault(
-                r => serviceName.Equals(r.ServiceName,StringComparison.OrdinalIgnoreCase)) 
-                ?? throw new DriveNotFoundException(nameof(serviceName));
-
-            useHttp1Protocol = option.UseHttp1Protocol;
-            return GetServiceDomain(serviceName, option.ConsulAddress);
         }
     }
 }

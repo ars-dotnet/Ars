@@ -1,5 +1,7 @@
 ﻿using Ars.Commom.Tool.Extension;
+using Ars.Common.Tool.UploadExcel;
 using Microsoft.AspNetCore.Mvc;
+using NPOI.HSSF.UserModel;
 using NPOI.SS.UserModel;
 using NPOI.XSSF.UserModel;
 using System;
@@ -29,7 +31,7 @@ namespace Ars.Common.Tool.Tools
                 cell = rhead.CreateCell(index);
                 cell.CellStyle = GetNPOITitleStyle(workbook);
                 cell.SetCellValue(input.Title);
-                sheet.AddMergedRegion(new NPOI.SS.Util.CellRangeAddress(index, index, 0, input.Column.Count - 1));
+                sheet.AddMergedRegion(new NPOI.SS.Util.CellRangeAddress(index, index, 0, input.Column.Count() - 1));
 
                 index++;
             }
@@ -59,15 +61,25 @@ namespace Ars.Common.Tool.Tools
             //渲染行名称
             col = 0;
             IRow columnR = sheet.CreateRow(index);
-            List<int> columnMaxWidthList = new List<int>(input.Column.Count);//每列的最大列宽
-            var columnNameStyle = GetNPOIColumnStyle(workbook);
+            List<int> columnMaxWidthList = new List<int>(input.Column.Count());//每列的最大列宽
+            ICellStyle columnNameStyle = null;
+            ICellStyle requiredcolumnNameStyle = null;
             foreach (var column in input.Column)
             {
                 cell = columnR.CreateCell(col);
-                cell.CellStyle = columnNameStyle;
-                cell.SetCellValue(column.Value);
+                if (column.IsRequired)
+                {
+                    requiredcolumnNameStyle ??= GetNPOIColumnStyle(workbook, true);
+                    cell.CellStyle = requiredcolumnNameStyle;
+                }
+                else 
+                {
+                    columnNameStyle ??= GetNPOIColumnStyle(workbook, false);
+                    cell.CellStyle = columnNameStyle;
+                }
+                cell.SetCellValue(column.Column);
                 //以列头最为初始值
-                columnMaxWidthList.Add(System.Text.Encoding.Default.GetBytes(column.Value).Length + 1);
+                columnMaxWidthList.Add(System.Text.Encoding.Default.GetBytes(column.Column).Length + 1);
 
                 col++;
             }
@@ -77,10 +89,11 @@ namespace Ars.Common.Tool.Tools
             //第三个参数表示右边区域可见的首列序号，从0开始计算；
             //第四个参数表示下边区域可见的首行序号，从1开始计算；
             sheet.CreateFreezePane(0, index + 1, 0, index + 1);
-            sheet.SetAutoFilter(new NPOI.SS.Util.CellRangeAddress(index, index, 0, input.Column.Count - 1)); //首行筛选
+            sheet.SetAutoFilter(new NPOI.SS.Util.CellRangeAddress(index, index, 0, input.Column.Count() - 1)); //首行筛选
 
             //渲染数据
             IRow rbody;
+            XSSFFont xSSFFont = null;
             foreach (var item in input.List)
             {
                 col = 0;
@@ -88,11 +101,42 @@ namespace Ars.Common.Tool.Tools
                 rbody = sheet.CreateRow(index);
 
                 string? value;
+                var errmsg = input.ItemType.GetProperty(nameof(IExcelModel.FieldErrMsg))?.GetValue(item)?.As<IDictionary<string,string>>();
+                IDrawing? draw = null;
+                IComment comment;
+                IRichTextString richtext;
                 foreach (var c in input.Column)
                 {
                     cell = rbody.CreateCell(col);
-                    value = ConvertTool.ToString(input.ItemType.GetProperty(c.Key)!.GetValue(item));
-                    cell.SetCellValue(value);
+                    value = ConvertTool.ToString(input.ItemType.GetProperty(c.Field)!.GetValue(item));
+
+                    if (null != errmsg && c.Field.Equals(nameof(IExcelModel.FieldErrMsg)))
+                    {
+                        cell.SetCellValue("错误汇总");
+                        draw ??= sheet.CreateDrawingPatriarch();
+                        comment = draw.CreateCellComment(new XSSFClientAnchor(0, 0, 0, 0, col, index, col + 5, index + 5));
+                        xSSFFont ??= GetXSSFFont(workbook);
+                        richtext = new XSSFRichTextString(value);
+                        //richtext.ApplyFont(xSSFFont);
+                        comment.String = richtext;
+
+                        value = "错误汇总";
+                    }
+                    else 
+                    {
+                        cell.SetCellValue(value);
+
+                        //添加批注
+                        if (errmsg?.TryGetValue(c.Column, out string? err) ?? false)
+                        {
+                            draw ??= sheet.CreateDrawingPatriarch();
+                            comment = draw.CreateCellComment(new XSSFClientAnchor(0, 0, 0, 0, col, index, col + 5, index + 3));
+                            xSSFFont ??= GetXSSFFont(workbook);
+                            richtext = new XSSFRichTextString(string.Format("{0}:{1}", c.Column, err));
+                            //richtext.ApplyFont(xSSFFont);
+                            comment.String = richtext;
+                        }
+                    }
 
                     int length = value.IsNullOrEmpty() 
                         ? 0 
@@ -115,6 +159,18 @@ namespace Ars.Common.Tool.Tools
             ms.Position = 0;
 
             return ms;
+        }
+
+        public static XSSFFont GetXSSFFont(XSSFWorkbook wb) 
+        {
+            XSSFFont font = (XSSFFont)wb.CreateFont();
+
+            font.FontName = ("Tahoma");
+            font.FontHeight = 8.5;
+            font.IsItalic = true;
+            font.Color = IndexedColors.BlueGrey.Index;
+
+            return font;
         }
 
         public static async Task<bool> SaveExcel(ExcelSaveScheme input) 
@@ -190,20 +246,25 @@ namespace Ars.Common.Tool.Tools
         /// </summary>
         /// <param name="workbook"></param>
         /// <returns></returns>
-        public static ICellStyle GetNPOIColumnStyle(XSSFWorkbook workbook) 
+        public static ICellStyle GetNPOIColumnStyle(XSSFWorkbook workbook,bool isRequired) 
         {
             ICellStyle columnNameCellStyle = workbook.CreateCellStyle();
             IFont fontStyle = workbook.CreateFont();
             fontStyle.FontHeightInPoints = 10;//字体大小(字号方式)
-            fontStyle.Color = NPOI.HSSF.Util.HSSFColor.White.Index;//白色字体
+            fontStyle.Color = 
+                isRequired
+                ? NPOI.HSSF.Util.HSSFColor.Red.Index 
+                : NPOI.HSSF.Util.HSSFColor.Black.Index;
             fontStyle.IsBold = true;
             columnNameCellStyle.SetFont(fontStyle);
-            columnNameCellStyle.FillPattern = FillPattern.SolidForeground;//必须开启这个才有背景色 且背景色不叫背景色 叫前景色 
-            columnNameCellStyle.FillForegroundColor = NPOI.HSSF.Util.HSSFColor.Indigo.Index;//靛蓝背景
+            //columnNameCellStyle.FillPattern = FillPattern.SolidForeground;//必须开启这个才有背景色 且背景色不叫背景色 叫前景色 
+            //columnNameCellStyle.FillForegroundColor = NPOI.HSSF.Util.HSSFColor.Indigo.Index;//靛蓝背景
             columnNameCellStyle.VerticalAlignment = VerticalAlignment.Center;//上下居中
             columnNameCellStyle.Alignment = HorizontalAlignment.Center;//左右居中
             columnNameCellStyle.WrapText = true;
             return columnNameCellStyle;
         }
+
+        
     }
 }

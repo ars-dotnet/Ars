@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model HomeModel;
+
+<div class="container">
+    <div class="reports">
+        @foreach (var item in Model.ReportsList.Select((value, i) => new { value, i }))
+        {
+            <a href="@item.i">@item.value</a>
+        }
+    </div>
+    <div class="webreport">
+        @await Model.WebReport.Render()
+    </div>
+    <footer>&copy; @DateTime.Now.Year - Fast Reports, Inc.</footer>
+</div>

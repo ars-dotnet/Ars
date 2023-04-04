@@ -2681,11 +2681,11 @@
           "lib/netstandard1.3/System.Xml.XmlDocument.dll": {}
         }
       },
-      "Ars.Common.AutoFac/1.5.1": {
+      "Ars.Common.AutoFac/1.5.2": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Ars.Common.Core": "1.5.1",
+          "Ars.Common.Core": "1.5.2",
           "Autofac": "6.3.0",
           "Autofac.Extensions.DependencyInjection": "7.2.0",
           "Microsoft.AspNetCore.Mvc.Core": "2.2.5"
@@ -2700,11 +2700,11 @@
           "Microsoft.AspNetCore.App"
         ]
       },
-      "Ars.Common.Core/1.5.1": {
+      "Ars.Common.Core/1.5.2": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Ars.Common.Tool": "1.5.1",
+          "Ars.Common.Tool": "1.5.2",
           "Grpc.Core.Api": "2.42.0",
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "6.0.0",
           "System.Configuration.ConfigurationManager": "6.0.0"
@@ -2719,7 +2719,7 @@
           "Microsoft.AspNetCore.App"
         ]
       },
-      "Ars.Common.Tool/1.5.1": {
+      "Ars.Common.Tool/1.5.2": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
@@ -8695,17 +8695,17 @@
         "system.xml.xmldocument.nuspec"
       ]
     },
-    "Ars.Common.AutoFac/1.5.1": {
+    "Ars.Common.AutoFac/1.5.2": {
       "type": "project",
       "path": "../Ars.Common.AutoFac/Ars.Common.AutoFac.csproj",
       "msbuildProject": "../Ars.Common.AutoFac/Ars.Common.AutoFac.csproj"
     },
-    "Ars.Common.Core/1.5.1": {
+    "Ars.Common.Core/1.5.2": {
       "type": "project",
       "path": "../Ars.Common.Core/Ars.Common.Core.csproj",
       "msbuildProject": "../Ars.Common.Core/Ars.Common.Core.csproj"
     },
-    "Ars.Common.Tool/1.5.1": {
+    "Ars.Common.Tool/1.5.2": {
       "type": "project",
       "path": "../Ars.Commom.Tool/Ars.Common.Tool.csproj",
       "msbuildProject": "../Ars.Commom.Tool/Ars.Common.Tool.csproj"
@@ -8713,7 +8713,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "Ars.Common.AutoFac >= 1.5.1",
+      "Ars.Common.AutoFac >= 1.5.2",
       "Microsoft.EntityFrameworkCore >= 6.0.0",
       "Microsoft.EntityFrameworkCore.Proxies >= 6.0.0",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.0",
@@ -8725,7 +8725,7 @@
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
-    "version": "1.5.1",
+    "version": "1.5.2",
     "restore": {
       "projectUniqueName": "C:\\core\\MyArs\\src\\Ars.Common.EFCore\\Ars.Common.EFCore.csproj",
       "projectName": "Ars.Common.EFCore",

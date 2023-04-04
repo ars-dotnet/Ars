@@ -3,10 +3,10 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
-
+	
     <IsPackable>false</IsPackable>
   </PropertyGroup>
-
+	
   <ItemGroup>
     <None Remove="config.json" />
   </ItemGroup>
@@ -21,7 +21,6 @@
     <PackageReference Include="AutoMapper" Version="11.0.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
     <PackageReference Include="HslCommunication" Version="11.0.2" />
-    <PackageReference Include="IdentityModel" Version="4.0.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.0" />
@@ -41,6 +40,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\src\Ars.Commom.Email\Ars.Common.Email.csproj" />
+    <ProjectReference Include="..\..\..\src\Ars.Commom.Tool\Ars.Common.Tool.csproj" />
   </ItemGroup>
 
   <ItemGroup>

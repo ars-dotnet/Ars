@@ -9,14 +9,25 @@ namespace Ars.Common.Tool.UploadExcel
     [AttributeUsage(AttributeTargets.Property)]
     public class ExcelMappingAttribute : Attribute
     {
-        public ExcelMappingAttribute(string column) : this(column, ReadOrWrite.Read)
+        public ExcelMappingAttribute(string column) : this(column,false, ReadOrWrite.Read)
         {
 
         }
 
-        public ExcelMappingAttribute(string column, ReadOrWrite readOrWrite)
+        public ExcelMappingAttribute(string column, bool isRequired) : this(column, isRequired, ReadOrWrite.Read)
+        {
+
+        }
+
+        public ExcelMappingAttribute(string column, ReadOrWrite readOrWrite) : this(column, false, readOrWrite)
+        {
+            
+        }
+
+        public ExcelMappingAttribute(string column, bool isRequired, ReadOrWrite readOrWrite) 
         {
             Column = column;
+            IsRequired = isRequired;
             ReadOrWrite = readOrWrite;
         }
 
@@ -26,6 +37,8 @@ namespace Ars.Common.Tool.UploadExcel
         public string Column { get; set; }
 
         public ReadOrWrite ReadOrWrite { get; set; }
+
+        public bool IsRequired { get; set; }
 
         public string Property { get; set; }
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Ars.Commom.Tool.Extension;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
@@ -16,22 +17,15 @@ namespace Ars.Commom.Tool.Certificates
             return new X509Certificate2(allpath, "aabb1212");
         }
 
-        public static X509Certificate2 Get([NotNull]string path, [NotNull]string password) 
+        public static X509Certificate2 Get(string path, string password) 
         {
+            if(path.IsNullOrEmpty())
+                throw new ArgumentNullException("path");
+            if (password.IsNullOrEmpty())
+                throw new ArgumentNullException("password");
+
             string allpath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, path);
             return new X509Certificate2(allpath, password);
-        }
-
-        private static byte[] ReadStream(Stream input)
-        {
-            byte[] buffer = new byte[16384];
-            using (MemoryStream memoryStream = new MemoryStream())
-            {
-                int count;
-                while ((count = input.Read(buffer, 0, buffer.Length)) > 0)
-                    memoryStream.Write(buffer, 0, count);
-                return memoryStream.ToArray();
-            }
         }
     }
 }

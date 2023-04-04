@@ -64,7 +64,16 @@ appsettings.Development.json
 		  {
 			"ConsulAddress": "http://ip:port",
 			"ServiceName": "apigrpc",
-			"UseHttp1Protocol": true
+			"UseHttp1Protocol": true,
+			"UseHttps": true,
+			"CertificatePath": "xxx",
+			"CertificatePassWord": "xxx",
+			"UseIdentityServer4Valid": true,
+			"IdentityServer4Address": "http://ip:port",
+			"ClientId": "grpc-key",
+			"ClientSecret": "grpc-secret",
+			"Scope": "grpcapi-scope",
+			"GrantType": "client_credentials"
 		  }
 		]
 	  },
@@ -72,7 +81,9 @@ appsettings.Development.json
 	  "ArsIdentityClientConfiguration": {
 		"Authority": "http://ip:port",
 		"ApiName": "apiIds4Second", 
-		"RequireHttpsMetadata": false
+		"RequireHttpsMetadata": true,
+	    "CertificatePath": "xxx",
+        "CertificatePassWord": "xxx"
 	  },
 	  //redis config
 	  "ArsCacheConfiguration": {
@@ -85,7 +96,10 @@ appsettings.Development.json
 		"ConsulAddress": "http://ip:port",
 		"ServiceName": "apigrpc",
 		"ServiceIp": "ip",
-		"ServicePort": port
+		"ServicePort": port,
+		"UseHttps": true,
+        "CertificatePath": "xxx",
+        "CertificatePassWord": "xxx"
 	  },
 	  //identity server config
 	  "ArsIdentityServerConfiguration": {

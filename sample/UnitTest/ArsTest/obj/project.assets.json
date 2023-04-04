@@ -81,19 +81,6 @@
           "lib/netstandard1.0/Humanizer.dll": {}
         }
       },
-      "IdentityModel/4.0.0": {
-        "type": "package",
-        "dependencies": {
-          "Newtonsoft.Json": "11.0.2",
-          "System.Text.Encodings.Web": "4.5.0"
-        },
-        "compile": {
-          "lib/netstandard2.0/IdentityModel.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/IdentityModel.dll": {}
-        }
-      },
       "MailKit/3.1.0": {
         "type": "package",
         "dependencies": {
@@ -3013,11 +3000,11 @@
           "build/netcoreapp2.1/xunit.runner.visualstudio.props": {}
         }
       },
-      "Ars.Common.Email/1.5.1": {
+      "Ars.Common.Email/1.5.2": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Ars.Common.Tool": "1.5.1",
+          "Ars.Common.Tool": "1.5.2",
           "MailKit": "3.1.0",
           "Microsoft.CodeAnalysis.Workspaces.Common": "4.0.1",
           "Microsoft.Extensions.Configuration.Abstractions": "6.0.0",
@@ -3030,7 +3017,7 @@
           "bin/placeholder/Ars.Common.Email.dll": {}
         }
       },
-      "Ars.Common.Tool/1.5.1": {
+      "Ars.Common.Tool/1.5.2": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
@@ -3229,23 +3216,6 @@
         "humanizer.core.2.2.0.nupkg.sha512",
         "humanizer.core.nuspec",
         "lib/netstandard1.0/Humanizer.dll"
-      ]
-    },
-    "IdentityModel/4.0.0": {
-      "sha512": "Y7i2fezKKKnmxdENfEOpby4Es84e76D16SYcxWKggYraFOvvfKfQAn5KGuuR1X2h1aTrlKZy0lct0NxHg4aVVw==",
-      "type": "package",
-      "path": "identitymodel/4.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "identitymodel.4.0.0.nupkg.sha512",
-        "identitymodel.nuspec",
-        "lib/net461/IdentityModel.dll",
-        "lib/net461/IdentityModel.pdb",
-        "lib/net461/IdentityModel.xml",
-        "lib/netstandard2.0/IdentityModel.dll",
-        "lib/netstandard2.0/IdentityModel.pdb",
-        "lib/netstandard2.0/IdentityModel.xml"
       ]
     },
     "MailKit/3.1.0": {
@@ -9607,12 +9577,12 @@
         "xunit.runner.visualstudio.nuspec"
       ]
     },
-    "Ars.Common.Email/1.5.1": {
+    "Ars.Common.Email/1.5.2": {
       "type": "project",
       "path": "../../../src/Ars.Commom.Email/Ars.Common.Email.csproj",
       "msbuildProject": "../../../src/Ars.Commom.Email/Ars.Common.Email.csproj"
     },
-    "Ars.Common.Tool/1.5.1": {
+    "Ars.Common.Tool/1.5.2": {
       "type": "project",
       "path": "../../../src/Ars.Commom.Tool/Ars.Common.Tool.csproj",
       "msbuildProject": "../../../src/Ars.Commom.Tool/Ars.Common.Tool.csproj"
@@ -9620,11 +9590,11 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "Ars.Common.Email >= 1.5.1",
+      "Ars.Common.Email >= 1.5.2",
+      "Ars.Common.Tool >= 1.5.2",
       "AutoMapper >= 11.0.1",
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 11.0.0",
       "HslCommunication >= 11.0.2",
-      "IdentityModel >= 4.0.0",
       "Microsoft.Extensions.DependencyInjection >= 6.0.0",
       "Microsoft.Extensions.DependencyInjection.Abstractions >= 6.0.0",
       "Microsoft.Extensions.Hosting >= 6.0.0",
@@ -9669,6 +9639,9 @@
           "projectReferences": {
             "C:\\core\\MyArs\\src\\Ars.Commom.Email\\Ars.Common.Email.csproj": {
               "projectPath": "C:\\core\\MyArs\\src\\Ars.Commom.Email\\Ars.Common.Email.csproj"
+            },
+            "C:\\core\\MyArs\\src\\Ars.Commom.Tool\\Ars.Common.Tool.csproj": {
+              "projectPath": "C:\\core\\MyArs\\src\\Ars.Commom.Tool\\Ars.Common.Tool.csproj"
             }
           }
         }
@@ -9694,10 +9667,6 @@
           "HslCommunication": {
             "target": "Package",
             "version": "[11.0.2, )"
-          },
-          "IdentityModel": {
-            "target": "Package",
-            "version": "[4.0.0, )"
           },
           "Microsoft.Extensions.DependencyInjection": {
             "target": "Package",

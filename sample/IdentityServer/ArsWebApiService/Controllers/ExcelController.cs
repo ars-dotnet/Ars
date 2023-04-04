@@ -36,7 +36,7 @@ namespace ArsWebApiService.Controllers
         {
             var a = input.ExcelModels.FirstOrDefault();
             a.IsErr = true;
-            a.FieldErrMsg = new Dictionary<string,string>{ { "Barcode", "托盘错误" } };
+            a.FieldErrMsg = new Dictionary<string,string>{ { "托盘号", "托盘错误" } };
             throw new ArsExcelSaveErrOnlyException("错误");
 
             return Task.CompletedTask;

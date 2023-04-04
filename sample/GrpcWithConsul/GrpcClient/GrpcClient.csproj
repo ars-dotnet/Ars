@@ -29,4 +29,10 @@
 	    <Link>Protos\health.proto</Link>
 	  </Protobuf>
 	</ItemGroup>
+
+	<ItemGroup>
+	  <None Update="Certificates\ars.pfx">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	</ItemGroup>
 </Project>

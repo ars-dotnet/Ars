@@ -13,5 +13,14 @@ namespace Ars.Common.Core.Configs
         int ServicePort { get; }
 
         string HttpHealthAction { get; }
+
+        /// <summary>
+        /// 是否采用https
+        /// </summary>
+        bool UseHttps { get; }
+
+        string CertificatePath { get; }
+
+        string CertificatePassWord { get; }
     }
 }

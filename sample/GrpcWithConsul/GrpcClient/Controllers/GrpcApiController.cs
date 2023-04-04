@@ -27,10 +27,18 @@ namespace GrpcClients.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> UnaryCall()
+        public async Task<IActionResult> UnaryCallRestful()
         {
             var client = await _grpcClientProvider.GetGrpcClient<Greeter.GreeterClient>("apigrpc");
-            var m = await client.SayHelloAsync(new HelloRequest() { Name = "Bill" });
+            var m = await client.SayHelloAsync(new HelloRequest() { Name = "ars" });
+            return Json(m);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UnaryCallGrpc1()
+        {
+            var client = await _grpcClientProvider.GetGrpcClient<Greeter.GreeterClient>("apigrpc1");
+            var m = await client.SayHelloAsync(new HelloRequest() { Name = "ars" }, headers:new Metadata() { new Metadata.Entry("name","ars")});
             return Json(m);
         }
 

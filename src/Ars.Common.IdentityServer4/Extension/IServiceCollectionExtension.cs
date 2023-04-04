@@ -17,6 +17,7 @@ using Microsoft.Extensions.DependencyInjection.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Authentication;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
@@ -125,7 +126,22 @@ namespace Ars.Common.IdentityServer4.Extension
                 {
                     t.Authority = option.Authority;
                     t.ApiName = option.ApiName;
-                    t.RequireHttpsMetadata = false;
+                    t.RequireHttpsMetadata = option.RequireHttpsMetadata;
+
+                    if (t.RequireHttpsMetadata) 
+                    {
+                        var httpClientHandler = new HttpClientHandler
+                        {
+                            ClientCertificateOptions = ClientCertificateOption.Manual,
+                            SslProtocols = SslProtocols.Tls12,
+                            ServerCertificateCustomValidationCallback =
+                                HttpClientHandler.DangerousAcceptAnyServerCertificateValidator,
+                        };
+                        httpClientHandler.ClientCertificates.Add(
+                            Certificate.Get(option.CertificatePath, option.CertificatePassWord));
+
+                        t.JwtBackChannelHandler = httpClientHandler;
+                    }
                 };
             }
             if (null == configure) 
@@ -135,7 +151,10 @@ namespace Ars.Common.IdentityServer4.Extension
                     t.AddPolicy("default",policy =>policy.AddRequirements(new DefaultAuthorizationRequirement()));
                 };
             }
-            services.AddAuthentication(defaultScheme).AddIdentityServerAuthentication(configureOptions);
+
+            services
+                .AddAuthentication(defaultScheme)
+                .AddIdentityServerAuthentication(configureOptions);
             services.AddAuthorization(configure);
             return builder;
         }
