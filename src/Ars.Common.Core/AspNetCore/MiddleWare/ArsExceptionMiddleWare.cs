@@ -40,7 +40,7 @@ namespace Ars.Common.Core.AspNetCore.MiddleWare
 
         private async Task HandleError(HttpContext httpContext, Exception e) 
         {
-            object data = null;
+            object? data = null;
             int code;
             string errorMsg;
             if (e is RpcException rpcException)

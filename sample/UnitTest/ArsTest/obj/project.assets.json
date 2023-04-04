@@ -81,19 +81,6 @@
           "lib/netstandard1.0/Humanizer.dll": {}
         }
       },
-      "IdentityModel/4.0.0": {
-        "type": "package",
-        "dependencies": {
-          "Newtonsoft.Json": "11.0.2",
-          "System.Text.Encodings.Web": "4.5.0"
-        },
-        "compile": {
-          "lib/netstandard2.0/IdentityModel.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/IdentityModel.dll": {}
-        }
-      },
       "MailKit/3.1.0": {
         "type": "package",
         "dependencies": {
@@ -3229,23 +3216,6 @@
         "humanizer.core.2.2.0.nupkg.sha512",
         "humanizer.core.nuspec",
         "lib/netstandard1.0/Humanizer.dll"
-      ]
-    },
-    "IdentityModel/4.0.0": {
-      "sha512": "Y7i2fezKKKnmxdENfEOpby4Es84e76D16SYcxWKggYraFOvvfKfQAn5KGuuR1X2h1aTrlKZy0lct0NxHg4aVVw==",
-      "type": "package",
-      "path": "identitymodel/4.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "identitymodel.4.0.0.nupkg.sha512",
-        "identitymodel.nuspec",
-        "lib/net461/IdentityModel.dll",
-        "lib/net461/IdentityModel.pdb",
-        "lib/net461/IdentityModel.xml",
-        "lib/netstandard2.0/IdentityModel.dll",
-        "lib/netstandard2.0/IdentityModel.pdb",
-        "lib/netstandard2.0/IdentityModel.xml"
       ]
     },
     "MailKit/3.1.0": {
@@ -9625,7 +9595,6 @@
       "AutoMapper >= 11.0.1",
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 11.0.0",
       "HslCommunication >= 11.0.2",
-      "IdentityModel >= 4.0.0",
       "Microsoft.Extensions.DependencyInjection >= 6.0.0",
       "Microsoft.Extensions.DependencyInjection.Abstractions >= 6.0.0",
       "Microsoft.Extensions.Hosting >= 6.0.0",
@@ -9698,10 +9667,6 @@
           "HslCommunication": {
             "target": "Package",
             "version": "[11.0.2, )"
-          },
-          "IdentityModel": {
-            "target": "Package",
-            "version": "[4.0.0, )"
           },
           "Microsoft.Extensions.DependencyInjection": {
             "target": "Package",

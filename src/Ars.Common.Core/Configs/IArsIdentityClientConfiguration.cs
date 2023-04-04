@@ -13,5 +13,9 @@ namespace Ars.Common.Core.Configs
         string ApiName { get; }
 
         bool RequireHttpsMetadata { get; }
+
+        string CertificatePath { get; }
+
+        string CertificatePassWord { get; }
     }
 }

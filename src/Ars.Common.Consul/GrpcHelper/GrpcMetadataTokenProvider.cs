@@ -51,7 +51,7 @@ namespace Ars.Common.Consul.GrpcHelper
                             { "scope",option.Scope},
                             { "grant_type",option.GrantType},
                         };
-                        using var httpclient = _httpClientFactory.CreateClient("http");
+                        using var httpclient = _httpClientFactory.CreateClient("Https");
                         var reponse = await httpclient.PostAsync(
                             $"{option.IdentityServer4Address.TrimEnd('/')}/connect/token", 
                             new FormUrlEncodedContent(dto)).ConfigureAwait(false);
