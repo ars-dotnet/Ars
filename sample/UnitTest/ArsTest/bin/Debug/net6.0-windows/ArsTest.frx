@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" TextQuality="Regular" ReportInfo.Description="Demonstrates how to use the Table object. Notes:&#13;&#10;- to set the number of columns and rows, use &quot;ColumnCount&quot; and &quot;RowCount&quot; properties. Also you can add new columns/rows from the column/row context menu;&#13;&#10;- to join/split cells, use the context menu of a cell;&#13;&#10;- to set the column/row autosize, use the context menu of a column/row." ReportInfo.Created="01/17/2008 17:08:04" ReportInfo.Modified="03/30/2023 16:49:18" ReportInfo.CreatorVersion="2022.3.13.0">
+  <Styles Name="Standard">
+    <Style Name="Title" Font="Arial, 12pt, style=Bold"/>
+    <Style Name="Header" Font="Arial, 10pt, style=Bold"/>
+    <Style Name="Group" Font="Arial, 10pt, style=Bold"/>
+    <Style Name="Data" Font="Arial, 10pt"/>
+    <Style Name="Footer" Font="Arial, 10pt"/>
+    <Style Name="EvenRows" Fill.Color="WhiteSmoke" Font="Arial, 10pt"/>
+  </Styles>
+  <Dictionary>
+    <TableDataSource Name="Ars" ReferenceName="MyArs.Ars" DataType="System.Int32" Enabled="true">
+      <Column Name="CustomerID" DataType="System.String"/>
+      <Column Name="CompanyName" DataType="System.String"/>
+      <Column Name="Country" DataType="System.String"/>
+      <Column Name="Address" DataType="System.String"/>
+      <Column Name="City" DataType="System.String"/>
+      <Column Name="PostalCode" DataType="System.Decimal"/>
+      <Column Name="Barcode" DataType="System.String"/>
+    </TableDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="190.7">
+      <TextObject Name="Text1" Top="162.35" Width="718.2" Height="28.35" Dock="Bottom" Text="CUSTOMERS" HorzAlign="Center" VertAlign="Center" Font="Tahoma, 14pt, style=Bold"/>
+      <TextObject Name="Text18" Width="718.2" Height="28.35" Anchor="Top, Left, Right" Fill.Color="WhiteSmoke" Cursor="Hand" Hyperlink.Value="http://fast.report/3f546" Hyperlink.OpenLinkInNewTab="true" Text="Learn how to build this report on the Fast Reports Academy channel" VertAlign="Center" Font="Tahoma, 10pt, style=Bold, Underline" TextFill.Color="Blue"/>
+      <TextObject Name="Text19" Left="9.45" Top="37.8" Width="396.9" Height="103.95" Text="[Report.ReportInfo.Description]" Font="宋体, 9pt"/>
+    </ReportTitleBand>
+    <DataBand Name="Data1" Top="193.37" Width="718.2" Height="207.9" CanGrow="true" DataSource="Ars">
+      <TableObject Name="Table1" Left="9.45" Top="9.45" Width="708.85" Height="198.45">
+        <TableColumn Name="Column1" Width="297.74"/>
+        <TableColumn Name="Column2" Width="411.11"/>
+        <TableRow Name="Row1" Height="47.25">
+          <TableCell Name="CompanyName" Border.Lines="Bottom" Border.Color="White" Fill="Glass" Fill.Color="ForestGreen" Fill.Blend="0.2" Fill.Hatch="true" Text="[Ars.CompanyName]" Padding="5, 0, 0, 0" VertAlign="Center" Font="Tahoma, 12pt, style=Bold" TextFill.Color="White" ColSpan="2"/>
+          <TableCell Name="Cell2" Font="Tahoma, 8pt" TextFill.Color="White"/>
+        </TableRow>
+        <TableRow Name="Row2" Height="37.8" AutoSize="true">
+          <TableCell Name="Cell6" Border.Lines="Right" Border.Color="White" Fill.Color="ForestGreen" Text="Country" Padding="5, 2, 0, 2" Font="Tahoma, 8pt, style=Bold" TextFill.Color="White"/>
+          <TableCell Name="Country" Fill.Color="ForestGreen" Text="[Ars.Country]" Padding="2, 2, 2, 2" Font="Tahoma, 8pt" TextFill.Color="White">
+            <BarcodeObject Name="Barcode" Left="160.65" Top="3.78" Width="116" Height="116" Anchor="Top, Bottom, Left, Right" Text="[Ars.Barcode]" ShowText="false" AllowExpressions="true" Barcode="QR Code" Barcode.ErrorCorrection="L" Barcode.Encoding="UTF8" Barcode.QuietZone="true"/>
+          </TableCell>
+        </TableRow>
+        <TableRow Name="Row3" Height="37.8" AutoSize="true">
+          <TableCell Name="Cell11" Border.Lines="Right" Border.Color="White" Fill.Color="ForestGreen" Text="Address" Padding="5, 2, 0, 2" Font="Tahoma, 8pt, style=Bold" TextFill.Color="White"/>
+          <TableCell Name="Address" Fill.Color="ForestGreen" Text="[Ars.Address]" Padding="2, 2, 2, 2" Font="Tahoma, 8pt" TextFill.Color="White"/>
+        </TableRow>
+        <TableRow Name="Row4" Height="37.8" AutoSize="true">
+          <TableCell Name="Cell16" Border.Lines="Right" Border.Color="White" Fill.Color="ForestGreen" Text="City" Padding="5, 2, 0, 2" Font="Tahoma, 8pt, style=Bold" TextFill.Color="White"/>
+          <TableCell Name="City" Fill.Color="ForestGreen" Text="[Ars.City]" Padding="2, 2, 2, 2" Font="Tahoma, 8pt" TextFill.Color="White"/>
+        </TableRow>
+        <TableRow Name="Row5" Height="37.8" AutoSize="true">
+          <TableCell Name="Cell21" Border.Lines="Right" Border.Color="White" Fill.Color="ForestGreen" Text="Postal code" Padding="5, 2, 0, 2" Font="Tahoma, 8pt, style=Bold" TextFill.Color="White"/>
+          <TableCell Name="PostalCode" Fill.Color="ForestGreen" Text="[Ars.PostalCode]" Padding="2, 2, 2, 2" Font="Tahoma, 8pt" TextFill.Color="White"/>
+        </TableRow>
+      </TableObject>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="403.93" Width="718.2" Height="28.35" Fill.Color="WhiteSmoke" CanGrow="true">
+      <TextObject Name="Text10" Left="614.25" Width="94.5" Height="28.35" Text="[PageN]" HorzAlign="Right" VertAlign="Center" Font="Tahoma, 8pt"/>
+      <TextObject Name="Text12" Left="9.45" Width="217.35" Height="28.35" Cursor="Hand" Hyperlink.Value="https://www.fast-report.com/en/product/fast-report-net/" Text="Generated by FastReport .NET" VertAlign="Center" Font="Tahoma, 8pt, style=Underline" TextFill.Color="Blue"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

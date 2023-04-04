@@ -5,7 +5,7 @@ using System.Threading.Channels;
 
 namespace GrpcService.Services
 {
-    //[Authorize]
+    [Authorize]
     public class GreeterService : Greeter.GreeterBase
     {
         private readonly ILogger<GreeterService> _logger;

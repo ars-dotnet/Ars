@@ -67,5 +67,11 @@ namespace ArsIdentityService4Client
             ViewBag.Json = JArray.Parse(content).ToString();
             return View("json");
         }
+
+        [HttpGet]
+        public IActionResult FastReport() 
+        {
+            return null;
+        }
     }
 }

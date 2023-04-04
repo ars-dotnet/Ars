@@ -10,7 +10,6 @@ namespace GrpcClients
             _provider = provider;
         }
 
-
         public ValueTask WriteAsync<T>(string name,T t)
         {
             return _provider.GetOrAddChannel<T>(name).Writer.WriteAsync(t);

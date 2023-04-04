@@ -1,4 +1,5 @@
-﻿using Ars.Common.Core.AspNetCore.OutputDtos;
+﻿using Ars.Common.Core.AspNetCore.Extensions;
+using Ars.Common.Core.AspNetCore.OutputDtos;
 using Ars.Common.Tool;
 using Ars.Common.Tool.Extension;
 using Ars.Common.Tool.UploadExcel;
@@ -44,7 +45,7 @@ namespace Ars.Common.Core.AspNetCore.MiddleWare
             string errorMsg;
             if (e is RpcException rpcException)
             {
-                code = 500;
+                code = rpcException.StatusCode.GetHttpStatusCode();
                 errorMsg = rpcException.Status.Detail;
             }
             else if (e is ArsExcelException excelException) 

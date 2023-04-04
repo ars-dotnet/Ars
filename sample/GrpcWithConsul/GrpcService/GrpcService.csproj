@@ -40,4 +40,10 @@
 		<ProjectReference Include="..\..\..\src\Ars.Common.IdentityServer4\Ars.Common.IdentityServer4.csproj" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <None Update="Certificates\ars.pfx">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	</ItemGroup>
+
 </Project>

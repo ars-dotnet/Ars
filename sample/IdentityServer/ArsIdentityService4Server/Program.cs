@@ -1,5 +1,6 @@
 using Ars.Commom.Host.Extension;
 using Ars.Common.IdentityServer4.Extension;
+using Ars.Common.Tool.Extension;
 using ArsIdentityService4Server;
 using IdentityServer4.Models;
 var builder = WebApplication.CreateBuilder(args);

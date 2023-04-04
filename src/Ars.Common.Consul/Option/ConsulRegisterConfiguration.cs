@@ -18,5 +18,11 @@ namespace Ars.Common.Consul.Option
         public int ServicePort { get; set; }
 
         public string HttpHealthAction { get; set; }
+
+        public bool UseHttps { get; set; }
+
+        public string CertificatePath { get; set; }
+
+        public string CertificatePassWord { get; set; }
     }
 }

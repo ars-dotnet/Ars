@@ -3,10 +3,10 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
-
+	
     <IsPackable>false</IsPackable>
   </PropertyGroup>
-
+	
   <ItemGroup>
     <None Remove="config.json" />
   </ItemGroup>
@@ -41,6 +41,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\src\Ars.Commom.Email\Ars.Common.Email.csproj" />
+    <ProjectReference Include="..\..\..\src\Ars.Commom.Tool\Ars.Common.Tool.csproj" />
   </ItemGroup>
 
   <ItemGroup>

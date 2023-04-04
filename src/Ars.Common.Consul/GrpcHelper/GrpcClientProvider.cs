@@ -1,5 +1,9 @@
-﻿using Ars.Common.Core.IDependency;
+﻿using Ars.Commom.Tool.Certificates;
+using Ars.Common.Core.Configs;
+using Ars.Common.Core.IDependency;
+using Ars.Common.Tool;
 using Grpc.Core;
+using Grpc.Core.Interceptors;
 using Grpc.Net.Client;
 using Grpc.Net.Client.Web;
 using System;
@@ -14,30 +18,45 @@ namespace Ars.Common.Consul.GrpcHelper
     internal class GrpcClientProvider : IGrpcClientProvider,ISingletonDependency
     {
         private readonly ConsulHelper ConsulHelper;
-        public GrpcClientProvider(ConsulHelper consulHelper)
+        private readonly IConsulDiscoverConfiguration _options;
+        private readonly IGrpcMetadataTokenProvider _grpcCallOptionsProvider;
+        public GrpcClientProvider(
+            ConsulHelper consulHelper, 
+            IConsulDiscoverConfiguration options,
+            IGrpcMetadataTokenProvider grpcCallOptionsProvider)
         {
             ConsulHelper = consulHelper;
+            _options = options;
+            _grpcCallOptionsProvider = grpcCallOptionsProvider;
         }
 
-        public async Task<T> GetGrpcClient<T>(string serviceName) where T : ClientBase<T>
+        public virtual async Task<T> GetGrpcClient<T>(string serviceName) where T : ClientBase<T>
         {
-            string domain = await ConsulHelper.GetServiceDomain(serviceName,out bool useHttp1Protocol);
-            return (T)Activator.CreateInstance(typeof(T), GetGrpcChannel(domain,useHttp1Protocol))!;
+            var option = _options.ConsulDiscovers.
+                   FirstOrDefault(r => r.ServiceName.Equals(serviceName, StringComparison.OrdinalIgnoreCase))
+                ?? throw new ArsException($"consul service:{serviceName} not find");
+
+            string domain = await ConsulHelper.GetServiceDomain(serviceName, option.ConsulAddress);
+            if (option.UseHttps)
+                domain = domain.Replace("http", "https");
+            return (T)Activator.CreateInstance(typeof(T),GetGrpcCallInvoker(domain, option))!;
         }
 
-        private GrpcChannel GetGrpcChannel(string domain,bool useHttp1Protocol) 
+        private CallInvoker GetGrpcCallInvoker(string domain, ConsulConfiguration configuration) 
         {
-            if (useHttp1Protocol)
-            {
-                return GrpcChannel.ForAddress(domain,new GrpcChannelOptions { HttpClient = GetHttpClient() });
-            }
-            else 
-            {
-                return GrpcChannel.ForAddress(domain);
-            }
+            var channel = GrpcChannel.ForAddress(domain, GetGrpcChannelOptions(configuration));
+            var callInvoker = channel.Intercept(
+                new GrpcClientTokenInterceptor(configuration, _grpcCallOptionsProvider));
+
+            return callInvoker;
         }
 
-        private HttpClient GetHttpClient() 
+        private GrpcChannelOptions GetGrpcChannelOptions(ConsulConfiguration configuration) 
+        {
+            return new GrpcChannelOptions { HttpClient = GetHttpClient(configuration) };
+        }
+
+        private HttpClient GetHttpClient(ConsulConfiguration configuration) 
         {
             var handler = new HttpClientHandler
             {
@@ -45,25 +64,35 @@ namespace Ars.Common.Consul.GrpcHelper
                 SslProtocols = SslProtocols.Tls12,
             };
 
-            // var path = Path.Combine(Directory.GetCurrentDirectory(), "cert", "client.pfx");
-            // //加载客户端证书
-            // var crt = new X509Certificate2(path, "123456");
-            // handler.ClientCertificates.Add(crt);
-
-            handler.ServerCertificateCustomValidationCallback =
-                HttpClientHandler.DangerousAcceptAnyServerCertificateValidator;
-
-            var grpchandler = new GrpcWebHandler(GrpcWebMode.GrpcWeb, handler)//https://github.com/grpc/grpc-dotnet/issues/1110
+            if (configuration.UseHttps) 
             {
-                HttpVersion = new Version(1, 1)
-            };
+                handler.ClientCertificates.Add(
+                    Certificate.Get(configuration.CertificatePath, configuration.CertificatePassWord));
+                handler.ServerCertificateCustomValidationCallback =
+                    HttpClientHandler.DangerousAcceptAnyServerCertificateValidator;
+            }
 
-            var httpclient = new HttpClient(grpchandler)
+            HttpClient httpClient;
+            if (configuration.UseHttp1Protocol)
             {
-                Timeout = TimeSpan.FromMinutes(5),
-            };
+                var grpchandler = new GrpcWebHandler(GrpcWebMode.GrpcWeb, handler)//https://github.com/grpc/grpc-dotnet/issues/1110
+                {
+                    HttpVersion = new Version(1, 1)
+                };
 
-            return httpclient;
+                httpClient = new HttpClient(grpchandler)
+                {
+                    Timeout = TimeSpan.FromMinutes(5)
+                };
+            }
+            else 
+            {
+                httpClient = new HttpClient(handler)
+                {
+                    Timeout = TimeSpan.FromMinutes(5)
+                };
+            }
+            return httpClient;
         }
     }
 }

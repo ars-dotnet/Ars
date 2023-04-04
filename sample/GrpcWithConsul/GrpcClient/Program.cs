@@ -1,7 +1,9 @@
 using Ars.Commom.Host.Extension;
 using Ars.Common.Consul.Extension;
 using Ars.Common.Consul.IApplicationBuilderExtension;
+using Ars.Common.Core.AspNetCore.Extensions;
 using Ars.Common.IdentityServer4.Extension;
+using Ars.Common.Tool.Extension;
 using GrpcClients;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,6 +16,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services
+    .AddArsHttpClient()
+    .AddMemoryCache()
     .AddArserviceCore(builder.Host, config =>
     {
         config.AddArsConsulDiscoverClient();
@@ -39,6 +43,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UsArsExceptionMiddleware();
 
 app.UseHttpsRedirection();
 
