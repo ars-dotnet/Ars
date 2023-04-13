@@ -1,4 +1,5 @@
 ﻿using Ars.Commom.Tool.Certificates;
+using Ars.Common.Consul.HttpClientHelper;
 using Ars.Common.Core.Configs;
 using Ars.Common.Core.IDependency;
 using Ars.Common.Tool;
@@ -15,19 +16,22 @@ using System.Threading.Tasks;
 
 namespace Ars.Common.Consul.GrpcHelper
 {
-    internal class GrpcClientProvider : IGrpcClientProvider,ISingletonDependency
+    internal class GrpcClientProvider : IGrpcClientProvider, ISingletonDependency
     {
-        private readonly ConsulHelper ConsulHelper;
+        private readonly ConsulHelper _consulHelper;
         private readonly IConsulDiscoverConfiguration _options;
         private readonly IGrpcMetadataTokenProvider _grpcCallOptionsProvider;
+        private readonly IHttpClientProvider _httpClientProvider;
         public GrpcClientProvider(
-            ConsulHelper consulHelper, 
+            ConsulHelper consulHelper,
             IConsulDiscoverConfiguration options,
-            IGrpcMetadataTokenProvider grpcCallOptionsProvider)
+            IGrpcMetadataTokenProvider grpcCallOptionsProvider,
+            IHttpClientProvider httpClientProvider)
         {
-            ConsulHelper = consulHelper;
+            _consulHelper = consulHelper;
             _options = options;
             _grpcCallOptionsProvider = grpcCallOptionsProvider;
+            _httpClientProvider = httpClientProvider;
         }
 
         public virtual async Task<T> GetGrpcClient<T>(string serviceName) where T : ClientBase<T>
@@ -36,35 +40,46 @@ namespace Ars.Common.Consul.GrpcHelper
                    FirstOrDefault(r => r.ServiceName.Equals(serviceName, StringComparison.OrdinalIgnoreCase))
                 ?? throw new ArsException($"consul service:{serviceName} not find");
 
-            string domain = await ConsulHelper.GetServiceDomain(serviceName, option.ConsulAddress);
-            if (option.UseHttps)
+            string domain = await _consulHelper.GetServiceDomain(serviceName, option.ConsulAddress);
+            if (option.Communication.UseHttps)
                 domain = domain.Replace("http", "https");
-            return (T)Activator.CreateInstance(typeof(T),GetGrpcCallInvoker(domain, option))!;
+            return (T)Activator.CreateInstance(typeof(T), await GetGrpcCallInvoker(domain, option))!;
         }
 
-        private CallInvoker GetGrpcCallInvoker(string domain, ConsulConfiguration configuration) 
+        private async Task<CallInvoker> GetGrpcCallInvoker(string domain, ConsulConfiguration configuration)
         {
-            var channel = GrpcChannel.ForAddress(domain, GetGrpcChannelOptions(configuration));
+            var channel = GrpcChannel.ForAddress(domain, await GetGrpcChannelOptions(configuration));
             var callInvoker = channel.Intercept(
                 new GrpcClientTokenInterceptor(configuration, _grpcCallOptionsProvider));
 
             return callInvoker;
         }
 
-        private GrpcChannelOptions GetGrpcChannelOptions(ConsulConfiguration configuration) 
+        private async Task<GrpcChannelOptions> GetGrpcChannelOptions(ConsulConfiguration configuration)
         {
-            return new GrpcChannelOptions { HttpClient = GetHttpClient(configuration) };
+            return new GrpcChannelOptions
+            {
+                //HttpClient = GetHttpClient(configuration),
+                HttpClient = await _httpClientProvider.GetGrpcHttpClient<HttpClient>(configuration)
+            };
         }
 
-        private HttpClient GetHttpClient(ConsulConfiguration configuration) 
+        /// <summary>
+        /// 建议采用IHttpClientFactory来创建
+        /// </summary>
+        /// <param name="config"></param>
+        /// <returns></returns>
+        private HttpClient GetHttpClient(ConsulConfiguration config)
         {
+            var configuration = config.Communication;
+
             var handler = new HttpClientHandler
             {
                 ClientCertificateOptions = ClientCertificateOption.Manual,
                 SslProtocols = SslProtocols.Tls12,
             };
 
-            if (configuration.UseHttps) 
+            if (configuration.UseHttps)
             {
                 handler.ClientCertificates.Add(
                     Certificate.Get(configuration.CertificatePath, configuration.CertificatePassWord));
@@ -73,7 +88,7 @@ namespace Ars.Common.Consul.GrpcHelper
             }
 
             HttpClient httpClient;
-            if (configuration.UseHttp1Protocol)
+            if (configuration.GrpcUseHttp1Protocol)
             {
                 var grpchandler = new GrpcWebHandler(GrpcWebMode.GrpcWeb, handler)//https://github.com/grpc/grpc-dotnet/issues/1110
                 {
@@ -85,7 +100,7 @@ namespace Ars.Common.Consul.GrpcHelper
                     Timeout = TimeSpan.FromMinutes(5)
                 };
             }
-            else 
+            else
             {
                 httpClient = new HttpClient(handler)
                 {

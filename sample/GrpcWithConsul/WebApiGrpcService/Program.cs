@@ -2,7 +2,9 @@ using Ars.Commom.Host.Extension;
 using Ars.Commom.Tool.Certificates;
 using Ars.Common.Consul.Extension;
 using Ars.Common.Consul.IApplicationBuilderExtension;
+using Ars.Common.Core.AspNetCore.Extensions;
 using Ars.Common.IdentityServer4.Extension;
+using Ars.Common.SkyWalking.Extensions;
 using GrpcService.Services;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.AspNetCore.Server.Kestrel.Https;
@@ -26,6 +28,7 @@ builder.Services
     {
         config.AddArsIdentityClient();
         config.AddArsConsulRegisterServer();
+        config.AddArsSkyApm();
     });
 builder.Services.AddGrpc();
 
@@ -55,12 +58,14 @@ builder.WebHost.ConfigureKestrel(kestrel =>
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
+//if (app.Environment.IsDevelopment())
+//{
     app.UseSwagger();
     app.UseSwaggerUI();
     app.UseDeveloperExceptionPage();
-}
+//}
+
+app.UsArsExceptionMiddleware();
 
 app.UseGrpcWeb(new GrpcWebOptions { DefaultEnabled = true });
 
@@ -70,11 +75,12 @@ app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllers();
     endpoints.MapGrpcService<GreeterService>().EnableGrpcWeb();
-    endpoints.MapGrpcService<HealthCheckService>().EnableGrpcWeb();//.RequireAuthorization();
+    endpoints.MapGrpcService<HealthCheckService>().EnableGrpcWeb();
     endpoints.MapGet("healthCheck", context =>
     {
         return context.Response.WriteAsync("ok");
     });
 });
+
 
 app.Run();

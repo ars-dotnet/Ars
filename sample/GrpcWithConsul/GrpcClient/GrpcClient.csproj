@@ -4,12 +4,14 @@
 		<TargetFramework>net6.0</TargetFramework>
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
+     	<EnvironmentName>Production</EnvironmentName>
 	</PropertyGroup>
 
 	<ItemGroup>
 		<PackageReference Include="Grpc.AspNetCore" Version="2.42.0" />
+		<PackageReference Include="SkyAPM.Agent.AspNetCore" Version="2.1.0" />
 		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
-		<PackageReference Include="Google.Protobuf" Version="3.18.1" />
+		<PackageReference Include="Google.Protobuf" Version="3.22.0" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -34,5 +36,10 @@
 	  <None Update="Certificates\ars.pfx">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
+	  <None Update="Properties\launchSettings.json">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
 	</ItemGroup>
+
+	<ProjectExtensions><VisualStudio><UserProperties properties_4launchsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
 </Project>

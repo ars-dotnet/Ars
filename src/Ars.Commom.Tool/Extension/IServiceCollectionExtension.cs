@@ -1,6 +1,8 @@
 ﻿using Ars.Common.Tool.Configs;
 using Ars.Common.Tool.Export;
+using Ars.Common.Tool.Tools;
 using Ars.Common.Tool.UploadExcel;
+using Grpc.Net.Client.Web;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -25,9 +27,9 @@ namespace Ars.Common.Tool.Extension
         /// <returns></returns>
         public static IServiceCollection AddArsHttpClient(this IServiceCollection services)
         {
-            services.AddHttpClient();
+            services.AddHttpClient(HttpClientNames.Http);
             services
-                .AddHttpClient("Https")
+                .AddHttpClient(HttpClientNames.Https)
                 .ConfigurePrimaryHttpMessageHandler((e) =>
                 {
                     var handler = new HttpClientHandler();
@@ -40,13 +42,13 @@ namespace Ars.Common.Tool.Extension
                 });
 
             services
-                .AddHttpClient("RetryHttp")
+                .AddHttpClient(HttpClientNames.RetryHttp)
                 .AddTransientHttpErrorPolicy(policyBuilder =>
                 {
                     return policyBuilder.WaitAndRetryAsync(new TimeSpan[] { TimeSpan.FromSeconds(1), TimeSpan.FromSeconds(2) });
                 });
             services
-                .AddHttpClient("RetryHttps")
+                .AddHttpClient(HttpClientNames.RetryHttps)
                 .ConfigurePrimaryHttpMessageHandler((e) =>
                 {
                     var handler = new HttpClientHandler();
@@ -62,6 +64,84 @@ namespace Ars.Common.Tool.Extension
                     return policyBuilder.WaitAndRetryAsync(new TimeSpan[] { TimeSpan.FromSeconds(1), TimeSpan.FromSeconds(2) });
                 });
 
+            #region grpchttpclient
+            services
+                .AddHttpClient(HttpClientNames.RetryGrpcHttpV1)
+                .ConfigurePrimaryHttpMessageHandler(e => 
+                {
+                    var handler = new HttpClientHandler
+                    {
+                        SslProtocols = SslProtocols.Tls12,
+                    };
+                    var grpchandler = new GrpcWebHandler(GrpcWebMode.GrpcWeb, handler)//https://github.com/grpc/grpc-dotnet/issues/1110
+                    {
+                        HttpVersion = new Version(1, 1),
+                    };
+
+                    return grpchandler;
+                })
+                .AddTransientHttpErrorPolicy(policyBuilder =>
+                {
+                    return policyBuilder.WaitAndRetryAsync(new TimeSpan[] { TimeSpan.FromSeconds(1), TimeSpan.FromSeconds(2) });
+                });
+            services
+                .AddHttpClient(HttpClientNames.RetryGrpcHttpsV1)
+                .ConfigurePrimaryHttpMessageHandler((e) =>
+                {
+                    var handler = new HttpClientHandler();
+                    handler.AllowAutoRedirect = true;
+                    handler.UseCookies = true;
+                    handler.CookieContainer = new CookieContainer();
+                    handler.ClientCertificateOptions = ClientCertificateOption.Automatic;
+                    handler.ServerCertificateCustomValidationCallback = (_, _, _, _) => true;
+
+                    var grpchandler = new GrpcWebHandler(GrpcWebMode.GrpcWeb, handler)//https://github.com/grpc/grpc-dotnet/issues/1110
+                    {
+                        HttpVersion = new Version(1, 1)
+                    };
+
+                    return grpchandler;
+                })
+                .AddTransientHttpErrorPolicy(policyBuilder =>
+                {
+                    return policyBuilder.WaitAndRetryAsync(new TimeSpan[] { TimeSpan.FromSeconds(1), TimeSpan.FromSeconds(2) });
+                });
+
+            services
+                .AddHttpClient(HttpClientNames.RetryGrpcHttpV2)
+                .ConfigurePrimaryHttpMessageHandler(e =>
+                {
+                    var handler = new HttpClientHandler
+                    {
+                        SslProtocols = SslProtocols.Tls12,
+                    };
+
+                    return handler;
+                })
+                .AddTransientHttpErrorPolicy(policyBuilder =>
+                {
+                    return policyBuilder.WaitAndRetryAsync(new TimeSpan[] { TimeSpan.FromSeconds(1), TimeSpan.FromSeconds(2) });
+                });
+            services
+                .AddHttpClient(HttpClientNames.RetryGrpcHttpsV2)
+                .ConfigurePrimaryHttpMessageHandler((e) =>
+                {
+                    var handler = new HttpClientHandler();
+                    handler.AllowAutoRedirect = true;
+                    handler.UseCookies = true;
+                    handler.CookieContainer = new CookieContainer();
+                    handler.ClientCertificateOptions = ClientCertificateOption.Automatic;
+                    handler.SslProtocols = SslProtocols.Tls12;
+                    handler.ServerCertificateCustomValidationCallback = (_, _, _, _) => true;
+
+                    return handler;
+                })
+                .AddTransientHttpErrorPolicy(policyBuilder =>
+                {
+                    return policyBuilder.WaitAndRetryAsync(new TimeSpan[] { TimeSpan.FromSeconds(1), TimeSpan.FromSeconds(2) });
+                });
+            #endregion
+
             return services;
         }
 
@@ -74,8 +154,8 @@ namespace Ars.Common.Tool.Extension
         public static IServiceCollection AddArsExportExcelService(this IServiceCollection services,Assembly assembly)
         {
             var provider = new ExportApiSchemeProvider();
-            services.AddSingleton<IExportApiSchemeProvider>(provider);
             services.AddScoped<IExportManager, ExportManager>();
+            services.AddSingleton<IExportApiSchemeProvider>(provider);
             services.AddSingleton<IXmlFileManager, XmlFileManager>();
 
             provider.SetExportApiSchemed(assembly);

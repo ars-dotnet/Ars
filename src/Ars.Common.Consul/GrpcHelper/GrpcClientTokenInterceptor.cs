@@ -28,13 +28,13 @@ namespace Ars.Common.Consul.GrpcHelper
             AsyncUnaryCallContinuation<TRequest, TResponse> continuation)
         {
             Metadata? metadata = null;
-            if (_consulConfiguration.UseIdentityServer4Valid) 
+            if (_consulConfiguration.Communication.UseIdentityServer4Valid) 
             {
                 metadata = _grpcMetadataTokenProvider.GetMetadataToken(_consulConfiguration)
                 .ConfigureAwait(false)
                 .GetAwaiter()
                 .GetResult();
-            }
+            } 
             
             if (null != metadata) 
             {

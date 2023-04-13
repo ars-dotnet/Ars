@@ -5,7 +5,7 @@
   },
   "projects": {
     "C:\\core\\MyArs\\src\\Ars.Commom.Tool\\Ars.Common.Tool.csproj": {
-      "version": "1.5.2",
+      "version": "1.6.0",
       "restore": {
         "projectUniqueName": "C:\\core\\MyArs\\src\\Ars.Commom.Tool\\Ars.Common.Tool.csproj",
         "projectName": "Ars.Common.Tool",
@@ -47,6 +47,10 @@
             "Aspose.Cells": {
               "target": "Package",
               "version": "[23.3.0, )"
+            },
+            "Grpc.Net.Client.Web": {
+              "target": "Package",
+              "version": "[2.42.0, )"
             },
             "MessagePack": {
               "target": "Package",
@@ -95,7 +99,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -104,7 +109,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }

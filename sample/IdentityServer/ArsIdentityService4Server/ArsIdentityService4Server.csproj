@@ -49,9 +49,14 @@
     <None Include="wwwroot\lib\jquery\dist\jquery.min.map" />
   </ItemGroup>
 
+	<ItemGroup>
+		<PackageReference Include="SkyAPM.Agent.AspNetCore" Version="2.1.0" />
+	</ItemGroup>
+	
   <ItemGroup>
     <ProjectReference Include="..\..\..\src\Ars.Commom.Host\Ars.Common.Host.csproj" />
     <ProjectReference Include="..\..\..\src\Ars.Common.IdentityServer4\Ars.Common.IdentityServer4.csproj" />
+    <ProjectReference Include="..\..\..\src\Ars.Common.SkyWalking\Ars.Common.SkyWalking.csproj" />
   </ItemGroup>
 
   <ItemGroup>

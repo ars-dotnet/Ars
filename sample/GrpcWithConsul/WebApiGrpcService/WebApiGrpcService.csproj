@@ -19,6 +19,7 @@
 		<PackageReference Include="Grpc.AspNetCore.Web" Version="2.42.0" />
 		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.15.1" />
 		<PackageReference Include="System.Linq.Async" Version="6.0.1" />
+		<PackageReference Include="SkyAPM.Agent.AspNetCore" Version="2.1.0" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -37,6 +38,7 @@
 		<ProjectReference Include="..\..\..\src\Ars.Commom.Host\Ars.Common.Host.csproj" />
 		<ProjectReference Include="..\..\..\src\Ars.Common.Consul\Ars.Common.Consul.csproj" />
 		<ProjectReference Include="..\..\..\src\Ars.Common.IdentityServer4\Ars.Common.IdentityServer4.csproj" />
+		<ProjectReference Include="..\..\..\src\Ars.Common.SkyWalking\Ars.Common.SkyWalking.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

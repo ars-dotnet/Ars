@@ -3,6 +3,7 @@ using Ars.Commom.Tool.Certificates;
 using Ars.Common.Consul.Extension;
 using Ars.Common.Consul.IApplicationBuilderExtension;
 using Ars.Common.IdentityServer4.Extension;
+using Ars.Common.SkyWalking.Extensions;
 using GrpcService;
 using GrpcService.Services;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
@@ -22,6 +23,7 @@ builder.Services
     {
         config.AddArsIdentityClient();
         config.AddArsConsulRegisterServer();
+        config.AddArsSkyApm();
     });
 builder.Services.AddGrpc();
 

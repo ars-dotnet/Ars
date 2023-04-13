@@ -1,6 +1,7 @@
 using Ars.Commom.Host.Extension;
 using Ars.Commom.Tool.Certificates;
 using Ars.Common.IdentityServer4.Extension;
+using Ars.Common.SkyWalking.Extensions;
 using Ars.Common.Tool.Extension;
 using ArsIdentityService4Server;
 using IdentityServer4.Models;
@@ -13,7 +14,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services
-    .AddArserviceCore(builder.Host,config => config.AddArsIdentityServer());
+    .AddArserviceCore(builder.Host,config => 
+    {
+        config.AddArsIdentityServer();
+        config.AddArsSkyApm();
+    });
 
 builder.Services.ConfigureNonBreakingSameSiteCookies();
 

@@ -17,15 +17,15 @@ namespace Ars.Commom.Tool.Certificates
             return new X509Certificate2(allpath, "aabb1212");
         }
 
-        public static X509Certificate2 Get(string path, string password) 
+        public static X509Certificate2 Get(string certificatePath, string certificatePassWord) 
         {
-            if(path.IsNullOrEmpty())
-                throw new ArgumentNullException("path");
-            if (password.IsNullOrEmpty())
-                throw new ArgumentNullException("password");
+            if(certificatePath.IsNullOrEmpty())
+                throw new ArgumentNullException("certificatePath");
+            if (certificatePassWord.IsNullOrEmpty())
+                throw new ArgumentNullException("certificatePassWord");
 
-            string allpath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, path);
-            return new X509Certificate2(allpath, password);
+            string allpath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, certificatePath);
+            return new X509Certificate2(allpath, certificatePassWord);
         }
     }
 }

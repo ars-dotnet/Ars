@@ -1,9 +1,11 @@
 ﻿using Ars.Common.Consul.GrpcHelper;
 using Microsoft.AspNetCore.Mvc;
 using GrpcGreeter.greet;
-using Grpc.Core;
-using System.Threading.Channels;
 using Grpc.Net.Client;
+using Grpc.Core;
+using Channel = System.Threading.Channels.Channel;
+using SkyApm.Tracing;
+using SkyApm.Tracing.Segments;
 
 namespace GrpcClients.Controllers
 {
@@ -13,17 +15,27 @@ namespace GrpcClients.Controllers
     {
         private readonly IGrpcClientProvider _grpcClientProvider;
         private readonly IChannelManager _channelManager;
+        private readonly IEntrySegmentContextAccessor _entrySegmentContext;
         public GrpcApiController(IGrpcClientProvider grpcClientProvider,
-            IChannelManager channelManager)
+            IChannelManager channelManager,
+            IEntrySegmentContextAccessor entrySegmentContext)
         {
             _grpcClientProvider = grpcClientProvider;
             _channelManager = channelManager;
+            _entrySegmentContext = entrySegmentContext;
         }
 
         [HttpGet]
-        public IActionResult Index()
+        public IActionResult Index(string a)
         {
-            return View();
+            _entrySegmentContext.Context.Span.AddLog(LogEvent.Message("index 1"));
+            return Ok(a + ":great");
+        }
+
+        [HttpPost]
+        public IActionResult PostTest([FromBody]IDictionary<string,string> a) 
+        {
+            return Ok(string.Join(",", a));
         }
 
         [HttpPost]

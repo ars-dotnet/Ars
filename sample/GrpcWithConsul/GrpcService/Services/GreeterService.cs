@@ -2,6 +2,7 @@ using Grpc.Core;
 using GrpcGreeter.greet;
 using Microsoft.AspNetCore.Authorization;
 using System.Threading.Channels;
+using Channel = System.Threading.Channels.Channel;
 
 namespace GrpcService.Services
 {

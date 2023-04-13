@@ -1,0 +1,604 @@
+2023-04-08 10:00:54.073 +08:00 [grpclient] [Information] SkyApm.InstrumentStartup : Initializing ...
+2023-04-08 10:00:54.172 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-08 10:00:54.173 +08:00 [grpclient] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-08 10:00:54.173 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-08 10:00:54.173 +08:00 [grpclient] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-08 10:00:54.174 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-08 10:00:54.174 +08:00 [grpclient] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-08 10:00:54.174 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-08 10:00:54.174 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-08 10:00:54.174 +08:00 [grpclient] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-08 10:00:54.174 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-08 10:00:54.174 +08:00 [grpclient] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-08 10:00:54.174 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-08 10:00:54.174 +08:00 [grpclient] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-08 10:00:54.174 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-08 10:00:54.391 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[127.0.0.1:11800].
+2023-04-08 10:00:54.404 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2023-04-08 10:00:54.405 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.AspNetCore].
+2023-04-08 10:00:54.405 +08:00 [grpclient] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2023-04-08 10:00:54.405 +08:00 [grpclient] [Information] SkyApm.InstrumentStartup : Initializing ...
+2023-04-08 10:00:54.405 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-08 10:00:54.405 +08:00 [grpclient] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-08 10:00:54.405 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-08 10:00:54.406 +08:00 [grpclient] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-08 10:00:54.406 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-08 10:00:54.406 +08:00 [grpclient] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-08 10:00:54.406 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-08 10:00:54.406 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-08 10:00:54.406 +08:00 [grpclient] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-08 10:00:54.406 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-08 10:00:54.406 +08:00 [grpclient] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-08 10:00:54.406 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-08 10:00:54.406 +08:00 [grpclient] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-08 10:00:54.406 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-08 10:00:54.407 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2023-04-08 10:00:54.407 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.AspNetCore].
+2023-04-08 10:00:54.407 +08:00 [grpclient] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2023-04-08 10:00:54.561 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2023-04-08 10:00:54.561 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2023-04-08 10:00:56.975 +08:00 [grpclient] [Error] SkyApm.Transport.Grpc.V8.ServiceRegister : Report service instance properties fail.
+Grpc.Core.RpcException: Status(StatusCode="Unavailable", Detail="Error connecting to subchannel.", DebugException="System.Net.Sockets.SocketException (10061): 由于目标计算机积极拒绝，无法连接。
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|277_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Balancer.Internal.SocketConnectivitySubchannelTransport.TryConnectAsync(CancellationToken cancellationToken)")
+   at Grpc.Net.Client.Balancer.Internal.ConnectionManager.PickAsync(PickContext context, Boolean waitForReady, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Balancer.Internal.BalancerHttpHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Internal.GrpcCall`2.RunCall(HttpRequestMessage request, Nullable`1 timeout)
+   at SkyApm.Transport.Grpc.V8.ServiceRegister.<>c__DisplayClass9_0.<<ReportInstancePropertiesAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at SkyApm.Transport.Grpc.Common.Call.Execute[T](Func`1 task, Func`1 errCallback, Func`1 errMessage)
+2023-04-08 10:00:56.975 +08:00 [grpclient] [Error] SkyApm.Transport.Grpc.V8.ServiceRegister : Report service instance properties fail.
+Grpc.Core.RpcException: Status(StatusCode="Unavailable", Detail="Error connecting to subchannel.", DebugException="System.Net.Sockets.SocketException (10061): 由于目标计算机积极拒绝，无法连接。
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|277_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Balancer.Internal.SocketConnectivitySubchannelTransport.TryConnectAsync(CancellationToken cancellationToken)")
+   at Grpc.Net.Client.Balancer.Internal.ConnectionManager.PickAsync(PickContext context, Boolean waitForReady, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Balancer.Internal.BalancerHttpHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Internal.GrpcCall`2.RunCall(HttpRequestMessage request, Nullable`1 timeout)
+   at SkyApm.Transport.Grpc.V8.ServiceRegister.<>c__DisplayClass9_0.<<ReportInstancePropertiesAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at SkyApm.Transport.Grpc.Common.Call.Execute[T](Func`1 task, Func`1 errCallback, Func`1 errMessage)
+2023-04-08 10:00:56.975 +08:00 [grpclient] [Error] SkyApm.Transport.Grpc.V8.ServiceRegister : Report service instance properties fail.
+Grpc.Core.RpcException: Status(StatusCode="Unavailable", Detail="Error connecting to subchannel.", DebugException="System.Net.Sockets.SocketException (10061): 由于目标计算机积极拒绝，无法连接。
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|277_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Balancer.Internal.SocketConnectivitySubchannelTransport.TryConnectAsync(CancellationToken cancellationToken)")
+   at Grpc.Net.Client.Balancer.Internal.ConnectionManager.PickAsync(PickContext context, Boolean waitForReady, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Balancer.Internal.BalancerHttpHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Internal.GrpcCall`2.RunCall(HttpRequestMessage request, Nullable`1 timeout)
+   at SkyApm.Transport.Grpc.V8.ServiceRegister.<>c__DisplayClass9_0.<<ReportInstancePropertiesAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at SkyApm.Transport.Grpc.Common.Call.Execute[T](Func`1 task, Func`1 errCallback, Func`1 errMessage)
+2023-04-08 10:00:56.975 +08:00 [grpclient] [Error] SkyApm.Transport.Grpc.V8.ServiceRegister : Report service instance properties fail.
+Grpc.Core.RpcException: Status(StatusCode="Unavailable", Detail="Error connecting to subchannel.", DebugException="System.Net.Sockets.SocketException (10061): 由于目标计算机积极拒绝，无法连接。
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|277_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Balancer.Internal.SocketConnectivitySubchannelTransport.TryConnectAsync(CancellationToken cancellationToken)")
+   at Grpc.Net.Client.Balancer.Internal.ConnectionManager.PickAsync(PickContext context, Boolean waitForReady, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Balancer.Internal.BalancerHttpHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Internal.GrpcCall`2.RunCall(HttpRequestMessage request, Nullable`1 timeout)
+   at SkyApm.Transport.Grpc.V8.ServiceRegister.<>c__DisplayClass9_0.<<ReportInstancePropertiesAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at SkyApm.Transport.Grpc.Common.Call.Execute[T](Func`1 task, Func`1 errCallback, Func`1 errMessage)
+2023-04-08 10:00:56.976 +08:00 [grpclient] [Warning] SkyApm.Transport.Grpc.ConnectionManager : Connection state changed. Status(StatusCode="Unavailable", Detail="Error connecting to subchannel.", DebugException="System.Net.Sockets.SocketException (10061): 由于目标计算机积极拒绝，无法连接。
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|277_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Balancer.Internal.SocketConnectivitySubchannelTransport.TryConnectAsync(CancellationToken cancellationToken)")
+2023-04-08 10:00:56.976 +08:00 [grpclient] [Warning] SkyApm.Transport.Grpc.ConnectionManager : Connection state changed. Status(StatusCode="Unavailable", Detail="Error connecting to subchannel.", DebugException="System.Net.Sockets.SocketException (10061): 由于目标计算机积极拒绝，无法连接。
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|277_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Balancer.Internal.SocketConnectivitySubchannelTransport.TryConnectAsync(CancellationToken cancellationToken)")
+2023-04-08 10:00:56.976 +08:00 [grpclient] [Warning] SkyApm.Transport.Grpc.ConnectionManager : Connection state changed. Status(StatusCode="Unavailable", Detail="Error connecting to subchannel.", DebugException="System.Net.Sockets.SocketException (10061): 由于目标计算机积极拒绝，无法连接。
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|277_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Balancer.Internal.SocketConnectivitySubchannelTransport.TryConnectAsync(CancellationToken cancellationToken)")
+2023-04-08 10:00:56.977 +08:00 [grpclient] [Warning] SkyApm.Transport.Grpc.ConnectionManager : Connection state changed. Status(StatusCode="Unavailable", Detail="Error connecting to subchannel.", DebugException="System.Net.Sockets.SocketException (10061): 由于目标计算机积极拒绝，无法连接。
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|277_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Balancer.Internal.SocketConnectivitySubchannelTransport.TryConnectAsync(CancellationToken cancellationToken)")
+2023-04-08 10:01:09.411 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectionManager : Shutdown connection[127.0.0.1:11800].
+2023-04-08 10:01:09.411 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[127.0.0.1:11800].
+2023-04-08 10:01:26.488 +08:00 [grpclient] [Error] SkyApm.Transport.Grpc.V8.ServiceRegister : Report service instance properties fail.
+Grpc.Core.RpcException: Status(StatusCode="Unavailable", Detail="Error connecting to subchannel.", DebugException="System.Net.Sockets.SocketException (10061): 由于目标计算机积极拒绝，无法连接。
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|277_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Balancer.Internal.SocketConnectivitySubchannelTransport.TryConnectAsync(CancellationToken cancellationToken)")
+   at Grpc.Net.Client.Balancer.Internal.ConnectionManager.PickAsync(PickContext context, Boolean waitForReady, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Balancer.Internal.BalancerHttpHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Internal.GrpcCall`2.RunCall(HttpRequestMessage request, Nullable`1 timeout)
+   at SkyApm.Transport.Grpc.V8.ServiceRegister.<>c__DisplayClass9_0.<<ReportInstancePropertiesAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at SkyApm.Transport.Grpc.Common.Call.Execute[T](Func`1 task, Func`1 errCallback, Func`1 errMessage)
+2023-04-08 10:01:26.488 +08:00 [grpclient] [Warning] SkyApm.Transport.Grpc.ConnectionManager : Connection state changed. Status(StatusCode="Unavailable", Detail="Error connecting to subchannel.", DebugException="System.Net.Sockets.SocketException (10061): 由于目标计算机积极拒绝，无法连接。
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|277_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Balancer.Internal.SocketConnectivitySubchannelTransport.TryConnectAsync(CancellationToken cancellationToken)")
+2023-04-08 10:01:26.488 +08:00 [grpclient] [Error] SkyApm.Transport.Grpc.V8.ServiceRegister : Report service instance properties fail.
+Grpc.Core.RpcException: Status(StatusCode="Unavailable", Detail="Error connecting to subchannel.", DebugException="System.Net.Sockets.SocketException (10061): 由于目标计算机积极拒绝，无法连接。
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|277_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Balancer.Internal.SocketConnectivitySubchannelTransport.TryConnectAsync(CancellationToken cancellationToken)")
+   at Grpc.Net.Client.Balancer.Internal.ConnectionManager.PickAsync(PickContext context, Boolean waitForReady, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Balancer.Internal.BalancerHttpHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Internal.GrpcCall`2.RunCall(HttpRequestMessage request, Nullable`1 timeout)
+   at SkyApm.Transport.Grpc.V8.ServiceRegister.<>c__DisplayClass9_0.<<ReportInstancePropertiesAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at SkyApm.Transport.Grpc.Common.Call.Execute[T](Func`1 task, Func`1 errCallback, Func`1 errMessage)
+2023-04-08 10:01:39.417 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectionManager : Shutdown connection[127.0.0.1:11800].
+2023-04-08 10:01:39.418 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[127.0.0.1:11800].
+2023-04-08 10:01:54.668 +08:00 [grpclient] [Error] SkyApm.Transport.Grpc.V8.ServiceRegister : Report service instance properties fail.
+Grpc.Core.RpcException: Status(StatusCode="Internal", Detail="Error starting gRPC call. HttpRequestException: An HTTP/2 connection could not be established because the server did not complete the HTTP/2 handshake.", DebugException="System.Net.Http.HttpRequestException: An HTTP/2 connection could not be established because the server did not complete the HTTP/2 handshake.
+   at System.Net.Http.HttpConnectionPool.ReturnHttp2Connection(Http2Connection connection, Boolean isNewConnection)
+   at System.Net.Http.HttpConnectionPool.AddHttp2ConnectionAsync(HttpRequestMessage request)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.AsyncStateMachineBox`1.MoveNext(Thread threadPoolThread)
+   at System.Runtime.CompilerServices.TaskAwaiter.<>c.<OutputWaitEtwEvents>b__12_0(Action innerContinuation, Task innerTask)
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.ContinuationWrapper.Invoke()
+   at System.Threading.Tasks.AwaitTaskContinuation.RunOrScheduleAction(Action action, Boolean allowInlining)
+   at System.Threading.Tasks.Task.RunContinuations(Object continuationObject)
+   at System.Threading.Tasks.Task.FinishContinuations()
+   at System.Threading.Tasks.Task`1.TrySetResult(TResult result)
+   at System.Runtime.CompilerServices.AsyncValueTaskMethodBuilder`1.SetResult(TResult result)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.AsyncStateMachineBox`1.MoveNext(Thread threadPoolThread)
+   at System.Runtime.CompilerServices.TaskAwaiter.<>c.<OutputWaitEtwEvents>b__12_0(Action innerContinuation, Task innerTask)
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.ContinuationWrapper.Invoke()
+   at System.Threading.Tasks.AwaitTaskContinuation.RunOrScheduleAction(Action action, Boolean allowInlining)
+   at System.Threading.Tasks.Task.RunContinuations(Object continuationObject)
+   at System.Threading.Tasks.Task.FinishContinuations()
+   at System.Threading.Tasks.Task`1.TrySetResult(TResult result)
+   at System.Runtime.CompilerServices.AsyncValueTaskMethodBuilder`1.SetResult(TResult result)
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.AsyncStateMachineBox`1.MoveNext(Thread threadPoolThread)
+   at System.Runtime.CompilerServices.TaskAwaiter.<>c.<OutputWaitEtwEvents>b__12_0(Action innerContinuation, Task innerTask)
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.ContinuationWrapper.Invoke()
+   at System.Threading.Tasks.AwaitTaskContinuation.RunOrScheduleAction(Action action, Boolean allowInlining)
+   at System.Threading.Tasks.Task.RunContinuations(Object continuationObject)
+   at System.Threading.Tasks.Task.FinishContinuations()
+   at System.Threading.Tasks.Task`1.TrySetResult(TResult result)
+   at Grpc.Net.Client.Balancer.Internal.BalancerHttpHandler.OnConnect(SocketsHttpConnectionContext context, CancellationToken cancellationToken)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.AsyncStateMachineBox`1.MoveNext(Thread threadPoolThread)
+   at System.Runtime.CompilerServices.TaskAwaiter.<>c.<OutputWaitEtwEvents>b__12_0(Action innerContinuation, Task innerTask)
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.ContinuationWrapper.Invoke()
+   at System.Threading.Tasks.AwaitTaskContinuation.RunOrScheduleAction(Action action, Boolean allowInlining)
+   at System.Threading.Tasks.Task.RunContinuations(Object continuationObject)
+   at System.Threading.Tasks.Task.FinishContinuations()
+   at Grpc.Net.Client.Balancer.Internal.SocketConnectivitySubchannelTransport.GetStreamAsync(BalancerAddress address, CancellationToken cancellationToken)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.AsyncStateMachineBox`1.MoveNext(Thread threadPoolThread)
+   at System.Runtime.CompilerServices.TaskAwaiter.<>c.<OutputWaitEtwEvents>b__12_0(Action innerContinuation, Task innerTask)
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.ContinuationWrapper.Invoke()
+   at System.Threading.Tasks.AwaitTaskContinuation.System.Threading.IThreadPoolWorkItem.Execute()
+   at System.Threading.ThreadPoolWorkQueue.Dispatch()
+   at System.Threading.PortableThreadPool.WorkerThread.WorkerThreadStart()
+   at System.Threading.Thread.StartCallback()
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.GetHttp2ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Balancer.Internal.BalancerHttpHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Internal.GrpcCall`2.RunCall(HttpRequestMessage request, Nullable`1 timeout)")
+   at SkyApm.Transport.Grpc.V8.ServiceRegister.<>c__DisplayClass9_0.<<ReportInstancePropertiesAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at SkyApm.Transport.Grpc.Common.Call.Execute[T](Func`1 task, Func`1 errCallback, Func`1 errMessage)
+2023-04-08 10:01:54.668 +08:00 [grpclient] [Warning] SkyApm.Transport.Grpc.ConnectionManager : Connection state changed. Status(StatusCode="Internal", Detail="Error starting gRPC call. HttpRequestException: An HTTP/2 connection could not be established because the server did not complete the HTTP/2 handshake.", DebugException="System.Net.Http.HttpRequestException: An HTTP/2 connection could not be established because the server did not complete the HTTP/2 handshake.
+   at System.Net.Http.HttpConnectionPool.ReturnHttp2Connection(Http2Connection connection, Boolean isNewConnection)
+   at System.Net.Http.HttpConnectionPool.AddHttp2ConnectionAsync(HttpRequestMessage request)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.AsyncStateMachineBox`1.MoveNext(Thread threadPoolThread)
+   at System.Runtime.CompilerServices.TaskAwaiter.<>c.<OutputWaitEtwEvents>b__12_0(Action innerContinuation, Task innerTask)
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.ContinuationWrapper.Invoke()
+   at System.Threading.Tasks.AwaitTaskContinuation.RunOrScheduleAction(Action action, Boolean allowInlining)
+   at System.Threading.Tasks.Task.RunContinuations(Object continuationObject)
+   at System.Threading.Tasks.Task.FinishContinuations()
+   at System.Threading.Tasks.Task`1.TrySetResult(TResult result)
+   at System.Runtime.CompilerServices.AsyncValueTaskMethodBuilder`1.SetResult(TResult result)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.AsyncStateMachineBox`1.MoveNext(Thread threadPoolThread)
+   at System.Runtime.CompilerServices.TaskAwaiter.<>c.<OutputWaitEtwEvents>b__12_0(Action innerContinuation, Task innerTask)
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.ContinuationWrapper.Invoke()
+   at System.Threading.Tasks.AwaitTaskContinuation.RunOrScheduleAction(Action action, Boolean allowInlining)
+   at System.Threading.Tasks.Task.RunContinuations(Object continuationObject)
+   at System.Threading.Tasks.Task.FinishContinuations()
+   at System.Threading.Tasks.Task`1.TrySetResult(TResult result)
+   at System.Runtime.CompilerServices.AsyncValueTaskMethodBuilder`1.SetResult(TResult result)
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.AsyncStateMachineBox`1.MoveNext(Thread threadPoolThread)
+   at System.Runtime.CompilerServices.TaskAwaiter.<>c.<OutputWaitEtwEvents>b__12_0(Action innerContinuation, Task innerTask)
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.ContinuationWrapper.Invoke()
+   at System.Threading.Tasks.AwaitTaskContinuation.RunOrScheduleAction(Action action, Boolean allowInlining)
+   at System.Threading.Tasks.Task.RunContinuations(Object continuationObject)
+   at System.Threading.Tasks.Task.FinishContinuations()
+   at System.Threading.Tasks.Task`1.TrySetResult(TResult result)
+   at Grpc.Net.Client.Balancer.Internal.BalancerHttpHandler.OnConnect(SocketsHttpConnectionContext context, CancellationToken cancellationToken)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.AsyncStateMachineBox`1.MoveNext(Thread threadPoolThread)
+   at System.Runtime.CompilerServices.TaskAwaiter.<>c.<OutputWaitEtwEvents>b__12_0(Action innerContinuation, Task innerTask)
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.ContinuationWrapper.Invoke()
+   at System.Threading.Tasks.AwaitTaskContinuation.RunOrScheduleAction(Action action, Boolean allowInlining)
+   at System.Threading.Tasks.Task.RunContinuations(Object continuationObject)
+   at System.Threading.Tasks.Task.FinishContinuations()
+   at Grpc.Net.Client.Balancer.Internal.SocketConnectivitySubchannelTransport.GetStreamAsync(BalancerAddress address, CancellationToken cancellationToken)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.AsyncStateMachineBox`1.MoveNext(Thread threadPoolThread)
+   at System.Runtime.CompilerServices.TaskAwaiter.<>c.<OutputWaitEtwEvents>b__12_0(Action innerContinuation, Task innerTask)
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.ContinuationWrapper.Invoke()
+   at System.Threading.Tasks.AwaitTaskContinuation.System.Threading.IThreadPoolWorkItem.Execute()
+   at System.Threading.ThreadPoolWorkQueue.Dispatch()
+   at System.Threading.PortableThreadPool.WorkerThread.WorkerThreadStart()
+   at System.Threading.Thread.StartCallback()
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.GetHttp2ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Balancer.Internal.BalancerHttpHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Internal.GrpcCall`2.RunCall(HttpRequestMessage request, Nullable`1 timeout)")
+2023-04-08 10:01:54.717 +08:00 [grpclient] [Error] SkyApm.Transport.Grpc.V8.ServiceRegister : Report service instance properties fail.
+Grpc.Core.RpcException: Status(StatusCode="Unavailable", Detail="Error starting gRPC call. HttpRequestException: An error occurred while sending the request. IOException: An HTTP/2 connection could not be established because the server did not complete the HTTP/2 handshake. IOException: The response ended prematurely while waiting for the next frame from the server.", DebugException="System.Net.Http.HttpRequestException: An error occurred while sending the request.
+ ---> System.IO.IOException: An HTTP/2 connection could not be established because the server did not complete the HTTP/2 handshake.
+ ---> System.IO.IOException: The response ended prematurely while waiting for the next frame from the server.
+   at System.Net.Http.Http2Connection.<ReadFrameAsync>g__ThrowMissingFrame|58_1()
+   at System.Net.Http.Http2Connection.ReadFrameAsync(Boolean initialFrame)
+   at System.Net.Http.Http2Connection.ProcessIncomingFramesAsync()
+   --- End of inner exception stack trace ---
+   at System.Net.Http.Http2Connection.ProcessIncomingFramesAsync()
+   at System.Net.Http.Http2Connection.SendHeadersAsync(HttpRequestMessage request, CancellationToken cancellationToken, Boolean mustFlush)
+   at System.Net.Http.Http2Connection.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.Http2Connection.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Balancer.Internal.BalancerHttpHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Internal.GrpcCall`2.RunCall(HttpRequestMessage request, Nullable`1 timeout)")
+   at SkyApm.Transport.Grpc.V8.ServiceRegister.<>c__DisplayClass9_0.<<ReportInstancePropertiesAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at SkyApm.Transport.Grpc.Common.Call.Execute[T](Func`1 task, Func`1 errCallback, Func`1 errMessage)
+2023-04-08 10:02:09.432 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectionManager : Shutdown connection[127.0.0.1:11800].
+2023-04-08 10:02:09.433 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[127.0.0.1:11800].
+2023-04-08 10:02:24.560 +08:00 [grpclient] [Error] SkyApm.Transport.Grpc.V8.ServiceRegister : Report service instance properties fail.
+Grpc.Core.RpcException: Status(StatusCode="Unavailable", Detail="Error starting gRPC call. HttpRequestException: An error occurred while sending the request. IOException: The request was aborted. IOException: An HTTP/2 connection could not be established because the server did not complete the HTTP/2 handshake. IOException: The response ended prematurely while waiting for the next frame from the server.", DebugException="System.Net.Http.HttpRequestException: An error occurred while sending the request.
+ ---> System.IO.IOException: The request was aborted.
+ ---> System.IO.IOException: An HTTP/2 connection could not be established because the server did not complete the HTTP/2 handshake.
+ ---> System.IO.IOException: The response ended prematurely while waiting for the next frame from the server.
+   at System.Net.Http.Http2Connection.<ReadFrameAsync>g__ThrowMissingFrame|58_1()
+   at System.Net.Http.Http2Connection.ReadFrameAsync(Boolean initialFrame)
+   at System.Net.Http.Http2Connection.ProcessIncomingFramesAsync()
+   --- End of inner exception stack trace ---
+   at System.Net.Http.Http2Connection.ProcessIncomingFramesAsync()
+   --- End of inner exception stack trace ---
+   at System.Net.Http.Http2Connection.ThrowRequestAborted(Exception innerException)
+   at System.Net.Http.Http2Connection.Http2Stream.SendDataAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+   at Grpc.Net.Client.StreamExtensions.WriteMessageAsync[TMessage](Stream stream, GrpcCall call, TMessage message, Action`2 serializer, CallOptions callOptions)
+   at Grpc.Net.Client.Internal.PushUnaryContent`2.WriteMessageCore(ValueTask writeMessageTask)
+   at System.Net.Http.Http2Connection.Http2Stream.SendRequestBodyAsync(CancellationToken cancellationToken)
+   at System.Net.Http.Http2Connection.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.Http2Connection.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Balancer.Internal.BalancerHttpHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Internal.GrpcCall`2.RunCall(HttpRequestMessage request, Nullable`1 timeout)")
+   at SkyApm.Transport.Grpc.V8.ServiceRegister.<>c__DisplayClass9_0.<<ReportInstancePropertiesAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at SkyApm.Transport.Grpc.Common.Call.Execute[T](Func`1 task, Func`1 errCallback, Func`1 errMessage)
+2023-04-08 10:02:24.560 +08:00 [grpclient] [Error] SkyApm.Transport.Grpc.V8.ServiceRegister : Report service instance properties fail.
+Grpc.Core.RpcException: Status(StatusCode="Unavailable", Detail="Error starting gRPC call. HttpRequestException: An error occurred while sending the request. IOException: The request was aborted. IOException: An HTTP/2 connection could not be established because the server did not complete the HTTP/2 handshake. IOException: The response ended prematurely while waiting for the next frame from the server.", DebugException="System.Net.Http.HttpRequestException: An error occurred while sending the request.
+ ---> System.IO.IOException: The request was aborted.
+ ---> System.IO.IOException: An HTTP/2 connection could not be established because the server did not complete the HTTP/2 handshake.
+ ---> System.IO.IOException: The response ended prematurely while waiting for the next frame from the server.
+   at System.Net.Http.Http2Connection.<ReadFrameAsync>g__ThrowMissingFrame|58_1()
+   at System.Net.Http.Http2Connection.ReadFrameAsync(Boolean initialFrame)
+   at System.Net.Http.Http2Connection.ProcessIncomingFramesAsync()
+   --- End of inner exception stack trace ---
+   at System.Net.Http.Http2Connection.ProcessIncomingFramesAsync()
+   --- End of inner exception stack trace ---
+   at System.Net.Http.Http2Connection.ThrowRequestAborted(Exception innerException)
+   at System.Net.Http.Http2Connection.Http2Stream.SendDataAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+   at Grpc.Net.Client.StreamExtensions.WriteMessageAsync[TMessage](Stream stream, GrpcCall call, TMessage message, Action`2 serializer, CallOptions callOptions)
+   at Grpc.Net.Client.Internal.PushUnaryContent`2.WriteMessageCore(ValueTask writeMessageTask)
+   at System.Net.Http.Http2Connection.Http2Stream.SendRequestBodyAsync(CancellationToken cancellationToken)
+   at System.Net.Http.Http2Connection.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.Http2Connection.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Balancer.Internal.BalancerHttpHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Internal.GrpcCall`2.RunCall(HttpRequestMessage request, Nullable`1 timeout)")
+   at SkyApm.Transport.Grpc.V8.ServiceRegister.<>c__DisplayClass9_0.<<ReportInstancePropertiesAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at SkyApm.Transport.Grpc.Common.Call.Execute[T](Func`1 task, Func`1 errCallback, Func`1 errMessage)
+2023-04-08 10:02:24.560 +08:00 [grpclient] [Warning] SkyApm.Transport.Grpc.ConnectionManager : Connection state changed. Status(StatusCode="Unavailable", Detail="Error starting gRPC call. HttpRequestException: An error occurred while sending the request. IOException: The request was aborted. IOException: An HTTP/2 connection could not be established because the server did not complete the HTTP/2 handshake. IOException: The response ended prematurely while waiting for the next frame from the server.", DebugException="System.Net.Http.HttpRequestException: An error occurred while sending the request.
+ ---> System.IO.IOException: The request was aborted.
+ ---> System.IO.IOException: An HTTP/2 connection could not be established because the server did not complete the HTTP/2 handshake.
+ ---> System.IO.IOException: The response ended prematurely while waiting for the next frame from the server.
+   at System.Net.Http.Http2Connection.<ReadFrameAsync>g__ThrowMissingFrame|58_1()
+   at System.Net.Http.Http2Connection.ReadFrameAsync(Boolean initialFrame)
+   at System.Net.Http.Http2Connection.ProcessIncomingFramesAsync()
+   --- End of inner exception stack trace ---
+   at System.Net.Http.Http2Connection.ProcessIncomingFramesAsync()
+   --- End of inner exception stack trace ---
+   at System.Net.Http.Http2Connection.ThrowRequestAborted(Exception innerException)
+   at System.Net.Http.Http2Connection.Http2Stream.SendDataAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+   at Grpc.Net.Client.StreamExtensions.WriteMessageAsync[TMessage](Stream stream, GrpcCall call, TMessage message, Action`2 serializer, CallOptions callOptions)
+   at Grpc.Net.Client.Internal.PushUnaryContent`2.WriteMessageCore(ValueTask writeMessageTask)
+   at System.Net.Http.Http2Connection.Http2Stream.SendRequestBodyAsync(CancellationToken cancellationToken)
+   at System.Net.Http.Http2Connection.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.Http2Connection.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Balancer.Internal.BalancerHttpHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Internal.GrpcCall`2.RunCall(HttpRequestMessage request, Nullable`1 timeout)")
+2023-04-08 10:02:24.560 +08:00 [grpclient] [Warning] SkyApm.Transport.Grpc.ConnectionManager : Connection state changed. Status(StatusCode="Unavailable", Detail="Error starting gRPC call. HttpRequestException: An error occurred while sending the request. IOException: The request was aborted. IOException: An HTTP/2 connection could not be established because the server did not complete the HTTP/2 handshake. IOException: The response ended prematurely while waiting for the next frame from the server.", DebugException="System.Net.Http.HttpRequestException: An error occurred while sending the request.
+ ---> System.IO.IOException: The request was aborted.
+ ---> System.IO.IOException: An HTTP/2 connection could not be established because the server did not complete the HTTP/2 handshake.
+ ---> System.IO.IOException: The response ended prematurely while waiting for the next frame from the server.
+   at System.Net.Http.Http2Connection.<ReadFrameAsync>g__ThrowMissingFrame|58_1()
+   at System.Net.Http.Http2Connection.ReadFrameAsync(Boolean initialFrame)
+   at System.Net.Http.Http2Connection.ProcessIncomingFramesAsync()
+   --- End of inner exception stack trace ---
+   at System.Net.Http.Http2Connection.ProcessIncomingFramesAsync()
+   --- End of inner exception stack trace ---
+   at System.Net.Http.Http2Connection.ThrowRequestAborted(Exception innerException)
+   at System.Net.Http.Http2Connection.Http2Stream.SendDataAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+   at Grpc.Net.Client.StreamExtensions.WriteMessageAsync[TMessage](Stream stream, GrpcCall call, TMessage message, Action`2 serializer, CallOptions callOptions)
+   at Grpc.Net.Client.Internal.PushUnaryContent`2.WriteMessageCore(ValueTask writeMessageTask)
+   at System.Net.Http.Http2Connection.Http2Stream.SendRequestBodyAsync(CancellationToken cancellationToken)
+   at System.Net.Http.Http2Connection.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.Http2Connection.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Balancer.Internal.BalancerHttpHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Internal.GrpcCall`2.RunCall(HttpRequestMessage request, Nullable`1 timeout)")
+2023-04-08 10:02:39.420 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectionManager : Shutdown connection[127.0.0.1:11800].
+2023-04-08 10:02:39.421 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[127.0.0.1:11800].
+2023-04-08 10:02:54.732 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=grpclient,InstanceId=192.168.110.67@cf04ba4285024783bbff60c072aed4bc].
+2023-04-08 10:02:54.732 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=grpclient,InstanceId=192.168.110.67@cf04ba4285024783bbff60c072aed4bc].
+2023-04-08 10:03:24.554 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/8 2:03:24 +00:00
+2023-04-08 10:03:24.554 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/8 2:03:24 +00:00
+2023-04-08 10:03:24.574 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 42 42 0 5M ThreadPool 32763 32767 1000 1000
+2023-04-08 10:03:24.574 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 42 5 5M ThreadPool 32763 32767 1000 1000
+2023-04-08 10:03:55.653 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 12 12 0 5M ThreadPool 32754 32767 1000 1000
+2023-04-08 10:03:56.132 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 5M ThreadPool 32758 32767 1000 1000
+2023-04-08 10:04:24.470 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 13 13 4 5M ThreadPool 32754 32767 1000 1000
+2023-04-08 10:04:24.475 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/8 2:04:24 +00:00
+2023-04-08 10:04:24.470 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 13 0 4 5M ThreadPool 32756 32767 1000 1000
+2023-04-08 10:04:24.486 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/8 2:04:24 +00:00
+2023-04-08 10:04:54.429 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 5M ThreadPool 32757 32767 1000 1000
+2023-04-08 10:04:54.430 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 11 11 1 5M ThreadPool 32757 32767 1000 1000
+2023-04-08 10:05:24.431 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 3 0 6M ThreadPool 32758 32767 1000 1000
+2023-04-08 10:05:24.431 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/8 2:05:24 +00:00
+2023-04-08 10:05:24.431 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 3 3 0 6M ThreadPool 32762 32767 1000 1000
+2023-04-08 10:05:24.431 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/8 2:05:24 +00:00
+2023-04-08 10:05:54.461 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 5 5 2 5M ThreadPool 32757 32767 1000 1000
+2023-04-08 10:05:54.461 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 5M ThreadPool 32761 32767 1000 1000
+2023-04-08 10:06:24.433 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 5M ThreadPool 32754 32767 1000 1000
+2023-04-08 10:06:24.433 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/8 2:06:24 +00:00
+2023-04-08 10:06:24.433 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 13 13 0 5M ThreadPool 32754 32767 1000 1000
+2023-04-08 10:06:24.433 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/8 2:06:24 +00:00
+2023-04-08 10:06:36.482 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 1 trace segment. cost: 00:00:00.0605625s
+2023-04-08 10:06:54.434 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 12 12 1 5M ThreadPool 32754 32767 1000 1000
+2023-04-08 10:06:54.434 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 5M ThreadPool 32760 32767 1000 1000
+2023-04-08 10:07:24.432 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 12 12 0 5M ThreadPool 32756 32767 1000 1000
+2023-04-08 10:07:24.432 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/8 2:07:24 +00:00
+2023-04-08 10:07:24.432 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 5M ThreadPool 32756 32767 1000 1000
+2023-04-08 10:07:24.432 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/8 2:07:24 +00:00
+2023-04-08 15:35:43.891 +08:00 [grpclient] [Information] SkyApm.InstrumentStartup : Initializing ...
+2023-04-08 15:35:44.034 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-08 15:35:44.035 +08:00 [grpclient] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-08 15:35:44.037 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-08 15:35:44.038 +08:00 [grpclient] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-08 15:35:44.038 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-08 15:35:44.051 +08:00 [grpclient] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-08 15:35:44.052 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-08 15:35:44.052 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-08 15:35:44.052 +08:00 [grpclient] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-08 15:35:44.052 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-08 15:35:44.052 +08:00 [grpclient] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-08 15:35:44.052 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-08 15:35:44.052 +08:00 [grpclient] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-08 15:35:44.053 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-08 15:35:44.499 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[127.0.0.1:11800].
+2023-04-08 15:35:44.500 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2023-04-08 15:35:44.502 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.AspNetCore].
+2023-04-08 15:35:44.502 +08:00 [grpclient] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2023-04-08 15:35:44.502 +08:00 [grpclient] [Information] SkyApm.InstrumentStartup : Initializing ...
+2023-04-08 15:35:44.502 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-08 15:35:44.503 +08:00 [grpclient] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-08 15:35:44.503 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-08 15:35:44.503 +08:00 [grpclient] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-08 15:35:44.503 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-08 15:35:44.503 +08:00 [grpclient] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-08 15:35:44.503 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-08 15:35:44.503 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-08 15:35:44.503 +08:00 [grpclient] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-08 15:35:44.503 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-08 15:35:44.503 +08:00 [grpclient] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-08 15:35:44.503 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-08 15:35:44.503 +08:00 [grpclient] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-08 15:35:44.503 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-08 15:35:44.505 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2023-04-08 15:35:44.505 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.AspNetCore].
+2023-04-08 15:35:44.505 +08:00 [grpclient] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2023-04-08 15:35:44.911 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2023-04-08 15:35:44.911 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2023-04-08 15:35:51.809 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=grpclient,InstanceId=192.168.110.67@3bde154386614cf78e09378968cfaee8].
+2023-04-08 15:35:51.809 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=grpclient,InstanceId=192.168.110.67@3bde154386614cf78e09378968cfaee8].
+2023-04-08 15:35:51.809 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=grpclient,InstanceId=192.168.110.67@3bde154386614cf78e09378968cfaee8].
+2023-04-08 15:35:51.809 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=grpclient,InstanceId=192.168.110.67@3bde154386614cf78e09378968cfaee8].
+2023-04-08 15:35:53.244 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 1 trace segment. cost: 00:00:00.1786185s
+2023-04-08 15:36:14.696 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/8 7:36:14 +00:00
+2023-04-08 15:36:14.696 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/8 7:36:14 +00:00
+2023-04-08 15:36:14.748 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 6M ThreadPool 32761 32767 1000 1000
+2023-04-08 15:36:14.748 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 2 2 0 6M ThreadPool 32760 32767 1000 1000
+2023-04-08 15:36:44.530 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 1 1 0 6M ThreadPool 32754 32767 1000 1000
+2023-04-08 15:36:44.530 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 1 1 6M ThreadPool 32754 32767 1000 1000
+2023-04-08 15:37:16.537 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 3.125 GenCollectCount 1 1 0 6M ThreadPool 32752 32767 999 1000
+2023-04-08 15:37:16.539 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 3.125 GenCollectCount 0 0 0 6M ThreadPool 32751 32767 999 1000
+2023-04-08 15:37:16.539 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 1 trace segment. cost: 00:00:01.8104353s
+2023-04-08 15:37:16.577 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/8 7:37:16 +00:00
+2023-04-08 15:37:16.577 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/8 7:37:16 +00:00
+2023-04-08 15:37:24.993 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 1 trace segment. cost: 00:00:02.9718529s
+2023-04-08 15:37:28.036 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 1 logs. cost: 00:00:11.4801442s
+2023-04-08 15:38:03.787 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 1.5625 GenCollectCount 2 2 0 6M ThreadPool 32758 32767 1000 1000
+2023-04-08 15:38:03.787 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 1.5625 GenCollectCount 2 2 0 6M ThreadPool 32758 32767 1000 1000
+2023-04-08 15:38:06.774 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 1 trace segment. cost: 00:00:00.0104397s
+2023-04-08 15:38:14.534 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 6M ThreadPool 32757 32767 1000 1000
+2023-04-08 15:38:14.538 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/8 7:38:14 +00:00
+2023-04-08 15:38:14.538 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/8 7:38:14 +00:00
+2023-04-08 15:38:14.538 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 6M ThreadPool 32759 32767 1000 1000
+2023-04-08 15:38:44.522 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 2 2 0 6M ThreadPool 32759 32767 1000 1000
+2023-04-08 15:38:44.522 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 2 0 0 6M ThreadPool 32761 32767 1000 1000
+2023-04-08 15:39:14.527 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 7M ThreadPool 32763 32767 1000 1000
+2023-04-08 15:39:14.527 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/8 7:39:14 +00:00
+2023-04-08 15:39:14.527 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/8 7:39:14 +00:00
+2023-04-08 15:39:14.527 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 7M ThreadPool 32759 32767 1000 1000
+2023-04-08 15:39:21.629 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 1 trace segment. cost: 00:00:00.0411521s
+2023-04-08 15:39:22.554 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 1 trace segment. cost: 00:00:00.0074486s
+2023-04-08 15:39:24.770 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 1 trace segment. cost: 00:00:00.0064809s
+2023-04-08 16:24:35.987 +08:00 [grpclient] [Information] SkyApm.InstrumentStartup : Initializing ...
+2023-04-08 16:24:36.103 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-08 16:24:36.104 +08:00 [grpclient] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-08 16:24:36.105 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-08 16:24:36.105 +08:00 [grpclient] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-08 16:24:36.105 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-08 16:24:36.105 +08:00 [grpclient] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-08 16:24:36.106 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-08 16:24:36.106 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-08 16:24:36.106 +08:00 [grpclient] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-08 16:24:36.106 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-08 16:24:36.106 +08:00 [grpclient] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-08 16:24:36.106 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-08 16:24:36.106 +08:00 [grpclient] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-08 16:24:36.106 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-08 16:24:36.405 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[127.0.0.1:11800].
+2023-04-08 16:24:36.419 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2023-04-08 16:24:36.422 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.AspNetCore].
+2023-04-08 16:24:36.422 +08:00 [grpclient] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2023-04-08 16:24:36.422 +08:00 [grpclient] [Information] SkyApm.InstrumentStartup : Initializing ...
+2023-04-08 16:24:36.422 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-08 16:24:36.423 +08:00 [grpclient] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-08 16:24:36.423 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-08 16:24:36.423 +08:00 [grpclient] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-08 16:24:36.423 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-08 16:24:36.423 +08:00 [grpclient] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-08 16:24:36.423 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-08 16:24:36.423 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-08 16:24:36.423 +08:00 [grpclient] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-08 16:24:36.423 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-08 16:24:36.423 +08:00 [grpclient] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-08 16:24:36.423 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-08 16:24:36.423 +08:00 [grpclient] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-08 16:24:36.423 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-08 16:24:36.428 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2023-04-08 16:24:36.428 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.AspNetCore].
+2023-04-08 16:24:36.428 +08:00 [grpclient] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2023-04-08 16:24:36.653 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2023-04-08 16:24:36.663 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2023-04-08 16:24:37.452 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=grpclient,InstanceId=192.168.110.67@be8838bf526b40c3ab6c4c75a4f50ef8].
+2023-04-08 16:24:37.452 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=grpclient,InstanceId=192.168.110.67@be8838bf526b40c3ab6c4c75a4f50ef8].
+2023-04-08 16:24:37.452 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=grpclient,InstanceId=192.168.110.67@be8838bf526b40c3ab6c4c75a4f50ef8].
+2023-04-08 16:24:37.452 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=grpclient,InstanceId=192.168.110.67@be8838bf526b40c3ab6c4c75a4f50ef8].
+2023-04-08 16:24:42.327 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 1 trace segment. cost: 00:00:00.1969040s
+2023-04-08 16:24:45.146 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 1 trace segment. cost: 00:00:00.0367052s
+2023-04-08 16:24:51.500 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 1 logs. cost: 00:00:00.0635228s
+2023-04-08 16:24:54.426 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 1 trace segment. cost: 00:00:00.0246612s
+2023-04-08 16:25:04.852 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 3 trace segment. cost: 00:00:00.0804223s
+2023-04-08 16:25:04.857 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 4 logs. cost: 00:00:00.0849535s
+2023-04-08 16:25:06.153 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/8 8:25:06 +00:00
+2023-04-08 16:25:06.153 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/8 8:25:06 +00:00
+2023-04-08 16:25:06.163 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 21M ThreadPool 32763 32767 1000 1000
+2023-04-08 16:25:06.163 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 21M ThreadPool 32763 32767 1000 1000
+2023-04-08 16:25:06.484 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 21M ThreadPool 32763 32767 1000 1000
+2023-04-08 16:25:06.484 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 21M ThreadPool 32763 32767 1000 1000
+2023-04-08 16:25:06.486 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/8 8:25:06 +00:00
+2023-04-08 16:25:06.486 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/8 8:25:06 +00:00
+2023-04-08 16:25:07.788 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 1 trace segment. cost: 00:00:00.0050817s
+2023-04-08 16:25:36.123 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 23M ThreadPool 32759 32767 1000 1000
+2023-04-08 16:25:36.123 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 23M ThreadPool 32759 32767 1000 1000
+2023-04-08 16:25:36.447 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 24M ThreadPool 32759 32767 1000 1000
+2023-04-08 16:25:36.447 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 24M ThreadPool 32759 32767 1000 1000
+2023-04-08 16:25:53.589 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 1 trace segment. cost: 00:00:00.0704081s
+2023-04-08 16:26:15.900 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/8 8:26:15 +00:00
+2023-04-08 16:26:15.900 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 1 1 0 7M ThreadPool 32759 32767 999 1000
+2023-04-08 16:26:15.901 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 7M ThreadPool 32759 32767 999 1000
+2023-04-08 16:26:15.903 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/8 8:26:15 +00:00
+2023-04-08 16:28:03.722 +08:00 [grpclient] [Information] SkyApm.InstrumentStartup : Initializing ...
+2023-04-08 16:28:04.009 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-08 16:28:04.010 +08:00 [grpclient] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-08 16:28:04.011 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-08 16:28:04.012 +08:00 [grpclient] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-08 16:28:04.012 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-08 16:28:04.013 +08:00 [grpclient] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-08 16:28:04.013 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-08 16:28:04.013 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-08 16:28:04.013 +08:00 [grpclient] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-08 16:28:04.013 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-08 16:28:04.013 +08:00 [grpclient] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-08 16:28:04.013 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-08 16:28:04.013 +08:00 [grpclient] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-08 16:28:04.013 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-08 16:28:04.435 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[127.0.0.1:11800].
+2023-04-08 16:28:04.470 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2023-04-08 16:28:04.479 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.AspNetCore].
+2023-04-08 16:28:04.480 +08:00 [grpclient] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2023-04-08 16:28:04.480 +08:00 [grpclient] [Information] SkyApm.InstrumentStartup : Initializing ...
+2023-04-08 16:28:04.480 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-08 16:28:04.480 +08:00 [grpclient] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-08 16:28:04.481 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-08 16:28:04.481 +08:00 [grpclient] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-08 16:28:04.481 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-08 16:28:04.481 +08:00 [grpclient] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-08 16:28:04.481 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-08 16:28:04.481 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-08 16:28:04.481 +08:00 [grpclient] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-08 16:28:04.481 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-08 16:28:04.481 +08:00 [grpclient] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-08 16:28:04.481 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-08 16:28:04.481 +08:00 [grpclient] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-08 16:28:04.481 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-08 16:28:04.484 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2023-04-08 16:28:04.485 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.AspNetCore].
+2023-04-08 16:28:04.485 +08:00 [grpclient] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2023-04-08 16:28:05.490 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2023-04-08 16:28:05.490 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2023-04-08 16:28:06.451 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=grpclient,InstanceId=192.168.110.67@64f75afc2dca4dc6b804f56067f242a0].
+2023-04-08 16:28:06.451 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=grpclient,InstanceId=192.168.110.67@64f75afc2dca4dc6b804f56067f242a0].
+2023-04-08 16:28:06.451 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=grpclient,InstanceId=192.168.110.67@64f75afc2dca4dc6b804f56067f242a0].
+2023-04-08 16:28:06.451 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=grpclient,InstanceId=192.168.110.67@64f75afc2dca4dc6b804f56067f242a0].
+2023-04-08 16:28:10.474 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 2 trace segment. cost: 00:00:00.0699409s
+2023-04-08 16:28:34.068 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/8 8:28:34 +00:00
+2023-04-08 16:28:34.068 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/8 8:28:34 +00:00
+2023-04-08 16:28:34.072 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 20M ThreadPool 32763 32767 1000 1000
+2023-04-08 16:28:34.072 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 20M ThreadPool 32763 32767 1000 1000
+2023-04-08 16:28:34.521 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 20M ThreadPool 32759 32767 1000 1000
+2023-04-08 16:28:34.521 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/8 8:28:34 +00:00
+2023-04-08 16:28:34.521 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 20M ThreadPool 32759 32767 1000 1000
+2023-04-08 16:28:34.521 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/8 8:28:34 +00:00

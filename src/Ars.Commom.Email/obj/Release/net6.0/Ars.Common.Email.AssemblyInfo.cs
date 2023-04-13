@@ -13,11 +13,12 @@ using System.Reflection;
 
 [assembly: System.Reflection.AssemblyCompanyAttribute("MyArs")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
-[assembly: System.Reflection.AssemblyFileVersionAttribute("1.1.5.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.1.5")]
+[assembly: System.Reflection.AssemblyFileVersionAttribute("1.6.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.6.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("Ars")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Ars.Common.Email")]
-[assembly: System.Reflection.AssemblyVersionAttribute("1.1.5.0")]
+[assembly: System.Reflection.AssemblyVersionAttribute("1.6.0.0")]
+[assembly: System.Reflection.AssemblyMetadataAttribute("RepositoryUrl", "https://github.com/aabb1212/MyArs")]
 
 // 由 MSBuild WriteCodeFragment 类生成。
 

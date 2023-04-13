@@ -6,7 +6,14 @@ using Ars.Common.IdentityServer4.Extension;
 using Ars.Common.Tool.Extension;
 using GrpcClients;
 
+
+Environment.SetEnvironmentVariable("ASPNETCORE_HOSTINGSTARTUPASSEMBLIES", "SkyAPM.Agent.AspNetCore");
+Environment.SetEnvironmentVariable("SKYWALKING__SERVICENAME", "grpclient");
+
 var builder = WebApplication.CreateBuilder(args);
+
+//Environment.SetEnvironmentVariable("ASPNETCORE_HOSTINGSTARTUPASSEMBLIES", "SkyAPM.Agent.AspNetCore");
+//Environment.SetEnvironmentVariable("SKYWALKING__SERVICENAME", "grpclient11");
 
 // Add services to the container.
 
@@ -16,11 +23,10 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services
-    .AddArsHttpClient()
-    .AddMemoryCache()
     .AddArserviceCore(builder.Host, config =>
     {
         config.AddArsConsulDiscoverClient();
+        //config.AddArsSkyApm();
     });
 
 builder.Services.AddScoped<IChannelManager, ChannelManager>();
@@ -35,14 +41,16 @@ builder.Services.AddHostedService(pro => pro.GetRequiredService<ChannelPublish>(
 builder.Services.AddSingleton<ChannelPublish2>();
 builder.Services.AddHostedService(pro => pro.GetRequiredService<ChannelPublish2>());
 
+builder.Services.AddSkyAPM();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
+//if (app.Environment.IsProduction())
+//{
     app.UseSwagger();
     app.UseSwaggerUI();
-}
+//}
 
 app.UsArsExceptionMiddleware();
 

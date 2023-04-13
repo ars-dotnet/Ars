@@ -2,6 +2,7 @@
 using Ars.Common.Consul.Option;
 using Ars.Common.Core;
 using Ars.Common.Core.Configs;
+using Ars.Common.Tool.Extension;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -14,7 +15,7 @@ namespace Ars.Common.Consul.Extension
 {
     public static class IServiceCollectionExtension
     {
-        public static IArsServiceBuilder AddArsConsulDiscoverClient(this IArsServiceBuilder arsServiceBuilder) 
+        public static IArsServiceBuilder AddArsConsulDiscoverClient(this IArsServiceBuilder arsServiceBuilder)
         {
             var services = arsServiceBuilder.Services.ServiceCollection;
             services.AddSingleton<ConsulHelper>();
@@ -25,11 +26,25 @@ namespace Ars.Common.Consul.Extension
                 .Get<ConsulDiscoverConfiguration>()
                 ??
                 throw new ArgumentNullException("appsettings => ConsulDiscoverConfiguration not be null");
+
+            if (config.ConsulDiscovers.Any(r => null == r.Communication))
+            {
+                throw new ArgumentNullException("appsettings => ConsulDiscoverConfiguration.CommunicationConfiguration not be null");
+            }
+
             arsServiceBuilder.Services.Provider
                 .GetRequiredService<IArsConfiguration>()
                 .ConsulDiscoverConfiguration ??= config;
 
             services.AddSingleton<IConsulDiscoverConfiguration>(config);
+
+            //if (config.ConsulDiscovers.Any(r => 
+            //       r.Communication.CommunicationWay == CommunicationWay.Both ||
+            //       r.Communication.CommunicationWay == CommunicationWay.HttpClient ||
+            //       r.Communication.UseIdentityServer4Valid))
+            //{
+                services.AddArsHttpClient().AddMemoryCache();
+            //}
 
             return arsServiceBuilder;
         }

@@ -15,6 +15,7 @@ using Ars.Common.Core.AspNetCore.Extensions;
 using Ars.Common.Tool.Extension;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.AspNetCore.StaticFiles;
+using Ars.Common.Consul.Extension;
 
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
@@ -25,6 +26,7 @@ var arsbuilder =
     {
         config.ApplicationUrl = "http://192.168.110.67:5196";
         config.AddArsIdentityClient();
+        config.AddArsConsulRegisterServer();
     })
     .AddArsDbContext<MyDbContext>();
 builder.Services
@@ -85,7 +87,7 @@ builder.Services.AddSwaggerGen(c =>
     c.OperationFilter<SecurityRequirementsOperationFilter>();
 });
 
-//builder.WebHost.UseUrls("http://127.0.0.1:5197");
+//builder.WebHost.UseUrls("http://127.0.0.1:5196");
 
 //builder.WebHost.UseKestrel(kestrel =>
 //{
@@ -127,5 +129,7 @@ app.UseStaticFiles(new StaticFileOptions
 
 app.UseArsCore().UseArsUploadExcel();
 app.MapControllers();
+
+app.Map("/healthCheck", app => app.Run(context => context.Response.WriteAsync("ok")));
 
 app.Run();
