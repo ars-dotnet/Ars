@@ -1,6 +1,7 @@
 {
   "SkyWalking": {
-    "ServiceName": "arsidentityserver4",
+    "ServiceName": "docker-arsidentityserver0421001",
+    //"ServiceName": "arsidentityserver0421001",
     "Namespace": "",
     "HeaderVersions": [
       "sw8"
@@ -19,7 +20,8 @@
       "QueueSize": 30000,
       "BatchSize": 3000,
       "gRPC": {
-        "Servers": "127.0.0.1:11800",
+        //"Servers": "127.0.0.1:11800",
+        "Servers": "172.20.64.1:11800",
         "Timeout": 10000,
         "ConnectTimeout": 10000,
         "ReportTimeout": 600000,

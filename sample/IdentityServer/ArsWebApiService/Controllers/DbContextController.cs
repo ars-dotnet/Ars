@@ -127,7 +127,7 @@ namespace MyApiWithIdentityServer4.Controllers
 
             var a = m.First().Enrollments;
 
-            return Ok();
+            return Ok(m);
         }
 
         [Authorize]

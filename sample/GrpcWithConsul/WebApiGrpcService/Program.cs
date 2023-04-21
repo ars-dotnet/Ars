@@ -41,7 +41,7 @@ builder.WebHost.ConfigureKestrel(kestrel =>
     //    i.ClientCertificateMode = ClientCertificateMode.AllowCertificate;
     //    i.SslProtocols = SslProtocols.Tls12 | SslProtocols.Tls | SslProtocols.None | SslProtocols.Tls11;
     //    i.ClientCertificateValidation = (certificate2, chain, error) => true;
-    //    i.ServerCertificate = Certificate.Get("Certificates\\IS4.pfx","aabb1212");
+    //    i.ServerCertificate = Certificate.Get("Certificates//IS4.pfx","aabb1212");
     //});
     //kestrel.ConfigureEndpointDefaults(i =>
     //{

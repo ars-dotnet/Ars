@@ -11,6 +11,12 @@ namespace Ars.Common.SkyWalking.Extensions
 {
     public static class IServiceCollectionExtension
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="builder"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public static IArsServiceBuilder AddArsSkyApm(this IArsServiceBuilder builder) 
         {
             var services = builder.Services.ServiceCollection;
@@ -23,6 +29,7 @@ namespace Ars.Common.SkyWalking.Extensions
                 ?? 
                 throw new ArgumentNullException("appsettings => ArsSkyWalkingConfiguration not be null");
 
+            //设置环境变量不生效 不管是本地测试还是docker环境
             Environment.SetEnvironmentVariable(nameof(skyapmconfig.ASPNETCORE_HOSTINGSTARTUPASSEMBLIES), skyapmconfig.ASPNETCORE_HOSTINGSTARTUPASSEMBLIES);
             Environment.SetEnvironmentVariable(nameof(skyapmconfig.SKYWALKING__SERVICENAME), skyapmconfig.SKYWALKING__SERVICENAME);
             services.AddSkyAPM();

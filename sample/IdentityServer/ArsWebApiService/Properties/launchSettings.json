@@ -1,39 +1,28 @@
-﻿{
-  "$schema": "https://json.schemastore.org/launchsettings.json",
-  "iisSettings": {
-    "windowsAuthentication": false,
-    "anonymousAuthentication": true,
-    "iisExpress": {
-      "applicationUrl": "http://localhost:43273",
-      "sslPort": 0
-    }
-  },
+{
   "profiles": {
     "ArsWebApiService01": {
       "commandName": "Project",
-      "dotnetRunMessages": true,
       "launchBrowser": true,
       "launchUrl": "swagger",
-      "applicationUrl": "http://192.168.110.67:5196",
-      //"applicationUrl": "http://localhost:5196",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
         "ASPNETCORE_HOSTINGSTARTUPASSEMBLIES": "SkyAPM.Agent.AspNetCore",
-        "SKYWALKING__SERVICENAME": "arswebapiservice5196"
-      }
+        "SKYWALKING__SERVICENAME": "arswebapiservice0421001"
+      },
+      "dotnetRunMessages": true,
+      "applicationUrl": "http://172.20.64.1:5196"
     },
     "ArsWebApiService02": {
       "commandName": "Project",
-      "dotnetRunMessages": true,
       "launchBrowser": true,
       "launchUrl": "swagger",
-      "applicationUrl": "http://192.168.110.67:5197",
-      //"applicationUrl": "http://localhost:5196",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
         "ASPNETCORE_HOSTINGSTARTUPASSEMBLIES": "SkyAPM.Agent.AspNetCore",
         "SKYWALKING__SERVICENAME": "arswebapiservice5197"
-      }
+      },
+      "dotnetRunMessages": true,
+      "applicationUrl": "http://localhost:5197"
     },
     "IIS Express": {
       "commandName": "IISExpress",
@@ -42,6 +31,24 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
+    },
+    "Docker": {
+      "commandName": "Docker",
+      "launchBrowser": true,
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/swagger",
+      "publishAllPorts": true,
+      "httpPort": 5196,
+      "sslPort": 5197,
+      "useSSL": false
+    }
+  },
+  "$schema": "https://json.schemastore.org/launchsettings.json",
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:43273",
+      "sslPort": 0
     }
   }
 }

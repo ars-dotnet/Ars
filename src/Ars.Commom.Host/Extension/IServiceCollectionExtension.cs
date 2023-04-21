@@ -18,6 +18,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
@@ -48,13 +49,17 @@ namespace Ars.Commom.Host.Extension
             using var scope = services.BuildServiceProvider().CreateScope();
             IArsConfiguration arsConfig = scope.ServiceProvider.GetRequiredService<IArsConfiguration>();
             action?.Invoke(arsConfig);
-            foreach (var serviceExtension in arsConfig.ArsServiceExtensions) 
+            foreach (var serviceExtension in arsConfig.ArsServiceExtensions)
             {
                 serviceExtension.AddService(arsbuilder);
             }
 
+            ArsBasicConfiguration arsBasicConfiguration =
+                scope.ServiceProvider.GetRequiredService<IConfiguration>()
+                .GetSection(nameof(ArsBasicConfiguration))
+                .Get<ArsBasicConfiguration>() ?? new ArsBasicConfiguration();
             services.AddSingleton<IOptions<IArsBasicConfiguration>>(
-                new OptionsWrapper<IArsBasicConfiguration>(arsConfig));
+                new OptionsWrapper<IArsBasicConfiguration>(arsBasicConfiguration));
 
             return arsbuilder;
         }

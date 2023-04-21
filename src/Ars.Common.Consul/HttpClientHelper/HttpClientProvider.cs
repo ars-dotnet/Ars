@@ -31,21 +31,21 @@ namespace Ars.Common.Consul.HttpClientHelper
             _token = token;
         }
 
-        public Task<T> GetHttpClient<T>(string serviceName) where T : HttpClient
+        public Task<T> GetHttpClientAsync<T>(string serviceName) where T : HttpClient
         {
             var option = _options.ConsulDiscovers.
                    FirstOrDefault(r => r.ServiceName.Equals(serviceName, StringComparison.OrdinalIgnoreCase))
                 ?? throw new ArsException($"consul service:{serviceName} not find");
 
-            return GetHttpClient<T>(option);
+            return GetHttpClientAsync<T>(option);
         }
 
-        public Task<T> GetHttpClient<T>(ConsulConfiguration config) where T : HttpClient
+        public Task<T> GetHttpClientAsync<T>(ConsulConfiguration config) where T : HttpClient
         {
             return GetClient<T>(config, HttpClientNames.RetryHttp);
         }
 
-        public Task<T> GetGrpcHttpClient<T>(ConsulConfiguration config) where T : HttpClient 
+        public Task<T> GetGrpcHttpClientAsync<T>(ConsulConfiguration config) where T : HttpClient 
         {
             return GetClient<T>(config, HttpClientNames.RetryGrpcHttpV2,grpc:true);
         }
@@ -58,12 +58,19 @@ namespace Ars.Common.Consul.HttpClientHelper
             {
                 if (config.Communication.GrpcUseHttp1Protocol)
                 {
-                    httpClientName = config.Communication.UseHttps 
-                        ? HttpClientNames.RetryGrpcHttpsV1 
-                        : HttpClientNames.RetryGrpcHttpV1;
+                    if (config.Communication.UseHttps)
+                    {
+                        domain = domain.Replace("http", "https");
+                        httpClientName = HttpClientNames.RetryGrpcHttpsV1;
+                    }
+                    else 
+                    {
+                        httpClientName = HttpClientNames.RetryGrpcHttpV1;
+                    }
                 }
                 else if (config.Communication.UseHttps)
                 {
+                    domain = domain.Replace("http", "https");
                     httpClientName = HttpClientNames.RetryGrpcHttpsV2;
                 }
             }
@@ -79,7 +86,8 @@ namespace Ars.Common.Consul.HttpClientHelper
 
             if(config.Communication.UseIdentityServer4Valid) 
             {
-                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", await _token.GetToken(config));
+                client.DefaultRequestHeaders.Authorization =
+                    new AuthenticationHeaderValue("Bearer", await _token.GetToken(config));
             };
             
             return client.As<T>()!;

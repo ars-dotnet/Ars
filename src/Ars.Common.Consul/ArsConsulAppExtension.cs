@@ -14,9 +14,9 @@ namespace Ars.Common.Consul
     {
         public void UseApplication(IApplicationBuilder builder, IArsConfiguration configuration)
         {
-            if (null != configuration.ConsulRegisterConfiguration)
+            if (null != configuration.ArsConsulRegisterConfiguration)
             {
-                builder.UseArsConsul(configuration.ConsulRegisterConfiguration);
+                builder.UseArsConsul(configuration.ArsConsulRegisterConfiguration);
             }
         }
     }

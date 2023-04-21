@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 
 namespace Ars.Commom.Core
 {
@@ -12,6 +13,7 @@ namespace Ars.Commom.Core
     public class ArsServiceBuilder : IArsServiceBuilder 
     {
         private readonly IArsServiceCollection _services;
+
         private readonly IHostBuilder _hostBuilder;
         public ArsServiceBuilder(IArsServiceCollection services, IHostBuilder hostBuilder)
         {

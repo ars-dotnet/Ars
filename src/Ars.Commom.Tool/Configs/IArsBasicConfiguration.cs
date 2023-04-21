@@ -14,8 +14,20 @@ namespace Ars.Common.Tool.Configs
         string Root { get; }
 
         /// <summary>
-        /// application url
+        /// 程序访问的域名
         /// </summary>
-        public string ApplicationUrl { get; set; }
+        string AppAccessDomain { get; }
+
+        /// <summary>
+        /// 应用程序的ip/容器的ip 
+        /// 默认127.0.0.1
+        /// </summary>
+        string Ip { get; }
+
+        /// <summary>
+        /// 应用程序的端口/容器的端口
+        /// 默认5000
+        /// </summary>
+        int Port { get; } 
     }
 }

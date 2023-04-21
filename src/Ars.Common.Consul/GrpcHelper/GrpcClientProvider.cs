@@ -40,15 +40,13 @@ namespace Ars.Common.Consul.GrpcHelper
                    FirstOrDefault(r => r.ServiceName.Equals(serviceName, StringComparison.OrdinalIgnoreCase))
                 ?? throw new ArsException($"consul service:{serviceName} not find");
 
-            string domain = await _consulHelper.GetServiceDomain(serviceName, option.ConsulAddress);
-            if (option.Communication.UseHttps)
-                domain = domain.Replace("http", "https");
-            return (T)Activator.CreateInstance(typeof(T), await GetGrpcCallInvoker(domain, option))!;
+            return (T)Activator.CreateInstance(typeof(T), await GetGrpcCallInvoker(option))!;
         }
 
-        private async Task<CallInvoker> GetGrpcCallInvoker(string domain, ConsulConfiguration configuration)
+        private async Task<CallInvoker> GetGrpcCallInvoker(ConsulConfiguration configuration)
         {
-            var channel = GrpcChannel.ForAddress(domain, await GetGrpcChannelOptions(configuration));
+            GrpcChannelOptions channelOptions = await GetGrpcChannelOptions(configuration);
+            var channel = GrpcChannel.ForAddress(channelOptions.HttpClient!.BaseAddress!, channelOptions);
             var callInvoker = channel.Intercept(
                 new GrpcClientTokenInterceptor(configuration, _grpcCallOptionsProvider));
 
@@ -59,8 +57,7 @@ namespace Ars.Common.Consul.GrpcHelper
         {
             return new GrpcChannelOptions
             {
-                //HttpClient = GetHttpClient(configuration),
-                HttpClient = await _httpClientProvider.GetGrpcHttpClient<HttpClient>(configuration)
+                HttpClient = await _httpClientProvider.GetGrpcHttpClientAsync<HttpClient>(configuration)
             };
         }
 
@@ -69,6 +66,7 @@ namespace Ars.Common.Consul.GrpcHelper
         /// </summary>
         /// <param name="config"></param>
         /// <returns></returns>
+        [Obsolete]
         private HttpClient GetHttpClient(ConsulConfiguration config)
         {
             var configuration = config.Communication;

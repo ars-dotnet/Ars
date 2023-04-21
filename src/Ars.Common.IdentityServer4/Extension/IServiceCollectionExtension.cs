@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -48,6 +49,9 @@ namespace Ars.Common.IdentityServer4.Extension
             arscfg.ArsIdentityServerConfiguration ??= option;
             arscfg.AddArsAppExtension(new ArsIdentityServerAppExtension());
 
+            using var loggerfac = LoggerFactory.Create(builder => builder.AddConsole());
+            var logger = loggerfac.CreateLogger(nameof(AddArsIdentityServer));
+
             services.AddIdentityServer()
                 .AddArsIdentityResource()
                 .AddArsApiResource(option.ArsApiResources)
@@ -56,7 +60,7 @@ namespace Ars.Common.IdentityServer4.Extension
                 .AddArsSigningCredential(
                     string.IsNullOrEmpty(option.CertPath)
                         ? Certificate.Get()
-                        : Certificate.Get(option.CertPath, option.Password))
+                        : Certificate.Get(option.CertPath, option.Password, logger))
                 .AddTestUsers(new List<TestUser>
                 {
                     new TestUser

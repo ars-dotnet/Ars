@@ -8,6 +8,8 @@
     <BaseIntermediateOutputPath>bin\</BaseIntermediateOutputPath>
     <BaseOutputPath>bin\</BaseOutputPath>
     <ProduceReferenceAssembly>True</ProduceReferenceAssembly>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>..\..\..</DockerfileContext>
   </PropertyGroup>
 
   <ItemGroup>
@@ -17,6 +19,8 @@
   <ItemGroup>
     
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.6" />
+    
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.2" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="6.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
     <PackageReference Include="CSRedisCore" Version="3.6.3" />
@@ -37,6 +41,7 @@
     <ProjectReference Include="..\..\..\src\Ars.Common.Consul\Ars.Common.Consul.csproj" />
     <ProjectReference Include="..\..\..\src\Ars.Common.EFCore\Ars.Common.EFCore.csproj" />
     <ProjectReference Include="..\..\..\src\Ars.Common.IdentityServer4\Ars.Common.IdentityServer4.csproj" />
+    <ProjectReference Include="..\..\..\src\Ars.Common.SkyWalking\Ars.Common.SkyWalking.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -53,6 +58,9 @@
 
   <ItemGroup>
     <None Update="Certificates\ars.pfx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Dockerfile">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

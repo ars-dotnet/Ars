@@ -16,6 +16,8 @@ using Ars.Common.Tool.Extension;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.AspNetCore.StaticFiles;
 using Ars.Common.Consul.Extension;
+using Ars.Common.SkyWalking.Extensions;
+using Ars.Common.Tool.Configs;
 
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
@@ -24,9 +26,9 @@ var arsbuilder =
     builder.Services
     .AddArserviceCore(builder.Host, config =>
     {
-        config.ApplicationUrl = "http://192.168.110.67:5196";
         config.AddArsIdentityClient();
         config.AddArsConsulRegisterServer();
+        config.AddArsSkyApm();
     })
     .AddArsDbContext<MyDbContext>();
 builder.Services
@@ -52,7 +54,6 @@ builder.Services.AddCors(cors =>
 
 using var scope = builder.Services.BuildServiceProvider().CreateScope();
 var idscfg = scope.ServiceProvider.GetRequiredService<IArsIdentityClientConfiguration>();
-
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "ArsWebApiService", Version = "v1" });
@@ -87,12 +88,21 @@ builder.Services.AddSwaggerGen(c =>
     c.OperationFilter<SecurityRequirementsOperationFilter>();
 });
 
-//builder.WebHost.UseUrls("http://127.0.0.1:5196");
+var basiccfg = scope.ServiceProvider.GetRequiredService<IOptions<IArsBasicConfiguration>>().Value;
+builder.WebHost.UseKestrel(kestrel =>
+{
+    //通过配置文件来获取
+    //测试主机ip
+    //kestrel.Listen(IPAddress.Parse("172.20.64.1"),5196);
 
-//builder.WebHost.UseKestrel(kestrel =>
-//{
-//    kestrel.Listen(IPAddress.Parse("192.168.110.67"), 5197);
-//});
+    //容器ip192.168.0.5
+    //kestrel.Listen(IPAddress.Parse("192.168.0.5"), 5196);
+
+    //容器ip192.168.0.8
+    //kestrel.Listen(IPAddress.Parse("192.168.0.8"), 5197);
+
+    kestrel.Listen(IPAddress.Parse(basiccfg.Ip), basiccfg.Port);
+});
 
 //builder.Services.AddDbContext<MyDbContext>();
 
@@ -101,11 +111,11 @@ var app = builder.Build();
 app.UsArsExceptionMiddleware();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
+//if (app.Environment.IsDevelopment())
+//{
     app.UseSwagger();
     app.UseSwaggerUI();
-}
+//}
 
 app.UseCors("*");
 string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "wwwroot", "AppDownload");
@@ -130,6 +140,7 @@ app.UseStaticFiles(new StaticFileOptions
 app.UseArsCore().UseArsUploadExcel();
 app.MapControllers();
 
-app.Map("/healthCheck", app => app.Run(context => context.Response.WriteAsync("ok")));
+app.MapGet("/", context => Task.Run(() => context.Response.Redirect("/swagger")));
+app.Map("/healthCheck", builder => builder.Run(context => context.Response.WriteAsync("ok")));
 
 app.Run();

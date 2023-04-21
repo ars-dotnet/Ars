@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Ars.Common.Core.Configs
 {
-    public interface IArsConfiguration : IArsBasicConfiguration
+    public interface IArsConfiguration
     {
         //服务配置集合
         IList<IArsServiceExtension> ArsServiceExtensions { get; }
@@ -23,19 +23,24 @@ namespace Ars.Common.Core.Configs
         void AddArsAppExtension(IArsAppExtension appExtension);
 
         /// <summary>
+        /// 基础配置
+        /// </summary>
+        IArsBasicConfiguration? ArsBasicConfiguration { get; set; }
+
+        /// <summary>
         /// efcore transaction
         /// </summary>
-        IUnitOfWorkDefaultConfiguration? UnitOfWorkDefaultConfiguration { get; set; }
+        IUnitOfWorkDefaultConfiguration? ArsUnitOfWorkDefaultConfiguration { get; set; }
 
         /// <summary>
         /// consul discover config
         /// </summary>
-        IConsulDiscoverConfiguration? ConsulDiscoverConfiguration { get; set; }
+        IConsulDiscoverConfiguration? ArsConsulDiscoverConfiguration { get; set; }
 
         /// <summary>
         /// consul register config
         /// </summary>
-        IConsulRegisterConfiguration? ConsulRegisterConfiguration { get; set; }
+        IConsulRegisterConfiguration? ArsConsulRegisterConfiguration { get; set; }
 
         /// <summary>
         /// IdentityServer4 server config

@@ -34,7 +34,7 @@ namespace Ars.Common.Consul.Extension
 
             arsServiceBuilder.Services.Provider
                 .GetRequiredService<IArsConfiguration>()
-                .ConsulDiscoverConfiguration ??= config;
+                .ArsConsulDiscoverConfiguration ??= config;
 
             services.AddSingleton<IConsulDiscoverConfiguration>(config);
 
@@ -60,7 +60,7 @@ namespace Ars.Common.Consul.Extension
 
             var arscfg = arsServiceBuilder.Services.Provider
                 .GetRequiredService<IArsConfiguration>();
-            arscfg.ConsulRegisterConfiguration ??= config;
+            arscfg.ArsConsulRegisterConfiguration ??= config;
             arsServiceBuilder.Services.ServiceCollection.AddSingleton<IConsulRegisterConfiguration>(config);
 
             arscfg.AddArsAppExtension(new ArsConsulAppExtension());

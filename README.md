@@ -161,7 +161,7 @@ appsettings.Development.json
 		  "openid",
 		  "profile"
 		],
-		"CertPath": "Certificates\\IS4.pfx",
+		"CertPath": "Certificates//IS4.pfx",
 		"Password": "aabb1212"
 	  },
 	  //localization config

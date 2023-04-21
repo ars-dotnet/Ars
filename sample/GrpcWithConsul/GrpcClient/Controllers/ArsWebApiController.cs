@@ -1,19 +1,27 @@
 ﻿using Ars.Common.Consul;
+using Ars.Common.Consul.HttpClientHelper;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GrpcClient.Controllers
 {
+    [ApiController]
+    [Route("[controller]/[action]")]
     public class ArsWebApiController : Controller
     {
-        private readonly ConsulHelper _consulHelper; 
-        public ArsWebApiController(ConsulHelper consulHelper)
+        private readonly IHttpClientProvider _httpClientProvider;
+        private readonly IHttpSender _httpSender;
+        public ArsWebApiController(IHttpClientProvider httpClientProvider, IHttpSender httpSender)
         {
-            _consulHelper = consulHelper;
+            _httpClientProvider = httpClientProvider;
+            _httpSender = httpSender;
         }
 
-        public Task RpcArsWebApi() 
+        [HttpPost]
+        public async Task<IActionResult> RpcArsWebApi() 
         {
-            return Task.CompletedTask;
+            using var httpclient = await _httpClientProvider.GetHttpClientAsync<HttpClient>("arswebapiservice");
+            var data = await _httpSender.GetAsync(httpclient, "/Api/DbContext/Query/Query");
+            return Ok(data);
         }
     }
 }
