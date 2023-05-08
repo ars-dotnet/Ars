@@ -24,9 +24,6 @@ builder.Services
 
 builder.Services.ConfigureNonBreakingSameSiteCookies();
 
-using var scope = builder.Services.BuildServiceProvider().CreateScope();
-var basicfg = scope.ServiceProvider.GetRequiredService<IOptions<IArsBasicConfiguration>>().Value;
-
 builder.WebHost.ConfigureKestrel(option =>
 {
     //ÈÝÆ÷µÄip 192.168.0.7
@@ -43,6 +40,7 @@ builder.WebHost.ConfigureKestrel(option =>
     //    listen.UseHttps(Certificate.Get("Certificates//ars.pfx", "aabb1212"));
     //});
 
+    var basicfg = builder.Configuration.GetSection(nameof(ArsBasicConfiguration)).Get<ArsBasicConfiguration>();
     option.Listen(new IPEndPoint(IPAddress.Parse(basicfg.Ip), basicfg.Port), listen =>
     {
         listen.Protocols = HttpProtocols.Http1AndHttp2;

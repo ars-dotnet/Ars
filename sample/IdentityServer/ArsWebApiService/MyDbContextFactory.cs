@@ -4,6 +4,9 @@ using Microsoft.EntityFrameworkCore.Design;
 
 namespace MyApiWithIdentityServer4
 {
+    /// <summary>
+    /// used by code first 
+    /// </summary>
     public class MyDbContextFactory : IDesignTimeDbContextFactory<MyDbContext>,ISingletonDependency
     {
         public MyDbContext CreateDbContext(string[] args)

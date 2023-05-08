@@ -32,14 +32,14 @@ builder.Services
 builder.Services.AddScoped<IChannelManager, ChannelManager>();
 builder.Services.AddSingleton<IChannelProvider, ChannelProvider>();
 
-builder.Services.AddSingleton<ChannelService>();
-builder.Services.AddHostedService(pro => pro.GetRequiredService<ChannelService>());
+//builder.Services.AddSingleton<ChannelService>();
+//builder.Services.AddHostedService(pro => pro.GetRequiredService<ChannelService>());
 
-builder.Services.AddSingleton<ChannelPublish>();
-builder.Services.AddHostedService(pro => pro.GetRequiredService<ChannelPublish>());
+//builder.Services.AddSingleton<ChannelPublish>();
+//builder.Services.AddHostedService(pro => pro.GetRequiredService<ChannelPublish>());
 
-builder.Services.AddSingleton<ChannelPublish2>();
-builder.Services.AddHostedService(pro => pro.GetRequiredService<ChannelPublish2>());
+//builder.Services.AddSingleton<ChannelPublish2>();
+//builder.Services.AddHostedService(pro => pro.GetRequiredService<ChannelPublish2>());
 
 builder.Services.AddSkyAPM();
 

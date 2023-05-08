@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Ars.Commom.Tool.Extension;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,13 +14,12 @@ namespace ArsTest
         public void TestEquals() 
         {
             //值类型 比较值
-            int a = 1;
+            decimal a = 1m;
             int b = 1;
-            int codea = a.GetHashCode();
-            int codeb = b.GetHashCode();
             Assert.True(a == b);
             Assert.True(a.Equals(b));
-            Assert.True(Equals(a,b));
+            Assert.False(Equals(a,b));
+            //ReferenceEquals会将值类型装箱，比较结果永远为false
             Assert.False(ReferenceEquals(a,b));
 
             //引用类型 
@@ -69,6 +69,13 @@ namespace ArsTest
             Assert.False(ani1.Equals(ani3));
             Assert.False(ani1.Equals(ani4));
 
+            Animalss ani5 = null;
+            Animalss ani6 = null;
+            Assert.True(ani5 == ani6);
+            Assert.False(ani5?.Equals(ani6) ?? false);
+
+            //如果ReferenceEquals相等，则相等
+            //如果ReferenceEquals不相等，则会调用ani1中重写的 Equals(object? obj)方法
             Assert.True(Equals(ani1, ani2));
             Assert.False(Equals(ani1, ani3));
             Assert.False(Equals(ani1, ani4));
@@ -93,5 +100,16 @@ namespace ArsTest
         public string Name { get; set; }
 
         public int Age { get; set; }
+
+        public override bool Equals(object? obj)
+        {
+            if (this == obj)
+                return true;
+            //if (!obj.Is<Animalss>())
+            //    return false;
+            //if(Name == obj.As<Animalss>()?.Name)
+            //    return true;
+            return false;
+        }
     }
 }

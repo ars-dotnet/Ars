@@ -1,7 +1,7 @@
 {
   "SkyWalking": {
     //"ServiceName": "docker-arswebapiservice5196-0421001",
-    "ServiceName": "docker-arswebapiservice5197-0421001",
+    "ServiceName": "docker-arswebapiservice5197-0422001",
     //"ServiceName": "arswebapiservice0421001",
     "Namespace": "",
     "HeaderVersions": [
@@ -10,7 +10,8 @@
     "Sampling": {
       "SamplePer3Secs": -1, //每三秒采样的Trace数量 ，默认为负数，代表在保证不超过内存Buffer区的前提下，采集所有的Trace
       "Percentage": -1.0, //采样率，默认负数，采集全部，其它数值格式：0.5，0.8...
-      "IgnorePaths": [ "**/healthCheck" ]
+      "IgnorePaths": [ "**/healthCheck" ],
+      "LogSqlParameterValue": true //true:record parameter value 
     },
     "Logging": {
       "Level": "Information",

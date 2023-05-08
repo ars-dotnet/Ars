@@ -75,33 +75,16 @@ namespace GrpcClients.Controllers
         [HttpPost]
         public async Task<IActionResult> StreamFromClientCall()
         {
-            var client = await _grpcClientProvider.GetGrpcClient<Greeter.GreeterClient>("apigrpc");
-            using var req = client.StreamingFromClient();
-
-            var channel = Channel.CreateBounded<StreamingRequest>(15);
-            _ = Task.Run(async () =>
-            {
-                while (await channel.Reader.WaitToReadAsync())
-                {
-                    while (channel.Reader.TryRead(out var msg))
-                    {
-                        await req.RequestStream.WriteAsync(msg);
-                    }
-                }
-            });
-
             _ = Task.Run(async () =>
             {
                 int i = 0;
                 while (true) 
                 {
                     //读取plc的值，丢到channel里面
-                    await Task.Delay(TimeSpan.FromSeconds(2));
                     await _channelManager.WriteAsync("grpc", new StreamingRequest { Value = i });
 
-                    //await channel.Writer.WriteAsync(new StreamingRequest() { Value = i });
-
                     i++;
+                    await Task.Delay(TimeSpan.FromSeconds(2));
                 }
             });
 
@@ -111,16 +94,25 @@ namespace GrpcClients.Controllers
                 while (true)
                 {
                     //读取plc的值，丢到channel里面
-                    await Task.Delay(TimeSpan.FromSeconds(2));
                     await _channelManager.WriteAsync("grpc", new StreamingRequest { Value = i });
-                    //await channel.Writer.WriteAsync(new StreamingRequest() { Value = i });
 
                     i++;
+                    await Task.Delay(TimeSpan.FromSeconds(2));
                 }
             });
 
-            //await req.RequestStream.CompleteAsync();
-            await req.ResponseAsync;
+            //var client = await _grpcClientProvider.GetGrpcClient<Greeter.GreeterClient>("apigrpc1");
+            //var req = client.StreamingFromClient();
+            //await _channelManager.WaitToReadAsync("grpc", req);
+            return Ok();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> StreamFromClientCallConsume() 
+        {
+            var client = await _grpcClientProvider.GetGrpcClient<Greeter.GreeterClient>("apigrpc1");
+            var req = client.StreamingFromClient();
+            await _channelManager.WaitToReadAsync("grpc", req);
             return Ok();
         }
 

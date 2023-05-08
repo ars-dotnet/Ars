@@ -1,13 +1,16 @@
-﻿using GrpcGreeter.greet;
+﻿using Ars.Common.Consul.GrpcHelper;
+using GrpcGreeter.greet;
 
 namespace GrpcClients
 {
     public class ChannelPublish : BackgroundService
     {
         private readonly IChannelManager _channelManager;
-        public ChannelPublish(IChannelManager channelManager)
+        private readonly IGrpcClientProvider _grpcClientProvider;
+        public ChannelPublish(IChannelManager channelManager, IGrpcClientProvider grpcClientProvider)
         {
             _channelManager = channelManager;
+            _grpcClientProvider = grpcClientProvider;
         }
 
         protected override Task ExecuteAsync(CancellationToken stoppingToken)

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Ars.Common.IdentityServer4.Options
 {
-    internal class ArsIdentityClientConfiguration : IArsIdentityClientConfiguration
+    public class ArsIdentityClientConfiguration : IArsIdentityClientConfiguration
     {
         public string Authority { get; set; }
 

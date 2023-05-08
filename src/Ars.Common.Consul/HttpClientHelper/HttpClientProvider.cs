@@ -45,16 +45,16 @@ namespace Ars.Common.Consul.HttpClientHelper
             return GetClient<T>(config, HttpClientNames.RetryHttp);
         }
 
-        public Task<T> GetGrpcHttpClientAsync<T>(ConsulConfiguration config) where T : HttpClient 
+        public Task<T> GetGrpcHttpClientAsync<T>(ConsulConfiguration config) where T : HttpClient
         {
-            return GetClient<T>(config, HttpClientNames.RetryGrpcHttpV2,grpc:true);
+            return GetClient<T>(config, HttpClientNames.RetryGrpcHttpV2, grpc: true);
         }
 
         private async Task<T> GetClient<T>(ConsulConfiguration config, string httpClientName, bool grpc = false) where T : HttpClient
         {
             string domain = await _consulHelper.GetServiceDomain(config.ServiceName, config.ConsulAddress);
 
-            if (grpc) 
+            if (grpc)
             {
                 if (config.Communication.GrpcUseHttp1Protocol)
                 {
@@ -63,7 +63,7 @@ namespace Ars.Common.Consul.HttpClientHelper
                         domain = domain.Replace("http", "https");
                         httpClientName = HttpClientNames.RetryGrpcHttpsV1;
                     }
-                    else 
+                    else
                     {
                         httpClientName = HttpClientNames.RetryGrpcHttpV1;
                     }
@@ -83,13 +83,17 @@ namespace Ars.Common.Consul.HttpClientHelper
 
             var client = _httpClientFactory.CreateClient(httpClientName);
             client.BaseAddress = new(domain);
+            if (config.Communication.IgnoreTimeOut)
+            {
+                client.Timeout = Timeout.InfiniteTimeSpan;
+            }
 
-            if(config.Communication.UseIdentityServer4Valid) 
+            if (config.Communication.UseIdentityServer4Valid)
             {
                 client.DefaultRequestHeaders.Authorization =
                     new AuthenticationHeaderValue("Bearer", await _token.GetToken(config));
             };
-            
+
             return client.As<T>()!;
         }
     }

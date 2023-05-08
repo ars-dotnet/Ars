@@ -33,19 +33,6 @@
           }
         }
       },
-      "Grpc.Net.Client.Web/2.42.0": {
-        "type": "package",
-        "compile": {
-          "lib/net6.0/Grpc.Net.Client.Web.dll": {
-            "related": ".pdb;.xml"
-          }
-        },
-        "runtime": {
-          "lib/net6.0/Grpc.Net.Client.Web.dll": {
-            "related": ".pdb;.xml"
-          }
-        }
-      },
       "MathNet.Numerics.Signed/4.15.0": {
         "type": "package",
         "compile": {
@@ -847,30 +834,6 @@
         "lib/netstandard2.1/Enums.NET.dll",
         "lib/netstandard2.1/Enums.NET.pdb",
         "lib/netstandard2.1/Enums.NET.xml"
-      ]
-    },
-    "Grpc.Net.Client.Web/2.42.0": {
-      "sha512": "rSvYpUPfAr+YEMBYSyjHmvDeyuQ/rzPRH77Uc3DsvXt272cMD+fzyOCQGUvs90eIkb8TGNomBOPxnup4U+p5tA==",
-      "type": "package",
-      "path": "grpc.net.client.web/2.42.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "grpc.net.client.web.2.42.0.nupkg.sha512",
-        "grpc.net.client.web.nuspec",
-        "lib/net5.0/Grpc.Net.Client.Web.dll",
-        "lib/net5.0/Grpc.Net.Client.Web.pdb",
-        "lib/net5.0/Grpc.Net.Client.Web.xml",
-        "lib/net6.0/Grpc.Net.Client.Web.dll",
-        "lib/net6.0/Grpc.Net.Client.Web.pdb",
-        "lib/net6.0/Grpc.Net.Client.Web.xml",
-        "lib/netstandard2.0/Grpc.Net.Client.Web.dll",
-        "lib/netstandard2.0/Grpc.Net.Client.Web.pdb",
-        "lib/netstandard2.0/Grpc.Net.Client.Web.xml",
-        "lib/netstandard2.1/Grpc.Net.Client.Web.dll",
-        "lib/netstandard2.1/Grpc.Net.Client.Web.pdb",
-        "lib/netstandard2.1/Grpc.Net.Client.Web.xml",
-        "packageIcon.png"
       ]
     },
     "MathNet.Numerics.Signed/4.15.0": {
@@ -1957,7 +1920,6 @@
   "projectFileDependencyGroups": {
     "net6.0": [
       "Aspose.Cells >= 23.3.0",
-      "Grpc.Net.Client.Web >= 2.42.0",
       "MessagePack >= 2.3.85",
       "Microsoft.Extensions.Configuration.Abstractions >= 6.0.0",
       "Microsoft.Extensions.DependencyInjection >= 6.0.0",
@@ -2017,10 +1979,6 @@
           "Aspose.Cells": {
             "target": "Package",
             "version": "[23.3.0, )"
-          },
-          "Grpc.Net.Client.Web": {
-            "target": "Package",
-            "version": "[2.42.0, )"
           },
           "MessagePack": {
             "target": "Package",

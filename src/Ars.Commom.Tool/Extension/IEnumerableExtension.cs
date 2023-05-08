@@ -47,5 +47,25 @@ namespace Ars.Commom.Tool.Extension
 
             return dataSet;
         }
+
+        /// <summary>
+        /// 舍弃重复的item
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="K"></typeparam>
+        /// <param name="source"></param>
+        /// <param name="predicate"></param>
+        /// <returns></returns>
+        public static IEnumerable<T> Distinct<T, K>(this IEnumerable<T> source, Func<T, K> predicate)
+        {
+            HashSet<K> sets = new HashSet<K>();
+            foreach (var item in source)
+            {
+                if (sets.Add(predicate(item)))
+                {
+                    yield return item;
+                }
+            }
+        }
     }
 }

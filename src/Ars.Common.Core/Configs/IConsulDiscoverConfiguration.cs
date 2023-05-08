@@ -40,6 +40,8 @@ namespace Ars.Common.Core.Configs
         /// </summary>
         public CommunicationWay CommunicationWay { get; set; }
 
+        public bool IgnoreTimeOut { get; set; }
+
         /// <summary>
         /// grpc是否采用http1通讯
         /// </summary>

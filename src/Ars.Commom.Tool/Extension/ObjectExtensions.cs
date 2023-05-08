@@ -13,7 +13,7 @@ namespace Ars.Commom.Tool.Extension
             return obj?.Is<T>() ?? false ? (T)obj : default(T);
         }
 
-        public static bool Is<T>(this object obj) 
+        public static bool Is<T>(this object? obj) 
         {
             return obj is T;
         }

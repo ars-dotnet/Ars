@@ -18,6 +18,7 @@ using Microsoft.AspNetCore.StaticFiles;
 using Ars.Common.Consul.Extension;
 using Ars.Common.SkyWalking.Extensions;
 using Ars.Common.Tool.Configs;
+using Ars.Common.IdentityServer4.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
@@ -52,12 +53,11 @@ builder.Services.AddCors(cors =>
     });
 });
 
-using var scope = builder.Services.BuildServiceProvider().CreateScope();
-var idscfg = scope.ServiceProvider.GetRequiredService<IArsIdentityClientConfiguration>();
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "ArsWebApiService", Version = "v1" });
 
+    var idscfg = builder.Configuration.GetSection(nameof(ArsIdentityClientConfiguration)).Get<ArsIdentityClientConfiguration>();
     c.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
     {
         Type = SecuritySchemeType.OAuth2,
@@ -88,7 +88,6 @@ builder.Services.AddSwaggerGen(c =>
     c.OperationFilter<SecurityRequirementsOperationFilter>();
 });
 
-var basiccfg = scope.ServiceProvider.GetRequiredService<IOptions<IArsBasicConfiguration>>().Value;
 builder.WebHost.UseKestrel(kestrel =>
 {
     //通过配置文件来获取
@@ -101,7 +100,8 @@ builder.WebHost.UseKestrel(kestrel =>
     //容器ip192.168.0.8
     //kestrel.Listen(IPAddress.Parse("192.168.0.8"), 5197);
 
-    kestrel.Listen(IPAddress.Parse(basiccfg.Ip), basiccfg.Port);
+    var basicfg = builder.Configuration.GetSection(nameof(ArsBasicConfiguration)).Get<ArsBasicConfiguration>();
+    kestrel.Listen(IPAddress.Parse(basicfg.Ip), basicfg.Port);
 });
 
 //builder.Services.AddDbContext<MyDbContext>();
