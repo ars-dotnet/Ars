@@ -13,6 +13,7 @@ using System.Reflection;
 
 [assembly: System.Reflection.AssemblyCompanyAttribute("MyArs")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
+[assembly: System.Reflection.AssemblyDescriptionAttribute("SignalR")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.5.3.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.5.3")]
 [assembly: System.Reflection.AssemblyProductAttribute("Ars")]
