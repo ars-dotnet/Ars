@@ -15,6 +15,24 @@ using Ars.Common.Core.AspNetCore.Extensions;
 using Ars.Common.Tool.Extension;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.AspNetCore.StaticFiles;
+using Ars.Common.Redis.Extension;
+using Ars.Common.IdentityServer4.Options;
+using Ars.Common.SignalR.Extensions;
+using Ars.Common.SignalR.Hubs;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using NPOI.SS.Formula.Functions;
+using System.Security.Authentication;
+using Ars.Commom.Tool.Certificates;
+using Microsoft.Extensions.DependencyInjection.Extensions;
+using ArsWebApiService;
+using Microsoft.AspNetCore.Authentication;
+using IdentityModel.Client;
+using IdentityModel;
+using IdentityServer4.AccessTokenValidation;
+using Microsoft.IdentityModel.Tokens;
+using IdentityModel.AspNetCore.OAuth2Introspection;
+using ArsWebApiService.Hubs;
+using Ars.Common.SignalR.Sender;
 
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
@@ -23,14 +41,59 @@ var arsbuilder =
     builder.Services
     .AddArserviceCore(builder.Host, config =>
     {
-        config.ApplicationUrl = "http://192.168.110.67:5196";
-        config.AddArsIdentityClient();
+        config.ApplicationUrl = "http://172.20.64.1:5196";
+
+        var idsconfig = builder.Configuration.GetSection(nameof(ArsIdentityClientConfiguration)).Get<ArsIdentityClientConfiguration>();
+
+        config.AddArsIdentityClient(configureOptions: options =>
+        {
+            options.Authority = idsconfig.Authority;
+            options.ApiName = idsconfig.ApiName;
+            options.RequireHttpsMetadata = idsconfig.RequireHttpsMetadata;
+
+            if (idsconfig.RequireHttpsMetadata)
+            {
+                var httpClientHandler = new HttpClientHandler
+                {
+                    ClientCertificateOptions = ClientCertificateOption.Manual,
+                    SslProtocols = SslProtocols.Tls12,
+                    ServerCertificateCustomValidationCallback =
+                        HttpClientHandler.DangerousAcceptAnyServerCertificateValidator,
+                };
+                httpClientHandler.ClientCertificates.Add(
+                    Certificate.Get(idsconfig.CertificatePath, idsconfig.CertificatePassWord));
+
+                options.JwtBackChannelHandler = httpClientHandler;
+            }
+
+            //for signalr
+            options.TokenRetriever = new Func<HttpRequest, string>(req =>
+            {
+                var fromHeader = TokenRetrieval.FromAuthorizationHeader();
+                var fromQuery = TokenRetrieval.FromQueryString();
+                return fromHeader(req) ?? fromQuery(req);
+            });
+        });
+
+        config.AddArsRedis(provider =>
+        {
+            provider.ConfigureAll(cacheoption =>
+            {
+                cacheoption.DefaultSlidingExpireTime = TimeSpan.FromMinutes(10);
+            });
+        });
+
+        config.AddArsSignalR(config =>
+        {
+            config.CacheType = 0;
+            config.UseMessagePackProtocol = true;
+        });
     })
     .AddArsDbContext<MyDbContext>();
 builder.Services
     .AddArsHttpClient()
     .AddArsExportExcelService(typeof(Program).Assembly)
-    .AddArsUploadExcelService(option => 
+    .AddArsUploadExcelService(option =>
     {
         option.UploadRoot = "wwwroot/upload";
         option.RequestPath = "apps/upload";
@@ -44,16 +107,19 @@ builder.Services.AddCors(cors =>
 {
     cors.AddPolicy("*", policy =>
     {
-        policy.AllowAnyHeader().AllowAnyOrigin().AllowAnyMethod();
+        policy
+            .AllowAnyHeader()
+            .AllowCredentials()
+            .AllowAnyMethod()
+            .WithOrigins("https://172.20.64.1:7096", "http://172.20.64.1:5133");
     });
 });
-
-using var scope = builder.Services.BuildServiceProvider().CreateScope();
-var idscfg = scope.ServiceProvider.GetRequiredService<IArsIdentityClientConfiguration>();
 
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "ArsWebApiService", Version = "v1" });
+
+    var idscfg = builder.Configuration.GetSection(nameof(ArsIdentityClientConfiguration)).Get<ArsIdentityClientConfiguration>();
 
     c.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
     {
@@ -85,14 +151,16 @@ builder.Services.AddSwaggerGen(c =>
     c.OperationFilter<SecurityRequirementsOperationFilter>();
 });
 
-//builder.WebHost.UseUrls("http://127.0.0.1:5197");
+//builder.WebHost.UseUrls("http://172.20.64.1:5197");
 
 //builder.WebHost.UseKestrel(kestrel =>
 //{
-//    kestrel.Listen(IPAddress.Parse("192.168.110.67"), 5197);
+//    kestrel.Listen(IPAddress.Parse("172.20.64.1"), 5197);
 //});
 
 //builder.Services.AddDbContext<MyDbContext>();
+
+builder.Services.AddScoped<IHubSendMessage, MyWebHub>();
 
 var app = builder.Build();
 
@@ -109,23 +177,30 @@ app.UseCors("*");
 string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "wwwroot", "AppDownload");
 if (!Directory.Exists(path))
     Directory.CreateDirectory(path);
-app.UseDirectoryBrowser(new DirectoryBrowserOptions 
-{ 
+app.UseDirectoryBrowser(new DirectoryBrowserOptions
+{
     FileProvider = new PhysicalFileProvider(path),
     RequestPath = "/apps/download"
 });
-app.UseStaticFiles(new StaticFileOptions 
+app.UseStaticFiles(new StaticFileOptions
 {
     FileProvider = new PhysicalFileProvider(path),
     RequestPath = "/apps/download",
     ContentTypeProvider = new FileExtensionContentTypeProvider(
-        new Dictionary<string, string> 
+        new Dictionary<string, string>
         {
             { ".apk","application/vnd.android.package-archive"},
         })
 });
 
-app.UseArsCore().UseArsUploadExcel();
-app.MapControllers();
 
+app.UseArsCore().UseArsUploadExcel();
+
+app.MapControllers();
+app.MapHub<MyWebHub>("/ars/web/hub");
+app.MapHub<ArsAndroidHub>("/ars/android/hub");
+
+
+//app.UseAuthentication();
+//app.UseAuthorization();
 app.Run();

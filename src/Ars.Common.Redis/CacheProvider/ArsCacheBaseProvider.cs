@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace Ars.Common.Redis.CacheProvider
 {
     public abstract class ArsCacheBaseProvider<TCache> : IArsCacheProvider<TCache>
-        where TCache : class,IArsCacheOption
+        where TCache : IDisposable, IArsCacheOption
     {
         protected readonly ConcurrentDictionary<string, Lazy<TCache>> Caches;
 
@@ -33,11 +33,11 @@ namespace Ars.Common.Redis.CacheProvider
                     {
                         var cache = CreateImplementCache(key);
 
-                        var config = cacheConfigurationProvider.
-                            cacheConfigurations.
-                            FirstOrDefault(
-                                r => string.IsNullOrEmpty(r.CacheName) ||
-                                     r.CacheName.Equals(key, StringComparison.OrdinalIgnoreCase));
+                        var config = cacheConfigurationProvider
+                            .cacheConfigurations
+                            .FirstOrDefault(
+                                r => key.Equals(r.CacheName, StringComparison.OrdinalIgnoreCase) || 
+                                     string.IsNullOrEmpty(r.CacheName));
                         if (null != config) 
                         {
                             config.Action(cache);
@@ -49,7 +49,13 @@ namespace Ars.Common.Redis.CacheProvider
             return lazy.Value;
         }
 
-        protected abstract void DisposeCaches();
+        protected virtual void DisposeCaches() 
+        {
+            foreach (var cache in Caches)
+            {
+                cache.Value.Value.Dispose();
+            }
+        }
 
         public virtual void Dispose() 
         {

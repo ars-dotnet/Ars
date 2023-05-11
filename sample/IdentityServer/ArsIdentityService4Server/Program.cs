@@ -19,7 +19,7 @@ builder.Services.ConfigureNonBreakingSameSiteCookies();
 
 builder.WebHost.ConfigureKestrel(option =>
 {
-    option.Listen(new IPEndPoint(IPAddress.Parse("127.0.0.1"), 5105),listen => 
+    option.Listen(new IPEndPoint(IPAddress.Parse("172.20.64.1"), 5105),listen => 
     {
         listen.Protocols = HttpProtocols.Http1AndHttp2;
         listen.UseHttps(Certificate.Get("Certificates\\ars.pfx", "aabb1212"));

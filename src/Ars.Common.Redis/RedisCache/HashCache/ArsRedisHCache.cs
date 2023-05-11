@@ -10,16 +10,12 @@ using System.Threading.Tasks;
 
 namespace Ars.Common.Redis.RedisCache.HashCache
 {
-    public class ArsRedisHCache : ArsCacheBase, IHCache, IArsCacheOption,ITransientDependency
+    public class ArsRedisHCache : ArsCacheBase,IHCache,ITransientDependency
     {
         public ArsRedisHCache(ILogger<ArsRedisHCache> logger) : base(logger)
         {
-            DefaultSlidingExpireTime = TimeSpan.FromHours(1);
+            DefaultSlidingExpireTime = TimeSpan.FromMinutes(15).Add(TimeSpan.FromSeconds(new Random().Next(10)));
         }
-
-        public TimeSpan DefaultSlidingExpireTime { get; set; }
-
-        public DateTimeOffset? DefaultAbsoluteExpireTime { get; set; }
 
         public override Task ClearAsync()
         {
@@ -27,7 +23,7 @@ namespace Ars.Common.Redis.RedisCache.HashCache
             {
                 //var script = $"return redis.call('del', unpack(redis.call('keys','*{pattern}*')))";
                 var script = $@" 
-local dataInfos = redis.call('keys','{GetLocalizedRedisKey("*")}') 
+local dataInfos = redis.call('keys','{GetLocalizedCacheKey("*")}') 
 if(dataInfos ~= nil) then 
         for i=1,#dataInfos,1 do
                 redis.call('del',dataInfos[i])
@@ -46,24 +42,9 @@ end
             return Task.CompletedTask;
         }
 
-        protected override string GetLocalizedRedisKey(string key)
+        protected override string GetLocalizedCacheKey(string key)
         {
             return "n:" + Name + ",c:" + key;
-        }
-
-        public Task<Dictionary<string, object>> HGetAllAsync(string key)
-        {
-            return RedisHelper.HGetAllAsync<object>(GetLocalizedRedisKey(key));
-        }
-
-        public Task<object> HGetAsync(string key, string field)
-        {
-            return RedisHelper.HGetAsync<object>(GetLocalizedRedisKey(key), field);
-        }
-
-        public Task<object[]> HMGetAsync(string key, params string[] fields)
-        {
-            return RedisHelper.HMGetAsync<object>(GetLocalizedRedisKey(key), fields);
         }
 
         private async Task ExpireAsync(string key, TimeSpan? slidingExpireTime = null, DateTimeOffset? absoluteExpireTime = null) 
@@ -80,7 +61,7 @@ end
 
         public async Task<bool> HMSetAsync(string key, Dictionary<string, object> keyValues, TimeSpan? slidingExpireTime = null, DateTimeOffset? absoluteExpireTime = null)
         {
-            string rediskey = GetLocalizedRedisKey(key);
+            string rediskey = GetLocalizedCacheKey(key);
             var kvalues = keyValues.Select(r => new []{ r.Key, r.Value }).SelectMany(r => r).ToArray();
             
             var flag = await RedisHelper.HMSetAsync(rediskey, kvalues);
@@ -90,7 +71,7 @@ end
 
         public async Task<bool> HSetAsync(string key, string field, object value, TimeSpan? slidingExpireTime = null, DateTimeOffset? absoluteExpireTime = null)
         {
-            string rediskey = GetLocalizedRedisKey(key);
+            string rediskey = GetLocalizedCacheKey(key);
             var flag = await RedisHelper.HSetAsync(rediskey, field, value);
             await ExpireAsync(rediskey, slidingExpireTime, absoluteExpireTime);
             return flag;
@@ -98,22 +79,27 @@ end
 
         public Task<long> HDelAsync(string key, params string[] fields)
         {
-            return RedisHelper.HDelAsync(GetLocalizedRedisKey(key),fields);
+            return RedisHelper.HDelAsync(GetLocalizedCacheKey(key),fields);
         }
 
         public Task<TValue> HGetAsync<TValue>(string key, string field)
         {
-            return RedisHelper.HGetAsync<TValue>(GetLocalizedRedisKey(key), field);
+            return RedisHelper.HGetAsync<TValue>(GetLocalizedCacheKey(key), field);
         }
 
         public Task<Dictionary<string, TValue>> HGetAllAsync<TValue>(string key)
         {
-            return RedisHelper.HGetAllAsync<TValue>(GetLocalizedRedisKey(key));
+            return RedisHelper.HGetAllAsync<TValue>(GetLocalizedCacheKey(key));
         }
 
         public Task<TValue[]> HMGetAsync<TValue>(string key, params string[] fields)
         {
-            return RedisHelper.HMGetAsync<TValue>(GetLocalizedRedisKey(key), fields);
+            return RedisHelper.HMGetAsync<TValue>(GetLocalizedCacheKey(key), fields);
+        }
+
+        public Task<string[]> HKeysAsync(string key) 
+        {
+            return RedisHelper.HKeysAsync(GetLocalizedCacheKey(key));
         }
     }
 }

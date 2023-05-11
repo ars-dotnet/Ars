@@ -12,26 +12,19 @@ namespace Ars.Common.Redis.RedisCache.HashCache
 {
     internal class ArsRedisHCacheProvider : ArsCacheBaseProvider<IHCache>, IArsHCacheProvider,ISingletonDependency
     {
-        private readonly IServiceProvider _serviceProvider;
-        public ArsRedisHCacheProvider(IServiceProvider serviceProvider)
+        private readonly IServiceScopeFactory _scopeFactory;
+        public ArsRedisHCacheProvider(IServiceScopeFactory scopeFactory)
         {
-            _serviceProvider = serviceProvider;
+            _scopeFactory = scopeFactory;
         }
 
         protected override IHCache CreateImplementCache(string cachename)
         {
-            var hcache = _serviceProvider.GetRequiredService<ArsRedisHCache>();
+            using var scopee = _scopeFactory.CreateScope();
+            var hcache = scopee.ServiceProvider.GetRequiredService<ArsRedisHCache>();
             hcache.Name = cachename;
 
             return hcache;
-        }
-
-        protected override void DisposeCaches()
-        {
-            foreach (var cache in Caches) 
-            {
-                cache.Value.Value.Dispose();
-            }
         }
     }
 }

@@ -64,6 +64,48 @@
             <param name="input"></param>
             <returns></returns>
         </member>
+        <member name="M:ArsWebApiService.Controllers.SignalRController.SendAll(System.String)">
+            <summary>
+            发送消息到所有终端
+            </summary>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ArsWebApiService.Controllers.SignalRController.SendtoClients(System.String,System.String)">
+            <summary>
+            发送消息到指定终端
+            </summary>
+            <param name="ternimal"></param>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ArsWebApiService.Controllers.SignalRController.SendtoClient(System.String,System.String,System.String)">
+            <summary>
+            发送消息到指定客户端
+            </summary>
+            <param name="ternimal"></param>
+            <param name="cid"></param>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ArsWebApiService.Controllers.SignalRController.SendtoGroup(System.String,System.String,System.String)">
+            <summary>
+            发送消息到指定组
+            </summary>
+            <param name="ternimal"></param>
+            <param name="group"></param>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ArsWebApiService.Controllers.SignalRController.SendtoUser(System.String,System.String,System.String)">
+            <summary>
+            发送消息到指定用户
+            </summary>
+            <param name="ternimal"></param>
+            <param name="user"></param>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
         <member name="P:ArsWebApiService.Dtos.GetPageOutput.SendTime">
             <summary>
             时间

@@ -11,7 +11,7 @@ namespace Ars.Common.Core.AspNetCore
     {
         public const string UserId = "sub";
 
-        public const string UserName = ClaimTypes.Name;
+        public const string UserName = ClaimTypes.NameIdentifier;
 
         public const string Role = ClaimTypes.Role;
 

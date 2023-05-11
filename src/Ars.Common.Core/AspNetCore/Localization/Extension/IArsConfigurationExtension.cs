@@ -4,9 +4,11 @@ namespace Ars.Common.Core.Localization.Extension
 {
     public static class IArsConfigurationExtension
     {
-        public static void AddArsLocalization(this IArsConfiguration arsConfiguration) 
+        public static IArsConfiguration AddArsLocalization(this IArsConfiguration arsConfiguration) 
         {
             arsConfiguration.AddArsServiceExtension(new ArsLocalizationServiceExtension());
+
+            return arsConfiguration;
         }
     }
 }
