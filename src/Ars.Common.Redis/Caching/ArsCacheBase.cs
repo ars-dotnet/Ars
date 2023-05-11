@@ -9,19 +9,24 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace Ars.Common.Redis.Caching
 {
-    public abstract class ArsCacheBase : IArsCache,IDisposable
+    public abstract class ArsCacheBase : IArsCacheBase, IArsCacheOption, IDisposable
     {
-        public ILogger Logger { get; set; }
+        protected ILogger Logger;
         protected ArsCacheBase(ILogger logger)
         {
             Logger = logger;
         }
 
+        public TimeSpan DefaultSlidingExpireTime { get; set; }
+
+        public DateTimeOffset? DefaultAbsoluteExpireTime { get; set; }
+
+
         public string Name { get; set; }
 
         public abstract Task ClearAsync();
 
-        protected virtual string GetLocalizedRedisKey(string key) 
+        protected virtual string GetLocalizedCacheKey(string key) 
         {
             return key;
         }
@@ -32,9 +37,9 @@ namespace Ars.Common.Redis.Caching
         }
     }
 
-    public abstract class ArsCacheBase<TKey, TValue> : ArsCacheBase, IArsCache<TKey, TValue>, IArsCacheOption
+    public abstract class ArsCacheBaseAccessor: ArsCacheBase , IArsCache
     {
-        protected ArsCacheBase(ILogger logger) : base(logger)
+        protected ArsCacheBaseAccessor(ILogger logger) : base(logger)
         {
             DefaultSlidingExpireTime = TimeSpan.FromHours(1).Add(TimeSpan.FromMinutes(new Random().Next(5)));
         }
@@ -43,17 +48,18 @@ namespace Ars.Common.Redis.Caching
         /// 锁同一个ArsCacheBase的子类实例
         /// </summary>
         protected readonly SemaphoreSlim SemaphoreSlim = new SemaphoreSlim(1, 1);
+        
+        public virtual bool IsDefaultValue<TValue>(TValue value)
+        {
+            return EqualityComparer<TValue>.Default.Equals(value, default);
+        }
 
-        public TimeSpan DefaultSlidingExpireTime { get; set; }
-
-        public DateTimeOffset? DefaultAbsoluteExpireTime { get; set; }
-
-        public virtual async Task<TValue?> GetAsync(TKey key, Func<TKey, Task<TValue>>? factory = null)
+        public virtual async Task<TValue?> GetAsync<TValue>(string key, Func<string, Task<TValue>>? factory = null)
         {
             ConditionalValue<TValue> result = default;
             try
             {
-                result = await GetValueOrDefaultAsync(key);
+                result = await GetValueOrDefaultAsync<TValue>(key);
             }
             catch (Exception e)
             {
@@ -67,7 +73,7 @@ namespace Ars.Common.Redis.Caching
             {
                 try
                 {
-                    result = await GetValueOrDefaultAsync(key);
+                    result = await GetValueOrDefaultAsync<TValue>(key);
                 }
                 catch (Exception e)
                 {
@@ -97,12 +103,7 @@ namespace Ars.Common.Redis.Caching
             return res!;
         }
 
-        public virtual bool IsDefaultValue(TValue value) 
-        {
-            return EqualityComparer<TValue>.Default.Equals(value, default);
-        }
-
-        public virtual async IAsyncEnumerable<TValue?> GetAsync([NotNull]TKey[] keys, Func<TKey, Task<TValue>>? factory = null)
+        public virtual async IAsyncEnumerable<TValue?> GetAsync<TValue>([NotNull]string[] keys, Func<string, Task<TValue>>? factory = null)
         {
             foreach (var k in keys) 
             {
@@ -110,26 +111,26 @@ namespace Ars.Common.Redis.Caching
             }
         }
 
-        public abstract Task<ConditionalValue<TValue>> GetValueOrDefaultAsync(TKey key);
+        public abstract Task<ConditionalValue<TValue>> GetValueOrDefaultAsync<TValue>(string key);
 
-        public virtual async IAsyncEnumerable<ConditionalValue<TValue>> GetValueOrDefaultAsync([NotNull] TKey[] keys) 
+        public virtual async IAsyncEnumerable<ConditionalValue<TValue>> GetValueOrDefaultAsync<TValue>([NotNull] string[] keys) 
         {
             foreach (var k in keys) 
             {
-                yield return await GetValueOrDefaultAsync(k);
+                yield return await GetValueOrDefaultAsync<TValue>(k);
             }
         }
 
-        public abstract Task SetAsync(TKey key, TValue value, TimeSpan? slidingExpireTime = null, DateTimeOffset? absoluteExpireTime = null);
+        public abstract Task SetAsync<TValue>(string key, TValue value, TimeSpan? slidingExpireTime = null, DateTimeOffset? absoluteExpireTime = null);
 
-        public virtual Task SetAsync(KeyValuePair<TKey, TValue>[] pairs, TimeSpan? slidingExpireTime = null, DateTimeOffset? absoluteExpireTime = null) 
+        public virtual Task SetAsync<TValue>(KeyValuePair<string, TValue>[] pairs, TimeSpan? slidingExpireTime = null, DateTimeOffset? absoluteExpireTime = null) 
         {
             return Task.WhenAll(pairs.Select(r => SetAsync(r.Key,r.Value, slidingExpireTime, absoluteExpireTime)));
         }
 
-        public abstract Task<long> RemoveAsync(TKey key);
+        public abstract Task<long> RemoveAsync(string key);
 
-        public virtual async IAsyncEnumerable<long> RemoveAsync([NotNull]TKey[] keys)
+        public virtual async IAsyncEnumerable<long> RemoveAsync([NotNull]string[] keys)
         {
             foreach (var k in keys) 
             {

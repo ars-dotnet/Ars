@@ -9,6 +9,7 @@ using IdentityModel;
 using IdentityServer4.AccessTokenValidation;
 using IdentityServer4.Test;
 using IdentityServer4.Validation;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
@@ -65,6 +66,7 @@ namespace Ars.Common.IdentityServer4.Extension
                         Claims = new Claim[] {
                             new Claim(ArsClaimTypes.TenantId, "1"),
                             new Claim(ArsClaimTypes.Role, "admin"),
+                            new Claim(ArsClaimTypes.UserName, "MyArs"),
                             new Claim("idp", "ars"),
                             new Claim("auth_time", DateTimeExtensions.ToEpochTime(DateTime.Now).ToString(),
                                     "http://www.w3.org/2001/XMLSchema#integer")
@@ -79,13 +81,14 @@ namespace Ars.Common.IdentityServer4.Extension
                         Claims = new Claim[] {
                             new Claim(ArsClaimTypes.TenantId, "1"),
                             new Claim(ArsClaimTypes.Role, "admin"),
+                            new Claim(ArsClaimTypes.UserName, "H123"),
                             new Claim("idp", "ars"),
                             new Claim("auth_time", DateTimeExtensions.ToEpochTime(DateTime.Now).ToString(),
                                     "http://www.w3.org/2001/XMLSchema#integer")
                         },
                         Password = "H123",
                         IsActive = true,
-                        SubjectId = "1",
+                        SubjectId = "123",
                     }
                 })
                .AddResourceOwnerValidator<DefaultResourceOwnerPasswordValidator>();
@@ -120,7 +123,7 @@ namespace Ars.Common.IdentityServer4.Extension
             arscfg.AddArsAppExtension(new ArsIdentityClientAppExtension());
             services.AddSingleton<IArsIdentityClientConfiguration>(option);
 
-            if (null == configureOptions) 
+            if (null == configureOptions)
             {
                 configureOptions = t =>
                 {
@@ -128,7 +131,7 @@ namespace Ars.Common.IdentityServer4.Extension
                     t.ApiName = option.ApiName;
                     t.RequireHttpsMetadata = option.RequireHttpsMetadata;
 
-                    if (t.RequireHttpsMetadata) 
+                    if (t.RequireHttpsMetadata)
                     {
                         var httpClientHandler = new HttpClientHandler
                         {
@@ -144,6 +147,7 @@ namespace Ars.Common.IdentityServer4.Extension
                     }
                 };
             }
+
             if (null == configure) 
             {
                 configure = t => 

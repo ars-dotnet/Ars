@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ars.Common.Redis.Caching
 {
-    public interface ICache : IDisposable, IArsCacheOption, IArsCache<string, object>
+    public interface ICache : IArsCacheOption, IArsCache, IDisposable
     {
 
     }

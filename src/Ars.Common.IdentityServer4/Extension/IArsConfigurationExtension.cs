@@ -12,19 +12,23 @@ namespace Ars.Common.IdentityServer4.Extension
 {
     public static class IArsConfigurationExtension 
     {
-        public static void AddArsIdentityServer(
+        public static IArsConfiguration AddArsIdentityServer(
             this IArsConfiguration arsConfiguration,
             Func<IServiceProvider, IResourceOwnerPasswordValidator>? func = null) 
         {
             arsConfiguration.AddArsServiceExtension(new ArsIdentityServerSerivceExtension(func));
+
+            return arsConfiguration;
         }
 
-        public static void AddArsIdentityClient(
+        public static IArsConfiguration AddArsIdentityClient(
             this IArsConfiguration arsConfiguration,
             Action<IdentityServerAuthenticationOptions>? configureOptions = null,
             Action<AuthorizationOptions>? configure = null) 
         {
             arsConfiguration.AddArsServiceExtension(new ArsIdentityClientServiceExtension(configureOptions, configure));
+
+            return arsConfiguration;
         }
     }
 }

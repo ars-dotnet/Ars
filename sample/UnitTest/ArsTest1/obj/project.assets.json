@@ -51,10 +51,14 @@
       "xunit.abstractions/2.0.3": {
         "type": "package",
         "compile": {
-          "lib/net35/xunit.abstractions.dll": {}
+          "lib/net35/xunit.abstractions.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/net35/xunit.abstractions.dll": {}
+          "lib/net35/xunit.abstractions.dll": {
+            "related": ".xml"
+          }
         }
       },
       "xunit.analyzers/0.10.0": {
@@ -63,10 +67,14 @@
       "xunit.assert/2.4.1": {
         "type": "package",
         "compile": {
-          "lib/netstandard1.1/xunit.assert.dll": {}
+          "lib/netstandard1.1/xunit.assert.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/netstandard1.1/xunit.assert.dll": {}
+          "lib/netstandard1.1/xunit.assert.dll": {
+            "related": ".xml"
+          }
         }
       },
       "xunit.core/2.4.1": {
@@ -90,10 +98,14 @@
           "xunit.abstractions": "2.0.3"
         },
         "compile": {
-          "lib/net452/xunit.core.dll": {}
+          "lib/net452/xunit.core.dll": {
+            "related": ".dll.tdnet;.xml"
+          }
         },
         "runtime": {
-          "lib/net452/xunit.core.dll": {}
+          "lib/net452/xunit.core.dll": {
+            "related": ".dll.tdnet;.xml"
+          }
         }
       },
       "xunit.extensibility.execution/2.4.1": {
@@ -102,10 +114,14 @@
           "xunit.extensibility.core": "[2.4.1]"
         },
         "compile": {
-          "lib/net452/xunit.execution.desktop.dll": {}
+          "lib/net452/xunit.execution.desktop.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/net452/xunit.execution.desktop.dll": {}
+          "lib/net452/xunit.execution.desktop.dll": {
+            "related": ".xml"
+          }
         }
       },
       "xunit.runner.visualstudio/2.4.3": {
@@ -481,7 +497,7 @@
             "version": "[2.4.3, )"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }

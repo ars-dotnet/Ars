@@ -6,9 +6,6 @@ using Microsoft.Extensions.Options;
 using System.Globalization;
 using System.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Ars.Common.Redis;
-using Ars.Common.Redis.RedisExtension;
-using Ars.Common.Redis.Extension;
 using Ars.Common.Core.Localization.Extension;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -17,23 +14,10 @@ var builder = WebApplication.CreateBuilder(args);
 var provider = builder.Services.
     AddArserviceCore(builder.Host,config => 
     {
-        config.AddArsRedis(provider =>
-        {
-            provider.ConfigureAll(cacheoption =>
-            {
-                cacheoption.DefaultSlidingExpireTime = TimeSpan.FromMinutes(10);
-            });
-        });
+        
+
         config.AddArsLocalization();
     });
-
-//builder.Services.Configure<Configs>(builder.Configuration.GetSection(nameof(Configs)));
-//builder.Services.Configure<Configs>(option =>
-//{
-//    option.Name = "xx";
-//    option.Age = 111;
-//});
-//var a = builder.Services.BuildServiceProvider().CreateScope().ServiceProvider.GetRequiredService<IOptions<Configs>>();
 
 builder.Services.AddTransient<IUserAppService, User>();
 builder.Services.AddTransient<UserBase, User>();
@@ -50,17 +34,14 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-app.UseArsCore();
-
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
-app.UseArsLocalization();
-
 
 app.UseRouting();
 
 app.UseAuthorization();
+
+app.UseArsCore();
 
 app.MapControllerRoute(
     name: "default",

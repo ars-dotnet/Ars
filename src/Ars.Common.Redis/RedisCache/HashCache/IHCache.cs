@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Ars.Common.Redis.RedisCache.HashCache
 {
-    public interface IHCache : IArsHCache<string,string,object>, IArsCacheOption,IDisposable
+    public interface IHCache : IArsCacheOption, IArsHCache, IDisposable
     {
 
     }

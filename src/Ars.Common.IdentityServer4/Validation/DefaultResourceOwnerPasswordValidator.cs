@@ -26,7 +26,11 @@ namespace Ars.Common.IdentityServer4.Validation
             bool flag = _users.ValidateCredentials(context.UserName, context.Password);
             if (flag)
             {
-                var identity = GetIdentityPrincipal("1","1", "admin", "Bearer", DateTime.Now, "ars");
+                var user = _users.FindByUsername(context.UserName);
+                var identity = GetIdentityPrincipal(
+                    user.SubjectId, user.Claims.FirstOrDefault(r => r.Type.Equals(ArsClaimTypes.TenantId))?.Value ?? "1",
+                    user.Username, user.Claims.FirstOrDefault(r => r.Type.Equals(ArsClaimTypes.Role))?.Value ?? "admin", 
+                    "Bearer", DateTime.Now, "ars");
                 context.Result = new GrantValidationResult(new ClaimsPrincipal(identity));
             }
             else
@@ -40,6 +44,7 @@ namespace Ars.Common.IdentityServer4.Validation
         private static ClaimsPrincipal GetIdentityPrincipal(
             string subject,
             string tenant,
+            string username,
             string userrole,
             string authenticationMethod,
             DateTime authTime,
@@ -50,6 +55,7 @@ namespace Ars.Common.IdentityServer4.Validation
                 new Claim(ArsClaimTypes.UserId, subject),
                 new Claim(ArsClaimTypes.TenantId, tenant),
                 new Claim(ArsClaimTypes.Role, userrole),
+                new Claim(ArsClaimTypes.UserName, username),
                 new Claim("amr", authenticationMethod),
                 new Claim("idp", identityProvider),
                 new Claim("auth_time", DateTimeExtensions.ToEpochTime(authTime).ToString(),

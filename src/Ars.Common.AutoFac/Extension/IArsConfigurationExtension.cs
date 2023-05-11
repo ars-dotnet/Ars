@@ -9,9 +9,11 @@ namespace Ars.Common.AutoFac.Extension
 {
     public static class IArsConfigurationExtension
     {
-        public static void AddArsAutofac(this IArsConfiguration configuration) 
+        public static IArsConfiguration AddArsAutofac(this IArsConfiguration configuration) 
         {
             configuration.AddArsServiceExtension(new ArsAutofacServiceExtension(null));
+
+            return configuration;
         }
     }
 }

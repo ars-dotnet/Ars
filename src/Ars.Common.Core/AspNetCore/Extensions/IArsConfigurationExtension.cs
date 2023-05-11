@@ -9,9 +9,11 @@ namespace Ars.Common.Core.AspNetCore.Extensions
 {
     public static class IArsConfigurationExtension
     {
-        public static void AddArsAspNetCore(this IArsConfiguration arsConfiguration)
+        public static IArsConfiguration AddArsAspNetCore(this IArsConfiguration arsConfiguration)
         {
             arsConfiguration.AddArsServiceExtension(new ArsAspNetCoreServiceExtension());
+
+            return arsConfiguration;
         }
     }
 }

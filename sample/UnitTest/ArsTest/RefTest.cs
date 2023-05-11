@@ -18,7 +18,7 @@ namespace ArsTest
             Test1(a,aA);
 
 
-            Test2(out int b, out AA xxx);
+            Test2(out int b, out AA oy2cw2xmkvlz63sab5hazqd2rkwz7tbe7inslboyfpucai);
 
             void Test1(in int a,in AA b) 
             {

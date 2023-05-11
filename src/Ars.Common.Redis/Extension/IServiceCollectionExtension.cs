@@ -1,7 +1,7 @@
 ﻿using Ars.Commom.Core;
 using Ars.Common.Core.Configs;
 using Ars.Common.Redis.CacheConfiguration;
-using Ars.Common.Redis.RedisCache;
+using Ars.Common.Redis.RedisCache.StringCache;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -37,7 +37,7 @@ namespace Ars.Common.Redis.RedisExtension
             if (string.IsNullOrEmpty(arsCacheOption.RedisConnection))
                 throw new ArgumentNullException(nameof(arsCacheOption.RedisConnection));
 
-            service.AddSingleton<IArsCacheProvider, ArsRedisCacheProvider>();
+            //service.AddSingleton<IArsCacheProvider, ArsRedisCacheProvider>();
 
             var csredis = new CSRedis.CSRedisClient($"{arsCacheOption.RedisConnection},defaultDatabase={arsCacheOption.DefaultDB},idleTimeout={arsCacheOption.IdleTimeout},poolsize={arsCacheOption.Poolsize}");
             RedisHelper.Initialization(csredis);

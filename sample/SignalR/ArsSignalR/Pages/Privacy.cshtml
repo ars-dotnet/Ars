@@ -1,0 +1,41 @@
+﻿@page
+@model PrivacyModel
+@{
+    ViewData["Title"] = "Privacy Policy";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>Use this page to detail your site's privacy policy.</p>
+
+<script src="~/lib/signalr/signalr.js"></script>
+<script src="~/lib/signalr/signalr-protocol-msgpack.js"></script>
+<script>
+    const connection = new signalR.HubConnectionBuilder()
+        .withUrl("http://172.20.64.1:5196/ars/android/hub?group=g1")
+        .withHubProtocol(new signalR.protocols.msgpack.MessagePackHubProtocol())
+        .withAutomaticReconnect()
+        .configureLogging(signalR.LogLevel.Information)
+        .build();
+
+    async function start() {
+        try {
+            await connection.start();
+            console.log("SignalR Connected.111");
+        } catch (err) {
+            console.log(err);
+            setTimeout(start, 5000);
+        }
+    };
+
+    connection.onclose(async () => {
+        console.log("SignalR DisConnected.111");
+        await start();
+    });
+
+    connection.on("ars.hub.ReceiveMessage", (message) => {
+        console.log(`ars.hub.ReceiveMessage:${message}`);
+    });
+
+    // Start the connection.
+    start();
+</script>
