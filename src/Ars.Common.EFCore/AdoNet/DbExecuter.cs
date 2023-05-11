@@ -26,12 +26,12 @@ namespace Ars.Common.EFCore.AdoNet
         public DbExecuter(IDbContextResolver dbContextResolver)
         {
             DbContext = dbContextResolver.Resolve<TDbContext>();
-            SqlConnection = (SqlConnection)DbContext.Database.GetDbConnection();
+            SqlConnection = DbContext.Database.GetDbConnection();
         }
 
         protected TDbContext DbContext { get; }
 
-        protected SqlConnection SqlConnection { get; }
+        protected DbConnection SqlConnection { get; }
 
         protected IDbContextTransaction? DbContextTransaction { get; set; }
 
@@ -63,11 +63,11 @@ namespace Ars.Common.EFCore.AdoNet
                 SqlConnection.Open();
         }
 
-        protected SqlCommand CreateCommond(string commandText, SqlParameter[]? parameters = null) 
+        protected DbCommand CreateCommond(string commandText, DbParameter[]? parameters = null) 
         {
-            using var command = SqlConnection.CreateCommand();
+            var command = SqlConnection.CreateCommand();
             command.CommandText = commandText;
-            command.Transaction = DbContextTransaction?.GetDbTransaction().As<SqlTransaction>();
+            command.Transaction = DbContextTransaction?.GetDbTransaction();
 
             if (parameters?.Any() ?? false)
                 command.Parameters.AddRange(parameters);
@@ -75,14 +75,14 @@ namespace Ars.Common.EFCore.AdoNet
             return command;
         }
 
-        public async Task<int> ExecuteNonQuery(string commandText, SqlParameter[]? parameters = null)
+        public async Task<int> ExecuteNonQuery(string commandText, DbParameter[]? parameters = null)
         {
             Check();
             using var command = CreateCommond(commandText, parameters);
             return await command.ExecuteNonQueryAsync();
         }
 
-        public async Task<IEnumerable<T>> QueryAsync<T>(string commandText, SqlParameter[]? parameters = null)
+        public async Task<IEnumerable<T>> QueryAsync<T>(string commandText, DbParameter[]? parameters = null)
              where T : class, new()
         {
             Check();
@@ -102,7 +102,7 @@ namespace Ars.Common.EFCore.AdoNet
             }
         }
 
-        public async Task<T?> QueryFirstOrDefaultAsync<T>(string commandText, SqlParameter[]? parameters = null)
+        public async Task<T?> QueryFirstOrDefaultAsync<T>(string commandText, DbParameter[]? parameters = null)
             where T : class, new()
         {
             Check();
@@ -126,7 +126,7 @@ namespace Ars.Common.EFCore.AdoNet
             }
         }
 
-        public async Task<T?> ExecuteScalarAsync<T>(string commandText, SqlParameter[]? parameters = null)
+        public async Task<T?> ExecuteScalarAsync<T>(string commandText, DbParameter[]? parameters = null)
              where T : struct
         {
             Check();

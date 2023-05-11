@@ -36,7 +36,7 @@ namespace Ars.Common.EFCore.AdoNet
         /// <param name="commandText"></param>
         /// <param name="parameters"></param>
         /// <returns></returns>
-        Task<int> ExecuteNonQuery(string commandText, SqlParameter[]? parameters = null);
+        Task<int> ExecuteNonQuery(string commandText, DbParameter[]? parameters = null);
 
         /// <summary>
         /// 查询列表数据
@@ -45,7 +45,7 @@ namespace Ars.Common.EFCore.AdoNet
         /// <param name="commandText"></param>
         /// <param name="parameters"></param>
         /// <returns></returns>
-        Task<IEnumerable<T>> QueryAsync<T>(string commandText, SqlParameter[]? parameters = null)
+        Task<IEnumerable<T>> QueryAsync<T>(string commandText, DbParameter[]? parameters = null)
              where T : class,new();
 
         /// <summary>
@@ -55,7 +55,7 @@ namespace Ars.Common.EFCore.AdoNet
         /// <param name="commandText"></param>
         /// <param name="parameters"></param>
         /// <returns></returns>
-        Task<T?> QueryFirstOrDefaultAsync<T>(string commandText, SqlParameter[]? parameters = null)
+        Task<T?> QueryFirstOrDefaultAsync<T>(string commandText, DbParameter[]? parameters = null)
              where T : class,new();
 
         /// <summary>
@@ -65,7 +65,7 @@ namespace Ars.Common.EFCore.AdoNet
         /// <param name="commandText"></param>
         /// <param name="parameters"></param>
         /// <returns></returns>
-        Task<T?> ExecuteScalarAsync<T>(string commandText, SqlParameter[]? parameters = null)
+        Task<T?> ExecuteScalarAsync<T>(string commandText, DbParameter[]? parameters = null)
              where T : struct;
     }
 }

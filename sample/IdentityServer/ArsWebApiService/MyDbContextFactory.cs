@@ -15,8 +15,8 @@ namespace MyApiWithIdentityServer4
 
             DbContextOptionsBuilder<MyDbContext> builder = new DbContextOptionsBuilder<MyDbContext>();
             string connectstring = configuration.GetSection("ArsDbContextConfiguration:DefaultString").Get<string>();
-            //builder.UseMySql(connectstring,ServerVersion.AutoDetect(connectstring));
-            builder.UseSqlServer(connectstring);
+            builder.UseMySql(connectstring,ServerVersion.AutoDetect(connectstring));
+            //builder.UseSqlServer(connectstring);
 
             return new MyDbContext(builder.Options);
         }

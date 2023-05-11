@@ -15,6 +15,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Primitives;
 using MyApiWithIdentityServer4.Dtos;
 using MyApiWithIdentityServer4.Model;
+using MySqlConnector;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Text;
@@ -472,7 +473,7 @@ namespace MyApiWithIdentityServer4.Controllers
         public async Task<IActionResult> AdoNetUpdate() 
         {
             using var scope = await DbExecuter.BeginAsync();
-            var guids = new Guid[] { new Guid("83A1A9DB-2537-4915-3B13-08DA69640D94") };
+            var guids = new Guid[] { new Guid("44713162-A9FB-4EB6-8A1F-0E4A64E533AD") };
             List<SqlParameter> sqlParameters = new List<SqlParameter>
             {
                 new SqlParameter("@LastName","最好的克伦克丶"),
@@ -487,7 +488,7 @@ namespace MyApiWithIdentityServer4.Controllers
             string sql = $"update Students set LastName = @LastName where id in ({@id})";
             var count = await DbExecuter.ExecuteNonQuery(sql, sqlParameters.ToArray());
 
-            var guids1 = new Guid[] { new Guid("83A1A9DB-2537-4915-3B13-08DA69640D94") };
+            var guids1 = new Guid[] { new Guid("44713162-A9FB-4EB6-8A1F-0E4A64E533AD") };
             List<SqlParameter> sqlParameters1 = new List<SqlParameter>();
             StringBuilder ids1 = new();
             for (var i = 0; i < guids1.Count(); i++)
@@ -507,7 +508,7 @@ namespace MyApiWithIdentityServer4.Controllers
         [HttpPost]
         public async Task<IActionResult> AdoNetDelete() 
         {
-            var guids = new Guid[] { new Guid("AE5CA8B0-61C7-4008-A330-98D3DBBD8A00"), new Guid("4C395F7F-FA13-4DFC-8D29-647696FD3245") };
+            var guids = new Guid[] { new Guid("44713162-A9FB-4EB6-8A1F-0E4A64E533AD") };
             List<SqlParameter> sqlParameters = new List<SqlParameter>();
             StringBuilder ids = new();
             for (var i = 0; i < guids.Count(); i++)
@@ -524,7 +525,7 @@ namespace MyApiWithIdentityServer4.Controllers
         [HttpGet]
         public async Task<IActionResult> AdoNetQuery() 
         {
-            var guids = new Guid[] { new Guid("C8498ADF-0BC0-4403-A45B-F3DB44018A03"), new Guid("A41AB308-25FD-42DD-B583-5DE94CD6EFC9") };
+            var guids = new Guid[] { new Guid("B0C1C8A4-16DD-40F2-862F-79DD0B82F037") };
             List<SqlParameter> sqlParameters = new List<SqlParameter>();
             StringBuilder ids = new();
             for (var i = 0; i < guids.Count(); i++)
@@ -545,7 +546,7 @@ namespace MyApiWithIdentityServer4.Controllers
         [HttpGet]
         public async Task<IActionResult> AdoNetQueryOne()
         {
-            var guids = new Guid[] { new Guid("C8498ADF-0BC0-4403-A45B-F3DB44018A03") };
+            var guids = new Guid[] { new Guid("B0C1C8A4-16DD-40F2-862F-79DD0B82F037") };
             List<SqlParameter> sqlParameters = new List<SqlParameter>();
             StringBuilder ids = new();
             for (var i = 0; i < guids.Count(); i++)
@@ -562,7 +563,7 @@ namespace MyApiWithIdentityServer4.Controllers
         [HttpGet]
         public async Task<IActionResult> AdoNetScalar()
         {
-            var guids = new Guid[] { new Guid("C8498ADF-0BC0-4403-A45B-F3DB44018A03"), new Guid("A41AB308-25FD-42DD-B583-5DE94CD6EFC9") };
+            var guids = new Guid[] { new Guid("B0C1C8A4-16DD-40F2-862F-79DD0B82F037"), new Guid("1771F732-B700-4120-8BD9-A39B4654AE72") };
             List<SqlParameter> sqlParameters = new List<SqlParameter>();
             StringBuilder ids = new();
             for (var i = 0; i < guids.Count(); i++)

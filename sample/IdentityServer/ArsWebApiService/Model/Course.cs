@@ -9,6 +9,8 @@ namespace MyApiWithIdentityServer4.Model
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int CourseID { get; set; }
+
+        [StringLength(100)]
         public string Title { get; set; }
 
         [Column(TypeName = "decimal(10,2)")]

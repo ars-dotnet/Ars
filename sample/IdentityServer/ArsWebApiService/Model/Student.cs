@@ -1,4 +1,6 @@
 ﻿using Ars.Common.EFCore.Entities;
+using AutoMapper.Configuration.Annotations;
+using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
 
 namespace MyApiWithIdentityServer4.Model
@@ -9,7 +11,10 @@ namespace MyApiWithIdentityServer4.Model
         [Key]
         public Guid Id { get; set; }
 
+        [StringLength(50)]
         public string LastName { get; set; }
+
+        [StringLength(50)]
         public string FirstMidName { get; set; }
 
         public DateTime EnrollmentDate { get; set; }
@@ -17,8 +22,8 @@ namespace MyApiWithIdentityServer4.Model
         /// <summary>
         /// 并发标记
         /// </summary>
-        [Timestamp]
-        public byte[] TimeStamp { get; set; }
+        //[Timestamp]
+        //public byte[] TimeStamp { get; set; }
 
         public virtual ICollection<Enrollment> Enrollments { get; set; }
 
