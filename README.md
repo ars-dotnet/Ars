@@ -1,56 +1,68 @@
 # MyArs
-a simple webapiframework with some tools.\
-include autofac,consul,grpc,efcore,identityserver4,redis.\
-and some sample with them.
+[![NuGet](https://img.shields.io/nuget/v/DotNetCore.CAP.svg)](https://www.nuget.org/packages/Ars.Common.Host/)
 
-############################################################# 
+a simple .net6 webapiframework with some extensions.\
+include autofac,consul,grpc,efcore,identityserver4,redis,signalr,localization,upload and download excel extension. \
+and some samples with them.
 
-add Service:
+## Getting Started
+
+### NuGet
+
+myars can be installed in your project with the following command.
+
+```
+PM> Install-Package Ars.Common.Host
+```
+
+myars supports some extensions, following packages are available to install:
+
+```
+PM> Install-Package Ars.Common.IdentityServer4
+PM> Install-Package Ars.Common.Consul
+PM> Install-Package Ars.Common.EFCore
+PM> Install-Package Ars.Common.Redis
+PM> Install-Package Ars.Common.SignalR
+```
+
+### Configuration
+#### add Service:
 
     var builder = WebApplication.CreateBuilder(args);
     builder.Services
-    //add arservicecore service
-    //nuget[NuGet\Install-Package Ars.Common.Host -Version 1.4.0]
+     //add ars service
      .AddArserviceCore(builder.Host, config =>
      {
          //add consul client service
-         //nuget[NuGet\Install-Package Ars.Common.Consul -Version 1.4.0]
          config.AddArsConsulDiscoverClient();
+	 
+         //add consul register service
+         config.AddArsConsulRegisterServer();
 
          //add resource identity service
-         //nuget[NuGet\Install-Package Ars.Common.IdentityServer4 -Version 1.4.0]
          config.AddArsIdentityClient();
+	 
+         //add identity server service
+         config.AddArsIdentityServer();
 
-        //add redis service
-        //nuget[NuGet\Install-Package Ars.Common.Redis -Version 1.4.1]
-        config.AddArsRedis();
+         //add redis service
+         config.AddArsRedis();
 
-        //add consul register service
-        //nuget[NuGet\Install-Package Ars.Common.Consul -Version 1.4.0]
-        config.AddArsConsulRegisterServer();
-
-        //add identity server service
-        //nuget[NuGet\Install-Package Ars.Common.IdentityServer4 -Version 1.4.0]
-        config.AddArsIdentityServer();
-
-        //add localization service
-        config.AddArsLocalization();
+         //add localization service
+         config.AddArsLocalization();
     })
     //add dbcontext service
-    //nuget[NuGet\Install-Package Ars.Common.EFCore -Version 1.4.0]
     .AddArsDbContext<xxxDbContext>();
 
-use Application:
+#### use Application:
 
     var app = builder.Build();
+   
     //use ars core application
     app.UseArsCore();
-#############################################################
 
-#############################################################
-
-appsettings.Development.json
-
+### change your appssettings.json
+#### appsettings.Development.json
 	{
 	  "Logging": {
 		"LogLevel": {
@@ -77,20 +89,7 @@ appsettings.Development.json
 		  }
 		]
 	  },
-	  //resource server identity config
-	  "ArsIdentityClientConfiguration": {
-		"Authority": "http://ip:port",
-		"ApiName": "apiIds4Second", 
-		"RequireHttpsMetadata": true,
-	    "CertificatePath": "xxx",
-        "CertificatePassWord": "xxx"
-	  },
-	  //redis config
-	  "ArsCacheConfiguration": {
-		"RedisConnection": "ip",
-		"DefaultDB": 1
-	  },
-
+	  
 	  //consul register config
 	  "ConsulRegisterConfiguration": {
 		"ConsulAddress": "http://ip:port",
@@ -98,9 +97,19 @@ appsettings.Development.json
 		"ServiceIp": "ip",
 		"ServicePort": port,
 		"UseHttps": true,
-        "CertificatePath": "xxx",
-        "CertificatePassWord": "xxx"
+		"CertificatePath": "xxx",
+		"CertificatePassWord": "xxx"
 	  },
+	  
+	  //resource server identity config
+	  "ArsIdentityClientConfiguration": {
+		"Authority": "http://ip:port",
+		"ApiName": "apiIds4Second", 
+		"RequireHttpsMetadata": true,
+		"CertificatePath": "xxx",
+		"CertificatePassWord": "xxx"
+	  },
+	  
 	  //identity server config
 	  "ArsIdentityServerConfiguration": {
 		"ArsApiResources": [
@@ -161,6 +170,13 @@ appsettings.Development.json
 		"CertPath": "Certificates\\IS4.pfx",
 		"Password": "aabb1212"
 	  },
+	  
+	  //redis config
+	  "ArsCacheConfiguration": {
+		"RedisConnection": "ip",
+		"DefaultDB": 1
+	  },
+
 	  //localization config
 	  "ArsLocalizationConfiguration": {
 		"ResourcesPath": "Resources",
@@ -176,6 +192,7 @@ appsettings.Development.json
 		],
 		"DefaultRequestCulture": "en-US"
 	  },
+	  
 	  //DbContext config
 	  "ArsDbContextConfiguration": {
 		//1 mysql;2 mssql
@@ -184,5 +201,4 @@ appsettings.Development.json
 		"DefaultString": "Data Source=xxx; Initial Catalog=xxx;user id=xxx;pwd=xxx"
 	  }
 	}
-#############################################################
 
