@@ -40,6 +40,9 @@ namespace Ars.Common.Core.Configs
         /// </summary>
         public CommunicationWay CommunicationWay { get; set; }
 
+        /// <summary>
+        /// httpclient永不超时
+        /// </summary>
         public bool IgnoreTimeOut { get; set; }
 
         /// <summary>

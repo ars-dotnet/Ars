@@ -15,28 +15,18 @@ using Ars.Common.Core.AspNetCore.Extensions;
 using Ars.Common.Tool.Extension;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.AspNetCore.StaticFiles;
-using Ars.Common.Consul.Extension;
-using Ars.Common.SkyWalking.Extensions;
 using Ars.Common.Tool.Configs;
 using Ars.Common.IdentityServer4.Options;
 using Ars.Common.Redis.Extension;
-using Ars.Common.IdentityServer4.Options;
 using Ars.Common.SignalR.Extensions;
 using Ars.Common.SignalR.Hubs;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using NPOI.SS.Formula.Functions;
 using System.Security.Authentication;
 using Ars.Commom.Tool.Certificates;
-using Microsoft.Extensions.DependencyInjection.Extensions;
-using ArsWebApiService;
-using Microsoft.AspNetCore.Authentication;
-using IdentityModel.Client;
-using IdentityModel;
-using IdentityServer4.AccessTokenValidation;
-using Microsoft.IdentityModel.Tokens;
 using IdentityModel.AspNetCore.OAuth2Introspection;
 using ArsWebApiService.Hubs;
 using Ars.Common.SignalR.Sender;
+using Ars.Common.SkyWalking.Extensions;
+using Ars.Common.Consul.Extension;
 
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
@@ -45,8 +35,6 @@ var arsbuilder =
     builder.Services
     .AddArserviceCore(builder.Host, config =>
     {
-        config.ApplicationUrl = "http://172.20.64.1:5196";
-
         var idsconfig = builder.Configuration.GetSection(nameof(ArsIdentityClientConfiguration)).Get<ArsIdentityClientConfiguration>();
 
         config.AddArsIdentityClient(configureOptions: options =>

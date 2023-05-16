@@ -34,10 +34,12 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\..\..\src\Ars.Commom.Host\Ars.Common.Host.csproj" />
+		<ProjectReference Include="..\..\..\src\Ars.Common.Consul\Ars.Common.Consul.csproj" />
 		<ProjectReference Include="..\..\..\src\Ars.Common.EFCore\Ars.Common.EFCore.csproj" />
 		<ProjectReference Include="..\..\..\src\Ars.Common.IdentityServer4\Ars.Common.IdentityServer4.csproj" />
 		<ProjectReference Include="..\..\..\src\Ars.Common.Redis\Ars.Common.Redis.csproj" />
 		<ProjectReference Include="..\..\..\src\Ars.Common.SignalR\Ars.Common.SignalR.csproj" />
+		<ProjectReference Include="..\..\..\src\Ars.Common.SkyWalking\Ars.Common.SkyWalking.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
