@@ -61,8 +61,8 @@ PM> Install-Package Ars.Common.SignalR
     //use ars core application
     app.UseArsCore();
 
-### change your appssettings.json
-#### appsettings.Development.json
+#### change your appsettings.Development.json
+ 
 	{
 	  "Logging": {
 		"LogLevel": {
