@@ -1,4 +1,5 @@
 ﻿using Ars.Commom.Tool.Extension;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
@@ -13,19 +14,20 @@ namespace Ars.Commom.Tool.Certificates
     {
         public static X509Certificate2 Get()
         {
-            string allpath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Certificates\\IS4.pfx");
+            string allpath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Certificates//IS4.pfx");
             return new X509Certificate2(allpath, "aabb1212");
         }
 
-        public static X509Certificate2 Get(string path, string password) 
+        public static X509Certificate2 Get(string certificatePath, string certificatePassWord, ILogger? logger = null) 
         {
-            if(path.IsNullOrEmpty())
-                throw new ArgumentNullException("path");
-            if (password.IsNullOrEmpty())
-                throw new ArgumentNullException("password");
+            if(certificatePath.IsNullOrEmpty())
+                throw new ArgumentNullException("certificatePath");
+            if (certificatePassWord.IsNullOrEmpty())
+                throw new ArgumentNullException("certificatePassWord");
 
-            string allpath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, path);
-            return new X509Certificate2(allpath, password);
+            string allpath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, certificatePath);
+            logger?.LogInformation("certificatePath:{0}", allpath);
+            return new X509Certificate2(allpath, certificatePassWord);
         }
     }
 }

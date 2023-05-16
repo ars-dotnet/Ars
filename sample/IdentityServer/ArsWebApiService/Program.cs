@@ -15,6 +15,10 @@ using Ars.Common.Core.AspNetCore.Extensions;
 using Ars.Common.Tool.Extension;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.AspNetCore.StaticFiles;
+using Ars.Common.Consul.Extension;
+using Ars.Common.SkyWalking.Extensions;
+using Ars.Common.Tool.Configs;
+using Ars.Common.IdentityServer4.Options;
 using Ars.Common.Redis.Extension;
 using Ars.Common.IdentityServer4.Options;
 using Ars.Common.SignalR.Extensions;
@@ -88,6 +92,9 @@ var arsbuilder =
             config.CacheType = 0;
             config.UseMessagePackProtocol = true;
         });
+        config.AddArsIdentityClient();
+        config.AddArsConsulRegisterServer();
+        config.AddArsSkyApm();
     })
     .AddArsDbContext<MyDbContext>();
 builder.Services
@@ -120,7 +127,6 @@ builder.Services.AddSwaggerGen(c =>
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "ArsWebApiService", Version = "v1" });
 
     var idscfg = builder.Configuration.GetSection(nameof(ArsIdentityClientConfiguration)).Get<ArsIdentityClientConfiguration>();
-
     c.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
     {
         Type = SecuritySchemeType.OAuth2,
@@ -151,12 +157,21 @@ builder.Services.AddSwaggerGen(c =>
     c.OperationFilter<SecurityRequirementsOperationFilter>();
 });
 
-//builder.WebHost.UseUrls("http://172.20.64.1:5197");
+builder.WebHost.UseKestrel(kestrel =>
+{
+    //通过配置文件来获取
+    //测试主机ip
+    //kestrel.Listen(IPAddress.Parse("172.20.64.1"),5196);
 
-//builder.WebHost.UseKestrel(kestrel =>
-//{
-//    kestrel.Listen(IPAddress.Parse("172.20.64.1"), 5197);
-//});
+    //容器ip192.168.0.5
+    //kestrel.Listen(IPAddress.Parse("192.168.0.5"), 5196);
+
+    //容器ip192.168.0.8
+    //kestrel.Listen(IPAddress.Parse("192.168.0.8"), 5197);
+
+    var basicfg = builder.Configuration.GetSection(nameof(ArsBasicConfiguration)).Get<ArsBasicConfiguration>();
+    kestrel.Listen(IPAddress.Parse(basicfg.Ip), basicfg.Port);
+});
 
 //builder.Services.AddDbContext<MyDbContext>();
 
@@ -167,11 +182,11 @@ var app = builder.Build();
 app.UsArsExceptionMiddleware();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
+//if (app.Environment.IsDevelopment())
+//{
     app.UseSwagger();
     app.UseSwaggerUI();
-}
+//}
 
 app.UseCors("*");
 string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "wwwroot", "AppDownload");
@@ -201,6 +216,7 @@ app.MapHub<MyWebHub>("/ars/web/hub");
 app.MapHub<ArsAndroidHub>("/ars/android/hub");
 
 
-//app.UseAuthentication();
-//app.UseAuthorization();
+app.MapGet("/", context => Task.Run(() => context.Response.Redirect("/swagger")));
+app.Map("/healthCheck", builder => builder.Run(context => context.Response.WriteAsync("ok")));
+
 app.Run();

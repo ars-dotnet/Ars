@@ -2,7 +2,10 @@ using Ars.Commom.Host.Extension;
 using Ars.Commom.Tool.Certificates;
 using Ars.Common.Consul.Extension;
 using Ars.Common.Consul.IApplicationBuilderExtension;
+using Ars.Common.Core.AspNetCore.Extensions;
 using Ars.Common.IdentityServer4.Extension;
+using Ars.Common.SkyWalking.Extensions;
+using Ars.Common.Tool.Configs;
 using GrpcService.Services;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.AspNetCore.Server.Kestrel.Https;
@@ -26,6 +29,7 @@ builder.Services
     {
         config.AddArsIdentityClient();
         config.AddArsConsulRegisterServer();
+        config.AddArsSkyApm();
     });
 builder.Services.AddGrpc();
 
@@ -38,13 +42,15 @@ builder.WebHost.ConfigureKestrel(kestrel =>
     //    i.ClientCertificateMode = ClientCertificateMode.AllowCertificate;
     //    i.SslProtocols = SslProtocols.Tls12 | SslProtocols.Tls | SslProtocols.None | SslProtocols.Tls11;
     //    i.ClientCertificateValidation = (certificate2, chain, error) => true;
-    //    i.ServerCertificate = Certificate.Get("Certificates\\IS4.pfx","aabb1212");
+    //    i.ServerCertificate = Certificate.Get("Certificates//IS4.pfx","aabb1212");
     //});
     //kestrel.ConfigureEndpointDefaults(i =>
     //{
     //    i.Protocols = HttpProtocols.Http1AndHttp2;
     //});
-    kestrel.Listen(new IPEndPoint(IPAddress.Parse("127.0.0.1"), 5134), option =>
+
+    var basicfg = builder.Configuration.GetSection(nameof(ArsBasicConfiguration)).Get<ArsBasicConfiguration>();
+    kestrel.Listen(new IPEndPoint(IPAddress.Parse(basicfg.Ip), basicfg.Port), option =>
     {
         option.Protocols = HttpProtocols.Http1AndHttp2;
         var serverPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Certificates", "IS4.pfx");
@@ -55,12 +61,14 @@ builder.WebHost.ConfigureKestrel(kestrel =>
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
+//if (app.Environment.IsDevelopment())
+//{
     app.UseSwagger();
     app.UseSwaggerUI();
     app.UseDeveloperExceptionPage();
-}
+//}
+
+app.UsArsExceptionMiddleware();
 
 app.UseGrpcWeb(new GrpcWebOptions { DefaultEnabled = true });
 
@@ -70,11 +78,12 @@ app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllers();
     endpoints.MapGrpcService<GreeterService>().EnableGrpcWeb();
-    endpoints.MapGrpcService<HealthCheckService>().EnableGrpcWeb();//.RequireAuthorization();
+    endpoints.MapGrpcService<HealthCheckService>().EnableGrpcWeb();
     endpoints.MapGet("healthCheck", context =>
     {
         return context.Response.WriteAsync("ok");
     });
 });
+
 
 app.Run();

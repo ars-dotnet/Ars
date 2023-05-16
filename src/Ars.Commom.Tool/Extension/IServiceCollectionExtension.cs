@@ -1,5 +1,6 @@
 ﻿using Ars.Common.Tool.Configs;
 using Ars.Common.Tool.Export;
+using Ars.Common.Tool.Tools;
 using Ars.Common.Tool.UploadExcel;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.Extensions.Configuration;
@@ -25,9 +26,9 @@ namespace Ars.Common.Tool.Extension
         /// <returns></returns>
         public static IServiceCollection AddArsHttpClient(this IServiceCollection services)
         {
-            services.AddHttpClient();
+            services.AddHttpClient(HttpClientNames.Http);
             services
-                .AddHttpClient("Https")
+                .AddHttpClient(HttpClientNames.Https)
                 .ConfigurePrimaryHttpMessageHandler((e) =>
                 {
                     var handler = new HttpClientHandler();
@@ -40,13 +41,13 @@ namespace Ars.Common.Tool.Extension
                 });
 
             services
-                .AddHttpClient("RetryHttp")
+                .AddHttpClient(HttpClientNames.RetryHttp)
                 .AddTransientHttpErrorPolicy(policyBuilder =>
                 {
                     return policyBuilder.WaitAndRetryAsync(new TimeSpan[] { TimeSpan.FromSeconds(1), TimeSpan.FromSeconds(2) });
                 });
             services
-                .AddHttpClient("RetryHttps")
+                .AddHttpClient(HttpClientNames.RetryHttps)
                 .ConfigurePrimaryHttpMessageHandler((e) =>
                 {
                     var handler = new HttpClientHandler();
@@ -74,8 +75,8 @@ namespace Ars.Common.Tool.Extension
         public static IServiceCollection AddArsExportExcelService(this IServiceCollection services,Assembly assembly)
         {
             var provider = new ExportApiSchemeProvider();
-            services.AddSingleton<IExportApiSchemeProvider>(provider);
             services.AddScoped<IExportManager, ExportManager>();
+            services.AddSingleton<IExportApiSchemeProvider>(provider);
             services.AddSingleton<IXmlFileManager, XmlFileManager>();
 
             provider.SetExportApiSchemed(assembly);

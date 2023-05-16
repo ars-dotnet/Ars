@@ -34,7 +34,7 @@ namespace Ars.Common.Tool.UploadExcel
         {
             if (bindingContext.ModelName.Equals(nameof(IExcelData<IExcelModel>.ExcelModels))) 
             {
-                Valid.ThrowException(_basicConfig.Value.ApplicationUrl.IsNullOrEmpty(), "ApplicationUrl未配置");
+                Valid.ThrowException(_basicConfig.Value.AppAccessDomain.IsNullOrEmpty(), "ApplicationUrl未配置");
 
                 IFormFile file;
                 if (bindingContext.HttpContext.Request.Form.Files.Count > 0)
@@ -74,7 +74,7 @@ namespace Ars.Common.Tool.UploadExcel
                         {
                             throw new ArsExcelException(
                                 string.Concat(
-                                    _basicConfig.Value.ApplicationUrl, 
+                                    _basicConfig.Value.AppAccessDomain, 
                                     $"/{_uploadConfig.Value.RequestPath}",
                                     $"/{savescheme.ExportFileName}.xls"),
                                 "数据行校验失败");

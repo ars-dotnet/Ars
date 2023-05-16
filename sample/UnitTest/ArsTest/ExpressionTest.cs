@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NPOI.SS.Formula.Functions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -16,5 +17,20 @@ namespace ArsTest
             Expression a = Expression.TypeAs(Expression.Constant(123,typeof(int)),typeof(Object));
             var t = a.ToString();
         }
+
+        [Fact]
+        public void ExpressionNew()
+        {
+            var a = New<T>.Instance();
+        }
+        
+    }
+
+    public class New<T> where T : new()
+    {
+        public static readonly Func<T> Instance = Expression.Lambda<Func<T>>
+        (
+            Expression.New(typeof(T))
+        ).Compile();
     }
 }

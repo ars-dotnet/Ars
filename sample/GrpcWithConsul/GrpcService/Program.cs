@@ -3,6 +3,8 @@ using Ars.Commom.Tool.Certificates;
 using Ars.Common.Consul.Extension;
 using Ars.Common.Consul.IApplicationBuilderExtension;
 using Ars.Common.IdentityServer4.Extension;
+using Ars.Common.SkyWalking.Extensions;
+using Ars.Common.Tool.Configs;
 using GrpcService;
 using GrpcService.Services;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
@@ -22,6 +24,7 @@ builder.Services
     {
         config.AddArsIdentityClient();
         config.AddArsConsulRegisterServer();
+        config.AddArsSkyApm();
     });
 builder.Services.AddGrpc();
 
@@ -32,7 +35,8 @@ builder.WebHost.ConfigureKestrel(kestrel =>
     //{
     //    i.Protocols = HttpProtocols.Http1AndHttp2;
     //});
-    kestrel.Listen(new IPEndPoint(IPAddress.Parse("127.0.0.1"), 7903), option =>
+    var data = builder.Configuration.GetSection(nameof(ArsBasicConfiguration)).Get<ArsBasicConfiguration>()!;
+    kestrel.Listen(new IPEndPoint(IPAddress.Parse(data.Ip), data.Port), option =>
     {
         option.Protocols = HttpProtocols.Http1AndHttp2;
         var serverPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Certificates", "IS4.pfx");

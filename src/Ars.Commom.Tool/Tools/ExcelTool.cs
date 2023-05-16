@@ -177,7 +177,7 @@ namespace Ars.Common.Tool.Tools
         {
             if (Directory.Exists(input.SavePath))
             {
-                var fiels = Directory.GetFiles(input.SavePath).Where(r => File.GetLastWriteTime(r) + input.SlidingExpireTime < DateTime.Now);
+                var fiels = Directory.GetFiles(input.SavePath).Where(r => File.GetLastAccessTime(r) + input.SlidingExpireTime < DateTime.Now);
                 foreach (var item in fiels)
                 {
                     File.Delete(item);

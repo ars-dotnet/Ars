@@ -128,7 +128,7 @@ namespace MyApiWithIdentityServer4.Controllers
 
             var a = m.First().Enrollments;
 
-            return Ok();
+            return Ok(m);
         }
 
         [Authorize]
@@ -136,7 +136,7 @@ namespace MyApiWithIdentityServer4.Controllers
         public async Task ModifyWithOutTransaction()
         {
             var info = await MyDbContext.Students.FirstOrDefaultAsync();
-            info.LastName = "boo";
+            info.LastName = "boo" + new Random().Next(20);
 
             await MyDbContext.SaveChangesAsync();
         }

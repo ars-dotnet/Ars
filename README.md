@@ -76,16 +76,19 @@ PM> Install-Package Ars.Common.SignalR
 		  {
 			"ConsulAddress": "http://ip:port",
 			"ServiceName": "apigrpc",
-			"UseHttp1Protocol": true,
-			"UseHttps": true,
-			"CertificatePath": "xxx",
-			"CertificatePassWord": "xxx",
-			"UseIdentityServer4Valid": true,
-			"IdentityServer4Address": "http://ip:port",
-			"ClientId": "grpc-key",
-			"ClientSecret": "grpc-secret",
-			"Scope": "grpcapi-scope",
-			"GrantType": "client_credentials"
+			"Communication":{
+			    "CommunicationWay":0,
+				"GrpcUseHttp1Protocol": true,
+				"UseHttps": true,
+				"CertificatePath": "xxx",
+				"CertificatePassWord": "xxx",
+				"UseIdentityServer4Valid": true,
+				"IdentityServer4Address": "http://ip:port",
+				"ClientId": "grpc-key",
+				"ClientSecret": "grpc-secret",
+				"Scope": "grpcapi-scope",
+				"GrantType": "client_credentials"
+			}
 		  }
 		]
 	  },
@@ -167,7 +170,7 @@ PM> Install-Package Ars.Common.SignalR
 		  "openid",
 		  "profile"
 		],
-		"CertPath": "Certificates\\IS4.pfx",
+		"CertPath": "Certificates//IS4.pfx",
 		"Password": "aabb1212"
 	  },
 	  

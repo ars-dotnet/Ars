@@ -20,7 +20,7 @@ namespace GrpcClients
         {
             try
             {
-                var client = await _grpcClientProvider.GetGrpcClient<Greeter.GreeterClient>("apigrpc");
+                var client = await _grpcClientProvider.GetGrpcClient<Greeter.GreeterClient>("apigrpc1");
                 using (var req = client.StreamingFromClient())
                 {
                     var channel = _channelProvider.GetOrAddChannel<StreamingRequest>("grpc");
@@ -35,7 +35,8 @@ namespace GrpcClients
             }
             catch (Exception e)
             {
-
+                await Task.Delay(2000);
+                await ExecuteAsync(stoppingToken);
             }
 
             return;

@@ -242,6 +242,23 @@ namespace ArsTest
             var a = m.First().GetHashCode();
             var b = m.Last().GetHashCode();
         }
+
+        [Fact]
+        public void Test99() 
+        {
+            Goods goods = new Goods
+            {
+                Age = 123
+            };
+
+            //不能赋值
+            //goods.Age = 222;
+        }
+    }
+
+    public class Goods 
+    {
+        public int Age { get; init; }
     }
 
     public class Person

@@ -8,7 +8,11 @@
     ".NETCoreApp,Version=v6.0": {
       "MyFastReport/1.0.0": {
         "dependencies": {
+<<<<<<< HEAD
           "Ars.Common.Tool": "1.5.3",
+=======
+          "Ars.Common.Tool": "1.6.0",
+>>>>>>> v1.6.0
           "FastReport.OpenSource": "2023.2.5",
           "FastReport.OpenSource.Web": "2023.2.5",
           "FastReport.Compat.Reference": "2023.1.8.0"
@@ -78,6 +82,14 @@
           "lib/netstandard2.0/FastReport.OpenSource.Web.dll": {
             "assemblyVersion": "2023.2.5.0",
             "fileVersion": "2023.2.5.0"
+          }
+        }
+      },
+      "Grpc.Net.Client.Web/2.42.0": {
+        "runtime": {
+          "lib/net6.0/Grpc.Net.Client.Web.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.42.0.0"
           }
         }
       },
@@ -1076,9 +1088,14 @@
           }
         }
       },
+<<<<<<< HEAD
       "Ars.Common.Tool/1.5.3": {
+=======
+      "Ars.Common.Tool/1.6.0": {
+>>>>>>> v1.6.0
         "dependencies": {
           "Aspose.Cells": "23.3.0",
+          "Grpc.Net.Client.Web": "2.42.0",
           "MessagePack": "2.3.85",
           "Microsoft.Extensions.Configuration.Abstractions": "6.0.0",
           "Microsoft.Extensions.DependencyInjection": "6.0.0",
@@ -1144,6 +1161,13 @@
       "sha512": "sha512-9oxssL2aT1EsTeayjHJTEM+zFLpCxpklHiZSqUfVpHu0RSWD2OtHJ8KwQLd5sZ5VWlQqMZ/DNCOgiM7WBPlthg==",
       "path": "fastreport.opensource.web/2023.2.5",
       "hashPath": "fastreport.opensource.web.2023.2.5.nupkg.sha512"
+    },
+    "Grpc.Net.Client.Web/2.42.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-rSvYpUPfAr+YEMBYSyjHmvDeyuQ/rzPRH77Uc3DsvXt272cMD+fzyOCQGUvs90eIkb8TGNomBOPxnup4U+p5tA==",
+      "path": "grpc.net.client.web/2.42.0",
+      "hashPath": "grpc.net.client.web.2.42.0.nupkg.sha512"
     },
     "MathNet.Numerics.Signed/4.15.0": {
       "type": "package",
@@ -1880,7 +1904,11 @@
       "path": "system.windows.extensions/6.0.0",
       "hashPath": "system.windows.extensions.6.0.0.nupkg.sha512"
     },
+<<<<<<< HEAD
     "Ars.Common.Tool/1.5.3": {
+=======
+    "Ars.Common.Tool/1.6.0": {
+>>>>>>> v1.6.0
       "type": "project",
       "serviceable": false,
       "sha512": ""

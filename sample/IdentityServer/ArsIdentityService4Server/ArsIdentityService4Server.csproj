@@ -4,6 +4,9 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>d8831a64-50b1-4631-ba2c-53d2526fe943</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>..\..\..</DockerfileContext>
   </PropertyGroup>
 
   <ItemGroup>
@@ -49,13 +52,22 @@
     <None Include="wwwroot\lib\jquery\dist\jquery.min.map" />
   </ItemGroup>
 
+	<ItemGroup>
+		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.2" />
+		<PackageReference Include="SkyAPM.Agent.AspNetCore" Version="2.1.0" />
+	</ItemGroup>
+	
   <ItemGroup>
     <ProjectReference Include="..\..\..\src\Ars.Commom.Host\Ars.Common.Host.csproj" />
     <ProjectReference Include="..\..\..\src\Ars.Common.IdentityServer4\Ars.Common.IdentityServer4.csproj" />
+    <ProjectReference Include="..\..\..\src\Ars.Common.SkyWalking\Ars.Common.SkyWalking.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <None Update="Certificates\ars.pfx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Dockerfile">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

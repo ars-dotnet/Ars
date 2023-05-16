@@ -1,0 +1,707 @@
+2023-04-13 19:26:26.954 +08:00 [grpclient] [Information] SkyApm.InstrumentStartup : Initializing ...
+2023-04-13 19:26:27.063 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-13 19:26:27.064 +08:00 [grpclient] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-13 19:26:27.064 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-13 19:26:27.065 +08:00 [grpclient] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-13 19:26:27.066 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-13 19:26:27.067 +08:00 [grpclient] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-13 19:26:27.067 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-13 19:26:27.067 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-13 19:26:27.067 +08:00 [grpclient] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-13 19:26:27.067 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-13 19:26:27.067 +08:00 [grpclient] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-13 19:26:27.067 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-13 19:26:27.067 +08:00 [grpclient] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-13 19:26:27.067 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-13 19:26:27.474 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2023-04-13 19:26:27.476 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.AspNetCore].
+2023-04-13 19:26:27.476 +08:00 [grpclient] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2023-04-13 19:26:27.476 +08:00 [grpclient] [Information] SkyApm.InstrumentStartup : Initializing ...
+2023-04-13 19:26:27.476 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-13 19:26:27.476 +08:00 [grpclient] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-13 19:26:27.476 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-13 19:26:27.476 +08:00 [grpclient] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-13 19:26:27.476 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-13 19:26:27.476 +08:00 [grpclient] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-13 19:26:27.476 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-13 19:26:27.476 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-13 19:26:27.476 +08:00 [grpclient] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-13 19:26:27.476 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-13 19:26:27.476 +08:00 [grpclient] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-13 19:26:27.476 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-13 19:26:27.476 +08:00 [grpclient] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-13 19:26:27.477 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-13 19:26:27.477 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[127.0.0.1:11800].
+2023-04-13 19:26:27.477 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2023-04-13 19:26:27.478 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.AspNetCore].
+2023-04-13 19:26:27.478 +08:00 [grpclient] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2023-04-13 19:26:27.901 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2023-04-13 19:26:27.901 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2023-04-13 19:26:29.818 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=grpclient,InstanceId=192.168.110.28@5eb7549e35644d84805b6294e03fb34d].
+2023-04-13 19:26:29.818 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=grpclient,InstanceId=192.168.110.28@5eb7549e35644d84805b6294e03fb34d].
+2023-04-13 19:26:29.818 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=grpclient,InstanceId=192.168.110.28@5eb7549e35644d84805b6294e03fb34d].
+2023-04-13 19:26:29.818 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=grpclient,InstanceId=192.168.110.28@5eb7549e35644d84805b6294e03fb34d].
+2023-04-13 19:26:34.066 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 1 trace segment. cost: 00:00:00.5608545s
+2023-04-13 19:26:36.521 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 1 trace segment. cost: 00:00:00.0203516s
+2023-04-13 19:26:57.530 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/13 11:26:57 +00:00
+2023-04-13 19:26:57.530 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/13 11:26:57 +00:00
+2023-04-13 19:26:57.554 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 6M ThreadPool 32763 32767 1000 1000
+2023-04-13 19:26:57.554 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 11 11 2 6M ThreadPool 32763 32767 1000 1000
+2023-04-13 19:27:27.535 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 7M ThreadPool 32754 32767 1000 1000
+2023-04-13 19:27:27.535 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 7M ThreadPool 32764 32767 1000 1000
+2023-04-13 19:27:57.496 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 5M ThreadPool 32759 32767 1000 1000
+2023-04-13 19:27:57.496 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 2 2 0 5M ThreadPool 32759 32767 1000 1000
+2023-04-13 19:27:57.496 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/13 11:27:57 +00:00
+2023-04-13 19:27:57.496 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/13 11:27:57 +00:00
+2023-04-13 19:28:22.838 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 2 trace segment. cost: 00:00:09.3835934s
+2023-04-13 19:28:26.641 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 1 logs. cost: 00:00:07.4926093s
+2023-04-13 19:28:28.944 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 1.5625 GenCollectCount 0 0 0 8M ThreadPool 32759 32767 997 1000
+2023-04-13 19:28:28.944 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 1.5625 GenCollectCount 0 0 0 8M ThreadPool 32759 32767 998 1000
+2023-04-13 19:28:32.915 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 2 trace segment. cost: 00:00:00.0768181s
+2023-04-13 19:28:32.919 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 4 logs. cost: 00:00:00.0809181s
+2023-04-13 19:29:00.131 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 10M ThreadPool 32759 32767 999 1000
+2023-04-13 19:29:00.133 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/13 11:29:00 +00:00
+2023-04-13 19:29:00.146 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/13 11:29:00 +00:00
+2023-04-13 19:29:00.146 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 2 trace segment. cost: 00:00:01.7508218s
+2023-04-13 19:29:03.230 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 10M ThreadPool 32759 32767 999 1000
+2023-04-13 19:29:03.787 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 1 trace segment. cost: 00:00:01.5405974s
+2023-04-13 19:29:07.410 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 1 trace segment. cost: 00:00:00.0090502s
+2023-04-13 19:29:07.413 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 4 logs. cost: 00:00:00.0116248s
+2023-04-13 19:29:27.491 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 11M ThreadPool 32764 32767 1000 1000
+2023-04-13 19:29:27.491 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 11M ThreadPool 32759 32767 1000 1000
+2023-04-13 19:29:57.495 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/13 11:29:57 +00:00
+2023-04-13 19:29:57.495 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/13 11:29:57 +00:00
+2023-04-13 19:29:57.495 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 12M ThreadPool 32756 32767 1000 1000
+2023-04-13 19:29:57.495 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 12M ThreadPool 32756 32767 1000 1000
+2023-04-13 19:30:04.419 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 6 trace segment. cost: 00:00:00.0171828s
+2023-04-13 19:30:27.485 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 14M ThreadPool 32759 32767 1000 1000
+2023-04-13 19:30:27.490 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 14M ThreadPool 32756 32767 1000 1000
+2023-04-13 19:30:30.908 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 1 trace segment. cost: 00:00:00.0508181s
+2023-04-13 19:30:32.931 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 1 trace segment. cost: 00:00:00.1017470s
+2023-04-13 19:31:54.314 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/13 11:31:54 +00:00
+2023-04-13 19:31:54.317 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 1 trace segment. cost: 00:01:04.7402104s
+2023-04-13 19:31:54.339 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 1.5625 GenCollectCount 0 0 0 15M ThreadPool 32759 32767 1000 1000
+2023-04-13 19:31:54.339 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 1.5625 GenCollectCount 0 0 0 15M ThreadPool 32759 32767 1000 1000
+2023-04-13 19:31:54.360 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/13 11:31:54 +00:00
+2023-04-13 19:31:54.360 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 15M ThreadPool 32759 32767 1000 1000
+2023-04-13 19:31:54.360 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 15M ThreadPool 32759 32767 1000 1000
+2023-04-13 19:31:57.493 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/13 11:31:57 +00:00
+2023-04-13 19:31:57.493 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/13 11:31:57 +00:00
+2023-04-13 19:32:24.279 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 17M ThreadPool 32752 32767 1000 1000
+2023-04-13 19:32:24.281 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 17M ThreadPool 32752 32767 1000 1000
+2023-04-13 19:32:55.606 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 1.5625 GenCollectCount 0 0 0 15M ThreadPool 32750 32767 999 1000
+2023-04-13 19:32:55.606 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 1.5625 GenCollectCount 3 1 0 15M ThreadPool 32750 32767 999 1000
+2023-04-13 19:32:55.607 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 1 trace segment. cost: 00:00:01.4299320s
+2023-04-13 19:32:57.275 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 1 trace segment. cost: 00:00:00.0052438s
+2023-04-13 19:32:57.510 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/13 11:32:57 +00:00
+2023-04-13 19:32:57.510 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/13 11:32:57 +00:00
+2023-04-13 19:33:29.102 +08:00 [grpclient] [Information] SkyApm.InstrumentStartup : Initializing ...
+2023-04-13 19:33:30.360 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-13 19:33:30.360 +08:00 [grpclient] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-13 19:33:30.360 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-13 19:33:30.361 +08:00 [grpclient] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-13 19:33:30.361 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-13 19:33:30.361 +08:00 [grpclient] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-13 19:33:30.364 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-13 19:33:30.364 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-13 19:33:30.364 +08:00 [grpclient] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-13 19:33:30.364 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-13 19:33:30.364 +08:00 [grpclient] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-13 19:33:30.364 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-13 19:33:30.364 +08:00 [grpclient] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-13 19:33:30.364 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-13 19:33:30.497 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[127.0.0.1:11800].
+2023-04-13 19:33:30.533 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2023-04-13 19:33:30.535 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.AspNetCore].
+2023-04-13 19:33:30.535 +08:00 [grpclient] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2023-04-13 19:33:30.535 +08:00 [grpclient] [Information] SkyApm.InstrumentStartup : Initializing ...
+2023-04-13 19:33:30.535 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-13 19:33:30.535 +08:00 [grpclient] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-13 19:33:30.536 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-13 19:33:30.536 +08:00 [grpclient] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-13 19:33:30.536 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-13 19:33:30.536 +08:00 [grpclient] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-13 19:33:30.536 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-13 19:33:30.536 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-13 19:33:30.536 +08:00 [grpclient] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-13 19:33:30.536 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-13 19:33:30.536 +08:00 [grpclient] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-13 19:33:30.536 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-13 19:33:30.536 +08:00 [grpclient] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-13 19:33:30.536 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-13 19:33:30.537 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2023-04-13 19:33:30.537 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.AspNetCore].
+2023-04-13 19:33:30.538 +08:00 [grpclient] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2023-04-13 19:33:31.044 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2023-04-13 19:33:31.044 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2023-04-13 19:33:31.498 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=grpclient,InstanceId=192.168.110.28@a4af4d4210fc42f7bdce32f75c7c431e].
+2023-04-13 19:33:31.498 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=grpclient,InstanceId=192.168.110.28@a4af4d4210fc42f7bdce32f75c7c431e].
+2023-04-13 19:33:31.498 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=grpclient,InstanceId=192.168.110.28@a4af4d4210fc42f7bdce32f75c7c431e].
+2023-04-13 19:33:31.498 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=grpclient,InstanceId=192.168.110.28@a4af4d4210fc42f7bdce32f75c7c431e].
+2023-04-13 19:33:33.488 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 2 trace segment. cost: 00:00:00.0994421s
+2023-04-13 19:34:07.196 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 1 logs. cost: 00:00:01.1237348s
+2023-04-13 19:34:07.196 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 1 trace segment. cost: 00:00:01.1387149s
+2023-04-13 19:34:07.288 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/13 11:34:07 +00:00
+2023-04-13 19:34:07.288 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/13 11:34:07 +00:00
+2023-04-13 19:34:07.288 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/13 11:34:07 +00:00
+2023-04-13 19:34:07.299 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/13 11:34:07 +00:00
+2023-04-13 19:34:07.317 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 1 1 0 10M ThreadPool 32758 32767 999 1000
+2023-04-13 19:34:07.317 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 10M ThreadPool 32758 32767 999 1000
+2023-04-13 19:34:07.317 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 10M ThreadPool 32758 32767 999 1000
+2023-04-13 19:34:07.317 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 10M ThreadPool 32758 32767 999 1000
+2023-04-13 19:34:09.077 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 1 trace segment. cost: 00:00:00.0082373s
+2023-04-13 19:35:17.200 +08:00 [grpclient] [Information] SkyApm.InstrumentStartup : Initializing ...
+2023-04-13 19:35:17.290 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-13 19:35:17.292 +08:00 [grpclient] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-13 19:35:17.292 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-13 19:35:17.292 +08:00 [grpclient] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-13 19:35:17.293 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-13 19:35:17.293 +08:00 [grpclient] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-13 19:35:17.293 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-13 19:35:17.293 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-13 19:35:17.293 +08:00 [grpclient] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-13 19:35:17.293 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-13 19:35:17.293 +08:00 [grpclient] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-13 19:35:17.293 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-13 19:35:17.293 +08:00 [grpclient] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-13 19:35:17.293 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-13 19:35:17.420 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[127.0.0.1:11800].
+2023-04-13 19:35:17.433 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2023-04-13 19:35:17.434 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.AspNetCore].
+2023-04-13 19:35:17.434 +08:00 [grpclient] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2023-04-13 19:35:17.434 +08:00 [grpclient] [Information] SkyApm.InstrumentStartup : Initializing ...
+2023-04-13 19:35:17.434 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-13 19:35:17.434 +08:00 [grpclient] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-13 19:35:17.434 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-13 19:35:17.434 +08:00 [grpclient] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-13 19:35:17.434 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-13 19:35:17.435 +08:00 [grpclient] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-13 19:35:17.435 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-13 19:35:17.435 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-13 19:35:17.435 +08:00 [grpclient] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-13 19:35:17.435 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-13 19:35:17.435 +08:00 [grpclient] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-13 19:35:17.436 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-13 19:35:17.436 +08:00 [grpclient] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-13 19:35:17.436 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-13 19:35:17.437 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2023-04-13 19:35:17.438 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.AspNetCore].
+2023-04-13 19:35:17.438 +08:00 [grpclient] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2023-04-13 19:35:17.601 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2023-04-13 19:35:17.602 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2023-04-13 19:35:18.070 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=grpclient,InstanceId=192.168.110.28@b210932c854c4b26a93dd8811db47c62].
+2023-04-13 19:35:18.070 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=grpclient,InstanceId=192.168.110.28@b210932c854c4b26a93dd8811db47c62].
+2023-04-13 19:35:18.070 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=grpclient,InstanceId=192.168.110.28@b210932c854c4b26a93dd8811db47c62].
+2023-04-13 19:35:18.070 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=grpclient,InstanceId=192.168.110.28@b210932c854c4b26a93dd8811db47c62].
+2023-04-13 19:35:20.497 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 1 trace segment. cost: 00:00:00.1634125s
+2023-04-13 19:35:23.317 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 1 trace segment. cost: 00:00:00.0097413s
+2023-04-13 19:35:47.343 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/13 11:35:47 +00:00
+2023-04-13 19:35:47.343 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/13 11:35:47 +00:00
+2023-04-13 19:35:47.346 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 19M ThreadPool 32763 32767 1000 1000
+2023-04-13 19:35:47.346 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 19M ThreadPool 32763 32767 1000 1000
+2023-04-13 19:35:47.440 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 20M ThreadPool 32759 32767 1000 1000
+2023-04-13 19:35:47.440 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/13 11:35:47 +00:00
+2023-04-13 19:35:47.461 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 20M ThreadPool 32757 32767 1000 1000
+2023-04-13 19:35:47.461 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/13 11:35:47 +00:00
+2023-04-13 19:35:51.264 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 2 trace segment. cost: 00:00:00.0600579s
+2023-04-13 19:35:51.278 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 1 logs. cost: 00:00:00.0228715s
+2023-04-13 19:35:57.030 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 1 trace segment. cost: 00:00:01.2336902s
+2023-04-13 19:36:04.786 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 4 logs. cost: 00:00:08.9887457s
+2023-04-13 19:36:24.057 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 23M ThreadPool 32749 32767 999 1000
+2023-04-13 19:36:24.057 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 23M ThreadPool 32755 32767 999 1000
+2023-04-13 19:36:24.057 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 23M ThreadPool 32749 32767 999 1000
+2023-04-13 19:36:24.057 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 23M ThreadPool 32749 32767 999 1000
+2023-04-13 19:36:27.066 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 4 logs. cost: 00:00:00.0085623s
+2023-04-13 19:36:27.071 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 3 trace segment. cost: 00:00:00.0144435s
+2023-04-13 19:36:47.315 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 26M ThreadPool 32753 32767 1000 1000
+2023-04-13 19:36:47.315 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/13 11:36:47 +00:00
+2023-04-13 19:36:47.315 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/13 11:36:47 +00:00
+2023-04-13 19:36:47.315 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 26M ThreadPool 32753 32767 1000 1000
+2023-04-13 19:36:47.453 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 26M ThreadPool 32754 32767 1000 1000
+2023-04-13 19:36:47.453 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 26M ThreadPool 32756 32767 1000 1000
+2023-04-13 19:36:47.454 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/13 11:36:47 +00:00
+2023-04-13 19:36:47.454 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/13 11:36:47 +00:00
+2023-04-13 19:37:34.913 +08:00 [grpclient] [Information] SkyApm.InstrumentStartup : Initializing ...
+2023-04-13 19:37:35.009 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-13 19:37:35.010 +08:00 [grpclient] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-13 19:37:35.010 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-13 19:37:35.011 +08:00 [grpclient] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-13 19:37:35.011 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-13 19:37:35.011 +08:00 [grpclient] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-13 19:37:35.011 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-13 19:37:35.011 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-13 19:37:35.011 +08:00 [grpclient] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-13 19:37:35.011 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-13 19:37:35.012 +08:00 [grpclient] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-13 19:37:35.012 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-13 19:37:35.012 +08:00 [grpclient] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-13 19:37:35.012 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-13 19:37:35.175 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[127.0.0.1:11800].
+2023-04-13 19:37:35.196 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2023-04-13 19:37:35.198 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.AspNetCore].
+2023-04-13 19:37:35.198 +08:00 [grpclient] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2023-04-13 19:37:35.198 +08:00 [grpclient] [Information] SkyApm.InstrumentStartup : Initializing ...
+2023-04-13 19:37:35.198 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-13 19:37:35.198 +08:00 [grpclient] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-13 19:37:35.198 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-13 19:37:35.198 +08:00 [grpclient] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-13 19:37:35.198 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-13 19:37:35.198 +08:00 [grpclient] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-13 19:37:35.198 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-13 19:37:35.198 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-13 19:37:35.198 +08:00 [grpclient] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-13 19:37:35.198 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-13 19:37:35.198 +08:00 [grpclient] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-13 19:37:35.198 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-13 19:37:35.198 +08:00 [grpclient] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-13 19:37:35.198 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-13 19:37:35.199 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2023-04-13 19:37:35.200 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.AspNetCore].
+2023-04-13 19:37:35.200 +08:00 [grpclient] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2023-04-13 19:37:35.581 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2023-04-13 19:37:35.581 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2023-04-13 19:37:36.038 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=grpclient,InstanceId=192.168.110.28@08e3b571bb3c4ff19fe3ca3341c7c959].
+2023-04-13 19:37:36.038 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=grpclient,InstanceId=192.168.110.28@08e3b571bb3c4ff19fe3ca3341c7c959].
+2023-04-13 19:37:36.038 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=grpclient,InstanceId=192.168.110.28@08e3b571bb3c4ff19fe3ca3341c7c959].
+2023-04-13 19:37:36.038 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=grpclient,InstanceId=192.168.110.28@08e3b571bb3c4ff19fe3ca3341c7c959].
+2023-04-13 19:37:38.139 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 2 trace segment. cost: 00:00:00.0915565s
+2023-04-13 19:38:05.770 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/13 11:38:05 +00:00
+2023-04-13 19:38:05.770 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/13 11:38:05 +00:00
+2023-04-13 19:38:05.793 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 2 trace segment. cost: 00:00:00.1156416s
+2023-04-13 19:38:05.804 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 1 logs. cost: 00:00:00.1188961s
+2023-04-13 19:38:05.804 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/13 11:38:05 +00:00
+2023-04-13 19:38:05.804 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/13 11:38:05 +00:00
+2023-04-13 19:38:05.807 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 21M ThreadPool 32759 32767 999 1000
+2023-04-13 19:38:05.807 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 21M ThreadPool 32759 32767 999 1000
+2023-04-13 19:38:05.807 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 21M ThreadPool 32759 32767 999 1000
+2023-04-13 19:38:05.807 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 21M ThreadPool 32759 32767 999 1000
+2023-04-13 19:38:13.446 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 1 trace segment. cost: 00:00:00.9448709s
+2023-04-13 19:38:14.130 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 4 logs. cost: 00:00:02.8964328s
+2023-04-13 19:38:18.532 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 4 logs. cost: 00:00:00.0116376s
+2023-04-13 19:38:18.535 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 3 trace segment. cost: 00:00:00.0147956s
+2023-04-13 19:38:20.235 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 2 logs. cost: 00:00:00.0260617s
+2023-04-13 19:38:20.235 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 1 trace segment. cost: 00:00:00.0262867s
+2023-04-13 19:38:20.235 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 1 trace segment. cost: 00:00:00.0260620s
+2023-04-13 19:38:21.534 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 6 logs. cost: 00:00:00.0119707s
+2023-04-13 19:38:21.536 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 8 trace segment. cost: 00:00:00.0141581s
+2023-04-13 19:38:27.704 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 2 trace segment. cost: 00:00:00.0200683s
+2023-04-13 19:38:29.212 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 4 trace segment. cost: 00:00:00.0092206s
+2023-04-13 19:38:29.218 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 8 logs. cost: 00:00:00.0145965s
+2023-04-13 19:38:32.220 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 4 logs. cost: 00:00:00.0083242s
+2023-04-13 19:38:32.222 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 5 trace segment. cost: 00:00:00.0096616s
+2023-04-13 19:38:35.019 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 26M ThreadPool 32759 32767 1000 1000
+2023-04-13 19:38:35.019 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 26M ThreadPool 32759 32767 1000 1000
+2023-04-13 19:38:35.206 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 26M ThreadPool 32762 32767 1000 1000
+2023-04-13 19:38:35.206 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 26M ThreadPool 32759 32767 1000 1000
+2023-04-13 19:38:35.211 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 4 logs. cost: 00:00:00.0123974s
+2023-04-13 19:38:35.214 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 5 trace segment. cost: 00:00:00.0155005s
+2023-04-13 19:40:18.811 +08:00 [grpclient] [Information] SkyApm.InstrumentStartup : Initializing ...
+2023-04-13 19:40:19.109 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-13 19:40:19.109 +08:00 [grpclient] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-13 19:40:19.110 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-13 19:40:19.110 +08:00 [grpclient] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-13 19:40:19.110 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-13 19:40:19.110 +08:00 [grpclient] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-13 19:40:19.110 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-13 19:40:19.110 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-13 19:40:19.110 +08:00 [grpclient] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-13 19:40:19.110 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-13 19:40:19.110 +08:00 [grpclient] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-13 19:40:19.111 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-13 19:40:19.111 +08:00 [grpclient] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-13 19:40:19.111 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-13 19:40:19.497 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[127.0.0.1:11800].
+2023-04-13 19:40:19.564 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2023-04-13 19:40:19.566 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.AspNetCore].
+2023-04-13 19:40:19.566 +08:00 [grpclient] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2023-04-13 19:40:19.566 +08:00 [grpclient] [Information] SkyApm.InstrumentStartup : Initializing ...
+2023-04-13 19:40:19.566 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-13 19:40:19.566 +08:00 [grpclient] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-13 19:40:19.566 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-13 19:40:19.566 +08:00 [grpclient] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-13 19:40:19.567 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-13 19:40:19.567 +08:00 [grpclient] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-13 19:40:19.567 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-13 19:40:19.567 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-13 19:40:19.567 +08:00 [grpclient] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-13 19:40:19.567 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-13 19:40:19.567 +08:00 [grpclient] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-13 19:40:19.567 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-13 19:40:19.567 +08:00 [grpclient] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-13 19:40:19.568 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-13 19:40:19.570 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2023-04-13 19:40:19.570 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.AspNetCore].
+2023-04-13 19:40:19.570 +08:00 [grpclient] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2023-04-13 19:40:20.414 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2023-04-13 19:40:20.420 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2023-04-13 19:40:20.960 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=grpclient,InstanceId=192.168.110.28@3dd62101f1254704967d77cfb0e70cb1].
+2023-04-13 19:40:20.960 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=grpclient,InstanceId=192.168.110.28@3dd62101f1254704967d77cfb0e70cb1].
+2023-04-13 19:40:20.960 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=grpclient,InstanceId=192.168.110.28@3dd62101f1254704967d77cfb0e70cb1].
+2023-04-13 19:40:20.960 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=grpclient,InstanceId=192.168.110.28@3dd62101f1254704967d77cfb0e70cb1].
+2023-04-13 19:40:25.658 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 1 trace segment. cost: 00:00:00.0671613s
+2023-04-13 19:40:25.658 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 1 trace segment. cost: 00:00:00.0670525s
+2023-04-13 19:40:49.610 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 7M ThreadPool 32763 32767 1000 1000
+2023-04-13 19:40:49.610 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 1 1 0 7M ThreadPool 32763 32767 1000 1000
+2023-04-13 19:40:49.611 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/13 11:40:49 +00:00
+2023-04-13 19:40:49.611 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/13 11:40:49 +00:00
+2023-04-13 19:41:59.982 +08:00 [grpclient] [Information] SkyApm.InstrumentStartup : Initializing ...
+2023-04-13 19:42:00.309 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-13 19:42:00.309 +08:00 [grpclient] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-13 19:42:00.310 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-13 19:42:00.310 +08:00 [grpclient] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-13 19:42:00.310 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-13 19:42:00.311 +08:00 [grpclient] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-13 19:42:00.311 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-13 19:42:00.311 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-13 19:42:00.311 +08:00 [grpclient] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-13 19:42:00.311 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-13 19:42:00.311 +08:00 [grpclient] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-13 19:42:00.311 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-13 19:42:00.311 +08:00 [grpclient] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-13 19:42:00.311 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-13 19:42:00.972 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2023-04-13 19:42:00.974 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.AspNetCore].
+2023-04-13 19:42:00.974 +08:00 [grpclient] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2023-04-13 19:42:00.975 +08:00 [grpclient] [Information] SkyApm.InstrumentStartup : Initializing ...
+2023-04-13 19:42:00.975 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-13 19:42:00.975 +08:00 [grpclient] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-13 19:42:00.975 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-13 19:42:00.975 +08:00 [grpclient] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-13 19:42:00.975 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-13 19:42:00.975 +08:00 [grpclient] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-13 19:42:00.975 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-13 19:42:00.975 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-13 19:42:00.975 +08:00 [grpclient] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-13 19:42:00.975 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-13 19:42:00.975 +08:00 [grpclient] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-13 19:42:00.975 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-13 19:42:00.975 +08:00 [grpclient] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-13 19:42:00.975 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-13 19:42:00.976 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2023-04-13 19:42:00.976 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.AspNetCore].
+2023-04-13 19:42:00.976 +08:00 [grpclient] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2023-04-13 19:42:01.007 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[127.0.0.1:11800].
+2023-04-13 19:42:01.846 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2023-04-13 19:42:01.846 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2023-04-13 19:42:02.445 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=grpclient,InstanceId=192.168.110.28@3050dc0ae87948bca6dd325caa487605].
+2023-04-13 19:42:02.445 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=grpclient,InstanceId=192.168.110.28@3050dc0ae87948bca6dd325caa487605].
+2023-04-13 19:42:02.445 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=grpclient,InstanceId=192.168.110.28@3050dc0ae87948bca6dd325caa487605].
+2023-04-13 19:42:02.445 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=grpclient,InstanceId=192.168.110.28@3050dc0ae87948bca6dd325caa487605].
+2023-04-13 19:42:03.425 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 1 trace segment. cost: 00:00:00.0856682s
+2023-04-13 19:42:04.001 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 1 trace segment. cost: 00:00:00.0189579s
+2023-04-13 19:42:30.367 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/13 11:42:30 +00:00
+2023-04-13 19:42:30.367 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/13 11:42:30 +00:00
+2023-04-13 19:42:30.374 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 20M ThreadPool 32763 32767 1000 1000
+2023-04-13 19:42:30.374 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 20M ThreadPool 32763 32767 1000 1000
+2023-04-13 19:42:30.999 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/13 11:42:30 +00:00
+2023-04-13 19:42:30.999 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 20M ThreadPool 32759 32767 1000 1000
+2023-04-13 19:42:30.999 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/13 11:42:30 +00:00
+2023-04-13 19:42:31.000 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 20M ThreadPool 32759 32767 1000 1000
+2023-04-13 19:43:00.332 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 22M ThreadPool 32759 32767 1000 1000
+2023-04-13 19:43:00.332 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 22M ThreadPool 32759 32767 1000 1000
+2023-04-13 19:43:00.985 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 1.5625 GenCollectCount 0 0 0 22M ThreadPool 32759 32767 1000 1000
+2023-04-13 19:43:00.985 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 1.5625 GenCollectCount 0 0 0 22M ThreadPool 32759 32767 1000 1000
+2023-04-13 19:43:30.317 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 24M ThreadPool 32758 32767 1000 1000
+2023-04-13 19:43:30.318 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/13 11:43:30 +00:00
+2023-04-13 19:43:30.317 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 24M ThreadPool 32758 32767 1000 1000
+2023-04-13 19:43:30.318 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/13 11:43:30 +00:00
+2023-04-13 19:43:30.990 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 24M ThreadPool 32759 32767 1000 1000
+2023-04-13 19:43:30.990 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/13 11:43:30 +00:00
+2023-04-13 19:43:30.990 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 24M ThreadPool 32759 32767 1000 1000
+2023-04-13 19:43:30.990 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/13 11:43:30 +00:00
+2023-04-13 19:43:48.702 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 2 trace segment. cost: 00:00:05.0171748s
+2023-04-13 19:43:50.806 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 1 logs. cost: 00:00:02.1035071s
+2023-04-13 19:43:51.320 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 2 logs. cost: 00:00:00.0057753s
+2023-04-13 19:43:52.036 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 4 logs. cost: 00:00:00.0482740s
+2023-04-13 19:43:52.037 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 3 trace segment. cost: 00:00:00.0263630s
+2023-04-13 19:44:00.983 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 1 0 0 6M ThreadPool 32759 32767 1000 1000
+2023-04-13 19:44:00.983 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 1 0 0 6M ThreadPool 32763 32767 1000 1000
+2023-04-13 19:44:31.025 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 8M ThreadPool 32751 32767 1000 1000
+2023-04-13 19:44:31.025 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/13 11:44:31 +00:00
+2023-04-13 19:44:31.025 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/13 11:44:31 +00:00
+2023-04-13 19:44:31.035 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 8M ThreadPool 32758 32767 1000 1000
+2023-04-13 19:44:51.018 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 1 trace segment. cost: 00:00:01.4435625s
+2023-04-13 19:44:51.018 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 1 trace segment. cost: 00:00:01.4435663s
+2023-04-13 19:45:01.480 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 1.5625 GenCollectCount 0 0 0 9M ThreadPool 32759 32767 999 1000
+2023-04-13 19:45:02.371 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 1.5625 GenCollectCount 0 0 0 9M ThreadPool 32763 32767 999 1000
+2023-04-13 19:45:25.309 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 2 logs. cost: 00:00:00.0059875s
+2023-04-13 19:45:25.311 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 2 trace segment. cost: 00:00:00.0082634s
+2023-04-13 19:45:31.008 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 10M ThreadPool 32759 32767 1000 1000
+2023-04-13 19:45:31.009 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/13 11:45:31 +00:00
+2023-04-13 19:45:31.009 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 10M ThreadPool 32758 32767 1000 1000
+2023-04-13 19:45:31.010 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/13 11:45:31 +00:00
+2023-04-13 19:46:00.997 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 11M ThreadPool 32760 32767 1000 1000
+2023-04-13 19:46:00.997 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 11M ThreadPool 32759 32767 1000 1000
+2023-04-13 19:46:15.627 +08:00 [grpclient] [Information] SkyApm.InstrumentStartup : Initializing ...
+2023-04-13 19:46:15.853 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-13 19:46:15.855 +08:00 [grpclient] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-13 19:46:15.856 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-13 19:46:15.856 +08:00 [grpclient] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-13 19:46:15.856 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-13 19:46:15.856 +08:00 [grpclient] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-13 19:46:15.857 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-13 19:46:15.857 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-13 19:46:15.857 +08:00 [grpclient] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-13 19:46:15.857 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-13 19:46:15.857 +08:00 [grpclient] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-13 19:46:15.857 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-13 19:46:15.857 +08:00 [grpclient] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-13 19:46:15.857 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-13 19:46:16.237 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[127.0.0.1:11800].
+2023-04-13 19:46:16.248 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2023-04-13 19:46:16.253 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.AspNetCore].
+2023-04-13 19:46:16.254 +08:00 [grpclient] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2023-04-13 19:46:16.254 +08:00 [grpclient] [Information] SkyApm.InstrumentStartup : Initializing ...
+2023-04-13 19:46:16.254 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-13 19:46:16.254 +08:00 [grpclient] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-13 19:46:16.254 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-13 19:46:16.254 +08:00 [grpclient] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-13 19:46:16.254 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-13 19:46:16.254 +08:00 [grpclient] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-13 19:46:16.254 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-13 19:46:16.254 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-13 19:46:16.254 +08:00 [grpclient] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-13 19:46:16.254 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-13 19:46:16.254 +08:00 [grpclient] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-13 19:46:16.254 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-13 19:46:16.254 +08:00 [grpclient] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-13 19:46:16.254 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-13 19:46:16.255 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2023-04-13 19:46:16.255 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.AspNetCore].
+2023-04-13 19:46:16.255 +08:00 [grpclient] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2023-04-13 19:46:16.764 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2023-04-13 19:46:16.764 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2023-04-13 19:46:17.460 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=grpclient,InstanceId=192.168.110.28@2aec276d6cd94d0281c593672812c72d].
+2023-04-13 19:46:17.460 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=grpclient,InstanceId=192.168.110.28@2aec276d6cd94d0281c593672812c72d].
+2023-04-13 19:46:17.460 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=grpclient,InstanceId=192.168.110.28@2aec276d6cd94d0281c593672812c72d].
+2023-04-13 19:46:17.460 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=grpclient,InstanceId=192.168.110.28@2aec276d6cd94d0281c593672812c72d].
+2023-04-13 19:46:19.012 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 2 trace segment. cost: 00:00:00.1366801s
+2023-04-13 19:46:45.916 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 20M ThreadPool 32763 32767 1000 1000
+2023-04-13 19:46:45.916 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 20M ThreadPool 32763 32767 1000 1000
+2023-04-13 19:46:45.918 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/13 11:46:45 +00:00
+2023-04-13 19:46:45.918 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/13 11:46:45 +00:00
+2023-04-13 19:46:46.274 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/13 11:46:46 +00:00
+2023-04-13 19:46:46.274 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 20M ThreadPool 32762 32767 1000 1000
+2023-04-13 19:46:46.274 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 20M ThreadPool 32763 32767 1000 1000
+2023-04-13 19:46:46.274 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/13 11:46:46 +00:00
+2023-04-13 19:47:11.876 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 2 trace segment. cost: 00:00:05.0103876s
+2023-04-13 19:47:12.784 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 1 logs. cost: 00:00:00.0157859s
+2023-04-13 19:47:12.873 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 2 logs. cost: 00:00:00.0061827s
+2023-04-13 19:47:14.299 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 4 logs. cost: 00:00:00.0084704s
+2023-04-13 19:47:14.303 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 3 trace segment. cost: 00:00:00.0130622s
+2023-04-13 19:47:15.872 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 24M ThreadPool 32753 32767 1000 1000
+2023-04-13 19:47:15.872 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 24M ThreadPool 32753 32767 1000 1000
+2023-04-13 19:47:16.265 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 24M ThreadPool 32755 32767 1000 1000
+2023-04-13 19:47:16.265 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 24M ThreadPool 32759 32767 1000 1000
+2023-04-13 19:47:18.970 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 1 trace segment. cost: 00:00:00.0985699s
+2023-04-13 19:47:20.293 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 1 trace segment. cost: 00:00:00.0052196s
+2023-04-13 19:48:55.618 +08:00 [grpclient] [Information] SkyApm.InstrumentStartup : Initializing ...
+2023-04-13 19:48:55.751 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-13 19:48:55.752 +08:00 [grpclient] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-13 19:48:55.752 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-13 19:48:55.752 +08:00 [grpclient] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-13 19:48:55.753 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-13 19:48:55.753 +08:00 [grpclient] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-13 19:48:55.753 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-13 19:48:55.753 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-13 19:48:55.753 +08:00 [grpclient] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-13 19:48:55.753 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-13 19:48:55.753 +08:00 [grpclient] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-13 19:48:55.753 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-13 19:48:55.753 +08:00 [grpclient] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-13 19:48:55.753 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-13 19:48:55.924 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[127.0.0.1:11800].
+2023-04-13 19:48:55.938 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2023-04-13 19:48:55.939 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.AspNetCore].
+2023-04-13 19:48:55.940 +08:00 [grpclient] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2023-04-13 19:48:55.940 +08:00 [grpclient] [Information] SkyApm.InstrumentStartup : Initializing ...
+2023-04-13 19:48:55.940 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-13 19:48:55.940 +08:00 [grpclient] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-13 19:48:55.940 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-13 19:48:55.940 +08:00 [grpclient] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-13 19:48:55.941 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-13 19:48:55.941 +08:00 [grpclient] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-13 19:48:55.941 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-13 19:48:55.941 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-13 19:48:55.941 +08:00 [grpclient] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-13 19:48:55.941 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-13 19:48:55.941 +08:00 [grpclient] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-13 19:48:55.941 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-13 19:48:55.942 +08:00 [grpclient] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-13 19:48:55.943 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-13 19:48:55.945 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2023-04-13 19:48:55.945 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.AspNetCore].
+2023-04-13 19:48:55.945 +08:00 [grpclient] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2023-04-13 19:48:56.454 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2023-04-13 19:48:56.454 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2023-04-13 19:48:56.892 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=grpclient,InstanceId=192.168.110.28@c2d2e5118a7a4c57b6dcf3e8a51cb483].
+2023-04-13 19:48:56.892 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=grpclient,InstanceId=192.168.110.28@c2d2e5118a7a4c57b6dcf3e8a51cb483].
+2023-04-13 19:48:56.891 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=grpclient,InstanceId=192.168.110.28@c2d2e5118a7a4c57b6dcf3e8a51cb483].
+2023-04-13 19:48:56.892 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=grpclient,InstanceId=192.168.110.28@c2d2e5118a7a4c57b6dcf3e8a51cb483].
+2023-04-13 19:48:59.092 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 1 trace segment. cost: 00:00:00.1146351s
+2023-04-13 19:49:01.956 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 1 trace segment. cost: 00:00:00.0068622s
+2023-04-13 19:49:08.936 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 2 trace segment. cost: 00:00:00.0109494s
+2023-04-13 19:49:08.953 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 1 logs. cost: 00:00:00.0186185s
+2023-04-13 19:49:10.950 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 1 trace segment. cost: 00:00:00.0085957s
+2023-04-13 19:49:10.951 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 6 logs. cost: 00:00:00.0097419s
+2023-04-13 19:49:14.884 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 2 logs. cost: 00:00:00.0284116s
+2023-04-13 19:49:14.885 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 5 trace segment. cost: 00:00:00.0274158s
+2023-04-13 19:49:16.949 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 3 trace segment. cost: 00:00:00.0077555s
+2023-04-13 19:49:16.951 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 4 logs. cost: 00:00:00.0100210s
+2023-04-13 19:50:33.983 +08:00 [grpclient] [Information] SkyApm.InstrumentStartup : Initializing ...
+2023-04-13 19:50:34.069 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-13 19:50:34.070 +08:00 [grpclient] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-13 19:50:34.070 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-13 19:50:34.070 +08:00 [grpclient] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-13 19:50:34.071 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-13 19:50:34.071 +08:00 [grpclient] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-13 19:50:34.071 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-13 19:50:34.071 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-13 19:50:34.071 +08:00 [grpclient] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-13 19:50:34.071 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-13 19:50:34.071 +08:00 [grpclient] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-13 19:50:34.071 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-13 19:50:34.071 +08:00 [grpclient] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-13 19:50:34.071 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-13 19:50:34.208 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[127.0.0.1:11800].
+2023-04-13 19:50:34.216 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2023-04-13 19:50:34.217 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.AspNetCore].
+2023-04-13 19:50:34.218 +08:00 [grpclient] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2023-04-13 19:50:34.218 +08:00 [grpclient] [Information] SkyApm.InstrumentStartup : Initializing ...
+2023-04-13 19:50:34.218 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-13 19:50:34.218 +08:00 [grpclient] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-13 19:50:34.218 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-13 19:50:34.218 +08:00 [grpclient] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-13 19:50:34.218 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-13 19:50:34.219 +08:00 [grpclient] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-13 19:50:34.219 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-13 19:50:34.219 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-13 19:50:34.219 +08:00 [grpclient] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-13 19:50:34.219 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-13 19:50:34.219 +08:00 [grpclient] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-13 19:50:34.219 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-13 19:50:34.219 +08:00 [grpclient] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-13 19:50:34.220 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-13 19:50:34.224 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2023-04-13 19:50:34.224 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.AspNetCore].
+2023-04-13 19:50:34.224 +08:00 [grpclient] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2023-04-13 19:50:34.817 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2023-04-13 19:50:34.817 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2023-04-13 19:50:35.227 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=grpclient,InstanceId=192.168.110.28@ea05517ea8a74839a1f16a7dac23966d].
+2023-04-13 19:50:35.227 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=grpclient,InstanceId=192.168.110.28@ea05517ea8a74839a1f16a7dac23966d].
+2023-04-13 19:50:35.227 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=grpclient,InstanceId=192.168.110.28@ea05517ea8a74839a1f16a7dac23966d].
+2023-04-13 19:50:35.227 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=grpclient,InstanceId=192.168.110.28@ea05517ea8a74839a1f16a7dac23966d].
+2023-04-13 19:50:40.882 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 1 trace segment. cost: 00:00:00.6297907s
+2023-04-13 19:50:43.231 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 1 trace segment. cost: 00:00:00.0067812s
+2023-04-13 19:50:57.399 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 2 trace segment. cost: 00:00:02.0231189s
+2023-04-13 19:51:01.944 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 1 logs. cost: 00:00:01.7352851s
+2023-04-13 19:51:04.242 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 4 trace segment. cost: 00:00:00.0147500s
+2023-04-13 19:51:04.275 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 8 logs. cost: 00:00:00.0214165s
+2023-04-13 19:51:04.317 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/13 11:51:04 +00:00
+2023-04-13 19:51:04.317 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/13 11:51:04 +00:00
+2023-04-13 19:51:04.318 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 11 11 4 6M ThreadPool 32762 32767 1000 1000
+2023-04-13 19:51:04.319 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 6M ThreadPool 32762 32767 1000 1000
+2023-04-13 19:51:08.193 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 2 trace segment. cost: 00:00:00.2874319s
+2023-04-13 19:51:10.248 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 4 logs. cost: 00:00:00.0126769s
+2023-04-13 19:51:10.262 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 4 logs. cost: 00:00:00.0262472s
+2023-04-13 19:51:10.267 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 8 trace segment. cost: 00:00:00.0311419s
+2023-04-13 20:01:20.398 +08:00 [grpclient] [Information] SkyApm.InstrumentStartup : Initializing ...
+2023-04-13 20:01:20.467 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-13 20:01:20.468 +08:00 [grpclient] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-13 20:01:20.468 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-13 20:01:20.468 +08:00 [grpclient] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-13 20:01:20.469 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-13 20:01:20.469 +08:00 [grpclient] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-13 20:01:20.469 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-13 20:01:20.469 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-13 20:01:20.469 +08:00 [grpclient] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-13 20:01:20.469 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-13 20:01:20.469 +08:00 [grpclient] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-13 20:01:20.469 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-13 20:01:20.469 +08:00 [grpclient] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-13 20:01:20.469 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-13 20:01:20.717 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[127.0.0.1:11800].
+2023-04-13 20:01:20.725 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2023-04-13 20:01:20.727 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.AspNetCore].
+2023-04-13 20:01:20.727 +08:00 [grpclient] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2023-04-13 20:01:20.727 +08:00 [grpclient] [Information] SkyApm.InstrumentStartup : Initializing ...
+2023-04-13 20:01:20.727 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-13 20:01:20.727 +08:00 [grpclient] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-13 20:01:20.727 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-13 20:01:20.727 +08:00 [grpclient] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-13 20:01:20.727 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-13 20:01:20.727 +08:00 [grpclient] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-13 20:01:20.727 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-13 20:01:20.727 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-13 20:01:20.727 +08:00 [grpclient] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-13 20:01:20.727 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-13 20:01:20.727 +08:00 [grpclient] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-13 20:01:20.727 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-13 20:01:20.728 +08:00 [grpclient] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-13 20:01:20.728 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-13 20:01:20.730 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2023-04-13 20:01:20.730 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.AspNetCore].
+2023-04-13 20:01:20.730 +08:00 [grpclient] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2023-04-13 20:02:06.960 +08:00 [grpclient] [Information] SkyApm.InstrumentStartup : Initializing ...
+2023-04-13 20:02:07.028 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-13 20:02:07.028 +08:00 [grpclient] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-13 20:02:07.029 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-13 20:02:07.029 +08:00 [grpclient] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-13 20:02:07.029 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-13 20:02:07.029 +08:00 [grpclient] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-13 20:02:07.029 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-13 20:02:07.029 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-13 20:02:07.029 +08:00 [grpclient] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-13 20:02:07.029 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-13 20:02:07.029 +08:00 [grpclient] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-13 20:02:07.029 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-13 20:02:07.029 +08:00 [grpclient] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-13 20:02:07.029 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-13 20:02:07.138 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[127.0.0.1:11800].
+2023-04-13 20:02:07.152 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2023-04-13 20:02:07.153 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.AspNetCore].
+2023-04-13 20:02:07.153 +08:00 [grpclient] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2023-04-13 20:02:07.153 +08:00 [grpclient] [Information] SkyApm.InstrumentStartup : Initializing ...
+2023-04-13 20:02:07.153 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-13 20:02:07.153 +08:00 [grpclient] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-13 20:02:07.154 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-13 20:02:07.154 +08:00 [grpclient] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-13 20:02:07.154 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-13 20:02:07.154 +08:00 [grpclient] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-13 20:02:07.154 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-13 20:02:07.154 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-13 20:02:07.154 +08:00 [grpclient] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-13 20:02:07.154 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-13 20:02:07.154 +08:00 [grpclient] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-13 20:02:07.154 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-13 20:02:07.154 +08:00 [grpclient] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-13 20:02:07.155 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-13 20:02:07.157 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2023-04-13 20:02:07.157 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.AspNetCore].
+2023-04-13 20:02:07.157 +08:00 [grpclient] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2023-04-13 20:02:07.422 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2023-04-13 20:02:07.422 +08:00 [grpclient] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2023-04-13 20:02:07.985 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=grpclient,InstanceId=192.168.110.28@3d1cc16d50a949df99f202dbcf121804].
+2023-04-13 20:02:07.985 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=grpclient,InstanceId=192.168.110.28@3d1cc16d50a949df99f202dbcf121804].
+2023-04-13 20:02:07.992 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=grpclient,InstanceId=192.168.110.28@3d1cc16d50a949df99f202dbcf121804].
+2023-04-13 20:02:07.998 +08:00 [grpclient] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=grpclient,InstanceId=192.168.110.28@3d1cc16d50a949df99f202dbcf121804].
+2023-04-13 20:02:10.176 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 1 trace segment. cost: 00:00:00.1154072s
+2023-04-13 20:02:10.218 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 1 trace segment. cost: 00:00:00.0280859s
+2023-04-13 20:02:37.184 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/13 12:02:37 +00:00
+2023-04-13 20:02:37.184 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/13 12:02:37 +00:00
+2023-04-13 20:02:37.193 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 6M ThreadPool 32763 32767 1000 1000
+2023-04-13 20:02:37.195 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 1 1 0 6M ThreadPool 32763 32767 1000 1000
+2023-04-13 20:03:07.184 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 7M ThreadPool 32756 32767 1000 1000
+2023-04-13 20:03:07.188 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 7M ThreadPool 32751 32767 1000 1000
+2023-04-13 20:03:37.182 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 8M ThreadPool 32751 32767 1000 1000
+2023-04-13 20:03:37.183 +08:00 [grpclient] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 8M ThreadPool 32753 32767 1000 1000
+2023-04-13 20:03:37.193 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/13 12:03:37 +00:00
+2023-04-13 20:03:37.193 +08:00 [grpclient] [Information] SkyApm.Service.PingService : Ping server @2023/4/13 12:03:37 +00:00
+2023-04-13 20:03:52.188 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 3 trace segment. cost: 00:00:00.0190533s
+2023-04-13 20:03:52.204 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 7 logs. cost: 00:00:00.0186260s
+2023-04-13 20:03:55.162 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 6 logs. cost: 00:00:00.0089407s
+2023-04-13 20:03:55.165 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 8 trace segment. cost: 00:00:00.0127141s
+2023-04-13 20:03:58.181 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 3 trace segment. cost: 00:00:00.0086800s
+2023-04-13 20:03:58.181 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 6 logs. cost: 00:00:00.0094246s
+2023-04-13 20:04:01.171 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 2 logs. cost: 00:00:00.0062339s
+2023-04-13 20:04:01.174 +08:00 [grpclient] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 3 trace segment. cost: 00:00:00.0089827s

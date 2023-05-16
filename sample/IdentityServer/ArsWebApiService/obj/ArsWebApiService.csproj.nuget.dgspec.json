@@ -35,17 +35,25 @@
               "C:\\core\\MyArs\\src\\Ars.Commom.Host\\Ars.Common.Host.csproj": {
                 "projectPath": "C:\\core\\MyArs\\src\\Ars.Commom.Host\\Ars.Common.Host.csproj"
               },
+              "C:\\core\\MyArs\\src\\Ars.Common.Consul\\Ars.Common.Consul.csproj": {
+                "projectPath": "C:\\core\\MyArs\\src\\Ars.Common.Consul\\Ars.Common.Consul.csproj"
+              },
               "C:\\core\\MyArs\\src\\Ars.Common.EFCore\\Ars.Common.EFCore.csproj": {
                 "projectPath": "C:\\core\\MyArs\\src\\Ars.Common.EFCore\\Ars.Common.EFCore.csproj"
               },
               "C:\\core\\MyArs\\src\\Ars.Common.IdentityServer4\\Ars.Common.IdentityServer4.csproj": {
                 "projectPath": "C:\\core\\MyArs\\src\\Ars.Common.IdentityServer4\\Ars.Common.IdentityServer4.csproj"
               },
+<<<<<<< HEAD
               "C:\\core\\MyArs\\src\\Ars.Common.Redis\\Ars.Common.Redis.csproj": {
                 "projectPath": "C:\\core\\MyArs\\src\\Ars.Common.Redis\\Ars.Common.Redis.csproj"
               },
               "C:\\core\\MyArs\\src\\Ars.Common.SignalR\\Ars.Common.SignalR.csproj": {
                 "projectPath": "C:\\core\\MyArs\\src\\Ars.Common.SignalR\\Ars.Common.SignalR.csproj"
+=======
+              "C:\\core\\MyArs\\src\\Ars.Common.SkyWalking\\Ars.Common.SkyWalking.csproj": {
+                "projectPath": "C:\\core\\MyArs\\src\\Ars.Common.SkyWalking\\Ars.Common.SkyWalking.csproj"
+>>>>>>> v1.6.0
               }
             }
           }
@@ -80,9 +88,17 @@
               "target": "Package",
               "version": "[6.0.0, )"
             },
+            "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
+              "target": "Package",
+              "version": "[1.17.2, )"
+            },
             "Pomelo.EntityFrameworkCore.MySql": {
               "target": "Package",
               "version": "[6.0.0, )"
+            },
+            "SkyAPM.Agent.AspNetCore": {
+              "target": "Package",
+              "version": "[2.1.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -117,7 +133,11 @@
       }
     },
     "C:\\core\\MyArs\\src\\Ars.Commom.Host\\Ars.Common.Host.csproj": {
+<<<<<<< HEAD
       "version": "1.5.3",
+=======
+      "version": "1.6.0",
+>>>>>>> v1.6.0
       "restore": {
         "projectUniqueName": "C:\\core\\MyArs\\src\\Ars.Commom.Host\\Ars.Common.Host.csproj",
         "projectName": "Ars.Common.Host",
@@ -199,7 +219,11 @@
       }
     },
     "C:\\core\\MyArs\\src\\Ars.Commom.Tool\\Ars.Common.Tool.csproj": {
+<<<<<<< HEAD
       "version": "1.5.3",
+=======
+      "version": "1.6.0",
+>>>>>>> v1.6.0
       "restore": {
         "projectUniqueName": "C:\\core\\MyArs\\src\\Ars.Commom.Tool\\Ars.Common.Tool.csproj",
         "projectName": "Ars.Common.Tool",
@@ -304,7 +328,11 @@
       }
     },
     "C:\\core\\MyArs\\src\\Ars.Common.AutoFac\\Ars.Common.AutoFac.csproj": {
+<<<<<<< HEAD
       "version": "1.5.3",
+=======
+      "version": "1.6.0",
+>>>>>>> v1.6.0
       "restore": {
         "projectUniqueName": "C:\\core\\MyArs\\src\\Ars.Common.AutoFac\\Ars.Common.AutoFac.csproj",
         "projectName": "Ars.Common.AutoFac",
@@ -380,11 +408,102 @@
             }
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+<<<<<<< HEAD
+=======
+        }
+      }
+    },
+    "C:\\core\\MyArs\\src\\Ars.Common.Consul\\Ars.Common.Consul.csproj": {
+      "version": "1.6.0",
+      "restore": {
+        "projectUniqueName": "C:\\core\\MyArs\\src\\Ars.Common.Consul\\Ars.Common.Consul.csproj",
+        "projectName": "Ars.Common.Consul",
+        "projectPath": "C:\\core\\MyArs\\src\\Ars.Common.Consul\\Ars.Common.Consul.csproj",
+        "packagesPath": "C:\\Users\\boo\\.nuget\\packages\\",
+        "outputPath": "C:\\core\\MyArs\\src\\Ars.Common.Consul\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\boo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\core\\MyArs\\src\\Ars.Common.Core\\Ars.Common.Core.csproj": {
+                "projectPath": "C:\\core\\MyArs\\src\\Ars.Common.Core\\Ars.Common.Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Consul": {
+              "target": "Package",
+              "version": "[1.6.10.4, )"
+            },
+            "Grpc.Core.Api": {
+              "target": "Package",
+              "version": "[2.42.0, )"
+            },
+            "Grpc.Net.Client": {
+              "target": "Package",
+              "version": "[2.42.0, )"
+            },
+            "Grpc.Net.Client.Web": {
+              "target": "Package",
+              "version": "[2.42.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+>>>>>>> v1.6.0
         }
       }
     },
     "C:\\core\\MyArs\\src\\Ars.Common.Core\\Ars.Common.Core.csproj": {
+<<<<<<< HEAD
       "version": "1.5.3",
+=======
+      "version": "1.6.0",
+>>>>>>> v1.6.0
       "restore": {
         "projectUniqueName": "C:\\core\\MyArs\\src\\Ars.Common.Core\\Ars.Common.Core.csproj",
         "projectName": "Ars.Common.Core",
@@ -464,7 +583,11 @@
       }
     },
     "C:\\core\\MyArs\\src\\Ars.Common.EFCore\\Ars.Common.EFCore.csproj": {
+<<<<<<< HEAD
       "version": "1.5.3",
+=======
+      "version": "1.6.0",
+>>>>>>> v1.6.0
       "restore": {
         "projectUniqueName": "C:\\core\\MyArs\\src\\Ars.Common.EFCore\\Ars.Common.EFCore.csproj",
         "projectName": "Ars.Common.EFCore",
@@ -548,7 +671,11 @@
       }
     },
     "C:\\core\\MyArs\\src\\Ars.Common.IdentityServer4\\Ars.Common.IdentityServer4.csproj": {
+<<<<<<< HEAD
       "version": "1.5.3",
+=======
+      "version": "1.6.0",
+>>>>>>> v1.6.0
       "restore": {
         "projectUniqueName": "C:\\core\\MyArs\\src\\Ars.Common.IdentityServer4\\Ars.Common.IdentityServer4.csproj",
         "projectName": "Ars.Common.IdentityServer4",
@@ -626,6 +753,7 @@
         }
       }
     },
+<<<<<<< HEAD
     "C:\\core\\MyArs\\src\\Ars.Common.Redis\\Ars.Common.Redis.csproj": {
       "version": "1.5.3",
       "restore": {
@@ -717,6 +845,16 @@
         "projectPath": "C:\\core\\MyArs\\src\\Ars.Common.SignalR\\Ars.Common.SignalR.csproj",
         "packagesPath": "C:\\Users\\boo\\.nuget\\packages\\",
         "outputPath": "C:\\core\\MyArs\\src\\Ars.Common.SignalR\\obj\\",
+=======
+    "C:\\core\\MyArs\\src\\Ars.Common.SkyWalking\\Ars.Common.SkyWalking.csproj": {
+      "version": "1.6.0",
+      "restore": {
+        "projectUniqueName": "C:\\core\\MyArs\\src\\Ars.Common.SkyWalking\\Ars.Common.SkyWalking.csproj",
+        "projectName": "Ars.Common.SkyWalking",
+        "projectPath": "C:\\core\\MyArs\\src\\Ars.Common.SkyWalking\\Ars.Common.SkyWalking.csproj",
+        "packagesPath": "C:\\Users\\boo\\.nuget\\packages\\",
+        "outputPath": "C:\\core\\MyArs\\src\\Ars.Common.SkyWalking\\obj\\",
+>>>>>>> v1.6.0
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -739,9 +877,12 @@
             "projectReferences": {
               "C:\\core\\MyArs\\src\\Ars.Common.Core\\Ars.Common.Core.csproj": {
                 "projectPath": "C:\\core\\MyArs\\src\\Ars.Common.Core\\Ars.Common.Core.csproj"
+<<<<<<< HEAD
               },
               "C:\\core\\MyArs\\src\\Ars.Common.Redis\\Ars.Common.Redis.csproj": {
                 "projectPath": "C:\\core\\MyArs\\src\\Ars.Common.Redis\\Ars.Common.Redis.csproj"
+=======
+>>>>>>> v1.6.0
               }
             }
           }
@@ -756,9 +897,31 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+<<<<<<< HEAD
             "Microsoft.AspNetCore.SignalR.Protocols.MessagePack": {
               "target": "Package",
               "version": "[6.0.0, )"
+=======
+            "Microsoft.Extensions.Configuration.Abstractions": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Microsoft.Extensions.Configuration.Binder": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Microsoft.Extensions.DependencyInjection.Abstractions": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "SkyAPM.Agent.AspNetCore": {
+              "target": "Package",
+              "version": "[2.1.0, )"
+>>>>>>> v1.6.0
             }
           },
           "imports": [
@@ -773,9 +936,12 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
+<<<<<<< HEAD
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
             },
+=======
+>>>>>>> v1.6.0
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

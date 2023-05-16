@@ -204,6 +204,19 @@ namespace ArsTest
             Assert.True(null == repo4.Get());
         }
 
+        [Fact]
+        public void IsInstanceOfType() 
+        {
+            One one = new Two();
+
+            Assert.True(typeof(Two).IsInstanceOfType(one));
+            Assert.True(one.GetType().IsAssignableFrom(typeof(Two)));
+        }
+
+        class One { }
+
+        class Two : One { }
+
         private ScopeResolve<T> GetScope<T>(ScopeContriner contriner)
         {
             ScopeResolve<T> scope = new ScopeResolve<T>(contriner, (T)contriner.list[typeof(T).Name]);

@@ -15,14 +15,37 @@ namespace Ars.Common.Core.Configs
 
     public class ConsulConfiguration
     {
+        /// <summary>
+        /// 被调用的服务名称
+        /// </summary>
         public string ServiceName { get; set; }
 
         public string ConsulAddress { get; set; }
 
         /// <summary>
-        /// 是否用http1通讯
+        /// 通讯配置
         /// </summary>
-        public bool UseHttp1Protocol { get; set; }
+        public CommunicationConfiguration Communication { get; set; }
+    }
+
+    public interface IConsulDiscoverConfiguration
+    {
+        IEnumerable<ConsulConfiguration> ConsulDiscovers { get; }
+    }
+
+    public class CommunicationConfiguration 
+    {
+        /// <summary>
+        /// 通讯方式
+        /// </summary>
+        public CommunicationWay CommunicationWay { get; set; }
+
+        public bool IgnoreTimeOut { get; set; }
+
+        /// <summary>
+        /// grpc是否采用http1通讯
+        /// </summary>
+        public bool GrpcUseHttp1Protocol { get; set; }
 
         /// <summary>
         /// 是否采用https
@@ -49,8 +72,13 @@ namespace Ars.Common.Core.Configs
         public string GrantType { get; set; }
     }
 
-    public interface IConsulDiscoverConfiguration
+    [Flags]
+    public enum CommunicationWay 
     {
-        IEnumerable<ConsulConfiguration> ConsulDiscovers { get; }
+        Both = 0,
+
+        Grpc = 1,
+
+        HttpClient = 2,
     }
 }

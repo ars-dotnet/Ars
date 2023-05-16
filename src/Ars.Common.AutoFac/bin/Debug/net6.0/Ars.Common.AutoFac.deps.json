@@ -6,9 +6,15 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v6.0": {
+<<<<<<< HEAD
       "Ars.Common.AutoFac/1.5.3": {
         "dependencies": {
           "Ars.Common.Core": "1.5.3",
+=======
+      "Ars.Common.AutoFac/1.6.0": {
+        "dependencies": {
+          "Ars.Common.Core": "1.6.0",
+>>>>>>> v1.6.0
           "Autofac": "6.3.0",
           "Autofac.Extensions.DependencyInjection": "7.2.0",
           "Microsoft.AspNetCore.Mvc.Core": "2.2.5"
@@ -67,6 +73,14 @@
         },
         "runtime": {
           "lib/netstandard2.0/Grpc.Core.Api.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.42.0.0"
+          }
+        }
+      },
+      "Grpc.Net.Client.Web/2.42.0": {
+        "runtime": {
+          "lib/net6.0/Grpc.Net.Client.Web.dll": {
             "assemblyVersion": "2.0.0.0",
             "fileVersion": "2.42.0.0"
           }
@@ -923,9 +937,15 @@
           }
         }
       },
+<<<<<<< HEAD
       "Ars.Common.Core/1.5.3": {
         "dependencies": {
           "Ars.Common.Tool": "1.5.3",
+=======
+      "Ars.Common.Core/1.6.0": {
+        "dependencies": {
+          "Ars.Common.Tool": "1.6.0",
+>>>>>>> v1.6.0
           "Grpc.Core.Api": "2.42.0",
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "6.0.0",
           "System.Configuration.ConfigurationManager": "6.0.0"
@@ -934,9 +954,14 @@
           "Ars.Common.Core.dll": {}
         }
       },
+<<<<<<< HEAD
       "Ars.Common.Tool/1.5.3": {
+=======
+      "Ars.Common.Tool/1.6.0": {
+>>>>>>> v1.6.0
         "dependencies": {
           "Aspose.Cells": "23.3.0",
+          "Grpc.Net.Client.Web": "2.42.0",
           "MessagePack": "2.3.85",
           "Microsoft.Extensions.Configuration.Abstractions": "6.0.0",
           "Microsoft.Extensions.DependencyInjection": "6.0.0",
@@ -955,7 +980,11 @@
     }
   },
   "libraries": {
+<<<<<<< HEAD
     "Ars.Common.AutoFac/1.5.3": {
+=======
+    "Ars.Common.AutoFac/1.6.0": {
+>>>>>>> v1.6.0
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -994,6 +1023,13 @@
       "sha512": "sha512-12ciAZrp8orzYFZcruvzshhMEbbD4CAFOe9an1Fa4/c5ZrCtqUjWVPa1Dpk/1Pnv5E1KTeIHPuOtPTkpMLOCoQ==",
       "path": "grpc.core.api/2.42.0",
       "hashPath": "grpc.core.api.2.42.0.nupkg.sha512"
+    },
+    "Grpc.Net.Client.Web/2.42.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-rSvYpUPfAr+YEMBYSyjHmvDeyuQ/rzPRH77Uc3DsvXt272cMD+fzyOCQGUvs90eIkb8TGNomBOPxnup4U+p5tA==",
+      "path": "grpc.net.client.web/2.42.0",
+      "hashPath": "grpc.net.client.web.2.42.0.nupkg.sha512"
     },
     "MathNet.Numerics.Signed/4.15.0": {
       "type": "package",
@@ -1695,12 +1731,20 @@
       "path": "system.windows.extensions/6.0.0",
       "hashPath": "system.windows.extensions.6.0.0.nupkg.sha512"
     },
+<<<<<<< HEAD
     "Ars.Common.Core/1.5.3": {
+=======
+    "Ars.Common.Core/1.6.0": {
+>>>>>>> v1.6.0
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
+<<<<<<< HEAD
     "Ars.Common.Tool/1.5.3": {
+=======
+    "Ars.Common.Tool/1.6.0": {
+>>>>>>> v1.6.0
       "type": "project",
       "serviceable": false,
       "sha512": ""

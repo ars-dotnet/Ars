@@ -15,17 +15,19 @@ namespace Ars.Common.Host
     {
         public string Root { get; private set; }
 
-        public string ApplicationUrl { get; set; }
+        public string AppAccessDomain { get; set; }
 
         public IList<IArsServiceExtension> ArsServiceExtensions { get; }
 
         public IList<IArsAppExtension> ArsAppExtensions { get; }
 
-        public IUnitOfWorkDefaultConfiguration? UnitOfWorkDefaultConfiguration { get; set; } = default;
+        public IArsBasicConfiguration? ArsBasicConfiguration { get; set; } = default;
 
-        public IConsulDiscoverConfiguration? ConsulDiscoverConfiguration { get; set; } = default;
+        public IUnitOfWorkDefaultConfiguration? ArsUnitOfWorkDefaultConfiguration { get; set; } = default;
 
-        public IConsulRegisterConfiguration? ConsulRegisterConfiguration { get; set; } = default;
+        public IConsulDiscoverConfiguration? ArsConsulDiscoverConfiguration { get; set; } = default;
+
+        public IConsulRegisterConfiguration? ArsConsulRegisterConfiguration { get; set; } = default;
 
         public IArsIdentityServerConfiguration? ArsIdentityServerConfiguration { get; set; } = default;
 
@@ -40,9 +42,11 @@ namespace Ars.Common.Host
         /// </summary>
         public IArsRedisConfiguration? ArsRedisConfiguration { get; set; } = default;
 
+        /// <summary>
+        /// 
+        /// </summary>
         public ArsConfiguration()
         {
-            Root = AppDomain.CurrentDomain.BaseDirectory;
             ArsServiceExtensions = new List<IArsServiceExtension>(0);
             ArsAppExtensions = new List<IArsAppExtension>(0);
         }

@@ -1,0 +1,49 @@
+{
+  "SkyWalking": {
+    //"ServiceName": "docker-arswebapiservice5196-0421001",
+    "ServiceName": "docker-arswebapiservice5197-0422001",
+    //"ServiceName": "arswebapiservice0421001",
+    "Namespace": "",
+    "HeaderVersions": [
+      "sw8"
+    ],
+    "Sampling": {
+      "SamplePer3Secs": -1, //每三秒采样的Trace数量 ，默认为负数，代表在保证不超过内存Buffer区的前提下，采集所有的Trace
+      "Percentage": -1.0, //采样率，默认负数，采集全部，其它数值格式：0.5，0.8...
+      "IgnorePaths": [ "**/healthCheck" ],
+      "LogSqlParameterValue": true //true:record parameter value 
+    },
+    "Logging": {
+      "Level": "Information",
+      "FilePath": "logs\\skyapm-{Date}.log"
+    },
+    "Transport": {
+      "Interval": 3000,
+      "ProtocolVersion": "v8",
+      "QueueSize": 30000,
+      "BatchSize": 3000,
+      "gRPC": {
+        "Servers": "172.20.64.1:11800",
+        "Timeout": 10000,
+        "ConnectTimeout": 10000,
+        "ReportTimeout": 600000,
+        "Authentication": ""
+      }
+    },
+    "Component": {
+      "AspNetCore": {
+        "CollectCookies": [ "c-b" ],
+        "CollectHeaders": [ "User-Agent" ],
+        "CollectBodyContentTypes": [ "application/json", "application/x-www-form-urlencoded", "text/plain" ],
+        "CollectBodyLengthThreshold": 4096
+      },
+      "HttpClient": {
+        "StopHeaderPropagationPaths": [ "**/localhost:5002/api/values/stoppropagation" ],
+        "CollectRequestHeaders": [ "User-Agent", "sw8" ],
+        "CollectRequestBodyContentTypes": [ "application/json", "application/x-www-form-urlencoded" ],
+        "CollectResponseBodyContentTypes": [ "application/json", "application/x-www-form-urlencoded", "text/plain" ],
+        "CollectBodyLengthThreshold": 4096
+      }
+    }
+  }
+}

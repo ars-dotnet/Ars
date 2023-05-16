@@ -105,7 +105,7 @@ namespace Ars.Common.Tool.UploadExcel
             {
                 throw new ArsExcelException(
                     string.Concat(
-                        _basicConfig.Value.ApplicationUrl,
+                        _basicConfig.Value.AppAccessDomain,
                         $"/{_uploadConfig.Value.RequestPath}",
                         $"/{input.ExportFileName}.xls"),
                         message.IsNullOrEmpty() 

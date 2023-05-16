@@ -1,0 +1,937 @@
+2023-04-07 09:12:50.452 +08:00 [arsidentityserver4] [Information] SkyApm.InstrumentStartup : Initializing ...
+2023-04-07 09:12:50.521 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-07 09:12:50.521 +08:00 [arsidentityserver4] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-07 09:12:50.522 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-07 09:12:50.522 +08:00 [arsidentityserver4] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-07 09:12:50.523 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-07 09:12:50.523 +08:00 [arsidentityserver4] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-07 09:12:50.523 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-07 09:12:50.523 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-07 09:12:50.523 +08:00 [arsidentityserver4] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-07 09:12:50.523 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-07 09:12:50.523 +08:00 [arsidentityserver4] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-07 09:12:50.523 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-07 09:12:50.523 +08:00 [arsidentityserver4] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-07 09:12:50.523 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-07 09:12:50.791 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[127.0.0.1:11800].
+2023-04-07 09:12:50.820 +08:00 [arsidentityserver4] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.AspNetCore].
+2023-04-07 09:12:50.820 +08:00 [arsidentityserver4] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2023-04-07 09:12:50.821 +08:00 [arsidentityserver4] [Information] SkyApm.InstrumentStartup : Initializing ...
+2023-04-07 09:12:50.821 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-07 09:12:50.821 +08:00 [arsidentityserver4] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-07 09:12:50.821 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-07 09:12:50.821 +08:00 [arsidentityserver4] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-07 09:12:50.821 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-07 09:12:50.821 +08:00 [arsidentityserver4] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-07 09:12:50.821 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-07 09:12:50.821 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-07 09:12:50.821 +08:00 [arsidentityserver4] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-07 09:12:50.821 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-07 09:12:50.821 +08:00 [arsidentityserver4] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-07 09:12:50.821 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-07 09:12:50.821 +08:00 [arsidentityserver4] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-07 09:12:50.821 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-07 09:12:50.822 +08:00 [arsidentityserver4] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.AspNetCore].
+2023-04-07 09:12:50.822 +08:00 [arsidentityserver4] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2023-04-07 09:12:50.968 +08:00 [arsidentityserver4] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2023-04-07 09:12:50.968 +08:00 [arsidentityserver4] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2023-04-07 09:12:51.167 +08:00 [arsidentityserver4] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2023-04-07 09:12:51.167 +08:00 [arsidentityserver4] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2023-04-07 09:12:51.525 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=arsidentityserver4,InstanceId=192.168.110.67@df6939bba7f840eeafbedc81cc2d2fc8].
+2023-04-07 09:12:51.525 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=arsidentityserver4,InstanceId=192.168.110.67@df6939bba7f840eeafbedc81cc2d2fc8].
+2023-04-07 09:12:51.525 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=arsidentityserver4,InstanceId=192.168.110.67@df6939bba7f840eeafbedc81cc2d2fc8].
+2023-04-07 09:12:51.525 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=arsidentityserver4,InstanceId=192.168.110.67@df6939bba7f840eeafbedc81cc2d2fc8].
+2023-04-07 09:13:20.863 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 1:13:20 +00:00
+2023-04-07 09:13:20.863 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 1:13:20 +00:00
+2023-04-07 09:13:20.866 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 3 3 1 7M ThreadPool 32762 32767 1000 1000
+2023-04-07 09:13:20.866 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 7M ThreadPool 32762 32767 1000 1000
+2023-04-07 09:13:50.832 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 8M ThreadPool 32764 32767 1000 1000
+2023-04-07 09:13:50.832 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 8M ThreadPool 32764 32767 1000 1000
+2023-04-07 09:14:20.843 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 1:14:20 +00:00
+2023-04-07 09:14:20.848 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 9M ThreadPool 32750 32767 1000 1000
+2023-04-07 09:14:20.855 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 1:14:20 +00:00
+2023-04-07 09:14:20.855 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 9M ThreadPool 32757 32767 1000 1000
+2023-04-07 09:14:50.858 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 7M ThreadPool 32758 32767 1000 1000
+2023-04-07 09:14:50.858 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 1 1 0 7M ThreadPool 32758 32767 1000 1000
+2023-04-07 09:14:53.879 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 5 logs. cost: 00:00:00.0481655s
+2023-04-07 09:14:53.880 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 3 trace segment. cost: 00:00:00.0501211s
+2023-04-07 09:14:59.851 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 3 trace segment. cost: 00:00:00.0232163s
+2023-04-07 09:14:59.857 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 5 logs. cost: 00:00:00.0293444s
+2023-04-07 09:15:20.848 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 1:15:20 +00:00
+2023-04-07 09:15:20.848 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 1:15:20 +00:00
+2023-04-07 09:15:20.848 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 13M ThreadPool 32757 32767 1000 1000
+2023-04-07 09:15:20.853 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 13M ThreadPool 32757 32767 1000 1000
+2023-04-07 09:15:50.890 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 14M ThreadPool 32753 32767 1000 1000
+2023-04-07 09:15:50.890 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 14M ThreadPool 32753 32767 1000 1000
+2023-04-07 09:16:20.846 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 8M ThreadPool 32757 32767 1000 1000
+2023-04-07 09:16:20.846 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 3 3 0 8M ThreadPool 32757 32767 1000 1000
+2023-04-07 09:16:20.846 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 1:16:20 +00:00
+2023-04-07 09:16:20.848 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 1:16:20 +00:00
+2023-04-07 09:16:50.843 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 1.5625 GenCollectCount 1 1 0 8M ThreadPool 32757 32767 1000 1000
+2023-04-07 09:16:50.843 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 1.5625 GenCollectCount 0 1 0 8M ThreadPool 32760 32767 1000 1000
+2023-04-07 09:17:20.852 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 9M ThreadPool 32757 32767 1000 1000
+2023-04-07 09:17:20.852 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 9M ThreadPool 32757 32767 1000 1000
+2023-04-07 09:17:20.852 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 1:17:20 +00:00
+2023-04-07 09:17:20.852 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 1:17:20 +00:00
+2023-04-07 09:17:50.861 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 10M ThreadPool 32754 32767 1000 1000
+2023-04-07 09:17:50.861 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 10M ThreadPool 32753 32767 1000 1000
+2023-04-07 09:18:20.838 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 12M ThreadPool 32758 32767 1000 1000
+2023-04-07 09:18:20.838 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 1:18:20 +00:00
+2023-04-07 09:18:20.838 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 1:18:20 +00:00
+2023-04-07 09:18:20.838 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 12M ThreadPool 32758 32767 1000 1000
+2023-04-07 09:18:50.839 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 13M ThreadPool 32758 32767 1000 1000
+2023-04-07 09:18:50.839 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 13M ThreadPool 32758 32767 1000 1000
+2023-04-07 09:19:20.873 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 1:19:20 +00:00
+2023-04-07 09:19:20.873 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 14M ThreadPool 32759 32767 1000 1000
+2023-04-07 09:19:20.873 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 14M ThreadPool 32750 32767 1000 1000
+2023-04-07 09:19:20.873 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 1:19:20 +00:00
+2023-04-07 09:19:50.843 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 15M ThreadPool 32756 32767 1000 1000
+2023-04-07 09:19:50.843 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 15M ThreadPool 32756 32767 1000 1000
+2023-04-07 09:20:20.843 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 16M ThreadPool 32758 32767 1000 1000
+2023-04-07 09:20:20.844 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 1:20:20 +00:00
+2023-04-07 09:20:20.845 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 16M ThreadPool 32757 32767 1000 1000
+2023-04-07 09:20:20.845 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 1:20:20 +00:00
+2023-04-07 09:20:50.846 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 17M ThreadPool 32751 32767 1000 1000
+2023-04-07 09:20:50.846 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 17M ThreadPool 32752 32767 1000 1000
+2023-04-07 09:21:20.829 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 18M ThreadPool 32757 32767 1000 1000
+2023-04-07 09:21:20.829 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 1:21:20 +00:00
+2023-04-07 09:21:20.834 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 1:21:20 +00:00
+2023-04-07 09:21:20.834 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 18M ThreadPool 32757 32767 1000 1000
+2023-04-07 09:21:50.847 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 8M ThreadPool 32754 32767 1000 1000
+2023-04-07 09:21:50.847 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 1 1 1 8M ThreadPool 32753 32767 1000 1000
+2023-04-07 09:22:20.843 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 1:22:20 +00:00
+2023-04-07 09:22:20.843 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 9M ThreadPool 32758 32767 1000 1000
+2023-04-07 09:22:20.843 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 9M ThreadPool 32758 32767 1000 1000
+2023-04-07 09:22:20.847 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 1:22:20 +00:00
+2023-04-07 09:22:50.834 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 10M ThreadPool 32753 32767 1000 1000
+2023-04-07 09:22:50.835 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 10M ThreadPool 32752 32767 1000 1000
+2023-04-07 09:23:20.832 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 1:23:20 +00:00
+2023-04-07 09:23:20.832 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 11M ThreadPool 32758 32767 1000 1000
+2023-04-07 09:23:20.832 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 11M ThreadPool 32758 32767 1000 1000
+2023-04-07 09:23:20.837 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 1:23:20 +00:00
+2023-04-07 09:23:50.834 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 12M ThreadPool 32764 32767 1000 1000
+2023-04-07 09:23:50.834 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 12M ThreadPool 32758 32767 1000 1000
+2023-04-07 09:24:20.847 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 13M ThreadPool 32751 32767 1000 1000
+2023-04-07 09:24:20.847 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 13M ThreadPool 32751 32767 1000 1000
+2023-04-07 09:24:20.854 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 1:24:20 +00:00
+2023-04-07 09:24:20.854 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 1:24:20 +00:00
+2023-04-07 09:24:50.845 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 14M ThreadPool 32758 32767 1000 1000
+2023-04-07 09:24:50.845 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 14M ThreadPool 32758 32767 1000 1000
+2023-04-07 09:25:20.832 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 1:25:20 +00:00
+2023-04-07 09:25:20.832 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 15M ThreadPool 32758 32767 1000 1000
+2023-04-07 09:25:20.832 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 15M ThreadPool 32762 32767 1000 1000
+2023-04-07 09:25:20.832 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 1:25:20 +00:00
+2023-04-07 09:25:50.852 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 16M ThreadPool 32753 32767 1000 1000
+2023-04-07 09:25:50.852 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 16M ThreadPool 32753 32767 1000 1000
+2023-04-07 09:26:20.832 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 17M ThreadPool 32758 32767 1000 1000
+2023-04-07 09:26:20.832 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 17M ThreadPool 32758 32767 1000 1000
+2023-04-07 09:26:20.832 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 1:26:20 +00:00
+2023-04-07 09:26:20.832 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 1:26:20 +00:00
+2023-04-07 09:26:50.853 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 18M ThreadPool 32750 32767 1000 1000
+2023-04-07 09:26:50.853 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 18M ThreadPool 32761 32767 1000 1000
+2023-04-07 09:27:20.834 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 1:27:20 +00:00
+2023-04-07 09:27:20.834 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 19M ThreadPool 32757 32767 1000 1000
+2023-04-07 09:27:20.834 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 19M ThreadPool 32762 32767 1000 1000
+2023-04-07 09:27:20.834 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 1:27:20 +00:00
+2023-04-07 09:27:50.848 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 20M ThreadPool 32753 32767 1000 1000
+2023-04-07 09:27:50.876 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 20M ThreadPool 32763 32767 998 1000
+2023-04-07 09:28:20.838 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 1:28:20 +00:00
+2023-04-07 09:28:20.838 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 1:28:20 +00:00
+2023-04-07 09:28:20.842 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 21M ThreadPool 32758 32767 1000 1000
+2023-04-07 09:28:20.842 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 21M ThreadPool 32758 32767 1000 1000
+2023-04-07 09:28:50.853 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 23M ThreadPool 32752 32767 1000 1000
+2023-04-07 09:28:50.853 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 23M ThreadPool 32752 32767 1000 1000
+2023-04-07 09:29:20.879 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 24M ThreadPool 32759 32767 1000 1000
+2023-04-07 09:29:20.879 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 24M ThreadPool 32751 32767 1000 1000
+2023-04-07 09:29:20.879 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 1:29:20 +00:00
+2023-04-07 09:29:20.879 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 1:29:20 +00:00
+2023-04-07 10:25:47.785 +08:00 [arsidentityserver4] [Information] SkyApm.InstrumentStartup : Initializing ...
+2023-04-07 10:25:47.853 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-07 10:25:47.853 +08:00 [arsidentityserver4] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-07 10:25:47.853 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-07 10:25:47.853 +08:00 [arsidentityserver4] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-07 10:25:47.853 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-07 10:25:47.854 +08:00 [arsidentityserver4] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-07 10:25:47.854 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-07 10:25:47.867 +08:00 [arsidentityserver4] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2023-04-07 10:25:48.145 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[127.0.0.1:11800].
+2023-04-07 10:25:49.639 +08:00 [arsidentityserver4] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2023-04-07 10:25:49.823 +08:00 [arsidentityserver4] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2023-04-07 10:25:50.100 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=arsidentityserver4,InstanceId=192.168.110.67@b43df840e07c46e3b5a6090abdac474d].
+2023-04-07 10:26:17.912 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 2 2 0 7M ThreadPool 32764 32767 1000 1000
+2023-04-07 10:26:17.918 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 2:26:17 +00:00
+2023-04-07 10:26:41.908 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 5 logs. cost: 00:00:00.0279783s
+2023-04-07 10:26:44.874 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 3 logs. cost: 00:00:00.0093190s
+2023-04-07 10:26:47.876 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 12M ThreadPool 32758 32767 1000 1000
+2023-04-07 10:26:47.889 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 2 logs. cost: 00:00:00.0235446s
+2023-04-07 10:27:17.913 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 12M ThreadPool 32762 32767 1000 1000
+2023-04-07 10:27:17.913 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 2:27:17 +00:00
+2023-04-07 10:27:47.885 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 13M ThreadPool 32764 32767 1000 1000
+2023-04-07 10:28:17.904 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 13M ThreadPool 32761 32767 1000 1000
+2023-04-07 10:28:17.904 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 2:28:17 +00:00
+2023-04-07 10:31:13.960 +08:00 [arsidentityserver4] [Information] SkyApm.InstrumentStartup : Initializing ...
+2023-04-07 10:31:14.001 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-07 10:31:14.004 +08:00 [arsidentityserver4] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-07 10:31:14.005 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-07 10:31:14.009 +08:00 [arsidentityserver4] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-07 10:31:14.009 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-07 10:31:14.014 +08:00 [arsidentityserver4] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-07 10:31:14.014 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-07 10:31:14.049 +08:00 [arsidentityserver4] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2023-04-07 10:31:14.082 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[127.0.0.1:11800].
+2023-04-07 10:31:14.709 +08:00 [arsidentityserver4] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2023-04-07 10:31:14.834 +08:00 [arsidentityserver4] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2023-04-07 10:31:15.049 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=arsidentityserver4,InstanceId=192.168.110.67@2ff984fc637f4c23b4559a582da42d14].
+2023-04-07 10:31:44.062 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 20M ThreadPool 32764 32767 1000 1000
+2023-04-07 10:31:44.067 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 2:31:44 +00:00
+2023-04-07 10:32:14.022 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 21M ThreadPool 32765 32767 1000 1000
+2023-04-07 10:32:44.015 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 2:32:44 +00:00
+2023-04-07 10:32:44.028 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 22M ThreadPool 32758 32767 1000 1000
+2023-04-07 10:33:14.024 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 22M ThreadPool 32758 32767 1000 1000
+2023-04-07 10:33:44.019 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 2:33:44 +00:00
+2023-04-07 10:33:44.030 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 23M ThreadPool 32762 32767 1000 1000
+2023-04-07 10:34:14.032 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 23M ThreadPool 32756 32767 1000 1000
+2023-04-07 10:34:44.024 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 24M ThreadPool 32763 32767 1000 1000
+2023-04-07 10:34:44.024 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 2:34:44 +00:00
+2023-04-07 13:58:14.119 +08:00 [arsidentityserver4] [Information] SkyApm.InstrumentStartup : Initializing ...
+2023-04-07 13:58:14.286 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-07 13:58:14.287 +08:00 [arsidentityserver4] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-07 13:58:14.287 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-07 13:58:14.288 +08:00 [arsidentityserver4] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-07 13:58:14.288 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-07 13:58:14.288 +08:00 [arsidentityserver4] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-07 13:58:14.288 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-07 13:58:14.288 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-07 13:58:14.288 +08:00 [arsidentityserver4] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-07 13:58:14.288 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-07 13:58:14.288 +08:00 [arsidentityserver4] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-07 13:58:14.288 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-07 13:58:14.288 +08:00 [arsidentityserver4] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-07 13:58:14.288 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-07 13:58:14.866 +08:00 [arsidentityserver4] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.AspNetCore].
+2023-04-07 13:58:14.868 +08:00 [arsidentityserver4] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2023-04-07 13:58:14.868 +08:00 [arsidentityserver4] [Information] SkyApm.InstrumentStartup : Initializing ...
+2023-04-07 13:58:14.869 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-07 13:58:14.870 +08:00 [arsidentityserver4] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-07 13:58:14.870 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-07 13:58:14.870 +08:00 [arsidentityserver4] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-07 13:58:14.870 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-07 13:58:14.871 +08:00 [arsidentityserver4] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-07 13:58:14.871 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-07 13:58:14.871 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-07 13:58:14.871 +08:00 [arsidentityserver4] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-07 13:58:14.871 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-07 13:58:14.871 +08:00 [arsidentityserver4] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-07 13:58:14.871 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-07 13:58:14.871 +08:00 [arsidentityserver4] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-07 13:58:14.871 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-07 13:58:14.872 +08:00 [arsidentityserver4] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.AspNetCore].
+2023-04-07 13:58:14.872 +08:00 [arsidentityserver4] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2023-04-07 13:58:14.918 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[127.0.0.1:11800].
+2023-04-07 13:58:15.481 +08:00 [arsidentityserver4] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2023-04-07 13:58:15.481 +08:00 [arsidentityserver4] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2023-04-07 13:58:15.666 +08:00 [arsidentityserver4] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2023-04-07 13:58:15.666 +08:00 [arsidentityserver4] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2023-04-07 13:58:16.042 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=arsidentityserver4,InstanceId=192.168.110.67@38de271c78b0458e9812575cda913848].
+2023-04-07 13:58:16.042 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=arsidentityserver4,InstanceId=192.168.110.67@38de271c78b0458e9812575cda913848].
+2023-04-07 13:58:16.042 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=arsidentityserver4,InstanceId=192.168.110.67@38de271c78b0458e9812575cda913848].
+2023-04-07 13:58:16.042 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=arsidentityserver4,InstanceId=192.168.110.67@38de271c78b0458e9812575cda913848].
+2023-04-07 13:58:44.331 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 23M ThreadPool 32762 32767 1000 1000
+2023-04-07 13:58:44.331 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 23M ThreadPool 32762 32767 1000 1000
+2023-04-07 13:58:44.336 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 5:58:44 +00:00
+2023-04-07 13:58:44.336 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 5:58:44 +00:00
+2023-04-07 13:58:44.889 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 23M ThreadPool 32757 32767 1000 1000
+2023-04-07 13:58:44.889 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 23M ThreadPool 32757 32767 1000 1000
+2023-04-07 13:58:44.889 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 5:58:44 +00:00
+2023-04-07 13:58:44.889 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 5:58:44 +00:00
+2023-04-07 13:59:14.299 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 25M ThreadPool 32752 32767 1000 1000
+2023-04-07 13:59:14.299 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 25M ThreadPool 32752 32767 1000 1000
+2023-04-07 13:59:14.890 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 25M ThreadPool 32755 32767 1000 1000
+2023-04-07 13:59:14.890 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 25M ThreadPool 32754 32767 1000 1000
+2023-04-07 13:59:44.303 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 5:59:44 +00:00
+2023-04-07 13:59:44.303 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 5:59:44 +00:00
+2023-04-07 13:59:44.304 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 27M ThreadPool 32758 32767 1000 1000
+2023-04-07 13:59:44.304 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 27M ThreadPool 32762 32767 1000 1000
+2023-04-07 13:59:44.895 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 5:59:44 +00:00
+2023-04-07 13:59:44.895 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 27M ThreadPool 32759 32767 1000 1000
+2023-04-07 13:59:44.895 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 5:59:44 +00:00
+2023-04-07 13:59:44.895 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 27M ThreadPool 32756 32767 1000 1000
+2023-04-07 14:00:02.392 +08:00 [arsidentityserver4] [Information] SkyApm.InstrumentStartup : Initializing ...
+2023-04-07 14:00:02.476 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-07 14:00:02.477 +08:00 [arsidentityserver4] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-07 14:00:02.477 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-07 14:00:02.477 +08:00 [arsidentityserver4] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-07 14:00:02.477 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-07 14:00:02.477 +08:00 [arsidentityserver4] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-07 14:00:02.478 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-07 14:00:02.479 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-07 14:00:02.479 +08:00 [arsidentityserver4] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-07 14:00:02.479 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-07 14:00:02.479 +08:00 [arsidentityserver4] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-07 14:00:02.479 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-07 14:00:02.479 +08:00 [arsidentityserver4] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-07 14:00:02.479 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-07 14:00:02.697 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[127.0.0.1:11800].
+2023-04-07 14:00:02.722 +08:00 [arsidentityserver4] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.AspNetCore].
+2023-04-07 14:00:02.723 +08:00 [arsidentityserver4] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2023-04-07 14:00:02.723 +08:00 [arsidentityserver4] [Information] SkyApm.InstrumentStartup : Initializing ...
+2023-04-07 14:00:02.723 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-07 14:00:02.723 +08:00 [arsidentityserver4] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-07 14:00:02.723 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-07 14:00:02.723 +08:00 [arsidentityserver4] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-07 14:00:02.723 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-07 14:00:02.723 +08:00 [arsidentityserver4] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-07 14:00:02.723 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-07 14:00:02.723 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-07 14:00:02.723 +08:00 [arsidentityserver4] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-07 14:00:02.723 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-07 14:00:02.723 +08:00 [arsidentityserver4] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-07 14:00:02.723 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-07 14:00:02.723 +08:00 [arsidentityserver4] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-07 14:00:02.723 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-07 14:00:02.725 +08:00 [arsidentityserver4] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.AspNetCore].
+2023-04-07 14:00:02.725 +08:00 [arsidentityserver4] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2023-04-07 14:00:02.891 +08:00 [arsidentityserver4] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2023-04-07 14:00:02.891 +08:00 [arsidentityserver4] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2023-04-07 14:00:03.151 +08:00 [arsidentityserver4] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2023-04-07 14:00:03.151 +08:00 [arsidentityserver4] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2023-04-07 14:00:03.498 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=arsidentityserver4,InstanceId=192.168.110.67@b68555475d25477da1d5d6146072e4d5].
+2023-04-07 14:00:03.498 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=arsidentityserver4,InstanceId=192.168.110.67@b68555475d25477da1d5d6146072e4d5].
+2023-04-07 14:00:03.498 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=arsidentityserver4,InstanceId=192.168.110.67@b68555475d25477da1d5d6146072e4d5].
+2023-04-07 14:00:03.498 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=arsidentityserver4,InstanceId=192.168.110.67@b68555475d25477da1d5d6146072e4d5].
+2023-04-07 14:00:32.522 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 6:00:32 +00:00
+2023-04-07 14:00:32.522 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 6:00:32 +00:00
+2023-04-07 14:00:32.538 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 23M ThreadPool 32762 32767 1000 1000
+2023-04-07 14:00:32.538 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 23M ThreadPool 32762 32767 1000 1000
+2023-04-07 14:00:32.739 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 23M ThreadPool 32757 32767 1000 1000
+2023-04-07 14:00:32.742 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 6:00:32 +00:00
+2023-04-07 14:00:32.742 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 6:00:32 +00:00
+2023-04-07 14:00:32.740 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 23M ThreadPool 32757 32767 1000 1000
+2023-04-07 14:01:02.512 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 25M ThreadPool 32756 32767 1000 1000
+2023-04-07 14:01:02.512 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 25M ThreadPool 32761 32767 1000 1000
+2023-04-07 14:01:02.739 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 25M ThreadPool 32754 32767 1000 1000
+2023-04-07 14:01:02.739 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 25M ThreadPool 32754 32767 1000 1000
+2023-04-07 14:01:32.497 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 6:01:32 +00:00
+2023-04-07 14:01:32.497 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 27M ThreadPool 32754 32767 1000 1000
+2023-04-07 14:01:32.497 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 6:01:32 +00:00
+2023-04-07 14:01:32.501 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 27M ThreadPool 32754 32767 1000 1000
+2023-04-07 14:01:32.745 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 27M ThreadPool 32759 32767 1000 1000
+2023-04-07 14:01:32.745 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 27M ThreadPool 32754 32767 1000 1000
+2023-04-07 14:01:32.746 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 6:01:32 +00:00
+2023-04-07 14:01:32.747 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 6:01:32 +00:00
+2023-04-07 14:02:02.739 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 1 0 0 7M ThreadPool 32757 32767 1000 1000
+2023-04-07 14:02:02.739 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 7M ThreadPool 32757 32767 1000 1000
+2023-04-07 14:02:08.795 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 3 logs. cost: 00:00:00.0514487s
+2023-04-07 14:02:08.800 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 1 trace segment. cost: 00:00:00.0566312s
+2023-04-07 14:02:11.730 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 2 logs. cost: 00:00:00.0059885s
+2023-04-07 14:02:11.731 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 2 trace segment. cost: 00:00:00.0069684s
+2023-04-07 14:02:23.742 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 1 trace segment. cost: 00:00:00.0055698s
+2023-04-07 14:02:23.743 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 3 logs. cost: 00:00:00.0068895s
+2023-04-07 14:02:26.743 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 2 logs. cost: 00:00:00.0068434s
+2023-04-07 14:02:26.743 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 2 trace segment. cost: 00:00:00.0070293s
+2023-04-07 14:02:32.732 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 13M ThreadPool 32751 32767 1000 1000
+2023-04-07 14:02:32.738 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 6:02:32 +00:00
+2023-04-07 14:02:32.740 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 6:02:32 +00:00
+2023-04-07 14:02:32.743 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 13M ThreadPool 32757 32767 1000 1000
+2023-04-07 14:03:02.733 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 14M ThreadPool 32758 32767 1000 1000
+2023-04-07 14:03:02.733 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 14M ThreadPool 32758 32767 1000 1000
+2023-04-07 14:03:32.735 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 15M ThreadPool 32758 32767 1000 1000
+2023-04-07 14:03:32.735 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 6:03:32 +00:00
+2023-04-07 14:03:32.735 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 15M ThreadPool 32758 32767 1000 1000
+2023-04-07 14:03:32.735 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 6:03:32 +00:00
+2023-04-07 14:04:02.751 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 16M ThreadPool 32754 32767 1000 1000
+2023-04-07 14:04:02.757 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 16M ThreadPool 32761 32767 1000 1000
+2023-04-07 14:04:54.769 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 6:04:54 +00:00
+2023-04-07 14:04:54.770 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 6:04:54 +00:00
+2023-04-07 14:04:54.785 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 1.5625 GenCollectCount 0 0 0 17M ThreadPool 32758 32767 1000 1000
+2023-04-07 14:04:54.785 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 1.5625 GenCollectCount 0 0 0 17M ThreadPool 32758 32767 1000 1000
+2023-04-07 14:05:03.492 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 18M ThreadPool 32763 32767 1000 1000
+2023-04-07 14:05:03.494 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 18M ThreadPool 32761 32767 1000 1000
+2023-04-07 14:05:32.738 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 6:05:32 +00:00
+2023-04-07 14:05:32.738 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 19M ThreadPool 32758 32767 1000 1000
+2023-04-07 14:05:32.738 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 6:05:32 +00:00
+2023-04-07 14:05:32.749 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 19M ThreadPool 32756 32767 1000 1000
+2023-04-07 14:06:02.735 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 20M ThreadPool 32758 32767 1000 1000
+2023-04-07 14:06:02.735 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 20M ThreadPool 32758 32767 1000 1000
+2023-04-07 14:06:32.737 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 21M ThreadPool 32754 32767 1000 1000
+2023-04-07 14:06:32.737 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 6:06:32 +00:00
+2023-04-07 14:06:32.737 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 21M ThreadPool 32755 32767 1000 1000
+2023-04-07 14:06:32.741 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 6:06:32 +00:00
+2023-04-07 14:07:02.737 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 22M ThreadPool 32759 32767 1000 1000
+2023-04-07 14:07:02.737 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 22M ThreadPool 32759 32767 1000 1000
+2023-04-07 14:07:32.731 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 23M ThreadPool 32756 32767 1000 1000
+2023-04-07 14:07:32.731 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 6:07:32 +00:00
+2023-04-07 14:07:32.731 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 6:07:32 +00:00
+2023-04-07 14:07:32.731 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 23M ThreadPool 32757 32767 1000 1000
+2023-04-07 14:08:02.743 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 24M ThreadPool 32758 32767 1000 1000
+2023-04-07 14:08:02.743 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 24M ThreadPool 32761 32767 1000 1000
+2023-04-07 14:08:32.733 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 6:08:32 +00:00
+2023-04-07 14:08:32.733 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 25M ThreadPool 32758 32767 1000 1000
+2023-04-07 14:08:32.733 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 6:08:32 +00:00
+2023-04-07 14:08:32.733 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 25M ThreadPool 32758 32767 1000 1000
+2023-04-07 14:09:02.743 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 26M ThreadPool 32764 32767 1000 1000
+2023-04-07 14:09:02.742 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 26M ThreadPool 32763 32767 1000 1000
+2023-04-07 14:09:32.741 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 6:09:32 +00:00
+2023-04-07 14:09:32.741 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 6:09:32 +00:00
+2023-04-07 14:09:32.741 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 27M ThreadPool 32760 32767 1000 1000
+2023-04-07 14:09:32.741 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 27M ThreadPool 32762 32767 1000 1000
+2023-04-07 14:10:02.744 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 28M ThreadPool 32758 32767 1000 1000
+2023-04-07 14:10:02.744 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 28M ThreadPool 32761 32767 1000 1000
+2023-04-07 14:10:32.740 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 29M ThreadPool 32757 32767 1000 1000
+2023-04-07 14:10:32.740 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 6:10:32 +00:00
+2023-04-07 14:10:32.745 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 29M ThreadPool 32757 32767 1000 1000
+2023-04-07 14:10:32.745 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 6:10:32 +00:00
+2023-04-07 14:11:02.743 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 30M ThreadPool 32759 32767 1000 1000
+2023-04-07 14:11:02.743 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 30M ThreadPool 32763 32767 1000 1000
+2023-04-07 14:11:32.737 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 31M ThreadPool 32758 32767 1000 1000
+2023-04-07 14:11:32.737 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 31M ThreadPool 32758 32767 1000 1000
+2023-04-07 14:11:32.737 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 6:11:32 +00:00
+2023-04-07 14:11:32.737 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 6:11:32 +00:00
+2023-04-07 14:12:02.744 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 33M ThreadPool 32759 32767 1000 1000
+2023-04-07 14:12:02.745 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 33M ThreadPool 32759 32767 1000 1000
+2023-04-07 14:12:43.087 +08:00 [arsidentityserver4] [Information] SkyApm.InstrumentStartup : Initializing ...
+2023-04-07 14:12:43.162 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-07 14:12:43.163 +08:00 [arsidentityserver4] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-07 14:12:43.163 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-07 14:12:43.163 +08:00 [arsidentityserver4] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-07 14:12:43.163 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-07 14:12:43.163 +08:00 [arsidentityserver4] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-07 14:12:43.164 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-07 14:12:43.164 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-07 14:12:43.164 +08:00 [arsidentityserver4] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-07 14:12:43.164 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-07 14:12:43.164 +08:00 [arsidentityserver4] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-07 14:12:43.164 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-07 14:12:43.164 +08:00 [arsidentityserver4] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-07 14:12:43.164 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-07 14:12:43.298 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[127.0.0.1:11800].
+2023-04-07 14:12:43.315 +08:00 [arsidentityserver4] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.AspNetCore].
+2023-04-07 14:12:43.316 +08:00 [arsidentityserver4] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2023-04-07 14:12:43.316 +08:00 [arsidentityserver4] [Information] SkyApm.InstrumentStartup : Initializing ...
+2023-04-07 14:12:43.316 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-07 14:12:43.316 +08:00 [arsidentityserver4] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-07 14:12:43.316 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-07 14:12:43.316 +08:00 [arsidentityserver4] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-07 14:12:43.316 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-07 14:12:43.316 +08:00 [arsidentityserver4] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-07 14:12:43.316 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-07 14:12:43.316 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-07 14:12:43.316 +08:00 [arsidentityserver4] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-07 14:12:43.316 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-07 14:12:43.316 +08:00 [arsidentityserver4] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-07 14:12:43.316 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-07 14:12:43.316 +08:00 [arsidentityserver4] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-07 14:12:43.316 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-07 14:12:43.318 +08:00 [arsidentityserver4] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.AspNetCore].
+2023-04-07 14:12:43.318 +08:00 [arsidentityserver4] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2023-04-07 14:12:44.405 +08:00 [arsidentityserver4] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2023-04-07 14:12:44.429 +08:00 [arsidentityserver4] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2023-04-07 14:12:45.041 +08:00 [arsidentityserver4] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2023-04-07 14:12:45.041 +08:00 [arsidentityserver4] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2023-04-07 14:12:46.123 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=arsidentityserver4,InstanceId=192.168.110.67@68682c9750d048d9b473768cfb878821].
+2023-04-07 14:12:46.123 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=arsidentityserver4,InstanceId=192.168.110.67@68682c9750d048d9b473768cfb878821].
+2023-04-07 14:12:46.123 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=arsidentityserver4,InstanceId=192.168.110.67@68682c9750d048d9b473768cfb878821].
+2023-04-07 14:12:46.123 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=arsidentityserver4,InstanceId=192.168.110.67@68682c9750d048d9b473768cfb878821].
+2023-04-07 14:13:10.226 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 5 logs. cost: 00:00:00.0521553s
+2023-04-07 14:13:10.227 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 3 trace segment. cost: 00:00:00.0529285s
+2023-04-07 14:13:13.223 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 6:13:13 +00:00
+2023-04-07 14:13:13.223 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 6:13:13 +00:00
+2023-04-07 14:13:13.227 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 26M ThreadPool 32762 32767 1000 1000
+2023-04-07 14:13:13.227 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 26M ThreadPool 32762 32767 1000 1000
+2023-04-07 14:13:13.339 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 6:13:13 +00:00
+2023-04-07 14:13:13.340 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 6:13:13 +00:00
+2023-04-07 14:13:13.340 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 26M ThreadPool 32757 32767 1000 1000
+2023-04-07 14:13:13.340 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 26M ThreadPool 32757 32767 1000 1000
+2023-04-07 14:13:43.170 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 28M ThreadPool 32754 32767 1000 1000
+2023-04-07 14:13:43.182 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 28M ThreadPool 32754 32767 1000 1000
+2023-04-07 14:13:43.323 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 29M ThreadPool 32754 32767 1000 1000
+2023-04-07 14:13:43.323 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 29M ThreadPool 32754 32767 1000 1000
+2023-04-07 14:14:13.180 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 30M ThreadPool 32758 32767 1000 1000
+2023-04-07 14:14:13.180 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 6:14:13 +00:00
+2023-04-07 14:14:13.181 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 6:14:13 +00:00
+2023-04-07 14:14:13.181 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 30M ThreadPool 32758 32767 1000 1000
+2023-04-07 14:14:13.347 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 6:14:13 +00:00
+2023-04-07 14:14:13.347 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 31M ThreadPool 32755 32767 1000 1000
+2023-04-07 14:14:13.347 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 6:14:13 +00:00
+2023-04-07 14:14:13.349 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 31M ThreadPool 32755 32767 1000 1000
+2023-04-07 14:14:43.178 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 32M ThreadPool 32758 32767 1000 1000
+2023-04-07 14:14:43.178 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 32M ThreadPool 32758 32767 1000 1000
+2023-04-07 14:14:43.331 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 33M ThreadPool 32758 32767 1000 1000
+2023-04-07 14:14:43.331 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 33M ThreadPool 32758 32767 1000 1000
+2023-04-07 14:15:13.337 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 6:15:13 +00:00
+2023-04-07 14:15:13.342 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 8M ThreadPool 32757 32767 1000 1000
+2023-04-07 14:15:13.342 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 1 0 0 8M ThreadPool 32757 32767 1000 1000
+2023-04-07 14:15:13.345 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 6:15:13 +00:00
+2023-04-07 14:15:43.324 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 10M ThreadPool 32761 32767 1000 1000
+2023-04-07 14:15:43.324 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 10M ThreadPool 32757 32767 1000 1000
+2023-04-07 14:16:13.364 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 6:16:13 +00:00
+2023-04-07 14:16:13.364 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 6:16:13 +00:00
+2023-04-07 14:16:13.364 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 11M ThreadPool 32761 32767 1000 1000
+2023-04-07 14:16:13.364 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 11M ThreadPool 32762 32767 1000 1000
+2023-04-07 14:16:43.332 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 12M ThreadPool 32752 32767 1000 1000
+2023-04-07 14:16:43.332 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 12M ThreadPool 32752 32767 1000 1000
+2023-04-07 14:17:13.336 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 13M ThreadPool 32756 32767 1000 1000
+2023-04-07 14:17:13.336 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 6:17:13 +00:00
+2023-04-07 14:17:13.336 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 13M ThreadPool 32756 32767 1000 1000
+2023-04-07 14:17:13.336 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 6:17:13 +00:00
+2023-04-07 14:17:43.357 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 14M ThreadPool 32756 32767 1000 1000
+2023-04-07 14:17:43.357 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 14M ThreadPool 32763 32767 1000 1000
+2023-04-07 14:18:13.350 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 6:18:13 +00:00
+2023-04-07 14:18:13.377 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 15M ThreadPool 32755 32767 1000 1000
+2023-04-07 14:18:13.395 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 15M ThreadPool 32754 32767 1000 1000
+2023-04-07 14:18:13.395 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 6:18:13 +00:00
+2023-04-07 14:18:59.114 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 1.5625 GenCollectCount 0 0 0 16M ThreadPool 32758 32767 1000 1000
+2023-04-07 14:18:59.114 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 1.5625 GenCollectCount 0 0 0 16M ThreadPool 32758 32767 1000 1000
+2023-04-07 14:18:59.153 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 1 trace segment. cost: 00:00:00.0997572s
+2023-04-07 14:18:59.151 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 3 logs. cost: 00:00:00.0932068s
+2023-04-07 14:19:02.063 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 2 trace segment. cost: 00:00:00.0139263s
+2023-04-07 14:19:02.063 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 2 logs. cost: 00:00:00.0139098s
+2023-04-07 14:19:13.337 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 17M ThreadPool 32755 32767 1000 1000
+2023-04-07 14:19:13.337 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 6:19:13 +00:00
+2023-04-07 14:19:13.337 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 6:19:13 +00:00
+2023-04-07 14:19:13.338 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 17M ThreadPool 32756 32767 1000 1000
+2023-04-07 14:19:48.860 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 18M ThreadPool 32751 32767 1000 1000
+2023-04-07 14:19:48.880 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 18M ThreadPool 32751 32767 1000 1000
+2023-04-07 14:20:13.327 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 19M ThreadPool 32757 32767 1000 1000
+2023-04-07 14:20:13.327 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 6:20:13 +00:00
+2023-04-07 14:20:13.327 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 19M ThreadPool 32757 32767 1000 1000
+2023-04-07 14:20:13.330 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 6:20:13 +00:00
+2023-04-07 14:20:43.328 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 20M ThreadPool 32760 32767 1000 1000
+2023-04-07 14:20:43.328 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 20M ThreadPool 32758 32767 1000 1000
+2023-04-07 14:21:48.720 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 6:21:48 +00:00
+2023-04-07 14:21:48.721 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 21M ThreadPool 32757 32767 1000 1000
+2023-04-07 14:21:48.720 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 21M ThreadPool 32757 32767 1000 1000
+2023-04-07 14:21:48.721 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 6:21:48 +00:00
+2023-04-07 14:21:48.739 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 21M ThreadPool 32757 32767 1000 1000
+2023-04-07 14:21:48.739 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 21M ThreadPool 32757 32767 1000 1000
+2023-04-07 14:22:13.330 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 6:22:13 +00:00
+2023-04-07 14:22:13.330 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 6:22:13 +00:00
+2023-04-07 14:22:18.035 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 1.5625 GenCollectCount 0 0 0 23M ThreadPool 32756 32767 1000 1000
+2023-04-07 14:22:18.035 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 1.5625 GenCollectCount 0 0 0 23M ThreadPool 32754 32767 1000 1000
+2023-04-07 14:24:01.985 +08:00 [arsidentityserver4] [Information] SkyApm.InstrumentStartup : Initializing ...
+2023-04-07 14:24:02.066 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-07 14:24:02.067 +08:00 [arsidentityserver4] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-07 14:24:02.067 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-07 14:24:02.067 +08:00 [arsidentityserver4] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-07 14:24:02.067 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-07 14:24:02.068 +08:00 [arsidentityserver4] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-07 14:24:02.068 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-07 14:24:02.069 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-07 14:24:02.069 +08:00 [arsidentityserver4] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-07 14:24:02.069 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-07 14:24:02.069 +08:00 [arsidentityserver4] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-07 14:24:02.069 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-07 14:24:02.069 +08:00 [arsidentityserver4] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-07 14:24:02.069 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-07 14:24:02.256 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[127.0.0.1:11800].
+2023-04-07 14:24:02.264 +08:00 [arsidentityserver4] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.AspNetCore].
+2023-04-07 14:24:02.264 +08:00 [arsidentityserver4] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2023-04-07 14:24:02.264 +08:00 [arsidentityserver4] [Information] SkyApm.InstrumentStartup : Initializing ...
+2023-04-07 14:24:02.265 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-07 14:24:02.265 +08:00 [arsidentityserver4] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-07 14:24:02.265 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-07 14:24:02.265 +08:00 [arsidentityserver4] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-07 14:24:02.265 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-07 14:24:02.265 +08:00 [arsidentityserver4] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-07 14:24:02.265 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-07 14:24:02.265 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-07 14:24:02.265 +08:00 [arsidentityserver4] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-07 14:24:02.265 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-07 14:24:02.265 +08:00 [arsidentityserver4] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-07 14:24:02.265 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-07 14:24:02.265 +08:00 [arsidentityserver4] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-07 14:24:02.265 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-07 14:24:02.268 +08:00 [arsidentityserver4] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.AspNetCore].
+2023-04-07 14:24:02.268 +08:00 [arsidentityserver4] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2023-04-07 14:24:02.391 +08:00 [arsidentityserver4] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2023-04-07 14:24:02.391 +08:00 [arsidentityserver4] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2023-04-07 14:24:02.676 +08:00 [arsidentityserver4] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2023-04-07 14:24:02.677 +08:00 [arsidentityserver4] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2023-04-07 14:24:02.952 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=arsidentityserver4,InstanceId=192.168.110.67@81d124a699e6480a81869eff6d9e1684].
+2023-04-07 14:24:02.952 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=arsidentityserver4,InstanceId=192.168.110.67@81d124a699e6480a81869eff6d9e1684].
+2023-04-07 14:24:02.952 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=arsidentityserver4,InstanceId=192.168.110.67@81d124a699e6480a81869eff6d9e1684].
+2023-04-07 14:24:02.952 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=arsidentityserver4,InstanceId=192.168.110.67@81d124a699e6480a81869eff6d9e1684].
+2023-04-07 14:24:31.294 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 5 logs. cost: 00:00:00.0812263s
+2023-04-07 14:24:31.300 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 3 trace segment. cost: 00:00:00.0875380s
+2023-04-07 14:25:24.873 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 6:25:24 +00:00
+2023-04-07 14:25:24.873 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 6:25:24 +00:00
+2023-04-07 14:25:24.911 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 1 0 11M ThreadPool 32758 32767 1000 1000
+2023-04-07 14:25:24.911 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 11M ThreadPool 32758 32767 1000 1000
+2023-04-07 14:25:24.911 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 11M ThreadPool 32758 32767 1000 1000
+2023-04-07 14:25:24.911 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 1 0 0 11M ThreadPool 32758 32767 1000 1000
+2023-04-07 14:25:32.283 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 6:25:32 +00:00
+2023-04-07 14:25:32.283 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 6:25:32 +00:00
+2023-04-07 14:25:54.685 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 12M ThreadPool 32756 32767 1000 1000
+2023-04-07 14:25:54.764 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 13M ThreadPool 32756 32767 1000 1000
+2023-04-07 14:26:24.673 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 13M ThreadPool 32758 32767 1000 1000
+2023-04-07 14:26:24.748 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 14M ThreadPool 32758 32767 1000 1000
+2023-04-07 14:26:32.277 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 6:26:32 +00:00
+2023-04-07 14:26:32.277 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 6:26:32 +00:00
+2023-04-07 14:26:54.659 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 15M ThreadPool 32757 32767 1000 1000
+2023-04-07 14:26:54.766 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 15M ThreadPool 32763 32767 1000 1000
+2023-04-07 14:28:43.950 +08:00 [arsidentityserver4] [Information] SkyApm.InstrumentStartup : Initializing ...
+2023-04-07 14:28:44.016 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-07 14:28:44.016 +08:00 [arsidentityserver4] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-07 14:28:44.016 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-07 14:28:44.016 +08:00 [arsidentityserver4] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-07 14:28:44.016 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-07 14:28:44.017 +08:00 [arsidentityserver4] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-07 14:28:44.017 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-07 14:28:44.017 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-07 14:28:44.017 +08:00 [arsidentityserver4] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-07 14:28:44.017 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-07 14:28:44.017 +08:00 [arsidentityserver4] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-07 14:28:44.017 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-07 14:28:44.017 +08:00 [arsidentityserver4] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-07 14:28:44.017 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-07 14:28:44.154 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[127.0.0.1:11800].
+2023-04-07 14:28:44.169 +08:00 [arsidentityserver4] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.AspNetCore].
+2023-04-07 14:28:44.169 +08:00 [arsidentityserver4] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2023-04-07 14:28:44.169 +08:00 [arsidentityserver4] [Information] SkyApm.InstrumentStartup : Initializing ...
+2023-04-07 14:28:44.170 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-07 14:28:44.170 +08:00 [arsidentityserver4] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-07 14:28:44.170 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-07 14:28:44.170 +08:00 [arsidentityserver4] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-07 14:28:44.170 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-07 14:28:44.170 +08:00 [arsidentityserver4] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-07 14:28:44.170 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-07 14:28:44.170 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-07 14:28:44.170 +08:00 [arsidentityserver4] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-07 14:28:44.170 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-07 14:28:44.170 +08:00 [arsidentityserver4] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-07 14:28:44.170 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-07 14:28:44.170 +08:00 [arsidentityserver4] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-07 14:28:44.171 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-07 14:28:44.173 +08:00 [arsidentityserver4] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.AspNetCore].
+2023-04-07 14:28:44.173 +08:00 [arsidentityserver4] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2023-04-07 14:28:44.338 +08:00 [arsidentityserver4] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2023-04-07 14:28:44.338 +08:00 [arsidentityserver4] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2023-04-07 14:28:44.634 +08:00 [arsidentityserver4] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2023-04-07 14:28:44.635 +08:00 [arsidentityserver4] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2023-04-07 14:28:45.083 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=arsidentityserver4,InstanceId=192.168.110.67@b65e73670c9b4247a35dd43d782ff096].
+2023-04-07 14:28:45.083 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=arsidentityserver4,InstanceId=192.168.110.67@b65e73670c9b4247a35dd43d782ff096].
+2023-04-07 14:28:45.083 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=arsidentityserver4,InstanceId=192.168.110.67@b65e73670c9b4247a35dd43d782ff096].
+2023-04-07 14:28:45.083 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=arsidentityserver4,InstanceId=192.168.110.67@b65e73670c9b4247a35dd43d782ff096].
+2023-04-07 14:29:00.151 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 5 logs. cost: 00:00:00.0795225s
+2023-04-07 14:29:00.151 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 3 trace segment. cost: 00:00:00.0800815s
+2023-04-07 14:29:08.042 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 5 logs. cost: 00:00:00.0102268s
+2023-04-07 14:29:08.050 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 3 trace segment. cost: 00:00:00.0182774s
+2023-04-07 14:29:14.055 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 6:29:14 +00:00
+2023-04-07 14:29:14.055 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 6:29:14 +00:00
+2023-04-07 14:29:14.057 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 27M ThreadPool 32762 32767 1000 1000
+2023-04-07 14:29:14.057 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 27M ThreadPool 32762 32767 1000 1000
+2023-04-07 14:29:14.201 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 6:29:14 +00:00
+2023-04-07 14:29:14.201 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 6:29:14 +00:00
+2023-04-07 14:29:14.201 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 27M ThreadPool 32758 32767 1000 1000
+2023-04-07 14:29:14.201 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 27M ThreadPool 32758 32767 1000 1000
+2023-04-07 15:21:17.356 +08:00 [arsidentityserver4] [Information] SkyApm.InstrumentStartup : Initializing ...
+2023-04-07 15:21:17.479 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-07 15:21:17.480 +08:00 [arsidentityserver4] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-07 15:21:17.480 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-07 15:21:17.486 +08:00 [arsidentityserver4] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-07 15:21:17.486 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-07 15:21:17.504 +08:00 [arsidentityserver4] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-07 15:21:17.516 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-07 15:21:17.516 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-07 15:21:17.516 +08:00 [arsidentityserver4] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-07 15:21:17.516 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-07 15:21:17.516 +08:00 [arsidentityserver4] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-07 15:21:17.516 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-07 15:21:17.516 +08:00 [arsidentityserver4] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-07 15:21:17.516 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-07 15:21:18.021 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[127.0.0.1:11800].
+2023-04-07 15:21:18.028 +08:00 [arsidentityserver4] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.AspNetCore].
+2023-04-07 15:21:18.028 +08:00 [arsidentityserver4] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2023-04-07 15:21:18.028 +08:00 [arsidentityserver4] [Information] SkyApm.InstrumentStartup : Initializing ...
+2023-04-07 15:21:18.028 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-07 15:21:18.028 +08:00 [arsidentityserver4] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-07 15:21:18.028 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-07 15:21:18.028 +08:00 [arsidentityserver4] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-07 15:21:18.028 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-07 15:21:18.029 +08:00 [arsidentityserver4] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-07 15:21:18.029 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-07 15:21:18.029 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-07 15:21:18.029 +08:00 [arsidentityserver4] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-07 15:21:18.029 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-07 15:21:18.029 +08:00 [arsidentityserver4] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-07 15:21:18.029 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-07 15:21:18.029 +08:00 [arsidentityserver4] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-07 15:21:18.029 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-07 15:21:18.030 +08:00 [arsidentityserver4] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.AspNetCore].
+2023-04-07 15:21:18.030 +08:00 [arsidentityserver4] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2023-04-07 15:21:18.165 +08:00 [arsidentityserver4] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2023-04-07 15:21:18.165 +08:00 [arsidentityserver4] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2023-04-07 15:21:22.388 +08:00 [arsidentityserver4] [Error] SkyApm.Transport.Grpc.V8.ServiceRegister : Report service instance properties fail.
+Grpc.Core.RpcException: Status(StatusCode="Unavailable", Detail="Error connecting to subchannel.", DebugException="System.Net.Sockets.SocketException (10061): 由于目标计算机积极拒绝，无法连接。
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|277_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Balancer.Internal.SocketConnectivitySubchannelTransport.TryConnectAsync(CancellationToken cancellationToken)")
+   at Grpc.Net.Client.Balancer.Internal.ConnectionManager.PickAsync(PickContext context, Boolean waitForReady, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Balancer.Internal.BalancerHttpHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Internal.GrpcCall`2.RunCall(HttpRequestMessage request, Nullable`1 timeout)
+   at SkyApm.Transport.Grpc.V8.ServiceRegister.<>c__DisplayClass9_0.<<ReportInstancePropertiesAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at SkyApm.Transport.Grpc.Common.Call.Execute[T](Func`1 task, Func`1 errCallback, Func`1 errMessage)
+2023-04-07 15:21:22.390 +08:00 [arsidentityserver4] [Warning] SkyApm.Transport.Grpc.ConnectionManager : Connection state changed. Status(StatusCode="Unavailable", Detail="Error connecting to subchannel.", DebugException="System.Net.Sockets.SocketException (10061): 由于目标计算机积极拒绝，无法连接。
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|277_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Balancer.Internal.SocketConnectivitySubchannelTransport.TryConnectAsync(CancellationToken cancellationToken)")
+2023-04-07 15:21:22.397 +08:00 [arsidentityserver4] [Error] SkyApm.Transport.Grpc.V8.ServiceRegister : Report service instance properties fail.
+Grpc.Core.RpcException: Status(StatusCode="Unavailable", Detail="Error connecting to subchannel.", DebugException="System.Net.Sockets.SocketException (10061): 由于目标计算机积极拒绝，无法连接。
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|277_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Balancer.Internal.SocketConnectivitySubchannelTransport.TryConnectAsync(CancellationToken cancellationToken)")
+   at Grpc.Net.Client.Balancer.Internal.ConnectionManager.PickAsync(PickContext context, Boolean waitForReady, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Balancer.Internal.BalancerHttpHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Internal.GrpcCall`2.RunCall(HttpRequestMessage request, Nullable`1 timeout)
+   at SkyApm.Transport.Grpc.V8.ServiceRegister.<>c__DisplayClass9_0.<<ReportInstancePropertiesAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at SkyApm.Transport.Grpc.Common.Call.Execute[T](Func`1 task, Func`1 errCallback, Func`1 errMessage)
+2023-04-07 15:21:22.570 +08:00 [arsidentityserver4] [Error] SkyApm.Transport.Grpc.V8.ServiceRegister : Report service instance properties fail.
+Grpc.Core.RpcException: Status(StatusCode="Unavailable", Detail="Error connecting to subchannel.", DebugException="System.Net.Sockets.SocketException (10061): 由于目标计算机积极拒绝，无法连接。
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|277_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Balancer.Internal.SocketConnectivitySubchannelTransport.TryConnectAsync(CancellationToken cancellationToken)")
+   at Grpc.Net.Client.Balancer.Internal.ConnectionManager.PickAsync(PickContext context, Boolean waitForReady, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Balancer.Internal.BalancerHttpHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Internal.GrpcCall`2.RunCall(HttpRequestMessage request, Nullable`1 timeout)
+   at SkyApm.Transport.Grpc.V8.ServiceRegister.<>c__DisplayClass9_0.<<ReportInstancePropertiesAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at SkyApm.Transport.Grpc.Common.Call.Execute[T](Func`1 task, Func`1 errCallback, Func`1 errMessage)
+2023-04-07 15:21:22.652 +08:00 [arsidentityserver4] [Error] SkyApm.Transport.Grpc.V8.ServiceRegister : Report service instance properties fail.
+Grpc.Core.RpcException: Status(StatusCode="Unavailable", Detail="Error connecting to subchannel.", DebugException="System.Net.Sockets.SocketException (10061): 由于目标计算机积极拒绝，无法连接。
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|277_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Balancer.Internal.SocketConnectivitySubchannelTransport.TryConnectAsync(CancellationToken cancellationToken)")
+   at Grpc.Net.Client.Balancer.Internal.ConnectionManager.PickAsync(PickContext context, Boolean waitForReady, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Balancer.Internal.BalancerHttpHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Internal.GrpcCall`2.RunCall(HttpRequestMessage request, Nullable`1 timeout)
+   at SkyApm.Transport.Grpc.V8.ServiceRegister.<>c__DisplayClass9_0.<<ReportInstancePropertiesAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at SkyApm.Transport.Grpc.Common.Call.Execute[T](Func`1 task, Func`1 errCallback, Func`1 errMessage)
+2023-04-07 15:21:32.543 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.ConnectionManager : Shutdown connection[127.0.0.1:11800].
+2023-04-07 15:21:32.543 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[127.0.0.1:11800].
+2023-04-07 15:21:51.451 +08:00 [arsidentityserver4] [Error] SkyApm.Transport.Grpc.V8.ServiceRegister : Report service instance properties fail.
+Grpc.Core.RpcException: Status(StatusCode="Unavailable", Detail="Error connecting to subchannel.", DebugException="System.Net.Sockets.SocketException (10061): 由于目标计算机积极拒绝，无法连接。
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|277_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Balancer.Internal.SocketConnectivitySubchannelTransport.TryConnectAsync(CancellationToken cancellationToken)")
+   at Grpc.Net.Client.Balancer.Internal.ConnectionManager.PickAsync(PickContext context, Boolean waitForReady, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Balancer.Internal.BalancerHttpHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Internal.GrpcCall`2.RunCall(HttpRequestMessage request, Nullable`1 timeout)
+   at SkyApm.Transport.Grpc.V8.ServiceRegister.<>c__DisplayClass9_0.<<ReportInstancePropertiesAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at SkyApm.Transport.Grpc.Common.Call.Execute[T](Func`1 task, Func`1 errCallback, Func`1 errMessage)
+2023-04-07 15:21:51.452 +08:00 [arsidentityserver4] [Warning] SkyApm.Transport.Grpc.ConnectionManager : Connection state changed. Status(StatusCode="Unavailable", Detail="Error connecting to subchannel.", DebugException="System.Net.Sockets.SocketException (10061): 由于目标计算机积极拒绝，无法连接。
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|277_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Balancer.Internal.SocketConnectivitySubchannelTransport.TryConnectAsync(CancellationToken cancellationToken)")
+2023-04-07 15:21:51.468 +08:00 [arsidentityserver4] [Error] SkyApm.Transport.Grpc.V8.ServiceRegister : Report service instance properties fail.
+Grpc.Core.RpcException: Status(StatusCode="Unavailable", Detail="Error connecting to subchannel.", DebugException="System.Net.Sockets.SocketException (10061): 由于目标计算机积极拒绝，无法连接。
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|277_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Balancer.Internal.SocketConnectivitySubchannelTransport.TryConnectAsync(CancellationToken cancellationToken)")
+   at Grpc.Net.Client.Balancer.Internal.ConnectionManager.PickAsync(PickContext context, Boolean waitForReady, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Balancer.Internal.BalancerHttpHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Internal.GrpcCall`2.RunCall(HttpRequestMessage request, Nullable`1 timeout)
+   at SkyApm.Transport.Grpc.V8.ServiceRegister.<>c__DisplayClass9_0.<<ReportInstancePropertiesAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at SkyApm.Transport.Grpc.Common.Call.Execute[T](Func`1 task, Func`1 errCallback, Func`1 errMessage)
+2023-04-07 15:22:03.115 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.ConnectionManager : Shutdown connection[127.0.0.1:11800].
+2023-04-07 15:22:03.138 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[127.0.0.1:11800].
+2023-04-07 15:22:20.620 +08:00 [arsidentityserver4] [Error] SkyApm.Transport.Grpc.V8.ServiceRegister : Report service instance properties fail.
+Grpc.Core.RpcException: Status(StatusCode="Unavailable", Detail="Error connecting to subchannel.", DebugException="System.Net.Sockets.SocketException (10061): 由于目标计算机积极拒绝，无法连接。
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|277_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Balancer.Internal.SocketConnectivitySubchannelTransport.TryConnectAsync(CancellationToken cancellationToken)")
+   at Grpc.Net.Client.Balancer.Internal.ConnectionManager.PickAsync(PickContext context, Boolean waitForReady, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Balancer.Internal.BalancerHttpHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Internal.GrpcCall`2.RunCall(HttpRequestMessage request, Nullable`1 timeout)
+   at SkyApm.Transport.Grpc.V8.ServiceRegister.<>c__DisplayClass9_0.<<ReportInstancePropertiesAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at SkyApm.Transport.Grpc.Common.Call.Execute[T](Func`1 task, Func`1 errCallback, Func`1 errMessage)
+2023-04-07 15:22:20.620 +08:00 [arsidentityserver4] [Error] SkyApm.Transport.Grpc.V8.ServiceRegister : Report service instance properties fail.
+Grpc.Core.RpcException: Status(StatusCode="Unavailable", Detail="Error connecting to subchannel.", DebugException="System.Net.Sockets.SocketException (10061): 由于目标计算机积极拒绝，无法连接。
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|277_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Balancer.Internal.SocketConnectivitySubchannelTransport.TryConnectAsync(CancellationToken cancellationToken)")
+   at Grpc.Net.Client.Balancer.Internal.ConnectionManager.PickAsync(PickContext context, Boolean waitForReady, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Balancer.Internal.BalancerHttpHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Internal.GrpcCall`2.RunCall(HttpRequestMessage request, Nullable`1 timeout)
+   at SkyApm.Transport.Grpc.V8.ServiceRegister.<>c__DisplayClass9_0.<<ReportInstancePropertiesAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at SkyApm.Transport.Grpc.Common.Call.Execute[T](Func`1 task, Func`1 errCallback, Func`1 errMessage)
+2023-04-07 15:22:20.620 +08:00 [arsidentityserver4] [Warning] SkyApm.Transport.Grpc.ConnectionManager : Connection state changed. Status(StatusCode="Unavailable", Detail="Error connecting to subchannel.", DebugException="System.Net.Sockets.SocketException (10061): 由于目标计算机积极拒绝，无法连接。
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|277_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Balancer.Internal.SocketConnectivitySubchannelTransport.TryConnectAsync(CancellationToken cancellationToken)")
+2023-04-07 15:22:20.620 +08:00 [arsidentityserver4] [Warning] SkyApm.Transport.Grpc.ConnectionManager : Connection state changed. Status(StatusCode="Unavailable", Detail="Error connecting to subchannel.", DebugException="System.Net.Sockets.SocketException (10061): 由于目标计算机积极拒绝，无法连接。
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|277_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Balancer.Internal.SocketConnectivitySubchannelTransport.TryConnectAsync(CancellationToken cancellationToken)")
+2023-04-07 15:22:33.039 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.ConnectionManager : Shutdown connection[127.0.0.1:11800].
+2023-04-07 15:22:33.040 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[127.0.0.1:11800].
+2023-04-07 15:50:25.753 +08:00 [arsidentityserver4] [Information] SkyApm.InstrumentStartup : Initializing ...
+2023-04-07 15:50:25.830 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-07 15:50:25.830 +08:00 [arsidentityserver4] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-07 15:50:25.831 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-07 15:50:25.831 +08:00 [arsidentityserver4] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-07 15:50:25.831 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-07 15:50:25.831 +08:00 [arsidentityserver4] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-07 15:50:25.831 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-07 15:50:25.832 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-07 15:50:25.832 +08:00 [arsidentityserver4] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-07 15:50:25.832 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-07 15:50:25.832 +08:00 [arsidentityserver4] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-07 15:50:25.832 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-07 15:50:25.832 +08:00 [arsidentityserver4] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-07 15:50:25.832 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-07 15:50:26.407 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[127.0.0.1:11800].
+2023-04-07 15:50:26.418 +08:00 [arsidentityserver4] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.AspNetCore].
+2023-04-07 15:50:26.419 +08:00 [arsidentityserver4] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2023-04-07 15:50:26.419 +08:00 [arsidentityserver4] [Information] SkyApm.InstrumentStartup : Initializing ...
+2023-04-07 15:50:26.419 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-07 15:50:26.419 +08:00 [arsidentityserver4] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-07 15:50:26.419 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-07 15:50:26.419 +08:00 [arsidentityserver4] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-07 15:50:26.419 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-07 15:50:26.420 +08:00 [arsidentityserver4] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-07 15:50:26.421 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-07 15:50:26.421 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-07 15:50:26.421 +08:00 [arsidentityserver4] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-07 15:50:26.421 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-07 15:50:26.421 +08:00 [arsidentityserver4] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-07 15:50:26.421 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-07 15:50:26.421 +08:00 [arsidentityserver4] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-07 15:50:26.421 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-07 15:50:26.422 +08:00 [arsidentityserver4] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.AspNetCore].
+2023-04-07 15:50:26.422 +08:00 [arsidentityserver4] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2023-04-07 15:50:26.566 +08:00 [arsidentityserver4] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2023-04-07 15:50:26.566 +08:00 [arsidentityserver4] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2023-04-07 15:50:26.753 +08:00 [arsidentityserver4] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2023-04-07 15:50:26.753 +08:00 [arsidentityserver4] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2023-04-07 15:50:28.519 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=arsidentityserver4,InstanceId=192.168.110.67@714cdcbea3144619896eba7aad4ccf9b].
+2023-04-07 15:50:28.519 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=arsidentityserver4,InstanceId=192.168.110.67@714cdcbea3144619896eba7aad4ccf9b].
+2023-04-07 15:50:28.519 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=arsidentityserver4,InstanceId=192.168.110.67@714cdcbea3144619896eba7aad4ccf9b].
+2023-04-07 15:50:28.519 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=arsidentityserver4,InstanceId=192.168.110.67@714cdcbea3144619896eba7aad4ccf9b].
+2023-04-07 15:50:37.999 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 5 logs. cost: 00:00:00.1434225s
+2023-04-07 15:50:38.041 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 3 trace segment. cost: 00:00:00.1855258s
+2023-04-07 15:50:43.855 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 3 trace segment. cost: 00:00:00.0207994s
+2023-04-07 15:50:43.864 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 5 logs. cost: 00:00:00.0291919s
+2023-04-07 15:50:55.954 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 7:50:55 +00:00
+2023-04-07 15:50:55.955 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 7:50:55 +00:00
+2023-04-07 15:50:55.961 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 25M ThreadPool 32763 32767 1000 1000
+2023-04-07 15:50:55.961 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 2 2 0 25M ThreadPool 32763 32767 1000 1000
+2023-04-07 15:50:56.444 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 7:50:56 +00:00
+2023-04-07 15:50:56.444 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 25M ThreadPool 32755 32767 1000 1000
+2023-04-07 15:50:56.446 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 25M ThreadPool 32754 32767 1000 1000
+2023-04-07 15:50:56.446 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 7:50:56 +00:00
+2023-04-07 15:51:25.866 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 27M ThreadPool 32759 32767 1000 1000
+2023-04-07 15:51:25.866 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 27M ThreadPool 32759 32767 1000 1000
+2023-04-07 15:51:26.428 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 27M ThreadPool 32756 32767 1000 1000
+2023-04-07 15:51:26.480 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 27M ThreadPool 32754 32767 1000 1000
+2023-04-07 15:52:35.567 +08:00 [arsidentityserver4] [Information] SkyApm.InstrumentStartup : Initializing ...
+2023-04-07 15:52:35.882 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-07 15:52:35.883 +08:00 [arsidentityserver4] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-07 15:52:35.883 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-07 15:52:35.883 +08:00 [arsidentityserver4] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-07 15:52:35.884 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-07 15:52:35.885 +08:00 [arsidentityserver4] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-07 15:52:35.885 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-07 15:52:35.885 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-07 15:52:35.886 +08:00 [arsidentityserver4] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-07 15:52:35.886 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-07 15:52:35.886 +08:00 [arsidentityserver4] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-07 15:52:35.886 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-07 15:52:35.886 +08:00 [arsidentityserver4] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-07 15:52:35.886 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-07 15:52:36.154 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[127.0.0.1:11800].
+2023-04-07 15:52:36.193 +08:00 [arsidentityserver4] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.AspNetCore].
+2023-04-07 15:52:36.194 +08:00 [arsidentityserver4] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2023-04-07 15:52:36.194 +08:00 [arsidentityserver4] [Information] SkyApm.InstrumentStartup : Initializing ...
+2023-04-07 15:52:36.194 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-07 15:52:36.195 +08:00 [arsidentityserver4] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-07 15:52:36.195 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-07 15:52:36.195 +08:00 [arsidentityserver4] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-07 15:52:36.195 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-07 15:52:36.195 +08:00 [arsidentityserver4] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-07 15:52:36.195 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-07 15:52:36.195 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-04-07 15:52:36.195 +08:00 [arsidentityserver4] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-04-07 15:52:36.195 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-04-07 15:52:36.195 +08:00 [arsidentityserver4] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-04-07 15:52:36.195 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-04-07 15:52:36.195 +08:00 [arsidentityserver4] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-04-07 15:52:36.195 +08:00 [arsidentityserver4] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-04-07 15:52:36.197 +08:00 [arsidentityserver4] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.AspNetCore].
+2023-04-07 15:52:36.197 +08:00 [arsidentityserver4] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2023-04-07 15:52:36.423 +08:00 [arsidentityserver4] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2023-04-07 15:52:36.424 +08:00 [arsidentityserver4] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2023-04-07 15:52:36.666 +08:00 [arsidentityserver4] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2023-04-07 15:52:36.667 +08:00 [arsidentityserver4] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2023-04-07 15:52:37.199 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=arsidentityserver4,InstanceId=192.168.110.67@09dc6427653d4b4ab86524933fcf2fff].
+2023-04-07 15:52:37.199 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=arsidentityserver4,InstanceId=192.168.110.67@09dc6427653d4b4ab86524933fcf2fff].
+2023-04-07 15:52:37.199 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=arsidentityserver4,InstanceId=192.168.110.67@09dc6427653d4b4ab86524933fcf2fff].
+2023-04-07 15:52:37.199 +08:00 [arsidentityserver4] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=arsidentityserver4,InstanceId=192.168.110.67@09dc6427653d4b4ab86524933fcf2fff].
+2023-04-07 15:53:05.951 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 7:53:05 +00:00
+2023-04-07 15:53:05.952 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 7:53:05 +00:00
+2023-04-07 15:53:05.956 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 23M ThreadPool 32763 32767 1000 1000
+2023-04-07 15:53:05.956 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 23M ThreadPool 32763 32767 1000 1000
+2023-04-07 15:53:06.232 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 7:53:06 +00:00
+2023-04-07 15:53:06.232 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 23M ThreadPool 32758 32767 1000 1000
+2023-04-07 15:53:06.232 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 7:53:06 +00:00
+2023-04-07 15:53:06.232 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 23M ThreadPool 32758 32767 1000 1000
+2023-04-07 15:53:35.908 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 25M ThreadPool 32754 32767 1000 1000
+2023-04-07 15:53:35.908 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 25M ThreadPool 32753 32767 1000 1000
+2023-04-07 15:53:36.215 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 25M ThreadPool 32754 32767 1000 1000
+2023-04-07 15:53:36.215 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 25M ThreadPool 32756 32767 1000 1000
+2023-04-07 15:54:05.902 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 7:54:05 +00:00
+2023-04-07 15:54:05.902 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 27M ThreadPool 32759 32767 1000 1000
+2023-04-07 15:54:05.902 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 27M ThreadPool 32759 32767 1000 1000
+2023-04-07 15:54:05.906 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 7:54:05 +00:00
+2023-04-07 15:54:06.203 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 27M ThreadPool 32759 32767 1000 1000
+2023-04-07 15:54:06.205 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 27M ThreadPool 32759 32767 1000 1000
+2023-04-07 15:54:06.205 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 7:54:06 +00:00
+2023-04-07 15:54:06.208 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 7:54:06 +00:00
+2023-04-07 15:54:36.222 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 1 0 0 7M ThreadPool 32756 32767 1000 1000
+2023-04-07 15:54:36.222 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 7M ThreadPool 32756 32767 1000 1000
+2023-04-07 15:55:06.212 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 7:55:06 +00:00
+2023-04-07 15:55:06.212 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 8M ThreadPool 32759 32767 1000 1000
+2023-04-07 15:55:06.229 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 7:55:06 +00:00
+2023-04-07 15:55:06.238 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 8M ThreadPool 32761 32767 1000 1000
+2023-04-07 15:55:36.220 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 9M ThreadPool 32759 32767 1000 1000
+2023-04-07 15:55:36.220 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 9M ThreadPool 32759 32767 1000 1000
+2023-04-07 15:56:06.229 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 7:56:06 +00:00
+2023-04-07 15:56:06.229 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 7:56:06 +00:00
+2023-04-07 15:56:06.231 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 10M ThreadPool 32754 32767 1000 1000
+2023-04-07 15:56:06.238 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 10M ThreadPool 32760 32767 1000 1000
+2023-04-07 15:56:36.206 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 11M ThreadPool 32761 32767 1000 1000
+2023-04-07 15:56:36.206 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 11M ThreadPool 32759 32767 1000 1000
+2023-04-07 15:57:06.218 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 12M ThreadPool 32759 32767 1000 1000
+2023-04-07 15:57:06.218 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 12M ThreadPool 32759 32767 1000 1000
+2023-04-07 15:57:06.218 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 7:57:06 +00:00
+2023-04-07 15:57:06.218 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 7:57:06 +00:00
+2023-04-07 15:57:36.207 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 13M ThreadPool 32764 32767 1000 1000
+2023-04-07 15:57:36.207 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 13M ThreadPool 32765 32767 1000 1000
+2023-04-07 15:58:06.262 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 14M ThreadPool 32755 32767 1000 1000
+2023-04-07 15:58:06.262 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 14M ThreadPool 32755 32767 1000 1000
+2023-04-07 15:58:06.263 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 7:58:06 +00:00
+2023-04-07 15:58:06.262 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 7:58:06 +00:00
+2023-04-07 15:58:36.209 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 15M ThreadPool 32759 32767 1000 1000
+2023-04-07 15:58:36.209 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 15M ThreadPool 32759 32767 1000 1000
+2023-04-07 15:59:06.213 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 7:59:06 +00:00
+2023-04-07 15:59:06.213 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 16M ThreadPool 32759 32767 1000 1000
+2023-04-07 15:59:06.213 +08:00 [arsidentityserver4] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 16M ThreadPool 32759 32767 1000 1000
+2023-04-07 15:59:06.213 +08:00 [arsidentityserver4] [Information] SkyApm.Service.PingService : Ping server @2023/4/7 7:59:06 +00:00

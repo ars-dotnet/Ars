@@ -14,9 +14,7 @@ namespace ArsTest
 
         /// <summary>
         /// 结论
-        /// 外层调用异步包裹【值不变】
-        /// 假异步 = 同步【值要变】
-        /// 真异步【值不变】
+        /// 只有线程切换了，值才不会变
         /// </summary>
         /// <returns></returns>
         [Fact]

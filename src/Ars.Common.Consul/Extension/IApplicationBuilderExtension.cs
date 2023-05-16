@@ -1,4 +1,5 @@
 ﻿using Ars.Commom.Tool.Certificates;
+using Ars.Common.Consul.HttpClientHelper;
 using Ars.Common.Consul.Option;
 using Ars.Common.Core.Configs;
 using Consul;
