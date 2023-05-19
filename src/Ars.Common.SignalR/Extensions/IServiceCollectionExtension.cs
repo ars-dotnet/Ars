@@ -14,7 +14,7 @@ namespace Ars.Common.SignalR.Extensions
             ArsSignalRConfiguration config = new ArsSignalRConfiguration();
             action?.Invoke(config);
 
-            var service = arsServiceBuilder.Services.ServiceCollection;
+            var service = arsServiceBuilder.Services;
             if (config.CacheType == 0)
                 service.AddScoped<IHubCacheManager, MemoryHubCacheManager>();
             else

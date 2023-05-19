@@ -3,7 +3,6 @@ using Ars.Common.Core.AspNetCore.OutputDtos;
 using Ars.Common.Tool;
 using Ars.Common.Tool.Extension;
 using Ars.Common.Tool.UploadExcel;
-using Grpc.Core;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Hosting;
@@ -20,10 +19,15 @@ namespace Ars.Common.Core.AspNetCore.MiddleWare
     {
         private readonly RequestDelegate _next;
         private readonly IWebHostEnvironment _environment;
-        public ArsExceptionMiddleWare(RequestDelegate next, IWebHostEnvironment environment)
+        private readonly IGrpcExceptionManager? _grpcExceptionManager;
+        public ArsExceptionMiddleWare(
+            RequestDelegate next,
+            IWebHostEnvironment environment,
+            IGrpcExceptionManager? grpcExceptionManager)
         {
             _next = next;
             _environment = environment;
+            _grpcExceptionManager = grpcExceptionManager;
         }
 
         public async Task Invoke(HttpContext httpContext) 
@@ -43,10 +47,11 @@ namespace Ars.Common.Core.AspNetCore.MiddleWare
             object? data = null;
             int code;
             string errorMsg;
-            if (e is RpcException rpcException)
+            if (_grpcExceptionManager?.IsGrpcException(e) ?? false)
             {
-                code = rpcException.StatusCode.GetHttpStatusCode();
-                errorMsg = rpcException.Status.Detail;
+                var err = _grpcExceptionManager.GetGrpcExceptionErr(e);
+                code = err.Item1;
+                errorMsg = err.Item2;
             }
             else if (e is ArsExcelException excelException) 
             {

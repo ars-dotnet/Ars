@@ -73,7 +73,7 @@ builder.Services.AddAuthentication(option =>
     options.CallbackPath = "/myars/signin-github";
 });
 
-builder.Services.AddArserviceCore(builder.Host);
+builder.Services.AddArserviceCore(builder);
 
 var a = Directory.GetCurrentDirectory();
 var b = AppDomain.CurrentDomain.BaseDirectory;

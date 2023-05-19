@@ -17,7 +17,7 @@ namespace Ars.Common.Core.AspNetCore.Extensions
     {
         public static IArsServiceBuilder AddAseNetCore(this IArsServiceBuilder arsServiceBuilder) 
         {
-            var services = arsServiceBuilder.Services.ServiceCollection;
+            var services = arsServiceBuilder.Services;
             services.AddHttpContextAccessor();
             services.AddSingleton<IPrincipalAccessor, AspNetCorePrincipalAccessor>();
             services.AddSingleton<IArsAspNetCoreConfiguration, ArsAspNetCoreConfiguration>();

@@ -1,4 +1,5 @@
 ﻿using Ars.Common.Core.IDependency;
+using Ars.Common.Core.Uow;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
@@ -17,18 +18,18 @@ namespace Ars.Common.EFCore.AdoNet
         where TDbContext : DbContext
     {
         /// <summary>
-        /// 传入EFCore事务
+        /// 使用EFCore事务
         /// </summary>
-        /// <param name="dbContextTransaction"></param>
+        /// <param name="activeUnitOfWork"></param>
         /// <returns></returns>
-        Task BeginWithEfCoreTransactionAsync([NotNull] IDbContextTransaction dbContextTransaction);
+        void BeginWithEFCoreTransaction([NotNull] IActiveUnitOfWork activeUnitOfWork);
 
         /// <summary>
         /// 新建一个ado.net事务
         /// </summary>
         /// <param name="isolationLevel"></param>
         /// <returns></returns>
-        Task<IDbContextTransaction> BeginAsync(IsolationLevel isolationLevel = IsolationLevel.RepeatableRead);
+        Task<IDbContextTransaction> BeginTransactionAsync(IsolationLevel isolationLevel = IsolationLevel.RepeatableRead);
 
         /// <summary>
         /// 执行非查询sql语句

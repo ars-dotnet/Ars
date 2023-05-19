@@ -107,11 +107,6 @@ namespace Ars.Common.EFCore.Repository
             return GetTable().Update(entity).Entity;
         }
 
-        public override Task<TEntity> UpdateAsync(TEntity entity)
-        {
-            return Task.FromResult(Update(entity));
-        }
-
         public override void Delete(TEntity entity)
         {
             GetTable().Remove(entity);

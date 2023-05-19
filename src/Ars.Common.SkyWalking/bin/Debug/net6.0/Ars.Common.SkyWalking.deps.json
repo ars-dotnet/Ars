@@ -6,9 +6,9 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v6.0": {
-      "Ars.Common.SkyWalking/1.6.0": {
+      "Ars.Common.SkyWalking/1.6.1": {
         "dependencies": {
-          "Ars.Common.Core": "1.6.0",
+          "Ars.Common.Core": "1.6.1",
           "Microsoft.Extensions.Configuration.Abstractions": "6.0.0",
           "Microsoft.Extensions.Configuration.Binder": "6.0.0",
           "Microsoft.Extensions.DependencyInjection": "6.0.0",
@@ -1277,18 +1277,18 @@
           }
         }
       },
-      "Ars.Common.Core/1.6.0": {
+      "Ars.Common.Core/1.6.1": {
         "dependencies": {
-          "Ars.Common.Tool": "1.6.0",
-          "Grpc.Core.Api": "2.47.0",
+          "Ars.Common.Tool": "1.6.1",
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "6.0.0",
+          "Microsoft.EntityFrameworkCore": "6.0.1",
           "System.Configuration.ConfigurationManager": "6.0.0"
         },
         "runtime": {
           "Ars.Common.Core.dll": {}
         }
       },
-      "Ars.Common.Tool/1.6.0": {
+      "Ars.Common.Tool/1.6.1": {
         "dependencies": {
           "Aspose.Cells": "23.3.0",
           "MessagePack": "2.3.85",
@@ -1309,7 +1309,7 @@
     }
   },
   "libraries": {
-    "Ars.Common.SkyWalking/1.6.0": {
+    "Ars.Common.SkyWalking/1.6.1": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -2203,12 +2203,12 @@
       "path": "system.windows.extensions/6.0.0",
       "hashPath": "system.windows.extensions.6.0.0.nupkg.sha512"
     },
-    "Ars.Common.Core/1.6.0": {
+    "Ars.Common.Core/1.6.1": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "Ars.Common.Tool/1.6.0": {
+    "Ars.Common.Tool/1.6.1": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

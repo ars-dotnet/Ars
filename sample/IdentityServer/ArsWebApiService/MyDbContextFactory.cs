@@ -13,7 +13,7 @@ namespace MyApiWithIdentityServer4
         {
             IConfigurationRoot configuration = new ConfigurationBuilder()
                .SetBasePath(Directory.GetCurrentDirectory())
-               .AddJsonFile("appsettings.Development.json")
+               .AddJsonFile("appsettings.Development001.json")
                .Build();
 
             DbContextOptionsBuilder<MyDbContext> builder = new DbContextOptionsBuilder<MyDbContext>();

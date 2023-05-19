@@ -57,5 +57,11 @@ namespace Ars.Common.Tool.Extension
 
             return res;
         }
+
+        public static string GetDescriotion(this Enum @enum) 
+        {
+            var type = @enum.GetType();
+            return type.GetField(@enum.ToString())?.GetCustomAttribute<DescriptionAttribute>()?.Description ?? string.Empty;
+        }
     }
 }

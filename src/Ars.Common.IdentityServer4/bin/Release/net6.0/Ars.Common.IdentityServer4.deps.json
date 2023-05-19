@@ -6,17 +6,10 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v6.0": {
-<<<<<<< HEAD
-      "Ars.Common.IdentityServer4/1.5.3": {
+      "Ars.Common.IdentityServer4/1.6.1": {
         "dependencies": {
-          "Ars.Common.Core": "1.5.3",
-          "Ars.Common.Tool": "1.5.3",
-=======
-      "Ars.Common.IdentityServer4/1.6.0": {
-        "dependencies": {
-          "Ars.Common.Core": "1.6.0",
-          "Ars.Common.Tool": "1.6.0",
->>>>>>> v1.6.0
+          "Ars.Common.Core": "1.6.1",
+          "Ars.Common.Tool": "1.6.1",
           "IdentityServer4": "4.1.2",
           "IdentityServer4.AccessTokenValidation": "3.0.1"
         },
@@ -42,25 +35,6 @@
           "lib/netcoreapp3.0/Enums.NET.dll": {
             "assemblyVersion": "4.0.0.0",
             "fileVersion": "4.0.0.0"
-          }
-        }
-      },
-      "Grpc.Core.Api/2.42.0": {
-        "dependencies": {
-          "System.Memory": "4.5.3"
-        },
-        "runtime": {
-          "lib/netstandard2.0/Grpc.Core.Api.dll": {
-            "assemblyVersion": "2.0.0.0",
-            "fileVersion": "2.42.0.0"
-          }
-        }
-      },
-      "Grpc.Net.Client.Web/2.42.0": {
-        "runtime": {
-          "lib/net6.0/Grpc.Net.Client.Web.dll": {
-            "assemblyVersion": "2.0.0.0",
-            "fileVersion": "2.42.0.0"
           }
         }
       },
@@ -200,6 +174,46 @@
         }
       },
       "Microsoft.CSharp/4.7.0": {},
+      "Microsoft.EntityFrameworkCore/6.0.0": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Abstractions": "6.0.0",
+          "Microsoft.EntityFrameworkCore.Analyzers": "6.0.0",
+          "Microsoft.Extensions.Caching.Memory": "6.0.0",
+          "Microsoft.Extensions.DependencyInjection": "6.0.0",
+          "Microsoft.Extensions.Logging": "6.0.0",
+          "System.Collections.Immutable": "6.0.0",
+          "System.Diagnostics.DiagnosticSource": "6.0.0"
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.EntityFrameworkCore.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.21.52301"
+          }
+        }
+      },
+      "Microsoft.EntityFrameworkCore.Abstractions/6.0.0": {
+        "runtime": {
+          "lib/net6.0/Microsoft.EntityFrameworkCore.Abstractions.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.21.52301"
+          }
+        }
+      },
+      "Microsoft.EntityFrameworkCore.Analyzers/6.0.0": {},
+      "Microsoft.Extensions.Caching.Abstractions/6.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "6.0.0"
+        }
+      },
+      "Microsoft.Extensions.Caching.Memory/6.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Caching.Abstractions": "6.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "6.0.0",
+          "Microsoft.Extensions.Options": "6.0.0",
+          "Microsoft.Extensions.Primitives": "6.0.0"
+        }
+      },
       "Microsoft.Extensions.Configuration.Abstractions/6.0.0": {
         "dependencies": {
           "Microsoft.Extensions.Primitives": "6.0.0"
@@ -512,6 +526,11 @@
           }
         }
       },
+      "System.Collections.Immutable/6.0.0": {
+        "dependencies": {
+          "System.Runtime.CompilerServices.Unsafe": "6.0.0"
+        }
+      },
       "System.Configuration.ConfigurationManager/6.0.0": {
         "dependencies": {
           "System.Security.Cryptography.ProtectedData": "6.0.0",
@@ -568,7 +587,6 @@
           }
         }
       },
-      "System.Memory/4.5.3": {},
       "System.Runtime.CompilerServices.Unsafe/6.0.0": {},
       "System.Security.AccessControl/6.0.0": {},
       "System.Security.Cryptography.Cng/4.5.0": {},
@@ -656,31 +674,20 @@
           }
         }
       },
-<<<<<<< HEAD
-      "Ars.Common.Core/1.5.3": {
+      "Ars.Common.Core/1.6.1": {
         "dependencies": {
-          "Ars.Common.Tool": "1.5.3",
-=======
-      "Ars.Common.Core/1.6.0": {
-        "dependencies": {
-          "Ars.Common.Tool": "1.6.0",
->>>>>>> v1.6.0
-          "Grpc.Core.Api": "2.42.0",
+          "Ars.Common.Tool": "1.6.1",
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "6.0.0",
+          "Microsoft.EntityFrameworkCore": "6.0.0",
           "System.Configuration.ConfigurationManager": "6.0.0"
         },
         "runtime": {
           "Ars.Common.Core.dll": {}
         }
       },
-<<<<<<< HEAD
-      "Ars.Common.Tool/1.5.3": {
-=======
-      "Ars.Common.Tool/1.6.0": {
->>>>>>> v1.6.0
+      "Ars.Common.Tool/1.6.1": {
         "dependencies": {
           "Aspose.Cells": "23.3.0",
-          "Grpc.Net.Client.Web": "2.42.0",
           "MessagePack": "2.3.85",
           "Microsoft.Extensions.Configuration.Abstractions": "6.0.0",
           "Microsoft.Extensions.DependencyInjection": "6.0.0",
@@ -699,11 +706,7 @@
     }
   },
   "libraries": {
-<<<<<<< HEAD
-    "Ars.Common.IdentityServer4/1.5.3": {
-=======
-    "Ars.Common.IdentityServer4/1.6.0": {
->>>>>>> v1.6.0
+    "Ars.Common.IdentityServer4/1.6.1": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -721,20 +724,6 @@
       "sha512": "sha512-d47SgeuGxKpalKhYoHqFkDPmO9SoE3amSwVNDoUdy4d675/tX7bLyZFHdjfo3Tobth9Y80VnjfasQ/PD4LqUuA==",
       "path": "enums.net/4.0.0",
       "hashPath": "enums.net.4.0.0.nupkg.sha512"
-    },
-    "Grpc.Core.Api/2.42.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-12ciAZrp8orzYFZcruvzshhMEbbD4CAFOe9an1Fa4/c5ZrCtqUjWVPa1Dpk/1Pnv5E1KTeIHPuOtPTkpMLOCoQ==",
-      "path": "grpc.core.api/2.42.0",
-      "hashPath": "grpc.core.api.2.42.0.nupkg.sha512"
-    },
-    "Grpc.Net.Client.Web/2.42.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-rSvYpUPfAr+YEMBYSyjHmvDeyuQ/rzPRH77Uc3DsvXt272cMD+fzyOCQGUvs90eIkb8TGNomBOPxnup4U+p5tA==",
-      "path": "grpc.net.client.web/2.42.0",
-      "hashPath": "grpc.net.client.web.2.42.0.nupkg.sha512"
     },
     "IdentityModel/4.4.0": {
       "type": "package",
@@ -826,6 +815,41 @@
       "sha512": "sha512-pTj+D3uJWyN3My70i2Hqo+OXixq3Os2D1nJ2x92FFo6sk8fYS1m1WLNTs0Dc1uPaViH0YvEEwvzddQ7y4rhXmA==",
       "path": "microsoft.csharp/4.7.0",
       "hashPath": "microsoft.csharp.4.7.0.nupkg.sha512"
+    },
+    "Microsoft.EntityFrameworkCore/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-BdHAtHzfQt3rltgSoYamSlHg2qawPtEDT677/bcSJlO8lQ/lj6XWlusM0TOt59O8Sbqm3hAC1a+4cEBxmv56pw==",
+      "path": "microsoft.entityframeworkcore/6.0.0",
+      "hashPath": "microsoft.entityframeworkcore.6.0.0.nupkg.sha512"
+    },
+    "Microsoft.EntityFrameworkCore.Abstractions/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-MrMLWEw4JsZdkVci0MkkGj+fSjZrXnm3m6UNuIEwytiAAIZPvJs3iPpnzfK4qM7np82W374voYm96q7QCdL0ow==",
+      "path": "microsoft.entityframeworkcore.abstractions/6.0.0",
+      "hashPath": "microsoft.entityframeworkcore.abstractions.6.0.0.nupkg.sha512"
+    },
+    "Microsoft.EntityFrameworkCore.Analyzers/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-BqWBL05PUDKwPwLeQCJdc2R4cIUycXV9UmuSjYfux2fcgyet8I2eYnOWlA7NgsDwRVcxW26vxvNQ0wuc8UAcLA==",
+      "path": "microsoft.entityframeworkcore.analyzers/6.0.0",
+      "hashPath": "microsoft.entityframeworkcore.analyzers.6.0.0.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Caching.Abstractions/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-bcz5sSFJbganH0+YrfvIjJDIcKNW7TL07C4d1eTmXy/wOt52iz4LVogJb6pazs7W0+74j0YpXFErvp++Aq5Bsw==",
+      "path": "microsoft.extensions.caching.abstractions/6.0.0",
+      "hashPath": "microsoft.extensions.caching.abstractions.6.0.0.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Caching.Memory/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Ve3BlCzhAlVp5IgO3+8dacAhZk1A0GlIlFNkAcfR2TfAibLKWIt5DhVJZfu4YtW+XZ89OjYf/agMcgjDtPxdGA==",
+      "path": "microsoft.extensions.caching.memory/6.0.0",
+      "hashPath": "microsoft.extensions.caching.memory.6.0.0.nupkg.sha512"
     },
     "Microsoft.Extensions.Configuration.Abstractions/6.0.0": {
       "type": "package",
@@ -1044,6 +1068,13 @@
       "path": "swashbuckle.aspnetcore.swaggergen/6.5.0",
       "hashPath": "swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512"
     },
+    "System.Collections.Immutable/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-l4zZJ1WU2hqpQQHXz1rvC3etVZN+2DLmQMO79FhOTZHMn8tDRr+WU287sbomD0BETlmKDn0ygUgVy9k5xkkJdA==",
+      "path": "system.collections.immutable/6.0.0",
+      "hashPath": "system.collections.immutable.6.0.0.nupkg.sha512"
+    },
     "System.Configuration.ConfigurationManager/6.0.0": {
       "type": "package",
       "serviceable": true,
@@ -1078,13 +1109,6 @@
       "sha512": "sha512-KMvPpX4exs2fe7Upq5zHMSR4yupc+jy8WG8yjucZL0XvT+r/T0hRvLIe9fP/SeN8/UVxFYBRAkRI5k1zbRGqmA==",
       "path": "system.identitymodel.tokens.jwt/5.6.0",
       "hashPath": "system.identitymodel.tokens.jwt.5.6.0.nupkg.sha512"
-    },
-    "System.Memory/4.5.3": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-3oDzvc/zzetpTKWMShs1AADwZjQ/36HnsufHRPcOjyRAAMLDlu2iD33MBI2opxnezcVUtXyqDXXjoFMOU9c7SA==",
-      "path": "system.memory/4.5.3",
-      "hashPath": "system.memory.4.5.3.nupkg.sha512"
     },
     "System.Runtime.CompilerServices.Unsafe/6.0.0": {
       "type": "package",
@@ -1156,20 +1180,12 @@
       "path": "system.windows.extensions/6.0.0",
       "hashPath": "system.windows.extensions.6.0.0.nupkg.sha512"
     },
-<<<<<<< HEAD
-    "Ars.Common.Core/1.5.3": {
-=======
-    "Ars.Common.Core/1.6.0": {
->>>>>>> v1.6.0
+    "Ars.Common.Core/1.6.1": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-<<<<<<< HEAD
-    "Ars.Common.Tool/1.5.3": {
-=======
-    "Ars.Common.Tool/1.6.0": {
->>>>>>> v1.6.0
+    "Ars.Common.Tool/1.6.1": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

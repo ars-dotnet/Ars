@@ -21,18 +21,18 @@ namespace Ars.Common.Redis.RedisExtension
             this IArsServiceBuilder arsServiceBuilder, 
             Action<ICacheConfigurationProvider>? provider = null) 
         {
-            var arsCacheOption = arsServiceBuilder.Services.Provider.GetRequiredService<IConfiguration>()
+            var arsCacheOption = arsServiceBuilder.Configuration
                 .GetSection(nameof(ArsCacheConfiguration))
                 .Get<ArsCacheConfiguration>() 
                 ?? throw new Exception("appsettings => ArsCacheConfiguration not be null");
-            var arsconfig = arsServiceBuilder.Services.Provider.GetRequiredService<IArsConfiguration>();
+            var arsconfig = arsServiceBuilder.ServiceProvider.GetRequiredService<IArsConfiguration>();
             arsconfig.ArsRedisConfiguration ??= arsCacheOption;
 
-            var service = arsServiceBuilder.Services.ServiceCollection;
+            var service = arsServiceBuilder.Services;
             service.AddSingleton<IArsRedisConfiguration>(arsCacheOption);
             service.AddSingleton<ICacheConfigurationProvider>(new CacheConfigurationProvider());
             if(null != provider)
-                provider(arsServiceBuilder.Services.Provider.GetRequiredService<ICacheConfigurationProvider>());
+                provider(arsServiceBuilder.ServiceProvider.GetRequiredService<ICacheConfigurationProvider>());
 
             if (string.IsNullOrEmpty(arsCacheOption.RedisConnection))
                 throw new ArgumentNullException(nameof(arsCacheOption.RedisConnection));

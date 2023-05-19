@@ -21,7 +21,7 @@ namespace Ars.Common.AutoFac.Extension
             this IArsServiceBuilder arsServiceBuilder,
             Action<PropertyAutowiredOption>? _autowiredAction) 
         {
-            var services = arsServiceBuilder.Services.ServiceCollection;
+            var services = arsServiceBuilder.Services;
             AddPropertyAutowired(services, _autowiredAction);
             services.TryAddEnumerable(new[]
             {
@@ -30,7 +30,7 @@ namespace Ars.Common.AutoFac.Extension
                 ServiceDescriptor.Singleton<IArsRegisterProvider,ArsPropertyRegisterProvider>(),
             });
             services.AddSingleton<IRegisterProviderFactory, RegisterProviderFactory>();
-            var providerfactory = arsServiceBuilder.Services.Provider.GetRequiredService<IRegisterProviderFactory>();
+            var providerfactory = arsServiceBuilder.ServiceProvider.GetRequiredService<IRegisterProviderFactory>();
             arsServiceBuilder.HostBuilder.UseServiceProviderFactory(new ArsServiceProviderFactory(providerfactory));
 
             return arsServiceBuilder;

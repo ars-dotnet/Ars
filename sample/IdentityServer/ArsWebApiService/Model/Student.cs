@@ -22,8 +22,8 @@ namespace MyApiWithIdentityServer4.Model
         /// <summary>
         /// 并发标记
         /// </summary>
-        //[Timestamp]
-        //public byte[] TimeStamp { get; set; }
+        [Timestamp]
+        public DateTime TimeStamp { get; set; }
 
         public virtual ICollection<Enrollment> Enrollments { get; set; }
 

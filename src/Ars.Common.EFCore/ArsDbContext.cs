@@ -19,10 +19,13 @@ using Ars.Common.Core.Uow.Options;
 using Ars.Common.Core.Configs;
 using Ars.Common.Tool.Extension;
 using Ars.Common.Core.AspNetCore.Extensions;
+using Newtonsoft.Json.Linq;
+using Ars.Common.Core.Diagnostic;
+using NPOI.SS.Formula.Functions;
 
 namespace Ars.Common.EFCore
 {
-    public abstract class ArsDbContext : DbContext
+    public abstract class ArsDbContext : DbContext,ITransientDependency
     {
         private readonly IArsSession? _arsSession;
 
@@ -151,6 +154,8 @@ namespace Ars.Common.EFCore
                     }
 
                     ConceptEntry(entry);
+
+                    AddChangerTables(entry);
                 }
 
                 return base.SaveChanges();
@@ -173,6 +178,8 @@ namespace Ars.Common.EFCore
                     }
 
                     ConceptEntry(entry);
+
+                    AddChangerTables(entry);
                 }
 
                 return base.SaveChangesAsync(cancellationToken);
@@ -298,6 +305,121 @@ namespace Ars.Common.EFCore
                 if (!entity.DeleteTime.HasValue)
                     entity.DeleteTime = DateTime.Now;
             }
+        }
+
+        private IList<ChangerTable> _changerTables;
+
+        protected virtual void AddChangerTables(EntityEntry entityEntry) 
+        {
+            switch(entityEntry.State) 
+            {
+                case EntityState.Added:  
+                case EntityState.Modified:
+                case EntityState.Deleted:
+                    CreateChangerTable(entityEntry);
+                    break;
+            }
+        }
+
+        protected virtual void CreateChangerTable(EntityEntry entityEntry) 
+        {
+            ChangerTable changerTable = new ChangerTable
+            {
+                TableName = entityEntry.Metadata.GetDefaultTableName() 
+                         ?? entityEntry.Entity.GetType().Name,
+                EntityEntry = entityEntry,
+                EntityState = GetDiagnosticEntityState(entityEntry.State),
+                OriginalValues = 
+                    entityEntry.State == EntityState.Added 
+                    ? null
+                    : GetOriginalEntryValue(entityEntry),
+                CurrentValues = 
+                    entityEntry.State == EntityState.Deleted 
+                    ? null
+                    : GetCurrentEntryValue(entityEntry),
+            };
+            _changerTables ??= new List<ChangerTable>();
+            _changerTables.Add(changerTable);
+        }
+
+        private JObject GetOriginalEntryValue(EntityEntry entityEntry) 
+        {
+            JObject value = new JObject();
+            foreach (var property in entityEntry.Properties) 
+            {
+                value[property.Metadata.Name] = null == property.OriginalValue 
+                    ? JValue.CreateNull()
+                    : JToken.FromObject(property.OriginalValue);
+            }
+            return value;
+        }
+
+        private JObject GetCurrentEntryValue(EntityEntry entityEntry)
+        {
+            JObject value = new JObject();
+            foreach (var property in entityEntry.Properties)
+            {
+                value[property.Metadata.Name] = null == property.CurrentValue
+                    ? JValue.CreateNull()
+                    : JToken.FromObject(property.CurrentValue);
+            }
+            return value;
+        }
+
+        public virtual IEnumerable<ChangerTable> GetChangerTables() 
+        {
+            if (_changerTables.HasNotValue())
+                return _changerTables;
+
+            //自增主键重新赋值
+            var tables = from table in _changerTables
+                              let keys = GetPrimaryKeys(table.EntityEntry)
+                         from key in keys
+                         where 
+                              table.EntityState == DiagnosticEntityState.Added &&
+                              null != table.CurrentValues &&
+                              keys.HasValue() &&
+                              (!key.Item2.ToString()?.Equals(table.CurrentValues![key.Item1]?.ToString()) ?? false)
+                         select new { table, primaryKeyValue = key };
+            foreach (var item in tables)
+            {
+                item.table.CurrentValues![item.primaryKeyValue.Item1] = JToken.FromObject(item.primaryKeyValue.Item2);
+            }
+            
+            return _changerTables;
+        }
+
+        public DiagnosticEntityState GetDiagnosticEntityState(EntityState entityState)
+        {
+            switch (entityState) 
+            {
+                case EntityState.Added:
+                    return DiagnosticEntityState.Added;
+                case EntityState.Modified:
+                    return DiagnosticEntityState.Modified;
+                case EntityState.Deleted:
+                    return DiagnosticEntityState.Deleted;
+                default:
+                    return DiagnosticEntityState.Deleted;
+            }
+        }
+
+        private IEnumerable<(string, object?)> GetPrimaryKeys(EntityEntry entry)
+        {
+            var key = entry.Metadata.FindPrimaryKey();
+            if (key?.Properties.Any() ?? false)
+            {
+                foreach (var property in key.Properties)
+                {
+                    yield return (property.Name, entry.Property(property.Name).CurrentValue);
+                }
+            }
+        }
+
+        public override void Dispose()
+        {
+            _changerTables?.Clear();
+            base.Dispose();
         }
     }
 }

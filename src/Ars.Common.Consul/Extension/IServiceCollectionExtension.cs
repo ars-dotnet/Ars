@@ -22,11 +22,10 @@ namespace Ars.Common.Consul.Extension
     {
         public static IArsServiceBuilder AddArsConsulDiscoverClient(this IArsServiceBuilder arsServiceBuilder)
         {
-            var services = arsServiceBuilder.Services.ServiceCollection;
+            var services = arsServiceBuilder.Services;
             services.AddSingleton<ConsulHelper>();
 
-            var config = arsServiceBuilder.Services.Provider
-                .GetRequiredService<IConfiguration>()
+            var config = arsServiceBuilder.Configuration
                 .GetSection(nameof(ConsulDiscoverConfiguration))
                 .Get<ConsulDiscoverConfiguration>()
                 ??
@@ -37,8 +36,8 @@ namespace Ars.Common.Consul.Extension
                 throw new ArgumentNullException("appsettings => ConsulDiscoverConfiguration.CommunicationConfiguration not be null");
             }
 
-            arsServiceBuilder.Services.Provider
-                .GetRequiredService<IArsConfiguration>()
+            arsServiceBuilder.ServiceProvider
+                 .GetRequiredService<IArsConfiguration>()
                 .ArsConsulDiscoverConfiguration ??= config;
 
             services.AddSingleton<IConsulDiscoverConfiguration>(config);
@@ -53,17 +52,17 @@ namespace Ars.Common.Consul.Extension
 
         public static IArsServiceBuilder AddArsConsulRegisterServer(this IArsServiceBuilder arsServiceBuilder)
         {
-            var config = arsServiceBuilder.Services.Provider
-                .GetRequiredService<IConfiguration>()
+            var services = arsServiceBuilder.Services;
+            var config = arsServiceBuilder.Configuration
                 .GetSection(nameof(ConsulRegisterConfiguration))
                 .Get<ConsulRegisterConfiguration>()
                 ??
                 throw new ArgumentNullException("appsettings => ConsulRegisterConfiguration not be null");
 
-            var arscfg = arsServiceBuilder.Services.Provider
+            var arscfg = arsServiceBuilder.ServiceProvider
                 .GetRequiredService<IArsConfiguration>();
             arscfg.ArsConsulRegisterConfiguration ??= config;
-            arsServiceBuilder.Services.ServiceCollection.AddSingleton<IConsulRegisterConfiguration>(config);
+            services.AddSingleton<IConsulRegisterConfiguration>(config);
 
             arscfg.AddArsAppExtension(new ArsConsulAppExtension());
 

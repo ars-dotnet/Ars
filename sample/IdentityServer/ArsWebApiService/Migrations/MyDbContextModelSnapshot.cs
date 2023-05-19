@@ -16,7 +16,7 @@ namespace ArsWebApiService.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.0")
+                .HasAnnotation("ProductVersion", "6.0.1")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             modelBuilder.Entity("ArsWebApiService.Model.AppVersion", b =>
@@ -48,8 +48,14 @@ namespace ArsWebApiService.Migrations
 
             modelBuilder.Entity("ArsWebApiService.Model.ClassRoom", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)");
+
+                    b.Property<DateTime?>("CreationTime")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int?>("CreationUserId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -149,7 +155,7 @@ namespace ArsWebApiService.Migrations
                     b.Property<DateTime>("TimeStamp")
                         .IsConcurrencyToken()
                         .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("timestamp(6)");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<DateTime?>("UpdateTime")
                         .HasColumnType("datetime(6)");
