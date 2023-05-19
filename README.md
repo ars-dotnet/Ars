@@ -53,14 +53,14 @@ PM> Install-Package Ars.Common.SkyWalking
          config.AddArsLocalization();
 
          //add signalr service
-	 config.AddArsSignalR(config =>
+	     config.AddArsSignalR(config =>
          {
             config.CacheType = 0;
             config.UseMessagePackProtocol = true;
          });
 
-	 //add skyapm service
-	 config.AddArsSkyApm();
+	     //add skyapm service
+	     config.AddArsSkyApm();
     })
     //add dbcontext service
     .AddArsDbContext<xxxDbContext>()
@@ -69,9 +69,9 @@ PM> Install-Package Ars.Common.SkyWalking
     //add uploadexcel service
     .AddArsUploadExcelService(option =>
     {
-	option.UploadRoot = "wwwroot/upload";
-	option.RequestPath = "apps/upload";
-	option.SlidingExpireTime = TimeSpan.FromDays(1);
+	    option.UploadRoot = "wwwroot/upload";
+	    option.RequestPath = "apps/upload";
+	    option.SlidingExpireTime = TimeSpan.FromDays(1);
     });
 
 #### use Application:
