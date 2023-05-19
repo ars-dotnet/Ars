@@ -25,7 +25,7 @@ builder.Services.AddSwaggerGen();
 
 //builder.Services.AddTransient<ArsResourcePasswordValidator>();
 builder.Services
-    .AddArserviceCore(builder.Host, config =>
+    .AddArserviceCore(builder, config =>
     {
         config.AddArsIdentityClient();
         config.AddArsConsulRegisterServer();

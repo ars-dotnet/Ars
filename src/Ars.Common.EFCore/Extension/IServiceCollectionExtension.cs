@@ -21,13 +21,14 @@ namespace Ars.Common.EFCore.Extension
             where TDbContext : ArsDbContext
         {
             var service = arsServiceBuilder.Services;
-            var option = 
-                service.Provider.GetRequiredService<IConfiguration>()
+            var option =
+                arsServiceBuilder.Configuration
                 .GetSection(nameof(ArsDbContextConfiguration))
-                .Get<ArsDbContextConfiguration>() ?? throw new Exception("appsetting => ArsDbContextConfiguration not be null!");
+                .Get<ArsDbContextConfiguration>() 
+             ?? throw new Exception("appsetting => ArsDbContextConfiguration not be null!");
 
-            service.ServiceCollection.AddSingleton<IArsDbContextConfiguration>(option);
-            service.Provider.GetRequiredService<IArsConfiguration>().ArsDbContextConfiguration ??= option;
+            service.AddSingleton<IArsDbContextConfiguration>(option);
+            arsServiceBuilder.ServiceProvider.GetRequiredService<IArsConfiguration>().ArsDbContextConfiguration ??= option;
 
             if (null == optAction)
             {
@@ -42,7 +43,7 @@ namespace Ars.Common.EFCore.Extension
                     default: throw new ArgumentException("暂时只支持mysql和mssql数据库");
                 }
             }
-            service.ServiceCollection.AddDbContextFactory<TDbContext>(optAction);
+            service.AddDbContextFactory<TDbContext>(optAction);
             
             return arsServiceBuilder;
         }

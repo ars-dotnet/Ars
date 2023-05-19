@@ -30,8 +30,8 @@ PM> Install-Package Ars.Common.SignalR
 
     var builder = WebApplication.CreateBuilder(args);
     builder.Services
-     //add ars service
-     .AddArserviceCore(builder.Host, config =>
+     //add ars core service
+     .AddArserviceCore(builder, config =>
      {
          //add consul client service
          config.AddArsConsulDiscoverClient();
@@ -50,16 +50,41 @@ PM> Install-Package Ars.Common.SignalR
 
          //add localization service
          config.AddArsLocalization();
+
+		 //add signalr service
+		 config.AddArsSignalR(config =>
+         {
+            config.CacheType = 0;
+            config.UseMessagePackProtocol = true;
+         });
+
+		 //add skyapm service
+		 config.AddArsSkyApm();
     })
     //add dbcontext service
-    .AddArsDbContext<xxxDbContext>();
+    .AddArsDbContext<xxxDbContext>()
+	//add exportexcel service
+	.AddArsExportExcelService(typeof(Program).Assembly)
+	//add uploadexcel service
+	.AddArsUploadExcelService(option =>
+    {
+        option.UploadRoot = "wwwroot/upload";
+        option.RequestPath = "apps/upload";
+        option.SlidingExpireTime = TimeSpan.FromDays(1);
+    });
 
 #### use Application:
 
     var app = builder.Build();
-   
+
+	//ars exception middleware
+    app.UsArsExceptionMiddleware();
+
+	.....
+
     //use ars core application
-    app.UseArsCore();
+    app.UseArsCore()
+	   .UseArsUploadExcel();//use uploadexcel application
 
 #### change your appsettings.Development.json
  

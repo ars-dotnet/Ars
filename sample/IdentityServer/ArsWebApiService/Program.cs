@@ -33,7 +33,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 var arsbuilder =
     builder.Services
-    .AddArserviceCore(builder.Host, config =>
+    .AddArserviceCore(builder, config =>
     {
         var idsconfig = builder.Configuration.GetSection(nameof(ArsIdentityClientConfiguration)).Get<ArsIdentityClientConfiguration>();
 
@@ -58,7 +58,7 @@ var arsbuilder =
                 options.JwtBackChannelHandler = httpClientHandler;
             }
 
-            //for signalr
+            //for signalr token
             options.TokenRetriever = new Func<HttpRequest, string>(req =>
             {
                 var fromHeader = TokenRetrieval.FromAuthorizationHeader();
@@ -80,7 +80,6 @@ var arsbuilder =
             config.CacheType = 0;
             config.UseMessagePackProtocol = true;
         });
-        config.AddArsIdentityClient();
         config.AddArsConsulRegisterServer();
         config.AddArsSkyApm();
     })
@@ -92,7 +91,7 @@ builder.Services
     {
         option.UploadRoot = "wwwroot/upload";
         option.RequestPath = "apps/upload";
-        option.SlidingExpireTime = TimeSpan.FromMinutes(30);
+        option.SlidingExpireTime = TimeSpan.FromDays(1);
     });
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -132,7 +131,6 @@ builder.Services.AddSwaggerGen(c =>
         }
     });
 
-    //Influencer.GraphqlAggregator.xml
     string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ArsWebApiService.xml");
     if (File.Exists(path))
     {

@@ -23,27 +23,30 @@ namespace Ars.Common.EFCore.AdoNet
     internal class DbExecuter<TDbContext> : IDbExecuter<TDbContext>
         where TDbContext : DbContext
     {
+        private readonly IDbContextResolver _dbContextResolver;
         public DbExecuter(IDbContextResolver dbContextResolver)
         {
-            DbContext = dbContextResolver.Resolve<TDbContext>();
-            SqlConnection = DbContext.Database.GetDbConnection();
+            _dbContextResolver = dbContextResolver;
+            //DbContext = dbContextResolver.Resolve<TDbContext>();
         }
 
-        protected TDbContext DbContext { get; }
+        protected TDbContext DbContext { get; set; }
 
-        protected DbConnection SqlConnection { get; }
+        protected DbConnection SqlConnection => DbContext.Database.GetDbConnection();
 
         protected IDbContextTransaction? DbContextTransaction { get; set; }
 
         /// <summary>
-        /// 传入EFCore事务
+        /// 使用EFCore事务
         /// </summary>
         /// <param name="dbContextTransaction"></param>
         /// <returns></returns>
-        public Task BeginWithEfCoreTransactionAsync([NotNull]IDbContextTransaction dbContextTransaction) 
+        public void BeginWithEFCoreTransaction([NotNull] IActiveUnitOfWork activeUnitOfWork)
         {
-            DbContextTransaction = dbContextTransaction;
-            return Task.CompletedTask;
+            DbContext = activeUnitOfWork.GetDbContext<TDbContext>();
+            DbContextTransaction = activeUnitOfWork.GetContextTransaction<TDbContext>();
+
+            return;
         }
 
         /// <summary>
@@ -51,14 +54,16 @@ namespace Ars.Common.EFCore.AdoNet
         /// </summary>
         /// <param name="isolationLevel"></param>
         /// <returns></returns>
-        public async Task<IDbContextTransaction> BeginAsync(System.Data.IsolationLevel isolationLevel = System.Data.IsolationLevel.RepeatableRead)
+        public async Task<IDbContextTransaction> BeginTransactionAsync(System.Data.IsolationLevel isolationLevel = System.Data.IsolationLevel.RepeatableRead)
         {
+            DbContext ??= _dbContextResolver.Resolve<TDbContext>();
             DbContextTransaction = await DbContext.Database.BeginTransactionAsync(isolationLevel);
             return DbContextTransaction;
         }
 
-        protected void Check() 
+        protected void Init() 
         {
+            DbContext ??= _dbContextResolver.Resolve<TDbContext>();
             if (SqlConnection.State == ConnectionState.Closed)
                 SqlConnection.Open();
         }
@@ -77,7 +82,7 @@ namespace Ars.Common.EFCore.AdoNet
 
         public async Task<int> ExecuteNonQuery(string commandText, DbParameter[]? parameters = null)
         {
-            Check();
+            Init();
             using var command = CreateCommond(commandText, parameters);
             return await command.ExecuteNonQueryAsync();
         }
@@ -85,7 +90,7 @@ namespace Ars.Common.EFCore.AdoNet
         public async Task<IEnumerable<T>> QueryAsync<T>(string commandText, DbParameter[]? parameters = null)
              where T : class, new()
         {
-            Check();
+            Init();
             using var command = CreateCommond(commandText, parameters);
 
             var datas = await command.ExecuteReaderAsync();
@@ -105,7 +110,7 @@ namespace Ars.Common.EFCore.AdoNet
         public async Task<T?> QueryFirstOrDefaultAsync<T>(string commandText, DbParameter[]? parameters = null)
             where T : class, new()
         {
-            Check();
+            Init();
             using var command = CreateCommond(commandText, parameters);
 
             var datas = await command.ExecuteReaderAsync();
@@ -129,7 +134,7 @@ namespace Ars.Common.EFCore.AdoNet
         public async Task<T?> ExecuteScalarAsync<T>(string commandText, DbParameter[]? parameters = null)
              where T : struct
         {
-            Check();
+            Init();
             using var command = CreateCommond(commandText, parameters);
 
             var data = await command.ExecuteScalarAsync();
@@ -138,10 +143,14 @@ namespace Ars.Common.EFCore.AdoNet
 
         public void Dispose()
         {
-            DbContext?.Dispose();
-            SqlConnection?.Close();
-            SqlConnection?.Dispose();
+            //if (null != DbContext?.Database)
+            //{
+            //    SqlConnection?.Close();
+            //    SqlConnection?.Dispose();
+            //}
+
             DbContextTransaction?.Dispose();
+            DbContext?.Dispose();
         }
     }
 }

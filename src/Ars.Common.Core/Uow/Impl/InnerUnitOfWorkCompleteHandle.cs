@@ -10,8 +10,8 @@ namespace Ars.Common.Core.Uow.Impl
 {
     internal class InnerUnitOfWorkCompleteHandle : IUnitOfWorkCompleteHandler
     {
-        private volatile bool _isComplate;
-        private volatile bool _isDisposed;
+        private bool _isComplate;
+        private bool _isDisposed;
         public virtual Task CompleteAsync()
         {
             _isComplate = true; return Task.CompletedTask; 

@@ -1,25 +1,25 @@
 {
   "profiles": {
-    "ArsWebApiService01": {
+    "ArsWebApiService001": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "swagger",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development",
+        "ASPNETCORE_ENVIRONMENT": "Development001",
         "ASPNETCORE_HOSTINGSTARTUPASSEMBLIES": "SkyAPM.Agent.AspNetCore",
-        "SKYWALKING__SERVICENAME": "arswebapiservice0421001"
+        "SKYWALKING__SERVICENAME": "arswebapiservice001"
       },
       "dotnetRunMessages": true,
       "applicationUrl": "http://172.20.64.1:5196"
     },
-    "ArsWebApiService02": {
+    "ArsWebApiService002": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "swagger",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development",
+        "ASPNETCORE_ENVIRONMENT": "Development002",
         "ASPNETCORE_HOSTINGSTARTUPASSEMBLIES": "SkyAPM.Agent.AspNetCore",
-        "SKYWALKING__SERVICENAME": "arswebapiservice0421002"
+        "SKYWALKING__SERVICENAME": "arswebapiservice002"
       },
       "dotnetRunMessages": true,
       "applicationUrl": "http://172.20.64.1:5197"

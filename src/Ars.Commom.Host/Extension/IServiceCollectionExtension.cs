@@ -35,10 +35,10 @@ namespace Ars.Commom.Host.Extension
     {
         public static IArsServiceBuilder AddArserviceCore(
             this IServiceCollection services,
-            IHostBuilder host,
+            WebApplicationBuilder builder,
             Action<IArsConfiguration>? action = null)
         {
-            var arsbuilder = new ArsServiceBuilder(new ArsServiceCollection(services), host);
+            var arsbuilder = new ArsServiceBuilder(services, builder.Host, builder.Configuration);
             services.AddSingleton<IArsSerializer, ArsSerializer>();
             services.AddSingleton<IArsConfiguration>(new ArsConfiguration());
 

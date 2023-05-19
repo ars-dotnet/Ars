@@ -39,14 +39,13 @@ namespace Ars.Common.IdentityServer4.Extension
             this IArsServiceBuilder builder,
             Func<IServiceProvider,IResourceOwnerPasswordValidator>? func = null)
         {
-            var services = builder.Services.ServiceCollection;
-            var option = builder.Services.Provider
-                .GetRequiredService<IConfiguration>()
+            var services = builder.Services;
+            var option = builder.Configuration
                 .GetSection(nameof(ArsIdentityServerConfiguration))
                 .Get<ArsIdentityServerConfiguration>() ?? throw new Exception("appsettings => ArsIdentityServerConfiguration not be null!");
 
             services.AddSingleton<IArsIdentityServerConfiguration>(option);
-            var arscfg = builder.Services.Provider.GetRequiredService<IArsConfiguration>();
+            var arscfg = builder.ServiceProvider.GetRequiredService<IArsConfiguration>();
             arscfg.ArsIdentityServerConfiguration ??= option;
             arscfg.AddArsAppExtension(new ArsIdentityServerAppExtension());
 
@@ -114,14 +113,13 @@ namespace Ars.Common.IdentityServer4.Extension
             Action<IdentityServerAuthenticationOptions>? configureOptions = null,
             Action<AuthorizationOptions>? configure = null)  
         {
-            var services = builder.Services.ServiceCollection;
-            var option = builder.Services.Provider
-                .GetRequiredService<IConfiguration>()
+            var services = builder.Services;
+            var option = builder.Configuration
                 .GetSection(nameof(ArsIdentityClientConfiguration))
                 .Get<ArsIdentityClientConfiguration>() 
                 ?? 
                 throw new Exception("appsetting => ArsIdentityClientConfiguration not be null!");
-            var arscfg = builder.Services.Provider
+            var arscfg = builder.ServiceProvider
                 .GetRequiredService<IArsConfiguration>();
             arscfg.ArsIdentityClientConfiguration ??= option;
             arscfg.AddArsAppExtension(new ArsIdentityClientAppExtension());

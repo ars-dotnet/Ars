@@ -1,0 +1,730 @@
+2023-05-19 09:03:43.449 +08:00 [arswebapiservice001] [Information] SkyApm.InstrumentStartup : Initializing ...
+2023-05-19 09:03:43.511 +08:00 [arswebapiservice001] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-05-19 09:03:43.511 +08:00 [arswebapiservice001] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-05-19 09:03:43.511 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-05-19 09:03:43.512 +08:00 [arswebapiservice001] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-05-19 09:03:43.512 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-05-19 09:03:43.512 +08:00 [arswebapiservice001] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-05-19 09:03:43.512 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-05-19 09:03:43.751 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2023-05-19 09:03:43.755 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.AspNetCore].
+2023-05-19 09:03:43.755 +08:00 [arswebapiservice001] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2023-05-19 09:03:43.756 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[172.20.64.1:11800].
+2023-05-19 09:03:44.393 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2023-05-19 09:03:44.835 +08:00 [arswebapiservice001] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=arswebapiservice001,InstanceId=192.168.110.65@cc4f00a5f32c4951a9028c4c6942cce3].
+2023-05-19 09:04:05.450 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 5 trace segment. cost: 00:00:00.9197421s
+2023-05-19 09:04:11.792 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.EntityFrameworkCore].
+2023-05-19 09:04:13.600 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 1:04:13 +00:00
+2023-05-19 09:04:13.607 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 11 11 3 9M ThreadPool 32764 32767 1000 1000
+2023-05-19 09:04:20.640 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 3 trace segment. cost: 00:00:02.2878846s
+2023-05-19 09:04:21.092 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 5 logs. cost: 00:00:00.4820094s
+2023-05-19 09:04:22.533 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 1 trace segment. cost: 00:00:00.0079745s
+2023-05-19 09:04:49.329 +08:00 [arswebapiservice001] [Information] SkyApm.InstrumentStartup : Initializing ...
+2023-05-19 09:04:49.403 +08:00 [arswebapiservice001] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-05-19 09:04:49.403 +08:00 [arswebapiservice001] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-05-19 09:04:49.403 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-05-19 09:04:49.404 +08:00 [arswebapiservice001] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-05-19 09:04:49.404 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-05-19 09:04:49.404 +08:00 [arswebapiservice001] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-05-19 09:04:49.405 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-05-19 09:04:49.405 +08:00 [arswebapiservice001] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-05-19 09:04:49.405 +08:00 [arswebapiservice001] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-05-19 09:04:49.405 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-05-19 09:04:49.405 +08:00 [arswebapiservice001] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-05-19 09:04:49.405 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-05-19 09:04:49.405 +08:00 [arswebapiservice001] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-05-19 09:04:49.405 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-05-19 09:04:49.477 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[172.20.64.1:11800].
+2023-05-19 09:04:49.500 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2023-05-19 09:04:49.502 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.AspNetCore].
+2023-05-19 09:04:49.502 +08:00 [arswebapiservice001] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2023-05-19 09:04:49.502 +08:00 [arswebapiservice001] [Information] SkyApm.InstrumentStartup : Initializing ...
+2023-05-19 09:04:49.503 +08:00 [arswebapiservice001] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-05-19 09:04:49.503 +08:00 [arswebapiservice001] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-05-19 09:04:49.503 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-05-19 09:04:49.503 +08:00 [arswebapiservice001] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-05-19 09:04:49.503 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-05-19 09:04:49.503 +08:00 [arswebapiservice001] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-05-19 09:04:49.503 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-05-19 09:04:49.503 +08:00 [arswebapiservice001] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-05-19 09:04:49.503 +08:00 [arswebapiservice001] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-05-19 09:04:49.503 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-05-19 09:04:49.503 +08:00 [arswebapiservice001] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-05-19 09:04:49.503 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-05-19 09:04:49.503 +08:00 [arswebapiservice001] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-05-19 09:04:49.503 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-05-19 09:04:49.508 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2023-05-19 09:04:49.508 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.AspNetCore].
+2023-05-19 09:04:49.508 +08:00 [arswebapiservice001] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2023-05-19 09:04:49.605 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2023-05-19 09:04:49.606 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2023-05-19 09:04:49.935 +08:00 [arswebapiservice001] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=arswebapiservice001,InstanceId=192.168.110.65@69369d2363db4ec48b6de994187c8094].
+2023-05-19 09:04:49.935 +08:00 [arswebapiservice001] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=arswebapiservice001,InstanceId=192.168.110.65@69369d2363db4ec48b6de994187c8094].
+2023-05-19 09:04:49.997 +08:00 [arswebapiservice001] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=arswebapiservice001,InstanceId=192.168.110.65@69369d2363db4ec48b6de994187c8094].
+2023-05-19 09:04:49.997 +08:00 [arswebapiservice001] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=arswebapiservice001,InstanceId=192.168.110.65@69369d2363db4ec48b6de994187c8094].
+2023-05-19 09:04:55.593 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 3 trace segment. cost: 00:00:00.0768341s
+2023-05-19 09:04:55.593 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 1 trace segment. cost: 00:00:00.0768442s
+2023-05-19 09:05:01.148 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.EntityFrameworkCore].
+2023-05-19 09:05:01.149 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.EntityFrameworkCore].
+2023-05-19 09:05:06.644 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Ars.EFCoreOperationLog].
+2023-05-19 09:05:06.645 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Ars.EFCoreOperationLog].
+2023-05-19 09:12:32.387 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 1:12:32 +00:00
+2023-05-19 09:12:32.387 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 1:12:32 +00:00
+2023-05-19 09:12:32.396 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 5 logs. cost: 00:00:00.0675870s
+2023-05-19 09:12:32.403 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 6 trace segment. cost: 00:07:25.7613173s
+2023-05-19 09:12:32.406 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 1:12:32 +00:00
+2023-05-19 09:12:32.406 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 1:12:32 +00:00
+2023-05-19 09:12:32.412 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 10M ThreadPool 32759 32767 1000 1000
+2023-05-19 09:12:32.412 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 10M ThreadPool 32759 32767 1000 1000
+2023-05-19 09:12:32.412 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 10M ThreadPool 32759 32767 1000 1000
+2023-05-19 09:12:32.412 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 10 10 2 10M ThreadPool 32759 32767 1000 1000
+2023-05-19 09:12:32.416 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 2 trace segment. cost: 00:00:00.0509395s
+2023-05-19 09:12:35.338 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 1 trace segment. cost: 00:00:00.0093939s
+2023-05-19 09:13:02.382 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 10M ThreadPool 32753 32767 1000 1000
+2023-05-19 09:13:02.382 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 2 2 2 10M ThreadPool 32753 32767 1000 1000
+2023-05-19 09:13:32.343 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 11M ThreadPool 32759 32767 1000 1000
+2023-05-19 09:13:32.343 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 1:13:32 +00:00
+2023-05-19 09:13:32.343 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 11M ThreadPool 32763 32767 1000 1000
+2023-05-19 09:13:32.343 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 1:13:32 +00:00
+2023-05-19 09:14:02.356 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 12M ThreadPool 32754 32767 1000 1000
+2023-05-19 09:14:02.356 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 12M ThreadPool 32756 32767 1000 1000
+2023-05-19 09:14:32.346 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 1:14:32 +00:00
+2023-05-19 09:14:32.346 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 1:14:32 +00:00
+2023-05-19 09:14:32.346 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 10M ThreadPool 32756 32767 1000 1000
+2023-05-19 09:14:32.346 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 1 1 0 10M ThreadPool 32754 32767 1000 1000
+2023-05-19 09:15:02.382 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 11M ThreadPool 32758 32767 1000 1000
+2023-05-19 09:15:02.382 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 11M ThreadPool 32762 32767 1000 1000
+2023-05-19 09:15:32.353 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 1:15:32 +00:00
+2023-05-19 09:15:32.353 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 13M ThreadPool 32763 32767 1000 1000
+2023-05-19 09:15:32.353 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 13M ThreadPool 32759 32767 1000 1000
+2023-05-19 09:15:32.353 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 1:15:32 +00:00
+2023-05-19 09:16:02.350 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 14M ThreadPool 32750 32767 1000 1000
+2023-05-19 09:16:02.350 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 14M ThreadPool 32750 32767 1000 1000
+2023-05-19 09:16:32.334 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 1:16:32 +00:00
+2023-05-19 09:16:32.334 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 15M ThreadPool 32759 32767 1000 1000
+2023-05-19 09:16:32.334 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 1:16:32 +00:00
+2023-05-19 09:16:32.334 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 15M ThreadPool 32759 32767 1000 1000
+2023-05-19 09:17:03.033 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 1.5625 GenCollectCount 5 5 2 9M ThreadPool 32759 32767 1000 1000
+2023-05-19 09:17:03.033 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 1.5625 GenCollectCount 0 0 0 9M ThreadPool 32759 32767 1000 1000
+2023-05-19 09:17:32.537 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 1:17:32 +00:00
+2023-05-19 09:17:32.537 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 10M ThreadPool 32756 32767 1000 1000
+2023-05-19 09:17:32.538 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 1:17:32 +00:00
+2023-05-19 09:17:32.538 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 7 7 1 10M ThreadPool 32758 32767 1000 1000
+2023-05-19 09:18:02.352 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 9M ThreadPool 32759 32767 1000 1000
+2023-05-19 09:18:02.353 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 9 9 4 9M ThreadPool 32759 32767 1000 1000
+2023-05-19 09:24:35.173 +08:00 [arswebapiservice001] [Information] SkyApm.InstrumentStartup : Initializing ...
+2023-05-19 09:24:35.234 +08:00 [arswebapiservice001] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-05-19 09:24:35.235 +08:00 [arswebapiservice001] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-05-19 09:24:35.235 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-05-19 09:24:35.235 +08:00 [arswebapiservice001] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-05-19 09:24:35.235 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-05-19 09:24:35.235 +08:00 [arswebapiservice001] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-05-19 09:24:35.236 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-05-19 09:24:35.236 +08:00 [arswebapiservice001] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-05-19 09:24:35.236 +08:00 [arswebapiservice001] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-05-19 09:24:35.236 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-05-19 09:24:35.236 +08:00 [arswebapiservice001] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-05-19 09:24:35.236 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-05-19 09:24:35.236 +08:00 [arswebapiservice001] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-05-19 09:24:35.236 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-05-19 09:24:35.306 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[172.20.64.1:11800].
+2023-05-19 09:24:35.323 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2023-05-19 09:24:35.325 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.AspNetCore].
+2023-05-19 09:24:35.325 +08:00 [arswebapiservice001] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2023-05-19 09:24:35.325 +08:00 [arswebapiservice001] [Information] SkyApm.InstrumentStartup : Initializing ...
+2023-05-19 09:24:35.325 +08:00 [arswebapiservice001] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-05-19 09:24:35.325 +08:00 [arswebapiservice001] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-05-19 09:24:35.325 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-05-19 09:24:35.325 +08:00 [arswebapiservice001] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-05-19 09:24:35.325 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-05-19 09:24:35.325 +08:00 [arswebapiservice001] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-05-19 09:24:35.325 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-05-19 09:24:35.325 +08:00 [arswebapiservice001] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-05-19 09:24:35.325 +08:00 [arswebapiservice001] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-05-19 09:24:35.325 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-05-19 09:24:35.325 +08:00 [arswebapiservice001] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-05-19 09:24:35.325 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-05-19 09:24:35.326 +08:00 [arswebapiservice001] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-05-19 09:24:35.326 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-05-19 09:24:35.327 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2023-05-19 09:24:35.327 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.AspNetCore].
+2023-05-19 09:24:35.327 +08:00 [arswebapiservice001] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2023-05-19 09:24:35.413 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2023-05-19 09:24:35.413 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2023-05-19 09:24:35.720 +08:00 [arswebapiservice001] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=arswebapiservice001,InstanceId=192.168.110.65@a59cf4a643a341728bcda997b912d8de].
+2023-05-19 09:24:35.720 +08:00 [arswebapiservice001] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=arswebapiservice001,InstanceId=192.168.110.65@a59cf4a643a341728bcda997b912d8de].
+2023-05-19 09:24:35.820 +08:00 [arswebapiservice001] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=arswebapiservice001,InstanceId=192.168.110.65@a59cf4a643a341728bcda997b912d8de].
+2023-05-19 09:24:35.829 +08:00 [arswebapiservice001] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=arswebapiservice001,InstanceId=192.168.110.65@a59cf4a643a341728bcda997b912d8de].
+2023-05-19 09:25:05.365 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 1:25:05 +00:00
+2023-05-19 09:25:05.365 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 1:25:05 +00:00
+2023-05-19 09:25:05.377 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 15 15 3 8M ThreadPool 32763 32767 1000 1000
+2023-05-19 09:25:05.377 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 8M ThreadPool 32763 32767 1000 1000
+2023-05-19 09:25:35.369 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 6 6 0 8M ThreadPool 32751 32767 1000 1000
+2023-05-19 09:25:35.370 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 8M ThreadPool 32751 32767 1000 1000
+2023-05-19 09:25:38.394 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 3 trace segment. cost: 00:00:00.0472002s
+2023-05-19 09:25:42.016 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.EntityFrameworkCore].
+2023-05-19 09:25:42.016 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.EntityFrameworkCore].
+2023-05-19 09:25:44.180 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Ars.EFCoreOperationLog].
+2023-05-19 09:25:44.180 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Ars.EFCoreOperationLog].
+2023-05-19 09:26:07.545 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 12.5 GenCollectCount 0 0 0 10M ThreadPool 32757 32767 998 1000
+2023-05-19 09:26:07.545 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 12.5 GenCollectCount 1 1 0 10M ThreadPool 32759 32767 998 1000
+2023-05-19 09:26:07.556 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 1:26:07 +00:00
+2023-05-19 09:26:07.623 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 1:26:07 +00:00
+2023-05-19 09:26:07.685 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 6 trace segment. cost: 00:00:00.1853763s
+2023-05-19 09:26:07.705 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 5 logs. cost: 00:00:00.1688715s
+2023-05-19 09:26:10.508 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 3 trace segment. cost: 00:00:00.0167148s
+2023-05-19 09:26:39.623 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 1 logs. cost: 00:00:10.2484030s
+2023-05-19 09:26:39.623 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 3.125 GenCollectCount 1 1 0 10M ThreadPool 32753 32767 999 1000
+2023-05-19 09:26:39.623 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 3.125 GenCollectCount 1 0 0 10M ThreadPool 32753 32767 1000 1000
+2023-05-19 10:18:47.923 +08:00 [arswebapiservice001] [Information] SkyApm.InstrumentStartup : Initializing ...
+2023-05-19 10:18:47.964 +08:00 [arswebapiservice001] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-05-19 10:18:47.964 +08:00 [arswebapiservice001] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-05-19 10:18:47.965 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-05-19 10:18:47.965 +08:00 [arswebapiservice001] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-05-19 10:18:47.965 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-05-19 10:18:47.965 +08:00 [arswebapiservice001] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-05-19 10:18:47.965 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-05-19 10:18:47.965 +08:00 [arswebapiservice001] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-05-19 10:18:47.965 +08:00 [arswebapiservice001] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-05-19 10:18:47.965 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-05-19 10:18:47.965 +08:00 [arswebapiservice001] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-05-19 10:18:47.965 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-05-19 10:18:47.965 +08:00 [arswebapiservice001] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-05-19 10:18:47.965 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-05-19 10:18:48.002 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[172.20.64.1:11800].
+2023-05-19 10:18:48.010 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2023-05-19 10:18:48.011 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.AspNetCore].
+2023-05-19 10:18:48.011 +08:00 [arswebapiservice001] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2023-05-19 10:18:48.011 +08:00 [arswebapiservice001] [Information] SkyApm.InstrumentStartup : Initializing ...
+2023-05-19 10:18:48.011 +08:00 [arswebapiservice001] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-05-19 10:18:48.011 +08:00 [arswebapiservice001] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-05-19 10:18:48.011 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-05-19 10:18:48.011 +08:00 [arswebapiservice001] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-05-19 10:18:48.011 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-05-19 10:18:48.011 +08:00 [arswebapiservice001] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-05-19 10:18:48.011 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-05-19 10:18:48.011 +08:00 [arswebapiservice001] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-05-19 10:18:48.011 +08:00 [arswebapiservice001] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-05-19 10:18:48.011 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-05-19 10:18:48.011 +08:00 [arswebapiservice001] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-05-19 10:18:48.011 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-05-19 10:18:48.011 +08:00 [arswebapiservice001] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-05-19 10:18:48.011 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-05-19 10:18:48.012 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2023-05-19 10:18:48.012 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.AspNetCore].
+2023-05-19 10:18:48.012 +08:00 [arswebapiservice001] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2023-05-19 10:18:48.057 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2023-05-19 10:18:48.058 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2023-05-19 10:18:48.287 +08:00 [arswebapiservice001] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=arswebapiservice001,InstanceId=192.168.110.65@ad3d563c8702453d8a12303682c1c05e].
+2023-05-19 10:18:48.287 +08:00 [arswebapiservice001] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=arswebapiservice001,InstanceId=192.168.110.65@ad3d563c8702453d8a12303682c1c05e].
+2023-05-19 10:18:48.519 +08:00 [arswebapiservice001] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=arswebapiservice001,InstanceId=192.168.110.65@ad3d563c8702453d8a12303682c1c05e].
+2023-05-19 10:18:48.523 +08:00 [arswebapiservice001] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=arswebapiservice001,InstanceId=192.168.110.65@ad3d563c8702453d8a12303682c1c05e].
+2023-05-19 10:19:18.001 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:19:18 +00:00
+2023-05-19 10:19:18.001 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:19:18 +00:00
+2023-05-19 10:19:18.019 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 13M ThreadPool 32763 32767 1000 1000
+2023-05-19 10:19:18.019 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 1 0 0 13M ThreadPool 32763 32767 1000 1000
+2023-05-19 10:19:18.044 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 13M ThreadPool 32759 32767 1000 1000
+2023-05-19 10:19:18.044 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 13M ThreadPool 32763 32767 1000 1000
+2023-05-19 10:19:18.046 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:19:18 +00:00
+2023-05-19 10:19:18.047 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:19:18 +00:00
+2023-05-19 10:19:47.995 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 15M ThreadPool 32756 32767 1000 1000
+2023-05-19 10:19:47.997 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 15M ThreadPool 32755 32767 1000 1000
+2023-05-19 10:19:48.040 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 15M ThreadPool 32757 32767 1000 1000
+2023-05-19 10:19:48.040 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 15M ThreadPool 32752 32767 1000 1000
+2023-05-19 10:20:18.026 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:20:18 +00:00
+2023-05-19 10:20:18.026 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 17M ThreadPool 32754 32767 1000 1000
+2023-05-19 10:20:18.026 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:20:18 +00:00
+2023-05-19 10:20:18.026 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 17M ThreadPool 32754 32767 1000 1000
+2023-05-19 10:20:18.040 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 17M ThreadPool 32755 32767 1000 1000
+2023-05-19 10:20:18.040 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 17M ThreadPool 32755 32767 1000 1000
+2023-05-19 10:20:18.040 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:20:18 +00:00
+2023-05-19 10:20:18.040 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:20:18 +00:00
+2023-05-19 10:20:47.996 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 20M ThreadPool 32749 32767 1000 1000
+2023-05-19 10:20:48.000 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 20M ThreadPool 32763 32767 1000 1000
+2023-05-19 10:20:48.023 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 20M ThreadPool 32753 32767 1000 1000
+2023-05-19 10:20:48.024 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 20M ThreadPool 32755 32767 1000 1000
+2023-05-19 10:21:17.993 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:21:17 +00:00
+2023-05-19 10:21:17.994 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 22M ThreadPool 32758 32767 1000 1000
+2023-05-19 10:21:17.994 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:21:17 +00:00
+2023-05-19 10:21:17.994 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 22M ThreadPool 32758 32767 1000 1000
+2023-05-19 10:21:18.039 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:21:18 +00:00
+2023-05-19 10:21:18.039 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:21:18 +00:00
+2023-05-19 10:21:18.041 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 22M ThreadPool 32758 32767 1000 1000
+2023-05-19 10:21:18.041 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 22M ThreadPool 32762 32767 1000 1000
+2023-05-19 10:21:47.985 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 24M ThreadPool 32755 32767 1000 1000
+2023-05-19 10:21:47.985 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 24M ThreadPool 32756 32767 1000 1000
+2023-05-19 10:21:48.031 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 25M ThreadPool 32754 32767 1000 1000
+2023-05-19 10:21:48.031 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 24M ThreadPool 32755 32767 1000 1000
+2023-05-19 10:22:17.989 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 27M ThreadPool 32759 32767 1000 1000
+2023-05-19 10:22:17.989 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 27M ThreadPool 32759 32767 1000 1000
+2023-05-19 10:22:17.990 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:22:17 +00:00
+2023-05-19 10:22:17.990 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:22:17 +00:00
+2023-05-19 10:22:18.029 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:22:18 +00:00
+2023-05-19 10:22:18.029 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 27M ThreadPool 32759 32767 1000 1000
+2023-05-19 10:22:18.029 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:22:18 +00:00
+2023-05-19 10:22:18.029 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 27M ThreadPool 32759 32767 1000 1000
+2023-05-19 10:22:47.985 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 29M ThreadPool 32754 32767 1000 1000
+2023-05-19 10:22:47.989 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 29M ThreadPool 32754 32767 1000 1000
+2023-05-19 10:22:48.030 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 29M ThreadPool 32752 32767 1000 1000
+2023-05-19 10:22:48.031 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 29M ThreadPool 32753 32767 1000 1000
+2023-05-19 10:23:18.017 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 31M ThreadPool 32750 32767 1000 1000
+2023-05-19 10:23:18.017 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:23:18 +00:00
+2023-05-19 10:23:18.017 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:23:18 +00:00
+2023-05-19 10:23:18.020 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 31M ThreadPool 32751 32767 1000 1000
+2023-05-19 10:23:18.057 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 31M ThreadPool 32756 32767 1000 1000
+2023-05-19 10:23:18.057 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:23:18 +00:00
+2023-05-19 10:23:18.063 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:23:18 +00:00
+2023-05-19 10:23:18.069 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 31M ThreadPool 32752 32767 1000 1000
+2023-05-19 10:23:48.000 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 33M ThreadPool 32759 32767 1000 1000
+2023-05-19 10:23:48.001 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 33M ThreadPool 32759 32767 1000 1000
+2023-05-19 10:23:48.045 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 33M ThreadPool 32759 32767 1000 1000
+2023-05-19 10:23:48.047 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 33M ThreadPool 32759 32767 1000 1000
+2023-05-19 10:24:17.992 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:24:17 +00:00
+2023-05-19 10:24:17.992 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:24:17 +00:00
+2023-05-19 10:24:17.992 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 36M ThreadPool 32755 32767 1000 1000
+2023-05-19 10:24:17.992 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 36M ThreadPool 32755 32767 1000 1000
+2023-05-19 10:24:18.044 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 36M ThreadPool 32752 32767 1000 1000
+2023-05-19 10:24:18.044 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:24:18 +00:00
+2023-05-19 10:24:18.044 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:24:18 +00:00
+2023-05-19 10:24:18.048 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 36M ThreadPool 32752 32767 1000 1000
+2023-05-19 10:24:47.996 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 38M ThreadPool 32755 32767 1000 1000
+2023-05-19 10:24:47.996 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 38M ThreadPool 32755 32767 1000 1000
+2023-05-19 10:24:48.039 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 38M ThreadPool 32755 32767 1000 1000
+2023-05-19 10:24:48.039 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 38M ThreadPool 32754 32767 1000 1000
+2023-05-19 10:25:17.986 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:25:17 +00:00
+2023-05-19 10:25:17.986 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:25:17 +00:00
+2023-05-19 10:25:17.987 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 40M ThreadPool 32759 32767 1000 1000
+2023-05-19 10:25:17.988 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 40M ThreadPool 32759 32767 1000 1000
+2023-05-19 10:25:18.034 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:25:18 +00:00
+2023-05-19 10:25:18.034 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 40M ThreadPool 32759 32767 1000 1000
+2023-05-19 10:25:18.034 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:25:18 +00:00
+2023-05-19 10:25:18.034 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 40M ThreadPool 32759 32767 1000 1000
+2023-05-19 10:25:47.988 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 42M ThreadPool 32762 32767 1000 1000
+2023-05-19 10:25:47.990 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 42M ThreadPool 32753 32767 1000 1000
+2023-05-19 10:25:48.030 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 43M ThreadPool 32757 32767 1000 1000
+2023-05-19 10:25:48.030 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 43M ThreadPool 32757 32767 1000 1000
+2023-05-19 10:26:18.002 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 45M ThreadPool 32751 32767 1000 1000
+2023-05-19 10:26:18.002 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 45M ThreadPool 32751 32767 1000 1000
+2023-05-19 10:26:18.002 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:26:18 +00:00
+2023-05-19 10:26:18.002 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:26:18 +00:00
+2023-05-19 10:26:18.047 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 45M ThreadPool 32748 32767 1000 1000
+2023-05-19 10:26:18.054 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 45M ThreadPool 32757 32767 1000 1000
+2023-05-19 10:26:18.056 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:26:18 +00:00
+2023-05-19 10:26:18.057 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:26:18 +00:00
+2023-05-19 10:26:47.986 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 47M ThreadPool 32759 32767 1000 1000
+2023-05-19 10:26:47.986 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 47M ThreadPool 32759 32767 1000 1000
+2023-05-19 10:26:48.033 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 47M ThreadPool 32759 32767 1000 1000
+2023-05-19 10:26:48.033 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 47M ThreadPool 32759 32767 1000 1000
+2023-05-19 10:27:17.990 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:27:17 +00:00
+2023-05-19 10:27:17.990 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 49M ThreadPool 32759 32767 1000 1000
+2023-05-19 10:27:17.990 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:27:17 +00:00
+2023-05-19 10:27:17.990 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 49M ThreadPool 32759 32767 1000 1000
+2023-05-19 10:27:18.036 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:27:18 +00:00
+2023-05-19 10:27:18.036 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 49M ThreadPool 32759 32767 1000 1000
+2023-05-19 10:27:18.036 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:27:18 +00:00
+2023-05-19 10:27:18.037 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 49M ThreadPool 32759 32767 1000 1000
+2023-05-19 10:27:47.981 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 52M ThreadPool 32752 32767 1000 1000
+2023-05-19 10:27:47.981 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 52M ThreadPool 32752 32767 1000 1000
+2023-05-19 10:27:48.028 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 52M ThreadPool 32756 32767 1000 1000
+2023-05-19 10:27:48.028 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 52M ThreadPool 32756 32767 1000 1000
+2023-05-19 10:28:17.986 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 54M ThreadPool 32759 32767 1000 1000
+2023-05-19 10:28:17.986 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:28:17 +00:00
+2023-05-19 10:28:17.986 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 54M ThreadPool 32759 32767 1000 1000
+2023-05-19 10:28:17.986 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:28:17 +00:00
+2023-05-19 10:28:18.032 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:28:18 +00:00
+2023-05-19 10:28:18.032 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 54M ThreadPool 32759 32767 1000 1000
+2023-05-19 10:28:18.032 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 54M ThreadPool 32759 32767 1000 1000
+2023-05-19 10:28:18.032 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:28:18 +00:00
+2023-05-19 10:28:47.994 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 56M ThreadPool 32753 32767 1000 1000
+2023-05-19 10:28:47.994 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 56M ThreadPool 32764 32767 1000 1000
+2023-05-19 10:28:48.021 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 56M ThreadPool 32757 32767 1000 1000
+2023-05-19 10:28:48.021 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 56M ThreadPool 32755 32767 1000 1000
+2023-05-19 10:34:41.878 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 4 trace segment. cost: 00:00:00.1032831s
+2023-05-19 10:34:50.787 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 64M ThreadPool 32763 32767 1000 1000
+2023-05-19 10:34:50.787 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 64M ThreadPool 32759 32767 1000 1000
+2023-05-19 10:34:50.787 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:34:50 +00:00
+2023-05-19 10:34:50.787 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:34:50 +00:00
+2023-05-19 10:34:50.832 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:34:50 +00:00
+2023-05-19 10:34:50.833 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 64M ThreadPool 32759 32767 1000 1000
+2023-05-19 10:34:50.833 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 64M ThreadPool 32759 32767 1000 1000
+2023-05-19 10:34:50.834 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:34:50 +00:00
+2023-05-19 10:35:20.748 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.EntityFrameworkCore].
+2023-05-19 10:35:20.748 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.EntityFrameworkCore].
+2023-05-19 10:35:20.789 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 67M ThreadPool 32759 32767 1000 1000
+2023-05-19 10:35:20.789 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 67M ThreadPool 32759 32767 1000 1000
+2023-05-19 10:35:20.817 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 68M ThreadPool 32759 32767 1000 1000
+2023-05-19 10:35:20.817 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 68M ThreadPool 32759 32767 1000 1000
+2023-05-19 10:35:22.664 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Ars.EFCoreOperationLog].
+2023-05-19 10:35:22.664 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Ars.EFCoreOperationLog].
+2023-05-19 10:36:57.937 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:36:57 +00:00
+2023-05-19 10:36:57.938 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 72M ThreadPool 32758 32767 997 1000
+2023-05-19 10:36:58.890 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 73M ThreadPool 32758 32767 999 1000
+2023-05-19 10:36:58.891 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 73M ThreadPool 32758 32767 999 1000
+2023-05-19 10:36:59.756 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:36:59 +00:00
+2023-05-19 10:36:59.756 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 73M ThreadPool 32758 32767 999 1000
+2023-05-19 10:36:59.756 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:36:59 +00:00
+2023-05-19 10:36:59.805 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 12.5 GenCollectCount 0 0 0 72M ThreadPool 32758 32767 998 1000
+2023-05-19 10:36:59.834 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:36:59 +00:00
+2023-05-19 10:36:59.834 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:36:59 +00:00
+2023-05-19 10:36:59.870 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:36:59 +00:00
+2023-05-19 10:36:59.969 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 2 trace segment. cost: 00:00:18.1818054s
+2023-05-19 10:37:00.112 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 3 logs. cost: 00:00:07.7187407s
+2023-05-19 10:37:01.192 +08:00 [arswebapiservice001] [Error] SkyApm.Transport.Grpc.V8.PingCaller : Ping server fail.
+Grpc.Core.RpcException: Status(StatusCode="DeadlineExceeded", Detail="")
+   at SkyApm.Transport.Grpc.V8.PingCaller.<>c__DisplayClass4_0.<<PingAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at SkyApm.Transport.Grpc.Common.Call.Execute(Func`1 task, Func`1 errMessage)
+2023-05-19 10:37:01.192 +08:00 [arswebapiservice001] [Error] SkyApm.Transport.Grpc.V8.PingCaller : Ping server fail.
+Grpc.Core.RpcException: Status(StatusCode="DeadlineExceeded", Detail="")
+   at SkyApm.Transport.Grpc.V8.PingCaller.<>c__DisplayClass4_0.<<PingAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at SkyApm.Transport.Grpc.Common.Call.Execute(Func`1 task, Func`1 errMessage)
+2023-05-19 10:37:01.195 +08:00 [arswebapiservice001] [Warning] SkyApm.Transport.Grpc.V8.CLRStatsReporter : Report CLR Stats error. Grpc.Core.RpcException: Status(StatusCode="DeadlineExceeded", Detail="")
+   at SkyApm.Transport.Grpc.V8.CLRStatsReporter.ReportAsync(CLRStatsRequest statsRequest, CancellationToken cancellationToken)
+2023-05-19 10:37:01.195 +08:00 [arswebapiservice001] [Warning] SkyApm.Transport.Grpc.V8.CLRStatsReporter : Report CLR Stats error. Grpc.Core.RpcException: Status(StatusCode="DeadlineExceeded", Detail="")
+   at SkyApm.Transport.Grpc.V8.CLRStatsReporter.ReportAsync(CLRStatsRequest statsRequest, CancellationToken cancellationToken)
+2023-05-19 10:37:01.195 +08:00 [arswebapiservice001] [Warning] SkyApm.Transport.Grpc.V8.CLRStatsReporter : Report CLR Stats error. Grpc.Core.RpcException: Status(StatusCode="DeadlineExceeded", Detail="")
+   at SkyApm.Transport.Grpc.V8.CLRStatsReporter.ReportAsync(CLRStatsRequest statsRequest, CancellationToken cancellationToken)
+2023-05-19 10:37:01.195 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 12.5 GenCollectCount 0 0 0 72M ThreadPool 32758 32767 998 1000
+2023-05-19 10:37:01.195 +08:00 [arswebapiservice001] [Warning] SkyApm.Transport.Grpc.ConnectionManager : Connection state changed. Status(StatusCode="DeadlineExceeded", Detail="")
+2023-05-19 10:37:01.195 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 12.5 GenCollectCount 0 0 0 72M ThreadPool 32758 32767 997 1000
+2023-05-19 10:37:01.195 +08:00 [arswebapiservice001] [Warning] SkyApm.Transport.Grpc.ConnectionManager : Connection state changed. Status(StatusCode="DeadlineExceeded", Detail="")
+2023-05-19 10:37:01.195 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 12.5 GenCollectCount 0 0 0 72M ThreadPool 32758 32767 997 1000
+2023-05-19 10:37:01.195 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:37:01 +00:00
+2023-05-19 10:37:01.195 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:37:01 +00:00
+2023-05-19 10:37:44.753 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 75M ThreadPool 32758 32767 998 1000
+2023-05-19 10:37:44.753 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 75M ThreadPool 32758 32767 998 1000
+2023-05-19 10:37:44.753 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 75M ThreadPool 32758 32767 998 1000
+2023-05-19 10:37:44.754 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 75M ThreadPool 32758 32767 998 1000
+2023-05-19 10:37:44.754 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 75M ThreadPool 32758 32767 998 1000
+2023-05-19 10:37:44.754 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 75M ThreadPool 32758 32767 999 1000
+2023-05-19 10:37:44.754 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 75M ThreadPool 32758 32767 999 1000
+2023-05-19 10:37:44.753 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 75M ThreadPool 32758 32767 998 1000
+2023-05-19 10:37:44.811 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Shutdown connection[172.20.64.1:11800].
+2023-05-19 10:37:44.812 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[172.20.64.1:11800].
+2023-05-19 10:37:58.325 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:37:58 +00:00
+2023-05-19 10:37:58.325 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:37:58 +00:00
+2023-05-19 10:37:58.325 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:37:58 +00:00
+2023-05-19 10:37:58.529 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:37:58 +00:00
+2023-05-19 10:41:28.641 +08:00 [arswebapiservice001] [Information] SkyApm.InstrumentStartup : Initializing ...
+2023-05-19 10:41:28.699 +08:00 [arswebapiservice001] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-05-19 10:41:28.699 +08:00 [arswebapiservice001] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-05-19 10:41:28.700 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-05-19 10:41:28.700 +08:00 [arswebapiservice001] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-05-19 10:41:28.700 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-05-19 10:41:28.700 +08:00 [arswebapiservice001] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-05-19 10:41:28.700 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-05-19 10:41:28.700 +08:00 [arswebapiservice001] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-05-19 10:41:28.700 +08:00 [arswebapiservice001] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-05-19 10:41:28.700 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-05-19 10:41:28.700 +08:00 [arswebapiservice001] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-05-19 10:41:28.700 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-05-19 10:41:28.700 +08:00 [arswebapiservice001] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-05-19 10:41:28.700 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-05-19 10:41:28.876 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[172.20.64.1:11800].
+2023-05-19 10:41:28.893 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2023-05-19 10:41:28.894 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.AspNetCore].
+2023-05-19 10:41:28.894 +08:00 [arswebapiservice001] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2023-05-19 10:41:28.895 +08:00 [arswebapiservice001] [Information] SkyApm.InstrumentStartup : Initializing ...
+2023-05-19 10:41:28.895 +08:00 [arswebapiservice001] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-05-19 10:41:28.895 +08:00 [arswebapiservice001] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-05-19 10:41:28.895 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-05-19 10:41:28.895 +08:00 [arswebapiservice001] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-05-19 10:41:28.895 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-05-19 10:41:28.895 +08:00 [arswebapiservice001] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-05-19 10:41:28.895 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-05-19 10:41:28.895 +08:00 [arswebapiservice001] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-05-19 10:41:28.895 +08:00 [arswebapiservice001] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-05-19 10:41:28.895 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-05-19 10:41:28.895 +08:00 [arswebapiservice001] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-05-19 10:41:28.895 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-05-19 10:41:28.895 +08:00 [arswebapiservice001] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-05-19 10:41:28.895 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-05-19 10:41:28.896 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2023-05-19 10:41:28.896 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.AspNetCore].
+2023-05-19 10:41:28.896 +08:00 [arswebapiservice001] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2023-05-19 10:41:28.962 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2023-05-19 10:41:28.963 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2023-05-19 10:41:29.225 +08:00 [arswebapiservice001] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=arswebapiservice001,InstanceId=192.168.110.65@c895cfe244c7400bb4e6bcf8a7f69325].
+2023-05-19 10:41:29.225 +08:00 [arswebapiservice001] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=arswebapiservice001,InstanceId=192.168.110.65@c895cfe244c7400bb4e6bcf8a7f69325].
+2023-05-19 10:41:29.256 +08:00 [arswebapiservice001] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=arswebapiservice001,InstanceId=192.168.110.65@c895cfe244c7400bb4e6bcf8a7f69325].
+2023-05-19 10:41:29.269 +08:00 [arswebapiservice001] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=arswebapiservice001,InstanceId=192.168.110.65@c895cfe244c7400bb4e6bcf8a7f69325].
+2023-05-19 10:41:31.882 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 4 trace segment. cost: 00:00:00.1533420s
+2023-05-19 10:41:37.280 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.EntityFrameworkCore].
+2023-05-19 10:41:37.281 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.EntityFrameworkCore].
+2023-05-19 10:41:52.474 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 2 logs. cost: 00:00:04.8563846s
+2023-05-19 10:42:40.300 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:42:40 +00:00
+2023-05-19 10:42:40.300 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:42:40 +00:00
+2023-05-19 10:42:40.300 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:42:40 +00:00
+2023-05-19 10:42:40.300 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:42:40 +00:00
+2023-05-19 10:42:40.325 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 1 0 0 23M ThreadPool 32756 32767 1000 1000
+2023-05-19 10:42:40.325 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 23M ThreadPool 32756 32767 1000 1000
+2023-05-19 10:42:40.325 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 23M ThreadPool 32756 32767 1000 1000
+2023-05-19 10:42:40.325 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 23M ThreadPool 32756 32767 1000 1000
+2023-05-19 10:42:40.325 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 23M ThreadPool 32757 32767 999 1000
+2023-05-19 10:42:40.325 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 23M ThreadPool 32757 32767 1000 1000
+2023-05-19 10:42:40.325 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 23M ThreadPool 32756 32767 1000 1000
+2023-05-19 10:42:40.325 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 23M ThreadPool 32756 32767 1000 1000
+2023-05-19 10:42:40.640 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Ars.EFCoreOperationLog].
+2023-05-19 10:42:40.640 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Ars.EFCoreOperationLog].
+2023-05-19 10:42:57.819 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 1 logs. cost: 00:00:03.2898636s
+2023-05-19 10:42:58.758 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 2 trace segment. cost: 00:00:04.2290081s
+2023-05-19 10:42:58.815 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:42:58 +00:00
+2023-05-19 10:42:58.816 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 25M ThreadPool 32762 32767 1000 1000
+2023-05-19 10:42:58.815 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:42:58 +00:00
+2023-05-19 10:43:01.301 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 25M ThreadPool 32758 32767 999 1000
+2023-05-19 10:43:01.301 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:43:01 +00:00
+2023-05-19 10:43:01.303 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 25M ThreadPool 32762 32767 1000 1000
+2023-05-19 10:43:01.604 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 1.5625 GenCollectCount 0 0 0 25M ThreadPool 32741 32767 1000 1000
+2023-05-19 10:43:01.604 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:43:01 +00:00
+2023-05-19 10:47:01.658 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:47:01 +00:00
+2023-05-19 10:47:01.675 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 3.125 GenCollectCount 0 0 0 27M ThreadPool 32759 32767 998 1000
+2023-05-19 10:47:01.677 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:47:01 +00:00
+2023-05-19 10:47:01.677 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:47:01 +00:00
+2023-05-19 10:47:01.700 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 3.125 GenCollectCount 0 0 0 27M ThreadPool 32759 32767 1000 1000
+2023-05-19 10:47:01.717 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 3.125 GenCollectCount 0 0 0 27M ThreadPool 32759 32767 1000 1000
+2023-05-19 10:47:01.717 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 3.125 GenCollectCount 0 0 0 27M ThreadPool 32759 32767 1000 1000
+2023-05-19 10:47:01.718 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:47:01 +00:00
+2023-05-19 10:47:01.718 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 1.5625 GenCollectCount 0 0 0 28M ThreadPool 32758 32767 1000 1000
+2023-05-19 10:47:01.722 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:47:01 +00:00
+2023-05-19 10:47:02.226 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 3.125 GenCollectCount 0 0 0 27M ThreadPool 32759 32767 999 1000
+2023-05-19 10:47:02.226 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:47:02 +00:00
+2023-05-19 10:47:02.231 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 3.125 GenCollectCount 0 0 0 27M ThreadPool 32759 32767 999 1000
+2023-05-19 10:47:02.231 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:47:02 +00:00
+2023-05-19 10:47:02.231 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:47:02 +00:00
+2023-05-19 10:47:02.236 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 1.5625 GenCollectCount 0 0 0 27M ThreadPool 32759 32767 1000 1000
+2023-05-19 10:47:28.280 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 30M ThreadPool 32750 32767 1000 1000
+2023-05-19 10:47:29.210 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 30M ThreadPool 32752 32767 1000 1000
+2023-05-19 10:47:29.560 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 30M ThreadPool 32750 32767 1000 1000
+2023-05-19 10:47:29.560 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 30M ThreadPool 32754 32767 1000 1000
+2023-05-19 10:49:43.016 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 1.5625 GenCollectCount 0 0 0 36M ThreadPool 32759 32767 999 1000
+2023-05-19 10:49:43.022 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:49:43 +00:00
+2023-05-19 10:49:43.022 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 1.5625 GenCollectCount 0 0 0 36M ThreadPool 32759 32767 1000 1000
+2023-05-19 10:49:43.622 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 1.5625 GenCollectCount 0 0 0 35M ThreadPool 32759 32767 997 1000
+2023-05-19 10:49:43.623 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 1.5625 GenCollectCount 0 0 0 35M ThreadPool 32759 32767 997 1000
+2023-05-19 10:49:43.624 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 1.5625 GenCollectCount 0 0 0 35M ThreadPool 32759 32767 997 1000
+2023-05-19 10:49:43.625 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:49:43 +00:00
+2023-05-19 10:49:43.629 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 1.5625 GenCollectCount 0 0 0 36M ThreadPool 32759 32767 1000 1000
+2023-05-19 10:49:43.629 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 1.5625 GenCollectCount 0 0 0 35M ThreadPool 32759 32767 996 1000
+2023-05-19 10:49:43.630 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:49:43 +00:00
+2023-05-19 10:49:43.630 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:49:43 +00:00
+2023-05-19 10:49:44.337 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:49:44 +00:00
+2023-05-19 10:49:44.350 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:49:44 +00:00
+2023-05-19 10:49:44.353 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:49:44 +00:00
+2023-05-19 10:49:44.357 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:49:44 +00:00
+2023-05-19 10:49:44.366 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 1.5625 GenCollectCount 0 0 0 36M ThreadPool 32759 32767 1000 1000
+2023-05-19 10:50:12.791 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 49M ThreadPool 32750 32767 1000 1000
+2023-05-19 10:50:12.803 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 49M ThreadPool 32749 32767 1000 1000
+2023-05-19 10:50:12.803 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 49M ThreadPool 32750 32767 1000 1000
+2023-05-19 10:50:12.803 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 49M ThreadPool 32750 32767 1000 1000
+2023-05-19 10:50:19.916 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 3 trace segment. cost: 00:00:00.0209701s
+2023-05-19 10:50:42.263 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 23M ThreadPool 32758 32767 1000 1000
+2023-05-19 10:50:42.263 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:50:42 +00:00
+2023-05-19 10:50:42.263 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:50:42 +00:00
+2023-05-19 10:50:42.263 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 4 2 1 23M ThreadPool 32758 32767 1000 1000
+2023-05-19 10:51:12.254 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 24M ThreadPool 32759 32767 1000 1000
+2023-05-19 10:51:12.254 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 24M ThreadPool 32759 32767 1000 1000
+2023-05-19 10:51:42.258 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 25M ThreadPool 32758 32767 1000 1000
+2023-05-19 10:51:42.258 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:51:42 +00:00
+2023-05-19 10:51:42.258 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 25M ThreadPool 32759 32767 1000 1000
+2023-05-19 10:51:42.258 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:51:42 +00:00
+2023-05-19 10:51:43.911 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 4 trace segment. cost: 00:00:00.0131482s
+2023-05-19 10:51:51.263 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 2 logs. cost: 00:00:00.0101983s
+2023-05-19 10:51:51.272 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 5 trace segment. cost: 00:00:00.0191303s
+2023-05-19 10:52:12.248 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 36M ThreadPool 32759 32767 1000 1000
+2023-05-19 10:52:12.248 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 36M ThreadPool 32755 32767 1000 1000
+2023-05-19 10:52:42.261 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 37M ThreadPool 32758 32767 1000 1000
+2023-05-19 10:52:42.261 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:52:42 +00:00
+2023-05-19 10:52:42.261 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:52:42 +00:00
+2023-05-19 10:52:42.261 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 37M ThreadPool 32758 32767 1000 1000
+2023-05-19 10:53:12.288 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 38M ThreadPool 32759 32767 1000 1000
+2023-05-19 10:53:12.288 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 38M ThreadPool 32760 32767 1000 1000
+2023-05-19 10:57:54.167 +08:00 [arswebapiservice001] [Information] SkyApm.InstrumentStartup : Initializing ...
+2023-05-19 10:57:54.227 +08:00 [arswebapiservice001] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-05-19 10:57:54.227 +08:00 [arswebapiservice001] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-05-19 10:57:54.228 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-05-19 10:57:54.228 +08:00 [arswebapiservice001] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-05-19 10:57:54.228 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-05-19 10:57:54.228 +08:00 [arswebapiservice001] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-05-19 10:57:54.228 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-05-19 10:57:54.228 +08:00 [arswebapiservice001] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-05-19 10:57:54.228 +08:00 [arswebapiservice001] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-05-19 10:57:54.228 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-05-19 10:57:54.228 +08:00 [arswebapiservice001] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-05-19 10:57:54.228 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-05-19 10:57:54.228 +08:00 [arswebapiservice001] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-05-19 10:57:54.228 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-05-19 10:57:54.295 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[172.20.64.1:11800].
+2023-05-19 10:57:54.311 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2023-05-19 10:57:54.312 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.AspNetCore].
+2023-05-19 10:57:54.313 +08:00 [arswebapiservice001] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2023-05-19 10:57:54.313 +08:00 [arswebapiservice001] [Information] SkyApm.InstrumentStartup : Initializing ...
+2023-05-19 10:57:54.313 +08:00 [arswebapiservice001] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-05-19 10:57:54.313 +08:00 [arswebapiservice001] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-05-19 10:57:54.313 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-05-19 10:57:54.313 +08:00 [arswebapiservice001] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-05-19 10:57:54.313 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-05-19 10:57:54.313 +08:00 [arswebapiservice001] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-05-19 10:57:54.313 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-05-19 10:57:54.313 +08:00 [arswebapiservice001] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-05-19 10:57:54.313 +08:00 [arswebapiservice001] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-05-19 10:57:54.313 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-05-19 10:57:54.313 +08:00 [arswebapiservice001] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-05-19 10:57:54.313 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-05-19 10:57:54.313 +08:00 [arswebapiservice001] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-05-19 10:57:54.313 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-05-19 10:57:54.314 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2023-05-19 10:57:54.314 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.AspNetCore].
+2023-05-19 10:57:54.315 +08:00 [arswebapiservice001] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2023-05-19 10:57:54.394 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2023-05-19 10:57:54.394 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2023-05-19 10:57:54.661 +08:00 [arswebapiservice001] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=arswebapiservice001,InstanceId=192.168.110.65@0c9a22b1a8414e29b744b7a9ebc6fec2].
+2023-05-19 10:57:54.661 +08:00 [arswebapiservice001] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=arswebapiservice001,InstanceId=192.168.110.65@0c9a22b1a8414e29b744b7a9ebc6fec2].
+2023-05-19 10:57:54.795 +08:00 [arswebapiservice001] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=arswebapiservice001,InstanceId=192.168.110.65@0c9a22b1a8414e29b744b7a9ebc6fec2].
+2023-05-19 10:57:54.795 +08:00 [arswebapiservice001] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=arswebapiservice001,InstanceId=192.168.110.65@0c9a22b1a8414e29b744b7a9ebc6fec2].
+2023-05-19 10:58:06.381 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 4 trace segment. cost: 00:00:00.0498799s
+2023-05-19 10:58:09.102 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.EntityFrameworkCore].
+2023-05-19 10:58:09.103 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.EntityFrameworkCore].
+2023-05-19 10:58:11.608 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Ars.EFCoreOperationLog].
+2023-05-19 10:58:11.608 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Ars.EFCoreOperationLog].
+2023-05-19 10:58:15.703 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 2 trace segment. cost: 00:00:00.0124535s
+2023-05-19 10:58:15.723 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 3 logs. cost: 00:00:00.0223266s
+2023-05-19 10:58:18.713 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 1 trace segment. cost: 00:00:00.0097660s
+2023-05-19 10:58:18.715 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 2 trace segment. cost: 00:00:00.0118045s
+2023-05-19 10:58:24.401 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:58:24 +00:00
+2023-05-19 10:58:24.401 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 2:58:24 +00:00
+2023-05-19 10:58:24.406 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 15M ThreadPool 32763 32767 1000 1000
+2023-05-19 10:58:24.406 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 1 1 0 15M ThreadPool 32763 32767 1000 1000
+2023-05-19 10:58:52.972 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 1 trace segment. cost: 00:00:01.2569851s
+2023-05-19 10:58:52.972 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 1 trace segment. cost: 00:00:01.2568220s
+2023-05-19 10:58:52.990 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 2 logs. cost: 00:00:01.2741651s
+2023-05-19 10:59:47.845 +08:00 [arswebapiservice001] [Information] SkyApm.InstrumentStartup : Initializing ...
+2023-05-19 10:59:47.931 +08:00 [arswebapiservice001] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-05-19 10:59:47.931 +08:00 [arswebapiservice001] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-05-19 10:59:47.932 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-05-19 10:59:47.932 +08:00 [arswebapiservice001] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-05-19 10:59:47.932 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-05-19 10:59:47.932 +08:00 [arswebapiservice001] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-05-19 10:59:47.932 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-05-19 10:59:47.932 +08:00 [arswebapiservice001] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-05-19 10:59:47.932 +08:00 [arswebapiservice001] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-05-19 10:59:47.932 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-05-19 10:59:47.932 +08:00 [arswebapiservice001] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-05-19 10:59:47.932 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-05-19 10:59:47.932 +08:00 [arswebapiservice001] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-05-19 10:59:47.932 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-05-19 10:59:47.992 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[172.20.64.1:11800].
+2023-05-19 10:59:48.019 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2023-05-19 10:59:48.021 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.AspNetCore].
+2023-05-19 10:59:48.022 +08:00 [arswebapiservice001] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2023-05-19 10:59:48.022 +08:00 [arswebapiservice001] [Information] SkyApm.InstrumentStartup : Initializing ...
+2023-05-19 10:59:48.022 +08:00 [arswebapiservice001] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-05-19 10:59:48.022 +08:00 [arswebapiservice001] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-05-19 10:59:48.022 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-05-19 10:59:48.022 +08:00 [arswebapiservice001] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-05-19 10:59:48.022 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-05-19 10:59:48.022 +08:00 [arswebapiservice001] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-05-19 10:59:48.022 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-05-19 10:59:48.022 +08:00 [arswebapiservice001] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-05-19 10:59:48.022 +08:00 [arswebapiservice001] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-05-19 10:59:48.022 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-05-19 10:59:48.022 +08:00 [arswebapiservice001] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-05-19 10:59:48.022 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-05-19 10:59:48.022 +08:00 [arswebapiservice001] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-05-19 10:59:48.022 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-05-19 10:59:48.025 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2023-05-19 10:59:48.025 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.AspNetCore].
+2023-05-19 10:59:48.025 +08:00 [arswebapiservice001] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2023-05-19 10:59:48.116 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2023-05-19 10:59:48.116 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2023-05-19 10:59:48.474 +08:00 [arswebapiservice001] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=arswebapiservice001,InstanceId=192.168.110.65@f74f78d20bac4d288ee2940fe558a65f].
+2023-05-19 10:59:48.474 +08:00 [arswebapiservice001] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=arswebapiservice001,InstanceId=192.168.110.65@f74f78d20bac4d288ee2940fe558a65f].
+2023-05-19 10:59:48.523 +08:00 [arswebapiservice001] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=arswebapiservice001,InstanceId=192.168.110.65@f74f78d20bac4d288ee2940fe558a65f].
+2023-05-19 10:59:48.523 +08:00 [arswebapiservice001] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=arswebapiservice001,InstanceId=192.168.110.65@f74f78d20bac4d288ee2940fe558a65f].
+2023-05-19 10:59:51.123 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 4 trace segment. cost: 00:00:00.0837085s
+2023-05-19 10:59:54.032 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.EntityFrameworkCore].
+2023-05-19 10:59:54.032 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.EntityFrameworkCore].
+2023-05-19 10:59:56.713 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Ars.EFCoreOperationLog].
+2023-05-19 10:59:56.713 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Ars.EFCoreOperationLog].
+2023-05-19 10:59:58.974 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 2 trace segment. cost: 00:00:01.1027815s
+2023-05-19 11:00:12.584 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 3 logs. cost: 00:00:07.5770143s
+2023-05-19 11:00:21.966 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 3:00:21 +00:00
+2023-05-19 11:00:21.966 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 3:00:21 +00:00
+2023-05-19 11:00:21.976 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 1 0 0 16M ThreadPool 32762 32767 1000 1000
+2023-05-19 11:00:21.976 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 16M ThreadPool 32762 32767 1000 1000
+2023-05-19 11:00:24.951 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 3 trace segment. cost: 00:00:00.0103821s
+2023-05-19 11:00:39.951 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 4 trace segment. cost: 00:00:00.0137359s
+2023-05-19 11:00:49.652 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 1.5625 GenCollectCount 1 1 0 39M ThreadPool 32752 32767 998 1000
+2023-05-19 11:00:49.653 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 2 trace segment. cost: 00:00:00.0945109s
+2023-05-19 11:00:49.658 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 39M ThreadPool 32755 32767 999 1000
+2023-05-19 11:00:49.658 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 2 logs. cost: 00:00:00.0994038s
+2023-05-19 11:00:49.662 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 2 trace segment. cost: 00:00:00.1005467s
+2023-05-19 11:00:52.575 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 1 trace segment. cost: 00:00:00.0101576s
+2023-05-19 11:01:18.060 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 41M ThreadPool 32760 32767 1000 1000
+2023-05-19 11:01:18.060 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 41M ThreadPool 32758 32767 1000 1000
+2023-05-19 11:01:18.060 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 3:01:18 +00:00
+2023-05-19 11:01:18.060 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 3:01:18 +00:00
+2023-05-19 11:01:48.038 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 42M ThreadPool 32755 32767 1000 1000
+2023-05-19 11:01:48.038 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 42M ThreadPool 32755 32767 1000 1000
+2023-05-19 11:33:09.085 +08:00 [arswebapiservice001] [Information] SkyApm.InstrumentStartup : Initializing ...
+2023-05-19 11:33:09.137 +08:00 [arswebapiservice001] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-05-19 11:33:09.137 +08:00 [arswebapiservice001] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-05-19 11:33:09.137 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-05-19 11:33:09.137 +08:00 [arswebapiservice001] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-05-19 11:33:09.137 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-05-19 11:33:09.137 +08:00 [arswebapiservice001] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-05-19 11:33:09.137 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-05-19 11:33:09.137 +08:00 [arswebapiservice001] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-05-19 11:33:09.137 +08:00 [arswebapiservice001] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-05-19 11:33:09.137 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-05-19 11:33:09.137 +08:00 [arswebapiservice001] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-05-19 11:33:09.137 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-05-19 11:33:09.137 +08:00 [arswebapiservice001] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-05-19 11:33:09.137 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-05-19 11:33:09.286 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[172.20.64.1:11800].
+2023-05-19 11:33:09.301 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2023-05-19 11:33:09.302 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.AspNetCore].
+2023-05-19 11:33:09.302 +08:00 [arswebapiservice001] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2023-05-19 11:33:09.302 +08:00 [arswebapiservice001] [Information] SkyApm.InstrumentStartup : Initializing ...
+2023-05-19 11:33:09.302 +08:00 [arswebapiservice001] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-05-19 11:33:09.302 +08:00 [arswebapiservice001] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-05-19 11:33:09.302 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-05-19 11:33:09.302 +08:00 [arswebapiservice001] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-05-19 11:33:09.302 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-05-19 11:33:09.302 +08:00 [arswebapiservice001] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-05-19 11:33:09.302 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-05-19 11:33:09.302 +08:00 [arswebapiservice001] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-05-19 11:33:09.302 +08:00 [arswebapiservice001] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-05-19 11:33:09.302 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-05-19 11:33:09.302 +08:00 [arswebapiservice001] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-05-19 11:33:09.302 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-05-19 11:33:09.302 +08:00 [arswebapiservice001] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-05-19 11:33:09.303 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-05-19 11:33:09.303 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2023-05-19 11:33:09.303 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.AspNetCore].
+2023-05-19 11:33:09.304 +08:00 [arswebapiservice001] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2023-05-19 11:33:09.364 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2023-05-19 11:33:09.364 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2023-05-19 11:33:09.596 +08:00 [arswebapiservice001] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=arswebapiservice001,InstanceId=192.168.110.65@2e72065d1d7e4113ac2b3b9ec14bbf93].
+2023-05-19 11:33:09.596 +08:00 [arswebapiservice001] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=arswebapiservice001,InstanceId=192.168.110.65@2e72065d1d7e4113ac2b3b9ec14bbf93].
+2023-05-19 11:33:09.690 +08:00 [arswebapiservice001] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=arswebapiservice001,InstanceId=192.168.110.65@2e72065d1d7e4113ac2b3b9ec14bbf93].
+2023-05-19 11:33:09.690 +08:00 [arswebapiservice001] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=arswebapiservice001,InstanceId=192.168.110.65@2e72065d1d7e4113ac2b3b9ec14bbf93].
+2023-05-19 11:33:12.193 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 4 trace segment. cost: 00:00:00.0437727s
+2023-05-19 11:33:15.369 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.EntityFrameworkCore].
+2023-05-19 11:33:15.369 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.EntityFrameworkCore].
+2023-05-19 11:33:17.456 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Ars.EFCoreOperationLog].
+2023-05-19 11:33:17.456 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Ars.EFCoreOperationLog].
+2023-05-19 11:33:18.158 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 5 trace segment. cost: 00:00:00.0171088s
+2023-05-19 11:33:18.166 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 3 logs. cost: 00:00:00.0186969s
+2023-05-19 11:33:39.189 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 3:33:39 +00:00
+2023-05-19 11:33:39.189 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 3:33:39 +00:00
+2023-05-19 11:33:39.200 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 1 0 0 24M ThreadPool 32763 32767 1000 1000
+2023-05-19 11:33:39.200 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 24M ThreadPool 32763 32767 1000 1000
+2023-05-19 11:33:39.343 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 3:33:39 +00:00
+2023-05-19 11:33:39.349 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/5/19 3:33:39 +00:00
+2023-05-19 11:33:39.349 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 25M ThreadPool 32748 32767 1000 1000
+2023-05-19 11:33:39.349 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 25M ThreadPool 32748 32767 1000 1000
+2023-05-19 11:34:09.154 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 27M ThreadPool 32759 32767 1000 1000
+2023-05-19 11:34:09.157 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 27M ThreadPool 32759 32767 1000 1000
+2023-05-19 11:34:09.324 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 27M ThreadPool 32759 32767 1000 1000
+2023-05-19 11:34:09.324 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 27M ThreadPool 32759 32767 1000 1000

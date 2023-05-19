@@ -62,16 +62,25 @@ namespace Ars.Common.Core.Uow.Impl
                 await CompleteUowAsync();
                 _succeed = true;
                 CompletedHandler();
+                Publish();
             }
             catch (Exception ex) 
             {
                 _exception = ex;
+                FailedHandler();
+
+                throw;
             }
         }
 
         protected virtual void CompletedHandler() 
         {
             Completed.InvokeSafely(this);
+        }
+
+        protected virtual void Publish() 
+        {
+
         }
 
         protected virtual void FailedHandler()
@@ -93,7 +102,7 @@ namespace Ars.Common.Core.Uow.Impl
 
             IsDisposed = true;
 
-            if (!_succeed)
+            if (!_succeed) 
                 FailedHandler();
 
             DisposeUow();

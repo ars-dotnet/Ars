@@ -6,15 +6,9 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v6.0": {
-<<<<<<< HEAD
-      "Ars.Common.EFCore/1.5.3": {
+      "Ars.Common.EFCore/1.6.1": {
         "dependencies": {
-          "Ars.Common.AutoFac": "1.5.3",
-=======
-      "Ars.Common.EFCore/1.6.0": {
-        "dependencies": {
-          "Ars.Common.AutoFac": "1.6.0",
->>>>>>> v1.6.0
+          "Ars.Common.AutoFac": "1.6.1",
           "Microsoft.EntityFrameworkCore": "6.0.0",
           "Microsoft.EntityFrameworkCore.Proxies": "6.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.0",
@@ -85,25 +79,6 @@
           "lib/netcoreapp3.0/Enums.NET.dll": {
             "assemblyVersion": "4.0.0.0",
             "fileVersion": "4.0.0.0"
-          }
-        }
-      },
-      "Grpc.Core.Api/2.42.0": {
-        "dependencies": {
-          "System.Memory": "4.5.3"
-        },
-        "runtime": {
-          "lib/netstandard2.0/Grpc.Core.Api.dll": {
-            "assemblyVersion": "2.0.0.0",
-            "fileVersion": "2.42.0.0"
-          }
-        }
-      },
-      "Grpc.Net.Client.Web/2.42.0": {
-        "runtime": {
-          "lib/net6.0/Grpc.Net.Client.Web.dll": {
-            "assemblyVersion": "2.0.0.0",
-            "fileVersion": "2.42.0.0"
           }
         }
       },
@@ -1227,7 +1202,6 @@
           "System.Threading": "4.3.0"
         }
       },
-      "System.Memory/4.5.3": {},
       "System.Net.Http/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0",
@@ -1702,15 +1676,9 @@
           "System.Xml.ReaderWriter": "4.3.0"
         }
       },
-<<<<<<< HEAD
-      "Ars.Common.AutoFac/1.5.3": {
+      "Ars.Common.AutoFac/1.6.1": {
         "dependencies": {
-          "Ars.Common.Core": "1.5.3",
-=======
-      "Ars.Common.AutoFac/1.6.0": {
-        "dependencies": {
-          "Ars.Common.Core": "1.6.0",
->>>>>>> v1.6.0
+          "Ars.Common.Core": "1.6.1",
           "Autofac": "6.3.0",
           "Autofac.Extensions.DependencyInjection": "7.2.0",
           "Microsoft.AspNetCore.Mvc.Core": "2.2.5"
@@ -1719,31 +1687,20 @@
           "Ars.Common.AutoFac.dll": {}
         }
       },
-<<<<<<< HEAD
-      "Ars.Common.Core/1.5.3": {
+      "Ars.Common.Core/1.6.1": {
         "dependencies": {
-          "Ars.Common.Tool": "1.5.3",
-=======
-      "Ars.Common.Core/1.6.0": {
-        "dependencies": {
-          "Ars.Common.Tool": "1.6.0",
->>>>>>> v1.6.0
-          "Grpc.Core.Api": "2.42.0",
+          "Ars.Common.Tool": "1.6.1",
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "6.0.0",
+          "Microsoft.EntityFrameworkCore": "6.0.0",
           "System.Configuration.ConfigurationManager": "6.0.0"
         },
         "runtime": {
           "Ars.Common.Core.dll": {}
         }
       },
-<<<<<<< HEAD
-      "Ars.Common.Tool/1.5.3": {
-=======
-      "Ars.Common.Tool/1.6.0": {
->>>>>>> v1.6.0
+      "Ars.Common.Tool/1.6.1": {
         "dependencies": {
           "Aspose.Cells": "23.3.0",
-          "Grpc.Net.Client.Web": "2.42.0",
           "MessagePack": "2.3.85",
           "Microsoft.Extensions.Configuration.Abstractions": "6.0.0",
           "Microsoft.Extensions.DependencyInjection": "6.0.0",
@@ -1762,11 +1719,7 @@
     }
   },
   "libraries": {
-<<<<<<< HEAD
-    "Ars.Common.EFCore/1.5.3": {
-=======
-    "Ars.Common.EFCore/1.6.0": {
->>>>>>> v1.6.0
+    "Ars.Common.EFCore/1.6.1": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -1805,20 +1758,6 @@
       "sha512": "sha512-d47SgeuGxKpalKhYoHqFkDPmO9SoE3amSwVNDoUdy4d675/tX7bLyZFHdjfo3Tobth9Y80VnjfasQ/PD4LqUuA==",
       "path": "enums.net/4.0.0",
       "hashPath": "enums.net.4.0.0.nupkg.sha512"
-    },
-    "Grpc.Core.Api/2.42.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-12ciAZrp8orzYFZcruvzshhMEbbD4CAFOe9an1Fa4/c5ZrCtqUjWVPa1Dpk/1Pnv5E1KTeIHPuOtPTkpMLOCoQ==",
-      "path": "grpc.core.api/2.42.0",
-      "hashPath": "grpc.core.api.2.42.0.nupkg.sha512"
-    },
-    "Grpc.Net.Client.Web/2.42.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-rSvYpUPfAr+YEMBYSyjHmvDeyuQ/rzPRH77Uc3DsvXt272cMD+fzyOCQGUvs90eIkb8TGNomBOPxnup4U+p5tA==",
-      "path": "grpc.net.client.web/2.42.0",
-      "hashPath": "grpc.net.client.web.2.42.0.nupkg.sha512"
     },
     "MathNet.Numerics.Signed/4.15.0": {
       "type": "package",
@@ -2688,13 +2627,6 @@
       "path": "system.linq.expressions/4.3.0",
       "hashPath": "system.linq.expressions.4.3.0.nupkg.sha512"
     },
-    "System.Memory/4.5.3": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-3oDzvc/zzetpTKWMShs1AADwZjQ/36HnsufHRPcOjyRAAMLDlu2iD33MBI2opxnezcVUtXyqDXXjoFMOU9c7SA==",
-      "path": "system.memory/4.5.3",
-      "hashPath": "system.memory.4.5.3.nupkg.sha512"
-    },
     "System.Net.Http/4.3.0": {
       "type": "package",
       "serviceable": true,
@@ -3017,29 +2949,17 @@
       "path": "system.xml.xmldocument/4.3.0",
       "hashPath": "system.xml.xmldocument.4.3.0.nupkg.sha512"
     },
-<<<<<<< HEAD
-    "Ars.Common.AutoFac/1.5.3": {
-=======
-    "Ars.Common.AutoFac/1.6.0": {
->>>>>>> v1.6.0
+    "Ars.Common.AutoFac/1.6.1": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-<<<<<<< HEAD
-    "Ars.Common.Core/1.5.3": {
-=======
-    "Ars.Common.Core/1.6.0": {
->>>>>>> v1.6.0
+    "Ars.Common.Core/1.6.1": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-<<<<<<< HEAD
-    "Ars.Common.Tool/1.5.3": {
-=======
-    "Ars.Common.Tool/1.6.0": {
->>>>>>> v1.6.0
+    "Ars.Common.Tool/1.6.1": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

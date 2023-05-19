@@ -16,16 +16,16 @@ namespace Ars.Common.Core.Localization.Extension
     {
         public static IArsServiceBuilder AddArsLocalization(this IArsServiceBuilder arsServiceProvider)
         {
-           var arsLocalizationOption = arsServiceProvider.Services.Provider.GetRequiredService<IConfiguration>()
+           var arsLocalizationOption = arsServiceProvider.Configuration
                 .GetSection(nameof(ArsLocalizationConfiguration))
                 .Get<ArsLocalizationConfiguration>() 
                 ?? new ArsLocalizationConfiguration() { Cultures = new[] { "en-US", "zh-Hans" } };
-            var arsconfig = arsServiceProvider.Services.Provider.GetRequiredService<IArsConfiguration>();
+            var arsconfig = arsServiceProvider.ServiceProvider.GetRequiredService<IArsConfiguration>();
             arsconfig.ArsLocalizationConfiguration ??= arsLocalizationOption;
-            arsServiceProvider.Services.ServiceCollection.AddSingleton<IArsLocalizationConfiguration>(arsLocalizationOption);
+            arsServiceProvider.Services.AddSingleton<IArsLocalizationConfiguration>(arsLocalizationOption);
             arsconfig.AddArsAppExtension(new ArsLocalizationAppExtension());
 
-            var services = arsServiceProvider.Services.ServiceCollection;
+            var services = arsServiceProvider.Services;
             services.AddLocalization(
                 option =>
                      option.ResourcesPath = arsLocalizationOption.ResourcesPath);

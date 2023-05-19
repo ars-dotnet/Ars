@@ -14,11 +14,11 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MyArs")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyDescriptionAttribute("SignalR")]
-[assembly: System.Reflection.AssemblyFileVersionAttribute("1.6.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.6.0")]
+[assembly: System.Reflection.AssemblyFileVersionAttribute("1.6.1.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.6.1")]
 [assembly: System.Reflection.AssemblyProductAttribute("Ars")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Ars.Common.SignalR")]
-[assembly: System.Reflection.AssemblyVersionAttribute("1.6.0.0")]
+[assembly: System.Reflection.AssemblyVersionAttribute("1.6.1.0")]
 [assembly: System.Reflection.AssemblyMetadataAttribute("RepositoryUrl", "https://github.com/aabb1212/MyArs")]
 
 // 由 MSBuild WriteCodeFragment 类生成。

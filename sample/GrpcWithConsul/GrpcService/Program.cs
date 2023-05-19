@@ -20,7 +20,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services
-    .AddArserviceCore(builder.Host,config => 
+    .AddArserviceCore(builder,config => 
     {
         config.AddArsIdentityClient();
         config.AddArsConsulRegisterServer();

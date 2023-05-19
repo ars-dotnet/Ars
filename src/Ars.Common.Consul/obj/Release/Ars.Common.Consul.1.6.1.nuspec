@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Ars.Common.Consul</id>
+    <version>1.6.1</version>
+    <authors>MyArs</authors>
+    <projectUrl>https://github.com/aabb1212/MyArs</projectUrl>
+    <description>Consul</description>
+    <tags>Ars</tags>
+    <repository type="git" url="https://github.com/aabb1212/MyArs" />
+    <dependencies>
+      <group targetFramework="net6.0">
+        <dependency id="Ars.Common.Core" version="1.6.1" exclude="Build,Analyzers" />
+        <dependency id="Consul" version="1.6.10.4" exclude="Build,Analyzers" />
+        <dependency id="Grpc.Core.Api" version="2.42.0" exclude="Build,Analyzers" />
+        <dependency id="Grpc.Net.Client" version="2.42.0" exclude="Build,Analyzers" />
+        <dependency id="Grpc.Net.Client.Web" version="2.42.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+    <frameworkReferences>
+      <group targetFramework="net6.0">
+        <frameworkReference name="Microsoft.AspNetCore.App" />
+      </group>
+    </frameworkReferences>
+  </metadata>
+  <files>
+    <file src="C:\core\MyArs\src\Ars.Common.Consul\bin\Release\net6.0\Ars.Common.Consul.dll" target="lib\net6.0\Ars.Common.Consul.dll" />
+  </files>
+</package>

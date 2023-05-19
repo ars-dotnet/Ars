@@ -10,12 +10,9 @@ using Ars.Common.Core.Localization.Extension;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
-var provider = builder.Services.
-    AddArserviceCore(builder.Host,config => 
+builder.Services
+    .AddArserviceCore(builder,config => 
     {
-        
-
         config.AddArsLocalization();
     });
 

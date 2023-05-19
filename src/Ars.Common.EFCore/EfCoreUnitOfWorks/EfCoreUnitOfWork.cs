@@ -13,11 +13,16 @@ using Ars.Common.Core.Uow.Impl;
 using System.Configuration;
 using Ars.Common.Tool;
 using Microsoft.EntityFrameworkCore.Storage;
+using Ars.Common.Core.Diagnostic;
+using System.Diagnostics;
 
 namespace Ars.Common.EFCore.EfCoreUnitOfWorks
 {
-    internal class EfCoreUnitOfWork : UnitOfWorkBase, ITransientDependency
+    public class EfCoreUnitOfWork : UnitOfWorkBase, ITransientDependency
     {
+        protected static readonly DiagnosticListener s_diagnosticListener =
+             new(ArsDiagnosticNames.ListenerName);
+
         protected IDictionary<string, DbContext> ActiveDbContexts { get; }
         private readonly IDbContextResolver _dbContextResolver;
         private readonly IEfCoreTransactionStrategy _efCoreTransactionStrategy;
@@ -40,7 +45,7 @@ namespace Ars.Common.EFCore.EfCoreUnitOfWorks
 
         public override async Task SaveChangesAsync()
         {
-            foreach (var dbContext in ActiveDbContexts.Values.ToImmutableList())
+            foreach (var dbContext in GetActiveDbContexts())
             {
                 await SaveChangesInDbContextAsync(dbContext);
             }
@@ -60,7 +65,7 @@ namespace Ars.Common.EFCore.EfCoreUnitOfWorks
             }
             else
             {
-                foreach (var dbContext in ActiveDbContexts.Values.ToImmutableList())
+                foreach (var dbContext in GetActiveDbContexts())
                 {
                     dbContext.Dispose();
                 }
@@ -165,6 +170,32 @@ namespace Ars.Common.EFCore.EfCoreUnitOfWorks
                 dbcontextKey += "." + name;
 
             return dbcontextKey;
+        }
+
+        public IEnumerable<DbContext> GetActiveDbContexts() 
+        {
+            return ActiveDbContexts.Values.ToImmutableList();
+        }
+
+        protected override void Publish()
+        {
+            if (s_diagnosticListener.IsEnabled(ArsDiagnosticNames.CompleteTransactionName)) 
+            {
+                foreach (var dbcontext in GetActiveDbContexts())
+                {
+                    var changerTables = ((ArsDbContext)dbcontext).GetChangerTables();
+                    if(changerTables.HasValue())
+                    {
+                        ArsCommandEventData arsCommandEventData = new ArsCommandEventData()
+                        {
+                            DbCommand = dbcontext.Database.GetDbConnection().CreateCommand(),
+                            ChangerTables = changerTables,
+                        };
+
+                        s_diagnosticListener.Write(ArsDiagnosticNames.CompleteTransactionName, arsCommandEventData);
+                    }
+                }
+            }
         }
     }
 }

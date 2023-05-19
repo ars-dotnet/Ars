@@ -1,6 +1,7 @@
 using Ars.Common.Core.AspNetCore.OutputDtos;
 using Ars.Common.Core.Configs;
 using Ars.Common.Core.IDependency;
+using Ars.Common.Core.Uow;
 using Ars.Common.Core.Uow.Attributes;
 using Ars.Common.EFCore.AdoNet;
 using Ars.Common.EFCore.Extension;
@@ -33,13 +34,15 @@ namespace MyApiWithIdentityServer4.Controllers
         //private readonly ITestScopeService _testScopeService;
         private readonly IArsIdentityClientConfiguration _clientConfiguration;
         //private readonly MyDbContext myDbContext;
+        private readonly IUnitOfWork _unitOfWork;
 
         public DbContextController(ILogger<DbContextController> logger,
             MyDbContext myDbContext,
             IHttpClientFactory httpClientFactory,
             IHttpContextAccessor httpContextAccessor,
             //ITestScopeService testScopeService,
-            IArsIdentityClientConfiguration arsIdentityClientConfiguration)
+            IArsIdentityClientConfiguration arsIdentityClientConfiguration,
+            IUnitOfWork unitOfWork)
         {
             _logger = logger;
             _httpClientFactory = httpClientFactory;
@@ -47,19 +50,20 @@ namespace MyApiWithIdentityServer4.Controllers
             _httpContextAccessor = httpContextAccessor;
             //_testScopeService = testScopeService;
             _clientConfiguration = arsIdentityClientConfiguration;
+            _unitOfWork = unitOfWork;
         }
 
         [Autowired]
         public IRepository<Student, Guid> _repo { get; set; }
 
         [Autowired]
-        public IRepository<ClassRoom> _classRepo { get; set; }
-
-        [Autowired]
-        public IRepository<ClassRoom, int> _classRepo1 { get; set; }
+        public IRepository<ClassRoom,Guid> _classRepo { get; set; }
 
         [Autowired]
         public IDbExecuter<MyDbContext> DbExecuter { get; set; }
+
+        [Autowired]
+        protected IRepository<AppVersion> RepoApp { get; set; }
 
         private static readonly string[] Summaries = new[]
         {
@@ -69,8 +73,11 @@ namespace MyApiWithIdentityServer4.Controllers
 
         [HttpGet(Name = "GetWeatherForecast")]
         //[Authorize]
-        public IEnumerable<WeatherForecast> Get()
+        public IEnumerable<WeatherForecast> Get([FromServices]IServiceProvider serviceProvider)
         {
+            var a = serviceProvider.GetRequiredService<MyDbContext>();
+            var b = serviceProvider.GetRequiredService<MyDbContext>();
+
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
                 Date = DateTime.Now.AddDays(index),
@@ -167,25 +174,25 @@ namespace MyApiWithIdentityServer4.Controllers
 
             string sql = @"insert into Students(Id,LastName,FirstMidName,EnrollmentDate,TenantId,CreationUserId,IsDeleted) " +
                 "values(@Id,@LastName,@FirstMidName,@EnrollmentDate,@TenantId,@CreationUserId,@IsDeleted)";
-            SqlParameter[] sqlParameters =
+            MySqlParameter[] sqlParameters =
             {
-                new SqlParameter("@Id",Guid.NewGuid()),
-                new SqlParameter("@LastName",8899),
-                new SqlParameter("@FirstMidName","aabb121211"),
-                new SqlParameter("@EnrollmentDate",DateTime.Now),
-                new SqlParameter("@TenantId",1),
-                new SqlParameter("@CreationUserId",1),
-                new SqlParameter("@IsDeleted",false),
+                new MySqlParameter("@Id",Guid.NewGuid()),
+                new MySqlParameter("@LastName",8899),
+                new MySqlParameter("@FirstMidName","aabb121211"),
+                new MySqlParameter("@EnrollmentDate",DateTime.Now),
+                new MySqlParameter("@TenantId",1),
+                new MySqlParameter("@CreationUserId",1),
+                new MySqlParameter("@IsDeleted",false),
             };
 
-            await DbExecuter.BeginWithEfCoreTransactionAsync(UnitOfWorkManager.Current!.GetContextTransaction<MyDbContext>()!);
+            DbExecuter.BeginWithEFCoreTransaction(UnitOfWorkManager.Current!);
             var count = await DbExecuter.ExecuteNonQuery(sql, sqlParameters);
 
             string updatesql = $"update Students set LastName = @LastName where FirstMidName = @FirstMidName";
-            SqlParameter[] upsqlParameters =
+            MySqlParameter[] upsqlParameters =
             {
-                 new SqlParameter("@LastName",889999),
-                 new SqlParameter("@FirstMidName","aabb121211"),
+                 new MySqlParameter("@LastName",889999),
+                 new MySqlParameter("@FirstMidName","aabb121211"),
             };
             count = await DbExecuter.ExecuteNonQuery(updatesql, upsqlParameters);
         }
@@ -229,7 +236,7 @@ namespace MyApiWithIdentityServer4.Controllers
                 new SqlParameter("@IsDeleted",false),
             };
 
-            await DbExecuter.BeginWithEfCoreTransactionAsync(UnitOfWorkManager.Current!.GetContextTransaction<MyDbContext>()!);
+            DbExecuter.BeginWithEFCoreTransaction(UnitOfWorkManager.Current!);
             var count = await DbExecuter.ExecuteNonQuery(sql, sqlParameters);
 
             string updatesql = $"update Students set LastName = @LastName where FirstMidName = @FirstMidName";
@@ -262,25 +269,78 @@ namespace MyApiWithIdentityServer4.Controllers
         [HttpPost(nameof(TestSuppressInnerRequired))]
         public async Task TestSuppressInnerRequired()
         {
+            using var scope0 = UnitOfWorkManager.Begin(TransactionScopeOption.RequiresNew);
+            UnitOfWorkManager.Current.Completed += (sender, args) =>
+            {
+
+            };
+            MyDbContext dbContext0 = await UnitOfWorkManager.Current.GetDbContextAsync<MyDbContext>();
+            await dbContext0.Students.AddAsync(new Model.Student
+            {
+                LastName = "RequiresNew",
+                FirstMidName = "RequiresNew",
+                EnrollmentDate = DateTime.UtcNow,
+            });
+            await scope0.CompleteAsync(); //提交事务
+
+            using (var scope = UnitOfWorkManager.Begin(TransactionScopeOption.Suppress))
+            {
+                UnitOfWorkManager.Current.Completed += (sender, args) =>
+                {
+
+                };
+                MyDbContext _dbContext = await UnitOfWorkManager.Current.GetDbContextAsync<MyDbContext>();
+                await _dbContext.Students.AddAsync(new Model.Student
+                {
+                    LastName = "Suppress.Out.001",
+                    FirstMidName = "Suppress.Out.001",
+                    EnrollmentDate = DateTime.UtcNow,
+                });
+
+                using var scope1 = UnitOfWorkManager.Begin(TransactionScopeOption.Required);
+                UnitOfWorkManager.Current.Completed += (sender, args) =>
+                {
+
+                };
+                MyDbContext dbContext1 = await UnitOfWorkManager.Current.GetDbContextAsync<MyDbContext>();
+                await dbContext1.Students.AddAsync(new Model.Student
+                {
+                    LastName = "Suppress.Required.Inner.001",
+                    FirstMidName = "Suppress.Required.Inner",
+                    EnrollmentDate = DateTime.UtcNow,
+                });
+                await scope1.CompleteAsync(); //直接SaveChangesAsync，没有提交事务
+                await scope.CompleteAsync();//提交事务
+            }
+
+            using (var scope = UnitOfWorkManager.Begin(TransactionScopeOption.Suppress))
+            {
+                UnitOfWorkManager.Current.Completed += (sender, args) =>
+                {
+
+                };
+                MyDbContext _dbContext = await UnitOfWorkManager.Current.GetDbContextAsync<MyDbContext>();
+                await _dbContext.Students.AddAsync(new Model.Student
+                {
+                    LastName = "Suppress.Out.002",
+                    FirstMidName = "Suppress.Out.002",
+                    EnrollmentDate = DateTime.UtcNow,
+                });
+
+                await scope.CompleteAsync();//提交事务
+            }
+
             using (var scope = UnitOfWorkManager.Begin(TransactionScopeOption.Suppress))
             {
                 MyDbContext _dbContext = await UnitOfWorkManager.Current.GetDbContextAsync<MyDbContext>();
                 await _dbContext.Students.AddAsync(new Model.Student
                 {
-                    LastName = "SuppressOut",
-                    FirstMidName = "SuppressOut",
+                    LastName = "Suppress.Out.003",
+                    FirstMidName = "Suppress.Out.003",
                     EnrollmentDate = DateTime.UtcNow,
                 });
 
-                using var scope1 = UnitOfWorkManager.Begin(TransactionScopeOption.Required);
-                MyDbContext dbContext1 = await UnitOfWorkManager.Current.GetDbContextAsync<MyDbContext>();
-                await dbContext1.Students.AddAsync(new Model.Student
-                {
-                    LastName = "SuppressInner",
-                    FirstMidName = "SuppressInner",
-                    EnrollmentDate = DateTime.UtcNow,
-                });
-                await scope1.CompleteAsync(); //不提交事务
+                await _dbContext.SaveChangesAsync();
                 await scope.CompleteAsync();//提交事务
             }
         }
@@ -454,7 +514,7 @@ namespace MyApiWithIdentityServer4.Controllers
                 new SqlParameter("@IsDeleted",false),
             };
 
-            using var scope = await DbExecuter.BeginAsync();
+            using var scope = await DbExecuter.BeginTransactionAsync();
             var count = await DbExecuter.ExecuteNonQuery(sql, sqlParameters);
 
             string updatesql = $"update Students set LastName = @LastName where FirstMidName = @FirstMidName";
@@ -472,7 +532,7 @@ namespace MyApiWithIdentityServer4.Controllers
         [HttpPost]
         public async Task<IActionResult> AdoNetUpdate() 
         {
-            using var scope = await DbExecuter.BeginAsync();
+            using var scope = await DbExecuter.BeginTransactionAsync();
             var guids = new Guid[] { new Guid("44713162-A9FB-4EB6-8A1F-0E4A64E533AD") };
             List<SqlParameter> sqlParameters = new List<SqlParameter>
             {
@@ -578,5 +638,111 @@ namespace MyApiWithIdentityServer4.Controllers
             return Ok(data1);
         }
         #endregion
+
+        #region operationlog
+
+        [HttpPost]
+        public async Task RecordOperationAdd()
+        {
+            await _repo.InsertAsync(new Student
+            {
+                FirstMidName = "A001",
+                LastName = "A001"
+            });
+
+            await _repo.InsertAsync(new Student
+            {
+                FirstMidName = "A002",
+                LastName = "A002"
+            });
+
+            await RepoApp.InsertAsync(new AppVersion
+            {
+                Version = "123",
+                Path = "1234"
+            });
+
+            await _classRepo.InsertAsync(new ClassRoom
+            {
+                CreationUserId = 123
+            });
+        }
+
+        [HttpPost]
+        public async Task<string> RecordOperationLogs(string a)
+        {
+            await _repo.InsertAsync(new Student
+            {
+                FirstMidName = "C001",
+                LastName = "C001"
+            });
+
+            var data = await _repo.FirstOrDefaultAsync(r => r.FirstMidName.Equals("A001"));
+            data!.LastName = "A001.001";
+
+            var data1 = await _repo.FirstOrDefaultAsync(r => r.FirstMidName.Equals("A002"));
+            await _repo.DeleteAsync(data1!);
+
+            var data2 = await RepoApp.GetAll().FirstOrDefaultAsync();
+            await RepoApp.DeleteAsync(data2!);
+
+            return "Ok123";
+        }
+
+        /// <summary>
+        /// 使用ado.net时，efcore-entry集合里面是没有值的，所以获取不到有变更的实体
+        /// </summary>
+        /// <param name="aa"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public async Task<object> AdoRecordOperationLogs([FromBody] string aa) 
+        {
+            //DbExecuter.BeginWithEFCoreTransaction(UnitOfWorkManager.Current!);
+            //using var scope = await DbExecuter.BeginTransactionAsync();
+
+            string sql = @"insert into Students(Id,LastName,FirstMidName,EnrollmentDate,TenantId,CreationUserId,IsDeleted) " +
+               "values(@Id,@LastName,@FirstMidName,@EnrollmentDate,@TenantId,@CreationUserId,@IsDeleted)";
+            MySqlParameter[] sqlParameters =
+            {
+                new MySqlParameter("@Id",Guid.NewGuid()),
+                new MySqlParameter("@LastName",8899),
+                new MySqlParameter("@FirstMidName","aabb121212"),
+                new MySqlParameter("@EnrollmentDate",DateTime.Now),
+                new MySqlParameter("@TenantId",1),
+                new MySqlParameter("@CreationUserId",1),
+                new MySqlParameter("@IsDeleted",false),
+            };
+            var c1 = await DbExecuter.ExecuteNonQuery(sql, sqlParameters);
+
+            string updatesql = $"update Students set LastName = @LastName where FirstMidName = @FirstMidName";
+            MySqlParameter[] upsqlParameters =
+            {
+                 new MySqlParameter("@LastName","A001.001"),
+                 new MySqlParameter("@FirstMidName","A001"),
+            };
+            var c2 = await DbExecuter.ExecuteNonQuery(updatesql, upsqlParameters);
+
+            string deletesql = "delete from AppVersion where Version = @Version";
+            MySqlParameter[] deleteParameters =
+            {
+                new MySqlParameter("@Version","123"),
+            };
+            var c3 = await DbExecuter.ExecuteNonQuery(deletesql, deleteParameters);
+
+            deletesql = "delete from Students where FirstMidName = @FirstMidName";
+            MySqlParameter[] deleteParameterss =
+            {
+                new MySqlParameter("@FirstMidName","A002")
+            };
+            var c4 = await DbExecuter.ExecuteNonQuery(deletesql, deleteParameterss);
+
+            //await scope.CommitAsync();
+
+            return (c1,c2,c3,c4);
+        }
+
+        #endregion
+
+
     }
 }

@@ -4,7 +4,14 @@
         <name>ArsWebApiService</name>
     </assembly>
     <members>
-        <member name="P:MyApiWithIdentityServer4.Model.Student.Enrollments">
+        <member name="M:MyApiWithIdentityServer4.Controllers.DbContextController.AdoRecordOperationLogs(System.String)">
+            <summary>
+            使用ado.net时，efcore-entry集合里面是没有值的，所以获取不到有变更的实体
+            </summary>
+            <param name="aa"></param>
+            <returns></returns>
+        </member>
+        <member name="P:MyApiWithIdentityServer4.Model.Student.TimeStamp">
             <summary>
             并发标记
             </summary>

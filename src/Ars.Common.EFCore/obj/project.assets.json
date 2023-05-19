@@ -91,22 +91,6 @@
           }
         }
       },
-      "Grpc.Core.Api/2.42.0": {
-        "type": "package",
-        "dependencies": {
-          "System.Memory": "4.5.3"
-        },
-        "compile": {
-          "lib/netstandard2.0/Grpc.Core.Api.dll": {
-            "related": ".pdb;.xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.0/Grpc.Core.Api.dll": {
-            "related": ".pdb;.xml"
-          }
-        }
-      },
       "MathNet.Numerics.Signed/4.15.0": {
         "type": "package",
         "compile": {
@@ -2226,15 +2210,6 @@
           "lib/netstandard1.6/System.Linq.Expressions.dll": {}
         }
       },
-      "System.Memory/4.5.3": {
-        "type": "package",
-        "compile": {
-          "ref/netcoreapp2.1/_._": {}
-        },
-        "runtime": {
-          "lib/netcoreapp2.1/_._": {}
-        }
-      },
       "System.Net.Http/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -3153,11 +3128,11 @@
           "lib/netstandard1.3/System.Xml.XmlDocument.dll": {}
         }
       },
-      "Ars.Common.AutoFac/1.6.0": {
+      "Ars.Common.AutoFac/1.6.1": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Ars.Common.Core": "1.6.0",
+          "Ars.Common.Core": "1.6.1",
           "Autofac": "6.3.0",
           "Autofac.Extensions.DependencyInjection": "7.2.0",
           "Microsoft.AspNetCore.Mvc.Core": "2.2.5"
@@ -3172,13 +3147,13 @@
           "Microsoft.AspNetCore.App"
         ]
       },
-      "Ars.Common.Core/1.6.0": {
+      "Ars.Common.Core/1.6.1": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Ars.Common.Tool": "1.6.0",
-          "Grpc.Core.Api": "2.42.0",
+          "Ars.Common.Tool": "1.6.1",
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "6.0.0",
+          "Microsoft.EntityFrameworkCore": "6.0.0",
           "System.Configuration.ConfigurationManager": "6.0.0"
         },
         "compile": {
@@ -3191,7 +3166,7 @@
           "Microsoft.AspNetCore.App"
         ]
       },
-      "Ars.Common.Tool/1.6.0": {
+      "Ars.Common.Tool/1.6.1": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
@@ -3347,26 +3322,6 @@
         "lib/netstandard2.1/Enums.NET.dll",
         "lib/netstandard2.1/Enums.NET.pdb",
         "lib/netstandard2.1/Enums.NET.xml"
-      ]
-    },
-    "Grpc.Core.Api/2.42.0": {
-      "sha512": "12ciAZrp8orzYFZcruvzshhMEbbD4CAFOe9an1Fa4/c5ZrCtqUjWVPa1Dpk/1Pnv5E1KTeIHPuOtPTkpMLOCoQ==",
-      "type": "package",
-      "path": "grpc.core.api/2.42.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "grpc.core.api.2.42.0.nupkg.sha512",
-        "grpc.core.api.nuspec",
-        "lib/net45/Grpc.Core.Api.dll",
-        "lib/net45/Grpc.Core.Api.pdb",
-        "lib/net45/Grpc.Core.Api.xml",
-        "lib/netstandard1.5/Grpc.Core.Api.dll",
-        "lib/netstandard1.5/Grpc.Core.Api.pdb",
-        "lib/netstandard1.5/Grpc.Core.Api.xml",
-        "lib/netstandard2.0/Grpc.Core.Api.dll",
-        "lib/netstandard2.0/Grpc.Core.Api.pdb",
-        "lib/netstandard2.0/Grpc.Core.Api.xml"
       ]
     },
     "MathNet.Numerics.Signed/4.15.0": {
@@ -6786,27 +6741,6 @@
         "system.linq.expressions.nuspec"
       ]
     },
-    "System.Memory/4.5.3": {
-      "sha512": "3oDzvc/zzetpTKWMShs1AADwZjQ/36HnsufHRPcOjyRAAMLDlu2iD33MBI2opxnezcVUtXyqDXXjoFMOU9c7SA==",
-      "type": "package",
-      "path": "system.memory/4.5.3",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE.TXT",
-        "THIRD-PARTY-NOTICES.TXT",
-        "lib/netcoreapp2.1/_._",
-        "lib/netstandard1.1/System.Memory.dll",
-        "lib/netstandard1.1/System.Memory.xml",
-        "lib/netstandard2.0/System.Memory.dll",
-        "lib/netstandard2.0/System.Memory.xml",
-        "ref/netcoreapp2.1/_._",
-        "system.memory.4.5.3.nupkg.sha512",
-        "system.memory.nuspec",
-        "useSharedDesignerContext.txt",
-        "version.txt"
-      ]
-    },
     "System.Net.Http/4.3.0": {
       "sha512": "sYg+FtILtRQuYWSIAuNOELwVuVsxVyJGWQyOnlAzhV4xvhyFnON1bAzYYC+jjRW8JREM45R0R5Dgi8MTC5sEwA==",
       "type": "package",
@@ -9167,17 +9101,17 @@
         "system.xml.xmldocument.nuspec"
       ]
     },
-    "Ars.Common.AutoFac/1.6.0": {
+    "Ars.Common.AutoFac/1.6.1": {
       "type": "project",
       "path": "../Ars.Common.AutoFac/Ars.Common.AutoFac.csproj",
       "msbuildProject": "../Ars.Common.AutoFac/Ars.Common.AutoFac.csproj"
     },
-    "Ars.Common.Core/1.6.0": {
+    "Ars.Common.Core/1.6.1": {
       "type": "project",
       "path": "../Ars.Common.Core/Ars.Common.Core.csproj",
       "msbuildProject": "../Ars.Common.Core/Ars.Common.Core.csproj"
     },
-    "Ars.Common.Tool/1.6.0": {
+    "Ars.Common.Tool/1.6.1": {
       "type": "project",
       "path": "../Ars.Commom.Tool/Ars.Common.Tool.csproj",
       "msbuildProject": "../Ars.Commom.Tool/Ars.Common.Tool.csproj"
@@ -9185,7 +9119,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "Ars.Common.AutoFac >= 1.6.0",
+      "Ars.Common.AutoFac >= 1.6.1",
       "Microsoft.EntityFrameworkCore >= 6.0.0",
       "Microsoft.EntityFrameworkCore.Proxies >= 6.0.0",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.0",
@@ -9197,7 +9131,7 @@
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
-    "version": "1.6.0",
+    "version": "1.6.1",
     "restore": {
       "projectUniqueName": "C:\\core\\MyArs\\src\\Ars.Common.EFCore\\Ars.Common.EFCore.csproj",
       "projectName": "Ars.Common.EFCore",

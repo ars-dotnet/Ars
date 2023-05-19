@@ -1,6 +1,8 @@
 ﻿using Ars.Commom.Core;
+using Ars.Common.SkyWalking.Diagnostics.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using SkyApm;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,19 +21,21 @@ namespace Ars.Common.SkyWalking.Extensions
         /// <exception cref="ArgumentNullException"></exception>
         public static IArsServiceBuilder AddArsSkyApm(this IArsServiceBuilder builder) 
         {
-            var services = builder.Services.ServiceCollection;
-            using var scope = services.BuildServiceProvider().CreateScope();
-            IConfiguration configuration = scope.ServiceProvider.GetRequiredService<IConfiguration>();
+            var services = builder.Services;
+            //using var scope = services.BuildServiceProvider().CreateScope();
+            //IConfiguration configuration = scope.ServiceProvider.GetRequiredService<IConfiguration>();
 
-            var skyapmconfig = configuration
-                .GetSection(nameof(ArsSkyWalkingConfiguration))
-                .Get<ArsSkyWalkingConfiguration>()
-                ?? 
-                throw new ArgumentNullException("appsettings => ArsSkyWalkingConfiguration not be null");
+            //var skyapmconfig = configuration
+            //    .GetSection(nameof(ArsSkyWalkingConfiguration))
+            //    .Get<ArsSkyWalkingConfiguration>()
+            //    ?? 
+            //    throw new ArgumentNullException("appsettings => ArsSkyWalkingConfiguration not be null");
 
             //必须放在var builder = WebApplication.CreateBuilder(args)之前才生效
             //Environment.SetEnvironmentVariable(nameof(skyapmconfig.ASPNETCORE_HOSTINGSTARTUPASSEMBLIES), skyapmconfig.ASPNETCORE_HOSTINGSTARTUPASSEMBLIES);
             //Environment.SetEnvironmentVariable(nameof(skyapmconfig.SKYWALKING__SERVICENAME), skyapmconfig.SKYWALKING__SERVICENAME);
+
+            services.AddSingleton<ITracingDiagnosticProcessor, ArsEntityFrameworkCoreTracingDiagnosticProcessor>();
             services.AddSkyAPM();
 
             return builder;
