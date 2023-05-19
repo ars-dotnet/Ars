@@ -23,6 +23,7 @@ PM> Install-Package Ars.Common.Consul
 PM> Install-Package Ars.Common.EFCore
 PM> Install-Package Ars.Common.Redis
 PM> Install-Package Ars.Common.SignalR
+PM> Install-Package Ars.Common.SkyWalking
 ```
 
 ### Configuration
