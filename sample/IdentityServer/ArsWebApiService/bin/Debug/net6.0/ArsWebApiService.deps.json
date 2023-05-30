@@ -8,13 +8,13 @@
     ".NETCoreApp,Version=v6.0": {
       "ArsWebApiService/1.0.0": {
         "dependencies": {
-          "Ars.Common.Consul": "1.6.1",
-          "Ars.Common.EFCore": "1.6.1",
-          "Ars.Common.Host": "1.6.1",
-          "Ars.Common.IdentityServer4": "1.6.1",
-          "Ars.Common.Redis": "1.6.1",
-          "Ars.Common.SignalR": "1.6.1",
-          "Ars.Common.SkyWalking": "1.6.1",
+          "Ars.Common.Consul": "1.6.2",
+          "Ars.Common.EFCore": "1.6.2",
+          "Ars.Common.Host": "1.6.2",
+          "Ars.Common.IdentityServer4": "1.6.2",
+          "Ars.Common.Redis": "1.6.2",
+          "Ars.Common.SignalR": "1.6.2",
+          "Ars.Common.SkyWalking": "1.6.2",
           "Microsoft.AspNetCore.ApiAuthorization.IdentityServer": "6.0.0",
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "6.0.6",
           "Microsoft.EntityFrameworkCore.Design": "6.0.0",
@@ -2508,9 +2508,9 @@
           "System.Xml.ReaderWriter": "4.3.0"
         }
       },
-      "Ars.Common.AutoFac/1.6.1": {
+      "Ars.Common.AutoFac/1.6.2": {
         "dependencies": {
-          "Ars.Common.Core": "1.6.1",
+          "Ars.Common.Core": "1.6.2",
           "Autofac": "6.3.0",
           "Autofac.Extensions.DependencyInjection": "7.2.0",
           "Microsoft.AspNetCore.Mvc.Core": "2.2.5"
@@ -2519,9 +2519,9 @@
           "Ars.Common.AutoFac.dll": {}
         }
       },
-      "Ars.Common.Consul/1.6.1": {
+      "Ars.Common.Consul/1.6.2": {
         "dependencies": {
-          "Ars.Common.Core": "1.6.1",
+          "Ars.Common.Core": "1.6.2",
           "Consul": "1.6.10.4",
           "Grpc.Core.Api": "2.47.0",
           "Grpc.Net.Client": "2.47.0",
@@ -2531,9 +2531,9 @@
           "Ars.Common.Consul.dll": {}
         }
       },
-      "Ars.Common.Core/1.6.1": {
+      "Ars.Common.Core/1.6.2": {
         "dependencies": {
-          "Ars.Common.Tool": "1.6.1",
+          "Ars.Common.Tool": "1.6.2",
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "6.0.6",
           "Microsoft.EntityFrameworkCore": "6.0.1",
           "System.Configuration.ConfigurationManager": "6.0.0"
@@ -2542,9 +2542,9 @@
           "Ars.Common.Core.dll": {}
         }
       },
-      "Ars.Common.EFCore/1.6.1": {
+      "Ars.Common.EFCore/1.6.2": {
         "dependencies": {
-          "Ars.Common.AutoFac": "1.6.1",
+          "Ars.Common.AutoFac": "1.6.2",
           "Microsoft.EntityFrameworkCore": "6.0.1",
           "Microsoft.EntityFrameworkCore.Proxies": "6.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.0",
@@ -2554,11 +2554,11 @@
           "Ars.Common.EFCore.dll": {}
         }
       },
-      "Ars.Common.Host/1.6.1": {
+      "Ars.Common.Host/1.6.2": {
         "dependencies": {
-          "Ars.Common.AutoFac": "1.6.1",
-          "Ars.Common.Core": "1.6.1",
-          "Ars.Common.Tool": "1.6.1",
+          "Ars.Common.AutoFac": "1.6.2",
+          "Ars.Common.Core": "1.6.2",
+          "Ars.Common.Tool": "1.6.2",
           "Autofac": "6.3.0",
           "Autofac.Extensions.DependencyInjection": "7.2.0"
         },
@@ -2566,10 +2566,10 @@
           "Ars.Common.Host.dll": {}
         }
       },
-      "Ars.Common.IdentityServer4/1.6.1": {
+      "Ars.Common.IdentityServer4/1.6.2": {
         "dependencies": {
-          "Ars.Common.Core": "1.6.1",
-          "Ars.Common.Tool": "1.6.1",
+          "Ars.Common.Core": "1.6.2",
+          "Ars.Common.Tool": "1.6.2",
           "IdentityServer4": "4.1.2",
           "IdentityServer4.AccessTokenValidation": "3.0.1"
         },
@@ -2577,11 +2577,11 @@
           "Ars.Common.IdentityServer4.dll": {}
         }
       },
-      "Ars.Common.Redis/1.6.1": {
+      "Ars.Common.Redis/1.6.2": {
         "dependencies": {
-          "Ars.Common.AutoFac": "1.6.1",
-          "Ars.Common.Core": "1.6.1",
-          "Ars.Common.Tool": "1.6.1",
+          "Ars.Common.AutoFac": "1.6.2",
+          "Ars.Common.Core": "1.6.2",
+          "Ars.Common.Tool": "1.6.2",
           "CSRedisCore": "3.6.9",
           "Microsoft.Bcl.AsyncInterfaces": "6.0.0",
           "Microsoft.Extensions.Logging": "6.0.0"
@@ -2590,19 +2590,19 @@
           "Ars.Common.Redis.dll": {}
         }
       },
-      "Ars.Common.SignalR/1.6.1": {
+      "Ars.Common.SignalR/1.6.2": {
         "dependencies": {
-          "Ars.Common.Core": "1.6.1",
-          "Ars.Common.Redis": "1.6.1",
+          "Ars.Common.Core": "1.6.2",
+          "Ars.Common.Redis": "1.6.2",
           "Microsoft.AspNetCore.SignalR.Protocols.MessagePack": "6.0.0"
         },
         "runtime": {
           "Ars.Common.SignalR.dll": {}
         }
       },
-      "Ars.Common.SkyWalking/1.6.1": {
+      "Ars.Common.SkyWalking/1.6.2": {
         "dependencies": {
-          "Ars.Common.Core": "1.6.1",
+          "Ars.Common.Core": "1.6.2",
           "Microsoft.Extensions.Configuration.Abstractions": "6.0.0",
           "Microsoft.Extensions.Configuration.Binder": "6.0.0",
           "Microsoft.Extensions.DependencyInjection": "6.0.0",
@@ -2613,7 +2613,7 @@
           "Ars.Common.SkyWalking.dll": {}
         }
       },
-      "Ars.Common.Tool/1.6.1": {
+      "Ars.Common.Tool/1.6.2": {
         "dependencies": {
           "Aspose.Cells": "23.3.0",
           "MessagePack": "2.3.85",
@@ -4410,52 +4410,52 @@
       "path": "system.xml.xmldocument/4.3.0",
       "hashPath": "system.xml.xmldocument.4.3.0.nupkg.sha512"
     },
-    "Ars.Common.AutoFac/1.6.1": {
+    "Ars.Common.AutoFac/1.6.2": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "Ars.Common.Consul/1.6.1": {
+    "Ars.Common.Consul/1.6.2": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "Ars.Common.Core/1.6.1": {
+    "Ars.Common.Core/1.6.2": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "Ars.Common.EFCore/1.6.1": {
+    "Ars.Common.EFCore/1.6.2": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "Ars.Common.Host/1.6.1": {
+    "Ars.Common.Host/1.6.2": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "Ars.Common.IdentityServer4/1.6.1": {
+    "Ars.Common.IdentityServer4/1.6.2": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "Ars.Common.Redis/1.6.1": {
+    "Ars.Common.Redis/1.6.2": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "Ars.Common.SignalR/1.6.1": {
+    "Ars.Common.SignalR/1.6.2": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "Ars.Common.SkyWalking/1.6.1": {
+    "Ars.Common.SkyWalking/1.6.2": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "Ars.Common.Tool/1.6.1": {
+    "Ars.Common.Tool/1.6.2": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

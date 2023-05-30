@@ -1,5 +1,6 @@
 ﻿using Ars.Common.Core.IDependency;
 using Ars.Common.Core.Uow;
+using Ars.Common.EFCore.EfCoreUnitOfWorks;
 using Ars.Common.EFCore.Entities;
 using Ars.Common.EFCore.Extension;
 using Microsoft.EntityFrameworkCore;
@@ -16,13 +17,25 @@ namespace Ars.Common.EFCore.Repository
         where TEntity : class, IEntity<TPrimaryKey>
         where TDbContext : DbContext
     {
-
         [Autowired]
         public ICurrentUnitOfWorkProvider CurrentUnitOfWorkProvider { get; set; }
 
-        protected virtual TDbContext GetDbContext() => CurrentUnitOfWorkProvider.Current!.GetDbContext<TDbContext>();
+        [Autowired]
+        public IDbContextResolver DbContextResolver { get; set; }
 
-        protected virtual Task<TDbContext> GetDbContextAsync() => CurrentUnitOfWorkProvider.Current!.GetDbContextAsync<TDbContext>();
+        protected TDbContext? dbContext { get; set; }
+
+        protected virtual TDbContext GetDbContext() 
+        {
+            dbContext ??= CurrentUnitOfWorkProvider.Current?.GetDbContext<TDbContext>() ?? DbContextResolver.Resolve<TDbContext>();
+            return dbContext;
+        }
+
+        protected virtual async Task<TDbContext> GetDbContextAsync() 
+        {
+            dbContext ??= await (CurrentUnitOfWorkProvider.Current?.GetDbContextAsync<TDbContext>() ?? Task.FromResult(DbContextResolver.Resolve<TDbContext>()));
+            return dbContext;
+        }
 
         protected virtual DbSet<TEntity> GetTable() => GetDbContext().Set<TEntity>();
 
@@ -120,6 +133,12 @@ namespace Ars.Common.EFCore.Repository
         public override async Task<int> CountAsync(Expression<Func<TEntity, bool>> predicate)
         {
             return await (await GetAllAsync()).CountAsync(predicate);
+        }
+
+        public override void Dispose()
+        {
+            dbContext?.Dispose();
+            dbContext = null;
         }
     }
 

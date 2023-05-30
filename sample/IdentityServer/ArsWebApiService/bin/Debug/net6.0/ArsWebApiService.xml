@@ -56,6 +56,25 @@
             <param name="version">版本号，格式如v1.0.0, v1.1.0</param>
             <returns></returns>
         </member>
+        <member name="T:ArsWebApiService.Controllers.HostController">
+            <summary>
+            手动调度
+            </summary>
+        </member>
+        <member name="M:ArsWebApiService.Controllers.HostController.StartAsync(Ars.Common.Core.AspNetCore.HostService.IArsManualExecutingManager)">
+            <summary>
+            启动
+            </summary>
+            <param name="manager"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ArsWebApiService.Controllers.HostController.StopAsync(Ars.Common.Core.AspNetCore.HostService.IArsManualExecutingManager)">
+            <summary>
+            停止
+            </summary>
+            <param name="manager"></param>
+            <returns></returns>
+        </member>
         <member name="M:ArsWebApiService.Controllers.IdentityServer4Controller.ClientCredentials">
             <summary>
             

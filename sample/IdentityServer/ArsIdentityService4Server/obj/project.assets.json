@@ -2922,11 +2922,11 @@
           }
         }
       },
-      "Ars.Common.AutoFac/1.6.1": {
+      "Ars.Common.AutoFac/1.6.2": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Ars.Common.Core": "1.6.1",
+          "Ars.Common.Core": "1.6.2",
           "Autofac": "6.3.0",
           "Autofac.Extensions.DependencyInjection": "7.2.0",
           "Microsoft.AspNetCore.Mvc.Core": "2.2.5"
@@ -2941,11 +2941,11 @@
           "Microsoft.AspNetCore.App"
         ]
       },
-      "Ars.Common.Core/1.6.1": {
+      "Ars.Common.Core/1.6.2": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Ars.Common.Tool": "1.6.1",
+          "Ars.Common.Tool": "1.6.2",
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "6.0.0",
           "Microsoft.EntityFrameworkCore": "6.0.0",
           "System.Configuration.ConfigurationManager": "6.0.0"
@@ -2960,13 +2960,13 @@
           "Microsoft.AspNetCore.App"
         ]
       },
-      "Ars.Common.Host/1.6.1": {
+      "Ars.Common.Host/1.6.2": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Ars.Common.AutoFac": "1.6.1",
-          "Ars.Common.Core": "1.6.1",
-          "Ars.Common.Tool": "1.6.1",
+          "Ars.Common.AutoFac": "1.6.2",
+          "Ars.Common.Core": "1.6.2",
+          "Ars.Common.Tool": "1.6.2",
           "Autofac": "6.3.0",
           "Autofac.Extensions.DependencyInjection": "7.2.0"
         },
@@ -2980,12 +2980,12 @@
           "Microsoft.AspNetCore.App"
         ]
       },
-      "Ars.Common.IdentityServer4/1.6.1": {
+      "Ars.Common.IdentityServer4/1.6.2": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Ars.Common.Core": "1.6.1",
-          "Ars.Common.Tool": "1.6.1",
+          "Ars.Common.Core": "1.6.2",
+          "Ars.Common.Tool": "1.6.2",
           "IdentityServer4": "4.1.2",
           "IdentityServer4.AccessTokenValidation": "3.0.1"
         },
@@ -2999,11 +2999,11 @@
           "Microsoft.AspNetCore.App"
         ]
       },
-      "Ars.Common.SkyWalking/1.6.1": {
+      "Ars.Common.SkyWalking/1.6.2": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Ars.Common.Core": "1.6.1",
+          "Ars.Common.Core": "1.6.2",
           "Microsoft.Extensions.Configuration.Abstractions": "6.0.0",
           "Microsoft.Extensions.Configuration.Binder": "6.0.0",
           "Microsoft.Extensions.DependencyInjection": "6.0.0",
@@ -3017,7 +3017,7 @@
           "bin/placeholder/Ars.Common.SkyWalking.dll": {}
         }
       },
-      "Ars.Common.Tool/1.6.1": {
+      "Ars.Common.Tool/1.6.2": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
@@ -7976,32 +7976,32 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Ars.Common.AutoFac/1.6.1": {
+    "Ars.Common.AutoFac/1.6.2": {
       "type": "project",
       "path": "../../../src/Ars.Common.AutoFac/Ars.Common.AutoFac.csproj",
       "msbuildProject": "../../../src/Ars.Common.AutoFac/Ars.Common.AutoFac.csproj"
     },
-    "Ars.Common.Core/1.6.1": {
+    "Ars.Common.Core/1.6.2": {
       "type": "project",
       "path": "../../../src/Ars.Common.Core/Ars.Common.Core.csproj",
       "msbuildProject": "../../../src/Ars.Common.Core/Ars.Common.Core.csproj"
     },
-    "Ars.Common.Host/1.6.1": {
+    "Ars.Common.Host/1.6.2": {
       "type": "project",
       "path": "../../../src/Ars.Commom.Host/Ars.Common.Host.csproj",
       "msbuildProject": "../../../src/Ars.Commom.Host/Ars.Common.Host.csproj"
     },
-    "Ars.Common.IdentityServer4/1.6.1": {
+    "Ars.Common.IdentityServer4/1.6.2": {
       "type": "project",
       "path": "../../../src/Ars.Common.IdentityServer4/Ars.Common.IdentityServer4.csproj",
       "msbuildProject": "../../../src/Ars.Common.IdentityServer4/Ars.Common.IdentityServer4.csproj"
     },
-    "Ars.Common.SkyWalking/1.6.1": {
+    "Ars.Common.SkyWalking/1.6.2": {
       "type": "project",
       "path": "../../../src/Ars.Common.SkyWalking/Ars.Common.SkyWalking.csproj",
       "msbuildProject": "../../../src/Ars.Common.SkyWalking/Ars.Common.SkyWalking.csproj"
     },
-    "Ars.Common.Tool/1.6.1": {
+    "Ars.Common.Tool/1.6.2": {
       "type": "project",
       "path": "../../../src/Ars.Commom.Tool/Ars.Common.Tool.csproj",
       "msbuildProject": "../../../src/Ars.Commom.Tool/Ars.Common.Tool.csproj"
@@ -8009,9 +8009,9 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "Ars.Common.Host >= 1.6.1",
-      "Ars.Common.IdentityServer4 >= 1.6.1",
-      "Ars.Common.SkyWalking >= 1.6.1",
+      "Ars.Common.Host >= 1.6.2",
+      "Ars.Common.IdentityServer4 >= 1.6.2",
+      "Ars.Common.SkyWalking >= 1.6.2",
       "Microsoft.VisualStudio.Azure.Containers.Tools.Targets >= 1.17.2",
       "SkyAPM.Agent.AspNetCore >= 2.1.0"
     ]

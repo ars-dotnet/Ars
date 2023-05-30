@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Ars.Common.EFCore.Repository
 {
-    public interface IRepository
+    public interface IRepository : IDisposable
     {
 
     }
