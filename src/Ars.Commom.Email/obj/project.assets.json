@@ -45,6 +45,22 @@
           "lib/netstandard1.0/Humanizer.dll": {}
         }
       },
+      "log4net/2.0.15": {
+        "type": "package",
+        "dependencies": {
+          "System.Configuration.ConfigurationManager": "4.5.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/log4net.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/log4net.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "MailKit/3.1.0": {
         "type": "package",
         "dependencies": {
@@ -2374,7 +2390,7 @@
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
       },
-      "Ars.Common.Tool/1.6.2": {
+      "Ars.Common.Tool/1.6.3": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
@@ -2388,7 +2404,8 @@
           "Microsoft.Extensions.Options": "6.0.0",
           "NPOI": "2.6.0",
           "Newtonsoft.Json": "13.0.1",
-          "Swashbuckle.AspNetCore.SwaggerGen": "6.5.0"
+          "Swashbuckle.AspNetCore.SwaggerGen": "6.5.0",
+          "log4net": "2.0.15"
         },
         "compile": {
           "bin/placeholder/Ars.Common.Tool.dll": {}
@@ -2472,6 +2489,32 @@
         "humanizer.core.2.2.0.nupkg.sha512",
         "humanizer.core.nuspec",
         "lib/netstandard1.0/Humanizer.dll"
+      ]
+    },
+    "log4net/2.0.15": {
+      "sha512": "GahnO9ZgFka+xYcFwAfIFjW+k86P2nxFoaEpH6t3v4hiGj7tv2ksVZphxCVIHmJxoySS0HeU3dgCW+bSCcfD0A==",
+      "type": "package",
+      "path": "log4net/2.0.15",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net20/log4net.dll",
+        "lib/net20/log4net.xml",
+        "lib/net35/log4net.dll",
+        "lib/net35/log4net.xml",
+        "lib/net40-client/log4net.dll",
+        "lib/net40-client/log4net.xml",
+        "lib/net40/log4net.dll",
+        "lib/net40/log4net.xml",
+        "lib/net45/log4net.dll",
+        "lib/net45/log4net.xml",
+        "lib/netstandard1.3/log4net.dll",
+        "lib/netstandard1.3/log4net.xml",
+        "lib/netstandard2.0/log4net.dll",
+        "lib/netstandard2.0/log4net.xml",
+        "log4net.2.0.15.nupkg.sha512",
+        "log4net.nuspec",
+        "package-icon.png"
       ]
     },
     "MailKit/3.1.0": {
@@ -7303,7 +7346,7 @@
         "system.xml.xdocument.nuspec"
       ]
     },
-    "Ars.Common.Tool/1.6.2": {
+    "Ars.Common.Tool/1.6.3": {
       "type": "project",
       "path": "../Ars.Commom.Tool/Ars.Common.Tool.csproj",
       "msbuildProject": "../Ars.Commom.Tool/Ars.Common.Tool.csproj"
@@ -7311,7 +7354,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "Ars.Common.Tool >= 1.6.2",
+      "Ars.Common.Tool >= 1.6.3",
       "MailKit >= 3.1.0",
       "Microsoft.CodeAnalysis.Workspaces.Common >= 4.0.1",
       "Microsoft.Extensions.Configuration.Abstractions >= 6.0.0",
@@ -7323,7 +7366,7 @@
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
-    "version": "1.6.2",
+    "version": "1.6.3",
     "restore": {
       "projectUniqueName": "C:\\core\\MyArs\\src\\Ars.Commom.Email\\Ars.Common.Email.csproj",
       "projectName": "Ars.Common.Email",

@@ -6,9 +6,9 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v6.0": {
-      "Ars.Common.SkyWalking/1.6.2": {
+      "Ars.Common.SkyWalking/1.6.3": {
         "dependencies": {
-          "Ars.Common.Core": "1.6.2",
+          "Ars.Common.Core": "1.6.3",
           "Microsoft.Extensions.Configuration.Abstractions": "6.0.0",
           "Microsoft.Extensions.Configuration.Binder": "6.0.0",
           "Microsoft.Extensions.DependencyInjection": "6.0.0",
@@ -135,6 +135,17 @@
           "lib/net6.0/Grpc.Net.Common.dll": {
             "assemblyVersion": "2.0.0.0",
             "fileVersion": "2.47.0.0"
+          }
+        }
+      },
+      "log4net/2.0.15": {
+        "dependencies": {
+          "System.Configuration.ConfigurationManager": "6.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/log4net.dll": {
+            "assemblyVersion": "2.0.15.0",
+            "fileVersion": "2.0.15.0"
           }
         }
       },
@@ -1277,9 +1288,9 @@
           }
         }
       },
-      "Ars.Common.Core/1.6.2": {
+      "Ars.Common.Core/1.6.3": {
         "dependencies": {
-          "Ars.Common.Tool": "1.6.2",
+          "Ars.Common.Tool": "1.6.3",
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "6.0.0",
           "Microsoft.EntityFrameworkCore": "6.0.1",
           "System.Configuration.ConfigurationManager": "6.0.0"
@@ -1288,7 +1299,7 @@
           "Ars.Common.Core.dll": {}
         }
       },
-      "Ars.Common.Tool/1.6.2": {
+      "Ars.Common.Tool/1.6.3": {
         "dependencies": {
           "Aspose.Cells": "23.3.0",
           "MessagePack": "2.3.85",
@@ -1300,7 +1311,8 @@
           "Microsoft.Extensions.Options": "6.0.0",
           "NPOI": "2.6.0",
           "Newtonsoft.Json": "13.0.1",
-          "Swashbuckle.AspNetCore.SwaggerGen": "6.5.0"
+          "Swashbuckle.AspNetCore.SwaggerGen": "6.5.0",
+          "log4net": "2.0.15"
         },
         "runtime": {
           "Ars.Common.Tool.dll": {}
@@ -1309,7 +1321,7 @@
     }
   },
   "libraries": {
-    "Ars.Common.SkyWalking/1.6.2": {
+    "Ars.Common.SkyWalking/1.6.3": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -1376,6 +1388,13 @@
       "sha512": "sha512-Cv76h7noEN2s9cwIdEspOeDjeqcU6Nm34OmjSbRhD/FDBXFmG7rmSfJTPCEB1LYjZWfmf7uUH+nYcHR1I7oQqw==",
       "path": "grpc.net.common/2.47.0",
       "hashPath": "grpc.net.common.2.47.0.nupkg.sha512"
+    },
+    "log4net/2.0.15": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-GahnO9ZgFka+xYcFwAfIFjW+k86P2nxFoaEpH6t3v4hiGj7tv2ksVZphxCVIHmJxoySS0HeU3dgCW+bSCcfD0A==",
+      "path": "log4net/2.0.15",
+      "hashPath": "log4net.2.0.15.nupkg.sha512"
     },
     "MathNet.Numerics.Signed/4.15.0": {
       "type": "package",
@@ -2203,12 +2222,12 @@
       "path": "system.windows.extensions/6.0.0",
       "hashPath": "system.windows.extensions.6.0.0.nupkg.sha512"
     },
-    "Ars.Common.Core/1.6.2": {
+    "Ars.Common.Core/1.6.3": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "Ars.Common.Tool/1.6.2": {
+    "Ars.Common.Tool/1.6.3": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

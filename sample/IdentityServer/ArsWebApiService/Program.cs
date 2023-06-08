@@ -27,6 +27,10 @@ using ArsWebApiService.Hubs;
 using Ars.Common.SignalR.Sender;
 using Ars.Common.SkyWalking.Extensions;
 using Ars.Common.Consul.Extension;
+using Autofac.Core;
+using ArsWebApiService.WebServices;
+using SoapCore;
+using System.ServiceModel;
 
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
@@ -162,6 +166,7 @@ builder.WebHost.UseKestrel(kestrel =>
 //builder.Services.AddDbContext<MyDbContext>();
 
 builder.Services.AddScoped<IHubSendMessage, MyWebHub>();
+builder.Services.AddScoped<IWebServices,WebServices>();
 
 var app = builder.Build();
 
@@ -194,15 +199,16 @@ app.UseStaticFiles(new StaticFileOptions
         })
 });
 
-
 app.UseArsCore().UseArsUploadExcel();
 
 app.MapControllers();
 app.MapHub<MyWebHub>("/ars/web/hub");
 app.MapHub<ArsAndroidHub>("/ars/android/hub");
 
-
 app.MapGet("/", context => Task.Run(() => context.Response.Redirect("/swagger")));
 app.Map("/healthCheck", builder => builder.Run(context => context.Response.WriteAsync("ok")));
+
+//app.UseSoapEndpoint<IWebServices>("/StudentService.asmx", new BasicHttpBinding(), SoapSerializer.XmlSerializer);
+((IApplicationBuilder)app).UseSoapEndpoint<IWebServices>("/WebServices.asmx", new SoapEncoderOptions(), serializer : SoapSerializer.XmlSerializer);
 
 app.Run();

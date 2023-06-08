@@ -8,7 +8,7 @@
     ".NETCoreApp,Version=v6.0": {
       "MyFastReport/1.0.0": {
         "dependencies": {
-          "Ars.Common.Tool": "1.6.2",
+          "Ars.Common.Tool": "1.6.3",
           "FastReport.OpenSource": "2023.2.5",
           "FastReport.OpenSource.Web": "2023.2.5",
           "FastReport.Compat.Reference": "2023.1.8.0"
@@ -78,6 +78,17 @@
           "lib/netstandard2.0/FastReport.OpenSource.Web.dll": {
             "assemblyVersion": "2023.2.5.0",
             "fileVersion": "2023.2.5.0"
+          }
+        }
+      },
+      "log4net/2.0.15": {
+        "dependencies": {
+          "System.Configuration.ConfigurationManager": "6.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/log4net.dll": {
+            "assemblyVersion": "2.0.15.0",
+            "fileVersion": "2.0.15.0"
           }
         }
       },
@@ -1076,7 +1087,7 @@
           }
         }
       },
-      "Ars.Common.Tool/1.6.2": {
+      "Ars.Common.Tool/1.6.3": {
         "dependencies": {
           "Aspose.Cells": "23.3.0",
           "MessagePack": "2.3.85",
@@ -1088,7 +1099,8 @@
           "Microsoft.Extensions.Options": "6.0.0",
           "NPOI": "2.6.0",
           "Newtonsoft.Json": "13.0.1",
-          "Swashbuckle.AspNetCore.SwaggerGen": "6.5.0"
+          "Swashbuckle.AspNetCore.SwaggerGen": "6.5.0",
+          "log4net": "2.0.15"
         },
         "runtime": {
           "Ars.Common.Tool.dll": {}
@@ -1144,6 +1156,13 @@
       "sha512": "sha512-9oxssL2aT1EsTeayjHJTEM+zFLpCxpklHiZSqUfVpHu0RSWD2OtHJ8KwQLd5sZ5VWlQqMZ/DNCOgiM7WBPlthg==",
       "path": "fastreport.opensource.web/2023.2.5",
       "hashPath": "fastreport.opensource.web.2023.2.5.nupkg.sha512"
+    },
+    "log4net/2.0.15": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-GahnO9ZgFka+xYcFwAfIFjW+k86P2nxFoaEpH6t3v4hiGj7tv2ksVZphxCVIHmJxoySS0HeU3dgCW+bSCcfD0A==",
+      "path": "log4net/2.0.15",
+      "hashPath": "log4net.2.0.15.nupkg.sha512"
     },
     "MathNet.Numerics.Signed/4.15.0": {
       "type": "package",
@@ -1880,7 +1899,7 @@
       "path": "system.windows.extensions/6.0.0",
       "hashPath": "system.windows.extensions.6.0.0.nupkg.sha512"
     },
-    "Ars.Common.Tool/1.6.2": {
+    "Ars.Common.Tool/1.6.3": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

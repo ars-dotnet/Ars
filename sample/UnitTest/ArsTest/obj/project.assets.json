@@ -97,6 +97,22 @@
           "lib/netstandard1.0/Humanizer.dll": {}
         }
       },
+      "log4net/2.0.15": {
+        "type": "package",
+        "dependencies": {
+          "System.Configuration.ConfigurationManager": "4.5.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/log4net.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/log4net.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "MailKit/3.1.0": {
         "type": "package",
         "dependencies": {
@@ -684,6 +700,7 @@
           }
         },
         "build": {
+          "build/Microsoft.Extensions.Logging.Abstractions.targets": {},
           "buildTransitive/netcoreapp3.1/_._": {}
         }
       },
@@ -795,6 +812,22 @@
         },
         "build": {
           "buildTransitive/netcoreapp3.1/_._": {}
+        }
+      },
+      "Microsoft.Extensions.Logging.Log4Net.AspNetCore/6.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration": "6.0.0",
+          "Microsoft.Extensions.Configuration.Abstractions": "6.0.0",
+          "Microsoft.Extensions.Configuration.Binder": "6.0.0",
+          "Microsoft.Extensions.Logging": "6.0.0",
+          "log4net": "2.0.13"
+        },
+        "compile": {
+          "lib/net6.0/Microsoft.Extensions.Logging.Log4Net.AspNetCore.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.Extensions.Logging.Log4Net.AspNetCore.dll": {}
         }
       },
       "Microsoft.Extensions.Options/6.0.0": {
@@ -3426,11 +3459,11 @@
           "build/netcoreapp2.1/xunit.runner.visualstudio.props": {}
         }
       },
-      "Ars.Common.Email/1.6.2": {
+      "Ars.Common.Email/1.6.3": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Ars.Common.Tool": "1.6.2",
+          "Ars.Common.Tool": "1.6.3",
           "MailKit": "3.1.0",
           "Microsoft.CodeAnalysis.Workspaces.Common": "4.0.1",
           "Microsoft.Extensions.Configuration.Abstractions": "6.0.0",
@@ -3443,7 +3476,7 @@
           "bin/placeholder/Ars.Common.Email.dll": {}
         }
       },
-      "Ars.Common.Tool/1.6.2": {
+      "Ars.Common.Tool/1.6.3": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
@@ -3457,7 +3490,8 @@
           "Microsoft.Extensions.Options": "6.0.0",
           "NPOI": "2.6.0",
           "Newtonsoft.Json": "13.0.1",
-          "Swashbuckle.AspNetCore.SwaggerGen": "6.5.0"
+          "Swashbuckle.AspNetCore.SwaggerGen": "6.5.0",
+          "log4net": "2.0.15"
         },
         "compile": {
           "bin/placeholder/Ars.Common.Tool.dll": {}
@@ -3642,6 +3676,32 @@
         "humanizer.core.2.2.0.nupkg.sha512",
         "humanizer.core.nuspec",
         "lib/netstandard1.0/Humanizer.dll"
+      ]
+    },
+    "log4net/2.0.15": {
+      "sha512": "GahnO9ZgFka+xYcFwAfIFjW+k86P2nxFoaEpH6t3v4hiGj7tv2ksVZphxCVIHmJxoySS0HeU3dgCW+bSCcfD0A==",
+      "type": "package",
+      "path": "log4net/2.0.15",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net20/log4net.dll",
+        "lib/net20/log4net.xml",
+        "lib/net35/log4net.dll",
+        "lib/net35/log4net.xml",
+        "lib/net40-client/log4net.dll",
+        "lib/net40-client/log4net.xml",
+        "lib/net40/log4net.dll",
+        "lib/net40/log4net.xml",
+        "lib/net45/log4net.dll",
+        "lib/net45/log4net.xml",
+        "lib/netstandard1.3/log4net.dll",
+        "lib/netstandard1.3/log4net.xml",
+        "lib/netstandard2.0/log4net.dll",
+        "lib/netstandard2.0/log4net.xml",
+        "log4net.2.0.15.nupkg.sha512",
+        "log4net.nuspec",
+        "package-icon.png"
       ]
     },
     "MailKit/3.1.0": {
@@ -4624,6 +4684,23 @@
         "microsoft.extensions.logging.eventsource.6.0.0.nupkg.sha512",
         "microsoft.extensions.logging.eventsource.nuspec",
         "useSharedDesignerContext.txt"
+      ]
+    },
+    "Microsoft.Extensions.Logging.Log4Net.AspNetCore/6.0.0": {
+      "sha512": "hXVnugmFIt1G/waI9XTgdu36RONT5hpHwYI4EnPOkZF2AhJuxiV1sZzcXETGaKzT8VryRXbklPjl1YCrdpaNQw==",
+      "type": "package",
+      "path": "microsoft.extensions.logging.log4net.aspnetcore/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "lib/net5.0/Microsoft.Extensions.Logging.Log4Net.AspNetCore.dll",
+        "lib/net6.0/Microsoft.Extensions.Logging.Log4Net.AspNetCore.dll",
+        "lib/netcoreapp3.1/Microsoft.Extensions.Logging.Log4Net.AspNetCore.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Logging.Log4Net.AspNetCore.dll",
+        "lib/netstandard2.1/Microsoft.Extensions.Logging.Log4Net.AspNetCore.dll",
+        "microsoft.extensions.logging.log4net.aspnetcore.6.0.0.nupkg.sha512",
+        "microsoft.extensions.logging.log4net.aspnetcore.nuspec"
       ]
     },
     "Microsoft.Extensions.Options/6.0.0": {
@@ -10003,12 +10080,12 @@
         "xunit.runner.visualstudio.nuspec"
       ]
     },
-    "Ars.Common.Email/1.6.2": {
+    "Ars.Common.Email/1.6.3": {
       "type": "project",
       "path": "../../../src/Ars.Commom.Email/Ars.Common.Email.csproj",
       "msbuildProject": "../../../src/Ars.Commom.Email/Ars.Common.Email.csproj"
     },
-    "Ars.Common.Tool/1.6.2": {
+    "Ars.Common.Tool/1.6.3": {
       "type": "project",
       "path": "../../../src/Ars.Commom.Tool/Ars.Common.Tool.csproj",
       "msbuildProject": "../../../src/Ars.Commom.Tool/Ars.Common.Tool.csproj"
@@ -10016,14 +10093,16 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "Ars.Common.Email >= 1.6.2",
-      "Ars.Common.Tool >= 1.6.2",
+      "Ars.Common.Email >= 1.6.3",
+      "Ars.Common.Tool >= 1.6.3",
       "AutoMapper >= 11.0.1",
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 11.0.0",
       "HslCommunication >= 11.0.2",
       "Microsoft.Extensions.DependencyInjection >= 6.0.0",
       "Microsoft.Extensions.DependencyInjection.Abstractions >= 6.0.0",
       "Microsoft.Extensions.Hosting >= 6.0.0",
+      "Microsoft.Extensions.Logging.Abstractions >= 6.0.0",
+      "Microsoft.Extensions.Logging.Log4Net.AspNetCore >= 6.0.0",
       "Microsoft.NET.Test.Sdk >= 16.11.0",
       "Serilog.Sinks.XUnit >= 3.0.3",
       "coverlet.collector >= 3.1.0",
@@ -10103,6 +10182,14 @@
             "version": "[6.0.0, )"
           },
           "Microsoft.Extensions.Hosting": {
+            "target": "Package",
+            "version": "[6.0.0, )"
+          },
+          "Microsoft.Extensions.Logging.Abstractions": {
+            "target": "Package",
+            "version": "[6.0.0, )"
+          },
+          "Microsoft.Extensions.Logging.Log4Net.AspNetCore": {
             "target": "Package",
             "version": "[6.0.0, )"
           },

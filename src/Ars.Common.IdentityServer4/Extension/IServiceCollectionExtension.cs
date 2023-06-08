@@ -16,6 +16,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Logging;
+using NPOI.SS.Formula.Functions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -52,7 +53,7 @@ namespace Ars.Common.IdentityServer4.Extension
             using var loggerfac = LoggerFactory.Create(builder => builder.AddConsole());
             var logger = loggerfac.CreateLogger(nameof(AddArsIdentityServer));
 
-            services.AddIdentityServer()
+            var id4builder = services.AddIdentityServer()
                 .AddArsIdentityResource()
                 .AddArsApiResource(option.ArsApiResources)
                 .AddArsClients(option.ArsClients)
@@ -60,8 +61,10 @@ namespace Ars.Common.IdentityServer4.Extension
                 .AddArsSigningCredential(
                     string.IsNullOrEmpty(option.CertPath)
                         ? Certificate.Get()
-                        : Certificate.Get(option.CertPath, option.Password, logger))
-                .AddTestUsers(new List<TestUser>
+                        : Certificate.Get(option.CertPath, option.Password, logger));
+            if (option.UseTestUsers) 
+            {
+                id4builder.AddTestUsers(new List<TestUser>
                 {
                     new TestUser
                     {
@@ -93,15 +96,16 @@ namespace Ars.Common.IdentityServer4.Extension
                         IsActive = true,
                         SubjectId = "123",
                     }
-                })
-               .AddResourceOwnerValidator<DefaultResourceOwnerPasswordValidator>();
+                });
+            };
 
-            if (null != func) 
+            if (null == func)
             {
-                services.Replace(new ServiceDescriptor(
-                    typeof(IResourceOwnerPasswordValidator),
-                    provider => func(provider),
-                    ServiceLifetime.Transient));
+                id4builder.AddResourceOwnerValidator<DefaultResourceOwnerPasswordValidator>();
+            }
+            else 
+            {
+                services.AddTransient(func);
             }
 
             return builder;

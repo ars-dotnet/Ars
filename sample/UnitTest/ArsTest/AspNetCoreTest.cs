@@ -1,18 +1,23 @@
 ﻿using Ars.Commom.Tool;
+using Ars.Common.Tool.Extension;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Xml;
+using System.Xml.Serialization;
 using Xunit;
 
 namespace ArsTest
@@ -33,6 +38,7 @@ namespace ArsTest
                 {
                     services = service;
                     service.AddLogging();
+                    service.AddHttpClient("ars");
                 }).
                 ConfigureLogging((hostingContext, logging) =>
                 {
@@ -244,7 +250,7 @@ namespace ArsTest
         }
 
         [Fact]
-        public void Test99() 
+        public void Test99()
         {
             Goods goods = new Goods
             {
@@ -254,9 +260,58 @@ namespace ArsTest
             //不能赋值
             //goods.Age = 222;
         }
+
+        [Fact]
+        public async Task TestWebServicePost()
+        {
+            try
+            {
+                var provider = services.BuildServiceProvider().CreateScope().ServiceProvider;
+                var httpclientfac = provider.GetRequiredService<IHttpClientFactory>();
+                using var httpclient = httpclientfac.CreateClient("ars");
+
+                StudentModel studentModel = new StudentModel() { Id = 2, No = "223" };
+                string xml = studentModel.XMLSerialize();
+                using var res = await httpclient.GetAsync($"http://127.0.0.1:5196/WebServices.asmx/Publish?xml={xml}");
+
+                res.EnsureSuccessStatusCode();
+
+                var str = await res.Content.ReadAsStringAsync();
+            }
+            catch (Exception e)
+            {
+
+            }
+        }
+
+        [Fact]
+        public async Task TestWebService()
+        {
+            var provider = services.BuildServiceProvider().CreateScope().ServiceProvider;
+            var httpclientfac = provider.GetRequiredService<IHttpClientFactory>();
+            using var httpclient = httpclientfac.CreateClient("ars");
+
+            using var res = await httpclient.GetAsync("http://127.0.0.1:5196/WebServices.asmx/EchoWithGet?s=aabb");
+            res.EnsureSuccessStatusCode();
+
+            var str = await res.Content.ReadAsStringAsync();
+
+            var data = str.DeXmlSerialize<StudentModel>();
+            Assert.True(data!.Id == 1);
+        }
     }
 
-    public class Goods 
+    [XmlRoot("StudentModel"), XmlType("StudentModel")]
+    public class StudentModel
+    {
+        [XmlElement]
+        public int Id { get; set; }
+
+        [XmlElement]
+        public string No { get; set; }
+    }
+
+    public class Goods
     {
         public int Age { get; init; }
     }
@@ -340,12 +395,12 @@ namespace ArsTest
 
     }
 
-    public class Check : ICheck 
+    public class Check : ICheck
     {
 
     }
 
-    public interface IM 
+    public interface IM
     {
         int Age { get; set; }
     }
@@ -361,7 +416,7 @@ namespace ArsTest
         public int Age { get; set; } = 100;
     }
 
-    public class MM : IM 
+    public class MM : IM
     {
         public int Age { get; set; } = 123;
     }

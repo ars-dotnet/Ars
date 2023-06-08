@@ -48,5 +48,7 @@ namespace Ars.Common.IdentityServer4.options
         public string CertPath { get; set; }
 
         public string Password { get; set; }
+
+        public bool UseTestUsers { get; set; }
     }
 }

@@ -6,9 +6,9 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v6.0": {
-      "Ars.Common.Email/1.6.2": {
+      "Ars.Common.Email/1.6.3": {
         "dependencies": {
-          "Ars.Common.Tool": "1.6.2",
+          "Ars.Common.Tool": "1.6.3",
           "MailKit": "3.1.0",
           "Microsoft.CodeAnalysis.Workspaces.Common": "4.0.1",
           "Microsoft.Extensions.Configuration.Abstractions": "6.0.0",
@@ -47,6 +47,17 @@
           "lib/netstandard1.0/Humanizer.dll": {
             "assemblyVersion": "2.2.0.0",
             "fileVersion": "2.2.0.0"
+          }
+        }
+      },
+      "log4net/2.0.15": {
+        "dependencies": {
+          "System.Configuration.ConfigurationManager": "6.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/log4net.dll": {
+            "assemblyVersion": "2.0.15.0",
+            "fileVersion": "2.0.15.0"
           }
         }
       },
@@ -1357,7 +1368,7 @@
           "System.Xml.ReaderWriter": "4.3.0"
         }
       },
-      "Ars.Common.Tool/1.6.2": {
+      "Ars.Common.Tool/1.6.3": {
         "dependencies": {
           "Aspose.Cells": "23.3.0",
           "MessagePack": "2.3.85",
@@ -1369,7 +1380,8 @@
           "Microsoft.Extensions.Options": "6.0.0",
           "NPOI": "2.6.0",
           "Newtonsoft.Json": "13.0.1",
-          "Swashbuckle.AspNetCore.SwaggerGen": "6.5.0"
+          "Swashbuckle.AspNetCore.SwaggerGen": "6.5.0",
+          "log4net": "2.0.15"
         },
         "runtime": {
           "Ars.Common.Tool.dll": {}
@@ -1378,7 +1390,7 @@
     }
   },
   "libraries": {
-    "Ars.Common.Email/1.6.2": {
+    "Ars.Common.Email/1.6.3": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -1403,6 +1415,13 @@
       "sha512": "sha512-rsYXB7+iUPP8AHgQ8JP2UZI2xK2KhjcdGr9E6zX3CsZaTLCaw8M35vaAJRo1rfxeaZEVMuXeaquLVCkZ7JcZ5Q==",
       "path": "humanizer.core/2.2.0",
       "hashPath": "humanizer.core.2.2.0.nupkg.sha512"
+    },
+    "log4net/2.0.15": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-GahnO9ZgFka+xYcFwAfIFjW+k86P2nxFoaEpH6t3v4hiGj7tv2ksVZphxCVIHmJxoySS0HeU3dgCW+bSCcfD0A==",
+      "path": "log4net/2.0.15",
+      "hashPath": "log4net.2.0.15.nupkg.sha512"
     },
     "MailKit/3.1.0": {
       "type": "package",
@@ -2300,7 +2319,7 @@
       "path": "system.xml.xdocument/4.3.0",
       "hashPath": "system.xml.xdocument.4.3.0.nupkg.sha512"
     },
-    "Ars.Common.Tool/1.6.2": {
+    "Ars.Common.Tool/1.6.3": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

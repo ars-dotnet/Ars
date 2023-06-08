@@ -18,6 +18,8 @@ namespace Ars.Common.Core.Configs
 
         string Password { get; set; }
 
+        bool UseTestUsers { get; set; }
+
         public class ArsApiResource
         {
             public string Name { get; set; }

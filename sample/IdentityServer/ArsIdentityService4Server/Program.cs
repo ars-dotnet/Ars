@@ -6,6 +6,7 @@ using Ars.Common.Tool.Configs;
 using Ars.Common.Tool.Extension;
 using ArsIdentityService4Server;
 using IdentityServer4.Models;
+using IdentityServer4.Validation;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.Extensions.Options;
 using System.Net;
@@ -18,10 +19,17 @@ builder.Services.AddControllersWithViews();
 builder.Services
     .AddArserviceCore(builder, config => 
     {
-        config.AddArsIdentityServer();
+        config.AddArsIdentityServer(
+            provider =>
+            {
+                return provider.GetRequiredService<MyDefaultResourceOwnerPasswordValidator>();
+            }
+        );
+
         config.AddArsSkyApm();
     });
 
+builder.Services.AddTransient<MyDefaultResourceOwnerPasswordValidator>();
 builder.Services.ConfigureNonBreakingSameSiteCookies();
 
 builder.WebHost.ConfigureKestrel(option =>
