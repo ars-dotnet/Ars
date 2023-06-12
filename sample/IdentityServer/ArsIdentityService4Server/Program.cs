@@ -20,10 +20,10 @@ builder.Services
     .AddArserviceCore(builder, config => 
     {
         config.AddArsIdentityServer(
-            provider =>
-            {
-                return provider.GetRequiredService<MyDefaultResourceOwnerPasswordValidator>();
-            }
+            //provider =>
+            //{
+            //    return provider.GetRequiredService<MyDefaultResourceOwnerPasswordValidator>();
+            //}
         );
 
         config.AddArsSkyApm();
