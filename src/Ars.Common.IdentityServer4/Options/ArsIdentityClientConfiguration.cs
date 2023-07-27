@@ -15,8 +15,8 @@ namespace Ars.Common.IdentityServer4.Options
 
         public bool RequireHttpsMetadata { get; set; }
 
-        public string? CertificatePath { get; set; }
+        public string CertificatePath { get; set; }
 
-        public string? CertificatePassWord { get; set; }
+        public string CertificatePassWord { get; set; }
     }
 }

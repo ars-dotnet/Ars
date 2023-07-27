@@ -31,9 +31,7 @@ namespace Ars.Common.Tool.Export
                     ExportMethodScheme? exportMethodScheme = null;
                     IDictionary<string, Type>? param = null;
                     List<ExportMethodScheme> methodSchemes = new List<ExportMethodScheme>(0);
-
-                    foreach (var @method in t.GetMethods(BindingFlags.Instance | BindingFlags.Public)
-                                             .Where(r => r.IsDefined(typeof(ExportActionAttribute), false))) 
+                    foreach (var @method in t.GetMethods(BindingFlags.Instance | BindingFlags.Public).Where(r => r.IsDefined(typeof(ExportActionAttribute), false))) 
                     {
                         if (methodSchemes.Any(r => r.ActionName.Equals(@method.Name))) 
                         {

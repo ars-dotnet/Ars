@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Ars.Common.Tool</id>
+    <version>1.5.1</version>
+    <authors>MyArs</authors>
+    <projectUrl>https://github.com/aabb1212/MyArs</projectUrl>
+    <description>some tools</description>
+    <tags>Ars</tags>
+    <repository type="git" url="https://github.com/aabb1212/MyArs" />
+    <dependencies>
+      <group targetFramework="net6.0">
+        <dependency id="Aspose.Cells" version="23.3.0" exclude="Build,Analyzers" />
+        <dependency id="MessagePack" version="2.3.85" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Extensions.Configuration.Abstractions" version="6.0.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Extensions.DependencyInjection" version="6.0.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Extensions.DependencyInjection.Abstractions" version="6.0.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Extensions.Http" version="6.0.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Extensions.Http.Polly" version="6.0.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Extensions.Options" version="6.0.0" exclude="Build,Analyzers" />
+        <dependency id="NPOI" version="2.6.0" exclude="Build,Analyzers" />
+        <dependency id="Newtonsoft.Json" version="13.0.1" exclude="Build,Analyzers" />
+        <dependency id="Swashbuckle.AspNetCore.SwaggerGen" version="6.5.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\core\MyArs\src\Ars.Commom.Tool\bin\Release\net6.0\Ars.Common.Tool.dll" target="lib\net6.0\Ars.Common.Tool.dll" />
+  </files>
+</package>

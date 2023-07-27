@@ -31,10 +31,10 @@ namespace Ars.Common.Consul.GrpcHelper
             if (_consulConfiguration.Communication.UseIdentityServer4Valid) 
             {
                 metadata = _grpcMetadataTokenProvider.GetMetadataToken(_consulConfiguration)
-                    .ConfigureAwait(false)
-                    .GetAwaiter()
-                    .GetResult();
-            }
+                .ConfigureAwait(false)
+                .GetAwaiter()
+                .GetResult();
+            } 
             
             if (null != metadata) 
             {

@@ -45,7 +45,7 @@ namespace ArsWebApiService.Controllers
                         ClientSecret = cc[1],
                         Scope = "grpcapi-scope",
                         GrantType = "client_credentials",
-                        Address = $"{ArsConfiguration.ArsIdentityClientConfiguration!.Authority}/connect/token"
+                        Address = $"{ArsConfiguration.ArsIdentityClientConfiguration.Authority}/connect/token"
                     });
 
                     if (tokenresponse.IsError)

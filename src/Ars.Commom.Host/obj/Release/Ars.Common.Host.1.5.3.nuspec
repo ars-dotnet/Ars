@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Ars.Common.Host</id>
+    <version>1.5.3</version>
+    <authors>MyArs</authors>
+    <projectUrl>https://github.com/aabb1212/MyArs</projectUrl>
+    <description>a simple WebApiFramework with .net6</description>
+    <tags>Ars</tags>
+    <repository type="git" url="https://github.com/aabb1212/MyArs" />
+    <dependencies>
+      <group targetFramework="net6.0">
+        <dependency id="Ars.Common.Tool" version="1.5.3" exclude="Build,Analyzers" />
+        <dependency id="Ars.Common.AutoFac" version="1.5.3" exclude="Build,Analyzers" />
+        <dependency id="Ars.Common.Core" version="1.5.3" exclude="Build,Analyzers" />
+        <dependency id="Autofac" version="6.3.0" exclude="Build,Analyzers" />
+        <dependency id="Autofac.Extensions.DependencyInjection" version="7.2.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+    <frameworkReferences>
+      <group targetFramework="net6.0">
+        <frameworkReference name="Microsoft.AspNetCore.App" />
+      </group>
+    </frameworkReferences>
+  </metadata>
+  <files>
+    <file src="C:\core\MyArs\src\Ars.Commom.Host\bin\Release\net6.0\Ars.Common.Host.dll" target="lib\net6.0\Ars.Common.Host.dll" />
+  </files>
+</package>

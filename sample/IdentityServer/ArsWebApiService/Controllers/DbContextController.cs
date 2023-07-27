@@ -89,6 +89,7 @@ namespace MyApiWithIdentityServer4.Controllers
 
         #region DbContext Without Transaction
         [HttpPost(nameof(ActionWithOutTransaction))]
+        [Authorize]
         public async Task ActionWithOutTransaction()
         {
             Guid id = Guid.NewGuid();
@@ -122,13 +123,19 @@ namespace MyApiWithIdentityServer4.Controllers
         }
 
         [HttpGet(nameof(Query))]
+        [Authorize]
         public async Task<IActionResult> Query()
         {
-            var m = await MyDbContext.Students.FirstOrDefaultAsync(r => r.LastName.Equals("Yang"));
-            var n = await MyDbContext.Students.Include(r => r.Enrollments).FirstOrDefaultAsync(r => r.LastName.Equals("Yang"));
-            var o = await MyDbContext.Students.Include(r => r.Enrollments).ThenInclude(r => r.Course).FirstOrDefaultAsync(r => r.LastName.Equals("Yang"));
+            var ccc = TestService;
+            await ccc.Test();
 
-            return Ok((m,n,o));
+            var m = await MyDbContext.Students.ToListAsync();
+            var n = await MyDbContext.Students.Include(r => r.Enrollments).ToListAsync();
+            var o = await MyDbContext.Students.Include(r => r.Enrollments).ThenInclude(r => r.Course).ToListAsync();
+
+            var a = m.First().Enrollments;
+
+            return Ok(m);
         }
 
         [Authorize]
@@ -218,25 +225,25 @@ namespace MyApiWithIdentityServer4.Controllers
 
             string sql = @"insert into Students(Id,LastName,FirstMidName,EnrollmentDate,TenantId,CreationUserId,IsDeleted) " +
                 "values(@Id,@LastName,@FirstMidName,@EnrollmentDate,@TenantId,@CreationUserId,@IsDeleted)";
-            MySqlParameter[] sqlParameters =
+            SqlParameter[] sqlParameters =
             {
-                new MySqlParameter("@Id",Guid.NewGuid()),
-                new MySqlParameter("@LastName",8899),
-                new MySqlParameter("@FirstMidName","aabb121212"),
-                new MySqlParameter("@EnrollmentDate",DateTime.Now),
-                new MySqlParameter("@TenantId",1),
-                new MySqlParameter("@CreationUserId",1),
-                new MySqlParameter("@IsDeleted",false),
+                new SqlParameter("@Id",Guid.NewGuid()),
+                new SqlParameter("@LastName",8899),
+                new SqlParameter("@FirstMidName","aabb121212"),
+                new SqlParameter("@EnrollmentDate",DateTime.Now),
+                new SqlParameter("@TenantId",1),
+                new SqlParameter("@CreationUserId",1),
+                new SqlParameter("@IsDeleted",false),
             };
 
             DbExecuter.BeginWithEFCoreTransaction(UnitOfWorkManager.Current!);
             var count = await DbExecuter.ExecuteNonQuery(sql, sqlParameters);
 
             string updatesql = $"update Students set LastName = @LastName where FirstMidName = @FirstMidName";
-            MySqlParameter[] upsqlParameters =
+            SqlParameter[] upsqlParameters =
             {
-                 new MySqlParameter("@LastName",889999),
-                 new MySqlParameter("@FirstMidName","aabb121212"),
+                 new SqlParameter("@LastName",889999),
+                 new SqlParameter("@FirstMidName","aabb121212"),
             };
             count = await DbExecuter.ExecuteNonQuery(updatesql, upsqlParameters);
 
@@ -477,15 +484,15 @@ namespace MyApiWithIdentityServer4.Controllers
         {
             string sql = @"insert into Students(Id,LastName,FirstMidName,EnrollmentDate,TenantId,CreationUserId,IsDeleted) " +
                 "values(@Id,@LastName,@FirstMidName,@EnrollmentDate,@TenantId,@CreationUserId,@IsDeleted)";
-            MySqlParameter[] sqlParameters = 
+            SqlParameter[] sqlParameters = 
             {
-                new MySqlParameter("@Id",Guid.NewGuid()),
-                new MySqlParameter("@LastName",123),
-                new MySqlParameter("@FirstMidName",223),
-                new MySqlParameter("@EnrollmentDate",DateTime.Now),
-                new MySqlParameter("@TenantId",1),
-                new MySqlParameter("@CreationUserId",1),
-                new MySqlParameter("@IsDeleted",false),
+                new SqlParameter("@Id",Guid.NewGuid()),
+                new SqlParameter("@LastName",123),
+                new SqlParameter("@FirstMidName",223),
+                new SqlParameter("@EnrollmentDate",DateTime.Now),
+                new SqlParameter("@TenantId",1),
+                new SqlParameter("@CreationUserId",1),
+                new SqlParameter("@IsDeleted",false),
             };
             var count = await DbExecuter.ExecuteNonQuery(sql, sqlParameters);
             return Ok(count);
@@ -496,25 +503,25 @@ namespace MyApiWithIdentityServer4.Controllers
         {
             string sql = @"insert into Students(Id,LastName,FirstMidName,EnrollmentDate,TenantId,CreationUserId,IsDeleted) " +
                 "values(@Id,@LastName,@FirstMidName,@EnrollmentDate,@TenantId,@CreationUserId,@IsDeleted)";
-            MySqlParameter[] sqlParameters =
+            SqlParameter[] sqlParameters =
             {
-                new MySqlParameter("@Id",Guid.NewGuid()),
-                new MySqlParameter("@LastName",8899),
-                new MySqlParameter("@FirstMidName","aabb1212"),
-                new MySqlParameter("@EnrollmentDate",DateTime.Now),
-                new MySqlParameter("@TenantId",1),
-                new MySqlParameter("@CreationUserId",1),
-                new MySqlParameter("@IsDeleted",false),
+                new SqlParameter("@Id",Guid.NewGuid()),
+                new SqlParameter("@LastName",8899),
+                new SqlParameter("@FirstMidName","aabb1212"),
+                new SqlParameter("@EnrollmentDate",DateTime.Now),
+                new SqlParameter("@TenantId",1),
+                new SqlParameter("@CreationUserId",1),
+                new SqlParameter("@IsDeleted",false),
             };
 
             using var scope = await DbExecuter.BeginTransactionAsync();
             var count = await DbExecuter.ExecuteNonQuery(sql, sqlParameters);
 
             string updatesql = $"update Students set LastName = @LastName where FirstMidName = @FirstMidName";
-            MySqlParameter[] upsqlParameters = 
+            SqlParameter[] upsqlParameters = 
             {
-                 new MySqlParameter("@LastName",889999),
-                 new MySqlParameter("@FirstMidName","aabb1212"),
+                 new SqlParameter("@LastName",889999),
+                 new SqlParameter("@FirstMidName","aabb1212"),
             };
             count = await DbExecuter.ExecuteNonQuery(updatesql, upsqlParameters);
 
@@ -526,28 +533,28 @@ namespace MyApiWithIdentityServer4.Controllers
         public async Task<IActionResult> AdoNetUpdate() 
         {
             using var scope = await DbExecuter.BeginTransactionAsync();
-            var guids = new Guid[] { new Guid("654d3562-37ad-4ff6-8f93-01f988c75fe1") };
-            List<MySqlParameter> sqlParameters = new List<MySqlParameter>
+            var guids = new Guid[] { new Guid("44713162-A9FB-4EB6-8A1F-0E4A64E533AD") };
+            List<SqlParameter> sqlParameters = new List<SqlParameter>
             {
-                new MySqlParameter("@LastName","最好的克伦克丶"),
+                new SqlParameter("@LastName","最好的克伦克丶"),
             };
             StringBuilder ids = new();
             for (var i = 0; i < guids.Count(); i++)
             {
                 ids.Append($"@id{i},");
-                sqlParameters.Add(new MySqlParameter($"@id{i}", guids[i]));
+                sqlParameters.Add(new SqlParameter($"@id{i}", guids[i]));
             }
             string @id = ids.ToString().TrimEnd(',');
             string sql = $"update Students set LastName = @LastName where id in ({@id})";
             var count = await DbExecuter.ExecuteNonQuery(sql, sqlParameters.ToArray());
 
-            var guids1 = new Guid[] { new Guid("654d3562-37ad-4ff6-8f93-01f988c75fe1") };
-            List<MySqlParameter> sqlParameters1 = new List<MySqlParameter>();
+            var guids1 = new Guid[] { new Guid("44713162-A9FB-4EB6-8A1F-0E4A64E533AD") };
+            List<SqlParameter> sqlParameters1 = new List<SqlParameter>();
             StringBuilder ids1 = new();
             for (var i = 0; i < guids1.Count(); i++)
             {
                 ids1.Append($"@id{i},");
-                sqlParameters1.Add(new MySqlParameter($"@id{i}", guids[i]));
+                sqlParameters1.Add(new SqlParameter($"@id{i}", guids[i]));
             }
             string @id1 = ids1.ToString().TrimEnd(',');
             string sql1 = $"select * from Students where id in ({@id1})";
@@ -561,13 +568,13 @@ namespace MyApiWithIdentityServer4.Controllers
         [HttpPost]
         public async Task<IActionResult> AdoNetDelete() 
         {
-            var guids = new Guid[] { new Guid("654d3562-37ad-4ff6-8f93-01f988c75fe1") };
-            List<MySqlParameter> sqlParameters = new List<MySqlParameter>();
+            var guids = new Guid[] { new Guid("44713162-A9FB-4EB6-8A1F-0E4A64E533AD") };
+            List<SqlParameter> sqlParameters = new List<SqlParameter>();
             StringBuilder ids = new();
             for (var i = 0; i < guids.Count(); i++)
             {
                 ids.Append($"@id{i},");
-                sqlParameters.Add(new MySqlParameter($"@id{i}", guids[i]));
+                sqlParameters.Add(new SqlParameter($"@id{i}", guids[i]));
             }
             string @id = ids.ToString().TrimEnd(',');
             string sql = $"delete from Students where id in ({@id})";
@@ -578,13 +585,13 @@ namespace MyApiWithIdentityServer4.Controllers
         [HttpGet]
         public async Task<IActionResult> AdoNetQuery() 
         {
-            var guids = new Guid[] { new Guid("846f3141-53fa-4d49-8b84-d1213fd1d7e1") };
-            List<MySqlParameter> sqlParameters = new List<MySqlParameter>();
+            var guids = new Guid[] { new Guid("B0C1C8A4-16DD-40F2-862F-79DD0B82F037") };
+            List<SqlParameter> sqlParameters = new List<SqlParameter>();
             StringBuilder ids = new();
             for (var i = 0; i < guids.Count(); i++)
             {
                 ids.Append($"@id{i},");
-                sqlParameters.Add(new MySqlParameter($"@id{i}", guids[i]));
+                sqlParameters.Add(new SqlParameter($"@id{i}", guids[i]));
             }
             string @id = ids.ToString().TrimEnd(',');
             string sql = $"select * from Students where id in ({@id})";
@@ -593,23 +600,19 @@ namespace MyApiWithIdentityServer4.Controllers
             sql = "select count(FirstMidName) as count,FirstMidName from students group by FirstMidName";
             var data2 = await DbExecuter.QueryAsync<object>(sql);
 
-            sql = "select lastname from students group by lastname;";
-            var data3 = await DbExecuter.QueryAsync<JObject>(sql);
-            var names = data3.Select(r => r.GetValue("lastname")!.ToString());
-
-            return Ok((datas, names));
+            return Ok((datas,data2));
         }
 
         [HttpGet]
         public async Task<IActionResult> AdoNetQueryOne()
         {
             var guids = new Guid[] { new Guid("B0C1C8A4-16DD-40F2-862F-79DD0B82F037") };
-            List<MySqlParameter> sqlParameters = new List<MySqlParameter>();
+            List<SqlParameter> sqlParameters = new List<SqlParameter>();
             StringBuilder ids = new();
             for (var i = 0; i < guids.Count(); i++)
             {
                 ids.Append($"@id{i},");
-                sqlParameters.Add(new MySqlParameter($"@id{i}", guids[i]));
+                sqlParameters.Add(new SqlParameter($"@id{i}", guids[i]));
             }
             string @id = ids.ToString().TrimEnd(',');
             string sql = $"select * from Students where id in ({@id})";
@@ -621,12 +624,12 @@ namespace MyApiWithIdentityServer4.Controllers
         public async Task<IActionResult> AdoNetScalar()
         {
             var guids = new Guid[] { new Guid("B0C1C8A4-16DD-40F2-862F-79DD0B82F037"), new Guid("1771F732-B700-4120-8BD9-A39B4654AE72") };
-            List<MySqlParameter> sqlParameters = new List<MySqlParameter>();
+            List<SqlParameter> sqlParameters = new List<SqlParameter>();
             StringBuilder ids = new();
             for (var i = 0; i < guids.Count(); i++)
             {
                 ids.Append($"@id{i},");
-                sqlParameters.Add(new MySqlParameter($"@id{i}", guids[i]));
+                sqlParameters.Add(new SqlParameter($"@id{i}", guids[i]));
             }
             string @id = ids.ToString().TrimEnd(',');
             string sql = $"select count(*) from Students where id in ({@id})";

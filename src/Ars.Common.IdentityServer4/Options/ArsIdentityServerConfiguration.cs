@@ -15,15 +15,38 @@ namespace Ars.Common.IdentityServer4.options
     public class ArsIdentityServerConfiguration : IArsIdentityServerConfiguration
     {
         public IEnumerable<ArsApiResource> ArsApiResources { get; set; }
+            //= new[]
+            //{
+            //    new ArsApiResource()
+            //    {
+            //        Name = "defaultApi",
+            //        DisplayName = "my default api" ,
+            //        UserClaims = new [] { ArsClaimTypes.Role,ArsClaimTypes.TenantId,ArsClaimTypes.UserId },
+            //        Scopes = new []{ "defaultApi-scope", StandardScopes.OfflineAccess }
+            //    }
+            //};
 
         public IEnumerable<ArsApiClient> ArsClients { get; set; }
+            //= new[]
+            //{
+            //    new ArsApiClient
+            //    {
+            //        AppKey = "default-Key",
+            //        AppSecret = "default-Secret",
+            //        AccessTokenLifetime = 99900,
+            //        AllowedScopes = new [] { "defaultApi-scope", StandardScopes.OfflineAccess }
+            //    }
+            //};
 
         public IEnumerable<string> ArsApiScopes { get; set; }
+            //= new[]
+            //{
+            //    "defaultApi-scope",
+            //    StandardScopes.OfflineAccess
+            //};
 
-        public bool UseTestUsers { get; set; }
+        public string CertPath { get; set; }
 
-        public string? CertificatePath { get; set; }
-
-        public string? CertificatePassWord { get; set; }
+        public string Password { get; set; }
     }
 }

@@ -41,7 +41,7 @@ namespace Ars.Common.IdentityServer4.Validation
             return Task.CompletedTask;
         }
 
-        private ClaimsPrincipal GetIdentityPrincipal(
+        private static ClaimsPrincipal GetIdentityPrincipal(
             string subject,
             string tenant,
             string username,

@@ -61,7 +61,7 @@ namespace Ars.Common.Tool.Extension
         public static string GetDescriotion(this Enum @enum) 
         {
             var type = @enum.GetType();
-            return type.GetField(@enum.ToString())?.GetCustomAttribute<DescriptionAttribute>()?.Description ?? @enum.ToString();
+            return type.GetField(@enum.ToString())?.GetCustomAttribute<DescriptionAttribute>()?.Description ?? string.Empty;
         }
     }
 }

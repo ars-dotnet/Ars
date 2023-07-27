@@ -32,8 +32,8 @@ namespace Ars.Common.Consul.IApplicationBuilderExtension
                 }, CreateHttpClient(option));
 
             IConfiguration configuration = app.ApplicationServices.GetRequiredService<IConfiguration>();
-            string ip = option.ServiceIp!;
-            int port = option.ServicePort.GetValueOrDefault();
+            string ip = option.ServiceIp;
+            int port = option.ServicePort;
 
             string serviceId = $"service:{ip}:{port}";//服务ID，一个服务是唯一的
 
@@ -94,7 +94,7 @@ namespace Ars.Common.Consul.IApplicationBuilderExtension
 
             if (option.UseHttps) 
             {
-                handler.ClientCertificates.Add(Certificate.Get(option.CertificatePath!,option.CertificatePassWord!));
+                handler.ClientCertificates.Add(Certificate.Get(option.CertificatePath,option.CertificatePassWord));
                 handler.ServerCertificateCustomValidationCallback =
                     HttpClientHandler.DangerousAcceptAnyServerCertificateValidator;
             }

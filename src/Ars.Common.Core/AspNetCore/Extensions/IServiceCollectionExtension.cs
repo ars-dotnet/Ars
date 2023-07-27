@@ -1,5 +1,4 @@
 ﻿using Ars.Commom.Core;
-using Ars.Common.Core.AspNetCore.HostService;
 using Ars.Common.Core.Configs;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
@@ -47,8 +46,6 @@ namespace Ars.Common.Core.AspNetCore.Extensions
                 //空值处理
                 options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
             });
-
-            services.AddHostedService<ArsHostService>();
 
             return arsServiceBuilder;
         }

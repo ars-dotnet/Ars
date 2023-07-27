@@ -8,9 +8,9 @@ namespace GrpcClient.Controllers
     [Route("[controller]/[action]")]
     public class ArsWebApiController : Controller
     {
-        private readonly IHttpClientProviderUseConsul _httpClientProvider;
+        private readonly IHttpClientProvider _httpClientProvider;
         private readonly IHttpSender _httpSender;
-        public ArsWebApiController(IHttpClientProviderUseConsul httpClientProvider, IHttpSender httpSender)
+        public ArsWebApiController(IHttpClientProvider httpClientProvider, IHttpSender httpSender)
         {
             _httpClientProvider = httpClientProvider;
             _httpSender = httpSender;

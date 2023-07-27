@@ -27,7 +27,6 @@ namespace Ars.Common.Tool.Extension
         public static IServiceCollection AddArsHttpClient(this IServiceCollection services)
         {
             services.AddHttpClient(HttpClientNames.Http);
-
             services
                 .AddHttpClient(HttpClientNames.Https)
                 .ConfigurePrimaryHttpMessageHandler((e) =>
@@ -94,8 +93,7 @@ namespace Ars.Common.Tool.Extension
         {
             IArsUploadExcelConfiguration config = new ArsUploadExcelConfiguration();
             action(config);
-            services.AddSingleton<IOptions<IArsUploadExcelConfiguration>>(
-                new OptionsWrapper<IArsUploadExcelConfiguration>(config));
+            services.AddSingleton<IOptions<IArsUploadExcelConfiguration>>(new OptionsWrapper<IArsUploadExcelConfiguration>(config));
 
             services.AddScoped<IExcelResolve, ExcelResolve>();
             services.AddScoped<IExcelStorage, ExcelStorage>();

@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.SignalR;
 
 namespace ArsWebApiService.Hubs
 {
-    //[Authorize]
+    [Authorize]
     public class MyWebHub : ArsWebHub
     {
         public MyWebHub(IHubContext<MyWebHub> hubContext, IHubCacheManager cacheManager, ILoggerFactory loggerFactory) 

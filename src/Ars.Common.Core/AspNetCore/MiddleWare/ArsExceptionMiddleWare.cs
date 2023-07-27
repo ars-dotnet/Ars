@@ -5,7 +5,6 @@ using Ars.Common.Tool.Extension;
 using Ars.Common.Tool.UploadExcel;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Newtonsoft.Json;
 using System;
@@ -20,15 +19,15 @@ namespace Ars.Common.Core.AspNetCore.MiddleWare
     {
         private readonly RequestDelegate _next;
         private readonly IWebHostEnvironment _environment;
-        private readonly IServiceScopeFactory _serviceScopeFactory;
+        private readonly IGrpcExceptionManager? _grpcExceptionManager;
         public ArsExceptionMiddleWare(
             RequestDelegate next,
             IWebHostEnvironment environment,
-            IServiceScopeFactory serviceScopeFactory)
+            IGrpcExceptionManager? grpcExceptionManager)
         {
             _next = next;
             _environment = environment;
-            _serviceScopeFactory = serviceScopeFactory;
+            _grpcExceptionManager = grpcExceptionManager;
         }
 
         public async Task Invoke(HttpContext httpContext) 
@@ -48,11 +47,9 @@ namespace Ars.Common.Core.AspNetCore.MiddleWare
             object? data = null;
             int code;
             string errorMsg;
-           
-            var grpcExcptmanager = _serviceScopeFactory.CreateScope().ServiceProvider.GetService<IGrpcExceptionManager>();
-            if (grpcExcptmanager?.IsGrpcException(e) ?? false)
+            if (_grpcExceptionManager?.IsGrpcException(e) ?? false)
             {
-                var err = grpcExcptmanager.GetGrpcExceptionErr(e);
+                var err = _grpcExceptionManager.GetGrpcExceptionErr(e);
                 code = err.Item1;
                 errorMsg = err.Item2;
             }

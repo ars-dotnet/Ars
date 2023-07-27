@@ -1,5 +1,4 @@
-﻿using Ars.Common.Tool.Configs;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,12 +6,16 @@ using System.Threading.Tasks;
 
 namespace Ars.Common.Core.Configs
 {
-    public interface IArsIdentityClientConfiguration : IArsCertificateConfiguration
+    public interface IArsIdentityClientConfiguration
     {
         string Authority { get; }
 
         string ApiName { get; }
 
         bool RequireHttpsMetadata { get; }
+
+        string CertificatePath { get; }
+
+        string CertificatePassWord { get; }
     }
 }
