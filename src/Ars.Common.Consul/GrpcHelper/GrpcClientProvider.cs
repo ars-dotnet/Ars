@@ -18,17 +18,14 @@ namespace Ars.Common.Consul.GrpcHelper
 {
     internal class GrpcClientProvider : IGrpcClientProvider, ISingletonDependency
     {
-        private readonly ConsulHelper _consulHelper;
         private readonly IConsulDiscoverConfiguration _options;
         private readonly IGrpcMetadataTokenProvider _grpcCallOptionsProvider;
-        private readonly IHttpClientProvider _httpClientProvider;
+        private readonly IHttpClientProviderUseConsul _httpClientProvider;
         public GrpcClientProvider(
-            ConsulHelper consulHelper,
             IConsulDiscoverConfiguration options,
             IGrpcMetadataTokenProvider grpcCallOptionsProvider,
-            IHttpClientProvider httpClientProvider)
+            IHttpClientProviderUseConsul httpClientProvider)
         {
-            _consulHelper = consulHelper;
             _options = options;
             _grpcCallOptionsProvider = grpcCallOptionsProvider;
             _httpClientProvider = httpClientProvider;

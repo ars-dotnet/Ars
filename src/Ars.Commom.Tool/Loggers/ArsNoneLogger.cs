@@ -9,7 +9,7 @@ namespace Ars.Common.Tool.Loggers
 {
     internal class ArsNoneLogger : ILogger
     {
-        public IDisposable BeginScope<TState>(TState state) => default;
+        public IDisposable BeginScope<TState>(TState state) => default!;
 
         public bool IsEnabled(LogLevel logLevel) => false;
 

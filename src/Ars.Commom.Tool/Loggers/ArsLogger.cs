@@ -26,11 +26,11 @@ namespace Ars.Common.Tool.Loggers
         public ArsLogger(string name, string repositoryName)
             => (_categoryName, _repositoryName) = (name, repositoryName);
 
-        public IDisposable? BeginScope<TState>(TState state) where TState : notnull => default!;
+        public IDisposable BeginScope<TState>(TState state) => default!;
 
         public bool IsEnabled(LogLevel logLevel) => true;
 
-        protected virtual bool IsToproLog()
+        protected virtual bool IsArsLog()
         {
             if (_categoryName.StartsWith(ArsLogNames.CustomLogCategoryPrefix))
                 return true;
@@ -50,7 +50,7 @@ namespace Ars.Common.Tool.Loggers
                 return;
             }
 
-            if (!IsToproLog())
+            if (!IsArsLog())
             {
                 return;
             }

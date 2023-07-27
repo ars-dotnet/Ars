@@ -37,7 +37,7 @@ namespace Ars.Common.Tool.Loggers
             //用assembly的话，会和Microsoft.Extensions.Logging.Log4Net.AspNetCore冲突
             //导致log4net.Config配置记录不了日志
             //var assembly = GetLoggingReferenceAssembly();
-            var loggerRepo = LoggerManager.CreateRepository($"{categoryName}.Repository", typeof(Hierarchy));
+            var loggerRepo = LoggerManager.CreateRepository($"{categoryName}.Repository", typeof(ArsHierarchy));
 
             IXmlRepositoryConfigurator configurableRepository = (loggerRepo as IXmlRepositoryConfigurator)!;
 
@@ -63,7 +63,7 @@ namespace Ars.Common.Tool.Loggers
         }
 
         /// <summary>
-        /// 校验是不是需要分日志文件的类别名称前缀
+        /// 校验logger的类别名称是不是需要记录
         /// </summary>
         /// <param name="categoryName"></param>
         /// <returns></returns>

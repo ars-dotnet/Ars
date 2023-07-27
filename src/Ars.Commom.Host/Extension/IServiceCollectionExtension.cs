@@ -49,10 +49,6 @@ namespace Ars.Commom.Host.Extension
             using var scope = services.BuildServiceProvider().CreateScope();
             IArsConfiguration arsConfig = scope.ServiceProvider.GetRequiredService<IArsConfiguration>();
             action?.Invoke(arsConfig);
-            foreach (var serviceExtension in arsConfig.ArsServiceExtensions)
-            {
-                serviceExtension.AddService(arsbuilder);
-            }
 
             ArsBasicConfiguration arsBasicConfiguration =
                 scope.ServiceProvider.GetRequiredService<IConfiguration>()
@@ -60,6 +56,13 @@ namespace Ars.Commom.Host.Extension
                 .Get<ArsBasicConfiguration>() ?? new ArsBasicConfiguration();
             services.AddSingleton<IOptions<IArsBasicConfiguration>>(
                 new OptionsWrapper<IArsBasicConfiguration>(arsBasicConfiguration));
+
+            arsConfig.ArsBasicConfiguration = arsBasicConfiguration;
+
+            foreach (var serviceExtension in arsConfig.ArsServiceExtensions)
+            {
+                serviceExtension.AddService(arsbuilder);
+            }
 
             return arsbuilder;
         }

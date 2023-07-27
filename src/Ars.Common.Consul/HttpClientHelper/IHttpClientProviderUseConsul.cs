@@ -7,7 +7,11 @@ using System.Threading.Tasks;
 
 namespace Ars.Common.Consul.HttpClientHelper
 {
-    public interface IHttpClientProvider
+    /// <summary>
+    /// 创建httpClient
+    /// BaseAddress从consul中获取
+    /// </summary>
+    public interface IHttpClientProviderUseConsul
     {
         Task<T> GetHttpClientAsync<T>(string serviceName) where T : HttpClient;
 

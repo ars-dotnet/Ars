@@ -6,16 +6,21 @@ using System.Threading.Tasks;
 
 namespace Ars.Common.Tool.Configs
 {
-    public interface IArsBasicConfiguration: IArsIpPortConfiguration, IArsCertificateConfiguration
+    public interface IArsIpPortConfiguration
     {
         /// <summary>
-        /// application根目录
+        /// ip
         /// </summary>
-        string Root { get; }
+        string? ServiceIp { get; }
+        
+        /// <summary>
+        /// port
+        /// </summary>
+        int? ServicePort { get; }
 
         /// <summary>
-        /// 程序访问的域名
+        /// 是否采用https
         /// </summary>
-        string AppAccessDomain { get; }
+        bool UseHttps { get; }
     }
 }

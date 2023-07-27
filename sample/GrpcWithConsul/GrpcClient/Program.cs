@@ -12,9 +12,6 @@ Environment.SetEnvironmentVariable("SKYWALKING__SERVICENAME", "grpclient");
 
 var builder = WebApplication.CreateBuilder(args);
 
-//Environment.SetEnvironmentVariable("ASPNETCORE_HOSTINGSTARTUPASSEMBLIES", "SkyAPM.Agent.AspNetCore");
-//Environment.SetEnvironmentVariable("SKYWALKING__SERVICENAME", "grpclient11");
-
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -59,5 +56,7 @@ app.UseHttpsRedirection();
 app.UseArsCore();
 
 app.MapControllers();
+
+app.MapGet("/", context => Task.Run(() => context.Response.Redirect("/swagger")));
 
 app.Run();

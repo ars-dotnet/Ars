@@ -43,11 +43,17 @@ namespace Ars.Common.IdentityServer4.Extension
             var services = builder.Services;
             var option = builder.Configuration
                 .GetSection(nameof(ArsIdentityServerConfiguration))
-                .Get<ArsIdentityServerConfiguration>() ?? throw new Exception("appsettings => ArsIdentityServerConfiguration not be null!");
+                .Get<ArsIdentityServerConfiguration>() 
+                ?? throw new Exception("appsettings => ArsIdentityServerConfiguration not be null!");
+
+            var arscfg = builder.ServiceProvider.GetRequiredService<IArsConfiguration>();
+
+            option.CertificatePath ??= arscfg!.ArsBasicConfiguration?.CertificatePath;
+            option.CertificatePassWord ??= arscfg!.ArsBasicConfiguration?.CertificatePassWord;
 
             services.AddSingleton<IArsIdentityServerConfiguration>(option);
-            var arscfg = builder.ServiceProvider.GetRequiredService<IArsConfiguration>();
             arscfg.ArsIdentityServerConfiguration ??= option;
+
             arscfg.AddArsAppExtension(new ArsIdentityServerAppExtension());
 
             using var loggerfac = LoggerFactory.Create(builder => builder.AddConsole());
@@ -59,9 +65,8 @@ namespace Ars.Common.IdentityServer4.Extension
                 .AddArsClients(option.ArsClients)
                 .AddArsScopes(option.ArsApiScopes)
                 .AddArsSigningCredential(
-                    string.IsNullOrEmpty(option.CertPath)
-                        ? Certificate.Get()
-                        : Certificate.Get(option.CertPath, option.Password, logger));
+                    Certificate.Get(
+                        option.CertificatePath!, option.CertificatePassWord!, logger));
             if (option.UseTestUsers) 
             {
                 id4builder.AddTestUsers(new List<TestUser>
@@ -123,8 +128,12 @@ namespace Ars.Common.IdentityServer4.Extension
                 .Get<ArsIdentityClientConfiguration>() 
                 ?? 
                 throw new Exception("appsetting => ArsIdentityClientConfiguration not be null!");
-            var arscfg = builder.ServiceProvider
-                .GetRequiredService<IArsConfiguration>();
+
+            var arscfg = builder.ServiceProvider.GetRequiredService<IArsConfiguration>();
+
+            option.CertificatePath ??= arscfg!.ArsBasicConfiguration?.CertificatePath;
+            option.CertificatePassWord ??= arscfg!.ArsBasicConfiguration?.CertificatePassWord;
+
             arscfg.ArsIdentityClientConfiguration ??= option;
             arscfg.AddArsAppExtension(new ArsIdentityClientAppExtension());
             services.AddSingleton<IArsIdentityClientConfiguration>(option);
@@ -147,7 +156,7 @@ namespace Ars.Common.IdentityServer4.Extension
                                 HttpClientHandler.DangerousAcceptAnyServerCertificateValidator,
                         };
                         httpClientHandler.ClientCertificates.Add(
-                            Certificate.Get(option.CertificatePath, option.CertificatePassWord));
+                            Certificate.Get(option.CertificatePath!, option.CertificatePassWord!));
 
                         t.JwtBackChannelHandler = httpClientHandler;
                     }

@@ -31,7 +31,7 @@ namespace Ars.Common.Tool.Extension
             //设置LogNames.CustomLogCategoryPrefix名称
             var xml = log4netConfigFile.ParseXmlConfigFile();
 
-            var node = xml?.SelectSingleNode("//root")?.SelectSingleNode("//customLogCategoryPrefix");
+            var node = xml?.SelectSingleNode("//arslogextension")?.SelectSingleNode("//customLogCategoryPrefix");
 
             var value = node?.Attributes?.GetNamedItem("value")?.Value;
 

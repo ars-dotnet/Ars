@@ -1,5 +1,6 @@
 ﻿using Ars.Commom.Tool;
 using Ars.Common.Tool.Extension;
+using ArsTest.AppConfigs;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -272,6 +273,16 @@ namespace ArsTest
 
                 StudentModel studentModel = new StudentModel() { Id = 2, No = "223" };
                 string xml = studentModel.XMLSerialize();
+
+                TestXml testXml = new TestXml
+                {
+                    Name = "Tom",
+                    Country = "China"
+                };
+                string a = testXml.XMLSerialize();
+                var data = a.DeXmlSerialize<TestXml>();
+
+
                 using var res = await httpclient.GetAsync($"http://127.0.0.1:5196/WebServices.asmx/Publish?xml={xml}");
 
                 res.EnsureSuccessStatusCode();
@@ -299,6 +310,32 @@ namespace ArsTest
             var data = str.DeXmlSerialize<StudentModel>();
             Assert.True(data!.Id == 1);
         }
+
+        [Fact]
+        public Task TestXmlPath() 
+        {
+            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AppConfigs/App.Config");
+            var data = path.DeXmlPathSerialize<Configuration>();
+
+            return Task.CompletedTask;
+        }
+
+        [Fact]
+        public void TestStr() 
+        {
+            string barcode = @"
+TT=90ms OTL=10mm CC=1 FC=266, MC=1
+N6CCL36
+QR CODE
+SZ=21x21, RES=8.00x8.00Pixel, CTV=0%, UECV=38%
+";
+
+            if (barcode.Contains("N6CCL"))
+            {
+                barcode = barcode.Split("\r\n")[2];
+            }
+
+        }
     }
 
     [XmlRoot("StudentModel"), XmlType("StudentModel")]
@@ -309,6 +346,16 @@ namespace ArsTest
 
         [XmlElement]
         public string No { get; set; }
+    }
+
+    [XmlRoot("CallAgv")]
+    public class TestXml 
+    {
+        [XmlElement("name")]
+        public string Name { get; set; }
+
+        [XmlAttribute()]
+        public string Country { get; set; }
     }
 
     public class Goods

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Ars.Common.Tool.Configs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,6 +7,11 @@ using System.Threading.Tasks;
 
 namespace Ars.Common.Core.Configs
 {
+    public interface IConsulDiscoverConfiguration
+    {
+        IEnumerable<ConsulConfiguration> ConsulDiscovers { get; }
+    }
+
     public interface IConsulConfiguration
     {
         string ServiceName { get; }
@@ -28,12 +34,8 @@ namespace Ars.Common.Core.Configs
         public CommunicationConfiguration Communication { get; set; }
     }
 
-    public interface IConsulDiscoverConfiguration
-    {
-        IEnumerable<ConsulConfiguration> ConsulDiscovers { get; }
-    }
 
-    public class CommunicationConfiguration 
+    public class CommunicationConfiguration : IArsCertificateConfiguration
     {
         /// <summary>
         /// 通讯方式
@@ -55,9 +57,9 @@ namespace Ars.Common.Core.Configs
         /// </summary>
         public bool UseHttps { get; set; }
 
-        public string CertificatePath { get; set; }
+        public string? CertificatePath { get; set; }
 
-        public string CertificatePassWord { get; set; }
+        public string? CertificatePassWord { get; set; }
 
         /// <summary>
         /// 是否采用identityServer4身份认证

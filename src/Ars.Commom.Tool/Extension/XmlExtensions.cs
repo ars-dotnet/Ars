@@ -27,7 +27,7 @@ namespace Ars.Common.Tool.Extension
         }
 
         public static T? DeXmlSerialize<T>(this string xmlString, XmlRootAttribute? xmlRootAttribute = null)
-            where T : class, new()
+            where T : class
         {
             T? cloneObject;
 
@@ -39,6 +39,27 @@ namespace Ars.Common.Tool.Extension
             using (TextReader reader = new StringReader(buffer.ToString()))
             {
                 object? obj = serializer.Deserialize(new XmlNamespaceIgnoreReader(reader));
+                cloneObject = obj.As<T>();
+            }
+
+            return cloneObject;
+        }
+
+        public static T? DeXmlPathSerialize<T>(this string xmlPath, XmlRootAttribute? xmlRootAttribute = null)
+            where T : class
+        {
+            T? cloneObject;
+
+            if (!File.Exists(xmlPath))
+                return default;
+
+            StringBuilder buffer = new StringBuilder();
+            buffer.Append(xmlPath);
+
+            XmlSerializer serializer = new XmlSerializer(typeof(T), xmlRootAttribute);
+            using (TextReader reader = new StreamReader(buffer.ToString()))
+            {
+                object? obj = serializer.Deserialize(reader);
                 cloneObject = obj.As<T>();
             }
 
