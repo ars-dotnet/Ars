@@ -100,5 +100,10 @@ namespace Ars.Common.EFCore.Repository
         {
             return Task.FromResult(Count(predicate));
         }
+
+        public virtual void Dispose() 
+        {
+            return;
+        }
     }
 }

@@ -19,5 +19,15 @@ namespace ArsWebApiService.Model
         public int? CreationUserId { get; set; }
 
         public DateTime? CreationTime { get; set; }
+
+        //public AppVersionExtension AppVersionExtension { get; set; }
+    }
+
+    public class AppVersionExtension 
+    {
+        [StringLength(50)]
+        public string Authority { get; set; }
+
+        public int Size { get; set; }
     }
 }

@@ -27,6 +27,11 @@ using ArsWebApiService.Hubs;
 using Ars.Common.SignalR.Sender;
 using Ars.Common.SkyWalking.Extensions;
 using Ars.Common.Consul.Extension;
+using Autofac.Core;
+using ArsWebApiService.WebServices;
+using SoapCore;
+using System.ServiceModel;
+using Ars.Common.Host.Extension;
 
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
@@ -35,16 +40,22 @@ var arsbuilder =
     builder.Services
     .AddArserviceCore(builder, config =>
     {
-        var idsconfig = builder.Configuration.GetSection(nameof(ArsIdentityClientConfiguration)).Get<ArsIdentityClientConfiguration>();
-
         config.AddArsIdentityClient(configureOptions: options =>
         {
+            var idsconfig = builder.Configuration
+               .GetSection(nameof(ArsIdentityClientConfiguration))
+               .Get<ArsIdentityClientConfiguration>();
+
             options.Authority = idsconfig.Authority;
             options.ApiName = idsconfig.ApiName;
             options.RequireHttpsMetadata = idsconfig.RequireHttpsMetadata;
 
             if (idsconfig.RequireHttpsMetadata)
             {
+                var basicconfig = builder.Configuration
+                    .GetSection(nameof(ArsBasicConfiguration))
+                    .Get<ArsBasicConfiguration>();
+
                 var httpClientHandler = new HttpClientHandler
                 {
                     ClientCertificateOptions = ClientCertificateOption.Manual,
@@ -53,7 +64,7 @@ var arsbuilder =
                         HttpClientHandler.DangerousAcceptAnyServerCertificateValidator,
                 };
                 httpClientHandler.ClientCertificates.Add(
-                    Certificate.Get(idsconfig.CertificatePath, idsconfig.CertificatePassWord));
+                    Certificate.Get(basicconfig.CertificatePath!, basicconfig.CertificatePassWord!));
 
                 options.JwtBackChannelHandler = httpClientHandler;
             }
@@ -80,7 +91,9 @@ var arsbuilder =
             config.CacheType = 0;
             config.UseMessagePackProtocol = true;
         });
+
         config.AddArsConsulRegisterServer();
+
         config.AddArsSkyApm();
     })
     .AddArsDbContext<MyDbContext>();
@@ -105,7 +118,7 @@ builder.Services.AddCors(cors =>
             .AllowAnyHeader()
             .AllowCredentials()
             .AllowAnyMethod()
-            .WithOrigins("https://172.20.64.1:7096", "http://172.20.64.1:5133");
+            .WithOrigins("https://172.20.64.1:7096", "http://172.20.64.1:5133", "http://192.168.110.65:5133", "http://192.168.110.65:8080");
     });
 });
 
@@ -143,25 +156,12 @@ builder.Services.AddSwaggerGen(c =>
     c.OperationFilter<SecurityRequirementsOperationFilter>();
 });
 
-builder.WebHost.UseKestrel(kestrel =>
-{
-    //通过配置文件来获取
-    //测试主机ip
-    //kestrel.Listen(IPAddress.Parse("172.20.64.1"),5196);
-
-    //容器ip192.168.0.5
-    //kestrel.Listen(IPAddress.Parse("192.168.0.5"), 5196);
-
-    //容器ip192.168.0.8
-    //kestrel.Listen(IPAddress.Parse("192.168.0.8"), 5197);
-
-    var basicfg = builder.Configuration.GetSection(nameof(ArsBasicConfiguration)).Get<ArsBasicConfiguration>();
-    kestrel.Listen(IPAddress.Parse(basicfg.Ip), basicfg.Port);
-});
+builder.WebHost.UseArsKestrel(builder.Configuration);
 
 //builder.Services.AddDbContext<MyDbContext>();
 
 builder.Services.AddScoped<IHubSendMessage, MyWebHub>();
+builder.Services.AddScoped<IWebServices,WebServices>();
 
 var app = builder.Build();
 
@@ -194,15 +194,16 @@ app.UseStaticFiles(new StaticFileOptions
         })
 });
 
-
 app.UseArsCore().UseArsUploadExcel();
 
 app.MapControllers();
 app.MapHub<MyWebHub>("/ars/web/hub");
 app.MapHub<ArsAndroidHub>("/ars/android/hub");
 
-
 app.MapGet("/", context => Task.Run(() => context.Response.Redirect("/swagger")));
 app.Map("/healthCheck", builder => builder.Run(context => context.Response.WriteAsync("ok")));
+
+//app.UseSoapEndpoint<IWebServices>("/StudentService.asmx", new BasicHttpBinding(), SoapSerializer.XmlSerializer);
+((IApplicationBuilder)app).UseSoapEndpoint<IWebServices>("/WebServices.asmx", new SoapEncoderOptions(), serializer : SoapSerializer.XmlSerializer);
 
 app.Run();

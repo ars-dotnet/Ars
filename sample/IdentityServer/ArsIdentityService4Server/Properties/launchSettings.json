@@ -4,27 +4,9 @@
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development",
-        "ASPNETCORE_HOSTINGSTARTUPASSEMBLIES": "SkyAPM.Agent.AspNetCore",
-        "SKYWALKING__SERVICENAME": "arsidentityserver0421001"
-      },
-      "dotnetRunMessages": true,
-      "applicationUrl": "https://172.20.64.1:5105"
-    },
-    "IIS Express": {
-      "commandName": "IISExpress",
-      "launchBrowser": true,
-      "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
-      }
-    }
-  },
-  "iisSettings": {
-    "windowsAuthentication": false,
-    "anonymousAuthentication": true,
-    "iisExpress": {
-      "applicationUrl": "http://localhost:23740",
-      "sslPort": 0
+      },
+      "applicationUrl": "https://localhost:63035;http://localhost:63036"
     }
   }
 }

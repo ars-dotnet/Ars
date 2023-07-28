@@ -1,4 +1,5 @@
 ﻿using Ars.Commom.Core;
+using Ars.Commom.Tool.Extension;
 using Ars.Common.Consul.Option;
 using Ars.Common.Core;
 using Ars.Common.Core.Configs;
@@ -36,10 +37,14 @@ namespace Ars.Common.Consul.Extension
                 throw new ArgumentNullException("appsettings => ConsulDiscoverConfiguration.CommunicationConfiguration not be null");
             }
 
-            arsServiceBuilder.ServiceProvider
-                 .GetRequiredService<IArsConfiguration>()
-                .ArsConsulDiscoverConfiguration ??= config;
+            var arscfg = arsServiceBuilder.ServiceProvider.GetRequiredService<IArsConfiguration>();
+            foreach (var c in config.ConsulDiscovers.Where(r => r.Communication.UseHttps))
+            {
+                c.Communication.CertificatePath ??= arscfg!.ArsBasicConfiguration?.CertificatePath;
+                c.Communication.CertificatePassWord ??= arscfg!.ArsBasicConfiguration?.CertificatePassWord;
+            }
 
+            arscfg.ArsConsulDiscoverConfiguration ??= config;
             services.AddSingleton<IConsulDiscoverConfiguration>(config);
 
             services
@@ -59,8 +64,22 @@ namespace Ars.Common.Consul.Extension
                 ??
                 throw new ArgumentNullException("appsettings => ConsulRegisterConfiguration not be null");
 
-            var arscfg = arsServiceBuilder.ServiceProvider
-                .GetRequiredService<IArsConfiguration>();
+            var arscfg = arsServiceBuilder.ServiceProvider.GetRequiredService<IArsConfiguration>();
+
+            if (arscfg.ArsBasicConfiguration?.ServiceIp.IsNullOrEmpty() ?? false)
+            {
+                throw new ArgumentNullException("appsettings => ArsBasicConfiguration.ServiceIp not be null");
+            }
+            if (null == arscfg.ArsBasicConfiguration?.ServicePort || 0 == arscfg.ArsBasicConfiguration?.ServicePort) 
+            {
+                throw new ArgumentNullException("appsettings => ArsBasicConfiguration.ServicePort not be null or zero");
+            }
+
+            config.ServiceIp ??= arscfg!.ArsBasicConfiguration!.ServiceIp;
+            config.ServicePort ??= arscfg!.ArsBasicConfiguration!.ServicePort;
+            config.CertificatePath ??= arscfg!.ArsBasicConfiguration?.CertificatePath;
+            config.CertificatePassWord ??= arscfg!.ArsBasicConfiguration?.CertificatePassWord;
+
             arscfg.ArsConsulRegisterConfiguration ??= config;
             services.AddSingleton<IConsulRegisterConfiguration>(config);
 
@@ -91,6 +110,7 @@ namespace Ars.Common.Consul.Extension
                 {
                     return policyBuilder.WaitAndRetryAsync(new TimeSpan[] { TimeSpan.FromSeconds(1), TimeSpan.FromSeconds(2) });
                 });
+
             services
                 .AddHttpClient(HttpClientNames.RetryGrpcHttpsV1)
                 .ConfigurePrimaryHttpMessageHandler((e) =>
@@ -100,7 +120,7 @@ namespace Ars.Common.Consul.Extension
                     handler.UseCookies = true;
                     handler.CookieContainer = new CookieContainer();
                     handler.ClientCertificateOptions = ClientCertificateOption.Automatic;
-                    handler.ServerCertificateCustomValidationCallback = (_, _, _, _) => true;
+                    handler.ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator;
 
                     var grpchandler = new GrpcWebHandler(GrpcWebMode.GrpcWeb, handler)//https://github.com/grpc/grpc-dotnet/issues/1110
                     {
@@ -129,6 +149,7 @@ namespace Ars.Common.Consul.Extension
                 {
                     return policyBuilder.WaitAndRetryAsync(new TimeSpan[] { TimeSpan.FromSeconds(1), TimeSpan.FromSeconds(2) });
                 });
+
             services
                 .AddHttpClient(HttpClientNames.RetryGrpcHttpsV2)
                 .ConfigurePrimaryHttpMessageHandler((e) =>
@@ -139,7 +160,7 @@ namespace Ars.Common.Consul.Extension
                     handler.CookieContainer = new CookieContainer();
                     handler.ClientCertificateOptions = ClientCertificateOption.Automatic;
                     handler.SslProtocols = SslProtocols.Tls12;
-                    handler.ServerCertificateCustomValidationCallback = (_, _, _, _) => true;
+                    handler.ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator;
 
                     return handler;
                 })

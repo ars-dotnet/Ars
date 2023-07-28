@@ -2,20 +2,11 @@
   "profiles": {
     "GrpcService": {
       "commandName": "Project",
+      "launchBrowser": true,
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development",
-        "ASPNETCORE_HOSTINGSTARTUPASSEMBLIES": "SkyAPM.Agent.AspNetCore",
-        "SKYWALKING__SERVICENAME": "grpcservice"
+        "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "applicationUrl": "http://localhost:7903;https://localhost:7903;",
-      "dotnetRunMessages": true,
-      "launchBrowser": true
-    },
-    "Docker": {
-      "commandName": "Docker",
-      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}",
-      "publishAllPorts": true,
-      "useSSL": true
+      "applicationUrl": "https://localhost:63027;http://localhost:63029"
     }
   }
 }

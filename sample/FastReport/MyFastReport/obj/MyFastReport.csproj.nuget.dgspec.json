@@ -81,7 +81,7 @@
       }
     },
     "C:\\core\\MyArs\\src\\Ars.Commom.Tool\\Ars.Common.Tool.csproj": {
-      "version": "1.6.1",
+      "version": "1.6.3",
       "restore": {
         "projectUniqueName": "C:\\core\\MyArs\\src\\Ars.Commom.Tool\\Ars.Common.Tool.csproj",
         "projectName": "Ars.Common.Tool",
@@ -163,6 +163,10 @@
             "Swashbuckle.AspNetCore.SwaggerGen": {
               "target": "Package",
               "version": "[6.5.0, )"
+            },
+            "log4net": {
+              "target": "Package",
+              "version": "[2.0.15, )"
             }
           },
           "imports": [

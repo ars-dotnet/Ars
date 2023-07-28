@@ -20,6 +20,7 @@
 
 		<PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.6" />
 		<PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="6.0.0" />
+		<PackageReference Include="SoapCore" Version="1.1.0.37" />
 		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.0">
 			<PrivateAssets>all</PrivateAssets>
@@ -30,6 +31,7 @@
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
 		<PackageReference Include="System.Linq.Async" Version="6.0.1" />
+		<PackageReference Include="System.ServiceModel.Web" Version="1.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>

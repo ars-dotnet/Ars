@@ -93,7 +93,7 @@ namespace Ars.Common.Tool.Tools
 
             //渲染数据
             IRow rbody;
-            XSSFFont xSSFFont = null;
+            XSSFFont? xSSFFont = null;
             foreach (var item in input.List)
             {
                 col = 0;

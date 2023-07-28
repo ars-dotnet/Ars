@@ -1,18 +1,24 @@
 ﻿using Ars.Commom.Tool;
+using Ars.Common.Tool.Extension;
+using ArsTest.AppConfigs;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Xml;
+using System.Xml.Serialization;
 using Xunit;
 
 namespace ArsTest
@@ -33,6 +39,7 @@ namespace ArsTest
                 {
                     services = service;
                     service.AddLogging();
+                    service.AddHttpClient("ars");
                 }).
                 ConfigureLogging((hostingContext, logging) =>
                 {
@@ -244,7 +251,7 @@ namespace ArsTest
         }
 
         [Fact]
-        public void Test99() 
+        public void Test99()
         {
             Goods goods = new Goods
             {
@@ -254,9 +261,104 @@ namespace ArsTest
             //不能赋值
             //goods.Age = 222;
         }
+
+        [Fact]
+        public async Task TestWebServicePost()
+        {
+            try
+            {
+                var provider = services.BuildServiceProvider().CreateScope().ServiceProvider;
+                var httpclientfac = provider.GetRequiredService<IHttpClientFactory>();
+                using var httpclient = httpclientfac.CreateClient("ars");
+
+                StudentModel studentModel = new StudentModel() { Id = 2, No = "223" };
+                string xml = studentModel.XMLSerialize();
+
+                TestXml testXml = new TestXml
+                {
+                    Name = "Tom",
+                    Country = "China"
+                };
+                string a = testXml.XMLSerialize();
+                var data = a.DeXmlSerialize<TestXml>();
+
+
+                using var res = await httpclient.GetAsync($"http://127.0.0.1:5196/WebServices.asmx/Publish?xml={xml}");
+
+                res.EnsureSuccessStatusCode();
+
+                var str = await res.Content.ReadAsStringAsync();
+            }
+            catch (Exception e)
+            {
+
+            }
+        }
+
+        [Fact]
+        public async Task TestWebService()
+        {
+            var provider = services.BuildServiceProvider().CreateScope().ServiceProvider;
+            var httpclientfac = provider.GetRequiredService<IHttpClientFactory>();
+            using var httpclient = httpclientfac.CreateClient("ars");
+
+            using var res = await httpclient.GetAsync("http://127.0.0.1:5196/WebServices.asmx/EchoWithGet?s=aabb");
+            res.EnsureSuccessStatusCode();
+
+            var str = await res.Content.ReadAsStringAsync();
+
+            var data = str.DeXmlSerialize<StudentModel>();
+            Assert.True(data!.Id == 1);
+        }
+
+        [Fact]
+        public Task TestXmlPath() 
+        {
+            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AppConfigs/App.Config");
+            var data = path.DeXmlPathSerialize<Configuration>();
+
+            return Task.CompletedTask;
+        }
+
+        [Fact]
+        public void TestStr() 
+        {
+            string barcode = @"
+TT=90ms OTL=10mm CC=1 FC=266, MC=1
+N6CCL36
+QR CODE
+SZ=21x21, RES=8.00x8.00Pixel, CTV=0%, UECV=38%
+";
+
+            if (barcode.Contains("N6CCL"))
+            {
+                barcode = barcode.Split("\r\n")[2];
+            }
+
+        }
     }
 
-    public class Goods 
+    [XmlRoot("StudentModel"), XmlType("StudentModel")]
+    public class StudentModel
+    {
+        [XmlElement]
+        public int Id { get; set; }
+
+        [XmlElement]
+        public string No { get; set; }
+    }
+
+    [XmlRoot("CallAgv")]
+    public class TestXml 
+    {
+        [XmlElement("name")]
+        public string Name { get; set; }
+
+        [XmlAttribute()]
+        public string Country { get; set; }
+    }
+
+    public class Goods
     {
         public int Age { get; init; }
     }
@@ -340,12 +442,12 @@ namespace ArsTest
 
     }
 
-    public class Check : ICheck 
+    public class Check : ICheck
     {
 
     }
 
-    public interface IM 
+    public interface IM
     {
         int Age { get; set; }
     }
@@ -361,7 +463,7 @@ namespace ArsTest
         public int Age { get; set; } = 100;
     }
 
-    public class MM : IM 
+    public class MM : IM
     {
         public int Age { get; set; } = 123;
     }

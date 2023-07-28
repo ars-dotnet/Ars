@@ -1,54 +1,28 @@
 {
   "profiles": {
-    "ArsWebApiService001": {
+    "ArsWebApiServiceDev001": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "swagger",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development001",
-        "ASPNETCORE_HOSTINGSTARTUPASSEMBLIES": "SkyAPM.Agent.AspNetCore",
-        "SKYWALKING__SERVICENAME": "arswebapiservice001"
+        "ASPNETCORE_ENVIRONMENT": "Development001"
       },
-      "dotnetRunMessages": true,
-      "applicationUrl": "http://172.20.64.1:5196"
+      "applicationUrl": "https://localhost:53611;http://localhost:53612"
     },
-    "ArsWebApiService002": {
+    "ArsWebApiServiceDev002": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "swagger",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development002",
-        "ASPNETCORE_HOSTINGSTARTUPASSEMBLIES": "SkyAPM.Agent.AspNetCore",
-        "SKYWALKING__SERVICENAME": "arswebapiservice002"
+        "ASPNETCORE_ENVIRONMENT": "Development002"
       },
-      "dotnetRunMessages": true,
-      "applicationUrl": "http://172.20.64.1:5197"
+      "applicationUrl": "https://localhost:53611;http://localhost:53612"
     },
-    "IIS Express": {
-      "commandName": "IISExpress",
+    "ArsWebApiServicePro": {
+      "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "swagger",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      }
-    },
-    "Docker": {
-      "commandName": "Docker",
-      "launchBrowser": true,
-      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/swagger",
-      "publishAllPorts": true,
-      "httpPort": 5196,
-      "sslPort": 5197,
-      "useSSL": false
-    }
-  },
-  "$schema": "https://json.schemastore.org/launchsettings.json",
-  "iisSettings": {
-    "windowsAuthentication": false,
-    "anonymousAuthentication": true,
-    "iisExpress": {
-      "applicationUrl": "http://localhost:43273",
-      "sslPort": 0
+        "ASPNETCORE_ENVIRONMENT": "Production"
+      },
+      "applicationUrl": "https://localhost:53611;http://localhost:53612"
     }
   }
 }

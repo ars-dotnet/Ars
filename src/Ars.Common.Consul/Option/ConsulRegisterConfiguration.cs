@@ -13,16 +13,17 @@ namespace Ars.Common.Consul.Option
 
         public string ServiceName { get; set; }
 
-        public string ServiceIp { get; set; }
-
-        public int ServicePort { get; set; }
-
         public string HttpHealthAction { get; set; }
+
+        public string? ServiceIp { get; set; }
+
+        public int? ServicePort { get; set; }
 
         public bool UseHttps { get; set; }
 
-        public string CertificatePath { get; set; }
+        public string? CertificatePath { get; set; }
 
-        public string CertificatePassWord { get; set; }
+        public string? CertificatePassWord { get; set; }
+
     }
 }

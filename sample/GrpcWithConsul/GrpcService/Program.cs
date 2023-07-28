@@ -2,6 +2,7 @@ using Ars.Commom.Host.Extension;
 using Ars.Commom.Tool.Certificates;
 using Ars.Common.Consul.Extension;
 using Ars.Common.Consul.IApplicationBuilderExtension;
+using Ars.Common.Host.Extension;
 using Ars.Common.IdentityServer4.Extension;
 using Ars.Common.SkyWalking.Extensions;
 using Ars.Common.Tool.Configs;
@@ -28,21 +29,7 @@ builder.Services
     });
 builder.Services.AddGrpc();
 
-builder.WebHost.ConfigureKestrel(kestrel =>
-{
-    kestrel.Limits.Http2.MaxStreamsPerConnection = 100;
-    //kestrel.ConfigureEndpointDefaults(i =>
-    //{
-    //    i.Protocols = HttpProtocols.Http1AndHttp2;
-    //});
-    var data = builder.Configuration.GetSection(nameof(ArsBasicConfiguration)).Get<ArsBasicConfiguration>()!;
-    kestrel.Listen(new IPEndPoint(IPAddress.Parse(data.Ip), data.Port), option =>
-    {
-        option.Protocols = HttpProtocols.Http1AndHttp2;
-        var serverPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Certificates", "IS4.pfx");
-        option.UseHttps(serverPath, "aabb1212");
-    });
-});
+builder.WebHost.UseArsKestrel(builder.Configuration);
 
 var app = builder.Build();
 

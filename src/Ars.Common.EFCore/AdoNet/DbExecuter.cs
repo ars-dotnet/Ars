@@ -8,6 +8,7 @@ using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
 using Newtonsoft.Json;
+using NPOI.SS.Formula.Functions;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -27,12 +28,11 @@ namespace Ars.Common.EFCore.AdoNet
         public DbExecuter(IDbContextResolver dbContextResolver)
         {
             _dbContextResolver = dbContextResolver;
-            //DbContext = dbContextResolver.Resolve<TDbContext>();
         }
 
         protected TDbContext DbContext { get; set; }
 
-        protected DbConnection SqlConnection => DbContext.Database.GetDbConnection();
+        protected DbConnection SqlConnection { get; set; }
 
         protected IDbContextTransaction? DbContextTransaction { get; set; }
 
@@ -44,6 +44,8 @@ namespace Ars.Common.EFCore.AdoNet
         public void BeginWithEFCoreTransaction([NotNull] IActiveUnitOfWork activeUnitOfWork)
         {
             DbContext = activeUnitOfWork.GetDbContext<TDbContext>();
+            SqlConnection = DbContext.Database.GetDbConnection();
+
             DbContextTransaction = activeUnitOfWork.GetContextTransaction<TDbContext>();
 
             return;
@@ -56,7 +58,8 @@ namespace Ars.Common.EFCore.AdoNet
         /// <returns></returns>
         public async Task<IDbContextTransaction> BeginTransactionAsync(System.Data.IsolationLevel isolationLevel = System.Data.IsolationLevel.RepeatableRead)
         {
-            DbContext ??= _dbContextResolver.Resolve<TDbContext>();
+            Init();
+
             DbContextTransaction = await DbContext.Database.BeginTransactionAsync(isolationLevel);
             return DbContextTransaction;
         }
@@ -64,6 +67,13 @@ namespace Ars.Common.EFCore.AdoNet
         protected void Init() 
         {
             DbContext ??= _dbContextResolver.Resolve<TDbContext>();
+            SqlConnection ??= DbContext.Database.GetDbConnection();
+        }
+
+        protected void Check() 
+        {
+            Init();
+
             if (SqlConnection.State == ConnectionState.Closed)
                 SqlConnection.Open();
         }
@@ -80,20 +90,13 @@ namespace Ars.Common.EFCore.AdoNet
             return command;
         }
 
-        public async Task<int> ExecuteNonQuery(string commandText, DbParameter[]? parameters = null)
-        {
-            Init();
-            using var command = CreateCommond(commandText, parameters);
-            return await command.ExecuteNonQueryAsync();
-        }
-
         public async Task<IEnumerable<T>> QueryAsync<T>(string commandText, DbParameter[]? parameters = null)
-             where T : class, new()
+            where T : class, new()
         {
-            Init();
+            Check();
             using var command = CreateCommond(commandText, parameters);
 
-            var datas = await command.ExecuteReaderAsync();
+            using var datas = await command.ExecuteReaderAsync();
             if (!datas.HasRows)
             {
                 return Enumerable.Empty<T>();
@@ -110,10 +113,10 @@ namespace Ars.Common.EFCore.AdoNet
         public async Task<T?> QueryFirstOrDefaultAsync<T>(string commandText, DbParameter[]? parameters = null)
             where T : class, new()
         {
-            Init();
+            Check();
             using var command = CreateCommond(commandText, parameters);
 
-            var datas = await command.ExecuteReaderAsync();
+            using var datas = await command.ExecuteReaderAsync();
             if (!datas.HasRows)
             {
                 return default(T);
@@ -131,10 +134,20 @@ namespace Ars.Common.EFCore.AdoNet
             }
         }
 
+        public async Task<int> ExecuteNonQuery(string commandText, DbParameter[]? parameters = null)
+        {
+            Check();
+            using var command = CreateCommond(commandText, parameters);
+
+            return await command.ExecuteNonQueryAsync();
+        }
+
+       
+
         public async Task<T?> ExecuteScalarAsync<T>(string commandText, DbParameter[]? parameters = null)
              where T : struct
         {
-            Init();
+            Check();
             using var command = CreateCommond(commandText, parameters);
 
             var data = await command.ExecuteScalarAsync();

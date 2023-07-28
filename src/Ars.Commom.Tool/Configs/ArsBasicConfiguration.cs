@@ -9,11 +9,12 @@ namespace Ars.Common.Tool.Configs
 {
     public class ArsBasicConfiguration : IArsBasicConfiguration
     {
+        private string _AppAccessDomain;
         public ArsBasicConfiguration()
         {
             Root = AppDomain.CurrentDomain.BaseDirectory;
-            Ip = "127.0.0.1";
-            Port = 5000;
+            ServiceIp = "127.0.0.1";
+            ServicePort = 5000;
         }
 
         /// <summary>
@@ -22,20 +23,45 @@ namespace Ars.Common.Tool.Configs
         public string Root { get; }
 
         /// <summary>
+        /// [宿主机/docker]中服务的ip
+        /// </summary>
+        public string? ServiceIp { get; set; }
+
+        /// <summary>
+        /// [宿主机/docker]中服务的端口
+        /// </summary>
+        public int? ServicePort { get; set; }
+
+        public bool UseHttps { get; set; }
+
+        /// <summary>
+        /// 证书path
+        /// </summary>
+        public string? CertificatePath { get; set; }
+
+        /// <summary>
+        /// 证书密码
+        /// </summary>
+        public string? CertificatePassWord { get; set; }
+
+        /// <summary>
         /// 程序访问的域名
         /// </summary>
-        public string AppAccessDomain { get; set; }
+        public string AppAccessDomain
+        {
+            get
+            {
+                if (_AppAccessDomain.IsNullOrEmpty())
+                {
+                    return $"{(UseHttps ? "https" : "http")}://{ServiceIp}:{ServicePort}";
+                }
 
-        /// <summary>
-        /// 应用程序的ip/容器的ip
-        /// 默认127.0.0.1
-        /// </summary>
-        public string Ip { get; set; }
-
-        /// <summary>
-        /// 应用程序的端口/容器的端口
-        /// 默认5000
-        /// </summary>
-        public int Port { get; set; }
+                return _AppAccessDomain;
+            }
+            set 
+            {
+                _AppAccessDomain = value;
+            } 
+        } 
     }
 }

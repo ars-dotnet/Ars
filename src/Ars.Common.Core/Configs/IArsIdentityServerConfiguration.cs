@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Ars.Common.Tool.Configs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Ars.Common.Core.Configs
 {
-    public interface IArsIdentityServerConfiguration
+    public interface IArsIdentityServerConfiguration : IArsCertificateConfiguration
     {
         IEnumerable<ArsApiResource> ArsApiResources { get; set; }
 
@@ -14,9 +15,7 @@ namespace Ars.Common.Core.Configs
 
         IEnumerable<string> ArsApiScopes { get; set; }
 
-        string CertPath { get; set; }
-
-        string Password { get; set; }
+        bool UseTestUsers { get; set; }
 
         public class ArsApiResource
         {
@@ -53,6 +52,4 @@ namespace Ars.Common.Core.Configs
             public ICollection<string> AllowedCorsOrigins { get; set; }
         }
     }
-
-
 }

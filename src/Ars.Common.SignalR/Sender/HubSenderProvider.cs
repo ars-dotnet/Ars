@@ -19,13 +19,16 @@ namespace Ars.Common.SignalR.Sender
         public IHubSendMessage? GetHubSender(string terminal)
         {
             using var scope = _serviceScopeFactory.CreateScope();
-            return scope.ServiceProvider.GetService<IEnumerable<IHubSendMessage>>()?.OrderBy(r => r.Order)?.FirstOrDefault(r => r.Terminal.Equals(terminal));
+            return scope.ServiceProvider.GetService<IEnumerable<IHubSendMessage>>()?
+                .OrderBy(r => r.Order)?
+                .FirstOrDefault(r => r.Terminal.Equals(terminal));
         }
 
         public IEnumerable<IHubSendMessage> GetHubSenders()
         {
             using var scope = _serviceScopeFactory.CreateScope();
-            return scope.ServiceProvider.GetService<IEnumerable<IHubSendMessage>>() ?? Array.Empty<IHubSendMessage>();
+            return scope.ServiceProvider.GetService<IEnumerable<IHubSendMessage>>() 
+                ?? Array.Empty<IHubSendMessage>();
         }
     }
 }
