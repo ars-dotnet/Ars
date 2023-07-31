@@ -1,5 +1,5 @@
 <p align="center">
-  <img height="140" src="https://github.com/aabb1212/MyArs/logo.png">
+  <img height="140" src="https://github.com/aabb1212/MyArs/blob/master/logo.png">
 </p>
 
 # MyArs
