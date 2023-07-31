@@ -6,6 +6,8 @@
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
     <Description>Core code</Description>
+    <PackageIcon>logo.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -26,6 +28,21 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Ars.Commom.Tool\Ars.Common.Tool.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Cap\Extensions\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\logo.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

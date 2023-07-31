@@ -1,3 +1,7 @@
+<p align="center">
+  <img height="140" src="https://github.com/aabb1212/MyArs/logo.png">
+</p>
+
 # MyArs
 [![NuGet](https://img.shields.io/nuget/v/Ars.Common.Host.svg)](https://www.nuget.org/packages/Ars.Common.Host/)
 
@@ -40,7 +44,7 @@ PM> Install-Package Ars.Common.SkyWalking
          //add consul register service
          config.AddArsConsulRegisterServer();
 
-         //add resource identity service
+         //add identity resource service
          config.AddArsIdentityClient();
 	 
          //add identity server service
@@ -61,6 +65,19 @@ PM> Install-Package Ars.Common.SkyWalking
 
 	     //add skyapm service
 	     config.AddArsSkyApm();
+
+		 //add cap service
+		 config.AddArsCap(option => 
+		 {
+			 option.UseEntityFramework<MyDbContext>();
+
+			 option.UseRabbitMQ(mq => 
+			 {
+				 mq.HostName = "localhost";
+				 mq.UserName = "guest";
+				 mq.Password = "guest";
+			 });
+		 });
     })
     //add dbcontext service
     .AddArsDbContext<xxxDbContext>()
@@ -85,8 +102,8 @@ PM> Install-Package Ars.Common.SkyWalking
 
     //use ars core application
     app.UseArsCore() 
-        //use uploadexcel application
-       .UseArsUploadExcel();
+    //use uploadexcel application
+    .UseArsUploadExcel();
 
 #### change your appsettings.Development.json
  
@@ -107,8 +124,6 @@ PM> Install-Package Ars.Common.SkyWalking
 			    "CommunicationWay":0,
 				"GrpcUseHttp1Protocol": true,
 				"UseHttps": true,
-				"CertificatePath": "xxx",
-				"CertificatePassWord": "xxx",
 				"UseIdentityServer4Valid": true,
 				"IdentityServer4Address": "http://ip:port",
 				"ClientId": "grpc-key",
@@ -124,11 +139,7 @@ PM> Install-Package Ars.Common.SkyWalking
 	  "ConsulRegisterConfiguration": {
 		"ConsulAddress": "http://ip:port",
 		"ServiceName": "apigrpc",
-		"ServiceIp": "ip",
-		"ServicePort": port,
 		"UseHttps": true,
-		"CertificatePath": "xxx",
-		"CertificatePassWord": "xxx"
 	  },
 	  
 	  //resource server identity config
@@ -136,8 +147,6 @@ PM> Install-Package Ars.Common.SkyWalking
 		"Authority": "http://ip:port",
 		"ApiName": "apiIds4Second", 
 		"RequireHttpsMetadata": true,
-		"CertificatePath": "xxx",
-		"CertificatePassWord": "xxx"
 	  },
 	  
 	  //identity server config
@@ -197,8 +206,6 @@ PM> Install-Package Ars.Common.SkyWalking
 		  "openid",
 		  "profile"
 		],
-		"CertPath": "Certificates//IS4.pfx",
-		"Password": "aabb1212"
 	  },
 	  
 	  //redis config
@@ -229,6 +236,18 @@ PM> Install-Package Ars.Common.SkyWalking
 		"DbType": 2,
 		//Database address
 		"DefaultString": "Data Source=xxx; Initial Catalog=xxx;user id=xxx;pwd=xxx"
+	  },
+
+	  //Basic config
+	  "ArsBasicConfiguration": {
+		 "ServiceIp": "192.168.110.65",
+		 "ServicePort": 5105,
+		 "CertificatePath": "Certificates//IS4.pfx",
+		 "CertificatePassWord": "aabb1212",
+		 "UseHttps": true
 	  }
 	}
 
+### License
+
+[MIT](https://github.com/aabb1212/MyArs/LICENSE.md)

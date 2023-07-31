@@ -32,6 +32,7 @@ using ArsWebApiService.WebServices;
 using SoapCore;
 using System.ServiceModel;
 using Ars.Common.Host.Extension;
+using Ars.Common.Cap.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
@@ -95,6 +96,18 @@ var arsbuilder =
         config.AddArsConsulRegisterServer();
 
         config.AddArsSkyApm();
+
+        config.AddArsCap(option => 
+        {
+            option.UseEntityFramework<MyDbContext>();
+
+            option.UseRabbitMQ(mq => 
+            {
+                mq.HostName = "localhost";
+                mq.UserName = "guest";
+                mq.Password = "guest";
+            });
+        });
     })
     .AddArsDbContext<MyDbContext>();
 builder.Services

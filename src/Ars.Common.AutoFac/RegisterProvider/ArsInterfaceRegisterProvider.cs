@@ -22,6 +22,10 @@ namespace Ars.Common.AutoFac.Dependency
                 {
                     if (typeof(ITransientDependency).IsAssignableFrom(r))
                     {
+                        if (r.Name.Equals("ArsCapPublisher")) 
+                        {
+
+                        }
                         if (r.BaseType?.IsAbstract ?? false)
                         {
                             builder.RegisterType(r).As(r.BaseType!).InstancePerDependency();

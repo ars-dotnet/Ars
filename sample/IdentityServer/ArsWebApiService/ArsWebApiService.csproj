@@ -16,6 +16,10 @@
 
 	<ItemGroup>
 
+		<PackageReference Include="DotNetCore.CAP.MySql" Version="7.2.0" />
+
+		<PackageReference Include="DotNetCore.CAP.RabbitMQ" Version="7.2.0" />
+
 		<PackageReference Include="Microsoft.AspNetCore.ApiAuthorization.IdentityServer" Version="6.0.0" />
 
 		<PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.6" />
@@ -36,6 +40,7 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\..\..\src\Ars.Commom.Host\Ars.Common.Host.csproj" />
+		<ProjectReference Include="..\..\..\src\Ars.Common.Cap\Ars.Common.Cap.csproj" />
 		<ProjectReference Include="..\..\..\src\Ars.Common.Consul\Ars.Common.Consul.csproj" />
 		<ProjectReference Include="..\..\..\src\Ars.Common.EFCore\Ars.Common.EFCore.csproj" />
 		<ProjectReference Include="..\..\..\src\Ars.Common.IdentityServer4\Ars.Common.IdentityServer4.csproj" />

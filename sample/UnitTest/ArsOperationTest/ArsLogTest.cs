@@ -5,6 +5,7 @@ using Xunit;
 using Microsoft.Extensions.Logging;
 using Ars.Common.Tool.Loggers;
 using Ars.Common.Tool.Extension;
+using Newtonsoft.Json;
 
 namespace ArsTest.ArsTests
 {
@@ -47,6 +48,12 @@ namespace ArsTest.ArsTests
             logger = loggerFac.CreateLogger($"{ArsLogNames.CustomLogCategoryPrefix}.MASS.01.A8");
             logger.LogInformation("good2 产线01.站台A8.业务:组合台是否空闲可下任务 开启轮询监听");
             logger.LogError("bad2 产线01.站台A8.业务:组合台是否空闲可下任务 开启轮询监听");
+        }
+
+        [Fact]
+        public void Test2() 
+        {
+            var a = JsonConvert.SerializeObject(123);
         }
     }
 }
