@@ -5,8 +5,8 @@
 # Ars
 [![NuGet](https://img.shields.io/nuget/v/Ars.Common.Host.svg)](https://www.nuget.org/packages/Ars.Common.Host/)
 
-a simple .net6 webapiframework with some extensions.\
-include autofac,consul,grpc,efcore,identityserver4,redis,signalr,localization,skyapm,upload and download excel extension. \
+a simple .net6 webapi framework with some extensions.\
+include autofac,consul,grpc,efcore,identityserver4,redis,signalr,localization,skyapm,upload and download excel,cap extensions. \
 and some samples with them.
 
 ## Getting Started
