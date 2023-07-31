@@ -1,5 +1,5 @@
 <p align="center">
-  <img height="140" src="https://github.com/aabb1212/MyArs/logo.png">
+  <img height="140" src="https://github.com/aabb1212/MyArs/blob/master/logo.png">
 </p>
 
 # MyArs
@@ -63,21 +63,20 @@ PM> Install-Package Ars.Common.SkyWalking
             config.UseMessagePackProtocol = true;
          });
 
-	     //add skyapm service
-	     config.AddArsSkyApm();
+	    //add skyapm service
+	    config.AddArsSkyApm();
 
-		 //add cap service
-		 config.AddArsCap(option => 
-		 {
-			 option.UseEntityFramework<MyDbContext>();
-
-			 option.UseRabbitMQ(mq => 
-			 {
-				 mq.HostName = "localhost";
-				 mq.UserName = "guest";
-				 mq.Password = "guest";
-			 });
-		 });
+        //add cap service
+	    config.AddArsCap(option => 
+	    {
+		option.UseEntityFramework<MyDbContext>();
+		option.UseRabbitMQ(mq => 
+		{
+	  	   mq.HostName = "localhost";
+		   mq.UserName = "guest";
+		   mq.Password = "guest";
+		});
+	    });
     })
     //add dbcontext service
     .AddArsDbContext<xxxDbContext>()
@@ -250,4 +249,4 @@ PM> Install-Package Ars.Common.SkyWalking
 
 ### License
 
-[MIT](https://github.com/aabb1212/MyArs/LICENSE.md)
+[MIT](https://github.com/aabb1212/MyArs/blob/master/LICENSE.md)
