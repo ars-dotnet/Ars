@@ -2,7 +2,7 @@
   <img height="140" src="https://github.com/aabb1212/MyArs/blob/master/logo.png">
 </p>
 
-# MyArs
+# Ars
 [![NuGet](https://img.shields.io/nuget/v/Ars.Common.Host.svg)](https://www.nuget.org/packages/Ars.Common.Host/)
 
 a simple .net6 webapiframework with some extensions.\
