@@ -250,4 +250,4 @@ PM> Install-Package Ars.Common.SkyWalking
 
 ### License
 
-[MIT](https://github.com/aabb1212/MyArs/LICENSE.md)
+[MIT](https://github.com/aabb1212/MyArs/blob/master/LICENSE.md)
