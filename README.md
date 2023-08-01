@@ -1,5 +1,5 @@
 <p align="center">
-  <img height="140" src="https://github.com/aabb1212/MyArs/blob/master/logo.png">
+  <img height="140" src="https://github.com/aabb1212/Ars/blob/master/logo.png">
 </p>
 
 # Ars
@@ -249,4 +249,4 @@ PM> Install-Package Ars.Common.SkyWalking
 
 ### License
 
-[MIT](https://github.com/aabb1212/MyArs/blob/master/LICENSE.md)
+[MIT](https://github.com/aabb1212/Ars/blob/master/LICENSE.md)
