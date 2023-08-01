@@ -17,7 +17,6 @@ namespace ArsTest.ArsTests
             IHost host = Host.CreateDefaultBuilder()
              .ConfigureAppConfiguration(builder =>
              {
-                 //builder.AddJsonFile("config.json", true, false);
              })
              .ConfigureServices((builder, service) =>
              {
@@ -54,6 +53,30 @@ namespace ArsTest.ArsTests
         public void Test2() 
         {
             var a = JsonConvert.SerializeObject(123);
+        }
+
+        [Fact]
+        public async void Test3() 
+        {
+            Task[] tasks = new Task[]
+            {
+                Task.Run(() =>
+                {
+                    int.Parse("xxx");
+                }),
+
+                Task.Run(() =>
+                {
+                    int.Parse("yyy");
+                }),
+
+                Task.Run(() =>
+                {
+                    int.Parse("123");
+                }),
+              };
+
+            await Task.WhenAll(tasks);
         }
     }
 }
