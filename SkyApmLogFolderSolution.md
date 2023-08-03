@@ -1,5 +1,5 @@
 
-## 1.添加类MyLoggerFactory实现SkyApm.Logging.ILoggerFactory。如果报错找不到引用，请看步骤5
+## 1.添加类MyLoggerFactory实现SkyApm.Logging.ILoggerFactory。如果报错找不到引用，请看步�?
 
 ```
 using Serilog.Events;
@@ -107,10 +107,10 @@ builder.Services.Replace(ServiceDescriptor.Singleton<SkyApm.Logging.ILoggerFacto
     },
 ```
 
-## 5.如果项目找不到引用，请添加以下引用
+## 5.如果项目找不到引用，请添加以下引�?
 ```
-	<PackageReference Include="Serilog.Sinks.Async" Version="1.5.0" />
-	<PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
+<PackageReference Include="Serilog.Sinks.Async" Version="1.5.0" />
+<PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
 ```
 
 ## 6.���ÿ�����־�ļ�·��û�и��£�����MyLoggerFactory�����µ���
