@@ -94,12 +94,12 @@ namespace GrpcClient.ApmLogger
 }
 ```
 
-## 3.Program.cs类中注册
+## 3.Program.cs类中替换服务
 ```
 builder.Services.Replace(ServiceDescriptor.Singleton<SkyApm.Logging.ILoggerFactory, MyLoggerFactory>());
 ```
 
-## 4.修改你的skyapm.json
+## 4.修改你skyapm.json文件中的Logging:FilePath规则
 ```
     "Logging": {
       "Level": "Information",
