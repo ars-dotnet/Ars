@@ -1,0 +1,332 @@
+2023-08-02 11:43:24.709 +08:00 [arswebapiservice001] [Information] SkyApm.InstrumentStartup : Initializing ...
+2023-08-02 11:43:24.782 +08:00 [arswebapiservice001] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-08-02 11:43:24.783 +08:00 [arswebapiservice001] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-08-02 11:43:24.783 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-08-02 11:43:24.783 +08:00 [arswebapiservice001] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-08-02 11:43:24.784 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-08-02 11:43:24.784 +08:00 [arswebapiservice001] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-08-02 11:43:24.784 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-08-02 11:43:25.023 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[172.20.64.1:11800].
+2023-08-02 11:43:25.058 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2023-08-02 11:43:25.059 +08:00 [arswebapiservice001] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2023-08-02 11:43:25.700 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2023-08-02 11:43:26.258 +08:00 [arswebapiservice001] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=arswebapiservice001,InstanceId=192.168.110.65@7bd3a80dbef8461e8ba27b78e608ecc2].
+2023-08-02 11:43:26.530 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.EntityFrameworkCore].
+2023-08-02 11:43:30.872 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 13 logs. cost: 00:00:00.0755209s
+2023-08-02 11:43:54.813 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/8/2 3:43:54 +00:00
+2023-08-02 11:43:54.821 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 19 19 3 9M ThreadPool 32764 32767 1000 1000
+2023-08-02 11:44:24.813 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 10 10 2 9M ThreadPool 32765 32767 1000 1000
+2023-08-02 11:44:54.805 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 8 8 0 9M ThreadPool 32755 32767 1000 1000
+2023-08-02 11:44:54.805 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/8/2 3:44:54 +00:00
+2023-08-02 11:45:25.053 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 4 4 0 10M ThreadPool 32762 32767 999 1000
+2023-08-02 11:45:28.031 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Ars.EFCoreOperationLog].
+2023-08-02 11:45:28.075 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 4 logs. cost: 00:00:00.0196700s
+2023-08-02 11:45:28.113 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 5 trace segment. cost: 00:00:00.0396289s
+2023-08-02 11:45:54.833 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/8/2 3:45:54 +00:00
+2023-08-02 11:45:54.835 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 17M ThreadPool 32761 32767 1000 1000
+2023-08-02 11:46:24.835 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 18M ThreadPool 32760 32767 1000 1000
+2023-08-02 11:46:54.845 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 19M ThreadPool 32758 32767 1000 1000
+2023-08-02 11:46:54.845 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/8/2 3:46:54 +00:00
+2023-08-02 11:47:24.839 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 20M ThreadPool 32762 32767 1000 1000
+2023-08-02 11:47:54.855 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/8/2 3:47:54 +00:00
+2023-08-02 11:47:54.855 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 21M ThreadPool 32759 32767 1000 1000
+2023-08-02 11:48:24.863 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 21M ThreadPool 32765 32767 1000 1000
+2023-08-02 11:48:54.850 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/8/2 3:48:54 +00:00
+2023-08-02 11:48:54.850 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 1 1 0 12M ThreadPool 32760 32767 1000 1000
+2023-08-02 11:49:24.883 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 1 1 0 12M ThreadPool 32760 32767 1000 1000
+2023-08-02 11:49:54.897 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 4 4 2 12M ThreadPool 32759 32767 1000 1000
+2023-08-02 11:49:54.897 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/8/2 3:49:54 +00:00
+2023-08-02 11:50:24.921 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 12M ThreadPool 32761 32767 1000 1000
+2023-08-02 11:50:55.432 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 13M ThreadPool 32758 32767 1000 1000
+2023-08-02 11:50:55.432 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/8/2 3:50:55 +00:00
+2023-08-02 11:51:34.895 +08:00 [arswebapiservice001] [Warning] SkyApm.Transport.Grpc.V8.CLRStatsReporter : Report CLR Stats error. Grpc.Core.RpcException: Status(StatusCode="DeadlineExceeded", Detail="")
+   at SkyApm.Transport.Grpc.V8.CLRStatsReporter.ReportAsync(CLRStatsRequest statsRequest, CancellationToken cancellationToken)
+2023-08-02 11:51:34.895 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 14M ThreadPool 32761 32767 1000 1000
+2023-08-02 11:52:04.814 +08:00 [arswebapiservice001] [Warning] SkyApm.Transport.Grpc.V8.CLRStatsReporter : Report CLR Stats error. Grpc.Core.RpcException: Status(StatusCode="DeadlineExceeded", Detail="")
+   at SkyApm.Transport.Grpc.V8.CLRStatsReporter.ReportAsync(CLRStatsRequest statsRequest, CancellationToken cancellationToken)
+2023-08-02 11:52:04.814 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 15M ThreadPool 32758 32767 1000 1000
+2023-08-02 11:52:04.815 +08:00 [arswebapiservice001] [Error] SkyApm.Transport.Grpc.V8.PingCaller : Ping server fail.
+Grpc.Core.RpcException: Status(StatusCode="DeadlineExceeded", Detail="")
+   at SkyApm.Transport.Grpc.V8.PingCaller.<>c__DisplayClass4_0.<<PingAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at SkyApm.Transport.Grpc.Common.Call.Execute(Func`1 task, Func`1 errMessage)
+2023-08-02 11:52:04.815 +08:00 [arswebapiservice001] [Warning] SkyApm.Transport.Grpc.ConnectionManager : Connection state changed. Status(StatusCode="DeadlineExceeded", Detail="")
+2023-08-02 11:52:04.815 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/8/2 3:52:04 +00:00
+2023-08-02 11:52:09.801 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Shutdown connection[172.20.64.1:11800].
+2023-08-02 11:52:09.801 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[172.20.64.1:11800].
+2023-08-02 11:52:34.816 +08:00 [arswebapiservice001] [Warning] SkyApm.Transport.Grpc.V8.CLRStatsReporter : Report CLR Stats error. Grpc.Core.RpcException: Status(StatusCode="DeadlineExceeded", Detail="")
+   at SkyApm.Transport.Grpc.V8.CLRStatsReporter.ReportAsync(CLRStatsRequest statsRequest, CancellationToken cancellationToken)
+2023-08-02 11:52:34.816 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 16M ThreadPool 32760 32767 1000 1000
+2023-08-02 11:53:04.824 +08:00 [arswebapiservice001] [Warning] SkyApm.Transport.Grpc.V8.CLRStatsReporter : Report CLR Stats error. Grpc.Core.RpcException: Status(StatusCode="DeadlineExceeded", Detail="")
+   at SkyApm.Transport.Grpc.V8.CLRStatsReporter.ReportAsync(CLRStatsRequest statsRequest, CancellationToken cancellationToken)
+2023-08-02 11:53:04.824 +08:00 [arswebapiservice001] [Error] SkyApm.Transport.Grpc.V8.PingCaller : Ping server fail.
+Grpc.Core.RpcException: Status(StatusCode="DeadlineExceeded", Detail="")
+   at SkyApm.Transport.Grpc.V8.PingCaller.<>c__DisplayClass4_0.<<PingAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at SkyApm.Transport.Grpc.Common.Call.Execute(Func`1 task, Func`1 errMessage)
+2023-08-02 11:53:04.824 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 17M ThreadPool 32759 32767 1000 1000
+2023-08-02 11:53:04.824 +08:00 [arswebapiservice001] [Warning] SkyApm.Transport.Grpc.ConnectionManager : Connection state changed. Status(StatusCode="DeadlineExceeded", Detail="")
+2023-08-02 11:53:04.824 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/8/2 3:53:04 +00:00
+2023-08-02 11:53:09.795 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Shutdown connection[172.20.64.1:11800].
+2023-08-02 11:53:09.795 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[172.20.64.1:11800].
+2023-08-02 11:53:34.837 +08:00 [arswebapiservice001] [Warning] SkyApm.Transport.Grpc.V8.CLRStatsReporter : Report CLR Stats error. Grpc.Core.RpcException: Status(StatusCode="DeadlineExceeded", Detail="")
+   at SkyApm.Transport.Grpc.V8.CLRStatsReporter.ReportAsync(CLRStatsRequest statsRequest, CancellationToken cancellationToken)
+2023-08-02 11:53:34.838 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 1.5625 GenCollectCount 0 0 0 18M ThreadPool 32763 32767 1000 1000
+2023-08-02 11:54:04.818 +08:00 [arswebapiservice001] [Warning] SkyApm.Transport.Grpc.V8.CLRStatsReporter : Report CLR Stats error. Grpc.Core.RpcException: Status(StatusCode="DeadlineExceeded", Detail="")
+   at SkyApm.Transport.Grpc.V8.CLRStatsReporter.ReportAsync(CLRStatsRequest statsRequest, CancellationToken cancellationToken)
+2023-08-02 11:54:04.818 +08:00 [arswebapiservice001] [Error] SkyApm.Transport.Grpc.V8.PingCaller : Ping server fail.
+Grpc.Core.RpcException: Status(StatusCode="DeadlineExceeded", Detail="")
+   at SkyApm.Transport.Grpc.V8.PingCaller.<>c__DisplayClass4_0.<<PingAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at SkyApm.Transport.Grpc.Common.Call.Execute(Func`1 task, Func`1 errMessage)
+2023-08-02 11:54:04.818 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 19M ThreadPool 32759 32767 1000 1000
+2023-08-02 11:54:04.818 +08:00 [arswebapiservice001] [Warning] SkyApm.Transport.Grpc.ConnectionManager : Connection state changed. Status(StatusCode="DeadlineExceeded", Detail="")
+2023-08-02 11:54:04.818 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/8/2 3:54:04 +00:00
+2023-08-02 11:54:09.807 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Shutdown connection[172.20.64.1:11800].
+2023-08-02 11:54:09.807 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[172.20.64.1:11800].
+2023-08-02 11:54:34.820 +08:00 [arswebapiservice001] [Warning] SkyApm.Transport.Grpc.V8.CLRStatsReporter : Report CLR Stats error. Grpc.Core.RpcException: Status(StatusCode="DeadlineExceeded", Detail="")
+   at SkyApm.Transport.Grpc.V8.CLRStatsReporter.ReportAsync(CLRStatsRequest statsRequest, CancellationToken cancellationToken)
+2023-08-02 11:54:34.820 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 19M ThreadPool 32758 32767 1000 1000
+2023-08-02 11:55:04.822 +08:00 [arswebapiservice001] [Warning] SkyApm.Transport.Grpc.V8.CLRStatsReporter : Report CLR Stats error. Grpc.Core.RpcException: Status(StatusCode="DeadlineExceeded", Detail="")
+   at SkyApm.Transport.Grpc.V8.CLRStatsReporter.ReportAsync(CLRStatsRequest statsRequest, CancellationToken cancellationToken)
+2023-08-02 11:55:04.822 +08:00 [arswebapiservice001] [Error] SkyApm.Transport.Grpc.V8.PingCaller : Ping server fail.
+Grpc.Core.RpcException: Status(StatusCode="DeadlineExceeded", Detail="")
+   at SkyApm.Transport.Grpc.V8.PingCaller.<>c__DisplayClass4_0.<<PingAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at SkyApm.Transport.Grpc.Common.Call.Execute(Func`1 task, Func`1 errMessage)
+2023-08-02 11:55:04.822 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 20M ThreadPool 32758 32767 1000 1000
+2023-08-02 11:55:04.822 +08:00 [arswebapiservice001] [Warning] SkyApm.Transport.Grpc.ConnectionManager : Connection state changed. Status(StatusCode="DeadlineExceeded", Detail="")
+2023-08-02 11:55:04.822 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/8/2 3:55:04 +00:00
+2023-08-02 11:55:09.788 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Shutdown connection[172.20.64.1:11800].
+2023-08-02 11:55:12.244 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[172.20.64.1:11800].
+2023-08-02 11:55:34.817 +08:00 [arswebapiservice001] [Warning] SkyApm.Transport.Grpc.V8.CLRStatsReporter : Report CLR Stats error. Grpc.Core.RpcException: Status(StatusCode="DeadlineExceeded", Detail="")
+   at SkyApm.Transport.Grpc.V8.CLRStatsReporter.ReportAsync(CLRStatsRequest statsRequest, CancellationToken cancellationToken)
+2023-08-02 11:55:34.818 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 21M ThreadPool 32760 32767 1000 1000
+2023-08-02 11:56:04.821 +08:00 [arswebapiservice001] [Warning] SkyApm.Transport.Grpc.V8.CLRStatsReporter : Report CLR Stats error. Grpc.Core.RpcException: Status(StatusCode="DeadlineExceeded", Detail="")
+   at SkyApm.Transport.Grpc.V8.CLRStatsReporter.ReportAsync(CLRStatsRequest statsRequest, CancellationToken cancellationToken)
+2023-08-02 11:56:04.821 +08:00 [arswebapiservice001] [Error] SkyApm.Transport.Grpc.V8.PingCaller : Ping server fail.
+Grpc.Core.RpcException: Status(StatusCode="DeadlineExceeded", Detail="")
+   at SkyApm.Transport.Grpc.V8.PingCaller.<>c__DisplayClass4_0.<<PingAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at SkyApm.Transport.Grpc.Common.Call.Execute(Func`1 task, Func`1 errMessage)
+2023-08-02 11:56:04.821 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 22M ThreadPool 32759 32767 1000 1000
+2023-08-02 11:56:04.821 +08:00 [arswebapiservice001] [Warning] SkyApm.Transport.Grpc.ConnectionManager : Connection state changed. Status(StatusCode="DeadlineExceeded", Detail="")
+2023-08-02 11:56:04.821 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/8/2 3:56:04 +00:00
+2023-08-02 11:56:09.797 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Shutdown connection[172.20.64.1:11800].
+2023-08-02 11:56:09.797 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[172.20.64.1:11800].
+2023-08-02 11:56:34.819 +08:00 [arswebapiservice001] [Warning] SkyApm.Transport.Grpc.V8.CLRStatsReporter : Report CLR Stats error. Grpc.Core.RpcException: Status(StatusCode="DeadlineExceeded", Detail="")
+   at SkyApm.Transport.Grpc.V8.CLRStatsReporter.ReportAsync(CLRStatsRequest statsRequest, CancellationToken cancellationToken)
+2023-08-02 11:56:34.819 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 23M ThreadPool 32758 32767 1000 1000
+2023-08-02 11:56:54.831 +08:00 [arswebapiservice001] [Warning] SkyApm.Transport.Grpc.V8.CLRStatsReporter : Report CLR Stats error. Grpc.Core.RpcException: Status(StatusCode="Unavailable", Detail="Error starting gRPC call. HttpRequestException: An error occurred while sending the request. IOException: The request was aborted. IOException: An HTTP/2 connection could not be established because the server did not complete the HTTP/2 handshake. IOException: The response ended prematurely while waiting for the next frame from the server.", DebugException="System.Net.Http.HttpRequestException: An error occurred while sending the request.
+ ---> System.IO.IOException: The request was aborted.
+ ---> System.IO.IOException: An HTTP/2 connection could not be established because the server did not complete the HTTP/2 handshake.
+ ---> System.IO.IOException: The response ended prematurely while waiting for the next frame from the server.
+   at System.Net.Http.Http2Connection.<ReadFrameAsync>g__ThrowMissingFrame|58_1()
+   at System.Net.Http.Http2Connection.ReadFrameAsync(Boolean initialFrame)
+   at System.Net.Http.Http2Connection.ProcessIncomingFramesAsync()
+   --- End of inner exception stack trace ---
+   at System.Net.Http.Http2Connection.ProcessIncomingFramesAsync()
+   --- End of inner exception stack trace ---
+   at System.Net.Http.Http2Connection.ThrowRequestAborted(Exception innerException)
+   at System.Net.Http.Http2Connection.Http2Stream.CheckResponseBodyState()
+   at System.Net.Http.Http2Connection.Http2Stream.TryEnsureHeaders()
+   at System.Net.Http.Http2Connection.Http2Stream.ReadResponseHeadersAsync(CancellationToken cancellationToken)
+   at System.Net.Http.Http2Connection.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.Http2Connection.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Balancer.Internal.BalancerHttpHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Internal.GrpcCall`2.RunCall(HttpRequestMessage request, Nullable`1 timeout)")
+   at SkyApm.Transport.Grpc.V8.CLRStatsReporter.ReportAsync(CLRStatsRequest statsRequest, CancellationToken cancellationToken)
+2023-08-02 11:56:54.831 +08:00 [arswebapiservice001] [Error] SkyApm.Transport.Grpc.V8.PingCaller : Ping server fail.
+Grpc.Core.RpcException: Status(StatusCode="Unavailable", Detail="Error starting gRPC call. HttpRequestException: An error occurred while sending the request. IOException: The request was aborted. IOException: An HTTP/2 connection could not be established because the server did not complete the HTTP/2 handshake. IOException: The response ended prematurely while waiting for the next frame from the server.", DebugException="System.Net.Http.HttpRequestException: An error occurred while sending the request.
+ ---> System.IO.IOException: The request was aborted.
+ ---> System.IO.IOException: An HTTP/2 connection could not be established because the server did not complete the HTTP/2 handshake.
+ ---> System.IO.IOException: The response ended prematurely while waiting for the next frame from the server.
+   at System.Net.Http.Http2Connection.<ReadFrameAsync>g__ThrowMissingFrame|58_1()
+   at System.Net.Http.Http2Connection.ReadFrameAsync(Boolean initialFrame)
+   at System.Net.Http.Http2Connection.ProcessIncomingFramesAsync()
+   --- End of inner exception stack trace ---
+   at System.Net.Http.Http2Connection.ProcessIncomingFramesAsync()
+   --- End of inner exception stack trace ---
+   at System.Net.Http.Http2Connection.ThrowRequestAborted(Exception innerException)
+   at System.Net.Http.Http2Connection.Http2Stream.CheckResponseBodyState()
+   at System.Net.Http.Http2Connection.Http2Stream.TryEnsureHeaders()
+   at System.Net.Http.Http2Connection.Http2Stream.ReadResponseHeadersAsync(CancellationToken cancellationToken)
+   at System.Net.Http.Http2Connection.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.Http2Connection.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Balancer.Internal.BalancerHttpHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Internal.GrpcCall`2.RunCall(HttpRequestMessage request, Nullable`1 timeout)")
+   at SkyApm.Transport.Grpc.V8.PingCaller.<>c__DisplayClass4_0.<<PingAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at SkyApm.Transport.Grpc.Common.Call.Execute(Func`1 task, Func`1 errMessage)
+2023-08-02 11:56:54.832 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 24M ThreadPool 32755 32767 1000 1000
+2023-08-02 11:56:54.832 +08:00 [arswebapiservice001] [Warning] SkyApm.Transport.Grpc.ConnectionManager : Connection state changed. Status(StatusCode="Unavailable", Detail="Error starting gRPC call. HttpRequestException: An error occurred while sending the request. IOException: The request was aborted. IOException: An HTTP/2 connection could not be established because the server did not complete the HTTP/2 handshake. IOException: The response ended prematurely while waiting for the next frame from the server.", DebugException="System.Net.Http.HttpRequestException: An error occurred while sending the request.
+ ---> System.IO.IOException: The request was aborted.
+ ---> System.IO.IOException: An HTTP/2 connection could not be established because the server did not complete the HTTP/2 handshake.
+ ---> System.IO.IOException: The response ended prematurely while waiting for the next frame from the server.
+   at System.Net.Http.Http2Connection.<ReadFrameAsync>g__ThrowMissingFrame|58_1()
+   at System.Net.Http.Http2Connection.ReadFrameAsync(Boolean initialFrame)
+   at System.Net.Http.Http2Connection.ProcessIncomingFramesAsync()
+   --- End of inner exception stack trace ---
+   at System.Net.Http.Http2Connection.ProcessIncomingFramesAsync()
+   --- End of inner exception stack trace ---
+   at System.Net.Http.Http2Connection.ThrowRequestAborted(Exception innerException)
+   at System.Net.Http.Http2Connection.Http2Stream.CheckResponseBodyState()
+   at System.Net.Http.Http2Connection.Http2Stream.TryEnsureHeaders()
+   at System.Net.Http.Http2Connection.Http2Stream.ReadResponseHeadersAsync(CancellationToken cancellationToken)
+   at System.Net.Http.Http2Connection.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.Http2Connection.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Balancer.Internal.BalancerHttpHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Internal.GrpcCall`2.RunCall(HttpRequestMessage request, Nullable`1 timeout)")
+2023-08-02 11:56:54.832 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/8/2 3:56:54 +00:00
+2023-08-02 11:57:09.798 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Shutdown connection[172.20.64.1:11800].
+2023-08-02 11:57:09.798 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[172.20.64.1:11800].
+2023-08-02 11:57:24.799 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 25M ThreadPool 32760 32767 1000 1000
+2023-08-02 11:57:54.808 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/8/2 3:57:54 +00:00
+2023-08-02 11:57:54.809 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 26M ThreadPool 32758 32767 1000 1000
+2023-08-02 11:58:24.804 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 27M ThreadPool 32759 32767 1000 1000
+2023-08-02 11:58:54.798 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 27M ThreadPool 32759 32767 1000 1000
+2023-08-02 11:58:54.798 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/8/2 3:58:54 +00:00
+2023-08-02 11:59:24.803 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 28M ThreadPool 32758 32767 1000 1000
+2023-08-02 11:59:54.800 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 29M ThreadPool 32756 32767 1000 1000
+2023-08-02 11:59:54.800 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/8/2 3:59:54 +00:00
+2023-08-02 12:00:24.796 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 30M ThreadPool 32763 32767 1000 1000
+2023-08-02 12:00:54.804 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 31M ThreadPool 32761 32767 1000 1000
+2023-08-02 12:00:54.804 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/8/2 4:00:54 +00:00
+2023-08-02 12:01:24.795 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 31M ThreadPool 32759 32767 1000 1000
+2023-08-02 12:01:54.807 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 32M ThreadPool 32754 32767 1000 1000
+2023-08-02 12:01:54.817 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/8/2 4:01:54 +00:00
+2023-08-02 12:02:24.803 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 33M ThreadPool 32758 32767 1000 1000
+2023-08-02 12:02:54.793 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/8/2 4:02:54 +00:00
+2023-08-02 12:02:54.793 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 34M ThreadPool 32761 32767 1000 1000
+2023-08-02 12:03:24.799 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 35M ThreadPool 32765 32767 1000 1000
+2023-08-02 12:03:54.793 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/8/2 4:03:54 +00:00
+2023-08-02 12:03:54.793 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 35M ThreadPool 32756 32767 1000 1000
+2023-08-02 12:04:24.803 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 36M ThreadPool 32764 32767 1000 1000
+2023-08-02 12:04:54.800 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/8/2 4:04:54 +00:00
+2023-08-02 12:04:54.800 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 37M ThreadPool 32758 32767 1000 1000
+2023-08-02 12:05:24.804 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 38M ThreadPool 32760 32767 1000 1000
+2023-08-02 12:05:54.804 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 39M ThreadPool 32756 32767 1000 1000
+2023-08-02 12:05:54.804 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/8/2 4:05:54 +00:00
+2023-08-02 12:06:24.797 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 39M ThreadPool 32758 32767 1000 1000
+2023-08-02 12:06:54.804 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/8/2 4:06:54 +00:00
+2023-08-02 12:06:54.804 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 40M ThreadPool 32759 32767 1000 1000
+2023-08-02 12:07:24.790 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 41M ThreadPool 32765 32767 1000 1000
+2023-08-02 12:07:54.801 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 42M ThreadPool 32756 32767 1000 1000
+2023-08-02 12:07:54.801 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/8/2 4:07:54 +00:00
+2023-08-02 12:08:24.796 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 42M ThreadPool 32763 32767 1000 1000
+2023-08-02 15:47:33.161 +08:00 [arswebapiservice001] [Information] SkyApm.InstrumentStartup : Initializing ...
+2023-08-02 15:47:33.242 +08:00 [arswebapiservice001] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-08-02 15:47:33.242 +08:00 [arswebapiservice001] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-08-02 15:47:33.243 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-08-02 15:47:33.243 +08:00 [arswebapiservice001] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-08-02 15:47:33.243 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-08-02 15:47:33.243 +08:00 [arswebapiservice001] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-08-02 15:47:33.243 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-08-02 15:47:33.844 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[172.20.64.1:11800].
+2023-08-02 15:47:33.856 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2023-08-02 15:47:33.856 +08:00 [arswebapiservice001] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2023-08-02 15:47:34.436 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2023-08-02 15:47:34.745 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.EntityFrameworkCore].
+2023-08-02 15:47:34.844 +08:00 [arswebapiservice001] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=arswebapiservice001,InstanceId=192.168.110.65@25fa55c5d91240a8ad877c8b70a5fa0c].
+2023-08-02 15:47:40.294 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 2 logs. cost: 00:00:01.0292875s
+2023-08-02 15:47:42.667 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 11 logs. cost: 00:00:00.3976662s
+2023-08-02 15:48:03.280 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/8/2 7:48:03 +00:00
+2023-08-02 15:48:03.289 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 15 15 3 9M ThreadPool 32764 32767 1000 1000
+2023-08-02 15:48:33.269 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 10 10 1 9M ThreadPool 32763 32767 1000 1000
+2023-08-02 15:49:03.255 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 8 8 0 9M ThreadPool 32761 32767 1000 1000
+2023-08-02 15:49:03.255 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/8/2 7:49:03 +00:00
+2023-08-02 15:49:33.266 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 11 11 0 9M ThreadPool 32759 32767 1000 1000
+2023-08-02 15:50:03.247 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/8/2 7:50:03 +00:00
+2023-08-02 15:50:03.262 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 11 11 0 9M ThreadPool 32761 32767 1000 1000
+2023-08-02 15:50:33.283 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 9 9 0 9M ThreadPool 32763 32767 1000 1000
+2023-08-02 15:51:03.258 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/8/2 7:51:03 +00:00
+2023-08-02 15:51:03.258 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 7 7 0 9M ThreadPool 32759 32767 1000 1000
+2023-08-02 15:51:33.282 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 8 8 0 9M ThreadPool 32764 32767 1000 1000
+2023-08-02 15:52:03.254 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/8/2 7:52:03 +00:00
+2023-08-02 15:52:03.254 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 7 7 0 9M ThreadPool 32759 32767 1000 1000
+2023-08-02 15:52:33.254 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 11 11 0 9M ThreadPool 32755 32767 1000 1000
+2023-08-02 15:53:03.261 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/8/2 7:53:03 +00:00
+2023-08-02 15:53:03.262 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 8 8 0 9M ThreadPool 32757 32767 1000 1000
+2023-08-02 15:53:33.259 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 9 9 0 10M ThreadPool 32765 32767 1000 1000
+2023-08-02 15:54:03.248 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/8/2 7:54:03 +00:00
+2023-08-02 15:54:03.263 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 1 1 0 10M ThreadPool 32760 32767 1000 1000
+2023-08-02 15:54:33.262 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 11M ThreadPool 32758 32767 1000 1000
+2023-08-02 15:55:03.247 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/8/2 7:55:03 +00:00
+2023-08-02 15:55:03.261 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 12M ThreadPool 32761 32767 1000 1000
+2023-08-02 15:55:33.263 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 12M ThreadPool 32759 32767 1000 1000
+2023-08-02 15:56:03.280 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/8/2 7:56:03 +00:00
+2023-08-02 15:56:03.280 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 13M ThreadPool 32763 32767 1000 1000
+2023-08-02 15:56:33.250 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 14M ThreadPool 32758 32767 1000 1000
+2023-08-02 15:57:03.287 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 15M ThreadPool 32762 32767 1000 1000
+2023-08-02 15:57:03.287 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/8/2 7:57:03 +00:00
+2023-08-02 15:57:33.265 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 16M ThreadPool 32759 32767 1000 1000
+2023-08-02 15:58:03.282 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/8/2 7:58:03 +00:00
+2023-08-02 15:58:03.281 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 17M ThreadPool 32764 32767 1000 1000
+2023-08-02 15:58:33.251 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 17M ThreadPool 32759 32767 1000 1000
+2023-08-02 15:59:03.290 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/8/2 7:59:03 +00:00
+2023-08-02 15:59:03.290 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 18M ThreadPool 32762 32767 1000 1000
+2023-08-02 15:59:33.250 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 19M ThreadPool 32757 32767 1000 1000
+2023-08-02 16:00:03.278 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 20M ThreadPool 32761 32767 1000 1000
+2023-08-02 16:00:03.278 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/8/2 8:00:03 +00:00
+2023-08-02 16:00:33.258 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 21M ThreadPool 32759 32767 1000 1000
+2023-08-02 16:01:03.251 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 21M ThreadPool 32759 32767 1000 1000
+2023-08-02 16:01:03.251 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/8/2 8:01:03 +00:00
+2023-08-02 16:01:33.269 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 22M ThreadPool 32758 32767 1000 1000
+2023-08-02 16:02:03.266 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/8/2 8:02:03 +00:00
+2023-08-02 16:02:03.266 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 23M ThreadPool 32753 32767 1000 1000
+2023-08-02 16:02:33.264 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 24M ThreadPool 32759 32767 1000 1000
+2023-08-02 16:03:03.269 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 24M ThreadPool 32756 32767 1000 1000
+2023-08-02 16:03:03.269 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/8/2 8:03:03 +00:00
+2023-08-02 16:03:33.251 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 25M ThreadPool 32759 32767 1000 1000
+2023-08-02 16:04:03.278 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 26M ThreadPool 32759 32767 1000 1000
+2023-08-02 16:04:03.278 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/8/2 8:04:03 +00:00
+2023-08-02 16:04:33.253 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 27M ThreadPool 32758 32767 1000 1000
+2023-08-02 16:05:03.264 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/8/2 8:05:03 +00:00
+2023-08-02 16:05:03.280 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 28M ThreadPool 32760 32767 1000 1000
+2023-08-02 16:05:08.787 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Ars.EFCoreOperationLog].
+2023-08-02 16:05:09.262 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 4 logs. cost: 00:00:00.0078939s
+2023-08-02 16:05:09.293 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 5 trace segment. cost: 00:00:00.0286104s
+2023-08-02 16:05:33.259 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 35M ThreadPool 32758 32767 1000 1000
+2023-08-02 16:06:03.251 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/8/2 8:06:03 +00:00
+2023-08-02 16:06:03.251 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 36M ThreadPool 32757 32767 1000 1000
+2023-08-02 16:06:33.261 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 37M ThreadPool 32764 32767 1000 1000
+2023-08-02 16:07:03.250 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 38M ThreadPool 32758 32767 1000 1000
+2023-08-02 16:07:03.250 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/8/2 8:07:03 +00:00
+2023-08-02 16:07:33.265 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 39M ThreadPool 32755 32767 1000 1000
+2023-08-02 16:08:03.254 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 39M ThreadPool 32758 32767 1000 1000
+2023-08-02 16:08:03.254 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/8/2 8:08:03 +00:00
+2023-08-02 16:08:33.253 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 40M ThreadPool 32759 32767 1000 1000
+2023-08-02 16:09:03.307 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 41M ThreadPool 32764 32767 1000 1000
+2023-08-02 16:09:03.307 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/8/2 8:09:03 +00:00
+2023-08-02 16:09:33.275 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 42M ThreadPool 32759 32767 1000 1000
+2023-08-02 16:10:03.264 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/8/2 8:10:03 +00:00
+2023-08-02 16:10:03.264 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 43M ThreadPool 32759 32767 1000 1000
+2023-08-02 16:10:33.291 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 43M ThreadPool 32765 32767 1000 1000
+2023-08-02 16:11:03.261 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/8/2 8:11:03 +00:00
+2023-08-02 16:11:03.261 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 1 0 0 12M ThreadPool 32758 32767 1000 1000
+2023-08-02 16:11:33.248 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 13M ThreadPool 32759 32767 1000 1000
+2023-08-02 16:12:03.286 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/8/2 8:12:03 +00:00
+2023-08-02 16:12:03.286 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 14M ThreadPool 32762 32767 1000 1000
+2023-08-02 16:12:33.256 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 15M ThreadPool 32764 32767 1000 1000
+2023-08-02 16:13:03.258 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 16M ThreadPool 32759 32767 1000 1000
+2023-08-02 16:13:03.258 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/8/2 8:13:03 +00:00
+2023-08-02 16:13:33.272 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 16M ThreadPool 32759 32767 1000 1000
+2023-08-02 16:14:03.279 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 17M ThreadPool 32761 32767 1000 1000
+2023-08-02 16:14:03.279 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/8/2 8:14:03 +00:00
+2023-08-02 16:14:15.268 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.V8.SegmentReporter : Report 6 trace segment. cost: 00:00:00.0101207s
+2023-08-02 16:14:15.270 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 8 logs. cost: 00:00:00.0131940s
+2023-08-02 16:14:33.254 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 19M ThreadPool 32755 32767 1000 1000
+2023-08-02 16:15:03.285 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Ping server @2023/8/2 8:15:03 +00:00
+2023-08-02 16:15:03.285 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 20M ThreadPool 32763 32767 1000 1000

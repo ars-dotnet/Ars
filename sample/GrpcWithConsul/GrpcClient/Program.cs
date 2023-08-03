@@ -4,8 +4,9 @@ using Ars.Common.Consul.IApplicationBuilderExtension;
 using Ars.Common.Core.AspNetCore.Extensions;
 using Ars.Common.IdentityServer4.Extension;
 using Ars.Common.Tool.Extension;
+using GrpcClient.ApmLogger;
 using GrpcClients;
-
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
 Environment.SetEnvironmentVariable("ASPNETCORE_HOSTINGSTARTUPASSEMBLIES", "SkyAPM.Agent.AspNetCore");
 Environment.SetEnvironmentVariable("SKYWALKING__SERVICENAME", "grpclient");
@@ -39,6 +40,8 @@ builder.Services.AddSingleton<IChannelProvider, ChannelProvider>();
 //builder.Services.AddHostedService(pro => pro.GetRequiredService<ChannelPublish2>());
 
 builder.Services.AddSkyAPM();
+
+builder.Services.Replace(ServiceDescriptor.Singleton<SkyApm.Logging.ILoggerFactory, MyLoggerFactory>());
 
 var app = builder.Build();
 

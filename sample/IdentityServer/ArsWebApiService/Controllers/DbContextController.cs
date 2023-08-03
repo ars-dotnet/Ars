@@ -124,7 +124,7 @@ namespace MyApiWithIdentityServer4.Controllers
         [HttpGet(nameof(Query))]
         public async Task<IActionResult> Query()
         {
-            var m = await MyDbContext.Students.FirstOrDefaultAsync(r => r.LastName.Equals("Yang"));
+            var m = await MyDbContext.Students.FirstOrDefaultAsync(r => r.LastName.Equals("8899"));
             var n = await MyDbContext.Students.Include(r => r.Enrollments).FirstOrDefaultAsync(r => r.LastName.Equals("Yang"));
             var o = await MyDbContext.Students.Include(r => r.Enrollments).ThenInclude(r => r.Course).FirstOrDefaultAsync(r => r.LastName.Equals("Yang"));
 

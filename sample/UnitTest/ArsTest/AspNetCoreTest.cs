@@ -65,8 +65,27 @@ namespace ArsTest
             logger.LogDebug("my-test");
         }
 
-        [Fact]
-        public async Task TestIncrement1()
+        class TestIncrement
+        {
+            /// <summary>
+            /// volatile关键字
+            /// </summary>
+            public int i = 0; 
+            public int j;
+
+            public async Task<int> Set()
+            {
+                await Task.Yield();
+
+                Interlocked.Increment(ref i);
+
+                return i;
+            }
+        }
+
+        [InlineData(3)]
+        [Theory]
+        public async Task TestIncrement1(int ccc)
         {
             IList<Task<int>> tasks = new List<Task<int>>();
             TestIncrement obj = new TestIncrement();
@@ -89,24 +108,30 @@ namespace ArsTest
             var m = await Task.WhenAll(tasks);
             m = m.OrderBy(r => r).ToArray();
             var x = string.Join(",", m);
+
+            Assert.True(m.Count() == 1000);
         }
 
+        /// <summary>
+        /// test ref keyword
+        /// </summary>
         [Fact]
         public void TestA()
         {
             int a = 0;
             TestB(a);
             Testc(ref a);
+
+            void TestB(int a)
+            {
+                a = 2;
+            }
+            void Testc(ref int a)
+            {
+                a = 3;
+            }
         }
 
-        private void TestB(int a)
-        {
-            a = 2;
-        }
-        private void Testc(ref int a)
-        {
-            a = 3;
-        }
 
         [Fact]
         public void TestDispose()
@@ -312,7 +337,7 @@ namespace ArsTest
         }
 
         [Fact]
-        public Task TestXmlPath() 
+        public Task TestXmlPath()
         {
             string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AppConfigs/App.Config");
             var data = path.DeXmlPathSerialize<Configuration>();
@@ -321,7 +346,7 @@ namespace ArsTest
         }
 
         [Fact]
-        public void TestStr() 
+        public void TestStr()
         {
             string barcode = @"
 TT=90ms OTL=10mm CC=1 FC=266, MC=1
@@ -349,7 +374,7 @@ SZ=21x21, RES=8.00x8.00Pixel, CTV=0%, UECV=38%
     }
 
     [XmlRoot("CallAgv")]
-    public class TestXml 
+    public class TestXml
     {
         [XmlElement("name")]
         public string Name { get; set; }
@@ -398,18 +423,6 @@ SZ=21x21, RES=8.00x8.00Pixel, CTV=0%, UECV=38%
         }
     }
 
-    public class TestIncrement
-    {
-        public int i;
-        public int j;
-
-        public async Task<int> Set()
-        {
-            await Task.Yield();
-            var m = Interlocked.Increment(ref i);
-            return m;
-        }
-    }
 
     public abstract class A
     {

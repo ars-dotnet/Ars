@@ -40,6 +40,9 @@
               },
               "C:\\core\\MyArs\\src\\Ars.Common.IdentityServer4\\Ars.Common.IdentityServer4.csproj": {
                 "projectPath": "C:\\core\\MyArs\\src\\Ars.Common.IdentityServer4\\Ars.Common.IdentityServer4.csproj"
+              },
+              "C:\\core\\MyArs\\src\\Ars.Common.SkyWalking\\Ars.Common.SkyWalking.csproj": {
+                "projectPath": "C:\\core\\MyArs\\src\\Ars.Common.SkyWalking\\Ars.Common.SkyWalking.csproj"
               }
             }
           }
@@ -61,6 +64,14 @@
             "Grpc.AspNetCore": {
               "target": "Package",
               "version": "[2.42.0, )"
+            },
+            "Serilog.Sinks.Async": {
+              "target": "Package",
+              "version": "[1.5.0, )"
+            },
+            "Serilog.Sinks.File": {
+              "target": "Package",
+              "version": "[5.0.0, )"
             },
             "SkyAPM.Agent.AspNetCore": {
               "target": "Package",
@@ -600,6 +611,91 @@
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
             },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\core\\MyArs\\src\\Ars.Common.SkyWalking\\Ars.Common.SkyWalking.csproj": {
+      "version": "1.6.3",
+      "restore": {
+        "projectUniqueName": "C:\\core\\MyArs\\src\\Ars.Common.SkyWalking\\Ars.Common.SkyWalking.csproj",
+        "projectName": "Ars.Common.SkyWalking",
+        "projectPath": "C:\\core\\MyArs\\src\\Ars.Common.SkyWalking\\Ars.Common.SkyWalking.csproj",
+        "packagesPath": "C:\\Users\\boo\\.nuget\\packages\\",
+        "outputPath": "C:\\core\\MyArs\\src\\Ars.Common.SkyWalking\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\boo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\core\\MyArs\\src\\Ars.Common.Core\\Ars.Common.Core.csproj": {
+                "projectPath": "C:\\core\\MyArs\\src\\Ars.Common.Core\\Ars.Common.Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.Extensions.Configuration.Abstractions": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Microsoft.Extensions.Configuration.Binder": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Microsoft.Extensions.DependencyInjection.Abstractions": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "SkyAPM.Agent.AspNetCore": {
+              "target": "Package",
+              "version": "[2.1.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

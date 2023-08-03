@@ -31,6 +31,9 @@ namespace Ars.Common.SkyWalking.Diagnostics.EntityFrameworkCore
         public void Complete([Object] ArsCommandEventData eventData) 
         {
             var context = _contextFactory.Create(ArsEvents.CompleteTransactionName, eventData.DbCommand);
+            if (null == context)
+                return;
+
             context.Span.SpanLayer = SpanLayer.DB;
             context.Span.Component = new StringOrIntValue(5001, "Ars");
             context.Span.AddTag(Tags.DB_TYPE, "Sql");
