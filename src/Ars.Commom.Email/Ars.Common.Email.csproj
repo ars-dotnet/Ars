@@ -8,6 +8,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="DependencyInjectionExtension\**" />
+    <EmbeddedResource Remove="DependencyInjectionExtension\**" />
+    <None Remove="DependencyInjectionExtension\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Remove="Configuration\IArsServiceCoreExtension.cs" />
   </ItemGroup>
 
@@ -20,10 +26,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Ars.Commom.Tool\Ars.Common.Tool.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="DependencyInjectionExtension\" />
   </ItemGroup>
 
 </Project>

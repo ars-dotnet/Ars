@@ -1,4 +1,4 @@
-﻿using Ars.Common.Tool.Configs;
+﻿using Ars.Common.Core.Configs;
 using System;
 using System.Collections.Generic;
 using System.Linq;

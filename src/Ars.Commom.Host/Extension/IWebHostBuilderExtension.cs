@@ -1,6 +1,6 @@
 ﻿using Ars.Commom.Tool.Certificates;
 using Ars.Commom.Tool.Extension;
-using Ars.Common.Tool.Configs;
+using Ars.Common.Core.Configs;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.Extensions.Configuration;

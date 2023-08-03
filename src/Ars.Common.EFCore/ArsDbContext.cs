@@ -22,6 +22,7 @@ using Ars.Common.Core.AspNetCore.Extensions;
 using Newtonsoft.Json.Linq;
 using Ars.Common.Core.Diagnostic;
 using NPOI.SS.Formula.Functions;
+using Ars.Common.Core.Extensions;
 
 namespace Ars.Common.EFCore
 {

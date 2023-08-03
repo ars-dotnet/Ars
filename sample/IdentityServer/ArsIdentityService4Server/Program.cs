@@ -3,8 +3,6 @@ using Ars.Commom.Tool.Certificates;
 using Ars.Common.Host.Extension;
 using Ars.Common.IdentityServer4.Extension;
 using Ars.Common.SkyWalking.Extensions;
-using Ars.Common.Tool.Configs;
-using Ars.Common.Tool.Extension;
 using ArsIdentityService4Server;
 using IdentityServer4.Models;
 using IdentityServer4.Validation;

@@ -10,7 +10,6 @@ using Ars.Common.Core.AspNetCore;
 using Ars.Common.Core.AspNetCore.Extensions;
 using Ars.Common.Core.Configs;
 using Ars.Common.Host;
-using Ars.Common.Tool.Configs;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Controllers;

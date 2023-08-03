@@ -1,0 +1,77 @@
+2023-08-03 15:51:31.048 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.InstrumentStartup : Initializing ...
+2023-08-03 15:51:31.144 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-08-03 15:51:31.145 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-08-03 15:51:31.145 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-08-03 15:51:31.150 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-08-03 15:51:31.150 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-08-03 15:51:31.150 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-08-03 15:51:31.150 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-08-03 15:51:31.248 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2023-08-03 15:51:31.808 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[172.20.64.1:11800].
+2023-08-03 15:51:32.576 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2023-08-03 15:51:32.969 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2023-08-03 15:51:33.221 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=docker-arsidentityserver0421001,InstanceId=192.168.110.65@6ddb6751e148441184a0a1ae1b6a87ff].
+2023-08-03 15:51:52.195 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 5 logs. cost: 00:00:00.0441707s
+2023-08-03 15:52:01.240 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Service.PingService : Ping server @2023/8/3 7:52:01 +00:00
+2023-08-03 15:52:01.241 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 24M ThreadPool 32765 32767 1000 1000
+2023-08-03 15:52:31.196 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 25M ThreadPool 32764 32767 1000 1000
+2023-08-03 15:53:01.190 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 25M ThreadPool 32759 32767 1000 1000
+2023-08-03 15:53:01.190 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Service.PingService : Ping server @2023/8/3 7:53:01 +00:00
+2023-08-03 15:53:31.169 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 1 1 0 8M ThreadPool 32764 32767 1000 1000
+2023-08-03 15:54:01.176 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 8M ThreadPool 32758 32767 1000 1000
+2023-08-03 15:54:01.176 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Service.PingService : Ping server @2023/8/3 7:54:01 +00:00
+2023-08-03 15:54:32.608 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 9M ThreadPool 32758 32767 1000 1000
+2023-08-03 15:55:01.367 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 9M ThreadPool 32757 32767 1000 1000
+2023-08-03 15:55:01.367 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Service.PingService : Ping server @2023/8/3 7:55:01 +00:00
+2023-08-03 15:55:31.231 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 10M ThreadPool 32759 32767 1000 1000
+2023-08-03 15:56:02.340 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Service.PingService : Ping server @2023/8/3 7:56:02 +00:00
+2023-08-03 15:56:02.340 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 10M ThreadPool 32759 32767 1000 1000
+2023-08-03 15:56:58.305 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.InstrumentStartup : Initializing ...
+2023-08-03 15:56:58.562 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-08-03 15:56:58.563 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-08-03 15:56:58.563 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-08-03 15:56:58.563 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-08-03 15:56:58.564 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-08-03 15:56:58.564 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-08-03 15:56:58.564 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-08-03 15:56:58.591 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2023-08-03 15:56:58.938 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[172.20.64.1:11800].
+2023-08-03 15:56:59.633 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2023-08-03 15:57:00.386 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2023-08-03 15:57:00.967 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=docker-arsidentityserver0421001,InstanceId=192.168.110.65@7829079465ba4dc19c06bc294f316645].
+2023-08-03 15:57:28.641 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 20M ThreadPool 32765 32767 1000 1000
+2023-08-03 15:57:28.644 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Service.PingService : Ping server @2023/8/3 7:57:28 +00:00
+2023-08-03 15:57:58.618 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 21M ThreadPool 32758 32767 1000 1000
+2023-08-03 15:59:03.230 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.InstrumentStartup : Initializing ...
+2023-08-03 15:59:03.317 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-08-03 15:59:03.317 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-08-03 15:59:03.318 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-08-03 15:59:03.318 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-08-03 15:59:03.318 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-08-03 15:59:03.318 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-08-03 15:59:03.318 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-08-03 15:59:03.347 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2023-08-03 15:59:03.447 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[172.20.64.1:11800].
+2023-08-03 15:59:04.081 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2023-08-03 15:59:04.378 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2023-08-03 15:59:04.620 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=docker-arsidentityserver0421001,InstanceId=192.168.110.65@2d41422f3e0f4e59be1143d2fe8a27b0].
+2023-08-03 15:59:33.433 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 20M ThreadPool 32765 32767 1000 1000
+2023-08-03 15:59:33.439 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Service.PingService : Ping server @2023/8/3 7:59:33 +00:00
+2023-08-03 15:59:42.385 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 5 logs. cost: 00:00:00.0609188s
+2023-08-03 16:00:03.385 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 0 0 0 25M ThreadPool 32763 32767 1000 1000
+2023-08-03 16:02:18.667 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.InstrumentStartup : Initializing ...
+2023-08-03 16:02:18.772 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2023-08-03 16:02:18.772 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2023-08-03 16:02:18.772 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2023-08-03 16:02:18.773 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2023-08-03 16:02:18.773 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2023-08-03 16:02:18.773 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2023-08-03 16:02:18.773 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2023-08-03 16:02:18.778 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2023-08-03 16:02:18.971 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[172.20.64.1:11800].
+2023-08-03 16:02:19.580 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2023-08-03 16:02:19.911 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2023-08-03 16:02:20.214 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Service.RegisterService : Reported Service Instance Properties[Service=docker-arsidentityserver0421001,InstanceId=192.168.110.65@9f55501c018e437cb639bb71956aa16b].
+2023-08-03 16:02:36.819 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Transport.Grpc.SegmentReporter : Report 5 logs. cost: 00:00:00.0470888s
+2023-08-03 16:02:48.831 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Service.CLRStatsService : Report CLR Stats. CPU UsagePercent 0 GenCollectCount 1 1 0 23M ThreadPool 32765 32767 1000 1000
+2023-08-03 16:02:48.836 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Service.PingService : Ping server @2023/8/3 8:02:48 +00:00

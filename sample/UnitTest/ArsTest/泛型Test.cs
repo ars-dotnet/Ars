@@ -1,4 +1,5 @@
-﻿using Ars.Common.Tool.Extension;
+﻿using Ars.Common.Core.Extensions;
+using Ars.Common.Tool.Extension;
 using System;
 using System.Collections.Generic;
 using System.Linq;

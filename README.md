@@ -13,13 +13,13 @@ and some samples with them.
 
 ### NuGet
 
-myars can be installed in your project with the following command.
+ars can be installed in your project with the following command.
 
 ```
 PM> Install-Package Ars.Common.Host
 ```
 
-myars supports some extensions, following packages are available to install:
+ars supports some extensions, following packages are available to install:
 
 ```
 PM> Install-Package Ars.Common.IdentityServer4
@@ -33,65 +33,71 @@ PM> Install-Package Ars.Common.SkyWalking
 ### Configuration
 #### add Service:
 
-    var builder = WebApplication.CreateBuilder(args);
-    builder.Services
-     //add ars core service
-     .AddArserviceCore(builder, config =>
-     {
-         //add consul client service
-         config.AddArsConsulDiscoverClient();
-	 
-         //add consul register service
-         config.AddArsConsulRegisterServer();
-
-         //add identity resource service
-         config.AddArsIdentityClient();
-	 
-         //add identity server service
-         config.AddArsIdentityServer();
-
-         //add redis service
-         config.AddArsRedis();
-
-         //add localization service
-         config.AddArsLocalization();
-
-         //add signalr service
-	     config.AddArsSignalR(config =>
-         {
-            config.CacheType = 0;
-            config.UseMessagePackProtocol = true;
-         });
-
-	    //add skyapm service
-	    config.AddArsSkyApm();
-
-        //add cap service
-	    config.AddArsCap(option => 
-	    {
-		option.UseEntityFramework<MyDbContext>();
-		option.UseRabbitMQ(mq => 
-		{
-	  	   mq.HostName = "localhost";
-		   mq.UserName = "guest";
-		   mq.Password = "guest";
-		});
-	    });
-    })
-    //add dbcontext service
-    .AddArsDbContext<xxxDbContext>()
-    //add exportexcel service
-    .AddArsExportExcelService(typeof(Program).Assembly)
-    //add uploadexcel service
-    .AddArsUploadExcelService(option =>
+```
+var builder = WebApplication.CreateBuilder(args);
+builder.Services
+    //add ars core service
+    .AddArserviceCore(builder, config =>
     {
-	    option.UploadRoot = "wwwroot/upload";
-	    option.RequestPath = "apps/upload";
-	    option.SlidingExpireTime = TimeSpan.FromDays(1);
-    });
+        //add consul client service
+        config.AddArsConsulDiscoverClient();
+	 
+        //add consul register service
+        config.AddArsConsulRegisterServer();
+
+        //add identity resource service
+        config.AddArsIdentityClient();
+	 
+        //add identity server service
+        config.AddArsIdentityServer();
+
+        //add redis service
+        config.AddArsRedis();
+
+        //add localization service
+        config.AddArsLocalization();
+
+        //add signalr service
+	    config.AddArsSignalR(config =>
+        {
+			config.CacheType = 0;
+			config.UseMessagePackProtocol = true;
+        });
+
+		//add skyapm service
+		config.AddArsSkyApm();
+
+		//add cap service
+		config.AddArsCap(option => 
+		{
+			option.UseEntityFramework<xxxDbContext>();
+			option.UseRabbitMQ(mq => 
+			{
+	  			mq.HostName = "localhost";
+				mq.UserName = "guest";
+				mq.Password = "guest";
+			});
+		});
+	})
+
+//add dbcontext service
+.AddArsDbContext<xxxDbContext>()
+
+//add exportexcel service
+.AddArsExportExcelService(typeof(Program).Assembly)
+
+//add uploadexcel service
+.AddArsUploadExcelService(option =>
+{
+	option.UploadRoot = "wwwroot/upload";
+	option.RequestPath = "apps/upload";
+	option.SlidingExpireTime = TimeSpan.FromDays(1);
+});
+```
 
 #### use Application:
 
+```
     var app = builder.Build();
     
     //ars exception middleware
@@ -103,9 +109,10 @@ PM> Install-Package Ars.Common.SkyWalking
     app.UseArsCore() 
     //use uploadexcel application
     .UseArsUploadExcel();
+```
 
 #### change your appsettings.Development.json
- 
+ ```
 	{
 	  "Logging": {
 		"LogLevel": {
@@ -246,6 +253,7 @@ PM> Install-Package Ars.Common.SkyWalking
 		 "UseHttps": true
 	  }
 	}
+```
 
 ### License
 

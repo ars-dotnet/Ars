@@ -1,4 +1,5 @@
-﻿using Ars.Common.Core.IDependency;
+﻿using Ars.Commom.Tool.Extension;
+using Ars.Common.Core.IDependency;
 using Autofac;
 using Autofac.Core;
 using System;
@@ -82,7 +83,7 @@ namespace Ars.Common.AutoFac.Helper
                     continue;
                 }
 
-                var propertyService = serviceName == null
+                var propertyService = serviceName.IsNullOrEmpty()
                     ? (Service)new TypedService(property.PropertyType)
                     : new KeyedService(serviceName, property.PropertyType);
 

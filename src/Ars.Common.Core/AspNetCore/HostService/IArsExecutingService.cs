@@ -13,8 +13,4 @@ namespace Ars.Common.Core.AspNetCore.HostService
 
         Task StopAsync(CancellationToken cancellationToken);
     }
-
-    public interface IArsHostStartupExecutingService : IArsExecutingService,IScopedDependency { }
-
-    public interface IArsManualExecutingService : IArsExecutingService, ISingletonDependency { }
 }

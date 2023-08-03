@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Ars.Common.Core.AspNetCore.HostService
 {
-    public interface IArsManualExecutingManager : ISingletonDependency
+    public interface IArsManualExecutingManager : IScopedDependency
     {
         Task StartAsync(CancellationToken cancellationToken = default);
 

@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 
 namespace ArsWebApiService.ManualHostService
 {
-    public class ManualHost2Service : ArsManualExecutingService
+    public class ManualHost2Service : ArsBaseManualExecutingService
     {
         private int i;
 

@@ -1,9 +1,8 @@
 ﻿using Ars.Commom.Core;
 using Ars.Commom.Tool.Extension;
 using Ars.Common.Consul.Option;
-using Ars.Common.Core;
 using Ars.Common.Core.Configs;
-using Ars.Common.Tool.Extension;
+using Ars.Common.Core.Extensions;
 using Ars.Common.Tool.Tools;
 using Grpc.Net.Client.Web;
 using Microsoft.Extensions.Configuration;
@@ -14,8 +13,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Security.Authentication;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Ars.Common.Consul.Extension
 {
@@ -47,10 +44,11 @@ namespace Ars.Common.Consul.Extension
             arscfg.ArsConsulDiscoverConfiguration ??= config;
             services.AddSingleton<IConsulDiscoverConfiguration>(config);
 
-            services
+            arsServiceBuilder
                 .AddArsHttpClient()
-                .AddArsGrpcHttpClient()
-                .AddMemoryCache();
+                .AddArsGrpcHttpClient();
+
+            services.AddMemoryCache();
 
             return arsServiceBuilder;
         }
@@ -88,8 +86,10 @@ namespace Ars.Common.Consul.Extension
             return arsServiceBuilder;
         }
 
-        public static IServiceCollection AddArsGrpcHttpClient(this IServiceCollection services)
+        public static IArsServiceBuilder AddArsGrpcHttpClient(this IArsServiceBuilder arsServiceBuilder)
         {
+            var services = arsServiceBuilder.Services;
+
             #region grpchttpclient
             services
                 .AddHttpClient(HttpClientNames.RetryGrpcHttpV1)
@@ -170,7 +170,7 @@ namespace Ars.Common.Consul.Extension
                 });
             #endregion
 
-            return services;
+            return arsServiceBuilder;
         }
     }
 }

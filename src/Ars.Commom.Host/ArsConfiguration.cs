@@ -1,7 +1,6 @@
 ﻿using Ars.Commom.Core;
 using Ars.Common.Core;
 using Ars.Common.Core.Configs;
-using Ars.Common.Tool.Configs;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;

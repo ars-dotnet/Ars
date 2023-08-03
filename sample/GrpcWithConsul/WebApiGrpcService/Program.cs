@@ -6,7 +6,6 @@ using Ars.Common.Core.AspNetCore.Extensions;
 using Ars.Common.Host.Extension;
 using Ars.Common.IdentityServer4.Extension;
 using Ars.Common.SkyWalking.Extensions;
-using Ars.Common.Tool.Configs;
 using GrpcService.Services;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.AspNetCore.Server.Kestrel.Https;

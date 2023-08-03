@@ -1,4 +1,5 @@
 ﻿using Ars.Common.AutoFac;
+using Ars.Common.Core.Extensions;
 using Ars.Common.EFCore.AdoNet;
 using Ars.Common.EFCore.Entities;
 using Ars.Common.EFCore.Extension;

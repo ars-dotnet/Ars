@@ -7,7 +7,6 @@ using System.Xml;
 
 namespace Ars.Common.Tool.Tools
 {
-    
     public class XmlNamespaceIgnoreReader : XmlTextReader
     {
         public XmlNamespaceIgnoreReader(TextReader textReader) :base(textReader)

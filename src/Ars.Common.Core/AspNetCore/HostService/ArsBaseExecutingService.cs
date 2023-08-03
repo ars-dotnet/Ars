@@ -6,26 +6,14 @@ using System.Threading;
 
 namespace Ars.Common.Core.AspNetCore.HostService
 {
-    public abstract class ArsHostStartupExecutingService : ArsBaseExecutingService, IArsHostStartupExecutingService
-    {
-        protected ArsHostStartupExecutingService(ILoggerFactory loggerFactory) 
-            : base(loggerFactory)
-        {
-
-        }
-    }
-
-    public abstract class ArsManualExecutingService : ArsBaseExecutingService, IArsManualExecutingService
-    {
-        protected ArsManualExecutingService(ILoggerFactory loggerFactory)
-            : base(loggerFactory)
-        {
-
-        }
-    }
-
     public abstract class ArsBaseExecutingService : IDisposable
     {
+        protected abstract TimeSpan DueTime { get; }
+
+        protected abstract TimeSpan Period { get; }
+
+        protected virtual TimeSpan WaitTime => TimeSpan.FromSeconds(10);
+
         private Timer? _timer;
         private CancellationTokenSource? _cancellationTokenSource;
         protected readonly ILogger _logger;
@@ -79,12 +67,6 @@ namespace Ars.Common.Core.AspNetCore.HostService
         {
             _timer?.Dispose();
         }
-
-        protected abstract TimeSpan DueTime { get; }
-
-        protected abstract TimeSpan Period { get; }
-
-        protected virtual TimeSpan WaitTime => TimeSpan.FromSeconds(10);
 
         protected abstract Task ExecutingAsync(CancellationToken cancellationToken);
 

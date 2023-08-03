@@ -1,5 +1,5 @@
-﻿using Ars.Common.Tool.Export;
-using Ars.Common.Tool.UploadExcel;
+﻿using Ars.Common.Core.Excels.ExportExcel;
+using Ars.Common.Core.Excels.UploadExcel;
 using ArsWebApiService.Dtos;
 using Microsoft.AspNetCore.Mvc;
 

@@ -15,7 +15,6 @@ using Ars.Common.Core.AspNetCore.Extensions;
 using Ars.Common.Tool.Extension;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.AspNetCore.StaticFiles;
-using Ars.Common.Tool.Configs;
 using Ars.Common.IdentityServer4.Options;
 using Ars.Common.Redis.Extension;
 using Ars.Common.SignalR.Extensions;
@@ -33,10 +32,12 @@ using SoapCore;
 using System.ServiceModel;
 using Ars.Common.Host.Extension;
 using Ars.Common.Cap.Extensions;
+using Ars.Common.Core.Localization.Extension;
+using Ars.Common.Core.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
-// Add services to the container.
 
+// Add services to the container.
 var arsbuilder =
     builder.Services
     .AddArserviceCore(builder, config =>
@@ -109,8 +110,7 @@ var arsbuilder =
             });
         });
     })
-    .AddArsDbContext<MyDbContext>();
-builder.Services
+    .AddArsDbContext<MyDbContext>()
     .AddArsHttpClient()
     .AddArsExportExcelService(typeof(Program).Assembly)
     .AddArsUploadExcelService(option =>

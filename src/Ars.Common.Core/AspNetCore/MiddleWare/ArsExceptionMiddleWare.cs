@@ -2,7 +2,6 @@
 using Ars.Common.Core.AspNetCore.OutputDtos;
 using Ars.Common.Tool;
 using Ars.Common.Tool.Extension;
-using Ars.Common.Tool.UploadExcel;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
@@ -13,6 +12,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Ars.Common.Core.Excels.UploadExcel;
 
 namespace Ars.Common.Core.AspNetCore.MiddleWare
 {

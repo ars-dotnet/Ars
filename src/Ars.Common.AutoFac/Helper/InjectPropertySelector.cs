@@ -14,7 +14,7 @@ namespace Ars.Common.AutoFac.Helper
         public bool TryGetInjectProperty(PropertyInfo propertyInfo, object instance, out string serviceName)
         {
             var inject = propertyInfo.GetCustomAttributes().OfType<AutowiredAttribute>().FirstOrDefault();
-            serviceName = inject?.ServiceName;
+            serviceName = inject?.ServiceName ?? string.Empty;
 
             return inject != null;
         }

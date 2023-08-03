@@ -5,7 +5,6 @@ using Ars.Common.Consul.IApplicationBuilderExtension;
 using Ars.Common.Host.Extension;
 using Ars.Common.IdentityServer4.Extension;
 using Ars.Common.SkyWalking.Extensions;
-using Ars.Common.Tool.Configs;
 using GrpcService;
 using GrpcService.Services;
 using Microsoft.AspNetCore.Server.Kestrel.Core;

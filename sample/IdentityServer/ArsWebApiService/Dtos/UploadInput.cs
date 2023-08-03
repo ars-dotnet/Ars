@@ -1,5 +1,5 @@
-﻿using Ars.Common.Tool.UploadExcel;
-using Ars.Common.Tool.UploadExcel.Validation;
+﻿using Ars.Common.Core.Excels.UploadExcel;
+using Ars.Common.Core.Excels.UploadExcel.Validation;
 
 namespace ArsWebApiService.Dtos
 {
