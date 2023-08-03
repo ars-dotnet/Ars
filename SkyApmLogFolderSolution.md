@@ -1,5 +1,5 @@
 
-## 1.Ìí¼ÓÀàMyLoggerFactoryÊµÏÖSkyApm.Logging.ILoggerFactory¡£Èç¹û±¨´íÕÒ²»µ½ÒıÓÃ£¬Çë¿´²½Öè5
+## 1.æ·»åŠ ç±»MyLoggerFactoryå®ç°SkyApm.Logging.ILoggerFactoryã€‚å¦‚æœæŠ¥é”™æ‰¾ä¸åˆ°å¼•ç”¨ï¼Œè¯·çœ‹æ­¥éª¤5
 
 ```
 using Serilog.Events;
@@ -51,12 +51,12 @@ namespace ApmLogger
 ```
 
 
-## 2.Ìí¼ÓÀàMyLoggerÊµÏÖSkyApm.Logging.ILogger
+## 2.æ·»åŠ ç±»MyLoggerå®ç°SkyApm.Logging.ILogger
 
 ```
 using MSLogger = Microsoft.Extensions.Logging.ILogger;
 
-namespace GrpcClient.ApmLogger
+namespace ApmLogger
 {
     public class MyLogger : SkyApm.Logging.ILogger
     {
@@ -94,12 +94,12 @@ namespace GrpcClient.ApmLogger
 }
 ```
 
-## 3.Program.csÀàÖĞÌæ»»·şÎñ
+## 3.Program.csç±»ä¸­æ›¿æ¢æœåŠ¡
 ```
 builder.Services.Replace(ServiceDescriptor.Singleton<SkyApm.Logging.ILoggerFactory, MyLoggerFactory>());
 ```
 
-## 4.ĞŞ¸ÄÄãskyapm.jsonÎÄ¼şÖĞµÄLogging:FilePath¹æÔò
+## 4.ä¿®æ”¹ä½ skyapm.jsonæ–‡ä»¶ä¸­çš„Logging:FilePathè§„åˆ™
 ```
     "Logging": {
       "Level": "Information",
@@ -107,7 +107,7 @@ builder.Services.Replace(ServiceDescriptor.Singleton<SkyApm.Logging.ILoggerFacto
     },
 ```
 
-## 5.Èç¹ûÏîÄ¿ÕÒ²»µ½ÒıÓÃ£¬ÇëÌí¼ÓÒÔÏÂÒıÓÃ
+## 5.å¦‚æœé¡¹ç›®æ‰¾ä¸åˆ°å¼•ç”¨ï¼Œè¯·æ·»åŠ ä»¥ä¸‹å¼•ç”¨
 ```
 	<PackageReference Include="Serilog.Sinks.Async" Version="1.5.0" />
 	<PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
