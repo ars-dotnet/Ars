@@ -112,3 +112,53 @@ builder.Services.Replace(ServiceDescriptor.Singleton<SkyApm.Logging.ILoggerFacto
 	<PackageReference Include="Serilog.Sinks.Async" Version="1.5.0" />
 	<PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
 ```
+
+## 6.如果每天的日志文件路径没有更新，则类MyLoggerFactory做以下调整
+```
+using Serilog.Events;
+using Serilog;
+using SkyApm.Config;
+using SkyApm.Utilities.Logging;
+using MSLoggerFactory = Microsoft.Extensions.Logging.LoggerFactory;
+
+namespace SkyApm.Sample.Logging
+{
+    public class MyLoggerFactory : SkyApm.Logging.ILoggerFactory
+    {
+        private const string outputTemplate =
+            @"{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{ServiceName}] [{Level}] {SourceContext} : {Message}{NewLine}{Exception}";
+
+        private readonly MSLoggerFactory _loggerFactory;
+        private readonly LoggingConfig _loggingConfig;
+        private readonly InstrumentConfig _instrumentConfig;
+        private readonly LogEventLevel _logEventLevel;
+        public MyLoggerFactory(IConfigAccessor configAccessor)
+        {
+            _loggingConfig = configAccessor.Get<LoggingConfig>();
+            _loggerFactory = new MSLoggerFactory();
+            _instrumentConfig = configAccessor.Get<InstrumentConfig>();
+            _logEventLevel = EventLevel(_loggingConfig.Level);
+        }
+
+        public SkyApm.Logging.ILogger CreateLogger(Type type)
+        {
+            _loggerFactory.AddSerilog(new LoggerConfiguration().MinimumLevel.Verbose().Enrich
+                .WithProperty("SourceContext", null).Enrich
+                .WithProperty(nameof(_instrumentConfig.ServiceName),
+                    _instrumentConfig.ServiceName).Enrich
+                .FromLogContext().WriteTo.Async(o =>
+                    o.File(string.Format(_loggingConfig.FilePath, DateTime.Now.ToString("yyyyMMdd")), _logEventLevel, outputTemplate, flushToDiskInterval: TimeSpan.FromMilliseconds(500), rollingInterval: RollingInterval.Infinite))
+                .CreateLogger());
+
+            return new MyLogger(_loggerFactory.CreateLogger(type));
+        }
+
+        private static LogEventLevel EventLevel(string level)
+        {
+            return Enum.TryParse<LogEventLevel>(level, out var logEventLevel)
+                ? logEventLevel
+                : LogEventLevel.Error;
+        }
+    }
+}
+```
