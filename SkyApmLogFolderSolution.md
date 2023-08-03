@@ -109,8 +109,8 @@ builder.Services.Replace(ServiceDescriptor.Singleton<SkyApm.Logging.ILoggerFacto
 
 ## 5.濡傛灉椤圭洰鎵句笉鍒板紩鐢紝璇锋坊鍔犱互涓嬪紩鐢?
 ```
-<PackageReference Include="Serilog.Sinks.Async" Version="1.5.0" />
-<PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
+    <PackageReference Include="Serilog.Sinks.Async" Version="1.5.0" />
+    <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
 ```
 
 ## 6.如果每天的日志文件路径没有更新，则类MyLoggerFactory做以下调整
