@@ -58,27 +58,27 @@ builder.Services
         config.AddArsLocalization();
 
         //add signalr service
-	    config.AddArsSignalR(config =>
+        config.AddArsSignalR(config =>
         {
-			config.CacheType = 0;
-			config.UseMessagePackProtocol = true;
+		config.CacheType = 0;
+		config.UseMessagePackProtocol = true;
         });
 
-		//add skyapm service
-		config.AddArsSkyApm();
+	//add skyapm service
+	config.AddArsSkyApm();
 
-		//add cap service
-		config.AddArsCap(option => 
+	//add cap service
+	config.AddArsCap(option => 
+	{
+		option.UseEntityFramework<xxxDbContext>();
+		option.UseRabbitMQ(mq => 
 		{
-			option.UseEntityFramework<xxxDbContext>();
-			option.UseRabbitMQ(mq => 
-			{
-	  			mq.HostName = "localhost";
-				mq.UserName = "guest";
-				mq.Password = "guest";
-			});
+			mq.HostName = "localhost";
+			mq.UserName = "guest";
+			mq.Password = "guest";
 		});
-	})
+	});
+})
 
 //add dbcontext service
 .AddArsDbContext<xxxDbContext>()
