@@ -1,5 +1,5 @@
 
-## 1.娣诲姞绫籑yLoggerFactory瀹炵幇SkyApm.Logging.ILoggerFactory銆傚鏋滄姤閿欐壘涓嶅埌寮曠敤锛岃鐪嬫楠?
+## 1.新建类MyLoggerFactory实现SkyApm.Logging.ILoggerFactory接口.如果内容报错找不到引用，请看步骤5.
 
 ```
 using Serilog.Events;
@@ -51,7 +51,7 @@ namespace ApmLogger
 ```
 
 
-## 2.娣诲姞绫籑yLogger瀹炵幇SkyApm.Logging.ILogger
+## 2.添加类MyLogger实现SkyApm.Logging.ILogger接口
 
 ```
 using MSLogger = Microsoft.Extensions.Logging.ILogger;
@@ -94,12 +94,12 @@ namespace ApmLogger
 }
 ```
 
-## 3.Program.cs绫讳腑鏇挎崲鏈嶅姟
+## 3.Program.cs替换服务
 ```
 builder.Services.Replace(ServiceDescriptor.Singleton<SkyApm.Logging.ILoggerFactory, MyLoggerFactory>());
 ```
 
-## 4.淇敼浣爏kyapm.json鏂囦欢涓殑Logging:FilePath瑙勫垯
+## 4.修改skyapm.json配置文件中Logging:FilePath的规则
 ```
     "Logging": {
       "Level": "Information",
@@ -107,7 +107,7 @@ builder.Services.Replace(ServiceDescriptor.Singleton<SkyApm.Logging.ILoggerFacto
     },
 ```
 
-## 5.濡傛灉椤圭洰鎵句笉鍒板紩鐢紝璇锋坊鍔犱互涓嬪紩鐢?
+## 5.如果报错找不到引用，则添加以下引用
 ```
     <PackageReference Include="Serilog.Sinks.Async" Version="1.5.0" />
     <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
