@@ -100,10 +100,12 @@ namespace ArsTest.ArsTests
             var mc2 = new ManagedClass();
             var mc3 = new ManagedClass();
 
-            var cwt = new ConditionalWeakTable<ManagedClass, ClassData>();
-            cwt.Add(mc1, new ClassData());
-            cwt.Add(mc2, new ClassData());
-            cwt.Add(mc3, new ClassData());
+            var cwt = new ConditionalWeakTable<ManagedClass, ClassData>
+            {
+                { mc1, new ClassData() },
+                { mc2, new ClassData() },
+                { mc3, new ClassData() }
+            };
 
             var wr2 = new WeakReference(mc2);
             mc2 = null;
@@ -120,6 +122,7 @@ namespace ArsTest.ArsTests
 
             Assert.True(a == 0);
         }
+
         public class ManagedClass
         {
         }

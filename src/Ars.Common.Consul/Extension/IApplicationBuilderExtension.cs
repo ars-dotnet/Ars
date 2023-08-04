@@ -35,12 +35,12 @@ namespace Ars.Common.Consul.IApplicationBuilderExtension
             string ip = option.ServiceIp!;
             int port = option.ServicePort.GetValueOrDefault();
 
-            string serviceId = $"service:{ip}:{port}";//服务ID，一个服务是唯一的
+            string serviceId = $"service:{ip}:{port}";//服务ID，每个服务都是唯一的
 
             var check = new AgentServiceCheck()
             {
                 Interval = TimeSpan.FromSeconds(5),//多久检查一次心跳
-                Timeout = TimeSpan.FromSeconds(5),//超时时间
+                Timeout = TimeSpan.FromSeconds(10),//超时时间
                 DeregisterCriticalServiceAfter = TimeSpan.FromSeconds(5) //服务停止多久后注销服务
             };
             if (string.IsNullOrEmpty(option.HttpHealthAction))

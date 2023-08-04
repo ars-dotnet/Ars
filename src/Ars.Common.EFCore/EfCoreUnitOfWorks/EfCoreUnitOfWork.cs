@@ -189,7 +189,7 @@ namespace Ars.Common.EFCore.EfCoreUnitOfWorks
                         ArsCommandEventData arsCommandEventData = new ArsCommandEventData()
                         {
                             DbCommand = dbcontext.Database.GetDbConnection().CreateCommand(),
-                            ChangerTables = changerTables,
+                            ChangerTables = changerTables!,
                         };
 
                         s_diagnosticListener.Write(ArsDiagnosticNames.CompleteTransactionName, arsCommandEventData);

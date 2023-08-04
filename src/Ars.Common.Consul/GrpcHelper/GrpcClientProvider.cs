@@ -16,15 +16,15 @@ using System.Threading.Tasks;
 
 namespace Ars.Common.Consul.GrpcHelper
 {
-    internal class GrpcClientProvider : IGrpcClientProvider, ISingletonDependency
+    internal class GrpcClientProvider : IGrpcClientProviderByConsul, ISingletonDependency
     {
         private readonly IConsulDiscoverConfiguration _options;
         private readonly IGrpcMetadataTokenProvider _grpcCallOptionsProvider;
-        private readonly IHttpClientProviderUseConsul _httpClientProvider;
+        private readonly IHttpClientProviderByConsul _httpClientProvider;
         public GrpcClientProvider(
             IConsulDiscoverConfiguration options,
             IGrpcMetadataTokenProvider grpcCallOptionsProvider,
-            IHttpClientProviderUseConsul httpClientProvider)
+            IHttpClientProviderByConsul httpClientProvider)
         {
             _options = options;
             _grpcCallOptionsProvider = grpcCallOptionsProvider;
@@ -77,7 +77,7 @@ namespace Ars.Common.Consul.GrpcHelper
             if (configuration.UseHttps)
             {
                 handler.ClientCertificates.Add(
-                    Certificate.Get(configuration.CertificatePath, configuration.CertificatePassWord));
+                    Certificate.Get(configuration.CertificatePath!, configuration.CertificatePassWord!));
                 handler.ServerCertificateCustomValidationCallback =
                     HttpClientHandler.DangerousAcceptAnyServerCertificateValidator;
             }

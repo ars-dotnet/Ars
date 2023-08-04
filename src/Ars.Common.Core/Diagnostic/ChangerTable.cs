@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore.ChangeTracking;
-using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,8 +10,6 @@ namespace Ars.Common.Core.Diagnostic
     public class ChangerTable
     {
         public string TableName { get; set; }
-
-        public EntityEntry EntityEntry { get; set; }
 
         public DiagnosticEntityState EntityState { get; set; }
 

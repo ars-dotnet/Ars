@@ -308,7 +308,7 @@ namespace Ars.Common.EFCore
             }
         }
 
-        private IList<ChangerTable> _changerTables;
+        private IList<EFCoreChangerTable>? _changerTables = null;
 
         protected virtual void AddChangerTables(EntityEntry entityEntry) 
         {
@@ -324,11 +324,10 @@ namespace Ars.Common.EFCore
 
         protected virtual void CreateChangerTable(EntityEntry entityEntry) 
         {
-            ChangerTable changerTable = new ChangerTable
+            EFCoreChangerTable changerTable = new EFCoreChangerTable
             {
                 TableName = entityEntry.Metadata.GetDefaultTableName() 
                          ?? entityEntry.Entity.GetType().Name,
-                EntityEntry = entityEntry,
                 EntityState = GetDiagnosticEntityState(entityEntry.State),
                 OriginalValues = 
                     entityEntry.State == EntityState.Added 
@@ -338,8 +337,10 @@ namespace Ars.Common.EFCore
                     entityEntry.State == EntityState.Deleted 
                     ? null
                     : GetCurrentEntryValue(entityEntry),
+
+                EntityEntry = entityEntry,
             };
-            _changerTables ??= new List<ChangerTable>();
+            _changerTables ??= new List<EFCoreChangerTable>();
             _changerTables.Add(changerTable);
         }
 
@@ -367,7 +368,7 @@ namespace Ars.Common.EFCore
             return value;
         }
 
-        public virtual IEnumerable<ChangerTable> GetChangerTables() 
+        public virtual IEnumerable<ChangerTable>? GetChangerTables() 
         {
             if (_changerTables.HasNotValue())
                 return _changerTables;
@@ -382,6 +383,7 @@ namespace Ars.Common.EFCore
                               keys.HasValue() &&
                               (!key.Item2.ToString()?.Equals(table.CurrentValues![key.Item1]?.ToString()) ?? false)
                          select new { table, primaryKeyValue = key };
+
             foreach (var item in tables)
             {
                 item.table.CurrentValues![item.primaryKeyValue.Item1] = JToken.FromObject(item.primaryKeyValue.Item2);

@@ -14,12 +14,18 @@ namespace Ars.Common.Core.Configs
 
     public interface IConsulConfiguration
     {
+        /// <summary>
+        /// 服务名称
+        /// </summary>
         string ServiceName { get; }
 
+        /// <summary>
+        /// consul服务的地址
+        /// </summary>
         string ConsulAddress { get; }
     }
 
-    public class ConsulConfiguration
+    public class ConsulConfiguration : IConsulConfiguration
     {
         /// <summary>
         /// 被调用的服务名称
@@ -33,7 +39,6 @@ namespace Ars.Common.Core.Configs
         /// </summary>
         public CommunicationConfiguration Communication { get; set; }
     }
-
 
     public class CommunicationConfiguration : IArsCertificateConfiguration
     {

@@ -13,13 +13,13 @@ using System.Threading.Tasks;
 
 namespace Ars.Common.Consul.HttpClientHelper
 {
-    internal class HttpClientProviderUseConsul : IHttpClientProviderUseConsul, ISingletonDependency
+    internal class HttpClientProvider : IHttpClientProviderByConsul, ISingletonDependency
     {
         private readonly ConsulHelper _consulHelper;
         private readonly IConsulDiscoverConfiguration _options;
         private readonly IHttpClientFactory _httpClientFactory;
         private readonly IToken _token;
-        public HttpClientProviderUseConsul(
+        public HttpClientProvider(
             ConsulHelper consulHelper,
             IConsulDiscoverConfiguration option,
             IHttpClientFactory httpClientFactory,
