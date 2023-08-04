@@ -28,6 +28,7 @@ PM> Install-Package Ars.Common.EFCore
 PM> Install-Package Ars.Common.Redis
 PM> Install-Package Ars.Common.SignalR
 PM> Install-Package Ars.Common.SkyWalking
+PM> Install-Package Ars.Common.Cap
 ```
 
 ### Configuration
