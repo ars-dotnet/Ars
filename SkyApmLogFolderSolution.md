@@ -1,5 +1,5 @@
 
-## 1.ĞÂ½¨ÀàMyLoggerFactoryÊµÏÖSkyApm.Logging.ILoggerFactory½Ó¿Ú.Èç¹ûÄÚÈİ±¨´íÕÒ²»µ½ÒıÓÃ£¬Çë¿´²½Öè5.
+## 1.æ–°å»ºç±»MyLoggerFactoryå®ç°SkyApm.Logging.ILoggerFactoryæ¥å£.å¦‚æœå†…å®¹æŠ¥é”™æ‰¾ä¸åˆ°å¼•ç”¨ï¼Œè¯·çœ‹æ­¥éª¤5.
 
 ```
 using Serilog.Events;
@@ -31,7 +31,7 @@ namespace ApmLogger
                 .WithProperty(nameof(instrumentationConfig.ServiceName),
                     instrumentationConfig.ServiceName).Enrich
                 .FromLogContext().WriteTo.Async(o =>
-                    o.File(string.Format(_loggingConfig.FilePath, DateTime.Now.ToString("yyyyMM")), level, outputTemplate, flushToDiskInterval: TimeSpan.FromMilliseconds(500), rollingInterval: RollingInterval.Infinite))
+                    o.File(string.Format(_loggingConfig.FilePath, DateTime.Now.ToString("yyyyMMdd")), level, outputTemplate, flushToDiskInterval: TimeSpan.FromMilliseconds(500), rollingInterval: RollingInterval.Infinite))
                 .CreateLogger());
         }
 
@@ -51,7 +51,7 @@ namespace ApmLogger
 ```
 
 
-## 2.Ìí¼ÓÀàMyLoggerÊµÏÖSkyApm.Logging.ILogger½Ó¿Ú
+## 2.æ·»åŠ ç±»MyLoggerå®ç°SkyApm.Logging.ILoggeræ¥å£
 
 ```
 using MSLogger = Microsoft.Extensions.Logging.ILogger;
@@ -94,12 +94,12 @@ namespace ApmLogger
 }
 ```
 
-## 3.Program.csÌæ»»·şÎñ
+## 3.Program.csæ›¿æ¢æœåŠ¡
 ```
 builder.Services.Replace(ServiceDescriptor.Singleton<SkyApm.Logging.ILoggerFactory, MyLoggerFactory>());
 ```
 
-## 4.ĞŞ¸Äskyapm.jsonÅäÖÃÎÄ¼şÖĞLogging:FilePathµÄ¹æÔò
+## 4.ä¿®æ”¹skyapm.jsoné…ç½®æ–‡ä»¶ä¸­Logging:FilePathçš„è§„åˆ™
 ```
     "Logging": {
       "Level": "Information",
@@ -107,13 +107,13 @@ builder.Services.Replace(ServiceDescriptor.Singleton<SkyApm.Logging.ILoggerFacto
     },
 ```
 
-## 5.Èç¹û±¨´íÕÒ²»µ½ÒıÓÃ£¬ÔòÌí¼ÓÒÔÏÂÒıÓÃ
+## 5.å¦‚æœæŠ¥é”™æ‰¾ä¸åˆ°å¼•ç”¨ï¼Œåˆ™æ·»åŠ ä»¥ä¸‹å¼•ç”¨
 ```
     <PackageReference Include="Serilog.Sinks.Async" Version="1.5.0" />
     <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
 ```
 
-## 6.Èç¹ûÃ¿ÌìµÄÈÕÖ¾ÎÄ¼şÂ·¾¶Ã»ÓĞ¸üĞÂ£¬ÔòÀàMyLoggerFactory×öÒÔÏÂµ÷Õû
+## 6.å¦‚æœæ¯å¤©çš„æ—¥å¿—æ–‡ä»¶è·¯å¾„æ²¡æœ‰æ›´æ–°ï¼Œåˆ™ç±»MyLoggerFactoryåšä»¥ä¸‹è°ƒæ•´
 ```
 using Serilog.Events;
 using Serilog;
