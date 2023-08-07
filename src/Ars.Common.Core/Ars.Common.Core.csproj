@@ -26,10 +26,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Ars.Commom.Tool\Ars.Common.Tool.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Include="..\..\logo.png">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
@@ -38,6 +34,10 @@
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Ars.Commom.Tool\Ars.Common.Tool.csproj" />
   </ItemGroup>
 
 </Project>

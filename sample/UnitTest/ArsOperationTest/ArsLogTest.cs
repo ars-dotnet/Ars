@@ -18,6 +18,7 @@ namespace ArsTest.ArsTests
             IHost host = Host.CreateDefaultBuilder()
              .ConfigureAppConfiguration(builder =>
              {
+
              })
              .ConfigureServices((builder, service) =>
              {
