@@ -6,9 +6,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ArsWebApiService.Controllers
 {
-    [ApiController]
-    [Route("[controller]/[action]")]
-    public class RedisController : Controller
+    /// <summary>
+    /// redis test controller
+    /// </summary>
+    public class RedisController : ArsWebApiBaseController
     {
         [Autowired]
         public IArsCacheProvider ArsCacheProvider { get; set; }

@@ -14,7 +14,7 @@ namespace Ars.Common.Core.Localization.Extension
 {
     public static class IServiceCollectionExtension
     {
-        public static IArsServiceBuilder AddArsLocalization(this IArsServiceBuilder arsServiceProvider)
+        public static IArsWebApplicationBuilder AddArsLocalization(this IArsWebApplicationBuilder arsServiceProvider)
         {
            var arsLocalizationOption = arsServiceProvider.Configuration
                 .GetSection(nameof(ArsLocalizationConfiguration))

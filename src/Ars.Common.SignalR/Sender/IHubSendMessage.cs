@@ -29,7 +29,7 @@ namespace Ars.Common.SignalR.Sender
         /// <param name="method"></param>
         /// <param name="message"></param>
         /// <returns></returns>
-        Task SendMessageToAllClientsAsync(string method, string message);
+        Task SendMessageToAllClientsAsync(string method, object? message);
 
         /// <summary>
         /// 发送指定客户端
@@ -38,7 +38,7 @@ namespace Ars.Common.SignalR.Sender
         /// <param name="connectionId"></param>
         /// <param name="message"></param>
         /// <returns></returns>
-        Task SendMessageToClientAsync(string method, string connectionId, string message);
+        Task SendMessageToClientAsync(string method, string connectionId, object? message);
 
         /// <summary>
         /// 发送指定用户
@@ -47,7 +47,7 @@ namespace Ars.Common.SignalR.Sender
         /// <param name="userId"></param>
         /// <param name="message"></param>
         /// <returns></returns>
-        Task SendMessageToUserAsync(string method, string userId, string message);
+        Task SendMessageToUserAsync(string method, string userId, object? message);
 
         /// <summary>
         /// 发送指定组
@@ -56,6 +56,6 @@ namespace Ars.Common.SignalR.Sender
         /// <param name="groupName"></param>
         /// <param name="message"></param>
         /// <returns></returns>
-        Task SendMessageToGroupAsync(string method, string groupName, string message);
+        Task SendMessageToGroupAsync(string method, string groupName, object? message);
     }
 }

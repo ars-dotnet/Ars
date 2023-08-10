@@ -89,7 +89,7 @@ namespace Ars.Common.SignalR.Hubs
         /// <param name="method"></param>
         /// <param name="message"></param>
         /// <returns></returns>
-        public virtual Task SendMessageToAllClientsAsync(string method, string message)
+        public virtual Task SendMessageToAllClientsAsync(string method, object? message)
         {
             return _hubContext.Clients.All.SendAsync(method, message);
         }
@@ -101,7 +101,7 @@ namespace Ars.Common.SignalR.Hubs
         /// <param name="connectionId"></param>
         /// <param name="message"></param>
         /// <returns></returns>
-        public virtual async Task SendMessageToClientAsync(string method, string connectionId, string message)
+        public virtual async Task SendMessageToClientAsync(string method, string connectionId, object? message)
         {
             if (await _cacheManager.ClientIsOnline(Terminal, connectionId))
             {
@@ -118,7 +118,7 @@ namespace Ars.Common.SignalR.Hubs
         /// <param name="userId"></param>
         /// <param name="message"></param>
         /// <returns></returns>
-        public async Task SendMessageToUserAsync(string method, string userId, string message)
+        public async Task SendMessageToUserAsync(string method, string userId, object? message)
         {
             if (await _cacheManager.UserIsOnline(Terminal, userId))
             {
@@ -135,7 +135,7 @@ namespace Ars.Common.SignalR.Hubs
         /// <param name="groupName"></param>
         /// <param name="message"></param>
         /// <returns></returns>
-        public virtual Task SendMessageToGroupAsync(string method, string groupName, string message)
+        public virtual Task SendMessageToGroupAsync(string method, string groupName, object? message)
         {
             return _hubContext.Clients.Group(groupName).SendAsync(method, message);
         }
@@ -153,6 +153,7 @@ namespace Ars.Common.SignalR.Hubs
             {
                 int time = Interlocked.Increment(ref _heartBeatIntervalSeconds);
 
+                //每15s刷新一下过期时间
                 if (time % HeartBeatIntervalSeconds == 0)
                 {
                     var context = obj.As<HttpContext>();

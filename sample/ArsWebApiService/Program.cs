@@ -34,6 +34,7 @@ using Ars.Common.Host.Extension;
 using Ars.Common.Cap.Extensions;
 using Ars.Common.Core.Localization.Extension;
 using Ars.Common.Core.Extensions;
+using static IdentityModel.ClaimComparer;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -98,11 +99,11 @@ var arsbuilder =
 
         config.AddArsSkyApm();
 
-        config.AddArsCap(option => 
+        config.AddArsCap(option =>
         {
             option.UseEntityFramework<MyDbContext>();
 
-            option.UseRabbitMQ(mq => 
+            option.UseRabbitMQ(mq =>
             {
                 mq.HostName = "localhost";
                 mq.UserName = "guest";
@@ -131,7 +132,7 @@ builder.Services.AddCors(cors =>
             .AllowAnyHeader()
             .AllowCredentials()
             .AllowAnyMethod()
-            .WithOrigins("https://172.20.64.1:7096", "http://172.20.64.1:5133", "http://192.168.110.65:5133", "http://192.168.110.65:8080");
+            .WithOrigins("http://127.0.0.1:63042");
     });
 });
 
@@ -174,18 +175,21 @@ builder.WebHost.UseArsKestrel(builder.Configuration);
 //builder.Services.AddDbContext<MyDbContext>();
 
 builder.Services.AddScoped<IHubSendMessage, MyWebHub>();
-builder.Services.AddScoped<IWebServices,WebServices>();
+builder.Services.AddScoped<IWebServices, WebServices>();
 
+// Configure the HTTP request pipeline.
 var app = builder.Build();
 
 app.UsArsExceptionMiddleware();
 
-// Configure the HTTP request pipeline.
-//if (app.Environment.IsDevelopment())
-//{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-//}
+app.UseSwagger(option =>
+{
+    option.RouteTemplate = "Api/ArsWebApi/swagger/{documentName}/swagger.json";
+});
+app.UseSwaggerUI(option =>
+{
+    option.SwaggerEndpoint("/Api/ArsWebApi/swagger/v1/swagger.json", "ArsWebApi - v1"); //这里的v1表示文档名称
+});
 
 app.UseCors("*");
 string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "wwwroot", "AppDownload");
@@ -210,13 +214,13 @@ app.UseStaticFiles(new StaticFileOptions
 app.UseArsCore().UseArsUploadExcel();
 
 app.MapControllers();
-app.MapHub<MyWebHub>("/ars/web/hub");
-app.MapHub<ArsAndroidHub>("/ars/android/hub");
+app.MapHub<MyWebHub>("/ws/webapi/web/hub");
+app.MapHub<ArsAndroidHub>("/ws/webapi/android/hub");
 
 app.MapGet("/", context => Task.Run(() => context.Response.Redirect("/swagger")));
 app.Map("/healthCheck", builder => builder.Run(context => context.Response.WriteAsync("ok")));
 
 //app.UseSoapEndpoint<IWebServices>("/StudentService.asmx", new BasicHttpBinding(), SoapSerializer.XmlSerializer);
-((IApplicationBuilder)app).UseSoapEndpoint<IWebServices>("/WebServices.asmx", new SoapEncoderOptions(), serializer : SoapSerializer.XmlSerializer);
+((IApplicationBuilder)app).UseSoapEndpoint<IWebServices>("/WebServices.asmx", new SoapEncoderOptions(), serializer: SoapSerializer.XmlSerializer);
 
 app.Run();

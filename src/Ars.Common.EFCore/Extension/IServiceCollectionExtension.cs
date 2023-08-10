@@ -15,8 +15,8 @@ namespace Ars.Common.EFCore.Extension
 {
     public static class IServiceCollectionExtension
     {
-        public static IArsServiceBuilder AddArsDbContext<TDbContext>(
-            this IArsServiceBuilder arsServiceBuilder,
+        public static IArsWebApplicationBuilder AddArsDbContext<TDbContext>(
+            this IArsWebApplicationBuilder arsServiceBuilder,
             Action<DbContextOptionsBuilder>? optAction = null)
             where TDbContext : ArsDbContext
         {

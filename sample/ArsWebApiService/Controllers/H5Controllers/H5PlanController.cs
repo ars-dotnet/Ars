@@ -7,11 +7,9 @@ using Newtonsoft.Json;
 
 namespace ArsWebApiService.Controllers.H5Controllers
 {
-    [ApiController]
-    [Route("Api/[controller]/[action]")]
     [Authorize("default")]
     [ExportController]
-    public class H5PlanController : ControllerBase
+    public class H5PlanController : ArsWebApiBaseController
     {
         [ExportAction]
         [HttpGet]

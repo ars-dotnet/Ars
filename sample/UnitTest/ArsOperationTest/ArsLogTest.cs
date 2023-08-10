@@ -7,6 +7,7 @@ using Ars.Common.Tool.Loggers;
 using Ars.Common.Tool.Extension;
 using Newtonsoft.Json;
 using System.Runtime.CompilerServices;
+using System.Security.Policy;
 
 namespace ArsTest.ArsTests
 {
@@ -138,6 +139,65 @@ namespace ArsTest.ArsTests
                 CreationTime = DateTime.Now;
                 this.Data = new object();
             }
+        }
+
+        /// <summary>
+        /// 测试& |
+        /// 枚举值为2的指数倍
+        /// 转化为2进制来运算
+        /// </summary>
+        [Fact]
+        public void Test5()
+        {
+            // &
+            Types p1 = Types.First & Types.None;
+            Types p2 = Types.First & Types.None & Types.Second;
+            Types p3 = Types.First & Types.Second;
+            Assert.True(p1 == Types.None);
+            Assert.True(p2 == Types.None);
+            Assert.True(p3 == Types.None);
+
+            // | 
+            Types p11 = Types.None | Types.First;
+            Types p12 = Types.None | Types.First | Types.Second | Types.Fiveth;
+            Assert.True(p11 == Types.First);
+            Assert.False(p12 == (Types.First | Types.Second));
+            Assert.True(p12 == (Types.First | Types.Second | Types.Fiveth));
+
+            // | - &
+            Types p21 = Types.First & p11;
+            Types p22 = Types.Fiveth & p12;
+            Assert.True(p21 == Types.First);
+            Assert.True(p22 == Types.Fiveth);
+
+            Types p23 = Types.None | Types.First | Types.Second | Types.Sixth;
+            Assert.True((p12 & p23) == (Types.First | Types.Second));
+        }
+
+        [Flags]
+        public enum Types 
+        {
+            None = 0,
+
+            First = 2,
+
+            Second = 4,
+
+            Third = 8,
+
+            /// <summary>
+            /// 1*16^1 + 0*16*0 = 16
+            /// </summary>
+            Fourth = 0x10,
+
+            /// <summary>
+            /// 2*16^1 + 0*16*0 = 32
+            /// </summary>
+            Fiveth = 0x20,
+
+            Sixth = 0x40,
+
+            Seventh = 0x80,
         }
     }
 }

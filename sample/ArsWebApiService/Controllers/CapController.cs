@@ -9,9 +9,7 @@ namespace ArsWebApiService.Controllers
     /// <summary>
     /// cap test controller
     /// </summary>
-    [ApiController]
-    [Route("Api/[controller]/[action]")]
-    public class CapController : ControllerBase
+    public class CapController : ArsWebApiBaseController
     {
         /// <summary>
         /// cap发布测试

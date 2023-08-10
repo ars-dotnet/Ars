@@ -23,7 +23,7 @@ namespace Ars.Common.IdentityServer4
             _configure = configure;
         }
 
-        public void AddService(IArsServiceBuilder services)
+        public void AddService(IArsWebApplicationBuilder services)
         {
             services.AddArsIdentityClient(IdentityServerAuthenticationDefaults.AuthenticationScheme,_configureOptions, _configure);
         }

@@ -18,7 +18,7 @@ namespace Ars.Common.Redis
             _config = config;
         }
 
-        public void AddService(IArsServiceBuilder services)
+        public void AddService(IArsWebApplicationBuilder services)
         {
             services.AddArsRedis(_config);
         }

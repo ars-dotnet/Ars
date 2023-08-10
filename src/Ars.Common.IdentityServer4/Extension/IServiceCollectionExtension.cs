@@ -36,8 +36,8 @@ namespace Ars.Common.IdentityServer4.Extension
         /// <param name="action"></param>
         /// <param name="func">自定义实现类</param>
         /// <returns></returns>
-        public static IArsServiceBuilder AddArsIdentityServer(
-            this IArsServiceBuilder builder,
+        public static IArsWebApplicationBuilder AddArsIdentityServer(
+            this IArsWebApplicationBuilder builder,
             Func<IServiceProvider,IResourceOwnerPasswordValidator>? func = null)
         {
             var services = builder.Services;
@@ -116,8 +116,8 @@ namespace Ars.Common.IdentityServer4.Extension
             return builder;
         }
 
-        public static IArsServiceBuilder AddArsIdentityClient(
-            this IArsServiceBuilder builder,
+        public static IArsWebApplicationBuilder AddArsIdentityClient(
+            this IArsWebApplicationBuilder builder,
             string defaultScheme = IdentityServerAuthenticationDefaults.AuthenticationScheme,
             Action<IdentityServerAuthenticationOptions>? configureOptions = null,
             Action<AuthorizationOptions>? configure = null)  
@@ -167,7 +167,7 @@ namespace Ars.Common.IdentityServer4.Extension
             {
                 configure = t => 
                 {
-                    t.AddPolicy("default",policy =>policy.AddRequirements(new DefaultAuthorizationRequirement()));
+                    t.AddPolicy("default",policy => policy.AddRequirements(new DefaultAuthorizationRequirement()));
                 };
             }
 

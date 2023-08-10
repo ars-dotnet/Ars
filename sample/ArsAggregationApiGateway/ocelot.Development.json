@@ -1,0 +1,87 @@
+{
+  "Routes": [
+    //ArsWebApi api
+    {
+      "UpstreamPathTemplate": "/Api/ArsWebApi/{url}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ],
+      "DownstreamPathTemplate": "/Api/ArsWebApi/{url}",
+      "DownstreamScheme": "http",
+
+      //-- ServiceDiscovery start -- 
+      "ServiceName": "arswebapiservice",
+      "UseServiceDiscovery": true,
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin" //轮询
+      },
+      //-- ServiceDiscovery end -- 
+
+      //swagger key
+      "SwaggerKey": "ArsWebApiService"
+    },
+    //ArsWebApi swagger
+    {
+      "UpstreamPathTemplate": "/swagger/docs/v1/ArsWebApi",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamPathTemplate": "/Api/ArsWebApi/swagger/v1/swagger.json",
+      "DownstreamScheme": "http",
+
+      "ServiceName": "arswebapiservice",
+      "UseServiceDiscovery": true,
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin" //轮询
+      },
+
+      "SwaggerKey": "ArsWebApiService"
+    },
+    //ArsWebApi ws
+    {
+      "UpstreamPathTemplate": "/ws/webapi/{url}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ],
+      "DownstreamPathTemplate": "/ws/webapi/{url}",
+      "DownstreamScheme": "ws",
+
+      "ServiceName": "arswebapiservice",
+      "UseServiceDiscovery": true,
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin" //轮询
+      },
+
+      "SwaggerKey": "ArsWebApiService",
+
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "1s",
+        "PeriodTimespan": 1,
+        "Limit": 50
+      }
+    },
+  ],
+  "SwaggerEndPoints": [
+    {
+      "Key": "ArsWebApiService",
+      "Config": [
+        {
+          "Name": "ArsWebApiService Swagger",
+          "Version": "v1",
+
+          //ServiceDiscovery获取host
+          "Service": {
+            "Name": "arswebapiservice",
+            "Path": "/Api/ArsWebApi/swagger/v1/swagger.json"
+          }
+        }
+      ],
+      "TransformByOcelotConfig": false
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "https://127.0.0.1:5225",
+    "ServiceDiscoveryProvider": {
+      "Scheme": "http",
+      "Host": "127.0.0.1",
+      "Port": 8500,
+      "Type": "Consul"
+    }
+  }
+}

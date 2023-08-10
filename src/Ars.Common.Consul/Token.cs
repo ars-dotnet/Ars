@@ -10,6 +10,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authentication;
 
 namespace Ars.Common.Consul
 {
@@ -18,11 +20,16 @@ namespace Ars.Common.Consul
         private readonly IMemoryCache _memoryCache;
         private readonly IHttpClientFactory _httpClientFactory;
         private readonly SemaphoreSlim SemaphoreSlim;
+        private readonly IHttpContextAccessor _httpContextAccessor;
+
         public Token(IMemoryCache memoryCache,
-            IHttpClientFactory httpClientFactory)
+            IHttpClientFactory httpClientFactory,
+            IHttpContextAccessor httpContextAccessor)
         {
             _memoryCache = memoryCache;
             _httpClientFactory = httpClientFactory;
+            _httpContextAccessor = httpContextAccessor;
+
             SemaphoreSlim = new SemaphoreSlim(1, 1);
         }
 
@@ -38,6 +45,13 @@ namespace Ars.Common.Consul
                         if (_memoryCache.TryGetValue(option.ServiceName, out value))
                         {
                             return value;
+                        }
+
+                        string? access_token = await (_httpContextAccessor?.HttpContext?.GetTokenAsync("access_token") 
+                                                        ?? Task.FromResult<string?>(default));
+                        if (access_token.IsNotNullOrEmpty())
+                        {
+                            return access_token!;
                         }
 
                         //获取token

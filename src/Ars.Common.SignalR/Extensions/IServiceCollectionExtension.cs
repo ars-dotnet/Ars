@@ -9,7 +9,7 @@ namespace Ars.Common.SignalR.Extensions
 {
     public static class IServiceCollectionExtension
     {
-        public static IArsServiceBuilder AddArsSignalR(this IArsServiceBuilder arsServiceBuilder,Action<ArsSignalRConfiguration>? action = null) 
+        public static IArsWebApplicationBuilder AddArsSignalR(this IArsWebApplicationBuilder arsServiceBuilder,Action<ArsSignalRConfiguration>? action = null) 
         {
             ArsSignalRConfiguration config = new ArsSignalRConfiguration();
             action?.Invoke(config);

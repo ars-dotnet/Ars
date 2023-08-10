@@ -10,7 +10,7 @@ namespace Ars.Common.SkyWalking.Extensions
 {
     internal class ArsSkyWalkingServiceExtension : IArsServiceExtension
     {
-        public void AddService(IArsServiceBuilder services)
+        public void AddService(IArsWebApplicationBuilder services)
         {
             services.AddArsSkyApm();
         }

@@ -1,16 +1,12 @@
 ﻿using Ars.Common.Consul.GrpcHelper;
 using Microsoft.AspNetCore.Mvc;
 using GrpcGreeter.greet;
-using Grpc.Net.Client;
 using Grpc.Core;
-using Channel = System.Threading.Channels.Channel;
-using SkyApm.Tracing;
-using SkyApm.Tracing.Segments;
 
 namespace GrpcClients.Controllers
 {
     [ApiController]
-    [Route("[controller]/[action]")]
+    [Route("Api/GrpcClient/[controller]/[action]")]
     public class GrpcApiController : Controller
     {
         private readonly IGrpcClientProviderByConsul _grpcClientProvider;

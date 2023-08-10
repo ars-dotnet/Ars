@@ -44,6 +44,11 @@ namespace Ars.Common.Host
         /// <summary>
         /// 
         /// </summary>
+        public IArsOcelotConfiguration? ArsOcelotConfiguration { get; set; } = default;
+
+        /// <summary>
+        /// 
+        /// </summary>
         public ArsConfiguration()
         {
             ArsServiceExtensions = new List<IArsServiceExtension>(0);

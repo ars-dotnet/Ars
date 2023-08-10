@@ -5,7 +5,7 @@ namespace Ars.Common.Core
 {
     internal class ArsLocalizationServiceExtension : IArsServiceExtension
     {
-        public void AddService(IArsServiceBuilder services)
+        public void AddService(IArsWebApplicationBuilder services)
         {
             services.AddArsLocalization();
         }

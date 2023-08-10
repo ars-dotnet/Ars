@@ -17,8 +17,8 @@ namespace Ars.Common.Redis.RedisExtension
 {
     public static class IServiceCollectionExtension
     {
-        public static IArsServiceBuilder AddArsRedis(
-            this IArsServiceBuilder arsServiceBuilder, 
+        public static IArsWebApplicationBuilder AddArsRedis(
+            this IArsWebApplicationBuilder arsServiceBuilder, 
             Action<ICacheConfigurationProvider>? provider = null) 
         {
             var arsCacheOption = arsServiceBuilder.Configuration

@@ -6,16 +6,8 @@ namespace ArsWebApiService.Controllers
     /// <summary>
     /// 手动调度
     /// </summary>
-    [ApiController]
-    [Route("[controller]/[action]")]
-    public class HostController : Controller
+    public class HostController : ArsWebApiBaseController
     {
-        [HttpGet]
-        public IActionResult Index()
-        {
-            return View();
-        }
-
         /// <summary>
         /// 启动
         /// </summary>

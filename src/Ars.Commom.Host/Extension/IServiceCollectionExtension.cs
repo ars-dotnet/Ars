@@ -32,12 +32,13 @@ namespace Ars.Commom.Host.Extension
 {
     public static class IServiceCollectionExtension
     {
-        public static IArsServiceBuilder AddArserviceCore(
+        public static IArsWebApplicationBuilder AddArserviceCore(
             this IServiceCollection services,
             WebApplicationBuilder builder,
             Action<IArsConfiguration>? action = null)
         {
-            var arsbuilder = new ArsServiceBuilder(services, builder.Host, builder.Configuration);
+            var arsbuilder = new ArsWebApplicationBuilder(builder);
+
             services.AddSingleton<IArsSerializer, ArsSerializer>();
             services.AddSingleton<IArsConfiguration>(new ArsConfiguration());
 
@@ -45,7 +46,7 @@ namespace Ars.Commom.Host.Extension
             action += r => r.AddArsAspNetCore();
             action += r => r.AddArsAutofac();
 
-            using var scope = services.BuildServiceProvider().CreateScope();
+            using var scope = arsbuilder.ServiceProvider.CreateScope();
             IArsConfiguration arsConfig = scope.ServiceProvider.GetRequiredService<IArsConfiguration>();
             action?.Invoke(arsConfig);
 

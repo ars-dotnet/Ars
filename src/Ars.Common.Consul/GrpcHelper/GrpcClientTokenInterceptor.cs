@@ -36,7 +36,7 @@ namespace Ars.Common.Consul.GrpcHelper
                     .GetResult();
             }
             
-            if (null != metadata) 
+            if (null != metadata)
             {
                 if (context.Options.Headers.HasValue()) 
                 {
@@ -61,7 +61,7 @@ namespace Ars.Common.Consul.GrpcHelper
                             context.Options.Credentials));
             }
 
-            return base.AsyncUnaryCall(request, context, continuation);
+            return continuation(request,context);
         }
     }
 }

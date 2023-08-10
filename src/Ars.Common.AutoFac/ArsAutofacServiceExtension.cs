@@ -23,7 +23,7 @@ namespace Ars.Common.AutoFac
             _autowiredAction = action;
         }
 
-        public void AddService(IArsServiceBuilder arsServiceBuilder)
+        public void AddService(IArsWebApplicationBuilder arsServiceBuilder)
         {
             arsServiceBuilder.AddAutofac(_autowiredAction);
         }

@@ -19,7 +19,7 @@ namespace Ars.Common.SkyWalking.Extensions
         /// <param name="builder"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static IArsServiceBuilder AddArsSkyApm(this IArsServiceBuilder builder) 
+        public static IArsWebApplicationBuilder AddArsSkyApm(this IArsWebApplicationBuilder builder) 
         {
             var services = builder.Services;
             //using var scope = services.BuildServiceProvider().CreateScope();

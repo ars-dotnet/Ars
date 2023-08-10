@@ -11,10 +11,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ArsWebApiService.Controllers.H5Controllers
 {
-    [ApiController]
-    [Route("Api/[controller]/[action]")]
     [Authorize("default")]
-    public class H5DownloadController : Controller
+    public class H5DownloadController : ArsWebApiBaseController
     {
         [Autowired]
         public IRepository<AppVersion> _repo { get; set; }

@@ -23,6 +23,7 @@ builder.Services.AddSwaggerGen();
 builder.Services
     .AddArserviceCore(builder, config =>
     {
+        config.AddArsIdentityClient();
         config.AddArsConsulDiscoverClient();
         //config.AddArsSkyApm();
     });

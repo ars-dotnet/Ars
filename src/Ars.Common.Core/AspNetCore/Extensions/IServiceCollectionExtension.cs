@@ -16,7 +16,7 @@ namespace Ars.Common.Core.AspNetCore.Extensions
 {
     public static class IServiceCollectionExtension
     {
-        public static IArsServiceBuilder AddAseNetCore(this IArsServiceBuilder arsServiceBuilder) 
+        public static IArsWebApplicationBuilder AddAseNetCore(this IArsWebApplicationBuilder arsServiceBuilder) 
         {
             var services = arsServiceBuilder.Services;
             services.AddHttpContextAccessor();

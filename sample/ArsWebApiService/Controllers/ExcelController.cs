@@ -5,9 +5,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ArsWebApiService.Controllers
 {
-    [ApiController]
-    [Route("Api/[controller]/[action]")]
-    public class ExcelController : Controller
+    /// <summary>
+    /// excel test controller
+    /// </summary>
+    public class ExcelController : ArsWebApiBaseController
     {
         private readonly IExportManager _exportManager;
         public ExcelController(IExportManager exportManager)

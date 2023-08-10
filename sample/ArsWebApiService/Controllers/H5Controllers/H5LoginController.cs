@@ -9,8 +9,6 @@ using System.Text;
 
 namespace ArsWebApiService.Controllers.H5Controllers
 {
-    [ApiController]
-    [Route("Api/[controller]/[action]")]
     public class H5LoginController : MyControllerBase
     {
         [HttpPost]

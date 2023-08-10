@@ -23,7 +23,7 @@ namespace Ars.Common.Core.Extensions
         /// <param name="arsServiceBuilder"></param>
         /// <param name="assembly"></param>
         /// <returns></returns>
-        public static IArsServiceBuilder AddArsExportExcelService(this IArsServiceBuilder arsServiceBuilder, Assembly assembly)
+        public static IArsWebApplicationBuilder AddArsExportExcelService(this IArsWebApplicationBuilder arsServiceBuilder, Assembly assembly)
         {
             var services = arsServiceBuilder.Services;
             services.AddScoped<IExportManager, ExportManager>();
@@ -42,7 +42,7 @@ namespace Ars.Common.Core.Extensions
         /// </summary>
         /// <param name="arsServiceBuilder"></param>
         /// <returns></returns>
-        public static IArsServiceBuilder AddArsUploadExcelService(this IArsServiceBuilder arsServiceBuilder, Action<IArsUploadExcelConfiguration> action)
+        public static IArsWebApplicationBuilder AddArsUploadExcelService(this IArsWebApplicationBuilder arsServiceBuilder, Action<IArsUploadExcelConfiguration> action)
         {
             IArsUploadExcelConfiguration config = new ArsUploadExcelConfiguration();
             action(config);

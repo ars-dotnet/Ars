@@ -4,9 +4,10 @@ using Newtonsoft.Json;
 
 namespace ArsWebApiService.Controllers
 {
-    [ApiController]
-    [Route("[controller]/[action]")]
-    public class SignalRController : Controller
+    /// <summary>
+    /// signalr test controller
+    /// </summary>
+    public class SignalRController : ArsWebApiBaseController
     {
         private readonly IHubSenderProvider _hubSenderProvider;
         public SignalRController(IHubSenderProvider hubSenderProvider)

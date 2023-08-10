@@ -13,8 +13,9 @@ using System.Text;
 
 namespace ArsWebApiService.Controllers
 {
-    [Route("api/[controller]/[action]")]
-    [ApiController]
+    /// <summary>
+    /// 
+    /// </summary>
     public class IdentityServer4Controller : MyControllerBase
     {
         [Authorize("default")]

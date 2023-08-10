@@ -17,8 +17,8 @@ namespace Ars.Common.AutoFac.Extension
 {
     public static class IServiceCollectionExtension
     {
-        public static IArsServiceBuilder AddAutofac(
-            this IArsServiceBuilder arsServiceBuilder,
+        public static IArsWebApplicationBuilder AddAutofac(
+            this IArsWebApplicationBuilder arsServiceBuilder,
             Action<PropertyAutowiredOption>? _autowiredAction) 
         {
             var services = arsServiceBuilder.Services;

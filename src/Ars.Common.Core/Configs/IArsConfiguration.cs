@@ -66,5 +66,10 @@ namespace Ars.Common.Core.Configs
         /// Redis config
         /// </summary>
         IArsRedisConfiguration? ArsRedisConfiguration { get; set; }
+
+        /// <summary>
+        /// Ocelot config
+        /// </summary>
+        IArsOcelotConfiguration? ArsOcelotConfiguration { get; set; }
     }
 }

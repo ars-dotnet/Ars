@@ -24,8 +24,9 @@ using System.Transactions;
 
 namespace MyApiWithIdentityServer4.Controllers
 {
-    [ApiController]
-    [Route("Api/[controller]/[action]")]
+    /// <summary>
+    /// dbcontext test controller
+    /// </summary>
     public class DbContextController : MyControllerBase
     {
         private IHttpClientFactory _httpClientFactory;

@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MyApiWithIdentityServer4.Controllers
 {
+    [ApiController]
+    [Route("Api/ArsWebApi/[controller]/[action]")]
     public abstract class MyControllerBase : ControllerBase, IScopedDependency
     {
         [Autowired]

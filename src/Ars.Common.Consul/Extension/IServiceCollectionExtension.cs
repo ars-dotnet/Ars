@@ -18,7 +18,7 @@ namespace Ars.Common.Consul.Extension
 {
     public static class IServiceCollectionExtension
     {
-        public static IArsServiceBuilder AddArsConsulDiscoverClient(this IArsServiceBuilder arsServiceBuilder)
+        public static IArsWebApplicationBuilder AddArsConsulDiscoverClient(this IArsWebApplicationBuilder arsServiceBuilder)
         {
             var services = arsServiceBuilder.Services;
             services.AddSingleton<ConsulHelper>();
@@ -53,7 +53,7 @@ namespace Ars.Common.Consul.Extension
             return arsServiceBuilder;
         }
 
-        public static IArsServiceBuilder AddArsConsulRegisterServer(this IArsServiceBuilder arsServiceBuilder)
+        public static IArsWebApplicationBuilder AddArsConsulRegisterServer(this IArsWebApplicationBuilder arsServiceBuilder)
         {
             var services = arsServiceBuilder.Services;
             var config = arsServiceBuilder.Configuration
@@ -86,7 +86,7 @@ namespace Ars.Common.Consul.Extension
             return arsServiceBuilder;
         }
 
-        public static IArsServiceBuilder AddArsGrpcHttpClient(this IArsServiceBuilder arsServiceBuilder)
+        public static IArsWebApplicationBuilder AddArsGrpcHttpClient(this IArsWebApplicationBuilder arsServiceBuilder)
         {
             var services = arsServiceBuilder.Services;
 

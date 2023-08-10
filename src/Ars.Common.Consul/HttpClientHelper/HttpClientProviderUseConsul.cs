@@ -3,6 +3,7 @@ using Ars.Common.Core.Configs;
 using Ars.Common.Core.IDependency;
 using Ars.Common.Tool;
 using Ars.Common.Tool.Tools;
+using Microsoft.AspNetCore.Http;
 using NPOI.SS.Formula.Functions;
 using System;
 using System.Collections.Generic;

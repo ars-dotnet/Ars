@@ -18,7 +18,7 @@ namespace Ars.Common.Core.Extensions
         /// </summary>
         /// <param name="arsServiceBuilder"></param>
         /// <returns></returns>
-        public static IArsServiceBuilder AddArsHttpClient(this IArsServiceBuilder arsServiceBuilder)
+        public static IArsWebApplicationBuilder AddArsHttpClient(this IArsWebApplicationBuilder arsServiceBuilder)
         {
             var services = arsServiceBuilder.Services;
 

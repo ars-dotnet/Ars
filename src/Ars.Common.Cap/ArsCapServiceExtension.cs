@@ -18,7 +18,7 @@ namespace Ars.Common.Cap
             _setupAction = setupAction;
         }
 
-        public void AddService(IArsServiceBuilder services)
+        public void AddService(IArsWebApplicationBuilder services)
         {
             services.AddArsCap(_setupAction);
         }

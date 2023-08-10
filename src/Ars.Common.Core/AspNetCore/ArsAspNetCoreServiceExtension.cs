@@ -15,7 +15,7 @@ namespace Ars.Common.Core.AspNetCore
 {
     internal class ArsAspNetCoreServiceExtension : IArsServiceExtension
     {
-        public void AddService(IArsServiceBuilder arsServiceBuilder)
+        public void AddService(IArsWebApplicationBuilder arsServiceBuilder)
         {
             arsServiceBuilder.AddAseNetCore();
         }
