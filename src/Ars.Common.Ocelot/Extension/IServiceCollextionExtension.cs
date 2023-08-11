@@ -37,6 +37,7 @@ namespace Ars.Common.Ocelot.Extension
             if (ocelotGlobalConfig.ServiceDiscoveryProvider?.Type?.ToLower()?.Contains("consul") ?? false) 
             {
                 ocelotbuilder.AddConsul();
+
                 ocelotbuilder.Services.Replace(ServiceDescriptor.Singleton(ConsulProviderFactory.Get));
             }
 
