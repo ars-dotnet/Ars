@@ -1169,6 +1169,56 @@
           }
         }
       },
+      "Prism.Container.Extensions/8.0.62": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "5.0.0",
+          "Prism.Core": "8.0.0.1909"
+        },
+        "compile": {
+          "lib/netstandard2.0/Prism.Container.Extensions.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Prism.Container.Extensions.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
+      },
+      "Prism.Core/8.0.0.1909": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Prism.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Prism.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
+      },
+      "Prism.Microsoft.DependencyInjection.Extensions/8.0.62": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection": "5.0.1",
+          "Prism.Container.Extensions": "8.0.62"
+        },
+        "compile": {
+          "lib/netstandard2.0/Prism.Microsoft.DependencyInjection.Extensions.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Prism.Microsoft.DependencyInjection.Extensions.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "build": {
+          "buildTransitive/Prism.Microsoft.DependencyInjection.Extensions.targets": {}
+        }
+      },
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
         "type": "package",
         "runtimeTargets": {
@@ -4629,6 +4679,67 @@
         "lib/netstandard2.0/BouncyCastle.Crypto.xml",
         "portable.bouncycastle.1.9.0.nupkg.sha512",
         "portable.bouncycastle.nuspec"
+      ]
+    },
+    "Prism.Container.Extensions/8.0.62": {
+      "sha512": "bAif3fg1+F+kVBW5UfpMqJfsz47ldC9Pw1elAOoWrPOOiNRpqHvA1KjKmrpQ3DH8KNJxOEdJBgnQzWstg86vRw==",
+      "type": "package",
+      "path": "prism.container.extensions/8.0.62",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net461/Prism.Container.Extensions.dll",
+        "lib/net461/Prism.Container.Extensions.pdb",
+        "lib/net461/Prism.Container.Extensions.xml",
+        "lib/net47/Prism.Container.Extensions.dll",
+        "lib/net47/Prism.Container.Extensions.pdb",
+        "lib/net47/Prism.Container.Extensions.xml",
+        "lib/netstandard2.0/Prism.Container.Extensions.dll",
+        "lib/netstandard2.0/Prism.Container.Extensions.pdb",
+        "lib/netstandard2.0/Prism.Container.Extensions.xml",
+        "prism-logo.png",
+        "prism.container.extensions.8.0.62.nupkg.sha512",
+        "prism.container.extensions.nuspec"
+      ]
+    },
+    "Prism.Core/8.0.0.1909": {
+      "sha512": "Ri+iSFvJiSKYdui7qtxi3uH9NImSZ8Jl/nOosxScSJseFwAc8Lz63JLXoqSAQglcX13DzZcAMzpKNuA9rCFiJg==",
+      "type": "package",
+      "path": "prism.core/8.0.0.1909",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "lib/net45/Prism.dll",
+        "lib/net45/Prism.pdb",
+        "lib/net45/Prism.xml",
+        "lib/net47/Prism.dll",
+        "lib/net47/Prism.pdb",
+        "lib/net47/Prism.xml",
+        "lib/netstandard2.0/Prism.dll",
+        "lib/netstandard2.0/Prism.pdb",
+        "lib/netstandard2.0/Prism.xml",
+        "prism-logo.png",
+        "prism.core.8.0.0.1909.nupkg.sha512",
+        "prism.core.nuspec"
+      ]
+    },
+    "Prism.Microsoft.DependencyInjection.Extensions/8.0.62": {
+      "sha512": "gbr58HEPRsFs5seTQ318SAispKyoXDmZow6PSvY6UH3vwSVoRRGg1qHo2PpZimBDkBZIOP5GVl52lslUpDoRRA==",
+      "type": "package",
+      "path": "prism.microsoft.dependencyinjection.extensions/8.0.62",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "ReadMe.txt",
+        "buildTransitive/PreserveContainerExtension.cs",
+        "buildTransitive/Prism.Microsoft.DependencyInjection.Extensions.targets",
+        "lib/netstandard2.0/Prism.Microsoft.DependencyInjection.Extensions.dll",
+        "lib/netstandard2.0/Prism.Microsoft.DependencyInjection.Extensions.pdb",
+        "lib/netstandard2.0/Prism.Microsoft.DependencyInjection.Extensions.xml",
+        "prism-logo.png",
+        "prism.microsoft.dependencyinjection.extensions.8.0.62.nupkg.sha512",
+        "prism.microsoft.dependencyinjection.extensions.nuspec"
       ]
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
@@ -8682,6 +8793,7 @@
       "Microsoft.Extensions.Logging.Abstractions >= 6.0.0",
       "Microsoft.Extensions.Logging.Log4Net.AspNetCore >= 6.0.0",
       "Microsoft.NET.Test.Sdk >= 17.3.2",
+      "Prism.Microsoft.DependencyInjection.Extensions >= 8.0.62",
       "coverlet.collector >= 3.1.2",
       "xunit >= 2.4.2",
       "xunit.runner.visualstudio >= 2.4.5"
@@ -8713,6 +8825,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -8754,6 +8867,10 @@
           "Microsoft.NET.Test.Sdk": {
             "target": "Package",
             "version": "[17.3.2, )"
+          },
+          "Prism.Microsoft.DependencyInjection.Extensions": {
+            "target": "Package",
+            "version": "[8.0.62, )"
           },
           "coverlet.collector": {
             "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",

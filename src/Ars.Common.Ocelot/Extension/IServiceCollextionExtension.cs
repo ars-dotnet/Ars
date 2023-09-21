@@ -27,14 +27,18 @@ namespace Ars.Common.Ocelot.Extension
             });
 
             var configuration = arsServiceBuilder.Configuration;
-            var ocelotGlobalConfig = configuration.GetSection(nameof(FileConfiguration.GlobalConfiguration)).Get<FileGlobalConfiguration>();
+
+            var ocelotGlobalConfig = configuration
+                .GetSection(nameof(FileConfiguration.GlobalConfiguration))
+                .Get<FileGlobalConfiguration>();
+
             if (null == ocelotGlobalConfig)
             {
                 throw new ArgumentNullException(nameof(FileConfiguration),"ocelot.json not be null");
             }
 
             var ocelotbuilder = arsServiceBuilder.Services.AddOcelot();
-            if (ocelotGlobalConfig.ServiceDiscoveryProvider?.Type?.ToLower()?.Contains("consul") ?? false) 
+            if (ocelotGlobalConfig.ServiceDiscoveryProvider?.Type?.ToLower()?.Contains("consul") ?? false)
             {
                 ocelotbuilder.AddConsul();
 

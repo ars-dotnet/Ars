@@ -2,6 +2,7 @@
 <Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <Import Project="$(NuGetPackageRoot)xunit.core\2.4.2\build\xunit.core.targets" Condition="Exists('$(NuGetPackageRoot)xunit.core\2.4.2\build\xunit.core.targets')" />
+    <Import Project="$(NuGetPackageRoot)prism.microsoft.dependencyinjection.extensions\8.0.62\buildTransitive\Prism.Microsoft.DependencyInjection.Extensions.targets" Condition="Exists('$(NuGetPackageRoot)prism.microsoft.dependencyinjection.extensions\8.0.62\buildTransitive\Prism.Microsoft.DependencyInjection.Extensions.targets')" />
     <Import Project="$(NuGetPackageRoot)microsoft.codecoverage\17.3.2\build\netstandard1.0\Microsoft.CodeCoverage.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.codecoverage\17.3.2\build\netstandard1.0\Microsoft.CodeCoverage.targets')" />
     <Import Project="$(NuGetPackageRoot)microsoft.net.test.sdk\17.3.2\build\netcoreapp2.1\Microsoft.NET.Test.Sdk.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.net.test.sdk\17.3.2\build\netcoreapp2.1\Microsoft.NET.Test.Sdk.targets')" />
     <Import Project="$(NuGetPackageRoot)microsoft.extensions.logging.abstractions\6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.extensions.logging.abstractions\6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets')" />

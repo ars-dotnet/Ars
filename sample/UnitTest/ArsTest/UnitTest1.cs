@@ -25,9 +25,9 @@ namespace ArsTest
             await helper.SendAsync(new System.Net.Mail.MailMessage("1432507436@qq.com", "1432507436@qq.com", "ars_project","ars_body"));
         }
 
-        [InlineData("name","boy")]
+        [InlineData(123,"boy")]
         [Theory]
-        public async Task TestSmptEmailReceive(string t1,string t2) 
+        public async Task TestSmptEmailReceive(int t1,string t2) 
         {
             var provider = _services.BuildServiceProvider().CreateScope().ServiceProvider;
             var helper = provider.GetRequiredService<IEmailHelper>();

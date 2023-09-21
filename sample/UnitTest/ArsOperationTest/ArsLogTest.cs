@@ -14,6 +14,7 @@ namespace ArsTest.ArsTests
     public class ArsLogTest
     {
         private readonly IServiceProvider serviceProvider;
+        private static ClassData classData = new ClassData();
         public ArsLogTest()
         {
             IHost host = Host.CreateDefaultBuilder()
@@ -33,6 +34,8 @@ namespace ArsTest.ArsTests
              .Build();
 
             serviceProvider = host.Services;
+
+            
         }
 
         /// <summary>
@@ -134,10 +137,23 @@ namespace ArsTest.ArsTests
             public DateTime CreationTime;
             public object Data;
 
+            public static int Age;
+            public int Top;
+
             public ClassData()
             {
                 CreationTime = DateTime.Now;
                 this.Data = new object();
+            }
+
+            public ClassData(int top) 
+            {
+                Top = top;
+            }
+
+            public int GetAge() 
+            {
+                return Age;
             }
         }
 
@@ -198,6 +214,52 @@ namespace ArsTest.ArsTests
             Sixth = 0x40,
 
             Seventh = 0x80,
+        }
+
+        /// <summary>
+        /// 测试全局静态变量多次初始化
+        /// </summary>
+        [Fact]
+        public void Test6() 
+        {
+            ClassData.Age = 66;
+
+            classData.Data = 123;
+            var a = classData.GetHashCode();
+            var age = classData.GetAge();
+
+            classData = new ClassData();
+            var b = classData.GetHashCode();
+            var age1 = classData.GetAge();
+
+            Assert.False(a == b);
+            Assert.True(age == age1 && age == 66);
+        }
+
+        /// <summary>
+        /// 测试task foreach
+        /// </summary>
+        [Fact]
+        public async void Test7() 
+        {
+            IList<ClassData> classDatas = new List<ClassData>()
+            {
+                new ClassData(12),
+                new ClassData(22),
+                new ClassData(33),
+            };
+
+            List<Task<int>> tasks = new List<Task<int>>();
+            foreach (var data in classDatas)
+            {
+                tasks.Add(Task.Run(() =>
+                {
+                    var d = data;
+                    return d.Top;
+                }));
+            }
+
+            var mmm = await Task.WhenAll(tasks);
         }
     }
 }

@@ -79,7 +79,7 @@ namespace Ars.Common.Ocelot
         private static string GetVersionFromStrings(IEnumerable<string> strings)
         {
             return strings
-                ?.FirstOrDefault(x => x.StartsWith(VersionPrefix, StringComparison.Ordinal))
+                .FirstOrDefault(x => x.StartsWith(VersionPrefix, StringComparison.Ordinal))
                 .TrimStart(VersionPrefix);
         }
     }

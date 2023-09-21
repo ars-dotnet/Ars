@@ -58,7 +58,7 @@ namespace MyApiWithIdentityServer4.Controllers
         public IRepository<Student, Guid> _repo { get; set; }
 
         [Autowired]
-        public IRepository<ClassRoom,Guid> _classRepo { get; set; }
+        public IRepository<ClassRoom, Guid> _classRepo { get; set; }
 
         [Autowired]
         public IDbExecuter<MyDbContext> DbExecuter { get; set; }
@@ -74,7 +74,7 @@ namespace MyApiWithIdentityServer4.Controllers
 
         [HttpGet(Name = "GetWeatherForecast")]
         //[Authorize]
-        public IEnumerable<WeatherForecast> Get([FromServices]IServiceProvider serviceProvider)
+        public IEnumerable<WeatherForecast> Get([FromServices] IServiceProvider serviceProvider)
         {
             var a = serviceProvider.GetRequiredService<MyDbContext>();
             var b = serviceProvider.GetRequiredService<MyDbContext>();
@@ -129,7 +129,7 @@ namespace MyApiWithIdentityServer4.Controllers
             var n = await MyDbContext.Students.Include(r => r.Enrollments).FirstOrDefaultAsync(r => r.LastName.Equals("Yang"));
             var o = await MyDbContext.Students.Include(r => r.Enrollments).ThenInclude(r => r.Course).FirstOrDefaultAsync(r => r.LastName.Equals("Yang"));
 
-            return Ok((m,n,o));
+            return Ok((m, n, o));
         }
 
         [Authorize]
@@ -358,6 +358,48 @@ namespace MyApiWithIdentityServer4.Controllers
         #endregion
 
         #region IRepository
+        
+        /// <summary>
+        /// 测试mysql 可重复读的事务隔离级别
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public async Task<IActionResult> GetDataByRR() 
+        {
+            #region 多次读，即使另一个事务update,insert,delete了相同条件的数据，当前事务读取到的数据未变 
+            var query = _repo.GetAll().Where(r => r.LastName == "123");
+
+            var data = await query.ToListAsync();
+
+            // * * * * *
+            //此时另一个事务insert了两条数据
+            // * * * * *
+
+            await Task.Delay(100);
+
+            data = await query.ToListAsync();
+
+            await Task.Delay(100);
+
+            data = await query.ToListAsync();
+
+            #endregion
+
+            #region 当前事务的update操作，会将另一个事务insert的数据也给update掉
+
+            DbExecuter.BeginWithEFCoreTransaction(UnitOfWorkManager.Current!);
+            string updatesql = $"update Students set FirstMidName = @FirstMidName where LastName = @LastName";
+            MySqlParameter[] upsqlParameters =
+            {
+                 new MySqlParameter("@LastName","123"),
+                 new MySqlParameter("@FirstMidName","早上好12"),
+            };
+            await DbExecuter.ExecuteNonQuery(updatesql, upsqlParameters);
+
+            #endregion
+
+            return Ok(data);
+        }
 
         [HttpGet]
         public async Task<IActionResult> GetAll()
