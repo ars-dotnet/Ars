@@ -1,4 +1,5 @@
 ﻿using Ars.Common.Core.IDependency;
+using ArsWebApiService;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 

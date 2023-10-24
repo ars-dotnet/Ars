@@ -11,7 +11,7 @@
 <script src="~/lib/signalr/signalr-protocol-msgpack.js"></script>
 <script>
     const connection = new signalR.HubConnectionBuilder()
-        .withUrl("https://127.0.0.1:5225/ws/webapi/android/hub?group=g1")
+        .withUrl("http://127.0.0.1:5196/ws/webapi/web/hub?group=g1")
         .withHubProtocol(new signalR.protocols.msgpack.MessagePackHubProtocol())
         .withAutomaticReconnect()
         .configureLogging(signalR.LogLevel.Information)

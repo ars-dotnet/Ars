@@ -2,29 +2,35 @@
 
 namespace MyApiWithIdentityServer4.Controllers
 {
-    public interface ITestDomain
+    public interface ITestDomain : IScopedDependency
     {
         Task Test();
     }
 
-    public class TestDomain : ITestDomain ,ISingletonDependency
+    public abstract class BaseTestDomain : ITestDomain
     {
-        private ITestService testService;
-        private IServiceScopeFactory _serviceScopeFactory;
-        public TestDomain(ITestService testService, IServiceScopeFactory serviceScopeFactory)
+        [Autowired]
+        public ITestService TestService { get; set; }
+
+        public BaseTestDomain()
         {
-            int code = testService.GetHashCode();
-            this.testService = testService;
+            
+        }
+
+        public abstract Task Test();
+    }
+
+    public class TestDomain : BaseTestDomain
+    {
+        private IServiceScopeFactory _serviceScopeFactory;
+        public TestDomain(IServiceScopeFactory serviceScopeFactory)
+        {
             this._serviceScopeFactory = serviceScopeFactory;
         }
 
-        public Task Test() 
+        public override Task Test() 
         {
-            using (var scope = _serviceScopeFactory.CreateScope()) 
-            {
-                var m = scope.ServiceProvider.GetService<ITestService>();
-                int code = m.GetHashCode();
-            }
+            var code = TestService.GetHashCode();
             return Task.CompletedTask;
         }
     }

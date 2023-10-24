@@ -28,27 +28,35 @@ namespace Ars.Common.EFCore
 {
     public abstract class ArsDbContext : DbContext,ITransientDependency
     {
-        private readonly IArsSession? _arsSession;
+        [Autowired]
+        public IArsSession? ArsSession { get; set; }
 
-        private readonly IArsDbContextConfiguration? _options;
+        [Autowired]
+        public IArsDbContextConfiguration? ArsDbContextConfiguration { get; set; }
 
-        private static MethodInfo ConfigureGlobalFiltersMethodInfo = typeof(ArsDbContext).GetMethod(nameof(ConfigureGlobalFilters), BindingFlags.Instance | BindingFlags.NonPublic)!;
+        [Autowired]
+        public IArsMultipleDbContextConfiguration? ArsMultipleDbContextConfiguration { get; set; }
 
-        protected ArsDbContext(
-            DbContextOptions dbContextOptions,
-            IArsSession? arsSession,
-            IArsDbContextConfiguration? options) : base(dbContextOptions)
+        private static MethodInfo ConfigureGlobalFiltersMethodInfo =
+            typeof(ArsDbContext).GetMethod(nameof(ConfigureGlobalFilters), BindingFlags.Instance | BindingFlags.NonPublic)!;
+
+        protected ArsDbContext(DbContextOptions dbContextOptions) 
+            : base(dbContextOptions)
         {
-            _arsSession = arsSession;
-            _options = options;
+
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
 
-            if (_options?.UseLazyLoadingProxies ?? false)
+            if (ArsMultipleDbContextConfiguration?.ArsDbContextConfiguration?.
+                FirstOrDefault(r => r.DbContextFullName.Equals(this.GetType().FullName))?.UseLazyLoadingProxies
+                ?? ArsDbContextConfiguration?.UseLazyLoadingProxies
+                ?? false) 
+            {
                 optionsBuilder.UseLazyLoadingProxies();
+            }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -129,11 +137,11 @@ namespace Ars.Common.EFCore
             if (typeof(IMayHaveTenant).IsAssignableFrom(typeof(TEntity)))
             {
                 Expression<Func<TEntity, bool>>? mayhavetenantFilter = null;
-                if (null == _arsSession)
+                if (null == ArsSession)
                     mayhavetenantFilter = e => true;
                 else
                 {
-                    int? sessionid = _arsSession.TenantId;
+                    int? sessionid = ArsSession.TenantId;
                     mayhavetenantFilter = e => sessionid.HasValue ? ((IMayHaveTenant)e).TenantId == sessionid : true;
                 }
 
@@ -246,7 +254,7 @@ namespace Ars.Common.EFCore
             var entity = entry.Entity.As<IMayHaveTenant>();
             if (null != entity && !entity.TenantId.HasValue)
             {
-                entity.TenantId = _arsSession?.TenantId;
+                entity.TenantId = ArsSession?.TenantId;
             }
         }
 
@@ -256,7 +264,7 @@ namespace Ars.Common.EFCore
             if (null != entity)
             {
                 if (!entity.CreationUserId.HasValue)
-                    entity.CreationUserId = _arsSession?.UserId;
+                    entity.CreationUserId = ArsSession?.UserId;
                 if (!entity.CreationTime.HasValue)
                     entity.CreationTime = DateTime.Now;
             }
@@ -277,10 +285,8 @@ namespace Ars.Common.EFCore
             var entity = entityEntry.Entity.As<IModifyEntity>();
             if (null != entity)
             {
-                if (!entity.UpdateUserId.HasValue)
-                    entity.UpdateUserId = _arsSession?.UserId;
-                if (!entity.UpdateTime.HasValue)
-                    entity.UpdateTime = DateTime.Now;
+                entity.UpdateUserId = ArsSession?.UserId;
+                entity.UpdateTime = DateTime.Now;
             }
         }
 
@@ -302,7 +308,7 @@ namespace Ars.Common.EFCore
             {
                 var entity = entityEntry.Entity.As<IDeleteEntity>()!;
                 if (!entity.DeleteUserId.HasValue)
-                    entity.DeleteUserId = _arsSession?.UserId;
+                    entity.DeleteUserId = ArsSession?.UserId;
                 if (!entity.DeleteTime.HasValue)
                     entity.DeleteTime = DateTime.Now;
             }

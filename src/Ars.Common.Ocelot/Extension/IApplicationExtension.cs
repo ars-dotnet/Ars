@@ -13,7 +13,8 @@ namespace Ars.Common.Ocelot.Extension
         public static IApplicationBuilder UseArsOcelot(this IApplicationBuilder builder) 
         {
             //use swagger for ocelot
-            builder.UseSwaggerForOcelotUI(opt =>
+            builder
+            .UseSwaggerForOcelotUI(opt =>
             {
                 opt.DownstreamSwaggerEndPointBasePath = "/swagger/docs";
                 opt.PathToSwaggerGenerator = "/swagger/docs";

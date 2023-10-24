@@ -1,7 +1,9 @@
 ﻿using Ars.Commom.Tool.Extension;
 using Ars.Common.Core.IDependency;
+using Ars.Common.Tool.Extension;
 using Autofac;
 using Autofac.Core;
+using Swashbuckle.AspNetCore.SwaggerGen;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -82,6 +84,9 @@ namespace Ars.Common.AutoFac.Helper
                     setter(instance, valueProvider!());
                     continue;
                 }
+
+                if (!context.IsRegistered(property.PropertyType) && property.IsNullableType())
+                    continue;
 
                 var propertyService = serviceName.IsNullOrEmpty()
                     ? (Service)new TypedService(property.PropertyType)

@@ -6,6 +6,9 @@ using Ars.Common.Tool.Swagger;
 using Ars.Common.IdentityServer4.Options;
 using Ars.Common.IdentityServer4.Extension;
 using Ars.Common.Consul.Extension;
+using System.Net;
+using ArsApiGateway;
+using Ars.Common.Ocelot;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,7 +17,11 @@ builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddArserviceCore(builder,config => 
 {
-    config.AddArsOcelot();
+    config.AddArsOcelot(option => 
+    {
+        //下游https请求颁发证书
+        option.AddDelegatingHandler<X509CertificateDelegatingHandler>();
+    });
 });
 
 builder.Services.AddCors(cors =>
@@ -37,6 +44,8 @@ var app = builder.Build();
 app.UseCors("*");
 
 app.UseArsCore();
+
+app.UseMiddleware(typeof(ApiGateWayMiddWare));
 
 app.MapControllers();
 

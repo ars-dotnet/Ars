@@ -35,6 +35,8 @@ using Ars.Common.Cap.Extensions;
 using Ars.Common.Core.Localization.Extension;
 using Ars.Common.Core.Extensions;
 using static IdentityModel.ClaimComparer;
+using ArsWebApiService;
+using Ars.Common.EFCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -43,43 +45,7 @@ var arsbuilder =
     builder.Services
     .AddArserviceCore(builder, config =>
     {
-        config.AddArsIdentityClient(configureOptions: options =>
-        {
-            var idsconfig = builder.Configuration
-               .GetSection(nameof(ArsIdentityClientConfiguration))
-               .Get<ArsIdentityClientConfiguration>();
-
-            options.Authority = idsconfig.Authority;
-            options.ApiName = idsconfig.ApiName;
-            options.RequireHttpsMetadata = idsconfig.RequireHttpsMetadata;
-
-            if (idsconfig.RequireHttpsMetadata)
-            {
-                var basicconfig = builder.Configuration
-                    .GetSection(nameof(ArsBasicConfiguration))
-                    .Get<ArsBasicConfiguration>();
-
-                var httpClientHandler = new HttpClientHandler
-                {
-                    ClientCertificateOptions = ClientCertificateOption.Manual,
-                    SslProtocols = SslProtocols.Tls12,
-                    ServerCertificateCustomValidationCallback =
-                        HttpClientHandler.DangerousAcceptAnyServerCertificateValidator,
-                };
-                httpClientHandler.ClientCertificates.Add(
-                    Certificate.Get(basicconfig.CertificatePath!, basicconfig.CertificatePassWord!));
-
-                options.JwtBackChannelHandler = httpClientHandler;
-            }
-
-            //for signalr token
-            options.TokenRetriever = new Func<HttpRequest, string>(req =>
-            {
-                var fromHeader = TokenRetrieval.FromAuthorizationHeader();
-                var fromQuery = TokenRetrieval.FromQueryString();
-                return fromHeader(req) ?? fromQuery(req);
-            });
-        });
+        config.AddArsIdentityClient();
 
         config.AddArsRedis(provider =>
         {
@@ -111,7 +77,9 @@ var arsbuilder =
             });
         });
     })
-    .AddArsDbContext<MyDbContext>()
+    //.AddArsDbContext<MyDbContext>()
+    .AddMultipleArsDbContext<MyDbContext>()
+    .AddMultipleArsDbContext<MyDbContextWithMsSql>()
     .AddArsHttpClient()
     .AddArsExportExcelService(typeof(Program).Assembly)
     .AddArsUploadExcelService(option =>
@@ -188,7 +156,7 @@ app.UseSwagger(option =>
 });
 app.UseSwaggerUI(option =>
 {
-    option.SwaggerEndpoint("/Api/ArsWebApi/swagger/v1/swagger.json", "ArsWebApi - v1"); //这里的v1表示文档名称
+    option.SwaggerEndpoint("/Api/ArsWebApi/swagger/v1/swagger.json", "ArsWebApiService - v1"); //这里的v1表示文档名称documentName
 });
 
 app.UseCors("*");

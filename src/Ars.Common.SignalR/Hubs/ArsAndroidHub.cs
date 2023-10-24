@@ -14,8 +14,9 @@ namespace Ars.Common.SignalR.Hubs
         public ArsAndroidHub(
             IHubContext<ArsAndroidHub> hubContext, 
             IHubCacheManager cacheManager, 
-            ILoggerFactory loggerFactory)
-            : base(hubContext, cacheManager, loggerFactory)
+            ILoggerFactory loggerFactory,
+            IEnumerable<IHubDisconnection> hubDisconnections)
+            : base(hubContext, cacheManager, loggerFactory, hubDisconnections)
         {
 
         }

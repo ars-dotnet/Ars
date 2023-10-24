@@ -6,9 +6,11 @@ using Ars.Common.Core.AspNetCore.Extensions;
 using Ars.Common.Host.Extension;
 using Ars.Common.IdentityServer4.Extension;
 using Ars.Common.SkyWalking.Extensions;
+using Ars.Common.Tool.Swagger;
 using GrpcService.Services;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.AspNetCore.Server.Kestrel.Https;
+using Microsoft.OpenApi.Models;
 using System.Net;
 using System.Security.Authentication;
 using System.Security.Cryptography.X509Certificates;
@@ -21,7 +23,21 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(option => 
+{
+    option.SwaggerDoc("v1", new OpenApiInfo { Title = "ArsGrpcWebApiService", Version = "v1" });
+
+    string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ArsWebApiGrpcService.xml");
+    if (File.Exists(path))
+    {
+        option.IncludeXmlComments(path);
+    }
+
+    //枚举显示为字符串
+    option.SchemaFilter<EnumSchemaFilter>();
+    //根据AuthorizeAttributea分配是否需要授权操作
+    option.OperationFilter<SecurityRequirementsOperationFilter>();
+});
 
 //builder.Services.AddTransient<ArsResourcePasswordValidator>();
 builder.Services
@@ -43,8 +59,8 @@ app.UsArsExceptionMiddleware();
 // Configure the HTTP request pipeline.
 //if (app.Environment.IsDevelopment())
 //{ 
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwagger(option => option.RouteTemplate = "Api/ArsGrpcWebApi/swagger/{documentName}/swagger.json");
+    app.UseSwaggerUI(option => option.SwaggerEndpoint("/Api/ArsGrpcWebApi/swagger/v1/swagger.json", "ArsGrpcWebApiService - v1"));
     app.UseDeveloperExceptionPage();
 //}
 

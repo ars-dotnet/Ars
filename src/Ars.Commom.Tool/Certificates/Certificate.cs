@@ -14,7 +14,7 @@ namespace Ars.Commom.Tool.Certificates
     {
         public static X509Certificate2 Get()
         {
-            string allpath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Certificates//IS4.pfx");
+            string allpath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Certificates//ars.pfx");
             return new X509Certificate2(allpath, "aabb1212");
         }
 

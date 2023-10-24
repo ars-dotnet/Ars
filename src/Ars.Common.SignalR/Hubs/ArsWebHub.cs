@@ -15,8 +15,9 @@ namespace Ars.Common.SignalR.Hubs
         public ArsWebHub(
             IHubContext<ArsWebHub> hubContext,
             IHubCacheManager cacheManager,
-            ILoggerFactory loggerFactory)
-            : base(hubContext, cacheManager, loggerFactory)
+            ILoggerFactory loggerFactory,
+            IEnumerable<IHubDisconnection> hubDisconnections)
+            : base(hubContext, cacheManager, loggerFactory, hubDisconnections)
         {
 
         }

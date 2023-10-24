@@ -14,5 +14,7 @@ namespace Ars.Common.Core.Uow.Options
         public int? DbType { get; set; }
 
         public bool UseLazyLoadingProxies { get; set; }
+
+        public string DbContextFullName { get; set; }
     }
 }

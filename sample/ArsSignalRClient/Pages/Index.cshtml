@@ -13,10 +13,10 @@
 <script src="~/lib/signalr/signalr-protocol-msgpack.js"></script>
 <script>
     const connection = new signalR.HubConnectionBuilder()
-        .withUrl("https://127.0.0.1:5225/ws/webapi/web/hub?group=g2", {
+        .withUrl('http://127.0.0.1:5196/ws/webapi/web/hub?group=g2&extension={ "a": "mass.01,mass.02" }', {
             accessTokenFactory: () => {
-                //return "eyJhbGciOiJSUzI1NiIsImtpZCI6IkRDOEQyMzQ5NzFFMzQ4NUYzNjQzQTI5NzY2NEQ3MUZFNjU4MjZCQjZSUzI1NiIsInR5cCI6ImF0K2p3dCIsIng1dCI6IjNJMGpTWEhqU0Y4MlE2S1haazF4X21XQ2E3WSJ9.eyJuYmYiOjE2ODM3Njk3NjUsImV4cCI6MTY4Mzc3MzM2NSwiaXNzIjoiaHR0cHM6Ly8xNzIuMjAuNjQuMTo1MTA1IiwiYXVkIjoiYXBpSWRzNEZpcnN0IiwiY2xpZW50X2lkIjoiZ3JwYy1rZXkiLCJzdWIiOiIxMjMiLCJhdXRoX3RpbWUiOjE2ODM3Njk3NjUsImlkcCI6ImFycyIsInRlbmFudCI6IjEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJhZG1pbiIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWVpZGVudGlmaWVyIjoiSDEyMyIsImp0aSI6IjYxOERGQUVFQzRCRERDNEJEMTZBNjYxQzc0NkZBN0I0IiwiaWF0IjoxNjgzNzY5NzY1LCJzY29wZSI6WyJncnBjYXBpLXNjb3BlIiwib2ZmbGluZV9hY2Nlc3MiXSwiYW1yIjpbIkJlYXJlciJdfQ.MVE1qV3oAk9wN5ylsJC-0S9XLSMgihMaI_d406hjDwYAjMtIazk1tznlmQf-57AOsUxW2aDDLSI3j5pfS8m10cJdUEUC_yXbCAcUhESwSgT3JM13M7a2ypwYbSH-KOijyBVej0gI5zZ-hpVBgOAgshjDjsdydL8GdNdDbpSFh3919apUwKTBmz9igDGm66r995Q365UiiZPOedCzYXUD7MBat3_TLul_8WoNUSv6Fogu0S3O6Fplr39g31GsGD53LCCGVOt546sMpflP9fydtScb7qnTCcZ-7HB8MnrJMVc5kGMt_anUTKUSV01NUj8goAxYws3B6801i7e7_jQ6Og";
-            }
+                return "eyJhbGciOiJSUzI1NiIsImtpZCI6IkRDOEQyMzQ5NzFFMzQ4NUYzNjQzQTI5NzY2NEQ3MUZFNjU4MjZCQjZSUzI1NiIsInR5cCI6ImF0K2p3dCIsIng1dCI6IjNJMGpTWEhqU0Y4MlE2S1haazF4X21XQ2E3WSJ9.eyJuYmYiOjE2OTc3ODc3NDksImV4cCI6MTY5Nzc5MTM0OSwiaXNzIjoiaHR0cHM6Ly8xMjcuMC4wLjE6NTEwNSIsImF1ZCI6ImFwaUlkczRGaXJzdCIsImNsaWVudF9pZCI6ImdycGMta2V5Iiwic3ViIjoiMTIzIiwiYXV0aF90aW1lIjoxNjk3Nzg3NzQ5LCJpZHAiOiJhcnMiLCJ0ZW5hbnQiOiIxIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiYWRtaW4iLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IkgxMjMiLCJqdGkiOiJGQzE2RDYxQjg4NjYwNkQ2QTM1MDcwMDQwRkM4RTBDOSIsImlhdCI6MTY5Nzc4Nzc0OSwic2NvcGUiOlsiZ3JwY2FwaS1zY29wZSIsIm9mZmxpbmVfYWNjZXNzIl0sImFtciI6WyJCZWFyZXIiXX0.i_QNF4ScYhnpeCUr3_0VdGX2H9doaOwnBFE3llCQvTUYYK1m97p8VFN0jcu6qK5MvjudgqZ3af22fzSkJHUtPhjCbYF7xUb9EMLzbUxFXbCCpoaq8OrbbrIn3SYxT38pTl598TzPH5yZIYYuNIf9_v1YQUFS6EAQ3IBSdxFCrMDa3BDIMYvDLBFTXW3dbIdz4iA4Xa-ZaRHvICzqCcchZOxZsm7t2gKzY-4UOCv46Kgsdwo7j5LaipVV7Em-dfmV4HOw9so0WeRQdykwMlbyrJYD3cyW82y03efrVg23rIKDZlTOA4lpHaxebFVIxyISsWkRSEm5kEWZUWS7XWw1Sw";
+            },
         })
         .withHubProtocol(new signalR.protocols.msgpack.MessagePackHubProtocol())
         .withAutomaticReconnect()
@@ -26,7 +26,7 @@
     async function start() {
         try {
             connection.logging = true;
-            await connection.start();
+            await connection.sta rt();
             console.log("SignalR Connected.");
         } catch (err) {
             console.log(err);

@@ -242,7 +242,7 @@ builder.Services
 		//1 mysql;2 mssql
 		"DbType": 2,
 		//Database address
-		"DefaultString": "Data Source=xxx; Initial Catalog=xxx;user id=xxx;pwd=xxx"
+		"DefaultString": "Data Source=oy2dxokflmzivjckxqma4ahouaza4vzevn3rusdrjwoofy; Initial Catalog=oy2dxokflmzivjckxqma4ahouaza4vzevn3rusdrjwoofy;user id=oy2dxokflmzivjckxqma4ahouaza4vzevn3rusdrjwoofy;pwd=oy2dxokflmzivjckxqma4ahouaza4vzevn3rusdrjwoofy"
 	  },
 
 	  //Basic config

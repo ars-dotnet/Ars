@@ -1,6 +1,7 @@
 ﻿using Ars.Common.Core.Configs;
 using Ars.Common.Core.IDependency;
 using Ars.Common.Core.Uow;
+using ArsWebApiService;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MyApiWithIdentityServer4.Controllers

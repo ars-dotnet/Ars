@@ -33,7 +33,9 @@ namespace Ars.Common.Host
         public IArsIdentityClientConfiguration? ArsIdentityClientConfiguration { get; set; } = default;
 
         public IArsDbContextConfiguration? ArsDbContextConfiguration { get; set; } = default;
-        
+
+        public IArsMultipleDbContextConfiguration? ArsMultipleDbContextConfiguration { get; set; } = default;
+
         public IArsLocalizationConfiguration? ArsLocalizationConfiguration { get; set; } = default;
 
         /// <summary>

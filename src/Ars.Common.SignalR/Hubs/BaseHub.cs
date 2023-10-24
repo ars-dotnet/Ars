@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Connections.Features;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Primitives;
+using NPOI.XSSF.Streaming.Values;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,6 +33,8 @@ namespace Ars.Common.SignalR.Hubs
 
         protected readonly ILogger _logger;
 
+        protected readonly IEnumerable<IHubDisconnection> _hubDisconnections;
+
         /// <summary>
         /// 心跳多少秒刷新一下缓存
         /// </summary>
@@ -38,11 +42,14 @@ namespace Ars.Common.SignalR.Hubs
 
         private int _heartBeatIntervalSeconds = 0;
 
-        public BaseHub(IHubContext<T> hubContext, IHubCacheManager cacheManager, ILoggerFactory loggerFactory)
+        public BaseHub(
+            IHubContext<T> hubContext, IHubCacheManager cacheManager,
+            ILoggerFactory loggerFactory, IEnumerable<IHubDisconnection> hubDisconnections)
         {
             _hubContext = hubContext;
             _cacheManager = cacheManager;
             _logger = loggerFactory.CreateLogger(GetType());
+            _hubDisconnections = hubDisconnections;
         }
 
         /// <summary>
@@ -54,8 +61,17 @@ namespace Ars.Common.SignalR.Hubs
             //心跳
             await Heart();
 
+            StringValues extension = default;
+            _httpContext?.Request.Query.TryGetValue("extension", out extension);
+
             //添加缓存
-            await _cacheManager.ClientOnConnection(Terminal, Context.ConnectionId, _httpContext?.GetUserName());
+            await _cacheManager.ClientOnConnection(Terminal, Context.ConnectionId,
+                new SignalRCacheScheme 
+                {
+                    UserName = Context.UserIdentifier,
+                    HeartTime = DateTime.Now,
+                    Extension = extension.ToString()
+                });
 
             if (_httpContext?.Request.Query.TryGetValue("group", out var value) ?? false)
             {
@@ -64,7 +80,7 @@ namespace Ars.Common.SignalR.Hubs
 
             await base.OnConnectedAsync();
 
-            _logger.LogInformation("客户端:{0}连接成功,用户信息:{1}", Context.ConnectionId, _httpContext?.GetUserName());
+            _logger.LogInformation("客户端:{0}连接成功,用户信息:{1}", Context.ConnectionId, Context.UserIdentifier);
         }
 
         /// <summary>
@@ -74,12 +90,28 @@ namespace Ars.Common.SignalR.Hubs
         /// <returns></returns>
         public override async Task OnDisconnectedAsync(Exception? exception)
         {
+            //下线通知
+            if (_hubDisconnections.HasValue()) 
+            {
+                try
+                {
+                    foreach (var hub in _hubDisconnections)
+                    {
+                        await hub.ClientDisConnectionNoticeAysnc(
+                            Terminal,
+                            Context.ConnectionId,
+                            await _cacheManager.GetCacheValue(Terminal, Context.ConnectionId));
+                    }
+                }
+                catch { }
+            }
+
             //清除缓存
-            await _cacheManager.ClientDisConnection(Terminal, Context.ConnectionId, _httpContext?.GetUserName());
+            await _cacheManager.ClientDisConnection(Terminal, Context.ConnectionId);
 
             await base.OnDisconnectedAsync(exception);
 
-            _logger.LogInformation("客户端:{0}下线,用户信息:{1}", Context.ConnectionId, _httpContext?.GetUserName());
+            _logger.LogInformation("客户端:{0}下线,用户信息:{1}", Context.ConnectionId, Context.UserIdentifier);
         }
 
         /// <summary>
@@ -115,14 +147,14 @@ namespace Ars.Common.SignalR.Hubs
         /// 发送给指定用户
         /// </summary>
         /// <param name="method"></param>
-        /// <param name="userId"></param>
+        /// <param name="userName"></param>
         /// <param name="message"></param>
         /// <returns></returns>
-        public async Task SendMessageToUserAsync(string method, string userId, object? message)
+        public async Task SendMessageToUserAsync(string method, string userName, object? message)
         {
-            if (await _cacheManager.UserIsOnline(Terminal, userId))
+            if (await _cacheManager.UserIsOnline(Terminal, userName))
             {
-                await _hubContext.Clients.User(userId).SendAsync(method, message);
+                await _hubContext.Clients.User(userName).SendAsync(method, message);
             }
 
             return;
@@ -156,8 +188,7 @@ namespace Ars.Common.SignalR.Hubs
                 //每15s刷新一下过期时间
                 if (time % HeartBeatIntervalSeconds == 0)
                 {
-                    var context = obj.As<HttpContext>();
-                    await _cacheManager.Refresh(Terminal, connectionid, context?.GetUserName());
+                    await _cacheManager.Refresh(Terminal, connectionid);
                 }
             }, _httpContext!);
 

@@ -1,4 +1,5 @@
 ﻿using Ars.Common.Core.Configs;
+using Ocelot.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +10,9 @@ namespace Ars.Common.Ocelot.Extension
 {
     public static class IArsConfigurationExtension
     {
-        public static IArsConfiguration AddArsOcelot(this IArsConfiguration configuration) 
+        public static IArsConfiguration AddArsOcelot(this IArsConfiguration configuration, Action<IOcelotBuilder>? builderOption = null) 
         {
-            configuration.AddArsServiceExtension(new ArsOcelotServiceExtension());
+            configuration.AddArsServiceExtension(new ArsOcelotServiceExtension(builderOption));
 
             return configuration;
         }

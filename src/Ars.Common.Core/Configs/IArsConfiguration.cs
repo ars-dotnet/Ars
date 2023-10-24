@@ -58,6 +58,11 @@ namespace Ars.Common.Core.Configs
         IArsDbContextConfiguration? ArsDbContextConfiguration { get; set; }
 
         /// <summary>
+        /// EfCore Multiple Dbcontexts config
+        /// </summary>
+        IArsMultipleDbContextConfiguration? ArsMultipleDbContextConfiguration { get; set; }
+
+        /// <summary>
         /// Localization config
         /// </summary>
         IArsLocalizationConfiguration? ArsLocalizationConfiguration { get; set; }

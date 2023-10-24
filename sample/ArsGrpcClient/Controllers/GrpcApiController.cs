@@ -25,7 +25,7 @@ namespace GrpcClients.Controllers
         [HttpPost]
         public async Task<IActionResult> UnaryCallGrpc()
         {
-            var client = await _grpcClientProvider.GetGrpcClient<Greeter.GreeterClient>("apigrpc");
+            var client = await _grpcClientProvider.GetGrpcClient<Greeter.GreeterClient>("apigrpcwebapiservice");
             var m = await client.SayHelloAsync(new HelloRequest() { Name = "ars" });
             return Json(m);
         }
@@ -46,7 +46,7 @@ namespace GrpcClients.Controllers
         public async Task<IActionResult> StreamingFromServerCall()
         {
             CancellationTokenSource source = new CancellationTokenSource();
-            var client = await _grpcClientProvider.GetGrpcClient<Greeter.GreeterClient>("apigrpc");
+            var client = await _grpcClientProvider.GetGrpcClient<Greeter.GreeterClient>("apigrpcwebapiservice");
             using var res = client.StreamingFromServer(new StreamingRequest() { Value = 10.1m }, new CallOptions(cancellationToken: source.Token));
 
             source.CancelAfter(TimeSpan.FromSeconds(10));
@@ -106,7 +106,7 @@ namespace GrpcClients.Controllers
         [HttpPost]
         public async Task<IActionResult> StreamBothWaysCall()
         {
-            var client = await _grpcClientProvider.GetGrpcClient<Greeter.GreeterClient>("apigrpc");
+            var client = await _grpcClientProvider.GetGrpcClient<Greeter.GreeterClient>("apigrpcwebapiservice");
             using var req = client.streamingBothWays();
 
             for (int i = 0; i < 10; i++)

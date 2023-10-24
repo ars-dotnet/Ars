@@ -15,6 +15,8 @@ using Ars.Common.Tool;
 using Microsoft.EntityFrameworkCore.Storage;
 using Ars.Common.Core.Diagnostic;
 using System.Diagnostics;
+using Ars.Common.Core.Configs;
+using Ars.Common.Core.Uow.Options;
 
 namespace Ars.Common.EFCore.EfCoreUnitOfWorks
 {
@@ -26,12 +28,19 @@ namespace Ars.Common.EFCore.EfCoreUnitOfWorks
         protected IDictionary<string, DbContext> ActiveDbContexts { get; }
         private readonly IDbContextResolver _dbContextResolver;
         private readonly IEfCoreTransactionStrategy _efCoreTransactionStrategy;
+        private readonly IArsDbContextConfiguration? _arsDbContextConfiguration;
+        private readonly IArsMultipleDbContextConfiguration? _arsMultipleDbContextConfiguration;
 
         public EfCoreUnitOfWork(IDbContextResolver dbContextResolver,
-            IEfCoreTransactionStrategy efCoreTransactionStrategy)
+            IEfCoreTransactionStrategy efCoreTransactionStrategy,
+            IArsDbContextConfiguration? arsDbContextConfiguration = null,
+            IArsMultipleDbContextConfiguration? arsMultipleDbContextConfiguration = null)
         {
             _dbContextResolver = dbContextResolver;
             _efCoreTransactionStrategy = efCoreTransactionStrategy;
+            _arsDbContextConfiguration = arsDbContextConfiguration;
+            _arsMultipleDbContextConfiguration = arsMultipleDbContextConfiguration;
+
             ActiveDbContexts = new Dictionary<string, DbContext>(StringComparer.OrdinalIgnoreCase);
         }
 
@@ -79,8 +88,15 @@ namespace Ars.Common.EFCore.EfCoreUnitOfWorks
             return dbContext.SaveChangesAsync();
         }
 
-        public virtual string GetConnectionName()
+        public virtual string GetConnectionName<TDbContext>()
         {
+            string? defaultstring = 
+                _arsMultipleDbContextConfiguration?.ArsDbContextConfiguration?
+                    .FirstOrDefault(r => r.DbContextFullName.Equals(typeof(TDbContext).FullName))?.DefaultString
+                ?? _arsDbContextConfiguration?.DefaultString;
+            if(!defaultstring.IsNullOrEmpty())
+                return defaultstring!;
+
             if (ConfigurationManager.ConnectionStrings["ArsDbContextConfiguration:DefaultString"] != null)
             {
                 return "Default";
@@ -98,7 +114,7 @@ namespace Ars.Common.EFCore.EfCoreUnitOfWorks
             where TDbContext : DbContext
         {
             var dbcontextKey = GetKeyName<TDbContext>(out string connectionName, name);
-            if (ActiveDbContexts.TryGetValue(dbcontextKey, out var dbContext))
+            if (ActiveDbContexts.TryGetValue(dbcontextKey, out var dbContext))//存同一个dbcontext，相同的连接
             {
                 return (TDbContext)dbContext;
             }
@@ -134,6 +150,7 @@ namespace Ars.Common.EFCore.EfCoreUnitOfWorks
                 return (TDbContext)dbContext;
             }
 
+            //新建一个dbcontext
             if (Options.IsTransactional == true)
             {
                 dbContext = _efCoreTransactionStrategy
@@ -164,7 +181,7 @@ namespace Ars.Common.EFCore.EfCoreUnitOfWorks
                 throw new ArgumentException($"{nameof(TDbContext)} not support abstract class");
             }
 
-            connectionName = GetConnectionName();
+            connectionName = GetConnectionName<TDbContext>();
             string dbcontextKey = typeof(TDbContext).FullName + connectionName;
             if (!name.IsNullOrEmpty())
                 dbcontextKey += "." + name;

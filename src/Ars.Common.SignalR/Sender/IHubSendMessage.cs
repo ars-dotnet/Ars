@@ -44,10 +44,10 @@ namespace Ars.Common.SignalR.Sender
         /// 发送指定用户
         /// </summary>
         /// <param name="method"></param>
-        /// <param name="userId"></param>
+        /// <param name="userName"></param>
         /// <param name="message"></param>
         /// <returns></returns>
-        Task SendMessageToUserAsync(string method, string userId, object? message);
+        Task SendMessageToUserAsync(string method, string userName, object? message);
 
         /// <summary>
         /// 发送指定组

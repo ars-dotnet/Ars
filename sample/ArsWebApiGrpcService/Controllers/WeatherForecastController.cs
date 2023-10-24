@@ -2,8 +2,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace GrpcServices.Controllers
 {
+    /// <summary>
+    /// 
+    /// </summary>
     [ApiController]
-    [Route("[controller]")]
+    [Route("Api/ArsGrpcWebApi/[controller]/[action]")]
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]

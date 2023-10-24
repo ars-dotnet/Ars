@@ -1,4 +1,6 @@
-﻿using Ars.Commom.Tool;
+﻿using Ars.Commom.Host.Extension;
+using Ars.Commom.Tool;
+using Ars.Common.Core.IDependency;
 using Ars.Common.Tool.Extension;
 using ArsTest.AppConfigs;
 using Microsoft.Extensions.Configuration;
@@ -40,8 +42,10 @@ namespace ArsTest
                     services = service;
                     service.AddLogging();
                     service.AddHttpClient("ars");
-                }).
-                ConfigureLogging((hostingContext, logging) =>
+
+                    service.AddScoped<IFater,Child>();
+                })
+                .ConfigureLogging((hostingContext, logging) =>
                 {
                     logging.AddDebug();
                 })
@@ -49,9 +53,32 @@ namespace ArsTest
         }
     }
 
+    public interface IFater { }
+
+    public abstract class BaseFater : IFater
+    {
+        [Autowired]
+        public IHttpClientFactory Factory { get; set; }
+
+        public BaseFater()
+        {
+
+        }
+    }
+
+    public class Child : BaseFater 
+    {
+
+    }
 
     public class AspNetCoreTest : AspNetCoreBase
     {
+        [Fact]
+        public void TestAutoWired() 
+        {
+            var a = services.BuildServiceProvider().GetRequiredService<IFater>();
+        }
+
         [Fact]
         public void TestOverride()
         {
@@ -302,7 +329,28 @@ namespace ArsTest
                 TestXml testXml = new TestXml
                 {
                     Name = "Tom",
-                    Country = "China"
+                    Country = "China",
+                    Item = new List<Item> 
+                    {
+                        new Item
+                        {
+                            TagCode = "top",
+                            TagValue = "175",
+                            TimeStamp = "1212212"
+                        },
+                        new Item
+                        {
+                            TagCode = "sex",
+                            TagValue = "男",
+                            TimeStamp = "1212212"
+                        },
+                        new Item
+                        {
+                            TagCode = "like",
+                            TagValue = "music",
+                            TimeStamp = "1212212"
+                        },
+                    }
                 };
                 string a = testXml.XMLSerialize();
                 var data = a.DeXmlSerialize<TestXml>();
@@ -361,6 +409,40 @@ SZ=21x21, RES=8.00x8.00Pixel, CTV=0%, UECV=38%
             }
 
         }
+
+        [Fact]
+        public void TestObjectoXml() 
+        {
+            TestXml testXml = new TestXml
+            {
+                Name = "Tom",
+                Country = "China",
+                Item = new List<Item>
+                    {
+                        new Item
+                        {
+                            TagCode = "top",
+                            TagValue = "175",
+                            TimeStamp = "1212212"
+                        },
+                        new Item
+                        {
+                            TagCode = "sex",
+                            TagValue = "男",
+                            TimeStamp = "1212212"
+                        },
+                        new Item
+                        {
+                            TagCode = "like",
+                            TagValue = "music",
+                            TimeStamp = "1212212"
+                        },
+                    }
+            };
+            string a = testXml.XMLSerialize();
+
+            var data = a.DeXmlSerialize<TestXml>();
+        }
     }
 
     [XmlRoot("StudentModel"), XmlType("StudentModel")]
@@ -381,6 +463,21 @@ SZ=21x21, RES=8.00x8.00Pixel, CTV=0%, UECV=38%
 
         [XmlAttribute()]
         public string Country { get; set; }
+
+        [XmlElement("item")]
+        public List<Item> Item { get; set; }
+    }
+
+    public class Item
+    {
+        [XmlAttribute("tagCode")]
+        public string TagCode { get; set; }
+
+        [XmlAttribute("tagValue")]
+        public string TagValue { get; set; }
+
+        [XmlAttribute("timeStamp")]
+        public string TimeStamp { get; set; }
     }
 
     public class Goods

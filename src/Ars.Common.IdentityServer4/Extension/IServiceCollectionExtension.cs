@@ -6,12 +6,14 @@ using Ars.Common.IdentityServer4.options;
 using Ars.Common.IdentityServer4.Options;
 using Ars.Common.IdentityServer4.Validation;
 using IdentityModel;
+using IdentityModel.AspNetCore.OAuth2Introspection;
 using IdentityServer4.AccessTokenValidation;
 using IdentityServer4.Test;
 using IdentityServer4.Validation;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
@@ -160,6 +162,14 @@ namespace Ars.Common.IdentityServer4.Extension
 
                         t.JwtBackChannelHandler = httpClientHandler;
                     }
+
+                    //for signalr token
+                    t.TokenRetriever = new Func<HttpRequest, string>(req =>
+                    {
+                        var fromHeader = TokenRetrieval.FromAuthorizationHeader("Bearer");
+                        var fromQuery = TokenRetrieval.FromQueryString("access_token");
+                        return fromHeader(req) ?? fromQuery(req);
+                    });
                 };
             }
 

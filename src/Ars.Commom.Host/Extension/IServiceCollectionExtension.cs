@@ -54,6 +54,7 @@ namespace Ars.Commom.Host.Extension
                 scope.ServiceProvider.GetRequiredService<IConfiguration>()
                 .GetSection(nameof(ArsBasicConfiguration))
                 .Get<ArsBasicConfiguration>() ?? new ArsBasicConfiguration();
+
             services.AddSingleton<IOptions<IArsBasicConfiguration>>(
                 new OptionsWrapper<IArsBasicConfiguration>(arsBasicConfiguration));
 

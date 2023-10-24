@@ -8,8 +8,12 @@ namespace ArsWebApiService.Hubs
     //[Authorize]
     public class MyWebHub : ArsWebHub
     {
-        public MyWebHub(IHubContext<MyWebHub> hubContext, IHubCacheManager cacheManager, ILoggerFactory loggerFactory) 
-            : base(hubContext, cacheManager, loggerFactory)
+        public MyWebHub(
+            IHubContext<MyWebHub> hubContext, 
+            IHubCacheManager cacheManager, 
+            ILoggerFactory loggerFactory,
+            IEnumerable<IHubDisconnection> hubDisconnections) 
+            : base(hubContext, cacheManager, loggerFactory, hubDisconnections)
         {
 
         }

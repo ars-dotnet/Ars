@@ -7,15 +7,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using MyApiWithIdentityServer4.Model;
 
-namespace MyApiWithIdentityServer4
+namespace ArsWebApiService
 {
     public class MyDbContext : ArsDbContext
     {
-        public MyDbContext(
-            DbContextOptions<MyDbContext> dbContextOptions, 
-            IArsSession? arsSession = null,
-            IArsDbContextConfiguration options = null) 
-            : base(dbContextOptions,arsSession,options)
+        public MyDbContext(DbContextOptions<MyDbContext> dbContextOptions) : base(dbContextOptions)
         {
 
         }

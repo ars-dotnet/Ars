@@ -11,10 +11,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Certificates\ars.pfx" />
     <None Remove="Certificates\IS4.pfx" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Certificates\ars.pfx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Certificates\IS4.pfx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>

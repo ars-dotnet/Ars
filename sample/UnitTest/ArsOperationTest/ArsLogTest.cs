@@ -8,6 +8,7 @@ using Ars.Common.Tool.Extension;
 using Newtonsoft.Json;
 using System.Runtime.CompilerServices;
 using System.Security.Policy;
+using System.Reflection;
 
 namespace ArsTest.ArsTests
 {
@@ -77,7 +78,7 @@ namespace ArsTest.ArsTests
             {
                 Task.Run(() =>
                 {
-                    int.Parse("xxx");
+                    int.Parse("oy2dxokflmzivjckxqma4ahouaza4vzevn3rusdrjwoofy");
                 }),
 
                 Task.Run(() =>
@@ -260,6 +261,50 @@ namespace ArsTest.ArsTests
             }
 
             var mmm = await Task.WhenAll(tasks);
+        }
+
+        public class Studentss 
+        {
+            public int? Id { get; set; }
+
+            public Toys? Toys { get; set; }
+
+            public Toys Toyss { get; set; }
+        }
+
+        public class Toys{ }
+
+        [Fact]
+        public void Test8() 
+        {
+            var type1 = typeof(Studentss).GetProperty("Id")!.PropertyType;
+            Assert.True(type1.IsGenericType);
+            Assert.True(type1.GetGenericTypeDefinition() == typeof(Nullable<>));
+
+            var type = typeof(Studentss).GetProperty("Toys")!.PropertyType;
+            Assert.False(type.IsGenericType);
+
+            NullabilityInfoContext context = new();
+            NullabilityInfo arrayInfo = context.Create(typeof(Studentss).GetProperty("Toys")!);
+            NullabilityInfo arrayInfo1 = context.Create(typeof(Studentss).GetProperty("Toyss")!);
+        }
+
+        [Fact]
+        public void Test9()
+        {
+            IEnumerable<string> a = new List<string>
+            {
+                "jerry;bill",
+                "tom"
+            };
+
+            var atr = string.Join(";",a);
+
+            Assert.True(atr.IndexOf("jerry") >= 0);
+            Assert.True(atr.IndexOf("bill") >= 0);
+
+            string m = null;
+            Assert.True(m.IndexOf("ad") < 0);
         }
     }
 }

@@ -21,5 +21,10 @@ namespace Ars.Common.Core.Configs
         /// 默认不启用
         /// </summary>
         bool UseLazyLoadingProxies { get; set; }
+
+        /// <summary>
+        /// dbcontext唯一
+        /// </summary>
+        string DbContextFullName { get; set; }
     }
 }

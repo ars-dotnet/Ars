@@ -19,4 +19,10 @@
     <ProjectReference Include="..\..\src\Ars.Common.Ocelot\Ars.Common.Ocelot.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Certificates\ars.pfx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

@@ -6,6 +6,7 @@ using Ars.Common.Core.Uow.Attributes;
 using Ars.Common.EFCore.AdoNet;
 using Ars.Common.EFCore.Extension;
 using Ars.Common.EFCore.Repository;
+using ArsWebApiService;
 using ArsWebApiService.Model;
 using IdentityModel.Client;
 using Microsoft.AspNetCore.Authentication;
@@ -55,10 +56,13 @@ namespace MyApiWithIdentityServer4.Controllers
         }
 
         [Autowired]
-        public IRepository<Student, Guid> _repo { get; set; }
+        public IRepository<Student, Guid> Repo { get; set; }
 
         [Autowired]
-        public IRepository<ClassRoom, Guid> _classRepo { get; set; }
+        public IRepository<StudentMsSql, Guid> Repo1 { get; set; }
+
+        [Autowired]
+        public IRepository<ClassRoom, Guid> ClassRepo { get; set; }
 
         [Autowired]
         public IDbExecuter<MyDbContext> DbExecuter { get; set; }
@@ -74,10 +78,9 @@ namespace MyApiWithIdentityServer4.Controllers
 
         [HttpGet(Name = "GetWeatherForecast")]
         //[Authorize]
-        public IEnumerable<WeatherForecast> Get([FromServices] IServiceProvider serviceProvider)
+        public IEnumerable<WeatherForecast> Get()
         {
-            var a = serviceProvider.GetRequiredService<MyDbContext>();
-            var b = serviceProvider.GetRequiredService<MyDbContext>();
+            TestService.Test();
 
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
@@ -367,7 +370,7 @@ namespace MyApiWithIdentityServer4.Controllers
         public async Task<IActionResult> GetDataByRR() 
         {
             #region 多次读，即使另一个事务update,insert,delete了相同条件的数据，当前事务读取到的数据未变 
-            var query = _repo.GetAll().Where(r => r.LastName == "123");
+            var query = Repo.GetAll().Where(r => r.LastName == "123");
 
             var data = await query.ToListAsync();
 
@@ -404,11 +407,11 @@ namespace MyApiWithIdentityServer4.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var a = await _repo.GetAll().IgnoreQueryFilters().ToListAsync();
-            var b = await _repo.GetAllIncluding(r => r.Enrollments).ToListAsync();
-            var c = _repo.GetAllList();
-            var d = _repo.GetAllList(r => r.Enrollments.Any(t => t.EnrollmentID == 1));
-            var e = _repo.FirstOrDefault(r => r.Id == new Guid("8FB45ADF-3F80-45ED-93CB-10A61CE644E9"));
+            var a = await Repo.GetAll().IgnoreQueryFilters().ToListAsync();
+            var b = await Repo.GetAllIncluding(r => r.Enrollments).ToListAsync();
+            var c = Repo.GetAllList();
+            var d = Repo.GetAllList(r => r.Enrollments.Any(t => t.EnrollmentID == 1));
+            var e = Repo.FirstOrDefault(r => r.Id == new Guid("8FB45ADF-3F80-45ED-93CB-10A61CE644E9"));
 
             return Ok();
         }
@@ -417,7 +420,7 @@ namespace MyApiWithIdentityServer4.Controllers
         public async Task<IActionResult> InsertWithIdAsync()
         {
             Guid id = Guid.NewGuid();
-            var f = await _repo.InsertAsync(new Student
+            var f = await Repo.InsertAsync(new Student
             {
                 Id = id,
                 EnrollmentDate = DateTime.Now,
@@ -448,7 +451,7 @@ namespace MyApiWithIdentityServer4.Controllers
         [HttpPost]
         public async Task<IActionResult> InsertWithOutIdAsync()
         {
-            var f = await _repo.InsertAsync(new Student
+            var f = await Repo.InsertAsync(new Student
             {
                 EnrollmentDate = DateTime.Now,
                 FirstMidName = "6666",
@@ -461,7 +464,7 @@ namespace MyApiWithIdentityServer4.Controllers
         [HttpPost]
         public async Task<IActionResult> UpdateAsync()
         {
-            var e = await _repo.FirstOrDefaultAsync(r => r.Id == new Guid("8FB45ADF-3F80-45ED-93CB-10A61CE644E9"));
+            var e = await Repo.FirstOrDefaultAsync(r => r.Id == new Guid("8FB45ADF-3F80-45ED-93CB-10A61CE644E9"));
             e.LastName = "8888";
 
             foreach (var en in e.Enrollments)
@@ -470,7 +473,7 @@ namespace MyApiWithIdentityServer4.Controllers
                 en.Course.Name = "8888";
             }
 
-            await _repo.UpdateAsync(e);
+            await Repo.UpdateAsync(e);
 
             return Ok();
         }
@@ -478,8 +481,8 @@ namespace MyApiWithIdentityServer4.Controllers
         [HttpPost]
         public async Task<IActionResult> DeleteAsync()
         {
-            var h = await _repo.FirstOrDefaultAsync(r => r.Id == new Guid("CAEF9CEF-EBA3-47DA-AAF9-CF2802413F97"));
-            await _repo.DeleteAsync(h);
+            var h = await Repo.FirstOrDefaultAsync(r => r.Id == new Guid("CAEF9CEF-EBA3-47DA-AAF9-CF2802413F97"));
+            await Repo.DeleteAsync(h);
 
             return Ok();
         }
@@ -487,11 +490,11 @@ namespace MyApiWithIdentityServer4.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAllAsyncTest()
         {
-            var a = await (await _repo.GetAllAsync()).ToListAsync();
-            var b = await (await _repo.GetAllIncludingAsync(r => r.Enrollments)).ToListAsync();
-            var c = await _repo.GetAllListAsync();
-            var d = await _repo.GetAllListAsync(r => r.Enrollments.Any(t => t.EnrollmentID == 1));
-            var e = await _repo.FirstOrDefaultAsync(r => r.Id == new Guid("8FB45ADF-3F80-45ED-93CB-10A61CE644E9"));
+            var a = await (await Repo.GetAllAsync()).ToListAsync();
+            var b = await (await Repo.GetAllIncludingAsync(r => r.Enrollments)).ToListAsync();
+            var c = await Repo.GetAllListAsync();
+            var d = await Repo.GetAllListAsync(r => r.Enrollments.Any(t => t.EnrollmentID == 1));
+            var e = await Repo.FirstOrDefaultAsync(r => r.Id == new Guid("8FB45ADF-3F80-45ED-93CB-10A61CE644E9"));
 
             return Ok(a);
         }
@@ -502,7 +505,7 @@ namespace MyApiWithIdentityServer4.Controllers
         {
             try
             {
-                await _repo.GetAll().ToListAsync();
+                await Repo.GetAll().ToListAsync();
             }
             catch (Exception e) 
             {
@@ -683,13 +686,13 @@ namespace MyApiWithIdentityServer4.Controllers
         [HttpPost]
         public async Task RecordOperationAdd()
         {
-            await _repo.InsertAsync(new Student
+            await Repo.InsertAsync(new Student
             {
                 FirstMidName = "A001",
                 LastName = "A001"
             });
 
-            await _repo.InsertAsync(new Student
+            await Repo.InsertAsync(new Student
             {
                 FirstMidName = "A002",
                 LastName = "A002"
@@ -701,7 +704,7 @@ namespace MyApiWithIdentityServer4.Controllers
                 Path = "1234"
             });
 
-            await _classRepo.InsertAsync(new ClassRoom
+            await ClassRepo.InsertAsync(new ClassRoom
             {
                 CreationUserId = 123
             });
@@ -710,17 +713,17 @@ namespace MyApiWithIdentityServer4.Controllers
         [HttpPost]
         public async Task<string> RecordOperationLogs(string a)
         {
-            await _repo.InsertAsync(new Student
+            await Repo.InsertAsync(new Student
             {
                 FirstMidName = "C001",
                 LastName = "C001"
             });
 
-            var data = await _repo.FirstOrDefaultAsync(r => r.FirstMidName.Equals("A001"));
+            var data = await Repo.FirstOrDefaultAsync(r => r.FirstMidName.Equals("A001"));
             data!.LastName = "A001.001";
 
-            var data1 = await _repo.FirstOrDefaultAsync(r => r.FirstMidName.Equals("A002"));
-            await _repo.DeleteAsync(data1!);
+            var data1 = await Repo.FirstOrDefaultAsync(r => r.FirstMidName.Equals("A002"));
+            await Repo.DeleteAsync(data1!);
 
             var data2 = await RepoApp.GetAll().FirstOrDefaultAsync();
             await RepoApp.DeleteAsync(data2!);
@@ -783,5 +786,26 @@ namespace MyApiWithIdentityServer4.Controllers
         #endregion
 
 
+        #region Multiple data sources
+
+        /// <summary>
+        /// 多数据源测试
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public async Task<IActionResult> MultipleDataSource() 
+        {
+            //mysql
+            var data = await Repo.FirstOrDefaultAsync(r => r.LastName == "新的名字1234");
+            data!.LastName = "新的名字1234";
+
+            //mssql
+            var data2 = await Repo1.FirstOrDefaultAsync(r => r.LastName == "Suppress1234");
+            data2!.LastName = "Suppress1234";
+
+            return Ok((data,data2));
+        }
+
+        #endregion
     }
 }

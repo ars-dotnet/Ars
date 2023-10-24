@@ -10,6 +10,7 @@ using Ocelot.Provider.Consul;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -17,7 +18,7 @@ namespace Ars.Common.Ocelot.Extension
 {
     public static class IServiceCollextionExtension
     {
-        public static IArsWebApplicationBuilder AddArsOcelot(this IArsWebApplicationBuilder arsServiceBuilder) 
+        public static IArsWebApplicationBuilder AddArsOcelot(this IArsWebApplicationBuilder arsServiceBuilder,Action<IOcelotBuilder>? builderOption = null) 
         {
             arsServiceBuilder.HostBuilder.ConfigureAppConfiguration((hostBuilderContext,configurationBuilder) =>
             {
@@ -38,6 +39,11 @@ namespace Ars.Common.Ocelot.Extension
             }
 
             var ocelotbuilder = arsServiceBuilder.Services.AddOcelot();
+            if (null != builderOption) 
+            {
+                builderOption(ocelotbuilder);
+            }
+
             if (ocelotGlobalConfig.ServiceDiscoveryProvider?.Type?.ToLower()?.Contains("consul") ?? false)
             {
                 ocelotbuilder.AddConsul();
