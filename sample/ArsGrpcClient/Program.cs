@@ -46,14 +46,14 @@ builder.Services.Replace(ServiceDescriptor.Singleton<SkyApm.Logging.ILoggerFacto
 
 var app = builder.Build();
 
+app.UsArsExceptionMiddleware();
+
 // Configure the HTTP request pipeline.
 //if (app.Environment.IsProduction())
 //{
-    app.UseSwagger();
+app.UseSwagger();
     app.UseSwaggerUI();
 //}
-
-app.UsArsExceptionMiddleware();
 
 app.UseHttpsRedirection();
 

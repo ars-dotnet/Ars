@@ -9,6 +9,8 @@ using Ars.Common.Consul.Extension;
 using System.Net;
 using ArsApiGateway;
 using Ars.Common.Ocelot;
+using Ocelot.Provider.Consul;
+using Ars.Common.Core.AspNetCore.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 

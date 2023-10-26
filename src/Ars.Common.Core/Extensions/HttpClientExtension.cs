@@ -1,7 +1,9 @@
 ﻿using Ars.Commom.Core;
+using Ars.Common.Tool.Extension;
 using Ars.Common.Tool.Tools;
 using Microsoft.Extensions.DependencyInjection;
 using Polly;
+using Polly.Timeout;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,12 +39,19 @@ namespace Ars.Common.Core.Extensions
                     return handler;
                 });
 
+            //超时时间10s
+            //HttpRequestException、TimeoutRejectedException、TimeoutException、
+            //HttpStatusCode >= 500 || HttpStatusCode == 408[请求超时] 都会触发熔断异常请求计数
+            //熔断异常请求达到30个时，服务熔断5s
+            //第一次请求失败后，此后有2次重试请求，分别为第1s和第2s
+            #region 熔断 超时 重试 
             services
                 .AddHttpClient(HttpClientNames.RetryHttp)
                 .AddTransientHttpErrorPolicy(policyBuilder =>
                 {
-                    return policyBuilder.WaitAndRetryAsync(new TimeSpan[] { TimeSpan.FromSeconds(1), TimeSpan.FromSeconds(2) });
+                    return policyBuilder.AddArsHttpClientPolicy();
                 });
+
             services
                 .AddHttpClient(HttpClientNames.RetryHttps)
                 .ConfigurePrimaryHttpMessageHandler((e) =>
@@ -57,8 +66,9 @@ namespace Ars.Common.Core.Extensions
                 })
                 .AddTransientHttpErrorPolicy(policyBuilder =>
                 {
-                    return policyBuilder.WaitAndRetryAsync(new TimeSpan[] { TimeSpan.FromSeconds(1), TimeSpan.FromSeconds(2) });
+                    return policyBuilder.AddArsHttpClientPolicy();
                 });
+            #endregion
 
             return arsServiceBuilder;
         }

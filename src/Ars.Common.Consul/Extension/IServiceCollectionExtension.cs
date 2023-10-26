@@ -1,5 +1,6 @@
 ﻿using Ars.Commom.Core;
 using Ars.Commom.Tool.Extension;
+using Ars.Common.Tool.Extension;
 using Ars.Common.Consul.Option;
 using Ars.Common.Core.Configs;
 using Ars.Common.Core.Extensions;
@@ -64,7 +65,7 @@ namespace Ars.Common.Consul.Extension
 
             var arscfg = arsServiceBuilder.ServiceProvider.GetRequiredService<IArsConfiguration>();
 
-            if (arscfg.ArsBasicConfiguration?.ServiceIp.IsNullOrEmpty() ?? false)
+            if (arscfg.ArsBasicConfiguration?.ServiceIp?.IsNullOrEmpty() ?? false)
             {
                 throw new ArgumentNullException("appsettings => ArsBasicConfiguration.ServiceIp not be null");
             }
@@ -108,7 +109,7 @@ namespace Ars.Common.Consul.Extension
                 })
                 .AddTransientHttpErrorPolicy(policyBuilder =>
                 {
-                    return policyBuilder.WaitAndRetryAsync(new TimeSpan[] { TimeSpan.FromSeconds(1), TimeSpan.FromSeconds(2) });
+                    return policyBuilder.AddArsHttpClientPolicy();
                 });
 
             services
@@ -131,7 +132,7 @@ namespace Ars.Common.Consul.Extension
                 })
                 .AddTransientHttpErrorPolicy(policyBuilder =>
                 {
-                    return policyBuilder.WaitAndRetryAsync(new TimeSpan[] { TimeSpan.FromSeconds(1), TimeSpan.FromSeconds(2) });
+                    return policyBuilder.AddArsHttpClientPolicy();
                 });
 
             services
@@ -147,7 +148,7 @@ namespace Ars.Common.Consul.Extension
                 })
                 .AddTransientHttpErrorPolicy(policyBuilder =>
                 {
-                    return policyBuilder.WaitAndRetryAsync(new TimeSpan[] { TimeSpan.FromSeconds(1), TimeSpan.FromSeconds(2) });
+                    return policyBuilder.AddArsHttpClientPolicy();
                 });
 
             services
@@ -166,7 +167,7 @@ namespace Ars.Common.Consul.Extension
                 })
                 .AddTransientHttpErrorPolicy(policyBuilder =>
                 {
-                    return policyBuilder.WaitAndRetryAsync(new TimeSpan[] { TimeSpan.FromSeconds(1), TimeSpan.FromSeconds(2) });
+                    return policyBuilder.AddArsHttpClientPolicy();
                 });
             #endregion
 

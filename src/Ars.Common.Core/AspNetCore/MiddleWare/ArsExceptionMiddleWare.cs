@@ -13,6 +13,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Ars.Common.Core.Excels.UploadExcel;
+using System.Net;
+using Polly.Timeout;
+using Polly.CircuitBreaker;
 
 namespace Ars.Common.Core.AspNetCore.MiddleWare
 {
@@ -56,7 +59,7 @@ namespace Ars.Common.Core.AspNetCore.MiddleWare
                 code = err.Item1;
                 errorMsg = err.Item2;
             }
-            else if (e is ArsExcelException excelException) 
+            else if (e is ArsExcelException excelException)
             {
                 code = excelException.Code;
                 errorMsg = excelException.Message;
@@ -66,6 +69,21 @@ namespace Ars.Common.Core.AspNetCore.MiddleWare
             {
                 code = uexception.Code;
                 errorMsg = uexception.Message;
+            }
+            else if (e is HttpRequestException requestException)
+            {
+                code = (int)(requestException.StatusCode ?? HttpStatusCode.InternalServerError);
+                errorMsg = requestException.Message;
+            }
+            else if (e is TimeoutRejectedException timeoutRejectedException) //超时
+            {
+                code = 504;
+                errorMsg = $"请求超时:{timeoutRejectedException.Message}";
+            }
+            else if (e is BrokenCircuitException brokenException) //熔断
+            {
+                code = 503;
+                errorMsg = $"服务不可用:{brokenException.Message}";
             }
             else
             {

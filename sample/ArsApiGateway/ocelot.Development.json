@@ -13,8 +13,30 @@
       "UseServiceDiscovery": true,
       "LoadBalancerOptions": {
         "Type": "RoundRobin" //轮询
-      }
+      },
       //-- ServiceDiscovery end -- 
+
+      //限流
+      //解释:1s的最大请求数50，若超过50，则提示请求端等待1秒后重试
+      "RateLimitOptions": {
+        "ClientWhitelist": [ "ars-ocelot-c1" ], //clientid白名单，不限制请求数
+        "EnableRateLimiting": true, //是否启用限流
+        "Period": "1s", //指定的时间间隔
+        "PeriodTimespan": 1, //多少秒后重试
+        "Limit": 50 //最大请求数
+      },
+
+      //超时策略+熔断策略+降级策略
+      //达到30个超时请求时，服务自动熔断5s，5s后恢复正常请求
+      //超时返回503
+      //熔断、降级返回504
+      //HttpRequestException、TimeoutRejectedException、TimeoutException、
+      //HttpStatusCode >= 500 || HttpStatusCode = 408 以上会触发熔断请求计数
+      "QoSOptions": {
+        "ExceptionsAllowedBeforeBreaking": 30, //允许多少个异常请求
+        "DurationOfBreak": 5000, // 熔断的时间，单位ms
+        "TimeoutValue": 10000 //超时时间，单位ms,
+      }
     },
     //ArsWebApiService swagger
     {
@@ -45,15 +67,6 @@
       "UseServiceDiscovery": true,
       "LoadBalancerOptions": {
         "Type": "RoundRobin" //轮询
-      },
-
-      //解释:1s的最大请求数50，若超过50，则提示请求端等待1秒后重试
-      "RateLimitOptions": {
-        "ClientWhitelist": [ "ars-ocelot-c1" ], //clientid白名单，不限制请求数
-        "EnableRateLimiting": true, //启用端点限速
-        "Period": "1s", //指定的时间间隔
-        "PeriodTimespan": 1, //多少秒后重试
-        "Limit": 50 //最大请求数
       }
     },
 
@@ -149,7 +162,7 @@
       "DisableRateLimitHeaders": false,
       "QuotaExceededMessage": "rate limit", //速率限制发生时的提示信息
       "HttpStatusCode": 999, //速率限制发生时返回的状态
-      "ClientIdHeader": "ars-ocelot-clientid" //白名单clientid放在这个header里面
+      "ClientIdHeader": "ars-ocelot-clientid" //白名单clientid放在这个header字段里面 {"ars-ocelot-clientid":"ars-ocelot-c1"}
     }
   }
 }

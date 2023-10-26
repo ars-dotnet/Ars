@@ -32,18 +32,21 @@ namespace Ars.Common.Consul.HttpClientHelper
             _token = token;
         }
 
-        public Task<T> GetHttpClientAsync<T>(string serviceName) where T : HttpClient
+        public Task<T> GetHttpClientAsync<T>(string serviceName, string httpClientName = "") where T : HttpClient
         {
             var option = _options.ConsulDiscovers.
                    FirstOrDefault(r => r.ServiceName.Equals(serviceName, StringComparison.OrdinalIgnoreCase))
                 ?? throw new ArsException($"consul service:{serviceName} not find");
 
-            return GetHttpClientAsync<T>(option);
+            return GetHttpClientAsync<T>(option, httpClientName);
         }
 
-        public Task<T> GetHttpClientAsync<T>(ConsulConfiguration config) where T : HttpClient
+        public Task<T> GetHttpClientAsync<T>(ConsulConfiguration config, string httpClientName = "") where T : HttpClient
         {
-            return GetClient<T>(config, HttpClientNames.RetryHttp);
+            if (httpClientName.IsNullOrEmpty())
+                httpClientName = HttpClientNames.RetryHttp;
+
+            return GetClient<T>(config, httpClientName);
         }
 
         public Task<T> GetGrpcHttpClientAsync<T>(ConsulConfiguration config) where T : HttpClient

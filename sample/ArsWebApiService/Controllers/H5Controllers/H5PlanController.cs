@@ -13,9 +13,9 @@ namespace ArsWebApiService.Controllers.H5Controllers
     {
         [ExportAction]
         [HttpGet]
-        public Task<ArsOutput<GetPlanByNumberOutput>> GetPlanByNumber([FromQuery]string PlanNumber)
+        public async Task<ArsOutput<GetPlanByNumberOutput>> GetPlanByNumber([FromQuery]string PlanNumber)
         {
-            return Task.FromResult(
+            return
                 ArsOutput<GetPlanByNumberOutput>.Success(
                     new GetPlanByNumberOutput 
                     {
@@ -27,7 +27,7 @@ namespace ArsWebApiService.Controllers.H5Controllers
                         BarCode = "B123",
                         BomNumber = "Bom123",
                         PlanQty = 666
-                    }));
+                    });
         }
 
         [ExportAction]

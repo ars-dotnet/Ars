@@ -13,9 +13,9 @@ namespace Ars.Common.Consul.HttpClientHelper
     /// </summary>
     public interface IHttpClientProviderByConsul
     {
-        Task<T> GetHttpClientAsync<T>(string serviceName) where T : HttpClient;
+        Task<T> GetHttpClientAsync<T>(string serviceName,string httpClientName = "") where T : HttpClient;
 
-        Task<T> GetHttpClientAsync<T>(ConsulConfiguration config) where T : HttpClient;
+        Task<T> GetHttpClientAsync<T>(ConsulConfiguration config,string httpClientName = "") where T : HttpClient;
 
         Task<T> GetGrpcHttpClientAsync<T>(ConsulConfiguration config) where T : HttpClient;
     }

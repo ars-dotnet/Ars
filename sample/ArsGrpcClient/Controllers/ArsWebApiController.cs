@@ -1,5 +1,6 @@
 ﻿using Ars.Common.Consul;
 using Ars.Common.Consul.HttpClientHelper;
+using Ars.Common.Tool.Tools;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,7 +8,7 @@ namespace GrpcClient.Controllers
 {
     [ApiController]
     [Route("Api/GrpcClient/[controller]/[action]")]
-    [Authorize("default")]
+    //[Authorize("default")]
     public class ArsWebApiController : Controller
     {
         private readonly IHttpClientProviderByConsul _httpClientProvider;
@@ -23,6 +24,22 @@ namespace GrpcClient.Controllers
         {
             using var httpclient = await _httpClientProvider.GetHttpClientAsync<HttpClient>("arswebapiservice");
             var data = await _httpSender.GetAsync(httpclient, "/Api/ArsWebApi/DbContext/Query/Query");
+            return Ok(data);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> RpcArsWebApiBroker()
+        {
+            using var httpclient = await _httpClientProvider.GetHttpClientAsync<HttpClient>("arswebapiservice",HttpClientNames.RetryHttp);
+            var data = await _httpSender.GetAsync(httpclient, "/Api/ArsWebApi/Ocelot/TimeoutRejectedException");
+            return Ok(data);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> RpcArsWebThrow()
+        {
+            using var httpclient = await _httpClientProvider.GetHttpClientAsync<HttpClient>("arswebapiservice", HttpClientNames.RetryHttp);
+            var data = await _httpSender.GetAsync(httpclient, "/Api/ArsWebApi/Ocelot/HttpRequestException");
             return Ok(data);
         }
     }
