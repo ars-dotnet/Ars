@@ -21,9 +21,9 @@ namespace Ars.Common.Ocelot.Extension
         {
             var errorMapping = new Dictionary<Type, Func<Exception, Error>>
             {
-                {typeof(TaskCanceledException), e => new RequestTimedOutError(e)},
-                {typeof(TimeoutRejectedException), e => new RequestTimedOutError(e)},
-                {typeof(BrokenCircuitException), e => new BrokenCircuitError(e)},
+                {typeof(TaskCanceledException), e => new ArsRequestTimedOutError(e)},
+                {typeof(TimeoutRejectedException), e => new ArsRequestTimedOutError(e)},
+                //{typeof(BrokenCircuitException), e => new BrokenCircuitError(e)},
             };
 
             builder.Services.AddSingleton(errorMapping);

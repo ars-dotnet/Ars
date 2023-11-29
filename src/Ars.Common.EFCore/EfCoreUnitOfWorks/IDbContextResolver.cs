@@ -11,7 +11,7 @@ namespace Ars.Common.EFCore.EfCoreUnitOfWorks
 {
     public interface IDbContextResolver : ITransientDependency
     {
-        TDbContext Resolve<TDbContext>(string connectionstring = null, DbConnection dbConnection = null)
+        TDbContext Resolve<TDbContext>(string? connectString = null, DbConnection? existDbConnection = null)
             where TDbContext : DbContext;
     }
 }

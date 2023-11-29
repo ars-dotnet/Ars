@@ -1,6 +1,7 @@
 ﻿using Ars.Commom.Core;
 using Ars.Common.Core.Configs;
 using Ars.Common.Core.Uow.Options;
+using Ars.Common.EFCore.EfCoreUnitOfWorks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -73,7 +74,7 @@ namespace Ars.Common.EFCore.Extension
         /// <exception cref="ArgumentException"></exception>
         public static IArsWebApplicationBuilder AddMultipleArsDbContext<TDbContext>(
            this IArsWebApplicationBuilder arsServiceBuilder,
-           Action<DbContextOptionsBuilder>? optAction = null)
+           Action<IServiceProvider,DbContextOptionsBuilder>? optAction = null)
            where TDbContext : ArsDbContext
         {
             var service = arsServiceBuilder.Services;
@@ -102,15 +103,38 @@ namespace Ars.Common.EFCore.Extension
                 switch (option.DbType)
                 {
                     case 1:
-                        optAction = bulider => bulider.UseMySql(option.DefaultString, ServerVersion.AutoDetect(option.DefaultString));
+                        optAction = (sp,bulider) =>
+                        {
+                            var strategy = sp.GetService<IEFCoreExistTransactionConnectionStorage>();
+                            if (strategy?.TryGetConnection(option.DefaultString, out var connection) ?? false)
+                            {
+                                bulider.UseMySql(connection!, ServerVersion.AutoDetect(option.DefaultString));
+                            }
+                            else 
+                            {
+                                bulider.UseMySql(option.DefaultString, ServerVersion.AutoDetect(option.DefaultString));
+                            }
+                        };
                         break;
                     case 2:
-                        optAction = bulider => bulider.UseSqlServer(option.DefaultString);
+                        optAction = (sp,bulider) =>
+                        {
+                            var strategy = sp.GetService<IEFCoreExistTransactionConnectionStorage>();
+                            if (strategy?.TryGetConnection(option.DefaultString, out var connection) ?? false) 
+                            {
+                                bulider.UseSqlServer(connection!);
+                            }
+                            else 
+                            {
+                                bulider.UseSqlServer(option.DefaultString);
+                            }
+                        };
                         break;
                     default: throw new ArgumentException("暂时只支持mysql和mssql数据库");
                 }
             }
-            service.AddDbContextFactory<TDbContext>(optAction);
+            //dbcontext注册为瞬时
+            service.AddDbContextFactory<TDbContext>(optAction,lifetime: ServiceLifetime.Transient);
 
             return arsServiceBuilder;
         }

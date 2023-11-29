@@ -26,7 +26,7 @@ using Ars.Common.Core.Extensions;
 
 namespace Ars.Common.EFCore
 {
-    public abstract class ArsDbContext : DbContext,ITransientDependency
+    public abstract class ArsDbContext : DbContext
     {
         [Autowired]
         public IArsSession? ArsSession { get; set; }

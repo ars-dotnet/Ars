@@ -16,6 +16,10 @@ namespace Ars.Common.EFCore.Repository
           where TEntity : class, IEntity<TPrimaryKey>
           where TDbContext : DbContext
     {
+        public abstract TDbContext GetDbContext();
+
+        public abstract Task<TDbContext> GetDbContextAsync();
+
         public abstract IQueryable<TEntity> GetAll();
 
         public abstract Task<IQueryable<TEntity>> GetAllAsync();

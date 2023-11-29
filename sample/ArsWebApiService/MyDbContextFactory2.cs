@@ -8,15 +8,15 @@ namespace MyApiWithIdentityServer4
     /// <summary>
     /// used by code first 
     /// </summary>
-    public class MyDbContextFactory : IDesignTimeDbContextFactory<MyDbContext>,ISingletonDependency
+    public class MyDbContextFactory2 : IDesignTimeDbContextFactory<MyDbContext2>,ISingletonDependency
     {
-        public MyDbContext CreateDbContext(string[] args)
+        public MyDbContext2 CreateDbContext(string[] args)
         {
-            DbContextOptionsBuilder<MyDbContext> builder = new DbContextOptionsBuilder<MyDbContext>();
+            DbContextOptionsBuilder<MyDbContext2> builder = new DbContextOptionsBuilder<MyDbContext2>();
             string connectstring = "Server=localhost;initial catalog=MYARS;uid=sa;pwd=123456;SslMode=none;TreatTinyAsBoolean=true;persistsecurityinfo=True;";
             builder.UseMySql(connectstring,ServerVersion.AutoDetect(connectstring));
 
-            return new MyDbContext(builder.Options);
+            return new MyDbContext2(builder.Options);
         }
     }
 }

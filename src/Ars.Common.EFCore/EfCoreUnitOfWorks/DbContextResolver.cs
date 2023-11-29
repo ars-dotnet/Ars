@@ -1,4 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Ars.Commom.Tool.Extension;
+using Autofac.Core.Lifetime;
+using Autofac.Extensions.DependencyInjection;
+using MathNet.Numerics.Providers.Common.Mkl;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -11,15 +15,27 @@ namespace Ars.Common.EFCore.EfCoreUnitOfWorks
 {
     internal class DbContextResolver : IDbContextResolver
     {
-        private readonly IServiceProvider _serviceProvider;
-        public DbContextResolver(IServiceProvider serviceProvider)
+        private readonly IServiceScopeFactory _serviceScopeFactory;
+        public DbContextResolver(IServiceScopeFactory serviceScopeFactory)
         {
-            _serviceProvider = serviceProvider;
+            _serviceScopeFactory = serviceScopeFactory;
         }
 
-        public TDbContext Resolve<TDbContext>(string connectionstring, DbConnection dbConnection) where TDbContext : DbContext
+        public TDbContext Resolve<TDbContext>(string? connectString = null, DbConnection? existDbConnection = null)
+            where TDbContext : DbContext
         {
-            return _serviceProvider.GetRequiredService<TDbContext>();
+            TDbContext dbContext;
+            var provider = _serviceScopeFactory.CreateScope().ServiceProvider;
+
+            if (connectString.IsNotNullOrEmpty() && null != existDbConnection)
+            {
+                var storage = provider.GetRequiredService<IEFCoreExistTransactionConnectionStorage>();
+                storage.AddConnection(connectString!, existDbConnection);
+            }
+
+            dbContext = provider.GetRequiredService<TDbContext>();
+
+            return dbContext;
         }
     }
 }

@@ -39,12 +39,7 @@ namespace Ars.Common.Core.Extensions
                     return handler;
                 });
 
-            //超时时间10s
-            //HttpRequestException、TimeoutRejectedException、TimeoutException、
-            //HttpStatusCode >= 500 || HttpStatusCode == 408[请求超时] 都会触发熔断异常请求计数
-            //熔断异常请求达到30个时，服务熔断5s
-            //第一次请求失败后，此后有2次重试请求，分别为第1s和第2s
-            #region 熔断 超时 重试 
+            #region 降级 熔断 超时 重试 
             services
                 .AddHttpClient(HttpClientNames.RetryHttp)
                 .AddTransientHttpErrorPolicy(policyBuilder =>

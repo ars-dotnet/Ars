@@ -42,5 +42,13 @@ namespace GrpcClient.Controllers
             var data = await _httpSender.GetAsync(httpclient, "/Api/ArsWebApi/Ocelot/HttpRequestException");
             return Ok(data);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> HttpClientMultiRead()
+        {
+            using var httpclient = await _httpClientProvider.GetHttpClientAsync<HttpClient>("arswebapiservice", "test");
+            var data = await _httpSender.GetAsync<object>(httpclient, "/Api/ArsWebApi/DbContext/Query/Query");
+            return Ok(data);
+        }
     }
 }

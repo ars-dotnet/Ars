@@ -25,13 +25,13 @@ namespace Ars.Common.EFCore.Repository
 
         protected TDbContext? dbContext { get; set; }
 
-        protected virtual TDbContext GetDbContext() 
+        public override TDbContext GetDbContext() 
         {
             dbContext ??= CurrentUnitOfWorkProvider.Current?.GetDbContext<TDbContext>() ?? DbContextResolver.Resolve<TDbContext>();
             return dbContext;
         }
 
-        protected virtual async Task<TDbContext> GetDbContextAsync() 
+        public override async Task<TDbContext> GetDbContextAsync() 
         {
             dbContext ??= await (CurrentUnitOfWorkProvider.Current?.GetDbContextAsync<TDbContext>() ?? Task.FromResult(DbContextResolver.Resolve<TDbContext>()));
             return dbContext;

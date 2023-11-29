@@ -67,6 +67,8 @@ var arsbuilder =
 
         config.AddArsCap(option =>
         {
+            //如果存在不同dbcontext使用同一个连接字符串
+            //这里用一个新的dbcontext
             option.UseEntityFramework<MyDbContext>();
 
             option.UseRabbitMQ(mq =>
@@ -79,6 +81,7 @@ var arsbuilder =
     })
     //.AddArsDbContext<MyDbContext>()
     .AddMultipleArsDbContext<MyDbContext>()
+    .AddMultipleArsDbContext<MyDbContext2>()
     .AddMultipleArsDbContext<MyDbContextWithMsSql>()
     .AddArsHttpClient()
     .AddArsExportExcelService(typeof(Program).Assembly)
@@ -91,6 +94,8 @@ var arsbuilder =
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
+
+var mm =  builder.Services.Where(r => r.ServiceType == typeof(MyDbContext)).ToList();
 
 builder.Services.AddCors(cors =>
 {

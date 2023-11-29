@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
 using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,6 +31,8 @@ namespace Ars.Common.EFCore.EfCoreUnitOfWorks
 
         void Dispose();
 
-        IDbContextTransaction? GetContextTransaction(string name = null);
+        IDbContextTransaction? GetContextTransaction(string name);
+
+        DbConnection? GetContextTransactionConnection(string name);
     }
 }

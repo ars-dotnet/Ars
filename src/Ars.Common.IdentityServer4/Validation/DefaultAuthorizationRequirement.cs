@@ -1,4 +1,5 @@
-﻿using Ars.Common.Core.IDependency;
+﻿using Ars.Commom.Tool.Extension;
+using Ars.Common.Core.IDependency;
 using Ars.Common.Tool;
 using Ars.Common.Tool.Extension;
 using Microsoft.AspNetCore.Authorization;
@@ -24,7 +25,13 @@ namespace Ars.Common.IdentityServer4.Validation
             var user = context.User;
             if (!user.Logined())
             {
-                Valid.ThrowException(401, "身份未认证，请重新登录");
+                if (user.GetValue("client_id").IsNullOrEmpty()) 
+                {
+                    Valid.ThrowException(401, "身份未认证，请重新登录");
+                }
+
+                context.Succeed(requirement);
+                return Task.CompletedTask;
             }
             if ("admin".Equals(user.GetValue(ClaimTypes.Role)))
             {

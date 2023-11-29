@@ -1,8 +1,10 @@
 ﻿using Ars.Common.Tool;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ArsWebApiService.Controllers
 {
+    [Authorize("default")]
     public class OcelotController : ArsWebApiBaseController
     {
         /// <summary>

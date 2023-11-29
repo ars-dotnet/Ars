@@ -70,7 +70,7 @@ namespace Ars.Common.Core.AspNetCore.MiddleWare
                 code = uexception.Code;
                 errorMsg = uexception.Message;
             }
-            else if (e is HttpRequestException requestException)
+            else if (e is HttpRequestException requestException) //httplcient.EnsureSuccessStatusCode()
             {
                 code = (int)(requestException.StatusCode ?? HttpStatusCode.InternalServerError);
                 errorMsg = requestException.Message;

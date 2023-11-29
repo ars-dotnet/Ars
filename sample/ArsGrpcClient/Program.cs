@@ -7,6 +7,7 @@ using Ars.Common.Tool.Extension;
 using GrpcClient.ApmLogger;
 using GrpcClients;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using System.Net.Http;
 
 Environment.SetEnvironmentVariable("ASPNETCORE_HOSTINGSTARTUPASSEMBLIES", "SkyAPM.Agent.AspNetCore");
 Environment.SetEnvironmentVariable("SKYWALKING__SERVICENAME", "grpclient");
@@ -43,6 +44,9 @@ builder.Services.AddSingleton<IChannelProvider, ChannelProvider>();
 builder.Services.AddSkyAPM();
 
 builder.Services.Replace(ServiceDescriptor.Singleton<SkyApm.Logging.ILoggerFactory, MyLoggerFactory>());
+
+builder.Services.AddTransient<MyDelegatingHandler>();
+builder.Services.AddHttpClient("test").AddHttpMessageHandler<MyDelegatingHandler>();
 
 var app = builder.Build();
 

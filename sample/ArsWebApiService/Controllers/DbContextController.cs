@@ -8,12 +8,14 @@ using Ars.Common.EFCore.Extension;
 using Ars.Common.EFCore.Repository;
 using ArsWebApiService;
 using ArsWebApiService.Model;
+using ArsWebApiService.Services;
 using IdentityModel.Client;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Primitives;
 using MyApiWithIdentityServer4.Dtos;
 using MyApiWithIdentityServer4.Model;
@@ -37,14 +39,15 @@ namespace MyApiWithIdentityServer4.Controllers
         private readonly IArsIdentityClientConfiguration _clientConfiguration;
         //private readonly MyDbContext myDbContext;
         private readonly IUnitOfWork _unitOfWork;
-
+        private readonly IServiceProvider _serviceProvider;
         public DbContextController(ILogger<DbContextController> logger,
             MyDbContext myDbContext,
             IHttpClientFactory httpClientFactory,
             IHttpContextAccessor httpContextAccessor,
             //ITestScopeService testScopeService,
             IArsIdentityClientConfiguration arsIdentityClientConfiguration,
-            IUnitOfWork unitOfWork)
+            IUnitOfWork unitOfWork,
+            IServiceProvider serviceProvider)
         {
             _logger = logger;
             _httpClientFactory = httpClientFactory;
@@ -53,10 +56,14 @@ namespace MyApiWithIdentityServer4.Controllers
             //_testScopeService = testScopeService;
             _clientConfiguration = arsIdentityClientConfiguration;
             _unitOfWork = unitOfWork;
+            _serviceProvider = serviceProvider;
         }
 
         [Autowired]
         public IRepository<Student, Guid> Repo { get; set; }
+
+        [Autowired]
+        public IRepository<StudentNew, Guid> StuNew_Repo { get; set; }
 
         [Autowired]
         public IRepository<StudentMsSql, Guid> Repo1 { get; set; }
@@ -69,6 +76,9 @@ namespace MyApiWithIdentityServer4.Controllers
 
         [Autowired]
         protected IRepository<AppVersion> RepoApp { get; set; }
+
+        [Autowired]
+        public IService Service { get; set; }
 
         private static readonly string[] Summaries = new[]
         {
@@ -91,9 +101,10 @@ namespace MyApiWithIdentityServer4.Controllers
             .ToArray();
         }
 
-        #region DbContext Without Transaction
-        [HttpPost(nameof(ActionWithOutTransaction))]
-        public async Task ActionWithOutTransaction()
+        #region DbContext with Default Transaction
+
+        [HttpPost(nameof(ActionWithDefaultTransaction))]
+        public async Task ActionWithDefaultTransaction()
         {
             Guid id = Guid.NewGuid();
 
@@ -132,12 +143,18 @@ namespace MyApiWithIdentityServer4.Controllers
             var n = await MyDbContext.Students.Include(r => r.Enrollments).FirstOrDefaultAsync(r => r.LastName.Equals("Yang"));
             var o = await MyDbContext.Students.Include(r => r.Enrollments).ThenInclude(r => r.Course).FirstOrDefaultAsync(r => r.LastName.Equals("Yang"));
 
+            await Service.Get();
+
+            MyDbContext _dbContext = await UnitOfWorkManager.Current.GetDbContextAsync<MyDbContext>();
+
+            var aa = _serviceProvider.GetRequiredService<MyDbContext>();
+
             return Ok((m, n, o));
         }
 
         [Authorize]
-        [HttpPost(nameof(ModifyWithOutTransaction))]
-        public async Task ModifyWithOutTransaction()
+        [HttpPost(nameof(ModifyWithDefaultTransaction))]
+        public async Task ModifyWithDefaultTransaction()
         {
             var info = await MyDbContext.Students.FirstOrDefaultAsync();
             info.LastName = "boo" + new Random().Next(20);
@@ -146,17 +163,14 @@ namespace MyApiWithIdentityServer4.Controllers
         }
 
         [Authorize]
-        [HttpPost(nameof(DeleteWithOutTransaction))]
-        public async Task DeleteWithOutTransaction()
+        [HttpPost(nameof(DeleteWithDefaultTransaction))]
+        public async Task DeleteWithDefaultTransaction()
         {
             var info = await MyDbContext.Students.FirstOrDefaultAsync();
             MyDbContext.Students.Remove(info);
 
             await MyDbContext.SaveChangesAsync();
         }
-        #endregion
-
-        #region DbContext with Transaction
 
         [HttpPost(nameof(TestUowDefault))]
         public async Task TestUowDefault()
@@ -193,6 +207,28 @@ namespace MyApiWithIdentityServer4.Controllers
             };
             count = await DbExecuter.ExecuteNonQuery(updatesql, upsqlParameters);
         }
+
+        [HttpPost]
+        [UnitOfWork(IsDisabled = true)]
+        public async Task<IActionResult> TestDefaultUOW() 
+        {
+            using var scope = UnitOfWorkManager.Begin();
+            var info = await Repo.FirstOrDefaultAsync(r => r.LastName.Equals("TestUowDefault11"));
+            info!.LastName = "TestUowDefault12";
+
+            var a = await Repo.CountAsync(r => r.LastName.Equals("TestUowDefault11"));
+
+            await UnitOfWorkManager.Current.SaveChangesAsync();
+
+            a = await Repo.CountAsync(r => r.LastName.Equals("TestUowDefault11"));
+            await scope.CompleteAsync();
+            return Ok(a);
+        }
+
+        #endregion
+
+        #region DbContext with Custome Transaction
+
 
         [HttpPost(nameof(TestUowRequired))]
         public async Task TestUowRequired()
@@ -346,6 +382,8 @@ namespace MyApiWithIdentityServer4.Controllers
         [HttpPost(nameof(TestUowWithDispose))]
         public async Task TestUowWithDispose()
         {
+            var a = await Repo.GetAll().FirstOrDefaultAsync();
+
             using var scope = UnitOfWorkManager.Begin(TransactionScopeOption.Required);
             MyDbContext _dbContext = await UnitOfWorkManager.Current.GetDbContextAsync<MyDbContext>();
             await _dbContext.Students.AddAsync(new Model.Student
@@ -505,7 +543,16 @@ namespace MyApiWithIdentityServer4.Controllers
         {
             try
             {
-                await Repo.GetAll().ToListAsync();
+                var manager = ServiceScopeFactory.CreateScope().ServiceProvider.GetRequiredService<IUnitOfWorkManager>();
+                using var scope = manager.Begin();
+
+                var repo = ServiceScopeFactory.CreateScope().ServiceProvider.GetRequiredService<IRepository<Student, Guid>>() ;
+                {
+                    var a = await repo.FirstOrDefaultAsync(r => r.LastName.Equals("6666"));
+                    a.LastName = "12345";
+                }
+                
+                await scope.CompleteAsync();
             }
             catch (Exception e) 
             {
@@ -785,23 +832,30 @@ namespace MyApiWithIdentityServer4.Controllers
 
         #endregion
 
-
         #region Multiple data sources
 
         /// <summary>
         /// 多数据源测试
+        /// 不同dbcontext，相同数据库相同连接字符串 [dbcontexts共用一个事务]
+        /// 不同dbcontext，不同数据库 [dbcontexts不共用一个事务]
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public async Task<IActionResult> MultipleDataSource() 
+        public async Task<IActionResult> MultipleDataSource()
         {
             //mysql
-            var data = await Repo.FirstOrDefaultAsync(r => r.LastName == "新的名字1234");
-            data!.LastName = "新的名字1234";
+            var data = await Repo.FirstOrDefaultAsync(r => r.Id == Guid.Parse("05db0cc6-8f4d-4d15-b3d0-21ac0dc73335"));
+            data!.LastName = DateTime.Now.ToString("yyyyMMddHHssmm");
+
+            //mysql - new dbcontext
+            await StuNew_Repo.InsertAsync(new StudentNew
+            {
+                Name = DateTime.Now.ToString("yyyyMMddHHssmm")
+            });
 
             //mssql
-            var data2 = await Repo1.FirstOrDefaultAsync(r => r.LastName == "Suppress1234");
-            data2!.LastName = "Suppress1234";
+            var data2 = await Repo1.FirstOrDefaultAsync(r => r.Id == Guid.Parse("55AF24DD-25CF-49D7-6B61-08DB56996478"));
+            data2!.LastName = DateTime.Now.ToString("yyyyMMddHHssmm");
 
             return Ok((data,data2));
         }

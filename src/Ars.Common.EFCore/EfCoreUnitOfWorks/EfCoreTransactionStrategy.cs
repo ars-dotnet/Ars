@@ -7,6 +7,7 @@ using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Collections.Immutable;
+using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,29 +26,12 @@ namespace Ars.Common.EFCore.EfCoreUnitOfWorks
                 StringComparer.OrdinalIgnoreCase);
         }
 
-        public IDbContextTransaction? GetContextTransaction(string name = null)
+        public void InitOptions(UnitOfWorkOptions options)
         {
-            return ActiveTransactionInfos.TryGetValue(name, out var value) ? value.DbContextTransaction : null;
+            _options = options;
         }
 
-        public async Task CommitAsync()
-        {
-            foreach (var activeTrans in ActiveTransactionInfos.Values.ToImmutableList()) 
-            {
-                await activeTrans.DbContextTransaction.CommitAsync();
-
-                foreach (var dbcontext in activeTrans.AttendedDbContexts) 
-                {
-                    if (dbcontext.HasRelationalTransactionManager()) 
-                    {
-                        continue;
-                    }
-
-                    await dbcontext.Database.CommitTransactionAsync();
-                }
-            }
-        }
-
+        
         public async Task<TDbContext> CreateDbContextAsync<TDbContext>(string connectionString, IDbContextResolver dbContextResolver) where TDbContext : DbContext
         {
             TDbContext dbContext;
@@ -55,7 +39,7 @@ namespace Ars.Common.EFCore.EfCoreUnitOfWorks
             var activeinfo = ActiveTransactionInfos.GetValueOrDefault(connectionString);
             if (null == activeinfo)
             {
-                dbContext = dbContextResolver.Resolve<TDbContext>(connectionString, null);
+                dbContext = dbContextResolver.Resolve<TDbContext>();
 
                 //默认采用可重复读事务隔离级别
                 var dbTransaction = await dbContext.Database.BeginTransactionAsync(
@@ -68,10 +52,9 @@ namespace Ars.Common.EFCore.EfCoreUnitOfWorks
             {
                 dbContext = dbContextResolver.Resolve<TDbContext>(
                     connectionString,
-                    activeinfo.DbContextTransaction.GetDbTransaction().Connection!
-                );
+                    activeinfo.DbContextTransaction.GetDbTransaction().Connection);
 
-                if (dbContext.HasRelationalTransactionManager())
+                if (dbContext.HasRelationalTransactionManager()) //关系型数据库使用共享事务
                 {
                     await dbContext.Database.UseTransactionAsync(activeinfo.DbContextTransaction.GetDbTransaction());
                 }
@@ -93,7 +76,7 @@ namespace Ars.Common.EFCore.EfCoreUnitOfWorks
             var activeinfo = ActiveTransactionInfos.GetValueOrDefault(connectionString);
             if (null == activeinfo)
             {
-                dbContext = dbContextResolver.Resolve<TDbContext>(connectionString, null);
+                dbContext = dbContextResolver.Resolve<TDbContext>();
 
                 //默认采用可重复读事务隔离级别
                 var dbTransaction = dbContext.Database.BeginTransaction(
@@ -106,8 +89,7 @@ namespace Ars.Common.EFCore.EfCoreUnitOfWorks
             {
                 dbContext = dbContextResolver.Resolve<TDbContext>(
                     connectionString,
-                    activeinfo.DbContextTransaction.GetDbTransaction().Connection!
-                );
+                    activeinfo.DbContextTransaction.GetDbTransaction().Connection);
 
                 if (dbContext.HasRelationalTransactionManager())
                 {
@@ -123,6 +105,25 @@ namespace Ars.Common.EFCore.EfCoreUnitOfWorks
 
             return dbContext;
         }
+
+        public async Task CommitAsync()
+        {
+            foreach (var activeTrans in ActiveTransactionInfos.Values.ToImmutableList())
+            {
+                await activeTrans.DbContextTransaction.CommitAsync();
+
+                foreach (var dbcontext in activeTrans.AttendedDbContexts)
+                {
+                    if (dbcontext.HasRelationalTransactionManager())
+                    {
+                        continue;
+                    }
+
+                    await dbcontext.Database.CommitTransactionAsync();
+                }
+            }
+        }
+
 
         public void Dispose()
         {
@@ -141,9 +142,15 @@ namespace Ars.Common.EFCore.EfCoreUnitOfWorks
             ActiveTransactionInfos.Clear();
         }
 
-        public void InitOptions(UnitOfWorkOptions options)
+        public IDbContextTransaction? GetContextTransaction(string name)
         {
-            _options = options;
+            return ActiveTransactionInfos.TryGetValue(name, out var value) ? value.DbContextTransaction : null;
         }
+
+        public DbConnection? GetContextTransactionConnection(string name)
+        {
+            return GetContextTransaction(name)?.GetDbTransaction()?.Connection;
+        }
+
     }
 }

@@ -9,7 +9,10 @@ namespace Ars.Common.Ocelot
 {
     public class BrokenCircuitError : Error
     {
-        public BrokenCircuitError(Exception exception): base($"Breaker making http request, exception: {exception}", OcelotErrorCode.RequestTimedOutError, 504)
+        public BrokenCircuitError(Exception exception)
+            : base($"Breaker making http request, exception: {exception}",
+                  OcelotErrorCode.RequestCanceled, 
+                  503)
         {
             
         }

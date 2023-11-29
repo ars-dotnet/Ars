@@ -37,7 +37,6 @@ namespace Ars.Common.Ocelot
 
                 AsyncPolicies[0] = Policy<HttpResponseMessage>
                     .Handle<BrokenCircuitException>()
-                    .Or<HttpRequestException>()
                     .FallbackAsync(_ => FallbackAsync());
 
                 AsyncPolicies[1] = Policy<HttpResponseMessage>
@@ -48,10 +47,10 @@ namespace Ars.Common.Ocelot
                     .CircuitBreakerAsync(
                         handledEventsAllowedBeforeBreaking: route.QosOptions.ExceptionsAllowedBeforeBreaking,
                         durationOfBreak: TimeSpan.FromMilliseconds(route.QosOptions.DurationOfBreak),
-                        onBreak: (ex, breakDelay) =>
+                        onBreak: (res, breakDelay) =>
                         {
                             _logger.LogError(
-                                ".Breaker logging: Breaking the circuit for " + breakDelay.TotalMilliseconds + "ms!", ex.Exception);
+                                ".Breaker logging: Breaking the circuit for " + breakDelay.TotalMilliseconds + "ms!", res.Exception);
                         },
                         onReset: () =>
                         {
@@ -73,7 +72,7 @@ namespace Ars.Common.Ocelot
 
         private Task<HttpResponseMessage> FallbackAsync()
         {
-            return Task.FromResult(new HttpResponseMessage(HttpStatusCode.GatewayTimeout));
+            return Task.FromResult(new HttpResponseMessage(HttpStatusCode.ServiceUnavailable));
         }
     }
 }

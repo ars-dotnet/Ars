@@ -28,8 +28,8 @@
 
       //超时策略+熔断策略+降级策略
       //达到30个超时请求时，服务自动熔断5s，5s后恢复正常请求
-      //超时返回503
-      //熔断、降级返回504
+      //超时返回504
+      //熔断、降级返回503
       //HttpRequestException、TimeoutRejectedException、TimeoutException、
       //HttpStatusCode >= 500 || HttpStatusCode = 408 以上会触发熔断请求计数
       "QoSOptions": {

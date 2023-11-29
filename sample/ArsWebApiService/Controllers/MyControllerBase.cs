@@ -27,5 +27,8 @@ namespace MyApiWithIdentityServer4.Controllers
 
         [Autowired]
         public IArsConfiguration ArsConfiguration { get; set; }
+
+        [Autowired]
+        public IServiceScopeFactory ServiceScopeFactory { get; set; }
     }
 }
