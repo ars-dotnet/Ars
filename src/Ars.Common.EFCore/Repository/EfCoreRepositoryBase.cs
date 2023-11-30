@@ -25,15 +25,29 @@ namespace Ars.Common.EFCore.Repository
 
         protected TDbContext? dbContext { get; set; }
 
+        /// <summary>
+        /// 如果有efcore事务，则从unitofwork里面取dbcontext
+        /// 如果没有efcore事务，则用同一个dbcontext实例
+        /// </summary>
+        /// <returns></returns>
         public override TDbContext GetDbContext() 
         {
-            dbContext ??= CurrentUnitOfWorkProvider.Current?.GetDbContext<TDbContext>() ?? DbContextResolver.Resolve<TDbContext>();
+            dbContext =
+                CurrentUnitOfWorkProvider.Current?.GetDbContext<TDbContext>() 
+                ?? dbContext 
+                ?? DbContextResolver.Resolve<TDbContext>();
             return dbContext;
         }
 
         public override async Task<TDbContext> GetDbContextAsync() 
         {
-            dbContext ??= await (CurrentUnitOfWorkProvider.Current?.GetDbContextAsync<TDbContext>() ?? Task.FromResult(DbContextResolver.Resolve<TDbContext>()));
+            dbContext =
+                null == CurrentUnitOfWorkProvider.Current
+                ? dbContext ?? DbContextResolver.Resolve<TDbContext>()
+                : await CurrentUnitOfWorkProvider.Current.GetDbContextAsync<TDbContext>()
+                   ?? dbContext
+                   ?? DbContextResolver.Resolve<TDbContext>();
+
             return dbContext;
         }
 
