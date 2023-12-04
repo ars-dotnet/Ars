@@ -50,8 +50,8 @@ namespace Ars.Common.Ocelot
                             _arsBasicConfiguration.Value.CertificatePassWord!)
                         );
                     
-                    httpClientHandler.ServerCertificateCustomValidationCallback =
-                        HttpClientHandler.DangerousAcceptAnyServerCertificateValidator;
+                    //httpClientHandler.ServerCertificateCustomValidationCallback =
+                    //    HttpClientHandler.DangerousAcceptAnyServerCertificateValidator;
                     
                     httpClientHandler.ClientCertificateOptions = ClientCertificateOption.Automatic;
                 }

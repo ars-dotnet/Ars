@@ -9,6 +9,7 @@ namespace ArsWebApiService.Controllers
     {
         /// <summary>
         /// 测试TimeoutRejectedException
+        /// 超时状态码504
         /// </summary>
         /// <returns></returns>
         [HttpGet]
@@ -21,6 +22,7 @@ namespace ArsWebApiService.Controllers
 
         /// <summary>
         /// 测试HttpRequestException
+        /// 熔断、降级状态码503
         /// </summary>
         /// <returns></returns>
         [HttpGet]
