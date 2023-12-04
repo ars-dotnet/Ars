@@ -16,6 +16,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 using Microsoft.Extensions.Primitives;
 using MyApiWithIdentityServer4.Dtos;
 using MyApiWithIdentityServer4.Model;
@@ -40,6 +41,8 @@ namespace MyApiWithIdentityServer4.Controllers
         //private readonly MyDbContext myDbContext;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IServiceProvider _serviceProvider;
+        private readonly IOptions<IArsBasicConfiguration> _options;
+        private readonly IArsConfiguration _arsConfiguration;
         public DbContextController(ILogger<DbContextController> logger,
             MyDbContext myDbContext,
             IHttpClientFactory httpClientFactory,
@@ -47,7 +50,9 @@ namespace MyApiWithIdentityServer4.Controllers
             //ITestScopeService testScopeService,
             IArsIdentityClientConfiguration arsIdentityClientConfiguration,
             IUnitOfWork unitOfWork,
-            IServiceProvider serviceProvider)
+            IServiceProvider serviceProvider,
+            IOptions<IArsBasicConfiguration> options,
+            IArsConfiguration arsConfiguration)
         {
             _logger = logger;
             _httpClientFactory = httpClientFactory;
@@ -57,6 +62,8 @@ namespace MyApiWithIdentityServer4.Controllers
             _clientConfiguration = arsIdentityClientConfiguration;
             _unitOfWork = unitOfWork;
             _serviceProvider = serviceProvider;
+            _options = options;
+            _arsConfiguration = arsConfiguration;
         }
 
         [Autowired]
@@ -382,6 +389,10 @@ namespace MyApiWithIdentityServer4.Controllers
             var c = Repo.GetAllList();
             var d = Repo.GetAllList(r => r.Enrollments.Any(t => t.EnrollmentID == 1));
             var e = Repo.FirstOrDefault(r => r.Id == new Guid("8FB45ADF-3F80-45ED-93CB-10A61CE644E9"));
+
+            var m = _options.Value.ServiceIp;
+
+            var n = _arsConfiguration;
 
             return Ok();
         }

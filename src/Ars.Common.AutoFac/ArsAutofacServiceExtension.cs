@@ -5,6 +5,7 @@ using Ars.Common.AutoFac.IDependency;
 using Ars.Common.AutoFac.Options;
 using Ars.Common.AutoFac.RegisterProvider;
 using Ars.Common.Core;
+using Ars.Common.Core.Configs;
 using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
@@ -23,7 +24,7 @@ namespace Ars.Common.AutoFac
             _autowiredAction = action;
         }
 
-        public void AddService(IArsWebApplicationBuilder arsServiceBuilder)
+        public void AddService(IArsWebApplicationBuilder arsServiceBuilder, IArsConfiguration? arsConfiguration = null)
         {
             arsServiceBuilder.AddAutofac(_autowiredAction);
         }

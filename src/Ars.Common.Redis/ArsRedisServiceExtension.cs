@@ -1,5 +1,6 @@
 ﻿using Ars.Commom.Core;
 using Ars.Common.Core;
+using Ars.Common.Core.Configs;
 using Ars.Common.Redis.CacheConfiguration;
 using Ars.Common.Redis.RedisExtension;
 using System;
@@ -18,9 +19,9 @@ namespace Ars.Common.Redis
             _config = config;
         }
 
-        public void AddService(IArsWebApplicationBuilder services)
+        public void AddService(IArsWebApplicationBuilder services, IArsConfiguration? arsConfiguration = null)
         {
-            services.AddArsRedis(_config);
+            services.AddArsRedis(_config,arsConfiguration);
         }
     }
 }

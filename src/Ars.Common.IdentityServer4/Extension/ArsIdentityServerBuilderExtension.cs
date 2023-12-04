@@ -25,7 +25,7 @@ namespace Ars.Common.IdentityServer4.Extension
                 new IdentityResources.OpenId(),
                 new IdentityResources.Profile()
             };
-            builder.Services.AddSingleton(implementationInstance);
+            builder.Services.AddSingleton(_ => implementationInstance);
             builder.AddResourceStore<InMemoryResourcesStore>();
             return builder;
         }
@@ -38,7 +38,7 @@ namespace Ars.Common.IdentityServer4.Extension
             IEnumerable<ApiResource> resources = apiResources.Select(
                 r => 
                 new ApiResource(r.Name, r.DisplayName, r.UserClaims) { Scopes = r.Scopes ?? Array.Empty<string>() });
-            builder.Services.AddSingleton(resources);
+            builder.Services.AddSingleton(_ => resources);
             builder.AddResourceStore<InMemoryResourcesStore>();
 
             return builder;
@@ -50,7 +50,7 @@ namespace Ars.Common.IdentityServer4.Extension
                 return builder;
 
             IEnumerable<Client> client = CastArsClientToClient(arsApiClients);
-            builder.Services.AddSingleton(client);
+            builder.Services.AddSingleton(_ => client);
             builder.AddClientStore<InMemoryClientStore>();
             var serviceDescriptor =
                 builder.Services.LastOrDefault(
@@ -102,7 +102,7 @@ namespace Ars.Common.IdentityServer4.Extension
 
             IEnumerable<ApiScope> apiScopes = scopes.Select(r => new ApiScope(r));
 
-            builder.Services.AddSingleton(apiScopes);
+            builder.Services.AddSingleton(_ => apiScopes);
             builder.AddResourceStore<InMemoryResourcesStore>();
 
             return builder;

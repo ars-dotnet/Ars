@@ -19,10 +19,12 @@ namespace Ars.Common.Consul.Extension
 {
     public static class IServiceCollectionExtension
     {
-        public static IArsWebApplicationBuilder AddArsConsulDiscoverClient(this IArsWebApplicationBuilder arsServiceBuilder)
+        public static IArsWebApplicationBuilder AddArsConsulDiscoverClient(
+            this IArsWebApplicationBuilder arsServiceBuilder,
+            IArsConfiguration? arsConfiguration = null)
         {
-            var services = arsServiceBuilder.Services;
-            services.AddSingleton<ConsulHelper>();
+            if (null == arsConfiguration)
+                throw new ArgumentNullException(nameof(arsConfiguration));
 
             var config = arsServiceBuilder.Configuration
                 .GetSection(nameof(ConsulDiscoverConfiguration))
@@ -35,15 +37,19 @@ namespace Ars.Common.Consul.Extension
                 throw new ArgumentNullException("appsettings => ConsulDiscoverConfiguration.CommunicationConfiguration not be null");
             }
 
-            var arscfg = arsServiceBuilder.ServiceProvider.GetRequiredService<IArsConfiguration>();
+            var services = arsServiceBuilder.Services;
+
+            services.AddSingleton<ConsulHelper>();
+
             foreach (var c in config.ConsulDiscovers.Where(r => r.Communication.UseHttps))
             {
-                c.Communication.CertificatePath ??= arscfg!.ArsBasicConfiguration?.CertificatePath;
-                c.Communication.CertificatePassWord ??= arscfg!.ArsBasicConfiguration?.CertificatePassWord;
+                c.Communication.CertificatePath ??= arsConfiguration.ArsBasicConfiguration?.CertificatePath;
+                c.Communication.CertificatePassWord ??= arsConfiguration.ArsBasicConfiguration?.CertificatePassWord;
             }
 
-            arscfg.ArsConsulDiscoverConfiguration ??= config;
-            services.AddSingleton<IConsulDiscoverConfiguration>(config);
+            arsConfiguration.ArsConsulDiscoverConfiguration ??= config;
+
+            services.AddSingleton<IConsulDiscoverConfiguration>(_ => config);
 
             arsServiceBuilder
                 .AddArsHttpClient()
@@ -54,35 +60,37 @@ namespace Ars.Common.Consul.Extension
             return arsServiceBuilder;
         }
 
-        public static IArsWebApplicationBuilder AddArsConsulRegisterServer(this IArsWebApplicationBuilder arsServiceBuilder)
+        public static IArsWebApplicationBuilder AddArsConsulRegisterServer(this IArsWebApplicationBuilder arsServiceBuilder, IArsConfiguration? arsConfiguration = null)
         {
-            var services = arsServiceBuilder.Services;
+            if (null == arsConfiguration)
+                throw new ArgumentNullException(nameof(arsConfiguration));
+
             var config = arsServiceBuilder.Configuration
                 .GetSection(nameof(ConsulRegisterConfiguration))
                 .Get<ConsulRegisterConfiguration>()
                 ??
                 throw new ArgumentNullException("appsettings => ConsulRegisterConfiguration not be null");
 
-            var arscfg = arsServiceBuilder.ServiceProvider.GetRequiredService<IArsConfiguration>();
-
-            if (arscfg.ArsBasicConfiguration?.ServiceIp?.IsNullOrEmpty() ?? false)
+            if (arsConfiguration.ArsBasicConfiguration?.ServiceIp?.IsNullOrEmpty() ?? false)
             {
                 throw new ArgumentNullException("appsettings => ArsBasicConfiguration.ServiceIp not be null");
             }
-            if (null == arscfg.ArsBasicConfiguration?.ServicePort || 0 == arscfg.ArsBasicConfiguration?.ServicePort) 
+            if (null == arsConfiguration.ArsBasicConfiguration?.ServicePort || 0 == arsConfiguration.ArsBasicConfiguration?.ServicePort) 
             {
                 throw new ArgumentNullException("appsettings => ArsBasicConfiguration.ServicePort not be null or zero");
             }
 
-            config.ServiceIp ??= arscfg!.ArsBasicConfiguration!.ServiceIp;
-            config.ServicePort ??= arscfg!.ArsBasicConfiguration!.ServicePort;
-            config.CertificatePath ??= arscfg!.ArsBasicConfiguration?.CertificatePath;
-            config.CertificatePassWord ??= arscfg!.ArsBasicConfiguration?.CertificatePassWord;
+            config.ServiceIp ??= arsConfiguration!.ArsBasicConfiguration!.ServiceIp;
+            config.ServicePort ??= arsConfiguration!.ArsBasicConfiguration!.ServicePort;
+            config.CertificatePath ??= arsConfiguration!.ArsBasicConfiguration?.CertificatePath;
+            config.CertificatePassWord ??= arsConfiguration!.ArsBasicConfiguration?.CertificatePassWord;
 
-            arscfg.ArsConsulRegisterConfiguration ??= config;
-            services.AddSingleton<IConsulRegisterConfiguration>(config);
+            arsConfiguration.ArsConsulRegisterConfiguration ??= config;
 
-            arscfg.AddArsAppExtension(new ArsConsulAppExtension());
+            var services = arsServiceBuilder.Services;
+            services.AddSingleton<IConsulRegisterConfiguration>(_ => config);
+
+            arsConfiguration.AddArsAppExtension(new ArsConsulAppExtension());
 
             return arsServiceBuilder;
         }

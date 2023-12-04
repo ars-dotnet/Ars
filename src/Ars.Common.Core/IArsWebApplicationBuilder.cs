@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using Ars.Common.Core.Configs;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -20,14 +21,20 @@ namespace Ars.Commom.Core
         IWebHostEnvironment Environment { get; }
 
         ILoggingBuilder Logging { get; }
+
+        IArsConfiguration ArsConfiguration { get; }
     }
 
     public class ArsWebApplicationBuilder : IArsWebApplicationBuilder 
     {
         private readonly WebApplicationBuilder _webApplicationBuilder;
-        public ArsWebApplicationBuilder(WebApplicationBuilder webApplicationBuilder)
+        private readonly IArsConfiguration _arsConfiguration;
+        public ArsWebApplicationBuilder(
+            WebApplicationBuilder webApplicationBuilder, 
+            IArsConfiguration arsConfiguration)
         {
             _webApplicationBuilder = webApplicationBuilder;
+            _arsConfiguration = arsConfiguration;
         }
 
         public IServiceCollection Services => _webApplicationBuilder.Services;
@@ -36,10 +43,12 @@ namespace Ars.Commom.Core
 
         public IConfiguration Configuration => _webApplicationBuilder.Configuration;
 
-        public IServiceProvider ServiceProvider => Services.BuildServiceProvider();
+        public IServiceProvider ServiceProvider => Services.BuildServiceProvider().CreateScope().ServiceProvider;
 
         public IWebHostEnvironment Environment => _webApplicationBuilder.Environment;
 
         public ILoggingBuilder Logging => _webApplicationBuilder.Logging;
+
+        public IArsConfiguration ArsConfiguration => _arsConfiguration;
     }
 }

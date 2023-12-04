@@ -32,7 +32,7 @@ namespace Ars.Common.IdentityServer4.Extension
     public static class IServiceCollectionExtension
     {
         /// <summary>
-        /// 
+        /// 注册IdentityServer4服务端
         /// </summary>
         /// <param name="builder"></param>
         /// <param name="action"></param>
@@ -40,23 +40,28 @@ namespace Ars.Common.IdentityServer4.Extension
         /// <returns></returns>
         public static IArsWebApplicationBuilder AddArsIdentityServer(
             this IArsWebApplicationBuilder builder,
-            Func<IServiceProvider,IResourceOwnerPasswordValidator>? func = null)
+            Func<IServiceProvider,IResourceOwnerPasswordValidator>? func = null, 
+            IArsConfiguration? arsConfiguration = null)
         {
-            var services = builder.Services;
+            if (null == arsConfiguration)
+                throw new ArgumentNullException(nameof(arsConfiguration));
+
             var option = builder.Configuration
                 .GetSection(nameof(ArsIdentityServerConfiguration))
                 .Get<ArsIdentityServerConfiguration>() 
-                ?? throw new Exception("appsettings => ArsIdentityServerConfiguration not be null!");
+                ?? 
+                throw new Exception("appsettings => ArsIdentityServerConfiguration not be null!");
 
-            var arscfg = builder.ServiceProvider.GetRequiredService<IArsConfiguration>();
+            option.CertificatePath ??= arsConfiguration.ArsBasicConfiguration?.CertificatePath;
+            option.CertificatePassWord ??= arsConfiguration.ArsBasicConfiguration?.CertificatePassWord;
 
-            option.CertificatePath ??= arscfg!.ArsBasicConfiguration?.CertificatePath;
-            option.CertificatePassWord ??= arscfg!.ArsBasicConfiguration?.CertificatePassWord;
+            arsConfiguration.ArsIdentityServerConfiguration ??= option;
 
-            services.AddSingleton<IArsIdentityServerConfiguration>(option);
-            arscfg.ArsIdentityServerConfiguration ??= option;
+            arsConfiguration.AddArsAppExtension(new ArsIdentityServerAppExtension());
 
-            arscfg.AddArsAppExtension(new ArsIdentityServerAppExtension());
+            var services = builder.Services;
+
+            services.AddSingleton<IArsIdentityServerConfiguration>(_ => option);
 
             using var loggerfac = LoggerFactory.Create(builder => builder.AddConsole());
             var logger = loggerfac.CreateLogger(nameof(AddArsIdentityServer));
@@ -118,27 +123,43 @@ namespace Ars.Common.IdentityServer4.Extension
             return builder;
         }
 
+        /// <summary>
+        /// 注册IdentityServer4认证的资源服务端
+        /// </summary>
+        /// <param name="builder"></param>
+        /// <param name="defaultScheme"></param>
+        /// <param name="configureOptions"></param>
+        /// <param name="configure"></param>
+        /// <param name="arsConfiguration"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="Exception"></exception>
         public static IArsWebApplicationBuilder AddArsIdentityClient(
             this IArsWebApplicationBuilder builder,
             string defaultScheme = IdentityServerAuthenticationDefaults.AuthenticationScheme,
             Action<IdentityServerAuthenticationOptions>? configureOptions = null,
-            Action<AuthorizationOptions>? configure = null)  
+            Action<AuthorizationOptions>? configure = null, 
+            IArsConfiguration? arsConfiguration = null)  
         {
-            var services = builder.Services;
+            if (null == arsConfiguration)
+                throw new ArgumentNullException(nameof(arsConfiguration));
+
             var option = builder.Configuration
                 .GetSection(nameof(ArsIdentityClientConfiguration))
                 .Get<ArsIdentityClientConfiguration>() 
                 ?? 
-                throw new Exception("appsetting => ArsIdentityClientConfiguration not be null!");
+                throw new Exception("appsetting => ArsIdentityClientConfiguration not be null!");   
 
-            var arscfg = builder.ServiceProvider.GetRequiredService<IArsConfiguration>();
+            option.CertificatePath ??= arsConfiguration.ArsBasicConfiguration?.CertificatePath;
+            option.CertificatePassWord ??= arsConfiguration.ArsBasicConfiguration?.CertificatePassWord;
 
-            option.CertificatePath ??= arscfg!.ArsBasicConfiguration?.CertificatePath;
-            option.CertificatePassWord ??= arscfg!.ArsBasicConfiguration?.CertificatePassWord;
+            arsConfiguration.ArsIdentityClientConfiguration ??= option;
 
-            arscfg.ArsIdentityClientConfiguration ??= option;
-            arscfg.AddArsAppExtension(new ArsIdentityClientAppExtension());
-            services.AddSingleton<IArsIdentityClientConfiguration>(option);
+            arsConfiguration.AddArsAppExtension(new ArsIdentityClientAppExtension());
+
+            var services = builder.Services;
+
+            services.AddSingleton<IArsIdentityClientConfiguration>(_ => option);
 
             if (null == configureOptions)
             {

@@ -30,6 +30,7 @@ namespace Ars.Common.AutoFac.Extension
                 ServiceDescriptor.Singleton<IArsRegisterProvider,ArsPropertyRegisterProvider>(),
             });
             services.AddSingleton<IRegisterProviderFactory, RegisterProviderFactory>();
+
             var providerfactory = arsServiceBuilder.ServiceProvider.GetRequiredService<IRegisterProviderFactory>();
             arsServiceBuilder.HostBuilder.UseServiceProviderFactory(new ArsServiceProviderFactory(providerfactory));
 

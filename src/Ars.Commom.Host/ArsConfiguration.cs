@@ -12,30 +12,50 @@ namespace Ars.Common.Host
 {
     internal class ArsConfiguration : IArsConfiguration
     {
-        public string Root { get; private set; }
-
-        public string AppAccessDomain { get; set; }
-
         public IList<IArsServiceExtension> ArsServiceExtensions { get; }
 
         public IList<IArsAppExtension> ArsAppExtensions { get; }
 
+        /// <summary>
+        /// Basic config
+        /// </summary>
         public IArsBasicConfiguration? ArsBasicConfiguration { get; set; } = default;
 
         public IUnitOfWorkDefaultConfiguration? ArsUnitOfWorkDefaultConfiguration { get; set; } = default;
 
+        /// <summary>
+        /// ConsulDiscover config
+        /// </summary>
         public IConsulDiscoverConfiguration? ArsConsulDiscoverConfiguration { get; set; } = default;
 
+        /// <summary>
+        /// ConsulRegister config
+        /// </summary>
         public IConsulRegisterConfiguration? ArsConsulRegisterConfiguration { get; set; } = default;
 
+        /// <summary>
+        /// IdentityServer config
+        /// </summary>
         public IArsIdentityServerConfiguration? ArsIdentityServerConfiguration { get; set; } = default;
 
+        /// <summary>
+        ///IdentityClient config
+        /// </summary>
         public IArsIdentityClientConfiguration? ArsIdentityClientConfiguration { get; set; } = default;
 
+        /// <summary>
+        /// SingleDbContext config
+        /// </summary>
         public IArsDbContextConfiguration? ArsDbContextConfiguration { get; set; } = default;
 
+        /// <summary>
+        /// MultupleDbContext config
+        /// </summary>
         public IArsMultipleDbContextConfiguration? ArsMultipleDbContextConfiguration { get; set; } = default;
 
+        /// <summary>
+        /// Localization config
+        /// </summary>
         public IArsLocalizationConfiguration? ArsLocalizationConfiguration { get; set; } = default;
 
         /// <summary>
@@ -44,7 +64,7 @@ namespace Ars.Common.Host
         public IArsRedisConfiguration? ArsRedisConfiguration { get; set; } = default;
 
         /// <summary>
-        /// 
+        /// Ocelot config
         /// </summary>
         public IArsOcelotConfiguration? ArsOcelotConfiguration { get; set; } = default;
 

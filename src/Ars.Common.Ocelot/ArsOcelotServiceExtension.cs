@@ -1,5 +1,6 @@
 ﻿using Ars.Commom.Core;
 using Ars.Common.Core;
+using Ars.Common.Core.Configs;
 using Ars.Common.Ocelot.Extension;
 using Ocelot.DependencyInjection;
 using System;
@@ -18,9 +19,9 @@ namespace Ars.Common.Ocelot
             _builderOption = builderOption;
         }
 
-        public void AddService(IArsWebApplicationBuilder services)
+        public void AddService(IArsWebApplicationBuilder services, IArsConfiguration? arsConfiguration = null)
         {
-            services.AddArsOcelot(_builderOption);
+            services.AddArsOcelot(_builderOption,arsConfiguration);
         }
     }
 }

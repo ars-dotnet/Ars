@@ -1,6 +1,7 @@
 ﻿using Ars.Commom.Core;
 using Ars.Common.Cap.Extensions;
 using Ars.Common.Core;
+using Ars.Common.Core.Configs;
 using DotNetCore.CAP;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,7 @@ namespace Ars.Common.Cap
             _setupAction = setupAction;
         }
 
-        public void AddService(IArsWebApplicationBuilder services)
+        public void AddService(IArsWebApplicationBuilder services, IArsConfiguration? arsConfiguration = null)
         {
             services.AddArsCap(_setupAction);
         }

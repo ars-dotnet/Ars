@@ -37,32 +37,35 @@ namespace Ars.Commom.Host.Extension
             WebApplicationBuilder builder,
             Action<IArsConfiguration>? action = null)
         {
-            var arsbuilder = new ArsWebApplicationBuilder(builder);
+            IArsConfiguration arsConfiguration = new ArsConfiguration();
+
+            var arsbuilder = new ArsWebApplicationBuilder(builder, arsConfiguration);
 
             services.AddSingleton<IArsSerializer, ArsSerializer>();
-            services.AddSingleton<IArsConfiguration>(new ArsConfiguration());
 
-            action ??= _ => Console.WriteLine("Default Ars Start");
+            services.AddSingleton(_ => arsConfiguration);
+
+            action ??= _ => Console.WriteLine("Ars Framework Start.");
             action += r => r.AddArsAspNetCore();
             action += r => r.AddArsAutofac();
 
-            using var scope = arsbuilder.ServiceProvider.CreateScope();
-            IArsConfiguration arsConfig = scope.ServiceProvider.GetRequiredService<IArsConfiguration>();
-            action?.Invoke(arsConfig);
+            action?.Invoke(arsConfiguration);
 
             ArsBasicConfiguration arsBasicConfiguration =
-                scope.ServiceProvider.GetRequiredService<IConfiguration>()
+                arsbuilder.Configuration
                 .GetSection(nameof(ArsBasicConfiguration))
-                .Get<ArsBasicConfiguration>() ?? new ArsBasicConfiguration();
+                .Get<ArsBasicConfiguration>() 
+                ?? 
+                new ArsBasicConfiguration();
 
-            services.AddSingleton<IOptions<IArsBasicConfiguration>>(
+            services.AddSingleton<IOptions<IArsBasicConfiguration>>(_ =>
                 new OptionsWrapper<IArsBasicConfiguration>(arsBasicConfiguration));
 
-            arsConfig.ArsBasicConfiguration = arsBasicConfiguration;
+            arsConfiguration.ArsBasicConfiguration = arsBasicConfiguration;
 
-            foreach (var serviceExtension in arsConfig.ArsServiceExtensions)
+            foreach (var serviceExtension in arsConfiguration.ArsServiceExtensions)
             {
-                serviceExtension.AddService(arsbuilder);
+                serviceExtension.AddService(arsbuilder, arsConfiguration);
             }
 
             return arsbuilder;

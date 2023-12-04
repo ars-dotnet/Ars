@@ -67,8 +67,6 @@ var arsbuilder =
 
         config.AddArsCap(option =>
         {
-            //如果存在不同dbcontext使用同一个连接字符串
-            //这里用一个新的dbcontext
             option.UseEntityFramework<MyDbContext>();
 
             option.UseRabbitMQ(mq =>

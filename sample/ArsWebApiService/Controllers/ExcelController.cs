@@ -1,7 +1,9 @@
-﻿using Ars.Common.Core.Excels.ExportExcel;
+﻿using Ars.Common.Core.Configs;
+using Ars.Common.Core.Excels.ExportExcel;
 using Ars.Common.Core.Excels.UploadExcel;
 using ArsWebApiService.Dtos;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 
 namespace ArsWebApiService.Controllers
 {
@@ -11,6 +13,7 @@ namespace ArsWebApiService.Controllers
     public class ExcelController : ArsWebApiBaseController
     {
         private readonly IExportManager _exportManager;
+        
         public ExcelController(IExportManager exportManager)
         {
             _exportManager = exportManager;

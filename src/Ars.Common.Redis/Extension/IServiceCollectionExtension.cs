@@ -18,28 +18,36 @@ namespace Ars.Common.Redis.RedisExtension
     public static class IServiceCollectionExtension
     {
         public static IArsWebApplicationBuilder AddArsRedis(
-            this IArsWebApplicationBuilder arsServiceBuilder, 
-            Action<ICacheConfigurationProvider>? provider = null) 
+            this IArsWebApplicationBuilder arsServiceBuilder,
+            Action<ICacheConfigurationProvider>? provider = null, 
+            IArsConfiguration? arsConfiguration = null)
         {
+            if (null == arsConfiguration)
+                throw new ArgumentNullException(nameof(arsConfiguration));
+
             var arsCacheOption = arsServiceBuilder.Configuration
                 .GetSection(nameof(ArsCacheConfiguration))
-                .Get<ArsCacheConfiguration>() 
-                ?? throw new Exception("appsettings => ArsCacheConfiguration not be null");
-            var arsconfig = arsServiceBuilder.ServiceProvider.GetRequiredService<IArsConfiguration>();
-            arsconfig.ArsRedisConfiguration ??= arsCacheOption;
-
-            var service = arsServiceBuilder.Services;
-            service.AddSingleton<IArsRedisConfiguration>(arsCacheOption);
-            service.AddSingleton<ICacheConfigurationProvider>(new CacheConfigurationProvider());
-            if(null != provider)
-                provider(arsServiceBuilder.ServiceProvider.GetRequiredService<ICacheConfigurationProvider>());
+                .Get<ArsCacheConfiguration>()
+                ?? 
+                throw new Exception("appsettings => ArsCacheConfiguration not be null");
 
             if (string.IsNullOrEmpty(arsCacheOption.RedisConnection))
                 throw new ArgumentNullException(nameof(arsCacheOption.RedisConnection));
 
-            //service.AddSingleton<IArsCacheProvider, ArsRedisCacheProvider>();
+            arsConfiguration.ArsRedisConfiguration ??= arsCacheOption;
 
-            var csredis = new CSRedis.CSRedisClient($"{arsCacheOption.RedisConnection},defaultDatabase={arsCacheOption.DefaultDB},idleTimeout={arsCacheOption.IdleTimeout},poolsize={arsCacheOption.Poolsize}");
+            var service = arsServiceBuilder.Services;
+
+            service.AddSingleton<IArsRedisConfiguration>(_ => arsCacheOption);
+
+            ICacheConfigurationProvider cacheConfigurationProvider = new CacheConfigurationProvider();
+            service.AddSingleton(_ => cacheConfigurationProvider);
+            provider?.Invoke(cacheConfigurationProvider);
+
+            var csredis = new CSRedis.CSRedisClient(
+                $"{arsCacheOption.RedisConnection},defaultDatabase={arsCacheOption.DefaultDB}," +
+                $"idleTimeout={arsCacheOption.IdleTimeout},poolsize={arsCacheOption.Poolsize}");
+
             RedisHelper.Initialization(csredis);
 
             return arsServiceBuilder;

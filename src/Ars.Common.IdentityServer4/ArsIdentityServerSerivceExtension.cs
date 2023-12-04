@@ -1,5 +1,6 @@
 ﻿using Ars.Commom.Core;
 using Ars.Common.Core;
+using Ars.Common.Core.Configs;
 using Ars.Common.IdentityServer4.Extension;
 using IdentityServer4.Validation;
 using System;
@@ -18,9 +19,9 @@ namespace Ars.Common.IdentityServer4
             _func = func;
         }
 
-        public void AddService(IArsWebApplicationBuilder services)
+        public void AddService(IArsWebApplicationBuilder services, IArsConfiguration? arsConfiguration = null)
         {
-            services.AddArsIdentityServer(_func);
+            services.AddArsIdentityServer(_func,arsConfiguration);
         }
     }
 }

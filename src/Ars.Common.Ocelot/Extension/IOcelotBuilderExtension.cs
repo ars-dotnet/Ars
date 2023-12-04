@@ -26,14 +26,14 @@ namespace Ars.Common.Ocelot.Extension
                 //{typeof(BrokenCircuitException), e => new BrokenCircuitError(e)},
             };
 
-            builder.Services.AddSingleton(errorMapping);
+            builder.Services.AddSingleton(_ => errorMapping);
 
             DelegatingHandler QosDelegatingHandlerDelegate(DownstreamRoute route, IOcelotLoggerFactory logger)
             {
                 return new ArsPollyCircuitBreakingDelegatingHandler(new ArsPollyQoSProvider(route, logger), logger);
             }
 
-            builder.Services.AddSingleton((QosDelegatingHandlerDelegate)QosDelegatingHandlerDelegate);
+            builder.Services.AddSingleton(_ => (QosDelegatingHandlerDelegate)QosDelegatingHandlerDelegate);
             return builder;
         }
     }

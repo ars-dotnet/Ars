@@ -1,5 +1,6 @@
 ﻿using Ars.Commom.Core;
 using Ars.Common.Core;
+using Ars.Common.Core.Configs;
 using Ars.Common.IdentityServer4.Extension;
 using IdentityServer4.AccessTokenValidation;
 using Microsoft.AspNetCore.Authorization;
@@ -23,9 +24,11 @@ namespace Ars.Common.IdentityServer4
             _configure = configure;
         }
 
-        public void AddService(IArsWebApplicationBuilder services)
+        public void AddService(IArsWebApplicationBuilder services, IArsConfiguration? arsConfiguration = null)
         {
-            services.AddArsIdentityClient(IdentityServerAuthenticationDefaults.AuthenticationScheme,_configureOptions, _configure);
+            services.AddArsIdentityClient(
+                IdentityServerAuthenticationDefaults.AuthenticationScheme,
+                _configureOptions, _configure, arsConfiguration);
         }
     }
 }

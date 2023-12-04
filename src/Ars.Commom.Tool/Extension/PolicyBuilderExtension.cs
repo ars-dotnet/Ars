@@ -18,7 +18,7 @@ namespace Ars.Common.Tool.Extension
         ///  超时时间10s
         ///  HttpRequestException、TimeoutRejectedException、TimeoutException、
         ///  HttpStatusCode >= 500 || HttpStatusCode == 408[请求超时] 都会触发熔断异常请求计数
-        ///  熔断异常请求达到30个时，服务熔断5s
+        ///  熔断异常请求达到30个时，服务熔断5s。请求被熔断的服务，直接返回降级结果[503]
         ///  第一次请求失败后，此后有2次重试请求，分别为第1s和第2s
         /// </summary>
         /// <typeparam name="T"></typeparam>

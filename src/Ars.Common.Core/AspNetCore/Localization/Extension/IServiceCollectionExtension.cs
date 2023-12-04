@@ -14,21 +14,29 @@ namespace Ars.Common.Core.Localization.Extension
 {
     public static class IServiceCollectionExtension
     {
-        public static IArsWebApplicationBuilder AddArsLocalization(this IArsWebApplicationBuilder arsServiceProvider)
+        public static IArsWebApplicationBuilder AddArsLocalization(
+            this IArsWebApplicationBuilder arsServiceBuilder,
+            IArsConfiguration? arsConfiguration = null)
         {
-           var arsLocalizationOption = arsServiceProvider.Configuration
-                .GetSection(nameof(ArsLocalizationConfiguration))
-                .Get<ArsLocalizationConfiguration>() 
-                ?? new ArsLocalizationConfiguration() { Cultures = new[] { "en-US", "zh-Hans" } };
-            var arsconfig = arsServiceProvider.ServiceProvider.GetRequiredService<IArsConfiguration>();
-            arsconfig.ArsLocalizationConfiguration ??= arsLocalizationOption;
-            arsServiceProvider.Services.AddSingleton<IArsLocalizationConfiguration>(arsLocalizationOption);
-            arsconfig.AddArsAppExtension(new ArsLocalizationAppExtension());
+            if(null == arsConfiguration)
+                throw new ArgumentNullException(nameof(arsConfiguration));
 
-            var services = arsServiceProvider.Services;
-            services.AddLocalization(
-                option =>
-                     option.ResourcesPath = arsLocalizationOption.ResourcesPath);
+            var arsLocalizationOption = arsServiceBuilder.Configuration
+                 .GetSection(nameof(ArsLocalizationConfiguration))
+                 .Get<ArsLocalizationConfiguration>()
+                 ??
+                 new ArsLocalizationConfiguration() { Cultures = new[] { "en-US", "zh-Hans" } };
+
+            arsConfiguration.ArsLocalizationConfiguration ??= arsLocalizationOption;
+
+            arsConfiguration.AddArsAppExtension(new ArsLocalizationAppExtension());
+
+            var services = arsServiceBuilder.Services;
+
+            services.AddSingleton<IArsLocalizationConfiguration>(_ => arsLocalizationOption);
+
+            services.AddLocalization(option =>
+                option.ResourcesPath = arsLocalizationOption.ResourcesPath);
 
             IMvcBuilder builder;
             if (arsLocalizationOption.IsAddViewLocalization)
@@ -40,7 +48,7 @@ namespace Ars.Common.Core.Localization.Extension
 
             services.Configure<RequestLocalizationOptions>(option =>
             {
-                CultureInfo[] cultureInfos = 
+                CultureInfo[] cultureInfos =
                     arsLocalizationOption.Cultures
                         .Distinct()
                         .Select(r => new CultureInfo(r)).ToArray();
@@ -55,7 +63,7 @@ namespace Ars.Common.Core.Localization.Extension
             });
 
             services.AddSingleton<IArstringLocalizer, ArstringLocalizer>();
-            return arsServiceProvider;
+            return arsServiceBuilder;
         }
 
         private static IMvcBuilder AddArsViewLocalization(this IMvcBuilder mvcBuilder, ArsLocalizationConfiguration arsLocalizationOption)
@@ -67,8 +75,8 @@ namespace Ars.Common.Core.Localization.Extension
             if (arsLocalizationOption.IsAddDataAnnotationsLocalization)
                 mvcBuilder.AddDataAnnotationsLocalization(options =>  //AddDataAnnotationsLocalization adds support for localized DataAnnotations validation messages through IStringLocalizer abstractions.
                 {
-                    options.DataAnnotationLocalizerProvider = 
-                         (_, factory) => factory.Create(nameof(ArshareResource),new AssemblyName(Assembly.GetEntryAssembly()!.FullName!).Name!);
+                    options.DataAnnotationLocalizerProvider =
+                         (_, factory) => factory.Create(nameof(ArshareResource), new AssemblyName(Assembly.GetEntryAssembly()!.FullName!).Name!);
                 });
 
             return mvcBuilder;

@@ -30,20 +30,19 @@ namespace Ars.Common.EFCore.Extension
             Action<DbContextOptionsBuilder>? optAction = null)
             where TDbContext : ArsDbContext
         {
-            var service = arsServiceBuilder.Services;
             var option =
                 arsServiceBuilder.Configuration
                 .GetSection(nameof(ArsDbContextConfiguration))
                 .Get<ArsDbContextConfiguration>() 
-             ?? throw new Exception("appsetting => ArsDbContextConfiguration not be null!");
+                ?? 
+                throw new ArgumentNullException("appsetting => ArsDbContextConfiguration not be null!");
 
-            var arscfg = arsServiceBuilder.ServiceProvider.GetRequiredService<IArsConfiguration>();
-            if (null != arscfg.ArsDbContextConfiguration) 
+            if (null != arsServiceBuilder.ArsConfiguration.ArsDbContextConfiguration) 
             {
-                throw new Exception("AddArsDbContext just called once;Call AddMultipleArsDbContext to registe multiple dbcontext if you want");
+                throw new ArgumentNullException("AddArsDbContext just called once;Call AddMultipleArsDbContext to registe multiple dbcontext if you want");
             }
-            service.AddSingleton<IArsDbContextConfiguration>(option);
-            arscfg.ArsDbContextConfiguration = option;
+
+            arsServiceBuilder.ArsConfiguration.ArsDbContextConfiguration = option;
 
             if (null == optAction)
             {
@@ -58,7 +57,12 @@ namespace Ars.Common.EFCore.Extension
                     default: throw new ArgumentException("暂时只支持mysql和mssql数据库");
                 }
             }
-            service.AddDbContextFactory<TDbContext>(optAction);
+
+            var service = arsServiceBuilder.Services;
+            service.AddSingleton<IArsDbContextConfiguration>(_ => option);
+
+            //dbcontext注册为瞬时
+            service.AddDbContextFactory<TDbContext>(optAction, lifetime: ServiceLifetime.Transient);
 
             return arsServiceBuilder;
         }
@@ -82,18 +86,19 @@ namespace Ars.Common.EFCore.Extension
                 arsServiceBuilder.Configuration
                 .GetSection(nameof(ArsMultipleDbContextConfiguration))
                 .Get<ArsMultipleDbContextConfiguration>()
-             ?? throw new Exception("appsetting => ArsMultipleDbContextConfiguration not be null!");
+                ?? 
+                throw new ArgumentNullException("appsetting => ArsMultipleDbContextConfiguration not be null!");
 
             if ((!options.ArsDbContextConfigurations?.Any(r => r.DbContextFullName.Equals(typeof(TDbContext).FullName))) ?? false)
             {
-                throw new Exception($"appsetting => ArsMultipleDbContextConfiguration has no DbContextFullName equals '{typeof(TDbContext).FullName}'");
+                throw new ArgumentNullException($"appsetting => ArsMultipleDbContextConfiguration has no DbContextFullName equals '{typeof(TDbContext).FullName}'");
             }
 
-            var arfconfig = arsServiceBuilder.ServiceProvider.GetRequiredService<IArsConfiguration>();
-            if (null == arfconfig.ArsMultipleDbContextConfiguration) 
+            if (null == arsServiceBuilder.ArsConfiguration.ArsMultipleDbContextConfiguration) 
             {
-                arfconfig.ArsMultipleDbContextConfiguration = options;
-                service.AddSingleton<IArsMultipleDbContextConfiguration>(options);
+                arsServiceBuilder.ArsConfiguration.ArsMultipleDbContextConfiguration = options;
+
+                service.AddSingleton<IArsMultipleDbContextConfiguration>(_ =>options);
             };
 
             var option = options.ArsDbContextConfigurations!

@@ -9,6 +9,7 @@ using Newtonsoft.Json;
 using System.Runtime.CompilerServices;
 using System.Security.Policy;
 using System.Reflection;
+using ArsOperationTest;
 
 namespace ArsTest.ArsTests
 {
@@ -26,6 +27,10 @@ namespace ArsTest.ArsTests
              .ConfigureServices((builder, service) =>
              {
                  service.AddLogging();
+
+                 service.AddScoped(_ => new MyService());
+                 service.AddSingleton(_ => new MyService());
+                 service.AddTransient(_ => new MyService());
              }).
              ConfigureLogging((hostingContext, logging) =>
              {

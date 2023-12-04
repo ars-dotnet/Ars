@@ -1,5 +1,6 @@
 ﻿using Ars.Commom.Core;
 using Ars.Common.Core;
+using Ars.Common.Core.Configs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace Ars.Common.SkyWalking.Extensions
 {
     internal class ArsSkyWalkingServiceExtension : IArsServiceExtension
     {
-        public void AddService(IArsWebApplicationBuilder services)
+        public void AddService(IArsWebApplicationBuilder services, IArsConfiguration? arsConfiguration = null)
         {
             services.AddArsSkyApm();
         }

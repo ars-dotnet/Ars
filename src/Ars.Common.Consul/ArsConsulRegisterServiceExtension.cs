@@ -15,9 +15,9 @@ namespace Ars.Common.Consul
 {
     public class ArsConsulRegisterServiceExtension : IArsServiceExtension
     {
-        public void AddService(IArsWebApplicationBuilder arsServiceBuilder)
+        public void AddService(IArsWebApplicationBuilder arsServiceBuilder, IArsConfiguration? arsConfiguration = null)
         {
-            arsServiceBuilder.AddArsConsulRegisterServer();
+            arsServiceBuilder.AddArsConsulRegisterServer(arsConfiguration);
         }
     }
 }

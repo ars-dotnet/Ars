@@ -1,5 +1,6 @@
 ﻿using Ars.Commom.Core;
 using Ars.Common.Core;
+using Ars.Common.Core.Configs;
 using Ars.Common.SignalR.Extensions;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,7 @@ namespace Ars.Common.SignalR
             _action = action;
         }
 
-        public void AddService(IArsWebApplicationBuilder services)
+        public void AddService(IArsWebApplicationBuilder services, IArsConfiguration? arsConfiguration = null)
         {
             services.AddArsSignalR(_action);
         }

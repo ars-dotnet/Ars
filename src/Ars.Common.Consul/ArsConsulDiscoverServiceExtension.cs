@@ -15,9 +15,9 @@ namespace Ars.Common.Consul
 {
     internal class ArsConsulDiscoverServiceExtension : IArsServiceExtension
     {
-        public void AddService(IArsWebApplicationBuilder arsServiceBuilder)
+        public void AddService(IArsWebApplicationBuilder arsServiceBuilder, IArsConfiguration? arsConfiguration = null)
         {
-            arsServiceBuilder.AddArsConsulDiscoverClient();
+            arsServiceBuilder.AddArsConsulDiscoverClient(arsConfiguration);
         }
     }
 }
