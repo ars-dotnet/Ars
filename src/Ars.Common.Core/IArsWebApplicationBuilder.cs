@@ -12,7 +12,7 @@ namespace Ars.Commom.Core
     {
         IServiceCollection Services { get; }
 
-        IServiceProvider ServiceProvider { get; }
+        IServiceProvider ServiceScopeProvider { get; }
 
         IHostBuilder HostBuilder { get; }
 
@@ -43,7 +43,7 @@ namespace Ars.Commom.Core
 
         public IConfiguration Configuration => _webApplicationBuilder.Configuration;
 
-        public IServiceProvider ServiceProvider => Services.BuildServiceProvider().CreateScope().ServiceProvider;
+        public IServiceProvider ServiceScopeProvider => Services.BuildServiceProvider().CreateScope().ServiceProvider;
 
         public IWebHostEnvironment Environment => _webApplicationBuilder.Environment;
 

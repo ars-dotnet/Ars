@@ -15,24 +15,28 @@ namespace Ars.Common.AutoFac
 {
     public class ArsServiceProviderFactory : IServiceProviderFactory<ContainerBuilder>
     {
-        private readonly Action<ContainerBuilder> _configurationAction;
+        private readonly IServiceProvider _serviceScopeProvider;
         private readonly ContainerBuildOptions _containerBuildOptions;
-        private readonly IRegisterProviderFactory _registerProviderFactory;
+        private readonly Action<ContainerBuilder>? _configurationAction;
 
-        public ArsServiceProviderFactory(IRegisterProviderFactory factory, 
+        public ArsServiceProviderFactory(
+            IServiceProvider serviceScopeProvider,
             ContainerBuildOptions containerBuildOptions = ContainerBuildOptions.None,
-            Action<ContainerBuilder> configurationAction = null)
+            Action<ContainerBuilder>? configurationAction = null)
         {
-            _registerProviderFactory = factory;
+            _serviceScopeProvider = serviceScopeProvider;
             _containerBuildOptions = containerBuildOptions;
-            _configurationAction = configurationAction ?? (builder => { });
+            _configurationAction = configurationAction;
         }
 
         public ContainerBuilder CreateBuilder(IServiceCollection services)
         {
             var builder = new ContainerBuilder();
+
             builder.Populate(services);
-            _configurationAction(builder);
+
+            _configurationAction?.Invoke(builder);
+
             return builder;
         }
 
@@ -43,11 +47,13 @@ namespace Ars.Common.AutoFac
                 throw new ArgumentNullException("containerBuilder");
             }
 
-            _registerProviderFactory.Register(containerBuilder, AppDomain.CurrentDomain.GetAssemblies());
+            var registerProviderFactory = _serviceScopeProvider.GetRequiredService<IRegisterProviderFactory>();
+
+            registerProviderFactory.Register(containerBuilder, AppDomain.CurrentDomain.GetAssemblies());
 
             IContainer container = containerBuilder.Build(_containerBuildOptions);
 
-            _registerProviderFactory.RegisterAutowaired(container);
+            registerProviderFactory.RegisterAutowaired(container);
 
             return new AutofacServiceProvider(container);
         }

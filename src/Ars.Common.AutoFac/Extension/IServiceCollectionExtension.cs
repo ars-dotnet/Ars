@@ -4,6 +4,7 @@ using Ars.Common.AutoFac.IDependency;
 using Ars.Common.AutoFac.Options;
 using Ars.Common.AutoFac.RegisterProvider;
 using Ars.Common.Core;
+using Ars.Common.Core.Configs;
 using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
@@ -31,13 +32,15 @@ namespace Ars.Common.AutoFac.Extension
             });
             services.AddSingleton<IRegisterProviderFactory, RegisterProviderFactory>();
 
-            var providerfactory = arsServiceBuilder.ServiceProvider.GetRequiredService<IRegisterProviderFactory>();
-            arsServiceBuilder.HostBuilder.UseServiceProviderFactory(new ArsServiceProviderFactory(providerfactory));
+            arsServiceBuilder.HostBuilder.UseServiceProviderFactory(
+                new ArsServiceProviderFactory(arsServiceBuilder.ServiceScopeProvider));
 
             return arsServiceBuilder;
         }
 
-        private static IServiceCollection AddPropertyAutowired(IServiceCollection services, Action<PropertyAutowiredOption>? _autowiredAction)
+        private static IServiceCollection AddPropertyAutowired(
+            IServiceCollection services, 
+            Action<PropertyAutowiredOption>? _autowiredAction)
         {
             if (null != _autowiredAction) services.Configure(_autowiredAction);
             services.Replace(ServiceDescriptor.Transient<IControllerActivator, ServiceBasedControllerActivator>());
