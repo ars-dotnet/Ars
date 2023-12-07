@@ -1,6 +1,7 @@
 ﻿using Ars.Commom.Tool.Extension;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using NPOI.SS.Formula.Functions;
 using System;
 using System.Collections.Concurrent;
@@ -32,6 +33,10 @@ namespace Ars.Common.SignalR.Caches
         /// <returns></returns>
         public override async Task ClientOnConnection(string terminal, string connectionId, SignalRCacheScheme signalRCacheScheme)
         {
+            _logger.LogInformation($"signalr add connection by memorycache" +
+                       $"【terminal:{terminal},connectionId:{connectionId}," +
+                       $"signalRCacheScheme:{JsonConvert.SerializeObject(signalRCacheScheme)}】");
+
             await CheckIfOverTime(string.Empty);
 
             await AddOrUpdateCache(terminal, connectionId, signalRCacheScheme);
@@ -159,12 +164,12 @@ namespace Ars.Common.SignalR.Caches
                 {
                     value.HeartTime = DateTime.Now;
                 }
-                else
+                else if(null != signalRCacheScheme)
                 {
                     cache.TryAdd(connectionId, signalRCacheScheme!);
                 }
             }
-            else
+            else if(null != signalRCacheScheme)
             {
                 var data = new ConcurrentDictionary<string, SignalRCacheScheme>();
                 data.TryAdd(connectionId, signalRCacheScheme!);

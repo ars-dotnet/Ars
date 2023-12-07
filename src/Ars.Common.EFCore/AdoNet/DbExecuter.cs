@@ -64,32 +64,13 @@ namespace Ars.Common.EFCore.AdoNet
             return DbContextTransaction;
         }
 
-        protected void Init() 
-        {
-            DbContext ??= _dbContextResolver.Resolve<TDbContext>();
-            SqlConnection ??= DbContext.Database.GetDbConnection();
-        }
-
-        protected void Check() 
-        {
-            Init();
-
-            if (SqlConnection.State == ConnectionState.Closed)
-                SqlConnection.Open();
-        }
-
-        protected DbCommand CreateCommond(string commandText, DbParameter[]? parameters = null) 
-        {
-            var command = SqlConnection.CreateCommand();
-            command.CommandText = commandText;
-            command.Transaction = DbContextTransaction?.GetDbTransaction();
-
-            if (parameters?.Any() ?? false)
-                command.Parameters.AddRange(parameters);
-
-            return command;
-        }
-
+        /// <summary>
+        /// 查询列表数据
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="commandText"></param>
+        /// <param name="parameters"></param>
+        /// <returns></returns>
         public async Task<IEnumerable<T>> QueryAsync<T>(string commandText, DbParameter[]? parameters = null)
             where T : class, new()
         {
@@ -110,6 +91,14 @@ namespace Ars.Common.EFCore.AdoNet
             }
         }
 
+        /// <summary>
+        /// 查询单个数据
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="commandText"></param>
+        /// <param name="parameters"></param>
+        /// <returns></returns>
+        /// <exception cref="ArsException"></exception>
         public async Task<T?> QueryFirstOrDefaultAsync<T>(string commandText, DbParameter[]? parameters = null)
             where T : class, new()
         {
@@ -134,6 +123,12 @@ namespace Ars.Common.EFCore.AdoNet
             }
         }
 
+        /// <summary>
+        /// 执行非查询sql语句
+        /// </summary>
+        /// <param name="commandText"></param>
+        /// <param name="parameters"></param>
+        /// <returns></returns>
         public async Task<int> ExecuteNonQuery(string commandText, DbParameter[]? parameters = null)
         {
             Check();
@@ -142,8 +137,13 @@ namespace Ars.Common.EFCore.AdoNet
             return await command.ExecuteNonQueryAsync();
         }
 
-       
-
+        /// <summary>
+        /// 返回结果中第一行的第一列
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="commandText"></param>
+        /// <param name="parameters"></param>
+        /// <returns></returns>
         public async Task<T?> ExecuteScalarAsync<T>(string commandText, DbParameter[]? parameters = null)
              where T : struct
         {
@@ -156,14 +156,36 @@ namespace Ars.Common.EFCore.AdoNet
 
         public void Dispose()
         {
-            //if (null != DbContext?.Database)
-            //{
-            //    SqlConnection?.Close();
-            //    SqlConnection?.Dispose();
-            //}
-
+            SqlConnection?.Close();
             DbContextTransaction?.Dispose();
             DbContext?.Dispose();
         }
+
+        protected void Init()
+        {
+            DbContext ??= _dbContextResolver.Resolve<TDbContext>();
+            SqlConnection ??= DbContext.Database.GetDbConnection();
+        }
+
+        protected void Check()
+        {
+            Init();
+
+            if (SqlConnection.State == ConnectionState.Closed)
+                SqlConnection.Open();
+        }
+
+        protected DbCommand CreateCommond(string commandText, DbParameter[]? parameters = null)
+        {
+            var command = SqlConnection.CreateCommand();
+            command.CommandText = commandText;
+            command.Transaction = DbContextTransaction?.GetDbTransaction();
+
+            if (parameters?.Any() ?? false)
+                command.Parameters.AddRange(parameters);
+
+            return command;
+        }
+
     }
 }

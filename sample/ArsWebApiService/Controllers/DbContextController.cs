@@ -625,6 +625,7 @@ namespace MyApiWithIdentityServer4.Controllers
         }
 
         [HttpPost]
+        [UnitOfWork(IsDisabled=true)]
         public async Task<IActionResult> AdoNetInsertWithTransaction()
         {
             string sql = @"insert into Students(Id,LastName,FirstMidName,EnrollmentDate,TenantId,CreationUserId,IsDeleted) " +
