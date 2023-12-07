@@ -83,10 +83,10 @@ builder.Services
 	//add ocelot service
 	//example service -> sample/main/ArsApiGateway
 	config.AddArsOcelot(option => 
-    {
-        //Èç¹ûÏÂÓÎĞ­ÒéÊÇhttpsÔòÌí¼ÓÏÂÃæ´úÂë
-        //option.AddDelegatingHandler<X509CertificateDelegatingHandler>();
-    });
+        {
+	   //å¦‚æœä¸‹æ¸¸åè®®æ˜¯httpsåˆ™æ·»åŠ ä¸‹é¢ä»£ç 
+	   //option.AddDelegatingHandler<X509CertificateDelegatingHandler>();
+        });
 })
 
 //add dbcontext service
