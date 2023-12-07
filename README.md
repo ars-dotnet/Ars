@@ -79,6 +79,14 @@ builder.Services
 			mq.Password = "guest";
 		});
 	});
+
+	//add ocelot service
+	//example service -> sample/main/ArsApiGateway
+	config.AddArsOcelot(option => 
+    {
+        //如果下游协议是https则添加下面代码
+        //option.AddDelegatingHandler<X509CertificateDelegatingHandler>();
+    });
 })
 
 //add dbcontext service
@@ -242,7 +250,7 @@ builder.Services
 		//1 mysql;2 mssql
 		"DbType": 2,
 		//Database address
-		"DefaultString": "Data Source=oy2dxokflmzivjckxqma4ahouaza4vzevn3rusdrjwoofy; Initial Catalog=oy2dxokflmzivjckxqma4ahouaza4vzevn3rusdrjwoofy;user id=oy2dxokflmzivjckxqma4ahouaza4vzevn3rusdrjwoofy;pwd=oy2dxokflmzivjckxqma4ahouaza4vzevn3rusdrjwoofy"
+		"DefaultString": "Data Source=xxxxx; Initial Catalog=xxxxx;user id=xxxxx;pwd=xxxxx"
 	  },
 
 	  //Basic config
