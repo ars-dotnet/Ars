@@ -1,6 +1,7 @@
 ﻿using Ars.Common.Core.AspNetCore.OutputDtos;
 using Ars.Common.Core.Configs;
 using Ars.Common.Core.IDependency;
+using Ars.Common.Tool.Tools;
 using IdentityModel.Client;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -39,7 +40,7 @@ namespace ArsWebApiService.Controllers
                 string[]? cc = Encoding.UTF8.GetString(Convert.FromBase64String(m[1]))?.Split(":");
                 if (cc?.Any() ?? false)
                 {
-                    using var httpclient = HttpClientFactory.CreateClient("http");
+                    using var httpclient = HttpClientProvider.CreateClient(HttpClientNames.Http);
                     var tokenresponse = await httpclient.RequestClientCredentialsTokenAsync(new ClientCredentialsTokenRequest
                     {
                         ClientId = cc[0],
@@ -75,14 +76,14 @@ namespace ArsWebApiService.Controllers
                 string[]? cc = Encoding.UTF8.GetString(Convert.FromBase64String(m[1]))?.Split(":");
                 if (cc?.Any() ?? false)
                 {
-                    using var httpclient = HttpClientFactory.CreateClient("http");
+                    using var httpclient = HttpClientProvider.CreateClient(HttpClientNames.Http);
                     var tokenresponse = await httpclient.RequestPasswordTokenAsync(new PasswordTokenRequest
                     {
                         ClientId = cc[0],
                         ClientSecret = cc[1],
                         Scope = "grpcapi-scope",
                         GrantType = "password",
-                        Address = $"{ArsConfiguration.ArsIdentityClientConfiguration.Authority}/connect/token",
+                        Address = $"{ArsConfiguration.ArsIdentityClientConfiguration!.Authority}/connect/token",
                         UserName = input.UserName,
                         Password = input.PassWord
                     });
@@ -115,7 +116,7 @@ namespace ArsWebApiService.Controllers
                 string[]? cc = Encoding.UTF8.GetString(Convert.FromBase64String(m[1]))?.Split(":");
                 if (cc?.Any() ?? false)
                 {
-                    using var httpclient = HttpClientFactory.CreateClient("http");
+                    using var httpclient = HttpClientProvider.CreateClient(HttpClientNames.Http);
                     var tokenresponse = await httpclient.RequestRefreshTokenAsync(new RefreshTokenRequest
                     {
                         ClientId = cc[0],

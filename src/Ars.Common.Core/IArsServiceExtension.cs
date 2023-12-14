@@ -11,6 +11,6 @@ namespace Ars.Common.Core
 {
     public interface IArsServiceExtension
     {
-        public void AddService(IArsWebApplicationBuilder applicationBuilder, IArsConfiguration? arsConfiguration = null);
+        public void AddService(IArsWebApplicationBuilder applicationBuilder);
     }
 }

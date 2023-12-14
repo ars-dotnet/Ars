@@ -18,14 +18,14 @@ builder.Services.AddControllersWithViews();
 builder.Services
     .AddArserviceCore(builder, config => 
     {
-        config.AddArsIdentityServer(
-            //provider =>
-            //{
-            //    return provider.GetRequiredService<MyDefaultResourceOwnerPasswordValidator>();
-            //}
-        );
-
-        config.AddArsSkyApm();
+        config
+            .AddArsIdentityServer(
+                //provider =>
+                //{
+                //    return provider.GetRequiredService<MyDefaultResourceOwnerPasswordValidator>();
+                //}
+            )
+            .AddArsSkyApm();
     });
 
 builder.Services.AddTransient<MyDefaultResourceOwnerPasswordValidator>();

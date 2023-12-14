@@ -16,9 +16,8 @@ namespace Ars.Common.IdentityServer4.Extension
             this IArsConfiguration arsConfiguration,
             Func<IServiceProvider, IResourceOwnerPasswordValidator>? func = null) 
         {
-            arsConfiguration.AddArsServiceExtension(new ArsIdentityServerSerivceExtension(func));
-
-            return arsConfiguration;
+            return arsConfiguration.AddArsServiceExtension(
+                new ArsIdentityServerSerivceExtension(func));
         }
 
         public static IArsConfiguration AddArsIdentityClient(
@@ -26,9 +25,8 @@ namespace Ars.Common.IdentityServer4.Extension
             Action<IdentityServerAuthenticationOptions>? configureOptions = null,
             Action<AuthorizationOptions>? configure = null) 
         {
-            arsConfiguration.AddArsServiceExtension(new ArsIdentityClientServiceExtension(configureOptions, configure));
-
-            return arsConfiguration;
+            return arsConfiguration.AddArsServiceExtension(
+                new ArsIdentityClientServiceExtension(configureOptions, configure));
         }
     }
 }

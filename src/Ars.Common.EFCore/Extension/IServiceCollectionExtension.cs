@@ -76,7 +76,7 @@ namespace Ars.Common.EFCore.Extension
         /// <returns></returns>
         /// <exception cref="Exception"></exception>
         /// <exception cref="ArgumentException"></exception>
-        public static IArsWebApplicationBuilder AddMultipleArsDbContext<TDbContext>(
+        public static IArsWebApplicationBuilder AddArsMultipleDbContext<TDbContext>(
            this IArsWebApplicationBuilder arsServiceBuilder,
            Action<IServiceProvider,DbContextOptionsBuilder>? optAction = null)
            where TDbContext : ArsDbContext

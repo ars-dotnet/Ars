@@ -21,7 +21,9 @@ using Microsoft.Extensions.Logging;
 using NPOI.SS.Formula.Functions;
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Net.Http;
 using System.Security.Authentication;
 using System.Security.Claims;
 using System.Text;
@@ -40,24 +42,20 @@ namespace Ars.Common.IdentityServer4.Extension
         /// <returns></returns>
         public static IArsWebApplicationBuilder AddArsIdentityServer(
             this IArsWebApplicationBuilder builder,
-            Func<IServiceProvider,IResourceOwnerPasswordValidator>? func = null, 
-            IArsConfiguration? arsConfiguration = null)
+            Func<IServiceProvider,IResourceOwnerPasswordValidator>? func = null)
         {
-            if (null == arsConfiguration)
-                throw new ArgumentNullException(nameof(arsConfiguration));
-
             var option = builder.Configuration
                 .GetSection(nameof(ArsIdentityServerConfiguration))
                 .Get<ArsIdentityServerConfiguration>() 
                 ?? 
                 throw new Exception("appsettings => ArsIdentityServerConfiguration not be null!");
 
-            option.CertificatePath ??= arsConfiguration.ArsBasicConfiguration?.CertificatePath;
-            option.CertificatePassWord ??= arsConfiguration.ArsBasicConfiguration?.CertificatePassWord;
+            option.CertificatePath ??= builder.ArsConfiguration.ArsBasicConfiguration?.CertificatePath;
+            option.CertificatePassWord ??= builder.ArsConfiguration.ArsBasicConfiguration?.CertificatePassWord;
 
-            arsConfiguration.ArsIdentityServerConfiguration ??= option;
+            builder.ArsConfiguration.ArsIdentityServerConfiguration ??= option;
 
-            arsConfiguration.AddArsAppExtension(new ArsIdentityServerAppExtension());
+            builder.ArsConfiguration.AddArsAppExtension(new ArsIdentityServerAppExtension());
 
             var services = builder.Services;
 
@@ -74,6 +72,7 @@ namespace Ars.Common.IdentityServer4.Extension
                 .AddArsSigningCredential(
                     Certificate.Get(
                         option.CertificatePath!, option.CertificatePassWord!, logger));
+
             if (option.UseTestUsers) 
             {
                 id4builder.AddTestUsers(new List<TestUser>
@@ -89,24 +88,9 @@ namespace Ars.Common.IdentityServer4.Extension
                             new Claim("auth_time", DateTimeExtensions.ToEpochTime(DateTime.Now).ToString(),
                                     "http://www.w3.org/2001/XMLSchema#integer")
                         },
-                        Password = "MyArs@1234",
+                        Password = "123456",
                         IsActive = true,
                         SubjectId = "1",
-                    },
-                    new TestUser
-                    {
-                        Username = "H123",
-                        Claims = new Claim[] {
-                            new Claim(ArsClaimTypes.TenantId, "1"),
-                            new Claim(ArsClaimTypes.Role, "admin"),
-                            new Claim(ArsClaimTypes.UserName, "H123"),
-                            new Claim("idp", "ars"),
-                            new Claim("auth_time", DateTimeExtensions.ToEpochTime(DateTime.Now).ToString(),
-                                    "http://www.w3.org/2001/XMLSchema#integer")
-                        },
-                        Password = "H123",
-                        IsActive = true,
-                        SubjectId = "123",
                     }
                 });
             };
@@ -138,24 +122,20 @@ namespace Ars.Common.IdentityServer4.Extension
             this IArsWebApplicationBuilder builder,
             string defaultScheme = IdentityServerAuthenticationDefaults.AuthenticationScheme,
             Action<IdentityServerAuthenticationOptions>? configureOptions = null,
-            Action<AuthorizationOptions>? configure = null, 
-            IArsConfiguration? arsConfiguration = null)  
+            Action<AuthorizationOptions>? configure = null)  
         {
-            if (null == arsConfiguration)
-                throw new ArgumentNullException(nameof(arsConfiguration));
-
             var option = builder.Configuration
                 .GetSection(nameof(ArsIdentityClientConfiguration))
                 .Get<ArsIdentityClientConfiguration>() 
                 ?? 
                 throw new Exception("appsetting => ArsIdentityClientConfiguration not be null!");   
 
-            option.CertificatePath ??= arsConfiguration.ArsBasicConfiguration?.CertificatePath;
-            option.CertificatePassWord ??= arsConfiguration.ArsBasicConfiguration?.CertificatePassWord;
+            option.CertificatePath ??= builder.ArsConfiguration.ArsBasicConfiguration?.CertificatePath;
+            option.CertificatePassWord ??= builder.ArsConfiguration.ArsBasicConfiguration?.CertificatePassWord;
 
-            arsConfiguration.ArsIdentityClientConfiguration ??= option;
+            builder.ArsConfiguration.ArsIdentityClientConfiguration ??= option;
 
-            arsConfiguration.AddArsAppExtension(new ArsIdentityClientAppExtension());
+            builder.ArsConfiguration.AddArsAppExtension(new ArsIdentityClientAppExtension());
 
             var services = builder.Services;
 
@@ -205,7 +185,9 @@ namespace Ars.Common.IdentityServer4.Extension
             services
                 .AddAuthentication(defaultScheme)
                 .AddIdentityServerAuthentication(configureOptions);
+
             services.AddAuthorization(configure);
+
             return builder;
         }
     }

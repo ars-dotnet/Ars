@@ -9,9 +9,7 @@ namespace Ars.Common.Redis.Extension
             this IArsConfiguration arsConfiguration, 
             Action<ICacheConfigurationProvider>? config = null) 
         {
-            arsConfiguration.AddArsServiceExtension(new ArsRedisServiceExtension(config));
-
-            return arsConfiguration;
+            return arsConfiguration.AddArsServiceExtension(new ArsRedisServiceExtension(config));
         }
     }
 }

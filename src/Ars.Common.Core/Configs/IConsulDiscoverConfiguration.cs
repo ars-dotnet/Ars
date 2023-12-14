@@ -71,6 +71,14 @@ namespace Ars.Common.Core.Configs
         /// </summary>
         public bool UseIdentityServer4Valid { get; set; }
 
+        /// <summary>
+        /// identityserver4服务器是否使用https
+        /// </summary>
+        public bool IdentityServer4UseHttps { get; set; }
+
+        /// <summary>
+        /// identityserver4服务器地址
+        /// </summary>
         public string IdentityServer4Address { get; set; }
 
         public string ClientId { get; set; }

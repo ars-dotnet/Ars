@@ -17,6 +17,8 @@ namespace Ars.Common.Consul.HttpClientHelper
 
         Task<T> GetHttpClientAsync<T>(ConsulConfiguration config,string httpClientName = "") where T : HttpClient;
 
+        Task<T> GetGrpcHttpClientAsync<T>(string serviceName) where T : HttpClient;
+
         Task<T> GetGrpcHttpClientAsync<T>(ConsulConfiguration config) where T : HttpClient;
     }
 }

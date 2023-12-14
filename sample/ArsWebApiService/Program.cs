@@ -45,42 +45,38 @@ var arsbuilder =
     builder.Services
     .AddArserviceCore(builder, config =>
     {
-        config.AddArsIdentityClient();
-
-        config.AddArsRedis(provider =>
-        {
-            provider.ConfigureAll(cacheoption =>
+        config
+            .AddArsIdentityClient()
+            .AddArsRedis(provider =>
             {
-                cacheoption.DefaultSlidingExpireTime = TimeSpan.FromMinutes(10);
-            });
-        });
-
-        config.AddArsSignalR(config =>
-        {
-            config.CacheType = 0;
-            config.UseMessagePackProtocol = true;
-        });
-
-        config.AddArsConsulRegisterServer();
-
-        config.AddArsSkyApm();
-
-        config.AddArsCap(option =>
-        {
-            option.UseEntityFramework<MyDbContext>();
-
-            option.UseRabbitMQ(mq =>
+                provider.ConfigureAll(cacheoption =>
+                {
+                    cacheoption.DefaultSlidingExpireTime = TimeSpan.FromMinutes(10);
+                });
+            })
+            .AddArsSignalR(config =>
             {
-                mq.HostName = "localhost";
-                mq.UserName = "guest";
-                mq.Password = "guest";
-            });
-        });
+                config.CacheType = 0;
+                config.UseMessagePackProtocol = true;
+            })
+            .AddArsConsulRegisterServer()
+            .AddArsSkyApm()
+            .AddArsCap(option =>
+            {
+                option.UseEntityFramework<MyDbContext>();
+
+                option.UseRabbitMQ(mq =>
+                {
+                    mq.HostName = "localhost";
+                    mq.UserName = "guest";
+                    mq.Password = "guest";
+                });
+            })
+            .AddArsMultipleDbContext<MyDbContext>()
+            .AddArsMultipleDbContext<MyDbContext2>()
+            .AddArsMultipleDbContext<MyDbContextWithMsSql>();
     })
     //.AddArsDbContext<MyDbContext>()
-    .AddMultipleArsDbContext<MyDbContext>()
-    .AddMultipleArsDbContext<MyDbContext2>()
-    .AddMultipleArsDbContext<MyDbContextWithMsSql>()
     .AddArsHttpClient()
     .AddArsExportExcelService(typeof(Program).Assembly)
     .AddArsUploadExcelService(option =>

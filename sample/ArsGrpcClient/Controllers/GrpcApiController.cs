@@ -2,24 +2,56 @@
 using Microsoft.AspNetCore.Mvc;
 using GrpcGreeter.greet;
 using Grpc.Core;
+using Microsoft.AspNetCore.Authorization;
+using Ars.Common.Consul.HttpClientHelper;
 
 namespace GrpcClients.Controllers
 {
     [ApiController]
     [Route("Api/GrpcClient/[controller]/[action]")]
+    [Authorize("default")]
     public class GrpcApiController : Controller
     {
         private readonly IGrpcClientProviderByConsul _grpcClientProvider;
+        private readonly IHttpClientProviderByConsul _httpClientProvider;
+        private readonly IHttpSender _httpSender;
         private readonly IChannelManager _channelManager;
-        public GrpcApiController(IGrpcClientProviderByConsul grpcClientProvider,
+        public GrpcApiController(
+            IGrpcClientProviderByConsul grpcClientProvider,
+            IHttpClientProviderByConsul httpClientProviderByConsul,
+            IHttpSender httpSender,
             IChannelManager channelManager)
         {
             _grpcClientProvider = grpcClientProvider;
+            _httpClientProvider = httpClientProviderByConsul;
+            _httpSender = httpSender;
             _channelManager = channelManager;
         }
 
         /// <summary>
-        /// 调用纯grpc服务端
+        /// 调用支持restfulapi的grpc服务端
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public async Task<IActionResult> UnaryCallGrpcWebApi()
+        {
+            try
+            {
+                using var httpclient = await _httpClientProvider.GetGrpcHttpClientAsync<HttpClient>("apigrpcwebapiservice");
+                var data = await _httpSender.GetAsync(httpclient, "/Api/ArsGrpcWebApi/WeatherForecast/Get");
+
+                return Ok(data);
+            }
+            catch (Exception e) 
+            {
+
+            }
+           
+            return BadRequest();
+        }
+
+        /// <summary>
+        /// 调用支持restfulapi的grpc服务端
         /// </summary>
         /// <returns></returns>
         [HttpPost]
@@ -31,7 +63,7 @@ namespace GrpcClients.Controllers
         }
 
         /// <summary>
-        /// 调用支持restfulapi的grpc服务端
+        /// 调用纯grpc服务端
         /// </summary>
         /// <returns></returns>
         [HttpPost]

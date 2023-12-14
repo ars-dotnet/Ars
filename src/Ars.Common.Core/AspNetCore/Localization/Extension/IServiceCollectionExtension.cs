@@ -15,21 +15,17 @@ namespace Ars.Common.Core.Localization.Extension
     public static class IServiceCollectionExtension
     {
         public static IArsWebApplicationBuilder AddArsLocalization(
-            this IArsWebApplicationBuilder arsServiceBuilder,
-            IArsConfiguration? arsConfiguration = null)
+            this IArsWebApplicationBuilder arsServiceBuilder)
         {
-            if(null == arsConfiguration)
-                throw new ArgumentNullException(nameof(arsConfiguration));
-
             var arsLocalizationOption = arsServiceBuilder.Configuration
                  .GetSection(nameof(ArsLocalizationConfiguration))
                  .Get<ArsLocalizationConfiguration>()
                  ??
                  new ArsLocalizationConfiguration() { Cultures = new[] { "en-US", "zh-Hans" } };
 
-            arsConfiguration.ArsLocalizationConfiguration ??= arsLocalizationOption;
+            arsServiceBuilder.ArsConfiguration.ArsLocalizationConfiguration ??= arsLocalizationOption;
 
-            arsConfiguration.AddArsAppExtension(new ArsLocalizationAppExtension());
+            arsServiceBuilder.ArsConfiguration.AddArsAppExtension(new ArsLocalizationAppExtension());
 
             var services = arsServiceBuilder.Services;
 

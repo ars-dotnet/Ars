@@ -33,7 +33,7 @@ namespace Ars.Common.IdentityServer4.Validation
                 context.Succeed(requirement);
                 return Task.CompletedTask;
             }
-            if ("admin".Equals(user.GetValue(ClaimTypes.Role)))
+            if (user.GetValue(ClaimTypes.Role).IsNotNullOrEmpty())
             {
                 context.Succeed(requirement);
             }

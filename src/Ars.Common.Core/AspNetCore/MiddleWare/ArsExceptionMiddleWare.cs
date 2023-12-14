@@ -34,25 +34,28 @@ namespace Ars.Common.Core.AspNetCore.MiddleWare
             _serviceScopeFactory = serviceScopeFactory;
         }
 
-        public async Task Invoke(HttpContext httpContext) 
+        public async Task Invoke(HttpContext httpContext)
         {
             try
             {
                 await _next(httpContext);
             }
-            catch (Exception e) 
+            catch (Exception e)
             {
                 await HandleError(httpContext, e);
             }
         }
 
-        private async Task HandleError(HttpContext httpContext, Exception e) 
+        private async Task HandleError(HttpContext httpContext, Exception e)
         {
             object? data = null;
             int code;
             string errorMsg;
-           
-            var grpcExcptmanager = _serviceScopeFactory.CreateScope().ServiceProvider.GetService<IGrpcExceptionManager>();
+
+            var grpcExcptmanager = 
+                _serviceScopeFactory.CreateScope()
+                .ServiceProvider.GetService<IGrpcExceptionManager>();
+
             if (grpcExcptmanager?.IsGrpcException(e) ?? false)
             {
                 var err = grpcExcptmanager.GetGrpcExceptionErr(e);
@@ -70,14 +73,44 @@ namespace Ars.Common.Core.AspNetCore.MiddleWare
                 code = uexception.Code;
                 errorMsg = uexception.Message;
             }
-            else if (e is HttpRequestException requestException) //httplcient.EnsureSuccessStatusCode()
+            else if (e is HttpRequestException requestException) //http请求异常
             {
+                var innerException = requestException.InnerException;
+
+                var webapiExcptmanager =
+                    _serviceScopeFactory.CreateScope()
+                    .ServiceProvider.GetService<IWebApiClientCoreExceptionManager>();
+                
+                while (null != innerException)
+                {
+                    if (innerException is TimeoutRejectedException timeoutRejectedException) //http请求超时
+                    {
+                        code = 408;
+                        errorMsg = $"请求超时:{timeoutRejectedException.Message}";
+
+                        goto over;
+                    }
+
+                    //WebApiClientCore抛出的ApiResponseStatusException
+                    else if (webapiExcptmanager?.IsWebApiClientCoreApiResponseStatusException(innerException) ?? false) 
+                    {
+                        var err = webapiExcptmanager.GetWebApiClientCoreApiResponseStatusExceptionErr(innerException);
+
+                        code = err.Item1;
+                        errorMsg = $"服务不可用:{err.Item2}";
+
+                        goto over;
+                    }
+
+                    innerException = innerException.InnerException;
+                }
+
                 code = (int)(requestException.StatusCode ?? HttpStatusCode.InternalServerError);
                 errorMsg = requestException.Message;
             }
             else if (e is TimeoutRejectedException timeoutRejectedException) //超时
             {
-                code = 504;
+                code = 408;
                 errorMsg = $"请求超时:{timeoutRejectedException.Message}";
             }
             else if (e is BrokenCircuitException brokenException) //熔断
@@ -91,19 +124,21 @@ namespace Ars.Common.Core.AspNetCore.MiddleWare
                 errorMsg = e.GetInnerExceptionMessage();
             }
 
+            over:
+
             httpContext.Response.StatusCode = code;
             httpContext.Response.ContentType = "application/json;charset=utf-8;";
             if (_environment.IsDevelopment())
             {
                 await httpContext.Response.WriteAsync(
                     JsonConvert.SerializeObject(
-                        new ArsOutput<object>(data,code, $"错误消息:{errorMsg}{Environment.NewLine}错误追踪:{e.GetInnerException().StackTrace}")));
+                        new ArsOutput<object>(data, code, $"{errorMsg}{Environment.NewLine}错误追踪:{e.GetInnerException().StackTrace}")));
             }
             else
             {
                 await httpContext.Response.WriteAsync(
                     JsonConvert.SerializeObject(
-                        new ArsOutput<object>(data,code, errorMsg)));
+                        new ArsOutput<object>(data, code, errorMsg)));
             }
         }
     }

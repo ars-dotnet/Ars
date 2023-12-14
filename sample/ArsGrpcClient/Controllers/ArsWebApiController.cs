@@ -8,7 +8,7 @@ namespace GrpcClient.Controllers
 {
     [ApiController]
     [Route("Api/GrpcClient/[controller]/[action]")]
-    //[Authorize("default")]
+    [Authorize("default")]
     public class ArsWebApiController : Controller
     {
         private readonly IHttpClientProviderByConsul _httpClientProvider;

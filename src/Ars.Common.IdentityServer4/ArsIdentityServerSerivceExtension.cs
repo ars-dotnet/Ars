@@ -19,9 +19,9 @@ namespace Ars.Common.IdentityServer4
             _func = func;
         }
 
-        public void AddService(IArsWebApplicationBuilder services, IArsConfiguration? arsConfiguration = null)
+        public void AddService(IArsWebApplicationBuilder services)
         {
-            services.AddArsIdentityServer(_func,arsConfiguration);
+            services.AddArsIdentityServer(_func);
         }
     }
 }

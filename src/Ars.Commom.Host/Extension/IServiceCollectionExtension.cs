@@ -65,7 +65,7 @@ namespace Ars.Commom.Host.Extension
 
             foreach (var serviceExtension in arsConfiguration.ArsServiceExtensions)
             {
-                serviceExtension.AddService(arsbuilder, arsConfiguration);
+                serviceExtension.AddService(arsbuilder);
             }
 
             return arsbuilder;

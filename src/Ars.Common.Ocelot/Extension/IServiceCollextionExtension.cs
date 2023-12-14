@@ -22,12 +22,8 @@ namespace Ars.Common.Ocelot.Extension
     {
         public static IArsWebApplicationBuilder AddArsOcelot(
             this IArsWebApplicationBuilder arsServiceBuilder,
-            Action<IOcelotBuilder>? builderOption = null,
-            IArsConfiguration? arsConfiguration = null) 
+            Action<IOcelotBuilder>? builderOption = null) 
         {
-            if (null == arsConfiguration)
-                throw new ArgumentNullException(nameof(arsConfiguration));
-
             arsServiceBuilder.HostBuilder.ConfigureAppConfiguration((hostBuilderContext,configurationBuilder) =>
             {
                 configurationBuilder
@@ -81,8 +77,8 @@ namespace Ars.Common.Ocelot.Extension
             //添加swagger for ocelot
             arsServiceBuilder.Services.AddSwaggerForOcelot(configuration);
 
-            arsConfiguration.ArsOcelotConfiguration = new ArsOcelotConfiguration();
-            arsConfiguration.AddArsAppExtension(new ArsOcelotAppExtension());
+            arsServiceBuilder.ArsConfiguration.ArsOcelotConfiguration = new ArsOcelotConfiguration();
+            arsServiceBuilder.ArsConfiguration.AddArsAppExtension(new ArsOcelotAppExtension());
 
             return arsServiceBuilder;
         }

@@ -19,12 +19,8 @@ namespace Ars.Common.Redis.RedisExtension
     {
         public static IArsWebApplicationBuilder AddArsRedis(
             this IArsWebApplicationBuilder arsServiceBuilder,
-            Action<ICacheConfigurationProvider>? provider = null, 
-            IArsConfiguration? arsConfiguration = null)
+            Action<ICacheConfigurationProvider>? provider = null)
         {
-            if (null == arsConfiguration)
-                throw new ArgumentNullException(nameof(arsConfiguration));
-
             var arsCacheOption = arsServiceBuilder.Configuration
                 .GetSection(nameof(ArsCacheConfiguration))
                 .Get<ArsCacheConfiguration>()
@@ -34,7 +30,7 @@ namespace Ars.Common.Redis.RedisExtension
             if (string.IsNullOrEmpty(arsCacheOption.RedisConnection))
                 throw new ArgumentNullException(nameof(arsCacheOption.RedisConnection));
 
-            arsConfiguration.ArsRedisConfiguration ??= arsCacheOption;
+            arsServiceBuilder.ArsConfiguration.ArsRedisConfiguration ??= arsCacheOption;
 
             var service = arsServiceBuilder.Services;
 

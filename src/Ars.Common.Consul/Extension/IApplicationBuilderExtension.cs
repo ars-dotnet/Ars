@@ -1,8 +1,11 @@
 ﻿using Ars.Commom.Tool.Certificates;
 using Ars.Common.Consul.HttpClientHelper;
 using Ars.Common.Consul.Option;
+using Ars.Common.Core;
 using Ars.Common.Core.Configs;
+using Ars.Common.Tool.Tools;
 using Consul;
+using MathNet.Numerics.Distributions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -29,7 +32,7 @@ namespace Ars.Common.Consul.IApplicationBuilderExtension
                 {
                     Address = new Uri(option.ConsulAddress),
                     Datacenter = "dc1"
-                }, CreateHttpClient(option));
+                }, CreateHttpClient(option.UseHttps,app.ApplicationServices));
 
             IConfiguration configuration = app.ApplicationServices.GetRequiredService<IConfiguration>();
             string ip = option.ServiceIp!;
@@ -72,7 +75,11 @@ namespace Ars.Common.Consul.IApplicationBuilderExtension
                 Address = ip, //ip地址
                 Port = port, //端口
                 Tags = new string[] { option.ServiceName },
-                Check = check
+                Check = check,
+                Meta = new Dictionary<string,string>
+                { 
+                    { "protocol", option.UseHttps ? "https": "http" }
+                }
             }).Wait();
 
             //应用程序终止时,注销服务
@@ -84,27 +91,14 @@ namespace Ars.Common.Consul.IApplicationBuilderExtension
             return app;
         }
 
-        private static HttpClient CreateHttpClient(IConsulRegisterConfiguration option)
+        private static HttpClient CreateHttpClient(bool useHttps,IServiceProvider serviceProvider)
         {
-            var handler = new HttpClientHandler
-            {
-                ClientCertificateOptions = ClientCertificateOption.Manual,
-                SslProtocols = SslProtocols.Tls12,
-            };
-
-            if (option.UseHttps) 
-            {
-                handler.ClientCertificates.Add(Certificate.Get(option.CertificatePath!,option.CertificatePassWord!));
-                handler.ServerCertificateCustomValidationCallback =
-                    HttpClientHandler.DangerousAcceptAnyServerCertificateValidator;
-            }
-
-            var httpclient = new HttpClient(handler)
-            {
-                Timeout = TimeSpan.FromMinutes(5),
-            };
+            IHttpClientProvider httpClientProvider = serviceProvider.GetRequiredService<IHttpClientProvider>();
+            
+            var httpclient = httpClientProvider.CreateClient(useHttps);
 
             httpclient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            
             return httpclient;
         }
     }

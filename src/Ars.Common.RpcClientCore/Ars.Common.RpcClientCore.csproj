@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="WebApiClientCore" Version="2.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Ars.Common.Consul\Ars.Common.Consul.csproj" />
+    <ProjectReference Include="..\Ars.Common.Core\Ars.Common.Core.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -6,8 +6,9 @@
 [![NuGet](https://img.shields.io/nuget/v/Ars.Common.Host.svg)](https://www.nuget.org/packages/Ars.Common.Host/)
 
 a simple .net6 webapi framework with some extensions.\
-include autofac,consul,grpc,efcore,identityserver4,redis,signalr,localization,skyapm,upload and download excel,cap extensions. \
-and some samples with them.
+include autofac,consul,grpc,efcore,identityserver4,redis,signalr,localization,skyapm,upload and download excel,\
+cap,ocelot,webapiclientcore extensions. and some samples with them.
+
 
 ## Getting Started
 
@@ -86,6 +87,24 @@ builder.Services
     {
         //如果下游协议是https则添加下面代码
         //option.AddDelegatingHandler<X509CertificateDelegatingHandler>();
+    });
+
+	//add webapiclientcore service
+	config.AddArsHttpApi<IWeatherForecastHttpApi>(option =>
+    {
+        //采用ars默认的httpclient
+        option.UseArsHttpClient = true;
+        //采用ars默认的HttpsMessageHandler
+        option.UseHttps = true;
+        //采用ars默认的策略
+        option.UseHttpClientCustomPolicy = true;
+    });
+    config.AddArsHttpApi<IDbHttpApi>(configureBuilder:builder => 
+    {
+        //可添加自定义策略
+        builder.AddArsTransientHttpErrorPolicy();
+        //可添加自定义HttpsMessageHandler
+        builder.ConfigureArsPrimaryHttpsMessageHandler();
     });
 })
 

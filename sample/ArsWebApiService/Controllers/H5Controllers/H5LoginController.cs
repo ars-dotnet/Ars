@@ -1,4 +1,5 @@
 ﻿using Ars.Common.Core.AspNetCore.OutputDtos;
+using Ars.Common.Tool.Tools;
 using IdentityModel.Client;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Primitives;
@@ -20,7 +21,7 @@ namespace ArsWebApiService.Controllers.H5Controllers
                 string[]? cc = Encoding.UTF8.GetString(Convert.FromBase64String(m[1]))?.Split(":");
                 if (cc?.Any() ?? false)
                 {
-                    using var httpclient = HttpClientFactory.CreateClient("http");
+                    using var httpclient = HttpClientProvider.CreateClient(HttpClientNames.Http);
                     var tokenresponse = await httpclient.RequestPasswordTokenAsync(new PasswordTokenRequest
                     {
                         ClientId = cc[0],

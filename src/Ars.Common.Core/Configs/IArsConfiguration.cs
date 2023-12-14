@@ -14,7 +14,7 @@ namespace Ars.Common.Core.Configs
         IList<IArsServiceExtension> ArsServiceExtensions { get; }
 
         //添加服务配置集合
-        void AddArsServiceExtension(IArsServiceExtension optExtension);
+        IArsConfiguration AddArsServiceExtension(IArsServiceExtension optExtension);
 
         //中间件集合
         IList<IArsAppExtension> ArsAppExtensions { get; }

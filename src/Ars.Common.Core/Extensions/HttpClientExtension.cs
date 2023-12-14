@@ -1,7 +1,11 @@
 ﻿using Ars.Commom.Core;
+using Ars.Commom.Tool.Certificates;
+using Ars.Commom.Tool.Extension;
+using Ars.Common.Core.Configs;
 using Ars.Common.Tool.Extension;
 using Ars.Common.Tool.Tools;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 using Polly;
 using Polly.Timeout;
 using System;
@@ -28,41 +32,17 @@ namespace Ars.Common.Core.Extensions
 
             services
                 .AddHttpClient(HttpClientNames.Https)
-                .ConfigurePrimaryHttpMessageHandler((e) =>
-                {
-                    var handler = new HttpClientHandler();
-                    handler.AllowAutoRedirect = true;
-                    handler.UseCookies = true;
-                    handler.CookieContainer = new CookieContainer();
-                    handler.ClientCertificateOptions = ClientCertificateOption.Automatic;
-                    handler.ServerCertificateCustomValidationCallback = (_, _, _, _) => true;
-                    return handler;
-                });
+                .ConfigureArsPrimaryHttpsMessageHandler();
 
             #region 降级 熔断 超时 重试 
             services
                 .AddHttpClient(HttpClientNames.RetryHttp)
-                .AddTransientHttpErrorPolicy(policyBuilder =>
-                {
-                    return policyBuilder.AddArsHttpClientPolicy();
-                });
+                .AddArsTransientHttpErrorPolicy();
 
             services
                 .AddHttpClient(HttpClientNames.RetryHttps)
-                .ConfigurePrimaryHttpMessageHandler((e) =>
-                {
-                    var handler = new HttpClientHandler();
-                    handler.AllowAutoRedirect = true;
-                    handler.UseCookies = true;
-                    handler.CookieContainer = new CookieContainer();
-                    handler.ClientCertificateOptions = ClientCertificateOption.Automatic;
-                    handler.ServerCertificateCustomValidationCallback = (_, _, _, _) => true;
-                    return handler;
-                })
-                .AddTransientHttpErrorPolicy(policyBuilder =>
-                {
-                    return policyBuilder.AddArsHttpClientPolicy();
-                });
+                .ConfigureArsPrimaryHttpsMessageHandler()
+                .AddArsTransientHttpErrorPolicy();
             #endregion
 
             return arsServiceBuilder;

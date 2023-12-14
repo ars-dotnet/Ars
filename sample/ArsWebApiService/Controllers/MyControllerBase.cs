@@ -1,4 +1,5 @@
-﻿using Ars.Common.Core.Configs;
+﻿using Ars.Common.Core;
+using Ars.Common.Core.Configs;
 using Ars.Common.Core.IDependency;
 using Ars.Common.Core.Uow;
 using ArsWebApiService;
@@ -30,5 +31,8 @@ namespace MyApiWithIdentityServer4.Controllers
 
         [Autowired]
         public IServiceScopeFactory ServiceScopeFactory { get; set; }
+
+        [Autowired]
+        public IHttpClientProvider HttpClientProvider { get; set; }
     }
 }

@@ -6,9 +6,7 @@ namespace Ars.Common.Core.Localization.Extension
     {
         public static IArsConfiguration AddArsLocalization(this IArsConfiguration arsConfiguration) 
         {
-            arsConfiguration.AddArsServiceExtension(new ArsLocalizationServiceExtension());
-
-            return arsConfiguration;
+            return arsConfiguration.AddArsServiceExtension(new ArsLocalizationServiceExtension());
         }
     }
 }

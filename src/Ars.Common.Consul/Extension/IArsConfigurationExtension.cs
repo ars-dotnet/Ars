@@ -11,16 +11,12 @@ namespace Ars.Common.Consul.Extension
     {
         public static IArsConfiguration AddArsConsulRegisterServer(this IArsConfiguration configuration) 
         {
-            configuration.AddArsServiceExtension(new ArsConsulRegisterServiceExtension());
-
-            return configuration;
+            return configuration.AddArsServiceExtension(new ArsConsulRegisterServiceExtension());
         }
 
         public static IArsConfiguration AddArsConsulDiscoverClient(this IArsConfiguration configuration)
         {
-            configuration.AddArsServiceExtension(new ArsConsulDiscoverServiceExtension());
-
-            return configuration;
+            return configuration.AddArsServiceExtension(new ArsConsulDiscoverServiceExtension());
         }
     }
 }

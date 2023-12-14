@@ -147,11 +147,11 @@ namespace MyApiWithIdentityServer4.Controllers
         }
 
         [HttpGet(nameof(Query))]
-        public async Task<IActionResult> Query()
+        public async Task<Student> Query()
         {
-            var m = await MyDbContext.Students.FirstOrDefaultAsync(r => r.LastName.Equals("8899"));
-            var n = await MyDbContext.Students.Include(r => r.Enrollments).FirstOrDefaultAsync(r => r.LastName.Equals("Yang"));
-            var o = await MyDbContext.Students.Include(r => r.Enrollments).ThenInclude(r => r.Course).FirstOrDefaultAsync(r => r.LastName.Equals("Yang"));
+            var m = await MyDbContext.Students.FirstOrDefaultAsync();
+            var n = await MyDbContext.Students.Include(r => r.Enrollments).FirstOrDefaultAsync();
+            var o = await MyDbContext.Students.Include(r => r.Enrollments).ThenInclude(r => r.Course).FirstOrDefaultAsync();
 
             await Service.Get();
 
@@ -159,10 +159,10 @@ namespace MyApiWithIdentityServer4.Controllers
 
             var aa = _serviceProvider.GetRequiredService<MyDbContext>();
 
-            return Ok((m, n, o));
+            return m;
         }
 
-        [Authorize]
+        [Authorize("default")]
         [HttpPost(nameof(ModifyWithDefaultTransaction))]
         public async Task ModifyWithDefaultTransaction()
         {

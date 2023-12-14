@@ -11,9 +11,7 @@ namespace Ars.Common.Core.AspNetCore.Extensions
     {
         public static IArsConfiguration AddArsAspNetCore(this IArsConfiguration arsConfiguration)
         {
-            arsConfiguration.AddArsServiceExtension(new ArsAspNetCoreServiceExtension());
-
-            return arsConfiguration;
+            return arsConfiguration.AddArsServiceExtension(new ArsAspNetCoreServiceExtension());
         }
     }
 }

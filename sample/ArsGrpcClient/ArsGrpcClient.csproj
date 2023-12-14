@@ -4,6 +4,7 @@
 		<TargetFramework>net6.0</TargetFramework>
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -19,7 +20,10 @@
 	  <ProjectReference Include="..\..\src\Ars.Commom.Host\Ars.Common.Host.csproj" />
 	  <ProjectReference Include="..\..\src\Ars.Common.Consul\Ars.Common.Consul.csproj" />
 	  <ProjectReference Include="..\..\src\Ars.Common.IdentityServer4\Ars.Common.IdentityServer4.csproj" />
+	  <ProjectReference Include="..\..\src\Ars.Common.RpcClientCore\Ars.Common.RpcClientCore.csproj" />
 	  <ProjectReference Include="..\..\src\Ars.Common.SkyWalking\Ars.Common.SkyWalking.csproj" />
+	  <ProjectReference Include="..\Ars.ArsWebApiGrpcService.HttpApi\Ars.ArsWebApiGrpcService.HttpApi.csproj" />
+	  <ProjectReference Include="..\Ars.ArsWebApiService.HttpApi\Ars.ArsWebApiService.HttpApi.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

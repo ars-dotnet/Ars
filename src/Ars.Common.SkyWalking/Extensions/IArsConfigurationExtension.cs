@@ -9,9 +9,9 @@ namespace Ars.Common.SkyWalking.Extensions
 {
     public static class IArsConfigurationExtension
     {
-        public static void AddArsSkyApm(this IArsConfiguration arsConfiguration) 
+        public static IArsConfiguration AddArsSkyApm(this IArsConfiguration arsConfiguration) 
         {
-            arsConfiguration.AddArsServiceExtension(new ArsSkyWalkingServiceExtension());
+            return arsConfiguration.AddArsServiceExtension(new ArsSkyWalkingServiceExtension());
         }
     }
 }

@@ -17,9 +17,7 @@ namespace Ars.Common.SignalR.Extensions
         /// <returns></returns>
         public static IArsConfiguration AddArsSignalR(this IArsConfiguration arsConfiguration, Action<ArsSignalRConfiguration>? action = null) 
         {
-            arsConfiguration.AddArsServiceExtension(new ArsSignalRServiceExtension(action));
-
-            return arsConfiguration;
+            return arsConfiguration.AddArsServiceExtension(new ArsSignalRServiceExtension(action));
         }
     }
 }

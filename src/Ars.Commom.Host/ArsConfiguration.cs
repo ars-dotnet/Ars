@@ -77,9 +77,11 @@ namespace Ars.Common.Host
             ArsAppExtensions = new List<IArsAppExtension>(0);
         }
 
-        public void AddArsServiceExtension(IArsServiceExtension optExtension)
+        public IArsConfiguration AddArsServiceExtension(IArsServiceExtension optExtension)
         {
             ArsServiceExtensions.Add(optExtension);
+
+            return this;
         }
 
         public void AddArsAppExtension(IArsAppExtension appExtension)

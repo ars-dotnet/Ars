@@ -14,7 +14,6 @@ using Microsoft.OpenApi.Models;
 using System.Net;
 using System.Security.Authentication;
 using System.Security.Cryptography.X509Certificates;
-using WebApiGrpcServices.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -43,9 +42,10 @@ builder.Services.AddSwaggerGen(option =>
 builder.Services
     .AddArserviceCore(builder, config =>
     {
-        config.AddArsIdentityClient();
-        config.AddArsConsulRegisterServer();
-        config.AddArsSkyApm();
+        config
+            .AddArsIdentityClient()
+            .AddArsConsulRegisterServer()
+            .AddArsSkyApm();
     });
 builder.Services.AddGrpc();
 

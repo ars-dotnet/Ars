@@ -18,7 +18,7 @@ namespace Ars.Common.SignalR
             _action = action;
         }
 
-        public void AddService(IArsWebApplicationBuilder services, IArsConfiguration? arsConfiguration = null)
+        public void AddService(IArsWebApplicationBuilder services)
         {
             services.AddArsSignalR(_action);
         }

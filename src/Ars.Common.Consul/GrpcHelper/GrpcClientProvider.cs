@@ -57,52 +57,5 @@ namespace Ars.Common.Consul.GrpcHelper
                 HttpClient = await _httpClientProvider.GetGrpcHttpClientAsync<HttpClient>(configuration)
             };
         }
-
-        /// <summary>
-        /// 建议采用IHttpClientFactory来创建
-        /// </summary>
-        /// <param name="config"></param>
-        /// <returns></returns>
-        [Obsolete]
-        private HttpClient GetHttpClient(ConsulConfiguration config)
-        {
-            var configuration = config.Communication;
-
-            var handler = new HttpClientHandler
-            {
-                ClientCertificateOptions = ClientCertificateOption.Manual,
-                SslProtocols = SslProtocols.Tls12,
-            };
-
-            if (configuration.UseHttps)
-            {
-                handler.ClientCertificates.Add(
-                    Certificate.Get(configuration.CertificatePath!, configuration.CertificatePassWord!));
-                handler.ServerCertificateCustomValidationCallback =
-                    HttpClientHandler.DangerousAcceptAnyServerCertificateValidator;
-            }
-
-            HttpClient httpClient;
-            if (configuration.GrpcUseHttp1Protocol)
-            {
-                var grpchandler = new GrpcWebHandler(GrpcWebMode.GrpcWeb, handler)//https://github.com/grpc/grpc-dotnet/issues/1110
-                {
-                    HttpVersion = new Version(1, 1)
-                };
-
-                httpClient = new HttpClient(grpchandler)
-                {
-                    Timeout = TimeSpan.FromMinutes(5)
-                };
-            }
-            else
-            {
-                httpClient = new HttpClient(handler)
-                {
-                    Timeout = TimeSpan.FromMinutes(5)
-                };
-            }
-            return httpClient;
-        }
     }
 }

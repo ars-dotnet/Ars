@@ -35,7 +35,7 @@ namespace Ars.Common.IdentityServer4.Validation
             }
             else
             {
-                context.Result = new GrantValidationResult(TokenRequestErrors.InvalidClient, "用户名或密码错误，默认用户名密码为[MyArs:MyArs@1234]");
+                context.Result = new GrantValidationResult(TokenRequestErrors.InvalidClient, "用户名或密码错误，默认用户名密码分别为[MyArs:123456]");
             }
 
             return Task.CompletedTask;

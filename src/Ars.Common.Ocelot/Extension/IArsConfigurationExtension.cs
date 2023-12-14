@@ -12,9 +12,7 @@ namespace Ars.Common.Ocelot.Extension
     {
         public static IArsConfiguration AddArsOcelot(this IArsConfiguration configuration, Action<IOcelotBuilder>? builderOption = null) 
         {
-            configuration.AddArsServiceExtension(new ArsOcelotServiceExtension(builderOption));
-
-            return configuration;
+            return configuration.AddArsServiceExtension(new ArsOcelotServiceExtension(builderOption));
         }
     }
 }

@@ -11,9 +11,7 @@ namespace Ars.Common.AutoFac.Extension
     {
         public static IArsConfiguration AddArsAutofac(this IArsConfiguration configuration) 
         {
-            configuration.AddArsServiceExtension(new ArsAutofacServiceExtension(null));
-
-            return configuration;
+            return configuration.AddArsServiceExtension(new ArsAutofacServiceExtension(null));
         }
     }
 }

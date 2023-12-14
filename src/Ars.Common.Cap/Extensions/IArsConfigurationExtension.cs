@@ -10,9 +10,9 @@ namespace Ars.Common.Cap.Extensions
 {
     public static class IArsConfigurationExtension
     {
-        public static void AddArsCap(this IArsConfiguration arsConfiguration, Action<CapOptions> setupAction)
+        public static IArsConfiguration AddArsCap(this IArsConfiguration arsConfiguration, Action<CapOptions> setupAction)
         {
-            arsConfiguration.AddArsServiceExtension(new ArsCapServiceExtension(setupAction));
+            return arsConfiguration.AddArsServiceExtension(new ArsCapServiceExtension(setupAction));
         }
     }
 }

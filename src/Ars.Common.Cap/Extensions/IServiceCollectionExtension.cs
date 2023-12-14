@@ -12,7 +12,9 @@ namespace Ars.Common.Cap.Extensions
 {
     public static class IServiceCollectionExtension
     {
-        public static IArsWebApplicationBuilder AddArsCap(this IArsWebApplicationBuilder builder, Action<CapOptions> setupAction)
+        public static IArsWebApplicationBuilder AddArsCap(
+            this IArsWebApplicationBuilder builder,
+            Action<CapOptions> setupAction)
         {
             var services = builder.Services;
 

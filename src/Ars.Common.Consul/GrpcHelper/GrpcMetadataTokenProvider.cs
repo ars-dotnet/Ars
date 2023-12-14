@@ -18,8 +18,7 @@ namespace Ars.Common.Consul.GrpcHelper
     internal class GrpcMetadataTokenProvider : IGrpcMetadataTokenProvider, ISingletonDependency
     {
         private readonly IToken _token;
-        public GrpcMetadataTokenProvider(
-            IToken token)
+        public GrpcMetadataTokenProvider(IToken token)
         {
             _token = token;
         }

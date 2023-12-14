@@ -19,9 +19,9 @@ namespace Ars.Common.Ocelot
             _builderOption = builderOption;
         }
 
-        public void AddService(IArsWebApplicationBuilder services, IArsConfiguration? arsConfiguration = null)
+        public void AddService(IArsWebApplicationBuilder services)
         {
-            services.AddArsOcelot(_builderOption,arsConfiguration);
+            services.AddArsOcelot(_builderOption);
         }
     }
 }
