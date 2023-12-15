@@ -86,28 +86,28 @@ builder.Services
 	//add ocelot service
 	//example service -> sample/main/ArsApiGateway
 	config.AddArsOcelot(option => 
-    {
-        //如果下游协议是https则添加下面代码
-        //option.AddDelegatingHandler<X509CertificateDelegatingHandler>();
-    });
+		{
+			//如果下游协议是https则添加下面代码
+			//option.AddDelegatingHandler<X509CertificateDelegatingHandler>();
+		});
 
 	//add webapiclientcore service
 	config.AddArsHttpApi<IWeatherForecastHttpApi>(option =>
-    {
-        //采用ars默认的httpclient
-        option.UseArsHttpClient = true;
-        //采用ars默认的HttpsMessageHandler
-        option.UseHttps = true;
-        //采用ars默认的策略
-        option.UseHttpClientCustomPolicy = true;
-    });
-    config.AddArsHttpApi<IDbHttpApi>(configureBuilder:builder => 
-    {
-        //可添加自定义策略
-        builder.AddArsTransientHttpErrorPolicy();
-        //可添加自定义HttpsMessageHandler
-        builder.ConfigureArsPrimaryHttpsMessageHandler();
-    });
+		{
+			//采用ars默认的httpclient
+			option.UseArsHttpClient = true;
+			//采用ars默认的HttpsMessageHandler
+			option.UseHttps = true;
+			//采用ars默认的策略
+			option.UseHttpClientCustomPolicy = true;
+		});
+		config.AddArsHttpApi<IDbHttpApi>(configureBuilder:builder => 
+		{
+			//可添加自定义策略
+			builder.AddArsTransientHttpErrorPolicy();
+			//可添加自定义HttpsMessageHandler
+			builder.ConfigureArsPrimaryHttpsMessageHandler();
+		});
 })
 
 //add dbcontext service
