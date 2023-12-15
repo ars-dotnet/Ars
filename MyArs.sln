@@ -9,9 +9,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "unitTest", "unitTest", "{BB
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{9FD0AB3C-0271-4887-A725-4E2FB5BEB63C}"
 	ProjectSection(SolutionItems) = preProject
+		build\deleteNuget.bat = build\deleteNuget.bat
 		src\Directory.Build.props = src\Directory.Build.props
 		LICENSE.md = LICENSE.md
 		build\pack.bat = build\pack.bat
+		build\pushNuget.bat = build\pushNuget.bat
 		README.md = README.md
 		SkyApmLogFolderSolution.md = SkyApmLogFolderSolution.md
 		build\version.props = build\version.props
@@ -93,13 +95,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArsApiGateway", "sample\Ars
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Rpc", "Rpc", "{047F98D4-0254-401A-A138-7F756C8C1213}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ars.ArsWebApiService.HttpApi", "sample\Ars.ArsWebApiService.HttpApi\Ars.ArsWebApiService.HttpApi.csproj", "{E9CF9B31-5BA4-4802-B4D8-2566BB189EF7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ars.ArsWebApiService.HttpApi", "sample\Ars.ArsWebApiService.HttpApi\Ars.ArsWebApiService.HttpApi.csproj", "{E9CF9B31-5BA4-4802-B4D8-2566BB189EF7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ars.ArsWebApiGrpcService.HttpApi", "sample\Ars.ArsWebApiGrpcService.HttpApi\Ars.ArsWebApiGrpcService.HttpApi.csproj", "{3E8C0DF2-AD03-40FB-AA9B-161C0A58C542}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ars.ArsWebApiGrpcService.HttpApi", "sample\Ars.ArsWebApiGrpcService.HttpApi\Ars.ArsWebApiGrpcService.HttpApi.csproj", "{3E8C0DF2-AD03-40FB-AA9B-161C0A58C542}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ars.ArsWebApiService.HttpApi.Contract", "sample\Ars.ArsWebApiService.HttpApi.Contract\Ars.ArsWebApiService.HttpApi.Contract.csproj", "{B4132D7D-50BC-4AD6-9D34-792BCBCE0AA5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ars.ArsWebApiService.HttpApi.Contract", "sample\Ars.ArsWebApiService.HttpApi.Contract\Ars.ArsWebApiService.HttpApi.Contract.csproj", "{B4132D7D-50BC-4AD6-9D34-792BCBCE0AA5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ars.ArsWebApiGrpcService.HttpApi.Contract", "sample\Ars.ArsWebApiGrpcService.HttpApi.Contract\Ars.ArsWebApiGrpcService.HttpApi.Contract.csproj", "{3A5487DE-C0D9-4674-88BB-C667510CAAA4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ars.ArsWebApiGrpcService.HttpApi.Contract", "sample\Ars.ArsWebApiGrpcService.HttpApi.Contract\Ars.ArsWebApiGrpcService.HttpApi.Contract.csproj", "{3A5487DE-C0D9-4674-88BB-C667510CAAA4}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ars.Common.RpcClientCore", "src\Ars.Common.RpcClientCore\Ars.Common.RpcClientCore.csproj", "{71C49798-35CD-4312-A9CB-3D6CA2676E80}"
 EndProject

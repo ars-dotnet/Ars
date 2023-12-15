@@ -30,6 +30,8 @@ PM> Install-Package Ars.Common.Redis
 PM> Install-Package Ars.Common.SignalR
 PM> Install-Package Ars.Common.SkyWalking
 PM> Install-Package Ars.Common.Cap
+PM> Install-Package Ars.Common.Ocelot
+PM> Install-Package Ars.Common.RpcClientCore
 ```
 
 ### Configuration

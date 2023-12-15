@@ -1894,11 +1894,11 @@
           }
         }
       },
-      "Ars.Common.AutoFac/1.8.0": {
+      "Ars.Common.AutoFac/1.9.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Ars.Common.Core": "1.8.0",
+          "Ars.Common.Core": "1.9.0",
           "Autofac": "6.3.0",
           "Autofac.Extensions.DependencyInjection": "7.2.0",
           "Microsoft.AspNetCore.Mvc.Core": "2.2.5"
@@ -1913,11 +1913,11 @@
           "Microsoft.AspNetCore.App"
         ]
       },
-      "Ars.Common.Core/1.8.0": {
+      "Ars.Common.Core/1.9.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Ars.Common.Tool": "1.8.0",
+          "Ars.Common.Tool": "1.9.0",
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "6.0.0",
           "System.Configuration.ConfigurationManager": "6.0.0"
         },
@@ -1931,12 +1931,12 @@
           "Microsoft.AspNetCore.App"
         ]
       },
-      "Ars.Common.Redis/1.8.0": {
+      "Ars.Common.Redis/1.9.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Ars.Common.AutoFac": "1.8.0",
-          "Ars.Common.Core": "1.8.0",
+          "Ars.Common.AutoFac": "1.9.0",
+          "Ars.Common.Core": "1.9.0",
           "CSRedisCore": "3.6.9",
           "Microsoft.Bcl.AsyncInterfaces": "6.0.0",
           "Microsoft.Extensions.Logging": "6.0.0"
@@ -1948,7 +1948,7 @@
           "bin/placeholder/Ars.Common.Redis.dll": {}
         }
       },
-      "Ars.Common.Tool/1.8.0": {
+      "Ars.Common.Tool/1.9.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
@@ -5581,22 +5581,22 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Ars.Common.AutoFac/1.8.0": {
+    "Ars.Common.AutoFac/1.9.0": {
       "type": "project",
       "path": "../Ars.Common.AutoFac/Ars.Common.AutoFac.csproj",
       "msbuildProject": "../Ars.Common.AutoFac/Ars.Common.AutoFac.csproj"
     },
-    "Ars.Common.Core/1.8.0": {
+    "Ars.Common.Core/1.9.0": {
       "type": "project",
       "path": "../Ars.Common.Core/Ars.Common.Core.csproj",
       "msbuildProject": "../Ars.Common.Core/Ars.Common.Core.csproj"
     },
-    "Ars.Common.Redis/1.8.0": {
+    "Ars.Common.Redis/1.9.0": {
       "type": "project",
       "path": "../Ars.Common.Redis/Ars.Common.Redis.csproj",
       "msbuildProject": "../Ars.Common.Redis/Ars.Common.Redis.csproj"
     },
-    "Ars.Common.Tool/1.8.0": {
+    "Ars.Common.Tool/1.9.0": {
       "type": "project",
       "path": "../Ars.Commom.Tool/Ars.Common.Tool.csproj",
       "msbuildProject": "../Ars.Commom.Tool/Ars.Common.Tool.csproj"
@@ -5604,8 +5604,8 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "Ars.Common.Core >= 1.8.0",
-      "Ars.Common.Redis >= 1.8.0",
+      "Ars.Common.Core >= 1.9.0",
+      "Ars.Common.Redis >= 1.9.0",
       "Microsoft.AspNetCore.SignalR.Protocols.MessagePack >= 6.0.0"
     ]
   },
@@ -5614,7 +5614,7 @@
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
-    "version": "1.8.0",
+    "version": "1.9.0",
     "restore": {
       "projectUniqueName": "C:\\core\\MyArs\\src\\Ars.Common.SignalR\\Ars.Common.SignalR.csproj",
       "projectName": "Ars.Common.SignalR",
