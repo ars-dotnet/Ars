@@ -86,28 +86,28 @@ builder.Services
 	//add ocelot service
 	//example service -> sample/main/ArsApiGateway
 	config.AddArsOcelot(option => 
-		{
-			//Èç¹ûÏÂÓÎĞ­ÒéÊÇhttpsÔòÌí¼ÓÏÂÃæ´úÂë
-			//option.AddDelegatingHandler<X509CertificateDelegatingHandler>();
-		});
+	{
+		//å¦‚æœä¸‹æ¸¸åè®®æ˜¯httpsåˆ™æ·»åŠ ä¸‹é¢ä»£ç 
+		//option.AddDelegatingHandler<X509CertificateDelegatingHandler>();
+	});
 
 	//add webapiclientcore service
 	config.AddArsHttpApi<IWeatherForecastHttpApi>(option =>
-		{
-			//²ÉÓÃarsÄ¬ÈÏµÄhttpclient
-			option.UseArsHttpClient = true;
-			//²ÉÓÃarsÄ¬ÈÏµÄHttpsMessageHandler
-			option.UseHttps = true;
-			//²ÉÓÃarsÄ¬ÈÏµÄ²ßÂÔ
-			option.UseHttpClientCustomPolicy = true;
-		});
-		config.AddArsHttpApi<IDbHttpApi>(configureBuilder:builder => 
-		{
-			//¿ÉÌí¼Ó×Ô¶¨Òå²ßÂÔ
-			builder.AddArsTransientHttpErrorPolicy();
-			//¿ÉÌí¼Ó×Ô¶¨ÒåHttpsMessageHandler
-			builder.ConfigureArsPrimaryHttpsMessageHandler();
-		});
+	{
+		//é‡‡ç”¨arsé»˜è®¤çš„httpclient
+		option.UseArsHttpClient = true;
+		//é‡‡ç”¨arsé»˜è®¤çš„HttpsMessageHandler
+		option.UseHttps = true;
+		//é‡‡ç”¨arsé»˜è®¤çš„ç­–ç•¥
+		option.UseHttpClientCustomPolicy = true;
+	});
+	config.AddArsHttpApi<IDbHttpApi>(configureBuilder:builder => 
+	{
+		//å¯æ·»åŠ è‡ªå®šä¹‰ç­–ç•¥
+		builder.AddArsTransientHttpErrorPolicy();
+		//å¯æ·»åŠ è‡ªå®šä¹‰HttpsMessageHandler
+		builder.ConfigureArsPrimaryHttpsMessageHandler();
+	});
 })
 
 //add dbcontext service
