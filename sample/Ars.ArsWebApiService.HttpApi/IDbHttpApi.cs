@@ -12,11 +12,11 @@ namespace Ars.ArsWebApiService.HttpApi
     [ServiceName("arswebapiservice")]
     public interface IDbHttpApi
     {
-        [HttpGet("Api/ArsWebApi/DbContext/Query/Query")]
+        [HttpGet("Api/ArsWebApi/V1/DbContext/Query/Query")]
         Task<StudentOutput> Query();
 
         [Token]
-        [HttpPost("Api/ArsWebApi/DbContext/ModifyWithDefaultTransaction/ModifyWithDefaultTransaction")]
+        [HttpPost("Api/ArsWebApi/V1/DbContext/ModifyWithDefaultTransaction/ModifyWithDefaultTransaction")]
         Task ModifyWithDefaultTransaction();
     }
 }

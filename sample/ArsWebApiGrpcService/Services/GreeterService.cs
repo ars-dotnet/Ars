@@ -6,7 +6,7 @@ using Channel = System.Threading.Channels.Channel;
 
 namespace GrpcService.Services
 {
-    [Authorize]
+    [Authorize("default")]
     public class GreeterService : Greeter.GreeterBase
     {
         private readonly ILogger<GreeterService> _logger;

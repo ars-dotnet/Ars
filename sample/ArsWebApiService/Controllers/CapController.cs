@@ -1,5 +1,6 @@
 ﻿using Ars.Common.Cap;
 using Ars.Common.Core.IDependency;
+using Asp.Versioning;
 using DotNetCore.CAP;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.RegularExpressions;
@@ -9,6 +10,7 @@ namespace ArsWebApiService.Controllers
     /// <summary>
     /// cap test controller
     /// </summary>
+    [ApiVersion("1.0")]
     public class CapController : ArsWebApiBaseController
     {
         /// <summary>
@@ -17,11 +19,23 @@ namespace ArsWebApiService.Controllers
         /// <param name="arsCapPublisher"></param>
         /// <returns></returns>
         [HttpPost]
+        //多个版本调用
+        [ApiVersionNeutral]
         public async Task PuhlishAsync([FromServices] IArsCapPublisher arsCapPublisher) 
         {
             await arsCapPublisher.PublishAsync("ars.cap.publish",new { name = "ars",age = 30 });
+        }
 
-            await arsCapPublisher.PublishAsync("ars.cap.publish",123456);
+        /// <summary>
+        /// cap发布测试V2.0
+        /// </summary>
+        /// <param name="arsCapPublisher"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [ApiVersion("2.0")]
+        public async Task PuhlishAsyncv2([FromServices] IArsCapPublisher arsCapPublisher)
+        {
+            await arsCapPublisher.PublishAsync("ars.cap.publish", new { name = "ars", age = 30 });
         }
 
         /// <summary>
@@ -38,15 +52,17 @@ namespace ArsWebApiService.Controllers
 
         /// <summary>
         /// cap消费测试
+        /// 同topic，不同的group才能分开消费
+        /// 同topic，不同的group不会互相影响
         /// </summary>
         /// <param name="msg"></param>
         /// <returns></returns>
         [NonAction]
-        [CapSubscribe("ars.cap.publish", Group = "g2")] //同topic，不同的group才能分开消费
+        [CapSubscribe("ars.cap.publish", Group = "g2")] 
         public async Task Subscribe1Async(object msg)
         {
             //线性消费
-            //await Task.Delay(1000 * 60);
+            await Task.Delay(1000 * 10);
 
             return;
         }

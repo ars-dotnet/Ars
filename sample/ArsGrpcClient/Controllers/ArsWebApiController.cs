@@ -23,7 +23,7 @@ namespace GrpcClient.Controllers
         public async Task<IActionResult> RpcArsWebApi() 
         {
             using var httpclient = await _httpClientProvider.GetHttpClientAsync<HttpClient>("arswebapiservice");
-            var data = await _httpSender.GetAsync(httpclient, "/Api/ArsWebApi/DbContext/Query/Query");
+            var data = await _httpSender.GetAsync(httpclient, "/Api/ArsWebApi/V1/DbContext/Query/Query");
             return Ok(data);
         }
 
@@ -31,7 +31,7 @@ namespace GrpcClient.Controllers
         public async Task<IActionResult> RpcArsWebApiBroker()
         {
             using var httpclient = await _httpClientProvider.GetHttpClientAsync<HttpClient>("arswebapiservice",HttpClientNames.RetryHttp);
-            var data = await _httpSender.GetAsync(httpclient, "/Api/ArsWebApi/Ocelot/TimeoutRejectedException");
+            var data = await _httpSender.GetAsync(httpclient, "/Api/ArsWebApi/V1/Ocelot/TimeoutRejectedException");
             return Ok(data);
         }
 
@@ -39,7 +39,7 @@ namespace GrpcClient.Controllers
         public async Task<IActionResult> RpcArsWebThrow()
         {
             using var httpclient = await _httpClientProvider.GetHttpClientAsync<HttpClient>("arswebapiservice", HttpClientNames.RetryHttp);
-            var data = await _httpSender.GetAsync(httpclient, "/Api/ArsWebApi/Ocelot/HttpRequestException");
+            var data = await _httpSender.GetAsync(httpclient, "/Api/ArsWebApi/V1/Ocelot/HttpRequestException");
             return Ok(data);
         }
 
@@ -47,7 +47,7 @@ namespace GrpcClient.Controllers
         public async Task<IActionResult> HttpClientMultiRead()
         {
             using var httpclient = await _httpClientProvider.GetHttpClientAsync<HttpClient>("arswebapiservice", "test");
-            var data = await _httpSender.GetAsync<object>(httpclient, "/Api/ArsWebApi/DbContext/Query/Query");
+            var data = await _httpSender.GetAsync<object>(httpclient, "/Api/ArsWebApi/V1/DbContext/Query/Query");
             return Ok(data);
         }
     }

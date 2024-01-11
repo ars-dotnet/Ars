@@ -10,8 +10,8 @@ namespace ArsWebApiService.Controllers
     [Authorize("default")]
     public class RpcHttpApiController : MyControllerBase
     {
-        [HttpGet]
-        public Task<GetOutput> GetFromForm([FromForm] GetInput input) 
+        [HttpPost]
+        public Task<GetOutput> PostFromForm([FromForm] GetInput input) 
         {
             return Task.FromResult(new GetOutput { Message = $"hello {input.Name} top {input.Top}" });
         }

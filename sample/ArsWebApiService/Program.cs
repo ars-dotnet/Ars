@@ -8,7 +8,7 @@ using Ars.Common.Core.AspNetCore;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using Ars.Common.Core.Configs;
-using Ars.Common.Tool.Swagger;
+using Ars.Common.Core.AspNetCore.Swagger;
 using Ars.Common.IdentityServer4.Validation;
 using System.Net;
 using Ars.Common.Core.AspNetCore.Extensions;
@@ -103,39 +103,44 @@ builder.Services.AddCors(cors =>
     });
 });
 
-builder.Services.AddSwaggerGen(c =>
-{
-    c.SwaggerDoc("v1", new OpenApiInfo { Title = "ArsWebApiService", Version = "v1" });
+builder.Services.AddArsSwaggerGen(
+    builder.Configuration.
+    GetSection(nameof(ArsIdentityClientConfiguration)).
+    Get<ArsIdentityClientConfiguration>());
 
-    var idscfg = builder.Configuration.GetSection(nameof(ArsIdentityClientConfiguration)).Get<ArsIdentityClientConfiguration>();
-    c.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
-    {
-        Type = SecuritySchemeType.OAuth2,
-        Flows = new OpenApiOAuthFlows
-        {
-            Password = new OpenApiOAuthFlow
-            {
-                AuthorizationUrl = new Uri($"{idscfg.Authority}/connect/authorize", UriKind.Absolute),
-                TokenUrl = new Uri($"{idscfg.Authority}/connect/token", UriKind.Absolute),
-                Scopes = new Dictionary<string, string>()
-                {
-                    { "grpcapi-scope","授权读写操作" }
-                }
-            }
-        }
-    });
+//builder.Services.AddSwaggerGen(c =>
+//{
+//    c.SwaggerDoc("v1", new OpenApiInfo { Title = "ArsWebApiService", Version = "v1" });
 
-    string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ArsWebApiService.xml");
-    if (File.Exists(path))
-    {
-        c.IncludeXmlComments(path);
-    }
+//    var idscfg = builder.Configuration.GetSection(nameof(ArsIdentityClientConfiguration)).Get<ArsIdentityClientConfiguration>();
+//    c.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
+//    {
+//        Type = SecuritySchemeType.OAuth2,
+//        Flows = new OpenApiOAuthFlows
+//        {
+//            Password = new OpenApiOAuthFlow
+//            {
+//                AuthorizationUrl = new Uri($"{idscfg.Authority}/connect/authorize", UriKind.Absolute),
+//                TokenUrl = new Uri($"{idscfg.Authority}/connect/token", UriKind.Absolute),
+//                Scopes = new Dictionary<string, string>()
+//                {
+//                    { "grpcapi-scope","授权读写操作" }
+//                }
+//            }
+//        }
+//    });
 
-    //枚举显示为字符串
-    c.SchemaFilter<EnumSchemaFilter>();
-    //根据AuthorizeAttributea分配是否需要授权操作
-    c.OperationFilter<SecurityRequirementsOperationFilter>();
-});
+//    string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ArsWebApiService.xml");
+//    if (File.Exists(path))
+//    {
+//        c.IncludeXmlComments(path);
+//    }
+
+//    //枚举显示为字符串
+//    c.SchemaFilter<EnumSchemaFilter>();
+//    //根据AuthorizeAttributea分配是否需要授权操作
+//    c.OperationFilter<SecurityRequirementsOperationFilter>();
+//});
 
 builder.WebHost.UseArsKestrel(builder.Configuration);
 
@@ -143,6 +148,9 @@ builder.WebHost.UseArsKestrel(builder.Configuration);
 
 builder.Services.AddScoped<IHubSendMessage, MyWebHub>();
 builder.Services.AddScoped<IWebServices, WebServices>();
+
+//添加版本控制
+builder.Services.AddApiVersioning().AddApiExplorer();
 
 // Configure the HTTP request pipeline.
 var app = builder.Build();
@@ -153,30 +161,31 @@ app.UseSwagger(option =>
 {
     option.RouteTemplate = "Api/ArsWebApi/swagger/{documentName}/swagger.json";
 });
-app.UseSwaggerUI(option =>
-{
-    option.SwaggerEndpoint("/Api/ArsWebApi/swagger/v1/swagger.json", "ArsWebApiService - v1"); //这里的v1表示文档名称documentName
-});
+//app.UseSwaggerUI(option =>
+//{
+//    option.SwaggerEndpoint("/Api/ArsWebApi/swagger/v1/swagger.json", "ArsWebApiService - v1"); //这里的v1表示文档名称documentName
+//}); 
+app.UseArsSwaggerUI();
 
 app.UseCors("*");
-string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "wwwroot", "AppDownload");
-if (!Directory.Exists(path))
-    Directory.CreateDirectory(path);
-app.UseDirectoryBrowser(new DirectoryBrowserOptions
-{
-    FileProvider = new PhysicalFileProvider(path),
-    RequestPath = "/apps/download"
-});
-app.UseStaticFiles(new StaticFileOptions
-{
-    FileProvider = new PhysicalFileProvider(path),
-    RequestPath = "/apps/download",
-    ContentTypeProvider = new FileExtensionContentTypeProvider(
-        new Dictionary<string, string>
-        {
-            { ".apk","application/vnd.android.package-archive"},
-        })
-});
+//string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "wwwroot", "AppDownload");
+//if (!Directory.Exists(path))
+//    Directory.CreateDirectory(path);
+//app.UseDirectoryBrowser(new DirectoryBrowserOptions
+//{
+//    FileProvider = new PhysicalFileProvider(path),
+//    RequestPath = "/apps/download"
+//});
+//app.UseStaticFiles(new StaticFileOptions
+//{
+//    FileProvider = new PhysicalFileProvider(path),
+//    RequestPath = "/apps/download",
+//    ContentTypeProvider = new FileExtensionContentTypeProvider(
+//        new Dictionary<string, string>
+//        {
+//            { ".apk","application/vnd.android.package-archive"},
+//        })
+//});
 
 app.UseArsCore().UseArsUploadExcel();
 

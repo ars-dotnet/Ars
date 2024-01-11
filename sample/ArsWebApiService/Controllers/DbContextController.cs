@@ -9,6 +9,7 @@ using Ars.Common.EFCore.Repository;
 using ArsWebApiService;
 using ArsWebApiService.Model;
 using ArsWebApiService.Services;
+using Asp.Versioning;
 using IdentityModel.Client;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;

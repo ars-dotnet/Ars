@@ -7,6 +7,8 @@ namespace ArsWebApiService.Dtos
     {
         public override bool Validation()
         {
+            var a = this.ExcelModels;
+
             return true;
         }
     }
@@ -30,7 +32,7 @@ namespace ArsWebApiService.Dtos
         public decimal ActullyQty { get; set; }
 
         [ExcelMapping("批次号")]
-        [ExcelStringLength(10)]
+        [ExcelStringLength(20)]
         public string Batchcode { get; set; }
     }
 }

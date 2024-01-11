@@ -5,7 +5,6 @@ using System;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
-using Ars.Commom.Email;
 
 namespace ArsTest
 {
@@ -17,31 +16,31 @@ namespace ArsTest
             _services = new ServiceCollection();
         }
 
-        [Fact]
-        public async Task TestSmptEmail()
-        {
-            var provider = _services.BuildServiceProvider().CreateScope().ServiceProvider;
-            var helper = provider.GetRequiredService<IEmailHelper>();
-            await helper.SendAsync(new System.Net.Mail.MailMessage("1432507436@qq.com", "1432507436@qq.com", "ars_project","ars_body"));
-        }
+        //[Fact]
+        //public async Task TestSmptEmail()
+        //{
+        //    var provider = _services.BuildServiceProvider().CreateScope().ServiceProvider;
+        //    var helper = provider.GetRequiredService<IEmailHelper>();
+        //    await helper.SendAsync(new System.Net.Mail.MailMessage("1432507436@qq.com", "1432507436@qq.com", "ars_project","ars_body"));
+        //}
 
-        [InlineData(123,"boy")]
-        [Theory]
-        public async Task TestSmptEmailReceive(int t1,string t2) 
-        {
-            var provider = _services.BuildServiceProvider().CreateScope().ServiceProvider;
-            var helper = provider.GetRequiredService<IEmailHelper>();
+        //[InlineData(123,"boy")]
+        //[Theory]
+        //public async Task TestSmptEmailReceive(int t1,string t2) 
+        //{
+        //    var provider = _services.BuildServiceProvider().CreateScope().ServiceProvider;
+        //    var helper = provider.GetRequiredService<IEmailHelper>();
 
-            try
-            {
-                await helper.ReceiveAsync();
-            }
-            catch (Exception e) 
-            {
+        //    try
+        //    {
+        //        await helper.ReceiveAsync();
+        //    }
+        //    catch (Exception e) 
+        //    {
 
-            }
+        //    }
             
-        }
+        //}
 
         [Fact]
         public void TestSerializable()

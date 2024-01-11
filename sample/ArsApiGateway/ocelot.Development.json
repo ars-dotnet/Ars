@@ -121,12 +121,22 @@
       "Config": [
         {
           "Name": "GateWay-ArsWebApiService",
-          "Version": "v1",
+          "Version": "v1.0",
 
           //ServiceDiscovery获取host
           "Service": {
             "Name": "arswebapiservice",
-            "Path": "/Api/ArsWebApi/swagger/v1/swagger.json"
+            "Path": "/Api/ArsWebApi/swagger/1.0/swagger.json"
+          }
+        },
+        {
+          "Name": "GateWay-ArsWebApiService",
+          "Version": "v2.0",
+
+          //ServiceDiscovery获取host
+          "Service": {
+            "Name": "arswebapiservice",
+            "Path": "/Api/ArsWebApi/swagger/2.0/swagger.json"
           }
         }
       ],

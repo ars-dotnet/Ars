@@ -98,7 +98,7 @@ namespace Ars.Common.EFCore.Extension
             {
                 arsServiceBuilder.ArsConfiguration.ArsMultipleDbContextConfiguration = options;
 
-                service.AddSingleton<IArsMultipleDbContextConfiguration>(_ =>options);
+                service.AddSingleton<IArsMultipleDbContextConfiguration>(_ => options);
             };
 
             var option = options.ArsDbContextConfigurations!

@@ -2,7 +2,6 @@ using Ars.Commom.Host.Extension;
 using Ars.Common.Ocelot.Extension;
 using Ars.Common.Host.Extension;
 using Microsoft.OpenApi.Models;
-using Ars.Common.Tool.Swagger;
 using Ars.Common.IdentityServer4.Options;
 using Ars.Common.IdentityServer4.Extension;
 using Ars.Common.Consul.Extension;

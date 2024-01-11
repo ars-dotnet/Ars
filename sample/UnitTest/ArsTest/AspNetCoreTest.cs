@@ -1,5 +1,4 @@
-﻿using Ars.Commom.Host.Extension;
-using Ars.Commom.Tool;
+﻿using Ars.Commom.Tool;
 using Ars.Common.Core.IDependency;
 using Ars.Common.Tool.Extension;
 using ArsTest.AppConfigs;

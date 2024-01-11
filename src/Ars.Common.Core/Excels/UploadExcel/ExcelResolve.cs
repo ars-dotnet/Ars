@@ -108,9 +108,19 @@ namespace Ars.Common.Core.Excels.UploadExcel
             {
                 dataRow = dataTable.NewRow();//每行数据一个row
 
+                Cell cell; 
                 for (int j = 0; j < cells.MaxDataColumn + 1; j++) //列
                 {
-                    dataRow[j] = cells[h, j].Value;
+                    cell = cells[h, j];
+                    if (cell.IsMerged)
+                    {
+                        dataRow[j] = (cell.GetMergedRange().Value as object[,])![0,0];
+                    }
+                    else 
+                    {
+                        dataRow[j] = cell.Value;
+                    }
+                    
                 }
 
                 dataTable.Rows.Add(dataRow);

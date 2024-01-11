@@ -14,16 +14,16 @@ namespace Ars.ArsWebApiService.HttpApi
     [Token]
     public interface IRpcHttpApi
     {
-        [WebApiClientCore.Attributes.HttpGet("Api/ArsWebApi/RpcHttpApi/GetFromForm")]
-        Task<GetOutput> GetFromForm([FormContent] GetInput input);
+        [WebApiClientCore.Attributes.HttpPost("Api/ArsWebApi/V1/RpcHttpApi/PostFromForm")]
+        Task<GetOutput> PostFromForm([FormContent] GetInput input);
 
-        [WebApiClientCore.Attributes.HttpGet("Api/ArsWebApi/RpcHttpApi/GetFromQuery")]
+        [WebApiClientCore.Attributes.HttpGet("Api/ArsWebApi/V1/RpcHttpApi/GetFromQuery")]
         Task<GetOutput> GetFromQuery([PathQuery] GetInput input);
 
-        [WebApiClientCore.Attributes.HttpGet("Api/ArsWebApi/RpcHttpApi/GetFromRoute/{where}/{when}")]
+        [WebApiClientCore.Attributes.HttpGet("Api/ArsWebApi/V1/RpcHttpApi/GetFromRoute/{where}/{when}")]
         Task<GetOutput> GetFromRoute([FromQuery] RouteInput route,[PathQuery] GetInput input);
 
-        [WebApiClientCore.Attributes.HttpPost("Api/ArsWebApi/RpcHttpApi/PostFromBody")]
+        [WebApiClientCore.Attributes.HttpPost("Api/ArsWebApi/V1/RpcHttpApi/PostFromBody")]
         Task<GetOutput> PostFromBody([JsonContent] GetInput input);
     }
 }

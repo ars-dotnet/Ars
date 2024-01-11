@@ -3,10 +3,10 @@ using Ars.Commom.Tool.Certificates;
 using Ars.Common.Consul.Extension;
 using Ars.Common.Consul.IApplicationBuilderExtension;
 using Ars.Common.Core.AspNetCore.Extensions;
+using Ars.Common.Core.AspNetCore.Swagger;
 using Ars.Common.Host.Extension;
 using Ars.Common.IdentityServer4.Extension;
 using Ars.Common.SkyWalking.Extensions;
-using Ars.Common.Tool.Swagger;
 using GrpcService.Services;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.AspNetCore.Server.Kestrel.Https;
@@ -22,7 +22,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(option => 
+builder.Services.AddArsSwaggerGen(option => 
 {
     option.SwaggerDoc("v1", new OpenApiInfo { Title = "ArsGrpcWebApiService", Version = "v1" });
 

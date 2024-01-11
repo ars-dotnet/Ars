@@ -36,14 +36,23 @@ namespace ArsWebApiService.Controllers
         /// <param name="input"></param>
         /// <returns></returns>
         [HttpPost]
-        public Task Uplaod([FromForm] UploadInput input) 
+        public Task Uplaod([FromForm] UploadInput input)
         {
-            var a = input.ExcelModels.FirstOrDefault();
+            return Task.CompletedTask;
+        }
+
+        /// <summary>
+        /// 上传excel - 测试抛错
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public Task UplaodWithErr([FromForm] UploadInput input) 
+        {
+            var a = input.ExcelModels.FirstOrDefault()!;
             a.IsErr = true;
             a.FieldErrMsg = new Dictionary<string,string>{ { "托盘号", "托盘错误" } };
             throw new ArsExcelSaveErrOnlyException("错误");
-
-            return Task.CompletedTask;
         }
     }
 }

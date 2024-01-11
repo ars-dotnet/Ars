@@ -53,7 +53,7 @@ namespace ArsGrpcClient.Controllers
                 new RouteInput { Where = "China", When = "Yesterday" },
                 input);
 
-            var data1 = await RpcHttpApi.GetFromForm(input);
+            var data1 = await RpcHttpApi.PostFromForm(input);
 
             var data2 = await RpcHttpApi.GetFromQuery(input);
 

@@ -3,13 +3,12 @@ using Ars.Common.Core.Configs;
 using Ars.Common.Core.IDependency;
 using Ars.Common.Core.Uow;
 using ArsWebApiService;
+using ArsWebApiService.Controllers;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MyApiWithIdentityServer4.Controllers
 {
-    [ApiController]
-    [Route("Api/ArsWebApi/[controller]/[action]")]
-    public abstract class MyControllerBase : ControllerBase, IScopedDependency
+    public abstract class MyControllerBase : MyControllerBaseWithVersion
     {
         [Autowired]
         public MyDbContext MyDbContext { get; set; }

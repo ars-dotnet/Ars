@@ -6,7 +6,6 @@ using Ars.Common.Core.AspNetCore.Extensions;
 using Ars.Common.IdentityServer4.Extension;
 using Ars.Common.IdentityServer4.Options;
 using Ars.Common.Tool.Extension;
-using Ars.Common.Tool.Swagger;
 using GrpcClient.ApmLogger;
 using GrpcClients;
 using Microsoft.Extensions.DependencyInjection.Extensions;
@@ -15,6 +14,7 @@ using System.Net.Http;
 using Ars.Common.RpcClientCore.Extensions;
 using Ars.ArsWebApiService.HttpApi;
 using Ars.Common.Core.Extensions;
+using Ars.Common.Core.AspNetCore.Swagger;
 
 Environment.SetEnvironmentVariable("ASPNETCORE_HOSTINGSTARTUPASSEMBLIES", "SkyAPM.Agent.AspNetCore");
 Environment.SetEnvironmentVariable("SKYWALKING__SERVICENAME", "grpclient");
@@ -27,7 +27,7 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 
-builder.Services.AddSwaggerGen(c =>
+builder.Services.AddArsSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "ArsGrpcClient", Version = "v1" });
 
