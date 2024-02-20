@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Ars.Common.EFCore.Entities;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MyApiWithIdentityServer4.Model
@@ -8,11 +9,12 @@ namespace MyApiWithIdentityServer4.Model
         A, B, C, D, F
     }
 
-    public class Enrollment
+    public class Enrollment : IEntity<int>
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int EnrollmentID { get; set; }
+        [Column("EnrollmentID")]
+        public int Id { get; set; }
 
         [ForeignKey(nameof(CourseID))]
         public int CourseID { get; set; }
@@ -23,6 +25,7 @@ namespace MyApiWithIdentityServer4.Model
         public Grade? Grade { get; set; }
 
         public virtual Course Course { get; set; }
+
         public virtual Student Student { get; set; }
     }
 }

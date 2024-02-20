@@ -108,6 +108,11 @@ namespace Ars.Common.EFCore.Repository
             return await (await GetAllAsync()).FirstOrDefaultAsync(predicate);
         }
 
+        public override async Task<TEntity?> FirstOrDefaultAsync() 
+        {
+            return await (await GetAllAsync()).FirstOrDefaultAsync();
+        }
+
         public override TEntity Insert(TEntity entity)
         {
             return GetTable().Add(entity).Entity;
@@ -147,6 +152,11 @@ namespace Ars.Common.EFCore.Repository
         public override async Task<int> CountAsync(Expression<Func<TEntity, bool>> predicate)
         {
             return await (await GetAllAsync()).CountAsync(predicate);
+        }
+
+        public override async Task<int> SaveChangesAsync()
+        {
+            return await (await GetDbContextAsync()).SaveChangesAsync();
         }
 
         public override void Dispose()

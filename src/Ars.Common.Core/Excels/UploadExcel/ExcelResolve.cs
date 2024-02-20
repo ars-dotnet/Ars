@@ -23,6 +23,9 @@ namespace Ars.Common.Core.Excels.UploadExcel
 
         public int MaxRowCount { get; set; }
 
+        /// <summary>
+        /// column开始行
+        /// </summary>
         public int ExcelColumnFromRow { get; set; }
 
         public ExcelResolveResult? ToList<T>(Stream stream) where T : IExcelModel, new()

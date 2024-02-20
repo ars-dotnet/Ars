@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
+using Microsoft.VisualBasic.FileIO;
 using Swashbuckle.AspNetCore.Swagger;
 using Swashbuckle.AspNetCore.SwaggerUI;
 using System;
@@ -24,6 +25,10 @@ namespace Ars.Common.Core.AspNetCore.Swagger
                     options.SwaggerEndpoint($"/Api/ArsWebApi/swagger/{description.GroupName}/swagger.json", 
                         description.GroupName.ToUpperInvariant());
                 }
+
+                options.OAuthClientId("grpc-key");
+                options.OAuthClientSecret("grpc-secret");
+                options.OAuthUsername("MyArs");
             };
 
             return builder.UseArsSwaggerUI(setupAction);

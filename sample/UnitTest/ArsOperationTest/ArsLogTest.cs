@@ -10,6 +10,7 @@ using System.Runtime.CompilerServices;
 using System.Security.Policy;
 using System.Reflection;
 using ArsOperationTest;
+using System.Globalization;
 
 namespace ArsTest.ArsTests
 {
@@ -311,5 +312,20 @@ namespace ArsTest.ArsTests
             string m = null;
             Assert.True(m.IndexOf("ad") < 0);
         }
+
+        [Fact]
+        public void TestDateTime() 
+        {
+            var a = new DateTime(2023, 3, 10, 10, 23, 30);
+
+            DateTimeFormatInfo dtFormat = new DateTimeFormatInfo();
+
+            dtFormat.ShortDatePattern = "yyyy-MM-dd HH:mm:ss";
+            var m = Convert.ToDateTime("2023-03-10 10:06:35.345", dtFormat);
+            var specified = DateTime.SpecifyKind(m, DateTimeKind.Local);
+
+            var b = DateTime.Now;
+        }
+
     }
 }

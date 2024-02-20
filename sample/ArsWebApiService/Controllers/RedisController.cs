@@ -1,6 +1,7 @@
 ﻿using Ars.Commom.Tool.Serializer;
 using Ars.Common.Core.IDependency;
 using Ars.Common.Redis;
+using ArsWebApiService.Controllers.BaseControllers;
 using MessagePack;
 using Microsoft.AspNetCore.Mvc;
 

@@ -1,9 +1,9 @@
 ﻿using Ars.Common.Core.AspNetCore.OutputDtos;
 using Ars.Common.Tool.Tools;
+using ArsWebApiService.Controllers.BaseControllers;
 using IdentityModel.Client;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Primitives;
-using MyApiWithIdentityServer4.Controllers;
 using MyApiWithIdentityServer4.Dtos;
 using Newtonsoft.Json;
 using System.Text;

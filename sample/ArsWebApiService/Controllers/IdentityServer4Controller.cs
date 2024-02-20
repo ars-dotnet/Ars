@@ -2,12 +2,12 @@
 using Ars.Common.Core.Configs;
 using Ars.Common.Core.IDependency;
 using Ars.Common.Tool.Tools;
+using ArsWebApiService.Controllers.BaseControllers;
 using IdentityModel.Client;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Primitives;
-using MyApiWithIdentityServer4.Controllers;
 using MyApiWithIdentityServer4.Dtos;
 using Newtonsoft.Json;
 using System.Text;

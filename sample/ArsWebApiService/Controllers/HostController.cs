@@ -1,4 +1,5 @@
 ﻿using Ars.Common.Core.AspNetCore.HostService;
+using ArsWebApiService.Controllers.BaseControllers;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ArsWebApiService.Controllers

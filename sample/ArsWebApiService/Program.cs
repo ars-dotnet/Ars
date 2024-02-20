@@ -37,8 +37,18 @@ using Ars.Common.Core.Extensions;
 using static IdentityModel.ClaimComparer;
 using ArsWebApiService;
 using Ars.Common.EFCore;
+using Com.Ctrip.Framework.Apollo;
+using Com.Ctrip.Framework.Apollo.Enums;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// add apollo service
+builder.WebHost.ConfigureAppConfiguration((hostBuilderContext, configurationBuilder) =>
+{
+    configurationBuilder
+        .AddApollo(hostBuilderContext.Configuration.GetSection("apollo"))
+        .AddDefault();
+});
 
 // Add services to the container.
 var arsbuilder =
@@ -74,6 +84,8 @@ var arsbuilder =
             })
             .AddArsMultipleDbContext<MyDbContext>()
             .AddArsMultipleDbContext<MyDbContext2>()
+            .AddArsMultipleDbContext<MyCatDbContext>()
+            .AddArsMultipleDbContext<MyCatQueryDbContext>()
             .AddArsMultipleDbContext<MyDbContextWithMsSql>();
     })
     //.AddArsDbContext<MyDbContext>()
@@ -108,40 +120,6 @@ builder.Services.AddArsSwaggerGen(
     GetSection(nameof(ArsIdentityClientConfiguration)).
     Get<ArsIdentityClientConfiguration>());
 
-//builder.Services.AddSwaggerGen(c =>
-//{
-//    c.SwaggerDoc("v1", new OpenApiInfo { Title = "ArsWebApiService", Version = "v1" });
-
-//    var idscfg = builder.Configuration.GetSection(nameof(ArsIdentityClientConfiguration)).Get<ArsIdentityClientConfiguration>();
-//    c.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
-//    {
-//        Type = SecuritySchemeType.OAuth2,
-//        Flows = new OpenApiOAuthFlows
-//        {
-//            Password = new OpenApiOAuthFlow
-//            {
-//                AuthorizationUrl = new Uri($"{idscfg.Authority}/connect/authorize", UriKind.Absolute),
-//                TokenUrl = new Uri($"{idscfg.Authority}/connect/token", UriKind.Absolute),
-//                Scopes = new Dictionary<string, string>()
-//                {
-//                    { "grpcapi-scope","授权读写操作" }
-//                }
-//            }
-//        }
-//    });
-
-//    string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ArsWebApiService.xml");
-//    if (File.Exists(path))
-//    {
-//        c.IncludeXmlComments(path);
-//    }
-
-//    //枚举显示为字符串
-//    c.SchemaFilter<EnumSchemaFilter>();
-//    //根据AuthorizeAttributea分配是否需要授权操作
-//    c.OperationFilter<SecurityRequirementsOperationFilter>();
-//});
-
 builder.WebHost.UseArsKestrel(builder.Configuration);
 
 //builder.Services.AddDbContext<MyDbContext>();
@@ -168,24 +146,26 @@ app.UseSwagger(option =>
 app.UseArsSwaggerUI();
 
 app.UseCors("*");
-//string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "wwwroot", "AppDownload");
-//if (!Directory.Exists(path))
-//    Directory.CreateDirectory(path);
-//app.UseDirectoryBrowser(new DirectoryBrowserOptions
-//{
-//    FileProvider = new PhysicalFileProvider(path),
-//    RequestPath = "/apps/download"
-//});
-//app.UseStaticFiles(new StaticFileOptions
-//{
-//    FileProvider = new PhysicalFileProvider(path),
-//    RequestPath = "/apps/download",
-//    ContentTypeProvider = new FileExtensionContentTypeProvider(
-//        new Dictionary<string, string>
-//        {
-//            { ".apk","application/vnd.android.package-archive"},
-//        })
-//});
+
+//上传app文件
+string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "wwwroot", "AppDownload");
+if (!Directory.Exists(path))
+    Directory.CreateDirectory(path);
+app.UseDirectoryBrowser(new DirectoryBrowserOptions
+{
+    FileProvider = new PhysicalFileProvider(path),
+    RequestPath = "/apps/download"
+});
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(path),
+    RequestPath = "/apps/download",
+    ContentTypeProvider = new FileExtensionContentTypeProvider(
+        new Dictionary<string, string>
+        {
+            { ".apk","application/vnd.android.package-archive"},
+        })
+});
 
 app.UseArsCore().UseArsUploadExcel();
 

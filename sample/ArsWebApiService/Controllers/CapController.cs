@@ -1,5 +1,6 @@
 ﻿using Ars.Common.Cap;
 using Ars.Common.Core.IDependency;
+using ArsWebApiService.Controllers.BaseControllers;
 using Asp.Versioning;
 using DotNetCore.CAP;
 using Microsoft.AspNetCore.Mvc;

@@ -1,6 +1,7 @@
 ﻿using Ars.Common.Core.Configs;
 using Ars.Common.Core.Excels.ExportExcel;
 using Ars.Common.Core.Excels.UploadExcel;
+using ArsWebApiService.Controllers.BaseControllers;
 using ArsWebApiService.Dtos;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
@@ -39,6 +40,17 @@ namespace ArsWebApiService.Controllers
         public Task Uplaod([FromForm] UploadInput input)
         {
             return Task.CompletedTask;
+        }
+
+        /// <summary>
+        /// 上传excel
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public IActionResult UplaodByGet([FromForm] GetPageInput input)
+        {
+            return Ok("ok");
         }
 
         /// <summary>

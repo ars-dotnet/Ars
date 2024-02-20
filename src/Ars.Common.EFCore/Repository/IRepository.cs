@@ -33,6 +33,8 @@ namespace Ars.Common.EFCore.Repository
 
         Task<List<TEntity>> GetAllListAsync(Expression<Func<TEntity, bool>> predicate);
 
+        Task<TEntity?> FirstOrDefaultAsync();
+
         TEntity? FirstOrDefault(Expression<Func<TEntity, bool>> predicate);
 
         Task<TEntity?> FirstOrDefaultAsync(Expression<Func<TEntity, bool>> predicate);
@@ -56,6 +58,13 @@ namespace Ars.Common.EFCore.Repository
         int Count(Expression<Func<TEntity, bool>> predicate);
 
         Task<int> CountAsync(Expression<Func<TEntity, bool>> predicate);
+
+        /// <summary>
+        /// 不采用unit of work是才调用当前方法持久化
+        /// 如果更改了多个表，必须使用unit of work，不能调用当前方法来持久化
+        /// </summary>
+        /// <returns></returns>
+        Task<int> SaveChangesAsync();
     }
 
     public interface IRepository<TEntity> : IRepository<TEntity, int> 

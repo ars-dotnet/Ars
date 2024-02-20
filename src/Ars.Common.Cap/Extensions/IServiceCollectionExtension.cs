@@ -19,6 +19,7 @@ namespace Ars.Common.Cap.Extensions
             var services = builder.Services;
 
             services.AddTransient<IArsCapPublisher, ArsCapPublisher>();
+
             services.AddCap(setupAction);
 
             return builder;

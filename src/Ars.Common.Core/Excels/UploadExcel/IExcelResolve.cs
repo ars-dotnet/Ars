@@ -23,7 +23,7 @@ namespace Ars.Common.Core.Excels.UploadExcel
         int MaxRowCount { get; }
 
         /// <summary>
-        /// column开始行数
+        /// column header开始行
         /// </summary>
         int ExcelColumnFromRow { get; set; }
 

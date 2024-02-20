@@ -7,6 +7,7 @@ using Ars.Common.EFCore.AdoNet;
 using Ars.Common.EFCore.Extension;
 using Ars.Common.EFCore.Repository;
 using ArsWebApiService;
+using ArsWebApiService.Controllers.BaseControllers;
 using ArsWebApiService.Model;
 using ArsWebApiService.Services;
 using Asp.Versioning;
@@ -24,6 +25,7 @@ using MyApiWithIdentityServer4.Model;
 using MySqlConnector;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using SkyWalking.NetworkProtocol.V3;
 using System.Text;
 using System.Transactions;
 
@@ -71,6 +73,9 @@ namespace MyApiWithIdentityServer4.Controllers
         public IRepository<Student, Guid> Repo { get; set; }
 
         [Autowired]
+        public IRepository<Enrollment> EnrollmentRepo { get; set; }
+
+        [Autowired]
         public IRepository<StudentNew, Guid> StuNew_Repo { get; set; }
 
         [Autowired]
@@ -91,26 +96,9 @@ namespace MyApiWithIdentityServer4.Controllers
         [Autowired]
         public IService Service { get; set; }
 
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
+        [Autowired]
+        public IMService MService { get; set; }
 
-
-        [HttpGet(Name = "GetWeatherForecast")]
-        //[Authorize]
-        public IEnumerable<WeatherForecast> Get()
-        {
-            TestService.Test();
-
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-            })
-            .ToArray();
-        }
 
         #region DbContext with Default Transaction
 
@@ -129,7 +117,7 @@ namespace MyApiWithIdentityServer4.Controllers
                 {
                     new Model.Enrollment
                     {
-                        EnrollmentID = 3,
+                        Id = 3,
                         CourseID = 3,
                         StudentID = id,
                         Grade = Model.Grade.A,
@@ -148,19 +136,14 @@ namespace MyApiWithIdentityServer4.Controllers
         }
 
         [HttpGet(nameof(Query))]
-        public async Task<Student> Query()
+        public async Task<Student?> Query()
         {
-            var m = await MyDbContext.Students.FirstOrDefaultAsync();
-            var n = await MyDbContext.Students.Include(r => r.Enrollments).FirstOrDefaultAsync();
-            var o = await MyDbContext.Students.Include(r => r.Enrollments).ThenInclude(r => r.Course).FirstOrDefaultAsync();
+            var a = Repo.GetAll();
+            var b = StuNew_Repo.GetAll();
 
-            await Service.Get();
+            var data = await a.FirstOrDefaultAsync();
 
-            MyDbContext _dbContext = await UnitOfWorkManager.Current.GetDbContextAsync<MyDbContext>();
-
-            var aa = _serviceProvider.GetRequiredService<MyDbContext>();
-
-            return m;
+            return data;
         }
 
         [Authorize("default")]
@@ -183,11 +166,11 @@ namespace MyApiWithIdentityServer4.Controllers
             await MyDbContext.SaveChangesAsync();
         }
 
-        
+
 
         [HttpPost]
         [UnitOfWork(IsDisabled = true)]
-        public async Task<IActionResult> TestDefaultUOW() 
+        public async Task<IActionResult> TestDefaultUOW()
         {
             using var scope = UnitOfWorkManager.Begin();
             var info = await Repo.FirstOrDefaultAsync(r => r.LastName.Equals("TestUowDefault11"));
@@ -339,13 +322,21 @@ namespace MyApiWithIdentityServer4.Controllers
         #endregion
 
         #region IRepository
-        
+
+        [HttpGet]
+        public async Task<IActionResult> GetOneAsync()
+        {
+            var data = await MService.GetAsync();
+
+            return Ok(data);
+        }
+
         /// <summary>
         /// 测试mysql 可重复读的事务隔离级别
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public async Task<IActionResult> GetDataByRR() 
+        public async Task<IActionResult> GetDataByRR()
         {
             #region 多次读，即使另一个事务update,insert,delete了相同条件的数据，当前事务读取到的数据未变 
             var query = Repo.GetAll().Where(r => r.LastName == "123");
@@ -388,7 +379,7 @@ namespace MyApiWithIdentityServer4.Controllers
             var a = await Repo.GetAll().IgnoreQueryFilters().ToListAsync();
             var b = await Repo.GetAllIncluding(r => r.Enrollments).ToListAsync();
             var c = Repo.GetAllList();
-            var d = Repo.GetAllList(r => r.Enrollments.Any(t => t.EnrollmentID == 1));
+            var d = Repo.GetAllList(r => r.Enrollments.Any(t => t.Id == 1));
             var e = Repo.FirstOrDefault(r => r.Id == new Guid("8FB45ADF-3F80-45ED-93CB-10A61CE644E9"));
 
             var m = _options.Value.ServiceIp;
@@ -412,7 +403,7 @@ namespace MyApiWithIdentityServer4.Controllers
                 {
                     new Model.Enrollment
                     {
-                        EnrollmentID = 6,
+                        Id = 6,
                         CourseID = 6,
                         StudentID = id,
                         Grade = Model.Grade.A,
@@ -475,14 +466,14 @@ namespace MyApiWithIdentityServer4.Controllers
             var a = await (await Repo.GetAllAsync()).ToListAsync();
             var b = await (await Repo.GetAllIncludingAsync(r => r.Enrollments)).ToListAsync();
             var c = await Repo.GetAllListAsync();
-            var d = await Repo.GetAllListAsync(r => r.Enrollments.Any(t => t.EnrollmentID == 1));
+            var d = await Repo.GetAllListAsync(r => r.Enrollments.Any(t => t.Id == 1));
             var e = await Repo.FirstOrDefaultAsync(r => r.Id == new Guid("8FB45ADF-3F80-45ED-93CB-10A61CE644E9"));
 
             return Ok(a);
         }
 
         [HttpGet]
-        [UnitOfWork(IsDisabled=true)]
+        [UnitOfWork(IsDisabled = true)]
         public async Task<IActionResult> GetWithOutTransaction()
         {
             try
@@ -496,15 +487,15 @@ namespace MyApiWithIdentityServer4.Controllers
                 var manager = ServiceScopeFactory.CreateScope().ServiceProvider.GetRequiredService<IUnitOfWorkManager>();
                 using var scope = manager.Begin();
 
-                var repo = ServiceScopeFactory.CreateScope().ServiceProvider.GetRequiredService<IRepository<Student, Guid>>() ;
+                var repo = ServiceScopeFactory.CreateScope().ServiceProvider.GetRequiredService<IRepository<Student, Guid>>();
                 {
                     var a = await repo.FirstOrDefaultAsync(r => r.LastName.Equals("6666"));
                     a.LastName = "12345";
                 }
-                
+
                 await scope.CompleteAsync();
             }
-            catch (Exception e) 
+            catch (Exception e)
             {
 
             }
@@ -607,11 +598,11 @@ namespace MyApiWithIdentityServer4.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AdoNetInsert() 
+        public async Task<IActionResult> AdoNetInsert()
         {
             string sql = @"insert into Students(Id,LastName,FirstMidName,EnrollmentDate,TenantId,CreationUserId,IsDeleted) " +
                 "values(@Id,@LastName,@FirstMidName,@EnrollmentDate,@TenantId,@CreationUserId,@IsDeleted)";
-            MySqlParameter[] sqlParameters = 
+            MySqlParameter[] sqlParameters =
             {
                 new MySqlParameter("@Id",Guid.NewGuid()),
                 new MySqlParameter("@LastName",123),
@@ -626,7 +617,7 @@ namespace MyApiWithIdentityServer4.Controllers
         }
 
         [HttpPost]
-        [UnitOfWork(IsDisabled=true)]
+        [UnitOfWork(IsDisabled = true)]
         public async Task<IActionResult> AdoNetInsertWithTransaction()
         {
             string sql = @"insert into Students(Id,LastName,FirstMidName,EnrollmentDate,TenantId,CreationUserId,IsDeleted) " +
@@ -646,7 +637,7 @@ namespace MyApiWithIdentityServer4.Controllers
             var count = await DbExecuter.ExecuteNonQuery(sql, sqlParameters);
 
             string updatesql = $"update Students set LastName = @LastName where FirstMidName = @FirstMidName";
-            MySqlParameter[] upsqlParameters = 
+            MySqlParameter[] upsqlParameters =
             {
                  new MySqlParameter("@LastName",889999),
                  new MySqlParameter("@FirstMidName","aabb1212"),
@@ -658,13 +649,13 @@ namespace MyApiWithIdentityServer4.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AdoNetUpdate() 
+        public async Task<IActionResult> AdoNetUpdate()
         {
             using var scope = await DbExecuter.BeginTransactionAsync();
-            var guids = new Guid[] 
+            var guids = new Guid[]
             {
                 new Guid("9dc35d1c-da51-4a6d-a3be-df299e2fa88a"),
-                new Guid("b0d7a84f-c0f2-42f3-964c-93ff84ca47c4") 
+                new Guid("b0d7a84f-c0f2-42f3-964c-93ff84ca47c4")
             };
             List<MySqlParameter> sqlParameters = new List<MySqlParameter>
             {
@@ -699,11 +690,11 @@ namespace MyApiWithIdentityServer4.Controllers
 
             await scope.CommitAsync();
 
-            return Ok((count,datas));
-         }
+            return Ok((count, datas));
+        }
 
         [HttpPost]
-        public async Task<IActionResult> AdoNetDelete() 
+        public async Task<IActionResult> AdoNetDelete()
         {
             var guids = new Guid[] { new Guid("9dc35d1c-da51-4a6d-a3be-df299e2fa88a") };
             List<MySqlParameter> sqlParameters = new List<MySqlParameter>();
@@ -720,7 +711,7 @@ namespace MyApiWithIdentityServer4.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> AdoNetQuery() 
+        public async Task<IActionResult> AdoNetQuery()
         {
             var guids = new Guid[] { new Guid("846f3141-53fa-4d49-8b84-d1213fd1d7e1") };
             List<MySqlParameter> sqlParameters = new List<MySqlParameter>();
@@ -764,10 +755,10 @@ namespace MyApiWithIdentityServer4.Controllers
         [HttpGet]
         public async Task<IActionResult> AdoNetScalar()
         {
-            var guids = new Guid[] 
+            var guids = new Guid[]
             {
-                new Guid("05db0cc6-8f4d-4d15-b3d0-21ac0dc73335"), 
-                new Guid("08db60b5-0b18-4526-89bf-6d131c6be055") 
+                new Guid("05db0cc6-8f4d-4d15-b3d0-21ac0dc73335"),
+                new Guid("08db60b5-0b18-4526-89bf-6d131c6be055")
             };
             List<MySqlParameter> sqlParameters = new List<MySqlParameter>();
             StringBuilder ids = new();
@@ -840,7 +831,7 @@ namespace MyApiWithIdentityServer4.Controllers
         /// <param name="aa"></param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<object> AdoRecordOperationLogs([FromBody] string aa) 
+        public async Task<object> AdoRecordOperationLogs([FromBody] string aa)
         {
             //DbExecuter.BeginWithEFCoreTransaction(UnitOfWorkManager.Current!);
             //using var scope = await DbExecuter.BeginTransactionAsync();
@@ -883,7 +874,7 @@ namespace MyApiWithIdentityServer4.Controllers
 
             //await scope.CommitAsync();
 
-            return (c1,c2,c3,c4);
+            return (c1, c2, c3, c4);
         }
 
         #endregion
@@ -928,9 +919,126 @@ namespace MyApiWithIdentityServer4.Controllers
 
             await scope.CompleteAsync();
 
-            return Ok((data,data2));
+            return Ok((data, data2));
         }
 
         #endregion
+
+        /// <summary>
+        /// 测试efcore延迟加载
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        [UnitOfWork(IsDisabled = true)]
+        public async Task<IActionResult> TestUseLazyLoadingProxies()
+        {
+            IEnumerable<Task> tasks = new List<Task>
+            {
+                TestUseLazyLoadingProxie(120,121),
+                TestUseLazyLoadingProxie(122,123),
+                TestUseLazyLoadingProxie(124,125),
+                TestUseLazyLoadingProxie(126,127),
+                TestUseLazyLoadingProxie(128,129),
+
+                TestUseLazyLoadingProxie(130,131),
+                TestUseLazyLoadingProxie(132,133),
+                TestUseLazyLoadingProxie(134,135),
+                TestUseLazyLoadingProxie(136,137),
+                TestUseLazyLoadingProxie(138,139),
+            };
+
+            await Task.WhenAll(tasks);
+
+            return Ok();
+        }
+
+        private async Task TestUseLazyLoadingProxie(int id1, int id2)
+        {
+            using var scope = UnitOfWorkManager.Begin(TransactionScopeOption.RequiresNew);
+
+            Guid id = Guid.NewGuid();
+            await Repo.InsertAsync(new Student
+            {
+                Id = id,
+                LastName = "ars bill",
+                FirstMidName = "ars bill",
+                EnrollmentDate = DateTime.Now,
+                Enrollments = new List<Enrollment>
+                {
+                    new Enrollment
+                    {
+                        Id = id1,
+                        CourseID = 6,
+                        StudentID = id,
+                    },
+                    new Enrollment
+                    {
+                        Id = id2,
+                        CourseID = 6,
+                        StudentID = id,
+                    },
+                },
+            });
+
+            await scope.CompleteAsync();
+        }
+
+        [HttpGet]
+        [UnitOfWork(IsDisabled = true)]
+        public async Task<IActionResult> TestIRepository() 
+        {
+            var data = await Repo.FirstOrDefaultAsync();
+
+            var data1 = await StuNew_Repo.FirstOrDefaultAsync();
+
+            //Cannot use multiple context instances within a single query execution.
+            //Ensure the query uses a single context instance.
+
+            //var data2 = await (from a in Repo.GetAll()
+            //                   join b in EnrollmentRepo.GetAll()
+            //                   on a.Id equals b.StudentID
+            //                   select new { a,b } ).FirstOrDefaultAsync();
+
+            Guid id = Guid.NewGuid();
+
+            await Repo.InsertAsync(new Student
+            {
+                Id = id,
+                LastName = "ars bill",
+                FirstMidName = "ars bill",
+                EnrollmentDate = DateTime.Now,
+                Enrollments = new List<Enrollment>
+                {
+                    new Enrollment
+                    {
+                        Id = 140,
+                        CourseID = 6,
+                        StudentID = id,
+                    },
+                    new Enrollment
+                    {
+                        Id = 141,
+                        CourseID = 6,
+                        StudentID = id,
+                    },
+                },
+            });
+
+            //不同的dbcontext
+            await Repo.SaveChangesAsync();
+
+            await StuNew_Repo.InsertAsync(new StudentNew
+            {
+                Name = "Bill"
+            });
+
+            //不同的dbcontext
+            await StuNew_Repo.SaveChangesAsync();
+
+            //开发时不建议在不使用unit of work的情况下，对多个表进行更改
+            //无法做到原子操作
+
+            return Ok((data,data1));
+        }
     }
 }

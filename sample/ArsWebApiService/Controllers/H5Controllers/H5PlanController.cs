@@ -1,5 +1,6 @@
 ﻿using Ars.Common.Core.AspNetCore.OutputDtos;
 using Ars.Common.Core.Excels.ExportExcel;
+using ArsWebApiService.Controllers.BaseControllers;
 using ArsWebApiService.Dtos;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -7,7 +8,6 @@ using Newtonsoft.Json;
 
 namespace ArsWebApiService.Controllers.H5Controllers
 {
-    [Authorize("default")]
     [ExportController]
     public class H5PlanController : ArsWebApiBaseController
     {

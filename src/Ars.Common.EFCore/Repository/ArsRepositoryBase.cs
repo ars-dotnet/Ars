@@ -64,6 +64,11 @@ namespace Ars.Common.EFCore.Repository
             return Task.FromResult(FirstOrDefault(predicate));
         }
 
+        public virtual Task<TEntity?> FirstOrDefaultAsync() 
+        {
+            return Task.FromResult(GetAll().FirstOrDefault());
+        }
+
         public abstract TEntity Insert(TEntity entity);
 
         public virtual Task<TEntity> InsertAsync(TEntity entity)
@@ -108,6 +113,11 @@ namespace Ars.Common.EFCore.Repository
         public virtual void Dispose() 
         {
             return;
+        }
+
+        public virtual Task<int> SaveChangesAsync()
+        {
+            return GetDbContext().SaveChangesAsync(); 
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Ars.Common.SignalR.Sender;
+using ArsWebApiService.Controllers.BaseControllers;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 

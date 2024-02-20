@@ -3,10 +3,10 @@ using Ars.Common.Core.Configs;
 using Ars.Common.Core.IDependency;
 using Ars.Common.Core.Uow;
 using ArsWebApiService;
-using ArsWebApiService.Controllers;
 using Microsoft.AspNetCore.Mvc;
+using MyApiWithIdentityServer4.Controllers;
 
-namespace MyApiWithIdentityServer4.Controllers
+namespace ArsWebApiService.Controllers.BaseControllers
 {
     public abstract class MyControllerBase : MyControllerBaseWithVersion
     {

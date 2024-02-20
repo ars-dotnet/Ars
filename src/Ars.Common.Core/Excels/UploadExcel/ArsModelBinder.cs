@@ -42,9 +42,11 @@ namespace Ars.Common.Core.Excels.UploadExcel
                     file = bindingContext.HttpContext.Request.Form.Files[0];
                 else
                     throw new ArsExcelException("请选择上传的Excel文件");
+
                 bindingContext.HttpContext.Request.Form.TryGetValue(
                     nameof(IExcelData<IExcelModel>.ExcelColumnFromRow),
                     out StringValues ExcelColumnFromRow);
+
                 _excelResolve.ExcelColumnFromRow = int.Parse(ExcelColumnFromRow);
 
                 using Stream stream = file.OpenReadStream();

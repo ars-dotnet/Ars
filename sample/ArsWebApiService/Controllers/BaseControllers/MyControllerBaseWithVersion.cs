@@ -2,7 +2,7 @@
 using Asp.Versioning;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ArsWebApiService.Controllers
+namespace ArsWebApiService.Controllers.BaseControllers
 {
     [ApiVersion("1.0")]
     [ApiController]

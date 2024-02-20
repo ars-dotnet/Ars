@@ -1,4 +1,5 @@
 ﻿using Ars.Common.Tool;
+using ArsWebApiService.Controllers.BaseControllers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 

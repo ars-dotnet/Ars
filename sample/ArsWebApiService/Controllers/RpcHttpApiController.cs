@@ -1,8 +1,8 @@
 ﻿using Ars.ArsWebApiService.HttpApi.Contract.IRpcContract;
+using ArsWebApiService.Controllers.BaseControllers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using MyApiWithIdentityServer4.Controllers;
 using static Org.BouncyCastle.Math.Primes;
 
 namespace ArsWebApiService.Controllers

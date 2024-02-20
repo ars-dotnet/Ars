@@ -3,6 +3,7 @@ using Ars.Common.Core.AspNetCore.OutputDtos;
 using Ars.Common.Core.IDependency;
 using Ars.Common.EFCore.Repository;
 using Ars.Common.Tool;
+using ArsWebApiService.Controllers.BaseControllers;
 using ArsWebApiService.Model;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
