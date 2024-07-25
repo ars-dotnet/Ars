@@ -9,6 +9,7 @@ namespace Ars.Common.Core
         public ArstringLocalizer(IStringLocalizerFactory stringLocalizerFactory)
         {
             var assemblyname = new AssemblyName(Assembly.GetEntryAssembly()!.FullName!);
+
             _localizer = stringLocalizerFactory.Create(nameof(ArshareResource), assemblyname.Name!);
         }
 

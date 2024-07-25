@@ -1,9 +1,11 @@
 ﻿using Ars.Commom.Tool.Serializer;
 using Ars.Common.Core.IDependency;
+using Ars.Common.Core.Uow.Options;
 using Ars.Common.Redis;
 using ArsWebApiService.Controllers.BaseControllers;
 using MessagePack;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 
 namespace ArsWebApiService.Controllers
 {
@@ -20,6 +22,14 @@ namespace ArsWebApiService.Controllers
 
         [Autowired]
         public IArsSerializer ArsSerializer { get; set; }
+
+        [HttpGet]
+        public IActionResult GetIOptionsMonitor(
+            [FromServices] IOptionsMonitor<ArsCacheConfiguration> optionsMonitor,
+            [FromServices] IOptions<ArsCacheConfiguration> options) 
+        {
+            return Ok((optionsMonitor.CurrentValue.RedisConnection, options.Value.RedisConnection));
+        }
 
         #region test stringCache
 

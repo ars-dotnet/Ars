@@ -34,7 +34,7 @@ namespace ArsTest
             IHost host = Host.CreateDefaultBuilder()
                 .ConfigureAppConfiguration(builder =>
                 {
-                    builder.AddJsonFile("config.json", true, false);
+                    builder.AddJsonFile("config.json", true, true);
                 })
                 .ConfigureServices((builder, service) =>
                 {

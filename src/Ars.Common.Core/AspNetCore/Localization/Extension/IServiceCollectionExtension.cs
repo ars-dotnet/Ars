@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 using System.Globalization;
 using System.Reflection;
 
@@ -14,6 +15,12 @@ namespace Ars.Common.Core.Localization.Extension
 {
     public static class IServiceCollectionExtension
     {
+        /// <summary>
+        /// 浏览器请求时，添加消息头Accept-Language
+        /// en-US/zh-CN 使用不同时区
+        /// </summary>
+        /// <param name="arsServiceBuilder"></param>
+        /// <returns></returns>
         public static IArsWebApplicationBuilder AddArsLocalization(
             this IArsWebApplicationBuilder arsServiceBuilder)
         {
@@ -21,7 +28,7 @@ namespace Ars.Common.Core.Localization.Extension
                  .GetSection(nameof(ArsLocalizationConfiguration))
                  .Get<ArsLocalizationConfiguration>()
                  ??
-                 new ArsLocalizationConfiguration() { Cultures = new[] { "en-US", "zh-Hans" } };
+                 new ArsLocalizationConfiguration() { Cultures = new[] { "en-US", "zh-CN" } };
 
             arsServiceBuilder.ArsConfiguration.ArsLocalizationConfiguration ??= arsLocalizationOption;
 

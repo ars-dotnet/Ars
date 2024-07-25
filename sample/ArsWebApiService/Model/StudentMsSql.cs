@@ -26,6 +26,8 @@ namespace ArsWebApiService.Model
 
         public virtual ICollection<Enrollment> Enrollments { get; set; }
 
+        //public IEnumerable<JsonProperty> JsonProperty { get; set; }
+
         public int? TenantId { get; set; }
 
         public int? CreationUserId { get; set; }

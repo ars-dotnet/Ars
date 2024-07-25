@@ -1,4 +1,5 @@
 ﻿using Ars.Commom.Tool.Extension;
+using Ars.Common.SignalR.ClearCache;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
@@ -16,12 +17,19 @@ namespace Ars.Common.SignalR.Caches
     internal class MemoryHubCacheManager : BaseHubCacheManager
     {
         private static IDictionary<string, ConcurrentDictionary<string, SignalRCacheScheme>> _memoryCache;
-        private static int count = 0;
+
+        private readonly IMemoryHubHeartOverTimeListener _signalrHeartOverTimeListener;
+
+        protected static int count = 0;
+
         public MemoryHubCacheManager(
-            IEnumerable<IHubDisconnection> hubDisconnections,
-            ILoggerFactory loggerFactory) : base(hubDisconnections, loggerFactory)
+            IMemoryHubHeartOverTimeListener signalrHeartOverTimeListener,
+            ILoggerFactory loggerFactory) 
+            : base(loggerFactory)
         {
             _memoryCache ??= new ConcurrentDictionary<string, ConcurrentDictionary<string, SignalRCacheScheme>>();
+
+            _signalrHeartOverTimeListener = signalrHeartOverTimeListener;
         }
 
         /// <summary>
@@ -33,7 +41,7 @@ namespace Ars.Common.SignalR.Caches
         /// <returns></returns>
         public override async Task ClientOnConnection(string terminal, string connectionId, SignalRCacheScheme signalRCacheScheme)
         {
-            _logger.LogInformation($"signalr add connection by memorycache" +
+            logger.LogInformation($"signalr add connection by memorycache" +
                        $"【terminal:{terminal},connectionId:{connectionId}," +
                        $"signalRCacheScheme:{JsonConvert.SerializeObject(signalRCacheScheme)}】");
 
@@ -66,7 +74,7 @@ namespace Ars.Common.SignalR.Caches
             if (_memoryCache.TryGetValue(GetCacheKey(terminal), out var cache))
             {
                 if (cache.TryGetValue(connectionId, out var value) && 
-                    (DateTime.Now - value.HeartTime).TotalSeconds <= 30)
+                    (DateTime.Now - value.HeartTime).TotalSeconds <= disLineSecond)
                 {
                     online = true;
                 }
@@ -89,7 +97,7 @@ namespace Ars.Common.SignalR.Caches
                 if (cache.Values.Any(r =>
                     r.UserName.IsNotNullOrEmpty() &&
                     r.UserName!.Equals(userName) &&
-                    (DateTime.Now - r.HeartTime).TotalSeconds <= 30))
+                    (DateTime.Now - r.HeartTime).TotalSeconds <= disLineSecond))
                 {
                     online = true;
                 }
@@ -187,40 +195,10 @@ namespace Ars.Common.SignalR.Caches
         protected override Task CheckIfOverTime(string terminal)
         {
             int tcount = Interlocked.Increment(ref count);
+
             if (1 == tcount)
             {
-                Task.Run(async () =>
-                {
-                    while (true)
-                    {
-                        DateTime time = DateTime.Now;
-                        ConcurrentDictionary<string, SignalRCacheScheme> values;
-                        foreach (var cache in _memoryCache)
-                        {
-                            values = cache.Value;
-                            foreach (var value in values.Where(r => (time - r.Value.HeartTime).TotalSeconds > 30))
-                            {
-                                values.TryRemove(value.Key, out var _);
-
-                                if (_hubDisconnections.HasValue())
-                                {
-                                    try
-                                    {
-                                        foreach (var hub in _hubDisconnections)
-                                        {
-                                            await hub.ClientDisConnectionNoticeAysnc(GetKey(cache.Key), value.Key, value.Value);
-                                        }
-                                    }
-                                    catch { }
-                                }
-
-                                _logger.LogInformation("终端{0},客户端{1}连接到期，清除在线信息", GetKey(cache.Key), value.Key);
-                            }
-                        }
-
-                        await Task.Delay(1000 * 60);
-                    }
-                });
+                _signalrHeartOverTimeListener.ListenSignalrHeartOverTime(_memoryCache, GetKey,disLineSecond);
             }
 
             return Task.CompletedTask;

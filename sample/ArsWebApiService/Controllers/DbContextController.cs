@@ -138,10 +138,12 @@ namespace MyApiWithIdentityServer4.Controllers
         [HttpGet(nameof(Query))]
         public async Task<Student?> Query()
         {
-            var a = Repo.GetAll();
-            var b = StuNew_Repo.GetAll();
+            var q = from a in Repo.GetAll()
+            join b in StuNew_Repo.GetAll()
+            on a.LastName equals b.Name
+            select a;
 
-            var data = await a.FirstOrDefaultAsync();
+            var data = await q.FirstOrDefaultAsync();
 
             return data;
         }
@@ -376,6 +378,9 @@ namespace MyApiWithIdentityServer4.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
+            var query = Repo.GetAll().Where(r => r.LastName == "TestUowRequired");
+            var sql = query.ToQueryString();
+
             var a = await Repo.GetAll().IgnoreQueryFilters().ToListAsync();
             var b = await Repo.GetAllIncluding(r => r.Enrollments).ToListAsync();
             var c = Repo.GetAllList();
@@ -732,7 +737,14 @@ namespace MyApiWithIdentityServer4.Controllers
             var data3 = await DbExecuter.QueryAsync<JObject>(sql);
             var names = data3.Select(r => r.GetValue("lastname")!.ToString());
 
-            return Ok((datas, names));
+            sqlParameters = new List<MySqlParameter>()
+            {
+                new MySqlParameter("@lastname","%boo%")
+            };
+            sql = "select * from students where lastname like @lastname;";
+            var data4 = await DbExecuter.QueryAsync<JObject>(sql, sqlParameters.ToArray());
+
+            return Ok((datas, names, data4));
         }
 
         [HttpGet]

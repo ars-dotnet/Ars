@@ -1,0 +1,20 @@
+2024-05-17 16:24:21.186 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.InstrumentStartup : Initializing ...
+2024-05-17 16:24:21.266 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2024-05-17 16:24:21.266 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2024-05-17 16:24:21.266 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2024-05-17 16:24:21.267 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2024-05-17 16:24:21.267 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2024-05-17 16:24:21.268 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2024-05-17 16:24:21.268 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2024-05-17 16:24:21.273 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2024-05-17 16:24:21.365 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[172.20.64.1:11800].
+2024-05-17 16:24:22.011 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2024-05-17 16:24:31.214 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2024-05-17 16:24:32.146 +08:00 [docker-arsidentityserver0421001] [Error] SkyApm.Transport.Grpc.V8.ServiceRegister : Report service instance properties fail.
+Grpc.Core.RpcException: Status(StatusCode="DeadlineExceeded", Detail="")
+   at SkyApm.Transport.Grpc.V8.ServiceRegister.<>c__DisplayClass9_0.<<ReportInstancePropertiesAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at SkyApm.Transport.Grpc.Common.Call.Execute[T](Func`1 task, Func`1 errCallback, Func`1 errMessage)
+2024-05-17 16:24:32.147 +08:00 [docker-arsidentityserver0421001] [Warning] SkyApm.Transport.Grpc.ConnectionManager : Connection state changed. Status(StatusCode="DeadlineExceeded", Detail="")
+2024-05-17 16:24:36.284 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Shutdown connection[172.20.64.1:11800].
+2024-05-17 16:24:36.284 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[172.20.64.1:11800].

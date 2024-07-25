@@ -13,6 +13,7 @@ namespace ArsWebApiService.Controllers.H5Controllers
     {
         [ExportAction]
         [HttpGet]
+        [Authorize("default")]
         public async Task<ArsOutput<GetPlanByNumberOutput>> GetPlanByNumber([FromQuery]string PlanNumber)
         {
             return

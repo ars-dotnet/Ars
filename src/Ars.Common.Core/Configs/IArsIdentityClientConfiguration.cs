@@ -14,5 +14,10 @@ namespace Ars.Common.Core.Configs
         string ApiName { get; }
 
         bool RequireHttpsMetadata { get; }
+
+        /// <summary>
+        /// token校验偏移时间多少秒
+        /// </summary>
+        int? JwtValidationClockSkew { get; }
     }
 }

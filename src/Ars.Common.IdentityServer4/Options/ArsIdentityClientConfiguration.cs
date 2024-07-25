@@ -18,5 +18,10 @@ namespace Ars.Common.IdentityServer4.Options
         public string? CertificatePath { get; set; }
 
         public string? CertificatePassWord { get; set; }
+
+        /// <summary>
+        /// token校验偏移时间多少秒
+        /// </summary>
+        public int? JwtValidationClockSkew { get; set; }
     }
 }

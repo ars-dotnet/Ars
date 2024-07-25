@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Ars.Common.SignalR.ClearCache;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,12 +10,18 @@ namespace Ars.Common.SignalR.Caches
 {
     public abstract class BaseHubCacheManager : IHubCacheManager
     {
-        protected readonly IEnumerable<IHubDisconnection> _hubDisconnections;
-        protected readonly ILogger _logger;
-        public BaseHubCacheManager(IEnumerable<IHubDisconnection> hubDisconnections,ILoggerFactory loggerFactory)
+        protected readonly ILogger logger;
+
+        /// <summary>
+        /// 下线时间(秒)
+        /// </summary>
+        protected int disLineSecond;
+
+        public BaseHubCacheManager( ILoggerFactory loggerFactory)
         {
-            _hubDisconnections = hubDisconnections;
-            _logger = loggerFactory.CreateLogger(GetType());
+            logger = loggerFactory.CreateLogger(GetType());
+
+            disLineSecond = 30;
         }
 
         public virtual string CacheName => "ars.signalr";

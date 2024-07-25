@@ -37,6 +37,11 @@ namespace Ars.Common.Core.Configs
             /// <summary>过期时间（秒）</summary>
             public int AccessTokenLifetime { get; set; }
 
+            /// <summary>
+            /// token刷新增加生存期(秒)
+            /// </summary>
+            public int? SlidingRefreshTokenLifetime { get; set; }
+
             public bool AllowOfflineAccess { get; set; } = true;//如果要获取refresh_tokens ,必须把AllowOfflineAccess设置为true
 
             /// <summary>字符串逗号分割的API Resource资源</summary>

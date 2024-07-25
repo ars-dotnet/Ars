@@ -1,5 +1,6 @@
 ﻿using Ars.Commom.Tool.Extension;
 using Ars.Common.Redis;
+using Ars.Common.SignalR.ClearCache;
 using Microsoft.Extensions.Logging;
 using NPOI.SS.Formula.PTG;
 using System;
@@ -13,17 +14,21 @@ namespace Ars.Common.SignalR.Caches
 {
     internal class RedisHubCacheManager : BaseHubCacheManager
     {
-        private static int count = 0;
         private readonly IArsHCacheProvider _arsHCacheProvider;
-        private static HashSet<string>? _keys;
+
+        private readonly IRedisHubHeartOverTimeListener _redisHubHeartOverTimeListener;
+
+        protected static int count = 0;
+
         public RedisHubCacheManager(
             IArsHCacheProvider arsHCacheProvider,
-            IEnumerable<IHubDisconnection> hubDisconnections,
+            IRedisHubHeartOverTimeListener redisHubHeartOverTimeListener,
             ILoggerFactory loggerFactory)
-            : base(hubDisconnections,loggerFactory)
+            : base(loggerFactory)
         {
             _arsHCacheProvider = arsHCacheProvider;
-            _keys ??= new HashSet<string>();
+
+            _redisHubHeartOverTimeListener = redisHubHeartOverTimeListener;
         }
 
         /// <summary>
@@ -67,7 +72,7 @@ namespace Ars.Common.SignalR.Caches
             if (null == data)
                 return false;
 
-            if ((DateTime.Now - data.HeartTime).TotalSeconds > 30)
+            if ((DateTime.Now - data.HeartTime).TotalSeconds > disLineSecond)
                 return false;
 
             return true;
@@ -91,7 +96,7 @@ namespace Ars.Common.SignalR.Caches
             if (data.Values.Any(r =>
                 r.UserName.IsNotNullOrEmpty() &&
                 r.UserName!.Equals(userName) &&
-                (DateTime.Now - r.HeartTime).TotalSeconds <= 30))
+                (DateTime.Now - r.HeartTime).TotalSeconds <= disLineSecond))
             {
                 return true;
             }
@@ -197,44 +202,12 @@ namespace Ars.Common.SignalR.Caches
         protected override Task CheckIfOverTime(string terminal)
         {
             var tcount = Interlocked.Increment(ref count);
-            _keys!.Add(GetCacheKey(terminal));
+
+            _redisHubHeartOverTimeListener.AddKeys(GetCacheKey(terminal));
 
             if (1 == tcount)
             {
-                Task.Run(async () =>
-                {
-                    while (true)
-                    {
-                        foreach (var key in _keys)
-                        {
-                            var fileds = await _arsHCacheProvider.GetArsCache(CacheName).HKeysAsync(key);
-                            foreach (var field in fileds)
-                            {
-                                var value = await _arsHCacheProvider.GetArsCache(CacheName).HGetAsync<SignalRCacheScheme>(key, field);
-                                if (((DateTime.Now - value?.HeartTime)?.TotalSeconds ?? 0) > 30)
-                                {
-                                    await _arsHCacheProvider.GetArsCache(CacheName).HDelAsync(key, field);
-
-                                    if (_hubDisconnections.HasValue())
-                                    {
-                                        try
-                                        {
-                                            foreach (var hub in _hubDisconnections)
-                                            {
-                                                await hub.ClientDisConnectionNoticeAysnc(GetKey(key), field, value!);
-                                            }
-                                        }
-                                        catch { }
-                                    }
-
-                                    _logger.LogInformation("客户端:{0}连接到期，清除在线信息", field);
-                                }
-                            }
-                        }
-
-                        await Task.Delay(1000 * 60);
-                    }
-                });
+                _redisHubHeartOverTimeListener.ListenSignalrHeartOverTime(CacheName,GetKey,disLineSecond);
             }
 
             return Task.CompletedTask;

@@ -18,7 +18,7 @@ namespace Ars.Common.Tool.Extension
             StringBuilder buffer = new StringBuilder();
 
             XmlSerializer serializer = new XmlSerializer(typeof(T));
-            using (TextWriter writer = new StringWriter(buffer))
+            using (TextWriter writer = new Utf8StringWriter(buffer))
             {
                 serializer.Serialize(writer, entity);
             }

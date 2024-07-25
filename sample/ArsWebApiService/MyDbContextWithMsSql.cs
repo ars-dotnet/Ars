@@ -17,6 +17,9 @@ namespace ArsWebApiService
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            //modelBuilder.Entity<StudentMsSql>().OwnsMany(student => student.JsonProperty,
+            //    ownedNavigationBuilder => ownedNavigationBuilder.ToJson());
         }
 
         public DbSet<StudentMsSql> Students { get; set; }

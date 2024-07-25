@@ -148,6 +148,8 @@ namespace Ars.Common.IdentityServer4.Extension
                     t.Authority = option.Authority;
                     t.ApiName = option.ApiName;
                     t.RequireHttpsMetadata = option.RequireHttpsMetadata;
+                    if(null != option.JwtValidationClockSkew)
+                        t.JwtValidationClockSkew = TimeSpan.FromSeconds(option.JwtValidationClockSkew.Value);
 
                     if (t.RequireHttpsMetadata)
                     {

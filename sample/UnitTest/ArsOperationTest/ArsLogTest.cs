@@ -11,6 +11,7 @@ using System.Security.Policy;
 using System.Reflection;
 using ArsOperationTest;
 using System.Globalization;
+using System.Runtime.ExceptionServices;
 
 namespace ArsTest.ArsTests
 {
@@ -72,6 +73,40 @@ namespace ArsTest.ArsTests
         public void Test2()
         {
             var a = JsonConvert.SerializeObject(123);
+
+            ExceptionDispatchInfo.Capture(new Exception()).Throw();
+        }
+
+        public class BaseAnimal 
+        {
+            public static int count = 0;
+        }
+
+
+        public class Cat : BaseAnimal
+        {
+            public void Add() 
+            {
+                count++;
+            }
+        }
+
+        public class Dog : BaseAnimal 
+        {
+            public void Add()
+            {
+                count ++;
+            }
+        }
+
+        [Fact]
+        public void TestBaseStatic() 
+        {
+            Cat cat = new Cat();
+            Dog dog = new Dog();
+
+            cat.Add();
+            dog.Add();
         }
 
         /// <summary>
