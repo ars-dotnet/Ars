@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ArsWebApiService.Migrations.MyDbContext2Migrations
 {
-    public partial class _001 : Migration
+    public partial class _002 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

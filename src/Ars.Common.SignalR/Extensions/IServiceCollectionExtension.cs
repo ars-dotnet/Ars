@@ -3,6 +3,7 @@ using Ars.Common.SignalR.Caches;
 using Ars.Common.SignalR.Hubs;
 using Ars.Common.SignalR.Sender;
 using Autofac.Core;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Ars.Common.SignalR.Extensions
@@ -11,7 +12,8 @@ namespace Ars.Common.SignalR.Extensions
     {
         public static IArsWebApplicationBuilder AddArsSignalR(
             this IArsWebApplicationBuilder arsServiceBuilder,
-            Action<ArsSignalRConfiguration>? action = null) 
+            Action<ArsSignalRConfiguration>? action = null,
+            Action<HubOptions>? action1 = null) 
         {
             ArsSignalRConfiguration config = new ArsSignalRConfiguration();
             action?.Invoke(config);
@@ -27,10 +29,13 @@ namespace Ars.Common.SignalR.Extensions
             service.AddScoped<IHubSendMessage, ArsWebHub>();
             service.AddScoped<IHubSendMessage, ArsAndroidHub>();
 
+            if (null == action1)
+                action1 = r => { };
+
             if (config.UseMessagePackProtocol)
-                service.AddSignalR().AddMessagePackProtocol();
+                service.AddSignalR(action1).AddMessagePackProtocol();
             else
-                service.AddSignalR();
+                service.AddSignalR(action1);
 
             return arsServiceBuilder;
         }

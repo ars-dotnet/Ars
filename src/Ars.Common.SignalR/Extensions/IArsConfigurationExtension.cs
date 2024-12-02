@@ -1,4 +1,5 @@
 ﻿using Ars.Common.Core.Configs;
+using Microsoft.AspNetCore.SignalR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,9 +16,12 @@ namespace Ars.Common.SignalR.Extensions
         /// <param name="arsConfiguration"></param>
         /// <param name="action"></param>
         /// <returns></returns>
-        public static IArsConfiguration AddArsSignalR(this IArsConfiguration arsConfiguration, Action<ArsSignalRConfiguration>? action = null) 
+        public static IArsConfiguration AddArsSignalR(
+            this IArsConfiguration arsConfiguration, 
+            Action<ArsSignalRConfiguration>? action = null,
+            Action<HubOptions>? action1 = null) 
         {
-            return arsConfiguration.AddArsServiceExtension(new ArsSignalRServiceExtension(action));
+            return arsConfiguration.AddArsServiceExtension(new ArsSignalRServiceExtension(action, action1));
         }
     }
 }

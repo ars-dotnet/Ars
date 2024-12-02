@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ArsWebApiService.Migrations.MyDbContext2Migrations
 {
     [DbContext(typeof(MyDbContext2))]
-    [Migration("20231129032851_001")]
-    partial class _001
+    [Migration("20241202014214_002")]
+    partial class _002
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

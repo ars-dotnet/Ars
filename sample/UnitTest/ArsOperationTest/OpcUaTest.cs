@@ -42,7 +42,7 @@ namespace ArsOperationTest
 
             await opcUaClient.ConnectServer(connectString);
 
-            var data = opcUaClient.WriteNodes(
+            var res = opcUaClient.WriteNodes(
                 new string[]
                 {
                     "ns=2;Devices/WorkFactory01/WorkShop01/MelsecTest/Float",
@@ -56,7 +56,7 @@ namespace ArsOperationTest
 
             opcUaClient.Disconnect();
 
-            Assert.True(true == data);
+            Assert.True(true == res);
         }
 
         /// <summary>

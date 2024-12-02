@@ -99,7 +99,6 @@ namespace MyApiWithIdentityServer4.Controllers
         [Autowired]
         public IMService MService { get; set; }
 
-
         #region DbContext with Default Transaction
 
         [HttpPost(nameof(ActionWithDefaultTransaction))]
@@ -1051,6 +1050,29 @@ namespace MyApiWithIdentityServer4.Controllers
             //无法做到原子操作
 
             return Ok((data,data1));
+        }
+
+        /// <summary>
+        /// 测试相同表名放在不同的数据库上下文
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public async Task<IActionResult> TestSameTableNameWithDiffDbContext(
+            [FromServices] IRepository<StudentNew, Guid> repo1,
+            [FromServices] IRepository<MyDbContext,StudentNew, Guid> repo2,
+            [FromServices] IRepository<MyDbContext2,StudentNew, Guid> repo3) 
+        {
+            var list = await MyDbContext.StudentNew.ToListAsync();
+
+            var list1 = await MyDbContext2.StudentNew.ToListAsync();
+
+            var list2 = await repo1.GetAllListAsync();
+
+            var list3 = await repo2.GetAllListAsync();
+
+            var list4 = await repo3.GetAllListAsync();
+
+            return Ok();
         }
     }
 }

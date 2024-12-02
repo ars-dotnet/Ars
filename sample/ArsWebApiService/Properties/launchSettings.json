@@ -1,0 +1,28 @@
+{
+  "profiles": {
+    "ArsWebApiServiceDev001": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development001"
+      },
+      "applicationUrl": "http://localhost:5196"
+    },
+    "ArsWebApiServiceDev002": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development002"
+      },
+      "applicationUrl": "https://localhost:53611;http://localhost:53612"
+    },
+    "ArsWebApiServicePro": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Production"
+      },
+      "applicationUrl": "https://localhost:53611;http://localhost:53612"
+    }
+  }
+}

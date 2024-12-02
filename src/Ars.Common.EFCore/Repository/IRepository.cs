@@ -1,5 +1,6 @@
 ﻿using Ars.Common.Core.IDependency;
 using Ars.Common.EFCore.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -69,6 +70,13 @@ namespace Ars.Common.EFCore.Repository
 
     public interface IRepository<TEntity> : IRepository<TEntity, int> 
         where TEntity : class, IEntity<int> 
+    {
+
+    }
+
+    public interface IRepository<TDbContext, TEntity, TPrimaryKey> : IRepository<TEntity, TPrimaryKey>
+        where TEntity : class, IEntity<TPrimaryKey>
+        where TDbContext : DbContext
     {
 
     }

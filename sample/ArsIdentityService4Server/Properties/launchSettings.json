@@ -1,0 +1,13 @@
+{
+  "profiles": {
+    "ArsIdentityService4Server": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": ".well-known/openid-configuration",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://127.0.0.1:5105"
+    }
+  }
+}

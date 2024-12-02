@@ -12,6 +12,7 @@ namespace ArsWebApiService.Services
         }
 
         protected override TimeSpan DueTime => TimeSpan.FromSeconds(10);
+
         protected override TimeSpan Period => TimeSpan.FromSeconds(10);
 
         [Autowired]

@@ -13,7 +13,7 @@ namespace MyApiWithIdentityServer4
         public MyDbContext CreateDbContext(string[] args)
         {
             DbContextOptionsBuilder<MyDbContext> builder = new DbContextOptionsBuilder<MyDbContext>();
-            string connectstring = "Server=localhost;initial catalog=MYARS;uid=sa;pwd=123456;SslMode=none;TreatTinyAsBoolean=true;persistsecurityinfo=True;";
+            string connectstring = "Server=localhost;initial catalog=MYARS;uid=root;pwd=123456;SslMode=none;TreatTinyAsBoolean=true;persistsecurityinfo=True;AllowPublicKeyRetrieval=true;";
             builder.UseMySql(connectstring,ServerVersion.AutoDetect(connectstring));
 
             return new MyDbContext(builder.Options);

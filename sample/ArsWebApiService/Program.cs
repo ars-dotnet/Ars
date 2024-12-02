@@ -64,10 +64,14 @@ var arsbuilder =
                     cacheoption.DefaultSlidingExpireTime = TimeSpan.FromMinutes(10);
                 });
             })
-            .AddArsSignalR(config =>
+            .AddArsSignalR(arsConfig =>
             {
-                config.CacheType = 0;
-                config.UseMessagePackProtocol = true;
+                arsConfig.CacheType = 0;
+                arsConfig.UseMessagePackProtocol = true;
+            },hubConfig => 
+            {
+                hubConfig.KeepAliveInterval = TimeSpan.FromSeconds(30);
+                hubConfig.ClientTimeoutInterval = TimeSpan.FromSeconds(60);
             })
             .AddArsConsulRegisterServer()
             .AddArsSkyApm()

@@ -24,6 +24,7 @@ namespace Ars.Common.EFCore
         {
             Type repoType = typeof(IRepository<>);
             Type repoTypeTwo = typeof(IRepository<,>);
+            Type repoTypeThree = typeof(IRepository<,,>);
             Type implrepoTypeTwo = typeof(EfCoreRepositoryBase<,>);
             Type implrepoTypeThree = typeof(EfCoreRepositoryBase<,,>);
             Type adonetType = typeof(IDbExecuter<>);
@@ -66,6 +67,13 @@ namespace Ars.Common.EFCore
                         if (!builder.ComponentRegistryBuilder.IsRegistered(new TypedService(servicetype)))
                         {
                             implementtype = implrepoTypeThree.MakeGenericType(info.DeclaringType, info.EntityType,keytype);
+                            builder.RegisterType(implementtype).As(servicetype).InstancePerDependency();
+                        }
+
+                        servicetype = repoTypeThree.MakeGenericType(info.DeclaringType, info.EntityType, keytype);
+                        if (!builder.ComponentRegistryBuilder.IsRegistered(new TypedService(servicetype)))
+                        {
+                            implementtype = implrepoTypeThree.MakeGenericType(info.DeclaringType, info.EntityType, keytype);
                             builder.RegisterType(implementtype).As(servicetype).InstancePerDependency();
                         }
                     }

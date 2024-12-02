@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Ars.Common.EFCore.Repository
 {
-    public abstract class ArsRepositoryBase<TDbContext, TEntity, TPrimaryKey> : IRepository<TEntity, TPrimaryKey>
+    public abstract class ArsRepositoryBase<TDbContext, TEntity, TPrimaryKey> : IRepository<TDbContext, TEntity, TPrimaryKey>
           where TEntity : class, IEntity<TPrimaryKey>
           where TDbContext : DbContext
     {

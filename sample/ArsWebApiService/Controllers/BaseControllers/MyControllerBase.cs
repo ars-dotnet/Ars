@@ -14,6 +14,9 @@ namespace ArsWebApiService.Controllers.BaseControllers
         public MyDbContext MyDbContext { get; set; }
 
         [Autowired]
+        public MyDbContext2 MyDbContext2 { get; set; }
+
+        [Autowired]
         public ITestDomain TestService { get; set; }
 
         [Autowired]

@@ -72,6 +72,11 @@ namespace ArsTest
 
     public class AspNetCoreTest : AspNetCoreBase
     {
+        public void TestListRemove() 
+        {
+
+        }
+        
         [Fact]
         public void TestAutoWired() 
         {
