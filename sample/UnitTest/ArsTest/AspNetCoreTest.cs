@@ -318,6 +318,10 @@ namespace ArsTest
             //goods.Age = 222;
         }
 
+        /// <summary>
+        /// 测试WebService Post
+        /// </summary>
+        /// <returns></returns>
         [Fact]
         public async Task TestWebServicePost()
         {
@@ -332,8 +336,8 @@ namespace ArsTest
 
                 TestXml testXml = new TestXml
                 {
-                    Name = "Tom",
-                    Country = "China",
+                    macCode = "Tom",
+                    wipEntity = "China",
                     Item = new List<Item> 
                     {
                         new Item
@@ -372,6 +376,10 @@ namespace ArsTest
             }
         }
 
+        /// <summary>
+        /// 测试WebService Get
+        /// </summary>
+        /// <returns></returns>
         [Fact]
         public async Task TestWebService()
         {
@@ -419,8 +427,8 @@ SZ=21x21, RES=8.00x8.00Pixel, CTV=0%, UECV=38%
         {
             TestXml testXml = new TestXml
             {
-                Name = "Tom",
-                Country = "China",
+                macCode = "Tom",
+                wipEntity = "China",
                 Item = new List<Item>
                     {
                         new Item
@@ -462,11 +470,11 @@ SZ=21x21, RES=8.00x8.00Pixel, CTV=0%, UECV=38%
     [XmlRoot("CallAgv")]
     public class TestXml
     {
-        [XmlElement("name")]
-        public string Name { get; set; }
+        [XmlAttribute()]
+        public string macCode { get; set; }
 
         [XmlAttribute()]
-        public string Country { get; set; }
+        public string wipEntity { get; set; }
 
         [XmlElement("item")]
         public List<Item> Item { get; set; }

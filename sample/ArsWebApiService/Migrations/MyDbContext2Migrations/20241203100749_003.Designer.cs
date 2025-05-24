@@ -3,6 +3,7 @@ using System;
 using ArsWebApiService;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ArsWebApiService.Migrations.MyDbContext2Migrations
 {
     [DbContext(typeof(MyDbContext2))]
-    partial class MyDbContext2ModelSnapshot : ModelSnapshot
+    [Migration("20241203100749_003")]
+    partial class _003
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -62,7 +64,7 @@ namespace ArsWebApiService.Migrations.MyDbContext2Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("StudentNew", (string)null);
+                    b.ToTable("StudentNew");
                 });
 #pragma warning restore 612, 618
         }

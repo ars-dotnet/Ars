@@ -6,6 +6,7 @@ using System.ServiceModel;
 using System.ServiceModel.Description;
 using System.Text;
 using System.Xml;
+using Topro.CombRetLine.HttpApi.Contract.MesXmlModel;
 
 namespace ArsWebApiService.WebServices
 {
@@ -25,5 +26,11 @@ namespace ArsWebApiService.WebServices
 
         [OperationContract]
         string Publish(string xml);
+
+        [OperationContract]
+        CallMesXmlOutput TestCallMes(string input);
+
+        [OperationContract]
+        CallMesXmlOutput TestCallMesXml(string xml);
     }
 }

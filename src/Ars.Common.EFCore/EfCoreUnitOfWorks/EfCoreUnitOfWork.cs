@@ -68,7 +68,7 @@ namespace Ars.Common.EFCore.EfCoreUnitOfWorks
 
         protected override void DisposeUow()
         {
-            if (Options.IsTransactional == true)
+            if (null != Options && Options.IsTransactional == true)
             {
                 _efCoreTransactionStrategy.Dispose();
             }

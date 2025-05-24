@@ -1,6 +1,8 @@
 ﻿using ArsWebApiService.Dtos;
 using Microsoft.AspNetCore.Mvc;
+using System.ServiceModel;
 using System.Xml;
+using Topro.CombRetLine.HttpApi.Contract.MesXmlModel;
 
 namespace ArsWebApiService.WebServices
 {
@@ -19,6 +21,22 @@ namespace ArsWebApiService.WebServices
         public string Publish(string xml)
         {
             return "b";
+        }
+
+        public CallMesXmlOutput TestCallMes(string input)
+        {
+            return new CallMesXmlOutput
+            {
+                ErrorCode = "1"
+            };
+        }
+
+        public CallMesXmlOutput TestCallMesXml(string xml) 
+        {
+            return new CallMesXmlOutput
+            {
+                ErrorCode = "0",
+            };
         }
     }
 }

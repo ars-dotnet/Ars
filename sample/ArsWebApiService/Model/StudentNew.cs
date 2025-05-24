@@ -12,6 +12,11 @@ namespace ArsWebApiService.Model
         [StringLength(50)]
         public string Name { get; set; }
 
+        public int Age { get; set; }
+
+        [Range(1,200)]
+        public int Age2 { get; set; }
+
         public int? TenantId { get; set; }
         public int? CreationUserId { get; set; }
         public DateTime? CreationTime { get; set; }

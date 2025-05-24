@@ -1,4 +1,5 @@
-﻿using Ars.Common.Core.Uow;
+﻿using Ars.Commom.Tool.Extension;
+using Ars.Common.Core.Uow;
 using Ars.Common.Core.Uow.Options;
 using Ars.Common.Tool;
 using Ars.Common.Tool.Extension;
@@ -95,7 +96,12 @@ namespace Ars.Common.Core.Uow.Impl
 
         public void Dispose()
         {
-            if (!_isCompleteCalledBefore || IsDisposed) 
+            //if (!_isCompleteCalledBefore || IsDisposed) 
+            //{
+            //    return;
+            //}
+
+            if (Id.IsNullOrEmpty() || IsDisposed)
             {
                 return;
             }

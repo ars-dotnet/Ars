@@ -1,0 +1,136 @@
+2024-12-03 18:11:26.795 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.InstrumentStartup : Initializing ...
+2024-12-03 18:11:26.895 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2024-12-03 18:11:26.895 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2024-12-03 18:11:26.896 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2024-12-03 18:11:26.898 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2024-12-03 18:11:26.898 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2024-12-03 18:11:26.898 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2024-12-03 18:11:26.899 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2024-12-03 18:11:26.908 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2024-12-03 18:11:29.062 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[172.20.64.1:11800].
+2024-12-03 18:11:29.698 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2024-12-03 18:11:35.635 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2024-12-03 18:11:39.800 +08:00 [docker-arsidentityserver0421001] [Error] SkyApm.Transport.Grpc.V8.ServiceRegister : Report service instance properties fail.
+Grpc.Core.RpcException: Status(StatusCode="DeadlineExceeded", Detail="")
+   at SkyApm.Transport.Grpc.V8.ServiceRegister.<>c__DisplayClass9_0.<<ReportInstancePropertiesAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at SkyApm.Transport.Grpc.Common.Call.Execute[T](Func`1 task, Func`1 errCallback, Func`1 errMessage)
+2024-12-03 18:11:39.802 +08:00 [docker-arsidentityserver0421001] [Warning] SkyApm.Transport.Grpc.ConnectionManager : Connection state changed. Status(StatusCode="DeadlineExceeded", Detail="")
+2024-12-03 18:11:43.536 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Shutdown connection[172.20.64.1:11800].
+2024-12-03 18:11:43.536 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[172.20.64.1:11800].
+2024-12-03 18:14:35.896 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.InstrumentStartup : Initializing ...
+2024-12-03 18:14:35.966 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2024-12-03 18:14:35.971 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2024-12-03 18:14:35.972 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2024-12-03 18:14:35.972 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2024-12-03 18:14:35.972 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2024-12-03 18:14:35.972 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2024-12-03 18:14:35.978 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2024-12-03 18:14:36.001 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2024-12-03 18:14:36.060 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[172.20.64.1:11800].
+2024-12-03 18:14:36.677 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2024-12-03 18:14:40.713 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2024-12-03 18:14:46.711 +08:00 [docker-arsidentityserver0421001] [Error] SkyApm.Transport.Grpc.V8.ServiceRegister : Report service instance properties fail.
+Grpc.Core.RpcException: Status(StatusCode="DeadlineExceeded", Detail="")
+   at SkyApm.Transport.Grpc.V8.ServiceRegister.<>c__DisplayClass9_0.<<ReportInstancePropertiesAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at SkyApm.Transport.Grpc.Common.Call.Execute[T](Func`1 task, Func`1 errCallback, Func`1 errMessage)
+2024-12-03 18:14:46.712 +08:00 [docker-arsidentityserver0421001] [Warning] SkyApm.Transport.Grpc.ConnectionManager : Connection state changed. Status(StatusCode="DeadlineExceeded", Detail="")
+2024-12-03 18:14:50.987 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Shutdown connection[172.20.64.1:11800].
+2024-12-03 18:14:50.987 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[172.20.64.1:11800].
+2024-12-03 18:15:18.419 +08:00 [docker-arsidentityserver0421001] [Error] SkyApm.Transport.Grpc.V8.ServiceRegister : Report service instance properties fail.
+Grpc.Core.RpcException: Status(StatusCode="DeadlineExceeded", Detail="")
+   at SkyApm.Transport.Grpc.V8.ServiceRegister.<>c__DisplayClass9_0.<<ReportInstancePropertiesAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at SkyApm.Transport.Grpc.Common.Call.Execute[T](Func`1 task, Func`1 errCallback, Func`1 errMessage)
+2024-12-03 18:15:18.419 +08:00 [docker-arsidentityserver0421001] [Warning] SkyApm.Transport.Grpc.ConnectionManager : Connection state changed. Status(StatusCode="DeadlineExceeded", Detail="")
+2024-12-03 18:15:22.881 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Shutdown connection[172.20.64.1:11800].
+2024-12-03 18:15:22.881 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[172.20.64.1:11800].
+2024-12-03 18:15:45.999 +08:00 [docker-arsidentityserver0421001] [Error] SkyApm.Transport.Grpc.V8.ServiceRegister : Report service instance properties fail.
+Grpc.Core.RpcException: Status(StatusCode="DeadlineExceeded", Detail="")
+   at SkyApm.Transport.Grpc.V8.ServiceRegister.<>c__DisplayClass9_0.<<ReportInstancePropertiesAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at SkyApm.Transport.Grpc.Common.Call.Execute[T](Func`1 task, Func`1 errCallback, Func`1 errMessage)
+2024-12-03 18:15:45.999 +08:00 [docker-arsidentityserver0421001] [Warning] SkyApm.Transport.Grpc.ConnectionManager : Connection state changed. Status(StatusCode="DeadlineExceeded", Detail="")
+2024-12-03 18:15:50.996 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Shutdown connection[172.20.64.1:11800].
+2024-12-03 18:15:50.997 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[172.20.64.1:11800].
+2024-12-03 18:16:15.985 +08:00 [docker-arsidentityserver0421001] [Error] SkyApm.Transport.Grpc.V8.ServiceRegister : Report service instance properties fail.
+Grpc.Core.RpcException: Status(StatusCode="DeadlineExceeded", Detail="")
+   at SkyApm.Transport.Grpc.V8.ServiceRegister.<>c__DisplayClass9_0.<<ReportInstancePropertiesAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at SkyApm.Transport.Grpc.Common.Call.Execute[T](Func`1 task, Func`1 errCallback, Func`1 errMessage)
+2024-12-03 18:16:15.985 +08:00 [docker-arsidentityserver0421001] [Warning] SkyApm.Transport.Grpc.ConnectionManager : Connection state changed. Status(StatusCode="DeadlineExceeded", Detail="")
+2024-12-03 18:16:20.978 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Shutdown connection[172.20.64.1:11800].
+2024-12-03 18:16:20.978 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[172.20.64.1:11800].
+2024-12-03 18:16:45.996 +08:00 [docker-arsidentityserver0421001] [Error] SkyApm.Transport.Grpc.V8.ServiceRegister : Report service instance properties fail.
+Grpc.Core.RpcException: Status(StatusCode="DeadlineExceeded", Detail="")
+   at SkyApm.Transport.Grpc.V8.ServiceRegister.<>c__DisplayClass9_0.<<ReportInstancePropertiesAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at SkyApm.Transport.Grpc.Common.Call.Execute[T](Func`1 task, Func`1 errCallback, Func`1 errMessage)
+2024-12-03 18:16:45.997 +08:00 [docker-arsidentityserver0421001] [Warning] SkyApm.Transport.Grpc.ConnectionManager : Connection state changed. Status(StatusCode="DeadlineExceeded", Detail="")
+2024-12-03 18:16:50.984 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Shutdown connection[172.20.64.1:11800].
+2024-12-03 18:16:50.984 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[172.20.64.1:11800].
+2024-12-03 18:17:16.002 +08:00 [docker-arsidentityserver0421001] [Error] SkyApm.Transport.Grpc.V8.ServiceRegister : Report service instance properties fail.
+Grpc.Core.RpcException: Status(StatusCode="DeadlineExceeded", Detail="")
+   at SkyApm.Transport.Grpc.V8.ServiceRegister.<>c__DisplayClass9_0.<<ReportInstancePropertiesAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at SkyApm.Transport.Grpc.Common.Call.Execute[T](Func`1 task, Func`1 errCallback, Func`1 errMessage)
+2024-12-03 18:17:16.002 +08:00 [docker-arsidentityserver0421001] [Warning] SkyApm.Transport.Grpc.ConnectionManager : Connection state changed. Status(StatusCode="DeadlineExceeded", Detail="")
+2024-12-03 18:17:20.984 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Shutdown connection[172.20.64.1:11800].
+2024-12-03 18:17:20.984 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[172.20.64.1:11800].
+2024-12-03 18:17:46.011 +08:00 [docker-arsidentityserver0421001] [Error] SkyApm.Transport.Grpc.V8.ServiceRegister : Report service instance properties fail.
+Grpc.Core.RpcException: Status(StatusCode="DeadlineExceeded", Detail="")
+   at SkyApm.Transport.Grpc.V8.ServiceRegister.<>c__DisplayClass9_0.<<ReportInstancePropertiesAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at SkyApm.Transport.Grpc.Common.Call.Execute[T](Func`1 task, Func`1 errCallback, Func`1 errMessage)
+2024-12-03 18:17:46.011 +08:00 [docker-arsidentityserver0421001] [Warning] SkyApm.Transport.Grpc.ConnectionManager : Connection state changed. Status(StatusCode="DeadlineExceeded", Detail="")
+2024-12-03 18:17:50.991 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Shutdown connection[172.20.64.1:11800].
+2024-12-03 18:17:50.991 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[172.20.64.1:11800].
+2024-12-03 18:18:16.008 +08:00 [docker-arsidentityserver0421001] [Error] SkyApm.Transport.Grpc.V8.ServiceRegister : Report service instance properties fail.
+Grpc.Core.RpcException: Status(StatusCode="DeadlineExceeded", Detail="")
+   at SkyApm.Transport.Grpc.V8.ServiceRegister.<>c__DisplayClass9_0.<<ReportInstancePropertiesAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at SkyApm.Transport.Grpc.Common.Call.Execute[T](Func`1 task, Func`1 errCallback, Func`1 errMessage)
+2024-12-03 18:18:16.008 +08:00 [docker-arsidentityserver0421001] [Warning] SkyApm.Transport.Grpc.ConnectionManager : Connection state changed. Status(StatusCode="DeadlineExceeded", Detail="")
+2024-12-03 18:18:20.986 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Shutdown connection[172.20.64.1:11800].
+2024-12-03 18:18:20.986 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[172.20.64.1:11800].
+2024-12-03 18:18:45.992 +08:00 [docker-arsidentityserver0421001] [Error] SkyApm.Transport.Grpc.V8.ServiceRegister : Report service instance properties fail.
+Grpc.Core.RpcException: Status(StatusCode="DeadlineExceeded", Detail="")
+   at SkyApm.Transport.Grpc.V8.ServiceRegister.<>c__DisplayClass9_0.<<ReportInstancePropertiesAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at SkyApm.Transport.Grpc.Common.Call.Execute[T](Func`1 task, Func`1 errCallback, Func`1 errMessage)
+2024-12-03 18:18:45.992 +08:00 [docker-arsidentityserver0421001] [Warning] SkyApm.Transport.Grpc.ConnectionManager : Connection state changed. Status(StatusCode="DeadlineExceeded", Detail="")
+2024-12-03 18:18:50.978 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Shutdown connection[172.20.64.1:11800].
+2024-12-03 18:18:50.978 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[172.20.64.1:11800].
+2024-12-03 18:19:16.020 +08:00 [docker-arsidentityserver0421001] [Error] SkyApm.Transport.Grpc.V8.ServiceRegister : Report service instance properties fail.
+Grpc.Core.RpcException: Status(StatusCode="DeadlineExceeded", Detail="")
+   at SkyApm.Transport.Grpc.V8.ServiceRegister.<>c__DisplayClass9_0.<<ReportInstancePropertiesAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at SkyApm.Transport.Grpc.Common.Call.Execute[T](Func`1 task, Func`1 errCallback, Func`1 errMessage)
+2024-12-03 18:19:16.020 +08:00 [docker-arsidentityserver0421001] [Warning] SkyApm.Transport.Grpc.ConnectionManager : Connection state changed. Status(StatusCode="DeadlineExceeded", Detail="")
+2024-12-03 18:19:20.986 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Shutdown connection[172.20.64.1:11800].
+2024-12-03 18:19:20.986 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[172.20.64.1:11800].
+2024-12-03 18:19:45.982 +08:00 [docker-arsidentityserver0421001] [Error] SkyApm.Transport.Grpc.V8.ServiceRegister : Report service instance properties fail.
+Grpc.Core.RpcException: Status(StatusCode="DeadlineExceeded", Detail="")
+   at SkyApm.Transport.Grpc.V8.ServiceRegister.<>c__DisplayClass9_0.<<ReportInstancePropertiesAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at SkyApm.Transport.Grpc.Common.Call.Execute[T](Func`1 task, Func`1 errCallback, Func`1 errMessage)
+2024-12-03 18:19:45.982 +08:00 [docker-arsidentityserver0421001] [Warning] SkyApm.Transport.Grpc.ConnectionManager : Connection state changed. Status(StatusCode="DeadlineExceeded", Detail="")
+2024-12-03 18:19:50.979 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Shutdown connection[172.20.64.1:11800].
+2024-12-03 18:19:50.980 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[172.20.64.1:11800].
+2024-12-03 18:20:16.020 +08:00 [docker-arsidentityserver0421001] [Error] SkyApm.Transport.Grpc.V8.ServiceRegister : Report service instance properties fail.
+Grpc.Core.RpcException: Status(StatusCode="DeadlineExceeded", Detail="")
+   at SkyApm.Transport.Grpc.V8.ServiceRegister.<>c__DisplayClass9_0.<<ReportInstancePropertiesAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at SkyApm.Transport.Grpc.Common.Call.Execute[T](Func`1 task, Func`1 errCallback, Func`1 errMessage)
+2024-12-03 18:20:16.021 +08:00 [docker-arsidentityserver0421001] [Warning] SkyApm.Transport.Grpc.ConnectionManager : Connection state changed. Status(StatusCode="DeadlineExceeded", Detail="")
+2024-12-03 18:20:20.988 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Shutdown connection[172.20.64.1:11800].
+2024-12-03 18:20:20.988 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[172.20.64.1:11800].
+2024-12-03 18:20:45.994 +08:00 [docker-arsidentityserver0421001] [Error] SkyApm.Transport.Grpc.V8.ServiceRegister : Report service instance properties fail.
+Grpc.Core.RpcException: Status(StatusCode="DeadlineExceeded", Detail="")
+   at SkyApm.Transport.Grpc.V8.ServiceRegister.<>c__DisplayClass9_0.<<ReportInstancePropertiesAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at SkyApm.Transport.Grpc.Common.Call.Execute[T](Func`1 task, Func`1 errCallback, Func`1 errMessage)
+2024-12-03 18:20:45.994 +08:00 [docker-arsidentityserver0421001] [Warning] SkyApm.Transport.Grpc.ConnectionManager : Connection state changed. Status(StatusCode="DeadlineExceeded", Detail="")
+2024-12-03 18:20:50.990 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Shutdown connection[172.20.64.1:11800].
+2024-12-03 18:20:50.990 +08:00 [docker-arsidentityserver0421001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[172.20.64.1:11800].

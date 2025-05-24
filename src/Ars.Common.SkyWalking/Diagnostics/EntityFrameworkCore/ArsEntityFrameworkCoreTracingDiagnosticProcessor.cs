@@ -48,6 +48,7 @@ namespace Ars.Common.SkyWalking.Diagnostics.EntityFrameworkCore
                     log.AppendLine($"表名:{table.TableName}");
                     log.AppendLine($"原值:{(null == table.OriginalValues ? string.Empty : JsonConvert.SerializeObject(table.OriginalValues))}");
                     log.AppendLine($"新值:{(null == table.CurrentValues ? string.Empty : JsonConvert.SerializeObject(table.CurrentValues))}");
+                    log.AppendLine("");
                 }
                 log.AppendLine($"----------------------------------------------------------------------------------------------------------------------");
             }

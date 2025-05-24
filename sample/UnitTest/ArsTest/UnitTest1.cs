@@ -5,6 +5,7 @@ using System;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using NPOI.SS.Formula.Functions;
 
 namespace ArsTest
 {
@@ -61,6 +62,14 @@ namespace ArsTest
         public void TestResource() 
         {
 
+        }
+
+        [Fact]
+        public void TestInttoByte() 
+        {
+            int a = 2;
+            byte[] bytes = BitConverter.GetBytes(a);//将int32转换为字节数组
+            var temp = BitConverter.ToInt32(bytes, 0);//将字节数组内容再转成int32类型
         }
     }
 

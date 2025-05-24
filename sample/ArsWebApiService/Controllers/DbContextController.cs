@@ -76,7 +76,7 @@ namespace MyApiWithIdentityServer4.Controllers
         public IRepository<Enrollment> EnrollmentRepo { get; set; }
 
         [Autowired]
-        public IRepository<StudentNew, Guid> StuNew_Repo { get; set; }
+        public IRepository<MyDbContext2,StudentNew, Guid> StuNew_Repo { get; set; }
 
         [Autowired]
         public IRepository<StudentMsSql, Guid> Repo1 { get; set; }
@@ -138,9 +138,9 @@ namespace MyApiWithIdentityServer4.Controllers
         public async Task<Student?> Query()
         {
             var q = from a in Repo.GetAll()
-            join b in StuNew_Repo.GetAll()
-            on a.LastName equals b.Name
-            select a;
+                    join b in StuNew_Repo.GetAll()
+                    on a.LastName equals b.Name
+                    select a;
 
             var data = await q.FirstOrDefaultAsync();
 
@@ -899,8 +899,11 @@ namespace MyApiWithIdentityServer4.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
+        [UnitOfWork(IsDisabled = true)]
         public async Task<IActionResult> MultipleDataSource()
         {
+            using var scope = UnitOfWorkManager.Begin(TransactionScopeOption.RequiresNew);
+
             //mysql
             var data = await Repo.FirstOrDefaultAsync(r => r.Id == Guid.Parse("05db0cc6-8f4d-4d15-b3d0-21ac0dc73335"));
             data!.LastName = DateTime.Now.ToString("yyyyMMddHHmmss");
@@ -918,15 +921,15 @@ namespace MyApiWithIdentityServer4.Controllers
             var data2 = await Repo1.FirstOrDefaultAsync(r => r.Id == Guid.Parse("55AF24DD-25CF-49D7-6B61-08DB56996478"));
             data2!.LastName = DateTime.Now.ToString("yyyyMMddHHmmss");
 
-            using var scope = UnitOfWorkManager.Begin(TransactionScopeOption.RequiresNew);
+            //using var scope = UnitOfWorkManager.Begin(TransactionScopeOption.RequiresNew);
 
-            var data1 = await Repo.FirstOrDefaultAsync(r => r.Id == Guid.Parse("05db0cc6-8f4d-4d15-b3d0-21ac0dc73336"));
-            data1!.LastName = DateTime.Now.ToString("yyyyMMddHHmmss");
+            //var data1 = await Repo.FirstOrDefaultAsync(r => r.Id == Guid.Parse("05db0cc6-8f4d-4d15-b3d0-21ac0dc73336"));
+            //data1!.LastName = DateTime.Now.ToString("yyyyMMddHHmmss");
 
-            await StuNew_Repo.InsertAsync(new StudentNew
-            {
-                Name = DateTime.Now.ToString("yyyyMMddHHmmss")
-            });
+            //await StuNew_Repo.InsertAsync(new StudentNew
+            //{
+            //    Name = DateTime.Now.ToString("yyyyMMddHHmmss")
+            //});
 
             await scope.CompleteAsync();
 
@@ -996,7 +999,7 @@ namespace MyApiWithIdentityServer4.Controllers
 
         [HttpGet]
         [UnitOfWork(IsDisabled = true)]
-        public async Task<IActionResult> TestIRepository() 
+        public async Task<IActionResult> TestIRepository()
         {
             var data = await Repo.FirstOrDefaultAsync();
 
@@ -1049,7 +1052,7 @@ namespace MyApiWithIdentityServer4.Controllers
             //开发时不建议在不使用unit of work的情况下，对多个表进行更改
             //无法做到原子操作
 
-            return Ok((data,data1));
+            return Ok((data, data1));
         }
 
         /// <summary>
@@ -1057,20 +1060,117 @@ namespace MyApiWithIdentityServer4.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost]
+        [UnitOfWork(IsDisabled = true)]
         public async Task<IActionResult> TestSameTableNameWithDiffDbContext(
-            [FromServices] IRepository<StudentNew, Guid> repo1,
-            [FromServices] IRepository<MyDbContext,StudentNew, Guid> repo2,
-            [FromServices] IRepository<MyDbContext2,StudentNew, Guid> repo3) 
+            [FromServices] IRepository<MyDbContext, StudentNew, Guid> repo2,
+            [FromServices] IRepository<MyDbContext2, StudentNew, Guid> repo3)
         {
-            var list = await MyDbContext.StudentNew.ToListAsync();
+            using var scope = UnitOfWorkManager.Begin(TransactionScopeOption.RequiresNew);
 
-            var list1 = await MyDbContext2.StudentNew.ToListAsync();
+            await repo2.InsertAsync(new StudentNew 
+            {
+                Name = "haha"
+            });
 
-            var list2 = await repo1.GetAllListAsync();
+            await repo3.InsertAsync(new StudentNew
+            {
+                Name = "hahaha"
+            });
 
-            var list3 = await repo2.GetAllListAsync();
+            await scope.CompleteAsync();
 
-            var list4 = await repo3.GetAllListAsync();
+            return Ok();
+        }
+
+        [HttpPost]
+        [UnitOfWork(IsDisabled = true)]
+        public async Task<IActionResult> TestMultipleUpdateSameData([FromServices] IRepository<MyDbContext2, StudentNew, Guid> repo3)
+        {
+            IEnumerable<Task> tasks = new List<Task>
+            {
+                Func1(repo3),
+                Func2(repo3),
+            };
+
+            await Task.WhenAll(tasks);
+
+            return Ok();
+        }
+
+        private async Task Func1(IRepository<MyDbContext2, StudentNew, Guid> repo3)
+        {
+            for (int i = 0;i < 20;i++) 
+            {
+                using var scope = UnitOfWorkManager.Begin(TransactionScopeOption.RequiresNew);
+
+                var data = await repo3.FirstOrDefaultAsync();
+
+                data.Age += 1;
+
+                await scope.CompleteAsync();
+            }
+        }
+
+        private async Task Func2(IRepository<MyDbContext2, StudentNew, Guid> repo3)
+        {
+            for (int i = 0; i < 20; i++)
+            {
+                using var scope = UnitOfWorkManager.Begin(TransactionScopeOption.RequiresNew);
+
+                var data = await repo3.FirstOrDefaultAsync();
+
+                data.Age2 += 1;
+
+                await scope.CompleteAsync();
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> TestSaveChanges() 
+        {
+            AppVersion studentNew = new AppVersion()
+            {
+                Version = "1111",
+                Path = "111111"
+            };
+
+            await RepoApp.InsertAsync(studentNew);
+
+            await UnitOfWorkManager.Current.SaveChangesAsync();
+
+            return Ok();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> TestSaveChanges123()
+        {
+            AppVersion? studentNew = await RepoApp.GetAll()
+                .Where(r => r.Version.Equals("12345"))
+                .OrderByDescending(r => r.CreationTime)
+                .FirstOrDefaultAsync();
+
+            if (null != studentNew) 
+            {
+                studentNew.Path = "aabb121233";
+            }
+
+            studentNew = new AppVersion()
+            {
+                Version = "12345",
+                Path = "12345"
+            };
+
+            await RepoApp.InsertAsync(studentNew);
+
+            studentNew = new AppVersion()
+            {
+                Version = "123456",
+                Path = "123456"
+            };
+
+            await RepoApp.InsertAsync(studentNew);
+
+            await UnitOfWorkManager.Current.SaveChangesAsync();
 
             return Ok();
         }

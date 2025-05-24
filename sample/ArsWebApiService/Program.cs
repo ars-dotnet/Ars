@@ -39,6 +39,19 @@ using ArsWebApiService;
 using Ars.Common.EFCore;
 using Com.Ctrip.Framework.Apollo;
 using Com.Ctrip.Framework.Apollo.Enums;
+using System.Diagnostics;
+using System;
+using ArsWebApiService.DiagnosticListeners;
+using Ars.Common.Core.Diagnostic;
+
+DiagnosticListener.AllListeners.Subscribe(new Observer<DiagnosticListener>(
+    listener =>
+    {
+        if (listener.Name == ArsDiagnosticNames.ListenerName)
+        {
+            listener.SubscribeWithAdapter(new DatabaseSourceCollector());
+        }
+    }));
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -124,7 +137,7 @@ builder.Services.AddArsSwaggerGen(
     GetSection(nameof(ArsIdentityClientConfiguration)).
     Get<ArsIdentityClientConfiguration>());
 
-builder.WebHost.UseArsKestrel(builder.Configuration);
+builder.WebHost.UseArsKestrelListenAnyIP(builder.Configuration);
 
 //builder.Services.AddDbContext<MyDbContext>();
 
@@ -133,6 +146,8 @@ builder.Services.AddScoped<IWebServices, WebServices>();
 
 //Ìí¼Ó°æ±¾¿ØÖÆ
 builder.Services.AddApiVersioning().AddApiExplorer();
+
+
 
 // Configure the HTTP request pipeline.
 var app = builder.Build();
