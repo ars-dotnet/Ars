@@ -24,25 +24,36 @@ namespace Ars.Common.Core.Extensions
         /// </summary>
         /// <param name="arsServiceBuilder"></param>
         /// <returns></returns>
-        public static IArsWebApplicationBuilder AddArsHttpClient(this IArsWebApplicationBuilder arsServiceBuilder)
+        public static IArsWebApplicationBuilder AddArsHttpClient(
+            this IArsWebApplicationBuilder arsServiceBuilder,
+            Action<IHttpClientBuilder>? configureHttpClientBuilder = null)
         {
             var services = arsServiceBuilder.Services;
 
-            services.AddHttpClient(HttpClientNames.Http);
+            var builder = services.AddHttpClient(HttpClientNames.Http);
 
-            services
+            configureHttpClientBuilder?.Invoke(builder);
+
+            builder = services
                 .AddHttpClient(HttpClientNames.Https)
                 .ConfigureArsPrimaryHttpsMessageHandler();
 
+            configureHttpClientBuilder?.Invoke(builder);
+
             #region 降级 熔断 超时 重试 
-            services
+            builder = services
                 .AddHttpClient(HttpClientNames.RetryHttp)
                 .AddArsTransientHttpErrorPolicy();
 
-            services
+            configureHttpClientBuilder?.Invoke(builder);
+
+            builder = services
                 .AddHttpClient(HttpClientNames.RetryHttps)
                 .ConfigureArsPrimaryHttpsMessageHandler()
                 .AddArsTransientHttpErrorPolicy();
+
+            configureHttpClientBuilder?.Invoke(builder);
+
             #endregion
 
             return arsServiceBuilder;

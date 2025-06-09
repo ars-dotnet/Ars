@@ -39,7 +39,7 @@ namespace Ars.Common.RpcClientCore.Extensions
 
             services.AddArsHttpApiProvider<THttpApi>(builder.Name);
 
-            arsWebApplicationBuilder.AddArsHttpClient();
+            arsWebApplicationBuilder.AddArsHttpClient(configureHttpClientBuilder);
 
             return builder;
         }

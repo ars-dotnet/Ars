@@ -77,6 +77,9 @@ builder.Services
                 option.UseHttps = true;
                 //采用ars默认的策略
                 option.UseHttpClientCustomPolicy = true;
+            }, builder => 
+            {
+                builder.ConfigureHttpClient(c => c.Timeout = TimeSpan.FromSeconds(10));
             })
             .AddArsHttpApi<IDbHttpApi>(configureBuilder:builder => 
             {
@@ -91,6 +94,8 @@ builder.Services
                 builder.AddArsTransientHttpErrorPolicy();
                 //自定义HttpsMessageHandler
                 builder.ConfigureArsPrimaryHttpsMessageHandler();
+
+                builder.ConfigureHttpClient(c => c.Timeout = TimeSpan.FromSeconds(10));
             });
 
         //config.AddArsSkyApm();
