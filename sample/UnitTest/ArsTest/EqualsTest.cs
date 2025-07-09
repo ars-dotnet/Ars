@@ -11,16 +11,16 @@ namespace ArsTest
     public class EqualsTest
     {
         [Fact]
-        public void TestEquals() 
+        public void TestEquals()
         {
             //值类型 比较值
             decimal a = 1m;
             int b = 1;
             Assert.True(a == b);
             Assert.True(a.Equals(b));
-            Assert.False(Equals(a,b));
+            Assert.False(Equals(a, b));
             //ReferenceEquals会将值类型装箱，比较结果永远为false
-            Assert.False(ReferenceEquals(a,b));
+            Assert.False(ReferenceEquals(a, b));
 
             //引用类型 
             //string 
@@ -35,7 +35,7 @@ namespace ArsTest
             var code4 = s4.GetHashCode();
 
             //比较值
-            Assert.True(codes1 == codes2 && codes1 == codes3 && codes1 != code4); 
+            Assert.True(codes1 == codes2 && codes1 == codes3 && codes1 != code4);
             Assert.True(s1 == s2);
             Assert.True(s1 == s3);
             Assert.False(s1 == s4);
@@ -46,9 +46,9 @@ namespace ArsTest
             Assert.False(s1.Equals(s4));
 
             //比较值
-            Assert.True(Equals(s1,s2));
-            Assert.True(Equals(s1,s3));
-            Assert.False(Equals(s1,s4));
+            Assert.True(Equals(s1, s2));
+            Assert.True(Equals(s1, s3));
+            Assert.False(Equals(s1, s4));
 
             //比较实例  
             Assert.True(ReferenceEquals(s1, s2));
@@ -87,6 +87,15 @@ namespace ArsTest
             Assert.False(true ^ true);
             Assert.True(false ^ true);
             Assert.False(false ^ false);
+        }
+
+        [Fact]
+        public void Test1() 
+        {
+            int a = 2;
+            int b = 3;
+
+            Assert.False(!(a <= b));
         }
     }
 

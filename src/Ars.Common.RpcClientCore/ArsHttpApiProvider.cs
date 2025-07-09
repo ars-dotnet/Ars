@@ -54,7 +54,9 @@ namespace Ars.Common.RpcClientCore
 
         private string GetClientName(string defaultName, ArsHttpApiOptions arsHttpApiOptions) 
         {
-            if(!arsHttpApiOptions.UseArsHttpClient)
+            return defaultName;
+
+            if (!arsHttpApiOptions.UseArsHttpClient)
                 return defaultName;
 
             if (arsHttpApiOptions.UseHttps)

@@ -41,7 +41,7 @@ namespace Ars.Common.Tool.Extension
             var timeOutPolicy = Policy.TimeoutAsync<T>(60);
 
             var retryPolicy = builder.WaitAndRetryAsync(
-                new TimeSpan[] { TimeSpan.FromSeconds(1), TimeSpan.FromSeconds(2) });
+                new TimeSpan[2] { TimeSpan.FromSeconds(1), TimeSpan.FromSeconds(2) });
 
             return fallbackPlicy.WrapAsync(breakerPolicy).WrapAsync(timeOutPolicy).WrapAsync(retryPolicy);
         }

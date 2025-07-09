@@ -18,6 +18,7 @@ namespace ArsGrpcClient.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
+        [AllowAnonymous]
         public async Task<IActionResult> WeatherForecastHttpApiAction(
             [FromServices] IWeatherForecastHttpApi WeatherForecastHttpApi)
         {
