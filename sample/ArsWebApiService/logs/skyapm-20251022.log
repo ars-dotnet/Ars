@@ -1,0 +1,147 @@
+2025-10-22 09:25:58.498 +08:00 [arswebapiservice001] [Information] SkyApm.InstrumentStartup : Initializing ...
+2025-10-22 09:25:58.540 +08:00 [arswebapiservice001] [Information] SkyApm.Service.RegisterService : Loaded instrument service [SkyApm.Service.RegisterService].
+2025-10-22 09:25:58.541 +08:00 [arswebapiservice001] [Information] SkyApm.Service.LogReportService : Loaded instrument service [SkyApm.Service.LogReportService].
+2025-10-22 09:25:58.541 +08:00 [arswebapiservice001] [Information] SkyApm.Service.PingService : Loaded instrument service [SkyApm.Service.PingService].
+2025-10-22 09:25:58.541 +08:00 [arswebapiservice001] [Information] SkyApm.Service.SegmentReportService : Loaded instrument service [SkyApm.Service.SegmentReportService].
+2025-10-22 09:25:58.542 +08:00 [arswebapiservice001] [Information] SkyApm.Service.CLRStatsService : Loaded instrument service [SkyApm.Service.CLRStatsService].
+2025-10-22 09:25:58.542 +08:00 [arswebapiservice001] [Information] SkyApm.Sampling.SimpleCountSamplingInterceptor : Loaded instrument service [SkyApm.Sampling.SimpleCountSamplingInterceptor].
+2025-10-22 09:25:58.542 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectService : Loaded instrument service [SkyApm.Transport.Grpc.ConnectService].
+2025-10-22 09:25:58.586 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[172.20.64.1:11800].
+2025-10-22 09:25:58.596 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [HttpHandlerDiagnosticListener].
+2025-10-22 09:25:58.596 +08:00 [arswebapiservice001] [Information] SkyApm.InstrumentStartup : Started SkyAPM .NET Core Agent.
+2025-10-22 09:25:59.113 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Grpc.Net.Client].
+2025-10-22 09:25:59.333 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Microsoft.EntityFrameworkCore].
+2025-10-22 09:26:09.154 +08:00 [arswebapiservice001] [Error] SkyApm.Transport.Grpc.V8.ServiceRegister : Report service instance properties fail.
+Grpc.Core.RpcException: Status(StatusCode="DeadlineExceeded", Detail="")
+   at SkyApm.Transport.Grpc.V8.ServiceRegister.<>c__DisplayClass9_0.<<ReportInstancePropertiesAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at SkyApm.Transport.Grpc.Common.Call.Execute[T](Func`1 task, Func`1 errCallback, Func`1 errMessage)
+2025-10-22 09:26:09.155 +08:00 [arswebapiservice001] [Warning] SkyApm.Transport.Grpc.ConnectionManager : Connection state changed. Status(StatusCode="DeadlineExceeded", Detail="")
+2025-10-22 09:26:13.544 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Shutdown connection[172.20.64.1:11800].
+2025-10-22 09:26:13.545 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[172.20.64.1:11800].
+2025-10-22 09:26:37.197 +08:00 [arswebapiservice001] [Information] SkyApm.Diagnostics.TracingDiagnosticProcessorObserver : Loaded diagnostic listener [Ars.EFCoreOperationLog].
+2025-10-22 09:26:38.577 +08:00 [arswebapiservice001] [Error] SkyApm.Transport.Grpc.V8.ServiceRegister : Report service instance properties fail.
+Grpc.Core.RpcException: Status(StatusCode="DeadlineExceeded", Detail="")
+   at SkyApm.Transport.Grpc.V8.ServiceRegister.<>c__DisplayClass9_0.<<ReportInstancePropertiesAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at SkyApm.Transport.Grpc.Common.Call.Execute[T](Func`1 task, Func`1 errCallback, Func`1 errMessage)
+2025-10-22 09:26:38.577 +08:00 [arswebapiservice001] [Warning] SkyApm.Transport.Grpc.ConnectionManager : Connection state changed. Status(StatusCode="DeadlineExceeded", Detail="")
+2025-10-22 09:26:43.550 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Shutdown connection[172.20.64.1:11800].
+2025-10-22 09:26:43.551 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[172.20.64.1:11800].
+2025-10-22 09:27:08.574 +08:00 [arswebapiservice001] [Error] SkyApm.Transport.Grpc.V8.ServiceRegister : Report service instance properties fail.
+Grpc.Core.RpcException: Status(StatusCode="DeadlineExceeded", Detail="")
+   at SkyApm.Transport.Grpc.V8.ServiceRegister.<>c__DisplayClass9_0.<<ReportInstancePropertiesAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at SkyApm.Transport.Grpc.Common.Call.Execute[T](Func`1 task, Func`1 errCallback, Func`1 errMessage)
+2025-10-22 09:27:08.574 +08:00 [arswebapiservice001] [Warning] SkyApm.Transport.Grpc.ConnectionManager : Connection state changed. Status(StatusCode="DeadlineExceeded", Detail="")
+2025-10-22 09:27:13.544 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Shutdown connection[172.20.64.1:11800].
+2025-10-22 09:27:13.545 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[172.20.64.1:11800].
+2025-10-22 09:27:38.581 +08:00 [arswebapiservice001] [Error] SkyApm.Transport.Grpc.V8.ServiceRegister : Report service instance properties fail.
+Grpc.Core.RpcException: Status(StatusCode="DeadlineExceeded", Detail="")
+   at SkyApm.Transport.Grpc.V8.ServiceRegister.<>c__DisplayClass9_0.<<ReportInstancePropertiesAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at SkyApm.Transport.Grpc.Common.Call.Execute[T](Func`1 task, Func`1 errCallback, Func`1 errMessage)
+2025-10-22 09:27:38.581 +08:00 [arswebapiservice001] [Warning] SkyApm.Transport.Grpc.ConnectionManager : Connection state changed. Status(StatusCode="DeadlineExceeded", Detail="")
+2025-10-22 09:27:43.544 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Shutdown connection[172.20.64.1:11800].
+2025-10-22 09:27:43.544 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[172.20.64.1:11800].
+2025-10-22 09:28:41.948 +08:00 [arswebapiservice001] [Error] SkyApm.Transport.Grpc.V8.ServiceRegister : Report service instance properties fail.
+Grpc.Core.RpcException: Status(StatusCode="DeadlineExceeded", Detail="")
+   at SkyApm.Transport.Grpc.V8.ServiceRegister.<>c__DisplayClass9_0.<<ReportInstancePropertiesAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at SkyApm.Transport.Grpc.Common.Call.Execute[T](Func`1 task, Func`1 errCallback, Func`1 errMessage)
+2025-10-22 09:28:41.948 +08:00 [arswebapiservice001] [Warning] SkyApm.Transport.Grpc.ConnectionManager : Connection state changed. Status(StatusCode="DeadlineExceeded", Detail="")
+2025-10-22 09:28:41.963 +08:00 [arswebapiservice001] [Error] SkyApm.Transport.Grpc.V8.ServiceRegister : Report service instance properties fail.
+Grpc.Core.RpcException: Status(StatusCode="DeadlineExceeded", Detail="")
+   at SkyApm.Transport.Grpc.V8.ServiceRegister.<>c__DisplayClass9_0.<<ReportInstancePropertiesAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at SkyApm.Transport.Grpc.Common.Call.Execute[T](Func`1 task, Func`1 errCallback, Func`1 errMessage)
+2025-10-22 09:28:46.936 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Shutdown connection[172.20.64.1:11800].
+2025-10-22 09:28:46.937 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[172.20.64.1:11800].
+2025-10-22 09:29:11.952 +08:00 [arswebapiservice001] [Error] SkyApm.Transport.Grpc.V8.ServiceRegister : Report service instance properties fail.
+Grpc.Core.RpcException: Status(StatusCode="DeadlineExceeded", Detail="")
+   at SkyApm.Transport.Grpc.V8.ServiceRegister.<>c__DisplayClass9_0.<<ReportInstancePropertiesAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at SkyApm.Transport.Grpc.Common.Call.Execute[T](Func`1 task, Func`1 errCallback, Func`1 errMessage)
+2025-10-22 09:29:11.952 +08:00 [arswebapiservice001] [Warning] SkyApm.Transport.Grpc.ConnectionManager : Connection state changed. Status(StatusCode="DeadlineExceeded", Detail="")
+2025-10-22 09:29:16.931 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Shutdown connection[172.20.64.1:11800].
+2025-10-22 09:29:16.931 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[172.20.64.1:11800].
+2025-10-22 09:29:41.950 +08:00 [arswebapiservice001] [Error] SkyApm.Transport.Grpc.V8.ServiceRegister : Report service instance properties fail.
+Grpc.Core.RpcException: Status(StatusCode="DeadlineExceeded", Detail="")
+   at SkyApm.Transport.Grpc.V8.ServiceRegister.<>c__DisplayClass9_0.<<ReportInstancePropertiesAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at SkyApm.Transport.Grpc.Common.Call.Execute[T](Func`1 task, Func`1 errCallback, Func`1 errMessage)
+2025-10-22 09:29:41.950 +08:00 [arswebapiservice001] [Warning] SkyApm.Transport.Grpc.ConnectionManager : Connection state changed. Status(StatusCode="DeadlineExceeded", Detail="")
+2025-10-22 09:29:46.934 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Shutdown connection[172.20.64.1:11800].
+2025-10-22 09:29:46.934 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[172.20.64.1:11800].
+2025-10-22 09:30:11.943 +08:00 [arswebapiservice001] [Error] SkyApm.Transport.Grpc.V8.ServiceRegister : Report service instance properties fail.
+Grpc.Core.RpcException: Status(StatusCode="DeadlineExceeded", Detail="")
+   at SkyApm.Transport.Grpc.V8.ServiceRegister.<>c__DisplayClass9_0.<<ReportInstancePropertiesAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at SkyApm.Transport.Grpc.Common.Call.Execute[T](Func`1 task, Func`1 errCallback, Func`1 errMessage)
+2025-10-22 09:30:11.944 +08:00 [arswebapiservice001] [Warning] SkyApm.Transport.Grpc.ConnectionManager : Connection state changed. Status(StatusCode="DeadlineExceeded", Detail="")
+2025-10-22 09:30:16.926 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Shutdown connection[172.20.64.1:11800].
+2025-10-22 09:30:16.926 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[172.20.64.1:11800].
+2025-10-22 09:30:41.960 +08:00 [arswebapiservice001] [Error] SkyApm.Transport.Grpc.V8.ServiceRegister : Report service instance properties fail.
+Grpc.Core.RpcException: Status(StatusCode="DeadlineExceeded", Detail="")
+   at SkyApm.Transport.Grpc.V8.ServiceRegister.<>c__DisplayClass9_0.<<ReportInstancePropertiesAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at SkyApm.Transport.Grpc.Common.Call.Execute[T](Func`1 task, Func`1 errCallback, Func`1 errMessage)
+2025-10-22 09:30:41.960 +08:00 [arswebapiservice001] [Warning] SkyApm.Transport.Grpc.ConnectionManager : Connection state changed. Status(StatusCode="DeadlineExceeded", Detail="")
+2025-10-22 09:30:46.929 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Shutdown connection[172.20.64.1:11800].
+2025-10-22 09:30:46.930 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[172.20.64.1:11800].
+2025-10-22 09:31:11.960 +08:00 [arswebapiservice001] [Error] SkyApm.Transport.Grpc.V8.ServiceRegister : Report service instance properties fail.
+Grpc.Core.RpcException: Status(StatusCode="DeadlineExceeded", Detail="")
+   at SkyApm.Transport.Grpc.V8.ServiceRegister.<>c__DisplayClass9_0.<<ReportInstancePropertiesAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at SkyApm.Transport.Grpc.Common.Call.Execute[T](Func`1 task, Func`1 errCallback, Func`1 errMessage)
+2025-10-22 09:31:11.960 +08:00 [arswebapiservice001] [Warning] SkyApm.Transport.Grpc.ConnectionManager : Connection state changed. Status(StatusCode="DeadlineExceeded", Detail="")
+2025-10-22 09:31:16.936 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Shutdown connection[172.20.64.1:11800].
+2025-10-22 09:31:16.937 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[172.20.64.1:11800].
+2025-10-22 09:31:41.955 +08:00 [arswebapiservice001] [Error] SkyApm.Transport.Grpc.V8.ServiceRegister : Report service instance properties fail.
+Grpc.Core.RpcException: Status(StatusCode="DeadlineExceeded", Detail="")
+   at SkyApm.Transport.Grpc.V8.ServiceRegister.<>c__DisplayClass9_0.<<ReportInstancePropertiesAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at SkyApm.Transport.Grpc.Common.Call.Execute[T](Func`1 task, Func`1 errCallback, Func`1 errMessage)
+2025-10-22 09:31:41.955 +08:00 [arswebapiservice001] [Warning] SkyApm.Transport.Grpc.ConnectionManager : Connection state changed. Status(StatusCode="DeadlineExceeded", Detail="")
+2025-10-22 09:31:46.933 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Shutdown connection[172.20.64.1:11800].
+2025-10-22 09:31:46.933 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[172.20.64.1:11800].
+2025-10-22 09:32:11.955 +08:00 [arswebapiservice001] [Error] SkyApm.Transport.Grpc.V8.ServiceRegister : Report service instance properties fail.
+Grpc.Core.RpcException: Status(StatusCode="DeadlineExceeded", Detail="")
+   at SkyApm.Transport.Grpc.V8.ServiceRegister.<>c__DisplayClass9_0.<<ReportInstancePropertiesAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at SkyApm.Transport.Grpc.Common.Call.Execute[T](Func`1 task, Func`1 errCallback, Func`1 errMessage)
+2025-10-22 09:32:11.955 +08:00 [arswebapiservice001] [Warning] SkyApm.Transport.Grpc.ConnectionManager : Connection state changed. Status(StatusCode="DeadlineExceeded", Detail="")
+2025-10-22 09:32:16.937 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Shutdown connection[172.20.64.1:11800].
+2025-10-22 09:32:16.938 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[172.20.64.1:11800].
+2025-10-22 09:32:41.947 +08:00 [arswebapiservice001] [Error] SkyApm.Transport.Grpc.V8.ServiceRegister : Report service instance properties fail.
+Grpc.Core.RpcException: Status(StatusCode="DeadlineExceeded", Detail="")
+   at SkyApm.Transport.Grpc.V8.ServiceRegister.<>c__DisplayClass9_0.<<ReportInstancePropertiesAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at SkyApm.Transport.Grpc.Common.Call.Execute[T](Func`1 task, Func`1 errCallback, Func`1 errMessage)
+2025-10-22 09:32:41.947 +08:00 [arswebapiservice001] [Warning] SkyApm.Transport.Grpc.ConnectionManager : Connection state changed. Status(StatusCode="DeadlineExceeded", Detail="")
+2025-10-22 09:32:46.931 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Shutdown connection[172.20.64.1:11800].
+2025-10-22 09:32:46.932 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[172.20.64.1:11800].
+2025-10-22 09:33:11.947 +08:00 [arswebapiservice001] [Error] SkyApm.Transport.Grpc.V8.ServiceRegister : Report service instance properties fail.
+Grpc.Core.RpcException: Status(StatusCode="DeadlineExceeded", Detail="")
+   at SkyApm.Transport.Grpc.V8.ServiceRegister.<>c__DisplayClass9_0.<<ReportInstancePropertiesAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at SkyApm.Transport.Grpc.Common.Call.Execute[T](Func`1 task, Func`1 errCallback, Func`1 errMessage)
+2025-10-22 09:33:11.948 +08:00 [arswebapiservice001] [Warning] SkyApm.Transport.Grpc.ConnectionManager : Connection state changed. Status(StatusCode="DeadlineExceeded", Detail="")
+2025-10-22 09:33:16.934 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Shutdown connection[172.20.64.1:11800].
+2025-10-22 09:33:16.935 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[172.20.64.1:11800].
+2025-10-22 09:33:41.958 +08:00 [arswebapiservice001] [Error] SkyApm.Transport.Grpc.V8.ServiceRegister : Report service instance properties fail.
+Grpc.Core.RpcException: Status(StatusCode="DeadlineExceeded", Detail="")
+   at SkyApm.Transport.Grpc.V8.ServiceRegister.<>c__DisplayClass9_0.<<ReportInstancePropertiesAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at SkyApm.Transport.Grpc.Common.Call.Execute[T](Func`1 task, Func`1 errCallback, Func`1 errMessage)
+2025-10-22 09:33:41.958 +08:00 [arswebapiservice001] [Warning] SkyApm.Transport.Grpc.ConnectionManager : Connection state changed. Status(StatusCode="DeadlineExceeded", Detail="")
+2025-10-22 09:33:46.926 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Shutdown connection[172.20.64.1:11800].
+2025-10-22 09:33:46.927 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[172.20.64.1:11800].
+2025-10-22 09:34:11.959 +08:00 [arswebapiservice001] [Error] SkyApm.Transport.Grpc.V8.ServiceRegister : Report service instance properties fail.
+Grpc.Core.RpcException: Status(StatusCode="DeadlineExceeded", Detail="")
+   at SkyApm.Transport.Grpc.V8.ServiceRegister.<>c__DisplayClass9_0.<<ReportInstancePropertiesAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at SkyApm.Transport.Grpc.Common.Call.Execute[T](Func`1 task, Func`1 errCallback, Func`1 errMessage)
+2025-10-22 09:34:11.960 +08:00 [arswebapiservice001] [Warning] SkyApm.Transport.Grpc.ConnectionManager : Connection state changed. Status(StatusCode="DeadlineExceeded", Detail="")
+2025-10-22 09:34:16.938 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Shutdown connection[172.20.64.1:11800].
+2025-10-22 09:34:16.938 +08:00 [arswebapiservice001] [Information] SkyApm.Transport.Grpc.ConnectionManager : Connected server[172.20.64.1:11800].

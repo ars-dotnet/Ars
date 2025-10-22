@@ -1,6 +1,6 @@
 ﻿using Ars.Common.Core.Configs;
+using Duende.IdentityServer.Validation;
 using IdentityServer4.AccessTokenValidation;
-using IdentityServer4.Validation;
 using Microsoft.AspNetCore.Authorization;
 using System;
 using System.Collections.Generic;

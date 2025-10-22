@@ -1,6 +1,4 @@
-﻿using IdentityServer4.Models;
-using IdentityServer4.Stores;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,11 +6,13 @@ using System.Text;
 using System.Threading.Tasks;
 using Ars.Commom.Tool.Extension;
 using Ars.Common.IdentityServer4.options;
-using IdentityServer4.Services;
 using Microsoft.IdentityModel.Tokens;
 using System.Security.Cryptography.X509Certificates;
 using Ars.Common.Core.Configs;
 using IdentityServer4;
+using Duende.IdentityServer.Models;
+using Duende.IdentityServer.Stores;
+using Duende.IdentityServer.Services;
 
 namespace Ars.Common.IdentityServer4.Extension
 {

@@ -76,12 +76,12 @@ namespace ArsWebApiService.Controllers
                 string[]? cc = Encoding.UTF8.GetString(Convert.FromBase64String(m[1]))?.Split(":");
                 if (cc?.Any() ?? false)
                 {
-                    using var httpclient = HttpClientProvider.CreateClient(HttpClientNames.Http);
+                    using var httpclient = HttpClientProvider.CreateClient(HttpClientNames.Https);
                     var tokenresponse = await httpclient.RequestPasswordTokenAsync(new PasswordTokenRequest
                     {
                         ClientId = cc[0],
                         ClientSecret = cc[1],
-                        Scope = "grpcapi-scope",
+                        //Scope = "grpcapi-scope",
                         GrantType = "password",
                         Address = $"{ArsConfiguration.ArsIdentityClientConfiguration!.Authority}/connect/token",
                         UserName = input.UserName,
@@ -116,7 +116,7 @@ namespace ArsWebApiService.Controllers
                 string[]? cc = Encoding.UTF8.GetString(Convert.FromBase64String(m[1]))?.Split(":");
                 if (cc?.Any() ?? false)
                 {
-                    using var httpclient = HttpClientProvider.CreateClient(HttpClientNames.Http);
+                    using var httpclient = HttpClientProvider.CreateClient(HttpClientNames.Https);
                     var tokenresponse = await httpclient.RequestRefreshTokenAsync(new RefreshTokenRequest
                     {
                         ClientId = cc[0],
@@ -124,7 +124,7 @@ namespace ArsWebApiService.Controllers
                         RefreshToken = input.Refresh_token,
                         Scope = "grpcapi-scope",
                         GrantType = "refresh_token",
-                        Address = "http://localhost:5105/connect/token"
+                        Address = "https://localhost:5105/connect/token"
                     });
 
                     if (tokenresponse.IsError)

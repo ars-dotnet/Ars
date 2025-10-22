@@ -1,8 +1,8 @@
 ﻿using Ars.Common.Core.AspNetCore;
-using IdentityModel;
-using IdentityServer4.Models;
-using IdentityServer4.Test;
-using IdentityServer4.Validation;
+using Duende.IdentityModel;
+using Duende.IdentityServer.Models;
+using Duende.IdentityServer.Test;
+using Duende.IdentityServer.Validation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -58,7 +58,9 @@ namespace Ars.Common.IdentityServer4.Validation
                 new Claim(ArsClaimTypes.UserName, username),
                 new Claim("amr", authenticationMethod),
                 new Claim("idp", identityProvider),
-                new Claim("auth_time", DateTimeExtensions.ToEpochTime(authTime).ToString(),
+                //new Claim("auth_time", DateTimeExtensions.ToEpochTime(authTime).ToString(),
+                //    "http://www.w3.org/2001/XMLSchema#integer"),
+                new Claim("auth_time", new DateTimeOffset(authTime).ToUnixTimeSeconds().ToString(),
                     "http://www.w3.org/2001/XMLSchema#integer")
             };
             var claimsIdentity = new ClaimsIdentity(authenticationMethod);

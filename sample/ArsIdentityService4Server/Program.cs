@@ -4,8 +4,6 @@ using Ars.Commom.Tool.Certificates;
 using Ars.Common.IdentityServer4.Extension;
 using Ars.Common.SkyWalking.Extensions;
 using ArsIdentityService4Server;
-using IdentityServer4.Models;
-using IdentityServer4.Validation;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.Extensions.Options;
 using System.Net;

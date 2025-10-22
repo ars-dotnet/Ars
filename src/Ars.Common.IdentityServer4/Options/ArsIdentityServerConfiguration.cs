@@ -1,6 +1,5 @@
 ﻿using Ars.Common.Core.AspNetCore;
 using Ars.Common.Core.Configs;
-using IdentityServer4.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +7,6 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using static Ars.Common.Core.Configs.IArsIdentityServerConfiguration;
-using static IdentityServer4.IdentityServerConstants;
 
 namespace Ars.Common.IdentityServer4.options
 {

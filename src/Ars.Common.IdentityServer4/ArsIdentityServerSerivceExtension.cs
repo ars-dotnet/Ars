@@ -2,7 +2,7 @@
 using Ars.Common.Core;
 using Ars.Common.Core.Configs;
 using Ars.Common.IdentityServer4.Extension;
-using IdentityServer4.Validation;
+using Duende.IdentityServer.Validation;
 using System;
 using System.Collections.Generic;
 using System.Linq;

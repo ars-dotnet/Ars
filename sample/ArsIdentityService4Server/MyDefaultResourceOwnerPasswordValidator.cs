@@ -1,6 +1,6 @@
 ﻿using Ars.Common.Core.AspNetCore;
+using Duende.IdentityServer.Validation;
 using IdentityModel;
-using IdentityServer4.Validation;
 using System.Security.Claims;
 
 namespace ArsIdentityService4Server

@@ -3,6 +3,7 @@ using Ars.Common.Core;
 using Ars.Common.Core.Configs;
 using Ars.Common.IdentityServer4.Extension;
 using IdentityServer4.AccessTokenValidation;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using System;
 using System.Collections.Generic;
@@ -27,8 +28,8 @@ namespace Ars.Common.IdentityServer4
         public void AddService(IArsWebApplicationBuilder services)
         {
             services.AddArsIdentityClient(
-                IdentityServerAuthenticationDefaults.AuthenticationScheme,
-                _configureOptions, _configure);
+                JwtBearerDefaults.AuthenticationScheme,
+                null,null, _configure);
         }
     }
 }

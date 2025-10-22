@@ -10,7 +10,10 @@ using Topro.CombRetLine.HttpApi.Contract.MesXmlModel;
 
 namespace ArsWebApiService.WebServices
 {
-    [ServiceContract]
+    /// <summary>
+    /// 去掉返回的命名空间("xmlns= http //tempuri.org/")
+    /// </summary>
+    [ServiceContract(Namespace = "")]
     public interface IWebServices
     {
         [OperationContract]
