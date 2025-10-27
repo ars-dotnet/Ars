@@ -18,6 +18,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.JsonWebTokens;
 using Microsoft.IdentityModel.Tokens;
 using NPOI.SS.Formula.Functions;
 using System;
@@ -121,6 +122,7 @@ namespace Ars.Common.IdentityServer4.Extension
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="Exception"></exception>
+        [Obsolete]
         public static IArsWebApplicationBuilder AddArsIdentityClient(
             this IArsWebApplicationBuilder builder,
             string defaultScheme = JwtBearerDefaults.AuthenticationScheme,
@@ -221,6 +223,16 @@ namespace Ars.Common.IdentityServer4.Extension
             return builder;
         }
 
+        /// <summary>
+        /// 注册IdentityServer4认证的资源服务端
+        /// </summary>
+        /// <param name="builder"></param>
+        /// <param name="defaultScheme"></param>
+        /// <param name="configureJwt"></param>
+        /// <param name="configureIntrospection"></param>
+        /// <param name="configure"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         public static IArsWebApplicationBuilder AddArsIdentityClient(
             this IArsWebApplicationBuilder builder,
             string defaultScheme = JwtBearerDefaults.AuthenticationScheme,
@@ -241,23 +253,6 @@ namespace Ars.Common.IdentityServer4.Extension
 
             var services = builder.Services;
             services.AddSingleton<IArsIdentityClientConfiguration>(_ => option);
-
-            // Prepare shared backchannel handler if certificate configured
-            HttpMessageHandler? backChannelHandler = null;
-            if (!string.IsNullOrEmpty(option.CertificatePath))
-            {
-                var httpClientHandler = new HttpClientHandler
-                {
-                    ClientCertificateOptions = ClientCertificateOption.Manual,
-                    SslProtocols = SslProtocols.Tls12,
-                    // NOTE: DangerousAcceptAnyServerCertificateValidator kept for parity with original;
-                    // in production please validate certs correctly.
-                    ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator
-                };
-                httpClientHandler.ClientCertificates.Add(
-                    Certificate.Get(option.CertificatePath!, option.CertificatePassWord!));
-                backChannelHandler = httpClientHandler;
-            }
 
             // Default authorization policy if none provided
             if (configure == null)
@@ -288,7 +283,7 @@ namespace Ars.Common.IdentityServer4.Extension
                         ValidateIssuerSigningKey = false,
                         SignatureValidator = delegate (string token, TokenValidationParameters parameters)
                         {
-                            var jwt = new JwtSecurityToken(token);
+                            var jwt = new JsonWebToken(token);
 
                             return jwt;
                         },
@@ -297,9 +292,20 @@ namespace Ars.Common.IdentityServer4.Extension
                     if (option.JwtValidationClockSkew.HasValue)
                         options.TokenValidationParameters.ClockSkew = TimeSpan.FromSeconds(option.JwtValidationClockSkew.Value);
 
-                    if (backChannelHandler != null)
+                    if (options.RequireHttpsMetadata)
                     {
-                        options.BackchannelHttpHandler = backChannelHandler;
+                       var httpClientHandler = new HttpClientHandler
+                        {
+                            ClientCertificateOptions = ClientCertificateOption.Manual,
+                            SslProtocols = SslProtocols.Tls12,
+                            // NOTE: DangerousAcceptAnyServerCertificateValidator kept for parity with original;
+                            // in production please validate certs correctly.
+                            ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator
+                        };
+                        httpClientHandler.ClientCertificates.Add(
+                            Certificate.Get(option.CertificatePath!, option.CertificatePassWord!));
+
+                        options.BackchannelHttpHandler = httpClientHandler;
                     }
 
                     // Allow token via query string for SignalR

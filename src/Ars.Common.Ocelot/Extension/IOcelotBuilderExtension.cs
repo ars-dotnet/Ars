@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.DependencyInjection;
 using Ocelot.Configuration;
 using Ocelot.DependencyInjection;
 using Ocelot.Errors;
@@ -28,7 +29,7 @@ namespace Ars.Common.Ocelot.Extension
 
             builder.Services.AddSingleton(_ => errorMapping);
 
-            DelegatingHandler QosDelegatingHandlerDelegate(DownstreamRoute route, IOcelotLoggerFactory logger)
+            DelegatingHandler QosDelegatingHandlerDelegate(DownstreamRoute route, IHttpContextAccessor contextAccessor, IOcelotLoggerFactory logger)
             {
                 return new ArsPollyCircuitBreakingDelegatingHandler(new ArsPollyQoSProvider(route, logger), logger);
             }

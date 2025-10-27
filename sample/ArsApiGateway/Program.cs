@@ -16,12 +16,14 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddEndpointsApiExplorer();
 
+builder.Services.AddSingleton<X509CertificateDelegatingHandler>();
+
 builder.Services.AddArserviceCore(builder,config => 
 {
     config.AddArsOcelot(option => 
     {
         //下游https请求颁发证书
-        option.AddDelegatingHandler<X509CertificateDelegatingHandler>();
+        option.AddDelegatingHandler<X509CertificateDelegatingHandler>(true);
     });
 });
 

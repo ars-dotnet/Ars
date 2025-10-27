@@ -18,18 +18,18 @@ namespace Ars.Common.Ocelot
     {
         private readonly AsyncTimeoutPolicy _timeoutPolicy;
         private readonly IOcelotLogger _logger;
-        private static readonly Func<HttpResponseMessage, bool> _transientHttpStatusCodePredicate = 
-            (HttpResponseMessage response) => 
-                response.StatusCode >= HttpStatusCode.InternalServerError 
+        private static readonly Func<HttpResponseMessage, bool> _transientHttpStatusCodePredicate =
+            (HttpResponseMessage response) =>
+                response.StatusCode >= HttpStatusCode.InternalServerError
              || response.StatusCode == HttpStatusCode.RequestTimeout;
 
         public ArsPollyQoSProvider(DownstreamRoute route, IOcelotLoggerFactory loggerFactory)
         {
-            _logger = loggerFactory.CreateLogger<PollyQoSProvider>();
+            _logger = loggerFactory.CreateLogger<ArsPollyQoSProvider>();
 
-            Enum.TryParse(route.QosOptions.TimeoutStrategy, out TimeoutStrategy strategy);
+            //Enum.TryParse(route.QosOptions.TimeoutStrategy, out TimeoutStrategy strategy);
 
-            _timeoutPolicy = Policy.TimeoutAsync(TimeSpan.FromMilliseconds(route.QosOptions.TimeoutValue), strategy);
+            _timeoutPolicy = Policy.TimeoutAsync(TimeSpan.FromMilliseconds(route.QosOptions.TimeoutValue), TimeoutStrategy.Pessimistic);
 
             if (route.QosOptions.ExceptionsAllowedBeforeBreaking > 0)
             {

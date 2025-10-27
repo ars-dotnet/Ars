@@ -2,6 +2,7 @@
 using Ocelot.Infrastructure.Extensions;
 using Ocelot.Logging;
 using Ocelot.Provider.Consul;
+using Ocelot.Provider.Consul.Interfaces;
 using Ocelot.ServiceDiscovery.Providers;
 using Ocelot.Values;
 using System;
@@ -26,7 +27,7 @@ namespace Ars.Common.Ocelot
             _consul = clientFactory.Get(_config);
         }
 
-        public async Task<List<Service>> Get()
+        public async Task<List<Service>> GetAsync()
         {
             var queryResult = await _consul.Health.Service(_config.KeyOfServiceInConsul, string.Empty, true);
 

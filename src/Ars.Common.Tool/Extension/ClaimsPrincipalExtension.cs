@@ -12,7 +12,7 @@ namespace Ars.Common.Tool.Extension
     {
         public static bool Logined(this ClaimsPrincipal claimsPrincipal)
         {
-            return claimsPrincipal.Claims.FirstOrDefault(r => r.Type.Equals("sub"))?.Value?.IsNotNullOrEmpty() ?? false;
+            return claimsPrincipal.Claims.FirstOrDefault(r => r.Type.Equals(ClaimTypes.NameIdentifier))?.Value?.IsNotNullOrEmpty() ?? false;
         }
 
         public static string? GetValue(this ClaimsPrincipal claimsPrincipal, string key) 

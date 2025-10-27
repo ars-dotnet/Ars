@@ -11,7 +11,7 @@ namespace Ars.Common.Core.AspNetCore.Extensions
     {
         public static string? GetUserId(this HttpContext httpContext) 
         {
-            return httpContext?.User?.Claims?.FirstOrDefault(r => r.Type == ArsClaimTypes.UserId)?.Value ?? null;
+            return httpContext?.User?.Claims?.FirstOrDefault(r => r.Type == ArsClaimTypes.GetUserId)?.Value ?? null;
         }
 
         public static string? GetUserName(this HttpContext httpContext)

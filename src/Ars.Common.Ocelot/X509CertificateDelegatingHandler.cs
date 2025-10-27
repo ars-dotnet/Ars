@@ -38,23 +38,43 @@ namespace Ars.Common.Ocelot
             }
 
             // inner is HttpClientHandler
-            if (inner is HttpClientHandler httpClientHandler)
+            //if (inner is HttpClientHandler httpClientHandler)
+            //{
+            //    if (httpClientHandler.ClientCertificateOptions != ClientCertificateOption.Automatic)
+            //    {
+            //        httpClientHandler.SslProtocols = SslProtocols.Tls12;
+
+            //        httpClientHandler.ClientCertificates.Add(
+            //            Certificate.Get(
+            //                _arsBasicConfiguration.Value.CertificatePath!,
+            //                _arsBasicConfiguration.Value.CertificatePassWord!)
+            //            );
+
+            //        httpClientHandler.ServerCertificateCustomValidationCallback =
+            //            HttpClientHandler.DangerousAcceptAnyServerCertificateValidator;
+
+            //        httpClientHandler.ClientCertificateOptions = ClientCertificateOption.Automatic;
+            //    }
+            //}
+
+            if (inner is SocketsHttpHandler _)
             {
-                if (httpClientHandler.ClientCertificateOptions != ClientCertificateOption.Automatic)
-                {
-                    httpClientHandler.SslProtocols = SslProtocols.Tls12;
-                    
-                    httpClientHandler.ClientCertificates.Add(
-                        Certificate.Get(
-                            _arsBasicConfiguration.Value.CertificatePath!,
-                            _arsBasicConfiguration.Value.CertificatePassWord!)
-                        );
-                    
-                    httpClientHandler.ServerCertificateCustomValidationCallback =
-                        HttpClientHandler.DangerousAcceptAnyServerCertificateValidator;
-                    
-                    httpClientHandler.ClientCertificateOptions = ClientCertificateOption.Automatic;
-                }
+                HttpClientHandler httpClientHandler = new HttpClientHandler();
+
+                httpClientHandler.SslProtocols = SslProtocols.Tls12;
+
+                httpClientHandler.ClientCertificates.Add(
+                    Certificate.Get(
+                        _arsBasicConfiguration.Value.CertificatePath!,
+                        _arsBasicConfiguration.Value.CertificatePassWord!)
+                    );
+
+                httpClientHandler.ServerCertificateCustomValidationCallback =
+                    HttpClientHandler.DangerousAcceptAnyServerCertificateValidator;
+
+                httpClientHandler.ClientCertificateOptions = ClientCertificateOption.Automatic;
+
+                InnerHandler = httpClientHandler;
             }
 
             return base.SendAsync(request, cancellationToken);

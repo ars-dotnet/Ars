@@ -66,7 +66,7 @@ namespace Ars.Common.Ocelot.Extension
             }
 
             //polly
-            if (ocelotRoutesConfig.Any(r =>
+            if (ocelotRoutesConfig!.Any(r =>
                 null != r.QoSOptions &&
                 r.QoSOptions.TimeoutValue > 0 &&
                 r.QoSOptions.ExceptionsAllowedBeforeBreaking > 0)) 

@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 
 namespace Ars.Common.Cap
 {
@@ -17,12 +18,15 @@ namespace Ars.Common.Cap
         public ArsCapPublisher(ICapPublisher capPublisher,ILoggerFactory loggerFactory)
         {
             _capPublisher = capPublisher;
+
+            Transaction = _capPublisher.Transaction;
+
             _logger = loggerFactory.CreateLogger<ArsCapPublisher>();
         }
 
         public IServiceProvider ServiceProvider => _capPublisher.ServiceProvider;
 
-        public AsyncLocal<ICapTransaction> Transaction => _capPublisher.Transaction;
+        public ICapTransaction? Transaction { get; set; }
 
         public void Publish<T>(string name, T? contentObj, string? callbackName = null)
         {

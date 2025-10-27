@@ -9,9 +9,11 @@ namespace Ars.Common.Core.AspNetCore
 {
     public class ArsClaimTypes
     {
-        public const string UserId = "sub";
+        public const string SetUserId = "sub";
 
-        public const string UserName = ClaimTypes.NameIdentifier;
+        public const string GetUserId = ClaimTypes.NameIdentifier;
+
+        public const string UserName = ClaimTypes.Name;
 
         public const string Role = ClaimTypes.Role;
 

@@ -1,5 +1,4 @@
 ﻿using Ars.Common.EFCore.Entities;
-using AutoMapper.Configuration.Annotations;
 using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
 

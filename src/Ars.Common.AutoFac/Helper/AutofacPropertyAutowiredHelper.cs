@@ -199,13 +199,13 @@ namespace Ars.Common.AutoFac.Helper
             return GetComponentRegistryServicesFunc.Value(componentRegistry);
         }
 
-        private static readonly Lazy<Func<IComponentRegistryServices, ConcurrentBag<IComponentRegistration>>>
+        private static readonly Lazy<Func<IComponentRegistryServices, ConcurrentQueue<IComponentRegistration>>>
             GetAllRegistrationFunc =
                 new(() =>
                 {
                     var assembly = typeof(IComponentRegistry).Assembly;
 
-                    var tar = Expression.Label(typeof(ConcurrentBag<IComponentRegistration>));
+                    var tar = Expression.Label(typeof(ConcurrentQueue<IComponentRegistration>));
 
                     var parameter = Expression.Parameter(typeof(IComponentRegistryServices));
 
@@ -230,14 +230,14 @@ namespace Ars.Common.AutoFac.Helper
 
                     var blockExpression = Expression.Block(parameter, ifThen,
                         Expression.Label(tar,
-                            Expression.Constant(null, typeof(ConcurrentBag<IComponentRegistration>))));
+                            Expression.Constant(null, typeof(ConcurrentQueue<IComponentRegistration>))));
 
-                    return Expression.Lambda<Func<IComponentRegistryServices, ConcurrentBag<IComponentRegistration>>>(
+                    return Expression.Lambda<Func<IComponentRegistryServices, ConcurrentQueue<IComponentRegistration>>>(
                         blockExpression,
                         parameter).Compile();
                 });
 
-        private static ConcurrentBag<IComponentRegistration> GetAllRegistration(IComponentRegistryServices services)
+        private static ConcurrentQueue<IComponentRegistration> GetAllRegistration(IComponentRegistryServices services)
         {
             return GetAllRegistrationFunc.Value(services);
         }

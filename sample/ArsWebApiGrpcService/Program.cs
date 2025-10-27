@@ -4,6 +4,7 @@ using Ars.Common.Consul.Extension;
 using Ars.Common.Consul.IApplicationBuilderExtension;
 using Ars.Common.Core.AspNetCore.Extensions;
 using Ars.Common.Core.AspNetCore.Swagger;
+using Ars.Common.Core.Extensions;
 using Ars.Common.Host.Extension;
 using Ars.Common.IdentityServer4.Extension;
 using Ars.Common.SkyWalking.Extensions;
@@ -46,7 +47,8 @@ builder.Services
             .AddArsIdentityClient()
             .AddArsConsulRegisterServer()
             .AddArsSkyApm();
-    });
+    })
+    .AddArsHttpClient();
 builder.Services.AddGrpc();
 
 //builder.WebHost.UseUrls("https://127.0.0.1:5134");

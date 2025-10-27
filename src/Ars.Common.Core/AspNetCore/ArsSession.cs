@@ -17,7 +17,7 @@ namespace Ars.Common.Core.AspNetCore
 
         public int? UserId
         {
-            get => int.TryParse(_principalAccessor.claimsPrincipal?.Claims?.FirstOrDefault(r => r.Type == ArsClaimTypes.UserId)?.Value, out int userid) ? userid : null;
+            get => int.TryParse(_principalAccessor.claimsPrincipal?.Claims?.FirstOrDefault(r => r.Type == ArsClaimTypes.GetUserId)?.Value, out int userid) ? userid : null;
             set => UserId = value; 
         }
 

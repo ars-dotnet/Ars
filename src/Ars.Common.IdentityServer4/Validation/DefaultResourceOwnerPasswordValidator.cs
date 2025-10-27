@@ -52,7 +52,7 @@ namespace Ars.Common.IdentityServer4.Validation
         {
             var source = new List<Claim>()
             {
-                new Claim(ArsClaimTypes.UserId, subject),
+                new Claim(ArsClaimTypes.SetUserId, subject),
                 new Claim(ArsClaimTypes.TenantId, tenant),
                 new Claim(ArsClaimTypes.Role, userrole),
                 new Claim(ArsClaimTypes.UserName, username),

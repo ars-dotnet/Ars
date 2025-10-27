@@ -43,6 +43,7 @@ using System.Diagnostics;
 using System;
 using ArsWebApiService.DiagnosticListeners;
 using Ars.Common.Core.Diagnostic;
+using Microsoft.Extensions.Hosting;
 
 DiagnosticListener.AllListeners.Subscribe(new Observer<DiagnosticListener>(
     listener =>
@@ -56,12 +57,16 @@ DiagnosticListener.AllListeners.Subscribe(new Observer<DiagnosticListener>(
 var builder = WebApplication.CreateBuilder(args);
 
 // add apollo service
-builder.WebHost.ConfigureAppConfiguration((hostBuilderContext, configurationBuilder) =>
-{
-    configurationBuilder
-        .AddApollo(hostBuilderContext.Configuration.GetSection("apollo"))
+//builder.WebHost.ConfigureAppConfiguration((hostBuilderContext, configurationBuilder) =>
+//{
+//    configurationBuilder
+//        .AddApollo(hostBuilderContext.Configuration.GetSection("apollo"))
+//    .AddDefault();
+//});
+
+// add apollo service
+builder.Configuration.AddApollo(builder.Configuration.GetSection("apollo"))
         .AddDefault();
-});
 
 // Add services to the container.
 var arsbuilder =
