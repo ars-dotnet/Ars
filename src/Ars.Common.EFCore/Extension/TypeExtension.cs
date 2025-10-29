@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Ars.Common.EFCore.DbContexts;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

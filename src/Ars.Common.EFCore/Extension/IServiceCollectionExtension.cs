@@ -1,6 +1,7 @@
 ﻿using Ars.Commom.Core;
 using Ars.Common.Core.Configs;
 using Ars.Common.Core.Uow.Options;
+using Ars.Common.EFCore.DbContexts;
 using Ars.Common.EFCore.EfCoreUnitOfWorks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;

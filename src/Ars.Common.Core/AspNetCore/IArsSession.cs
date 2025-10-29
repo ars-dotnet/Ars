@@ -12,4 +12,11 @@ namespace Ars.Common.Core.AspNetCore
 
         int? TenantId { get; set; }
     }
+
+    public interface IArsSession<T,K>
+    {
+        T UserId { get; set; }
+
+        K TenantId { get; set; }
+    }
 }
