@@ -24,7 +24,7 @@ using Ars.Common.Core.Diagnostic;
 using NPOI.SS.Formula.Functions;
 using Ars.Common.Core.Extensions;
 
-namespace Ars.Common.EFCore
+namespace Ars.Common.EFCore.DbContexts
 {
     public abstract class ArsDbContext : DbContext
     {

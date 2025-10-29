@@ -106,6 +106,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ars.Common.Host", "src\Ars.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArsFramworkTest", "sample\UnitTest\ArsFramworkTest\ArsFramworkTest.csproj", "{C187AE6C-7E33-410F-BBBB-F8035004AFB2}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbContextTest", "DbContextTest\DbContextTest.csproj", "{025D8800-6B87-4614-8823-8C4AA18C358B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -236,6 +240,10 @@ Global
 		{C187AE6C-7E33-410F-BBBB-F8035004AFB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C187AE6C-7E33-410F-BBBB-F8035004AFB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C187AE6C-7E33-410F-BBBB-F8035004AFB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{025D8800-6B87-4614-8823-8C4AA18C358B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{025D8800-6B87-4614-8823-8C4AA18C358B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{025D8800-6B87-4614-8823-8C4AA18C358B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{025D8800-6B87-4614-8823-8C4AA18C358B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -284,6 +292,7 @@ Global
 		{9CB64D36-B93B-40B5-BC70-A2711C570C9B} = {AB693CF8-D3C3-405A-929E-395C20BCF001}
 		{3EC40574-D28E-4DBD-817E-709696213A81} = {AB693CF8-D3C3-405A-929E-395C20BCF001}
 		{C187AE6C-7E33-410F-BBBB-F8035004AFB2} = {BB571396-6218-46FE-A57F-17C5C8045122}
+		{025D8800-6B87-4614-8823-8C4AA18C358B} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C746BF35-557D-47FE-87EF-226D0A7C8757}
