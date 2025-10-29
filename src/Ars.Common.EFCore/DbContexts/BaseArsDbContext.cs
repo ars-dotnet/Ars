@@ -244,7 +244,18 @@ namespace Ars.Common.EFCore.DbContexts
             if (onlySetIfDefault)
             {
                 var currentValue = propertyInfo.GetValue(entity);
-                if (currentValue != null && !currentValue.Equals(default)) return;
+                var propertyType = propertyInfo.PropertyType;
+
+                object? defaultValue = null;
+                if (propertyType.IsValueType)
+                {
+                    defaultValue = Activator.CreateInstance(propertyType);
+                }
+
+                if (!object.Equals(currentValue, defaultValue))
+                {
+                    return;
+                }
             }
 
             if (propertyInfo.PropertyType.IsAssignableFrom(typeof(TUserId)))
@@ -259,13 +270,7 @@ namespace Ars.Common.EFCore.DbContexts
                     var convertedValue = Convert.ChangeType(ArsSession.UserId, targetType);
                     propertyInfo.SetValue(entity, convertedValue);
                 }
-                //catch (Exception)
-                //{
-                //    //看实际情况添加处理
-                //}
-                finally
-                {
-                }
+                catch (Exception) { }
             }
         }
 
