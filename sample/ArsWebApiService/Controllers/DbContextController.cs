@@ -171,26 +171,47 @@ namespace MyApiWithIdentityServer4.Controllers
 
         [HttpPost]
         [UnitOfWork(IsDisabled = true)]
+        [Authorize("default")]
         public async Task<IActionResult> TestDefaultUOW()
         {
-            using var scope = UnitOfWorkManager.Begin();
-            var info = await Repo.FirstOrDefaultAsync(r => r.LastName.Equals("TestUowDefault11"));
-            info!.LastName = "TestUowDefault12";
+            //using var scope = UnitOfWorkManager.Begin();
+            //var info = await Repo.FirstOrDefaultAsync(r => r.LastName.Equals("TestUowDefault11"));
+            //info!.LastName = "TestUowDefault12";
 
-            var a = await Repo.CountAsync(r => r.LastName.Equals("TestUowDefault11"));
+            //var a = await Repo.CountAsync(r => r.LastName.Equals("TestUowDefault11"));
 
-            await UnitOfWorkManager.Current.SaveChangesAsync();
+            //await UnitOfWorkManager.Current.SaveChangesAsync();
 
-            a = await Repo.CountAsync(r => r.LastName.Equals("TestUowDefault11"));
-            await scope.CompleteAsync();
-            return Ok(a);
+            //a = await Repo.CountAsync(r => r.LastName.Equals("TestUowDefault11"));
+            //await scope.CompleteAsync();
+
+            //a = await Repo.CountAsync(r => r.LastName.Equals("TestUowDefault11"));
+
+            //return Ok(a);
+
+            var data = await Repo.FirstOrDefaultAsync(r => r.Id.Equals(Guid.Parse("05db0cc6-8f4d-4d15-b3d0-21ac0dc73335")));
+
+            await Repo.DeleteAsync(data!);
+
+            await Repo.SaveChangesAsync();
+
+            data = await Repo.FirstOrDefaultAsync(r => r.Id.Equals(Guid.Parse("05db0cc6-8f4d-4d15-b3d0-21ac0dc73335")));
+
+            data = await Repo.GetAll().AsNoTracking().FirstOrDefaultAsync(r => r.Id.Equals(Guid.Parse("05db0cc6-8f4d-4d15-b3d0-21ac0dc73335")));
+
+            data = await Repo.GetAll().IgnoreQueryFilters().FirstOrDefaultAsync(r => r.Id.Equals(Guid.Parse("05db0cc6-8f4d-4d15-b3d0-21ac0dc73335")));
+
+            return Ok();
         }
 
         #endregion
 
         #region DbContext with Custome Transaction
 
-
+        /// <summary>
+        /// Required时 外层事务提交才会真正提交到数据库
+        /// </summary>
+        /// <returns></returns>
         [HttpPost(nameof(TestUowRequired))]
         public async Task TestUowRequired()
         {
@@ -205,7 +226,10 @@ namespace MyApiWithIdentityServer4.Controllers
             await scope1.CompleteAsync();
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
 
         [HttpPost(nameof(TestSuppress))]
         public async Task TestSuppress()
@@ -658,8 +682,8 @@ namespace MyApiWithIdentityServer4.Controllers
             using var scope = await DbExecuter.BeginTransactionAsync();
             var guids = new Guid[]
             {
-                new Guid("9dc35d1c-da51-4a6d-a3be-df299e2fa88a"),
-                new Guid("b0d7a84f-c0f2-42f3-964c-93ff84ca47c4")
+                new Guid("08de15ff-13f5-4e45-83ae-d8fde68ac82a"),
+                new Guid("08cd3d3f-c5f0-4485-b96a-c6365b0777c1")
             };
             List<MySqlParameter> sqlParameters = new List<MySqlParameter>
             {
@@ -676,8 +700,8 @@ namespace MyApiWithIdentityServer4.Controllers
             var count = await DbExecuter.ExecuteNonQuery(sql, sqlParameters.ToArray());
 
             var guids1 = new Guid[] {
-                new Guid("9dc35d1c-da51-4a6d-a3be-df299e2fa88a"),
-                new Guid("b0d7a84f-c0f2-42f3-964c-93ff84ca47c4")
+                new Guid("08de15ff-13f5-4e45-83ae-d8fde68ac82a"),
+                new Guid("08cd3d3f-c5f0-4485-b96a-c6365b0777c1")
             };
             List<MySqlParameter> sqlParameters1 = new List<MySqlParameter>();
             StringBuilder ids1 = new();
@@ -700,7 +724,7 @@ namespace MyApiWithIdentityServer4.Controllers
         [HttpPost]
         public async Task<IActionResult> AdoNetDelete()
         {
-            var guids = new Guid[] { new Guid("9dc35d1c-da51-4a6d-a3be-df299e2fa88a") };
+            var guids = new Guid[] { new Guid("08de15ff-13f5-4e45-83ae-d8fde68ac82a") };
             List<MySqlParameter> sqlParameters = new List<MySqlParameter>();
             StringBuilder ids = new();
             for (var i = 0; i < guids.Count(); i++)

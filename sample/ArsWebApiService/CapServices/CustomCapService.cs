@@ -2,6 +2,7 @@
 using Ars.Common.Core.IDependency;
 using Ars.Common.EFCore.Repository;
 using MyApiWithIdentityServer4.Model;
+using Newtonsoft.Json.Linq;
 
 namespace ArsWebApiService.CapServices
 {
@@ -17,7 +18,19 @@ namespace ArsWebApiService.CapServices
         [ArsCapSubscribe("cap.uowtest",isPartial:true)]
         public async Task SubscribeWithTransaction(string name) 
         {
-            var info = await _stuRepo.FirstOrDefaultAsync(r => r.FirstMidName.Equals("aabb1212"));
+            var info = await _stuRepo.FirstOrDefaultAsync(r => r.FirstMidName.Equals("aabb121212"));
+            info!.LastName = name;
+
+            return;
+        }
+
+        [ArsCapSubscribe("cap.publish", isPartial: true)]
+        public async Task SubscribeWithTransaction1(object msg)
+        {
+            var info = await _stuRepo.FirstOrDefaultAsync(r => r.FirstMidName.Equals("aabb121212"));
+
+            string name = JObject.Parse(msg.ToString()!).GetValue("name")!.ToString();
+
             info!.LastName = name;
 
             return;

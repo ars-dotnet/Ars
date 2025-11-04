@@ -36,7 +36,7 @@ namespace ArsWebApiService.Controllers
         [ApiVersion("2.0")]
         public async Task PuhlishAsyncv2([FromServices] IArsCapPublisher arsCapPublisher)
         {
-            await arsCapPublisher.PublishAsync("ars.cap.publish", new { name = "ars", age = 30 });
+            await arsCapPublisher.PublishAsync("ars.cap.publish", new { name = "ars", age = 31 });
         }
 
         /// <summary>
