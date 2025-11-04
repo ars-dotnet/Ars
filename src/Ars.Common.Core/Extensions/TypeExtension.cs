@@ -1,14 +1,15 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Ars.Commom.Tool.Extension;
+using Ars.Common.Core.Excels.ExportExcel;
+using Ars.Common.Core.Excels.UploadExcel;
+using Ars.Common.Core.Excels.UploadExcel.Validation;
+using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using Ars.Commom.Tool.Extension;
-using Ars.Common.Core.Excels.UploadExcel.Validation;
-using Ars.Common.Core.Excels.UploadExcel;
-using Ars.Common.Core.Excels.ExportExcel;
 
 namespace Ars.Common.Core.Extensions
 {
@@ -71,6 +72,31 @@ namespace Ars.Common.Core.Extensions
             }
 
             return datas;
+        }
+
+        private static readonly ConcurrentDictionary<(Type, Type), bool> _assignableToGenericTypeCache = new();
+
+        /// <summary>
+        /// (Cached) Checks if a type can be assigned to a specified open generic interface type.
+        /// </summary>
+        /// <param name="typeToCheck">The type to check.</param>
+        /// <param name="genericInterface">The open generic interface type (e.g., typeof(IEntity<>)).</param>
+        /// <returns>True if the type implements the generic interface; otherwise, false.</returns>
+        public static bool IsAssignableToGenericType(this Type typeToCheck, Type genericInterface)
+        {
+            var cacheKey = (typeToCheck, genericInterface);
+
+            if (_assignableToGenericTypeCache.TryGetValue(cacheKey, out var isAssignable))
+            {
+                return isAssignable;
+            }
+
+            var result = typeToCheck.GetInterfaces().Any(it => it.IsGenericType && it.GetGenericTypeDefinition() == genericInterface)
+                         || typeToCheck.BaseType != null && typeToCheck.BaseType.IsAssignableToGenericType(genericInterface);
+
+            _assignableToGenericTypeCache[cacheKey] = result;
+
+            return result;
         }
     }
 }

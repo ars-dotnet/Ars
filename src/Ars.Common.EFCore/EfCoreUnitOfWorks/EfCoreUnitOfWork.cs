@@ -17,6 +17,7 @@ using Ars.Common.Core.Diagnostic;
 using System.Diagnostics;
 using Ars.Common.Core.Configs;
 using Ars.Common.Core.Uow.Options;
+using Ars.Common.EFCore.DbContexts;
 
 namespace Ars.Common.EFCore.EfCoreUnitOfWorks
 {

@@ -1,4 +1,4 @@
-﻿using Ars.Common.EFCore;
+﻿using Ars.Common.EFCore.DbContexts;
 using ArsWebApiService.Model.MyCatModel;
 using Microsoft.EntityFrameworkCore;
 using Task = ArsWebApiService.Model.MyCatModel.Task;

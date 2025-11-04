@@ -10,4 +10,9 @@ namespace Ars.Common.EFCore.Entities
     {
         int? TenantId { get; set; }
     }
+
+    public interface IHaveTenant<K>
+    {
+        K? TenantId { get; set; }
+    }
 }

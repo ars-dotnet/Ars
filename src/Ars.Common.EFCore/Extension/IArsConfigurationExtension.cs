@@ -1,5 +1,6 @@
 ﻿using Ars.Commom.Core;
 using Ars.Common.Core.Configs;
+using Ars.Common.EFCore.DbContexts;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
