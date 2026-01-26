@@ -5,6 +5,11 @@
         public string PlanNumber { get; set; }
     }
 
+    public class TestInput 
+    {
+        public string PlanNumber { get; set; }
+    }
+
     public class GetPageOutput
     {
         /// <summary>

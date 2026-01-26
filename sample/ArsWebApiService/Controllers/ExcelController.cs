@@ -1,6 +1,8 @@
 ﻿using Ars.Common.Core.Configs;
 using Ars.Common.Core.Excels.ExportExcel;
 using Ars.Common.Core.Excels.UploadExcel;
+using Ars.Common.Core.Uow;
+using Ars.Common.Core.Uow.Attributes;
 using ArsWebApiService.Controllers.BaseControllers;
 using ArsWebApiService.Dtos;
 using Microsoft.AspNetCore.Mvc;
@@ -14,7 +16,7 @@ namespace ArsWebApiService.Controllers
     public class ExcelController : ArsWebApiBaseController
     {
         private readonly IExportManager _exportManager;
-        
+
         public ExcelController(IExportManager exportManager)
         {
             _exportManager = exportManager;
@@ -23,10 +25,14 @@ namespace ArsWebApiService.Controllers
         /// <summary>
         /// 导出excel
         /// </summary>
+        /// <param name="unitOfWorkManager"></param>
         /// <param name="input"></param>
         /// <returns></returns>
         [HttpPost]
-        public Task<FileStreamResult> Export([FromBody]ExportExcelInput input) 
+        [UnitOfWork(IsDisabled = true)]
+        public Task<FileStreamResult> Export(
+            [FromServices] IUnitOfWorkManager unitOfWorkManager,
+            [FromBody]ExportExcelInput input) 
         {
             return _exportManager.GetExcel(input);
         }

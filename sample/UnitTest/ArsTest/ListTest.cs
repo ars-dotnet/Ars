@@ -1,4 +1,6 @@
 ﻿using Ars.Commom.Tool.Extension;
+using ArsWebApiService.Dtos;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +12,24 @@ namespace ArsTest
 {
     public class ListTest
     {
+        [Fact]
+        public void Testx() 
+        {
+            Search<TestInput> input = new Search<TestInput>
+            {
+                Data = new TestInput 
+                {
+                    PlanNumber = "123",
+                },
+                PageIndex = 1,
+                PageSize = 10
+            };
+
+            var d = JsonConvert.SerializeObject(input);
+
+            var xx = "{\"Data\":{\"PlanNumber\":\"123\"},\"PageIndex\":1,\"PageSize\":10}";
+        }
+
         [Fact]
         public void TestIntersect()
         {

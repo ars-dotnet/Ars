@@ -1,9 +1,15 @@
 ﻿using Ars.Common.Core.AspNetCore.OutputDtos;
 using Ars.Common.Core.Excels.ExportExcel;
+using Ars.Common.Core.IDependency;
+using Ars.Common.Core.Uow.Attributes;
+using Ars.Common.EFCore.Repository;
 using ArsWebApiService.Controllers.BaseControllers;
 using ArsWebApiService.Dtos;
+using ArsWebApiService.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using MyApiWithIdentityServer4.Model;
 using Newtonsoft.Json;
 
 namespace ArsWebApiService.Controllers.H5Controllers
@@ -11,6 +17,35 @@ namespace ArsWebApiService.Controllers.H5Controllers
     [ExportController]
     public class H5PlanController : ArsWebApiBaseController
     {
+        [Autowired]
+        public IRepository<Student, Guid> Repo { get; set; }
+
+        [HttpGet]
+        [ExportAction]
+        [UnitOfWork(IsDisabled = true)]
+        public async Task<ArsOutput<PageOutput<Student>>> GetList([FromQuery] Search<TestInput> input) 
+        {
+            var count = await Repo.CountAsync();
+
+            var list = await Repo.GetAll().Skip((input.PageIndex - 1) * input.PageSize).Take(input.PageSize).ToListAsync();
+
+            return new ArsOutput<PageOutput<Student>>(new PageOutput<Student>(count,list));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="taskService"></param>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public Task<ArsOutput<PageOutput<Student>>> GetLists(
+            [FromServices] ITaskService taskService,
+            [FromQuery] Search<TestInput> input) 
+        {
+            return taskService.GetList(input);
+        }
+
         [ExportAction]
         [HttpGet]
         [Authorize("default")]
@@ -71,7 +106,7 @@ namespace ArsWebApiService.Controllers.H5Controllers
 
         [ExportAction]
         [HttpGet]
-        public ArsOutput<IEnumerable<GetPageOutput>> GetPage([FromQuery]GetPageInput input) 
+        public ArsOutput<IEnumerable<GetPageOutput>> GetPage([FromQuery] Search<TestInput> input) 
         {
             string a = JsonConvert.SerializeObject(input);
 

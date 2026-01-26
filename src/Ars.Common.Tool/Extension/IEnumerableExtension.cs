@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Reflection;
 using System.Text;
 
@@ -66,6 +67,16 @@ namespace Ars.Commom.Tool.Extension
                     yield return item;
                 }
             }
+        }
+
+        public static IEnumerable<T> WhereIf<T>(this IEnumerable<T> source, Func<T, bool> predicate, bool condition)
+        {
+            return condition ? source.Where(predicate) : source;
+        }
+
+        public static IQueryable<T> WhereIf<T>(this IQueryable<T> source, Expression<Func<T, bool>> predicate, bool condition)
+        {
+            return condition ? source.Where(predicate) : source;
         }
     }
 }

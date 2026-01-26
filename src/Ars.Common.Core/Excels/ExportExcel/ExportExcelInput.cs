@@ -8,7 +8,9 @@ namespace Ars.Common.Core.Excels.ExportExcel
 {
     public class ExportExcelInput
     {
-        public string ControllerName { get; set; }
+        public string? ControllerName { get; set; }
+
+        public string? ServiceName { get; set; }
 
         public string ActionName { get; set; }
 
@@ -25,7 +27,9 @@ namespace Ars.Common.Core.Excels.ExportExcel
         public string Title { get; set; }
 
         /// <summary>
-        /// 头信息
+        /// 头信息 
+        /// 名称:{"起始列","结束列"}
+        /// eg:"开始": {"Item1":0,"Item2":1},
         /// </summary>
         public IDictionary<string, (int, int)> Header { get; set; }
 

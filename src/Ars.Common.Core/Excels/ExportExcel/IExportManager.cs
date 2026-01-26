@@ -1,4 +1,5 @@
-﻿using Ars.Common.Tool.Tools;
+﻿using Ars.Common.Core.IDependency;
+using Ars.Common.Tool.Tools;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections;

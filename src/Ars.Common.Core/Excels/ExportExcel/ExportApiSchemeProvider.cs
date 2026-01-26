@@ -64,5 +64,46 @@ namespace Ars.Common.Core.Excels.ExportExcel
                     }
                 });
         }
+
+        public void SetExportServiceApiSchemed(Assembly assembly)
+        {
+            Array.ForEach(assembly.DefinedTypes.Select(t => t.AsType()).Where(r => r.IsExportService()).ToArray(),
+                t =>
+                {
+                    ExportApiScheme? exportApiScheme = null;
+                    ExportMethodScheme? exportMethodScheme = null;
+                    IDictionary<string, Type>? param = null;
+                    List<ExportMethodScheme> methodSchemes = new List<ExportMethodScheme>(0);
+
+                    foreach (var @method in t.GetMethods(BindingFlags.Instance | BindingFlags.Public)
+                                             .Where(r => r.IsDefined(typeof(ExportActionAttribute), false)))
+                    {
+                        if (methodSchemes.Any(r => r.ActionName.Equals(@method.Name)))
+                        {
+                            Valid.ThrowException($"注入导出服务失败,控制器:{t.Name}存在相同名称的可导出方法:{@method.Name}");
+                        }
+
+                        param = new Dictionary<string, Type>();
+                        foreach (var p in @method.GetParameters())
+                        {
+                            param.Add(p.Name!, p.ParameterType);
+                        }
+
+                        exportMethodScheme = new ExportMethodScheme(
+                            @method.Name,
+                            @method,
+                            typeof(Task<>).IsAssignableGenericFrom(@method.ReturnType),
+                            param,
+                            @method.ReturnType.GetTaskActuallyType());
+                        methodSchemes.Add(exportMethodScheme);
+                    }
+
+                    if (methodSchemes.Any())
+                    {
+                        exportApiScheme = new ExportApiScheme(t, methodSchemes);
+                        apis.Add(t.Name, exportApiScheme);
+                    }
+                });
+        }
     }
 }

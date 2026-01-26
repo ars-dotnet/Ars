@@ -1,5 +1,7 @@
 ﻿using Ars.Commom.Tool.Extension;
 using Ars.Common.Core.Extensions;
+using Ars.Common.Core.Uow;
+using Ars.Common.Core.Uow.Impl;
 using Ars.Common.Tool;
 using Ars.Common.Tool.Extension;
 using Ars.Common.Tool.Tools;
@@ -20,23 +22,43 @@ namespace Ars.Common.Core.Excels.ExportExcel
         private readonly IExportApiSchemeProvider _schemeProvider;
         private readonly IServiceProvider _serviceProvider;
         private readonly IXmlFileManager _xmlFileManager;
+        private readonly IUnitOfWorkManager _unitOfWorkManager;
 
         public ExportManager(
             IExportApiSchemeProvider schemeProvider,
             IServiceProvider serviceProvider,
-            IXmlFileManager xmlFileManager)
+            IXmlFileManager xmlFileManager,
+            IUnitOfWorkManager unitOfWorkManager)
         {
             _schemeProvider = schemeProvider;
             _serviceProvider = serviceProvider;
             _xmlFileManager = xmlFileManager;
+            _unitOfWorkManager = unitOfWorkManager;
         }
 
         public virtual async Task<FileStreamResult> GetExcel(ExportExcelInput input)
         {
-            var apischeme = _schemeProvider.GetExportApiScheme(input.ControllerName);
-            Valid.ThrowException(null == apischeme, "控制器没有注册，请添加[ExportControllerAttribute]特性至控制器");
+            ExportApiScheme? apischeme = null;
+
+            if (input.ControllerName.IsNotNullOrEmpty())
+            {
+                apischeme = _schemeProvider.GetExportApiScheme(input.ControllerName!);
+
+                Valid.ThrowException(null == apischeme, $"控制器没有注册，请添加[{nameof(ExportControllerAttribute)}]特性至控制器");
+            }
+            else if (input.ServiceName.IsNotNullOrEmpty())
+            {
+                apischeme = _schemeProvider.GetExportApiScheme(input.ServiceName!);
+
+                Valid.ThrowException(null == apischeme, $"服务没有注册，请添加[{nameof(ExportServiceAttribute)}]特性至服务接口");
+            }
+            else 
+            {
+                Valid.ThrowException($"服务没有注册，请添加[{nameof(ExportServiceAttribute)}]特性至服务接口");
+            }
+
             var methodscheme = apischeme!.MethodSchemes?.FirstOrDefault(r => r.ActionName.Equals(input.ActionName));
-            Valid.ThrowException(null == methodscheme, "方法没有注册，请添加[ExportActionAttribute]特性至方法");
+            Valid.ThrowException(null == methodscheme, $"方法没有注册，请添加[{nameof(ExportActionAttribute)}]特性至方法");
 
             using var scope = _serviceProvider.CreateScope();
             var apinstance = scope.ServiceProvider.GetRequiredService(apischeme.ControllerType);
@@ -65,6 +87,8 @@ namespace Ars.Common.Core.Excels.ExportExcel
             }
             Valid.ThrowException(@params.Count != methodscheme.Params.Count, "参数个数不匹配");
 
+            using var transScope = _unitOfWorkManager.Begin();
+
             var result = methodscheme!.IsAsync
                 ? await methodscheme.MethodInfo.InvokeAsync(apinstance!, @params.ToArray())
                 : methodscheme.MethodInfo.Invoke(apinstance!, @params.ToArray());
@@ -72,8 +96,10 @@ namespace Ars.Common.Core.Excels.ExportExcel
 
             //返回值转IEnumerable
             IEnumerable? list = ToEnumerable(result!, methodscheme.ReturnType, input.ReturnEnumerablePropertyName, out Type? itemtype);
-            Valid.ThrowException(null == list, "结果转集合失败");
             Valid.ThrowException(null == itemtype, "获取集合泛型具体类型失败");
+
+            if (null == list)
+                list = Array.CreateInstance(itemtype!, 0);
 
             //导出列组装
             if (!input.Column.HasValue())
@@ -82,7 +108,7 @@ namespace Ars.Common.Core.Excels.ExportExcel
             }
 
             //生成excel
-            return ExportExcel(new ExcelExportScheme
+            var excel = ExportExcel(new ExcelExportScheme
             {
                 ExportFileName = input.ExportFileName,
                 Title = input.Title,
@@ -91,6 +117,10 @@ namespace Ars.Common.Core.Excels.ExportExcel
                 List = list!,
                 ItemType = itemtype!
             });
+
+            await transScope.CompleteAsync();
+
+            return excel;
         }
 
         /// <summary>
@@ -113,19 +143,28 @@ namespace Ars.Common.Core.Excels.ExportExcel
             else if (returnType.IsClass && typeof(string) != returnType)
             {
                 PropertyInfo? propertyInfo = null;
+                var type = returnType;
                 if (!returnEnumerablePropertyName.IsNullOrEmpty())
                 {
-                    propertyInfo = returnType.GetProperty(returnEnumerablePropertyName);
-                    Valid.ThrowException(null == propertyInfo, $"获取查询结果属性[{returnEnumerablePropertyName}]失败");
+                    foreach (var propertyName in returnEnumerablePropertyName.Split("."))
+                    {
+                        propertyInfo = type.GetProperty(propertyName);
+
+                        Valid.ThrowException(null == propertyInfo, $"获取查询结果属性[{propertyName}]失败");
+
+                        type = propertyInfo!.PropertyType;
+
+                        value = propertyInfo.GetValue(value)!;
+                    }
 
                     if (typeof(IEnumerable<>).IsAssignableGenericFrom(propertyInfo!.PropertyType))
                     {
-                        list = propertyInfo.GetValue(value)!.As<IEnumerable>()!;
+                        list = value!.As<IEnumerable>()!;
                         itemType = propertyInfo!.PropertyType.GetGenericArguments()[0];
                     }
                     else
                     {
-                        list = new List<object> { propertyInfo.GetValue(value)! };
+                        list = new List<object> { value };
                         itemType = propertyInfo!.PropertyType;
                     }
                 }
@@ -149,6 +188,9 @@ namespace Ars.Common.Core.Excels.ExportExcel
                     }
                 }
             }
+
+            if (null == list)
+                list = Array.CreateInstance(itemType!, 0);
 
             return list;
         }

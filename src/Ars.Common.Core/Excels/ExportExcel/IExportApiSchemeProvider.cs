@@ -12,5 +12,7 @@ namespace Ars.Common.Core.Excels.ExportExcel
         ExportApiScheme? GetExportApiScheme(string key);
 
         void SetExportApiSchemed(Assembly assembly);
+
+        void SetExportServiceApiSchemed(Assembly assembly);
     }
 }

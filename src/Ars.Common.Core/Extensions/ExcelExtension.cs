@@ -34,6 +34,8 @@ namespace Ars.Common.Core.Extensions
 
             provider.SetExportApiSchemed(assembly);
 
+            provider.SetExportServiceApiSchemed(assembly);
+
             return arsServiceBuilder;
         }
 

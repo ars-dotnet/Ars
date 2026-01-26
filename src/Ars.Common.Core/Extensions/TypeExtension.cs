@@ -37,6 +37,12 @@ namespace Ars.Common.Core.Extensions
                 type.IsDefined(typeof(ExportControllerAttribute), true);
         }
 
+        public static bool IsExportService(this Type type)
+        {
+            return type.IsInterface &&
+                type.IsDefined(typeof(ExportServiceAttribute), true);
+        }
+
         public static Type GetTaskActuallyType(this Type type)
         {
             return typeof(Task<>).IsAssignableGenericFrom(type) ? type.GetGenericArguments()[0] : type;
