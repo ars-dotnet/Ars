@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -17,6 +18,12 @@ namespace ArsTest
             Assert.False(type.IsDefined(typeof(MyAttribute),false));
             Assert.True(type.IsDefined(typeof(MyAttribute), true));
 
+            var @method = type.GetMethod(nameof(AnimalDerivedA.GetAge));
+            foreach (var p in @method?.GetParameters() ?? Array.Empty<ParameterInfo>()) 
+            {
+                Assert.True(p.IsDefined(typeof(FromServicesAttribute), true));
+            }
+
             type = typeof(AnimalDerived).GetTypeInfo();
             int a = type.GetCustomAttributes<MyAttribute>(false).Count();
             int b = type.GetCustomAttributes<MyAttribute>(true).Count();
@@ -33,7 +40,10 @@ namespace ArsTest
 
     public class AnimalDerivedA : Animal 
     {
-
+        public int GetAge([FromServices]int top) 
+        {
+            return top / 10;
+        }
     }
 
     [My("jerry")]

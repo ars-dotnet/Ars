@@ -68,22 +68,22 @@ namespace Ars.Common.Core.Excels.ExportExcel
             //参数组装
             foreach (var p in methodscheme!.Params)
             {
+                object? param = null;
+
                 if (input.Params.TryGetValue(p.Key, out var value))
                 {
-                    bool isConvert = ConvertTool.TryChangeType(value, p.Value, out var newvalue);
-                    if (isConvert)
-                    {
-                        @params.Add(newvalue);
-                    }
-                    else
-                    {
-                        Valid.ThrowException($"参数[{p.Key}]类型转化失败");
-                    }
+                    bool isConvert = ConvertTool.TryChangeType(value, p.Value, out param);
+
+                    Valid.ThrowException(!isConvert,$"参数[{p.Key}]类型转化失败");
                 }
                 else
                 {
-                    Valid.ThrowException($"Params中未获取到参数[{p.Key}]");
+                    param = scope.ServiceProvider.GetService(p.Value);
+
+                    Valid.ThrowException(null == param,$"Params中未获取到参数[{p.Key}];如果是从容器获取，需保证参数已添加到服务");
                 }
+
+                @params.Add(param);
             }
             Valid.ThrowException(@params.Count != methodscheme.Params.Count, "参数个数不匹配");
 

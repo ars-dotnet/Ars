@@ -39,6 +39,7 @@ namespace ArsWebApiService.Controllers.H5Controllers
         /// <param name="input"></param>
         /// <returns></returns>
         [HttpGet]
+        [ExportAction]
         public Task<ArsOutput<PageOutput<Student>>> GetLists(
             [FromServices] ITaskService taskService,
             [FromQuery] Search<TestInput> input) 
