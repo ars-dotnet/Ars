@@ -1,0 +1,26 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "Grpc.test";
+package test;
+
+service TestRpc {
+
+ // Sends a greeting
+  rpc SayHelloUnaryCall (HelloRequest) returns (HelloReply); 
+
+  rpc SayHelloStreamingFromServer (HelloRequest) returns (stream HelloReply); 
+
+  rpc SayHelloStreamingFromClient (stream HelloRequest) returns (HelloReply); 
+
+  rpc SayHelloStreamingBothWays (stream HelloRequest) returns (stream HelloReply); 
+}
+
+// The request message containing the user's name.
+message HelloRequest {
+  int32 age = 1;
+}
+
+// The response message containing the greetings.
+message HelloReply {
+  string message = 1;
+}

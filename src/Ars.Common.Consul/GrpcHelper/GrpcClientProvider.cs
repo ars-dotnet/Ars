@@ -7,6 +7,7 @@ using Grpc.Core;
 using Grpc.Core.Interceptors;
 using Grpc.Net.Client;
 using Grpc.Net.Client.Web;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,14 +22,21 @@ namespace Ars.Common.Consul.GrpcHelper
         private readonly IConsulDiscoverConfiguration _options;
         private readonly IGrpcMetadataTokenProvider _grpcCallOptionsProvider;
         private readonly IHttpClientProviderByConsul _httpClientProvider;
+
+        private readonly ILoggerFactory _loggerFactory;
+
         public GrpcClientProvider(
             IConsulDiscoverConfiguration options,
             IGrpcMetadataTokenProvider grpcCallOptionsProvider,
-            IHttpClientProviderByConsul httpClientProvider)
+            IHttpClientProviderByConsul httpClientProvider,
+
+            ILoggerFactory loggerFactory)
         {
             _options = options;
             _grpcCallOptionsProvider = grpcCallOptionsProvider;
             _httpClientProvider = httpClientProvider;
+
+            _loggerFactory = loggerFactory;
         }
 
         public virtual async Task<T> GetGrpcClient<T>(string serviceName) where T : ClientBase<T>
@@ -45,7 +53,7 @@ namespace Ars.Common.Consul.GrpcHelper
             GrpcChannelOptions channelOptions = await GetGrpcChannelOptions(configuration);
             var channel = GrpcChannel.ForAddress(channelOptions.HttpClient!.BaseAddress!, channelOptions);
             var callInvoker = channel.Intercept(
-                new GrpcClientTokenInterceptor(configuration, _grpcCallOptionsProvider));
+                new GrpcClientTokenInterceptor(configuration, _grpcCallOptionsProvider, _loggerFactory));
 
             return callInvoker;
         }

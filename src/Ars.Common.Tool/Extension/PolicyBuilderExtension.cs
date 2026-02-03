@@ -24,8 +24,9 @@ namespace Ars.Common.Tool.Extension
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="builder"></param>
+        /// <param name="timeOut"></param>
         /// <returns></returns>
-        public static IAsyncPolicy<T> AddArsHttpClientPolicy<T>(this PolicyBuilder<T> builder)
+        public static IAsyncPolicy<T> AddArsHttpClientPolicy<T>(this PolicyBuilder<T> builder,bool timeOut)
             where T : HttpResponseMessage
         {
             var fallbackPlicy = Policy<T>.Handle<BrokenCircuitException>().FallbackAsync(_ => 
@@ -38,12 +39,17 @@ namespace Ars.Common.Tool.Extension
                 .Or<TimeoutException>()
                 .CircuitBreakerAsync(30, TimeSpan.FromSeconds(5));
 
-            var timeOutPolicy = Policy.TimeoutAsync<T>(60);
-
             var retryPolicy = builder.WaitAndRetryAsync(
                 new TimeSpan[2] { TimeSpan.FromSeconds(1), TimeSpan.FromSeconds(2) });
 
-            return fallbackPlicy.WrapAsync(breakerPolicy).WrapAsync(timeOutPolicy).WrapAsync(retryPolicy);
+            var warp = fallbackPlicy.WrapAsync(breakerPolicy).WrapAsync(retryPolicy);
+
+            if (timeOut)
+            {
+                warp.WrapAsync(Policy.TimeoutAsync<T>(60));
+            }
+
+            return warp;
         }
     }
 }

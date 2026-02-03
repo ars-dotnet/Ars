@@ -64,7 +64,15 @@ namespace Ars.Common.Core.Extensions
         {
             return builder.AddTransientHttpErrorPolicy(policyBuilder =>
             {
-                return policyBuilder.AddArsHttpClientPolicy();
+                return policyBuilder.AddArsHttpClientPolicy(true);
+            });
+        }
+
+        public static IHttpClientBuilder AddArsTransientHttpErrorPolicyWithOutTImeOut(this IHttpClientBuilder builder)
+        {
+            return builder.AddTransientHttpErrorPolicy(policyBuilder =>
+            {
+                return policyBuilder.AddArsHttpClientPolicy(false);
             });
         }
     }

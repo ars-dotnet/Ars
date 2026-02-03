@@ -70,16 +70,13 @@ app.UseGrpcWeb(new GrpcWebOptions { DefaultEnabled = true });
 
 app.UseRouting();
 app.UseArsCore();
-app.UseEndpoints(endpoints =>
-{
-    endpoints.MapControllers();
-    endpoints.MapGrpcService<GreeterService>().EnableGrpcWeb();
-    endpoints.MapGrpcService<HealthCheckService>().EnableGrpcWeb();
-    endpoints.MapGet("healthCheck", context =>
-    {
-        return context.Response.WriteAsync("ok");
-    });
-});
 
+app.MapControllers();
+app.MapGrpcService<GreeterService>().EnableGrpcWeb();
+app.MapGrpcService<HealthCheckService>().EnableGrpcWeb();
+app.MapGet("healthCheck", context =>
+{
+    return context.Response.WriteAsync("ok");
+});
 
 app.Run();

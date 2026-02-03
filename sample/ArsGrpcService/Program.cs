@@ -1,10 +1,15 @@
 using Ars.Commom.Host.Extension;
 using Ars.Commom.Tool.Certificates;
 using Ars.Common.Consul.Extension;
+using Ars.Common.Consul.GrpcHelper;
 using Ars.Common.Consul.IApplicationBuilderExtension;
+using Ars.Common.Core.Extensions;
+using Ars.Common.EFCore.Extension;
 using Ars.Common.Host.Extension;
 using Ars.Common.IdentityServer4.Extension;
 using Ars.Common.SkyWalking.Extensions;
+using ArsGrpcService.DbContexts;
+using ArsGrpcService.Services;
 using GrpcService;
 using GrpcService.Services;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
@@ -25,9 +30,12 @@ builder.Services
         config
             .AddArsIdentityClient()
             .AddArsConsulRegisterServer()
-            .AddArsSkyApm();
-    });
+            .AddArsSkyApm()
+            .AddArsDbContext<GrpcDbContext>();
+    }).AddArsHttpClient();
 builder.Services.AddGrpc();
+
+builder.Services.AddSingleton<IEndpointFilter, GrpcUowActionFilter>();
 
 builder.WebHost.UseArsKestrel(builder.Configuration);
 
@@ -40,6 +48,9 @@ app.UseRouting();
 // Configure the HTTP request pipeline.
 app.MapGrpcService<GreeterService>();
 app.MapGrpcService<HealthCheckService>();
+app.MapGrpcService<GrpcDbContextService>()
+    .AddEndpointFilter<GrpcServiceEndpointConventionBuilder, GrpcUowActionFilter>();
+
 app.MapGet("/", () => "Communication with gRPC endpoints must be made through a gRPC client. To learn how to create a client, visit: https://go.microsoft.com/fwlink/?linkid=2086909");
 
 app.UseArsCore();

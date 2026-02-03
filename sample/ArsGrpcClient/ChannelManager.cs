@@ -25,6 +25,7 @@ namespace GrpcClients
         public Task WaitToReadAsync<TRequest, TResponse>(string name, AsyncClientStreamingCall<TRequest, TResponse> streamingCall)
         {
             var channel = _provider.GetOrAddChannel<TRequest>(name);
+
             _ = Task.Run(async () =>
             {
                 while (await channel.Reader.WaitToReadAsync())

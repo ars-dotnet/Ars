@@ -4,6 +4,7 @@ using GrpcGreeter.greet;
 using Grpc.Core;
 using Microsoft.AspNetCore.Authorization;
 using Ars.Common.Consul.HttpClientHelper;
+using Grpc.test;
 
 namespace GrpcClients.Controllers
 {
@@ -58,7 +59,7 @@ namespace GrpcClients.Controllers
         public async Task<IActionResult> UnaryCallGrpc()
         {
             var client = await _grpcClientProvider.GetGrpcClient<Greeter.GreeterClient>("apigrpcwebapiservice");
-            var m = await client.SayHelloAsync(new HelloRequest() { Name = "ars" });
+            var m = await client.SayHelloAsync(new GrpcGreeter.greet.HelloRequest() { Name = "ars" });
             return Json(m);
         }
 
@@ -70,15 +71,19 @@ namespace GrpcClients.Controllers
         public async Task<IActionResult> UnaryCallGrpc1()
         {
             var client = await _grpcClientProvider.GetGrpcClient<Greeter.GreeterClient>("apigrpc1");
-            var m = await client.SayHelloAsync(new HelloRequest() { Name = "ars" }, headers:new Metadata() { new Metadata.Entry("name","ars")});
+            var m = await client.SayHelloAsync(new GrpcGreeter.greet.HelloRequest() { Name = "ars" }, headers:new Metadata() { new Metadata.Entry("name","ars")});
             return Json(m);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> StreamingFromServerCall()
         {
             CancellationTokenSource source = new CancellationTokenSource();
-            var client = await _grpcClientProvider.GetGrpcClient<Greeter.GreeterClient>("apigrpcwebapiservice");
+            var client = await _grpcClientProvider.GetGrpcClient<Greeter.GreeterClient>("apigrpc1");
             using var res = client.StreamingFromServer(new StreamingRequest() { Value = 10.1m }, new CallOptions(cancellationToken: source.Token));
 
             source.CancelAfter(TimeSpan.FromSeconds(10));
@@ -86,7 +91,7 @@ namespace GrpcClients.Controllers
             IList<decimal> datas = new List<decimal>();
             await foreach (var msg in res.ResponseStream.ReadAllAsync())
             {
-                datas.Add(msg.Value);
+                datas.Add((decimal)msg.Value);
             }
 
             return Json(string.Join(",", datas));
@@ -95,6 +100,10 @@ namespace GrpcClients.Controllers
         [HttpPost]
         public async Task<IActionResult> StreamFromClientCall()
         {
+            var client = await _grpcClientProvider.GetGrpcClient<Greeter.GreeterClient>("apigrpc1");
+            var req = client.StreamingFromClient();
+            await _channelManager.WaitToReadAsync("grpc", req);
+
             _ = Task.Run(async () =>
             {
                 int i = 0;
@@ -107,21 +116,17 @@ namespace GrpcClients.Controllers
                 }
             });
 
-            _ = Task.Run(async () =>
-            {
-                int i = 0;
-                while (true)
-                {
-                    await _channelManager.WriteAsync("grpc", new StreamingRequest { Value = i });
+            //_ = Task.Run(async () =>
+            //{
+            //    int i = 0;
+            //    while (true)
+            //    {
+            //        await _channelManager.WriteAsync("grpc", new StreamingRequest { Value = i });
 
-                    i++;
-                    await Task.Delay(TimeSpan.FromSeconds(2));
-                }
-            });
-
-            var client = await _grpcClientProvider.GetGrpcClient<Greeter.GreeterClient>("apigrpc1");
-            var req = client.StreamingFromClient();
-            await _channelManager.WaitToReadAsync("grpc", req);
+            //        i++;
+            //        await Task.Delay(TimeSpan.FromSeconds(2));
+            //    }
+            //});
 
             return Ok();
         }
@@ -138,7 +143,7 @@ namespace GrpcClients.Controllers
         [HttpPost]
         public async Task<IActionResult> StreamBothWaysCall()
         {
-            var client = await _grpcClientProvider.GetGrpcClient<Greeter.GreeterClient>("apigrpcwebapiservice");
+            var client = await _grpcClientProvider.GetGrpcClient<Greeter.GreeterClient>("apigrpc1");
             using var req = client.streamingBothWays();
 
             for (int i = 0; i < 10; i++)
@@ -155,6 +160,5 @@ namespace GrpcClients.Controllers
 
             return Json(string.Join(",", datas));
         }
-
     }
 }

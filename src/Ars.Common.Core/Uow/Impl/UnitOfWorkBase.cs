@@ -96,11 +96,6 @@ namespace Ars.Common.Core.Uow.Impl
 
         public void Dispose()
         {
-            //if (!_isCompleteCalledBefore || IsDisposed) 
-            //{
-            //    return;
-            //}
-
             if (Id.IsNullOrEmpty() || IsDisposed)
             {
                 return;

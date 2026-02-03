@@ -11,11 +11,12 @@
 	<ItemGroup>
 	  <None Remove="Protos\customType.proto" />
 	  <None Remove="Protos\health.proto" />
+	  <None Remove="Protos\test.proto" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Grpc.AspNetCore" Version="2.42.0" />
-		<PackageReference Include="Grpc.AspNetCore.Server.Reflection" Version="2.59.0" />
+		<PackageReference Include="Grpc.AspNetCore" Version="2.76.0" />
+		<PackageReference Include="Grpc.AspNetCore.Server.Reflection" Version="2.76.0" />
 		<PackageReference Include="SkyAPM.Agent.AspNetCore" Version="2.1.0" />
 		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.15.1" />
 		<PackageReference Include="System.Linq.Async" Version="6.0.1" />
@@ -34,10 +35,13 @@
 		<Protobuf Include="Protos\health.proto" GrpcServices="Server">
 		  <Root>GrpcHelper\Protos\</Root>
 		</Protobuf>
+
+		<Protobuf Include="Protos\test.proto" GrpcServices="Server" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<ProjectReference Include="..\..\src\Ars.Common.Consul\Ars.Common.Consul.csproj" />
+		<ProjectReference Include="..\..\src\Ars.Common.EFCore\Ars.Common.EFCore.csproj" />
 		<ProjectReference Include="..\..\src\Ars.Common.Host\Ars.Common.Host.csproj" />
 		<ProjectReference Include="..\..\src\Ars.Common.IdentityServer4\Ars.Common.IdentityServer4.csproj" />
 		<ProjectReference Include="..\..\src\Ars.Common.SkyWalking\Ars.Common.SkyWalking.csproj" />

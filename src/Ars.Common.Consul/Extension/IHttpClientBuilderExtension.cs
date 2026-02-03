@@ -23,7 +23,7 @@ namespace Ars.Common.Consul.Extension
         /// <returns></returns>
         public static IHttpClientBuilder ConfigureArsGrpcPrimaryHttpsMessageHandler(
             this IHttpClientBuilder builder, 
-            Func<HttpMessageHandler, HttpMessageHandler> func) 
+            Func<HttpMessageHandler, HttpMessageHandler>? func = null) 
         {
             return builder.ConfigureArsPrimaryHttpsMessageHandler(func);
         }

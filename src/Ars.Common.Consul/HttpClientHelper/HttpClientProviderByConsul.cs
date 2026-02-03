@@ -61,7 +61,7 @@ namespace Ars.Common.Consul.HttpClientHelper
 
         public Task<T> GetGrpcHttpClientAsync<T>(ConsulConfiguration config) where T : HttpClient
         {
-            return GetClient<T>(config, HttpClientNames.RetryHttp, grpc: true);
+            return GetClient<T>(config, HttpClientNames.RetryGrpcHttpV2, grpc: true);
         }
 
         private async Task<T> GetClient<T>(ConsulConfiguration config, string httpClientName, bool grpc = false) where T : HttpClient
@@ -83,7 +83,7 @@ namespace Ars.Common.Consul.HttpClientHelper
                 }
                 else if (config.Communication.UseHttps)
                 {
-                    httpClientName = HttpClientNames.RetryHttps;
+                    httpClientName = HttpClientNames.RetryGrpcHttpsV2;
                 }
             }
 

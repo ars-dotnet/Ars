@@ -121,6 +121,15 @@ namespace Ars.Common.Consul.Extension
                     return grpchandler;
                 })
                 .AddArsTransientHttpErrorPolicy();
+
+            services
+                .AddHttpClient(HttpClientNames.RetryGrpcHttpV2)
+                .AddArsTransientHttpErrorPolicy();
+
+            services
+                .AddHttpClient(HttpClientNames.RetryGrpcHttpsV2)
+                .ConfigureArsGrpcPrimaryHttpsMessageHandler()
+                .AddArsTransientHttpErrorPolicy();
             #endregion
 
             return arsServiceBuilder;
