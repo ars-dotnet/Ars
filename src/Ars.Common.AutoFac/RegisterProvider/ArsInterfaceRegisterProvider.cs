@@ -20,44 +20,97 @@ namespace Ars.Common.AutoFac.Dependency
             Array.ForEach(assemblies.SelectMany(assembly => assembly.GetLoadableTypes()).
                 Where(r => r.IsArsRegisterInterfaceType()).ToArray(), r =>
                 {
+                    KeyedServiceAttribute? keyed = r.GetCustomAttribute<KeyedServiceAttribute>(true);
+
                     if (typeof(ITransientDependency).IsAssignableFrom(r))
                     {
-                        if (r.BaseType?.IsAbstract ?? false)
+                        if (null == keyed) 
                         {
-                            builder.RegisterType(r).As(r.BaseType!).InstancePerDependency();
-                        }
-                        foreach (var i in r.GetInterfaces().Where(t => !ignore.Contains(t) && typeof(ITransientDependency) != t))
-                        {
-                            builder.RegisterType(r).As(i).InstancePerDependency();
+                            if (r.BaseType?.IsAbstract ?? false)
+                            {
+                                builder.RegisterType(r).As(r.BaseType!).InstancePerDependency();
+                            }
+                            foreach (var i in r.GetInterfaces().Where(t => !ignore.Contains(t) && typeof(ITransientDependency) != t))
+                            {
+                                builder.RegisterType(r).As(i).InstancePerDependency();
+                            }
+
+                            builder.RegisterType(r).AsSelf().InstancePerDependency();
                         }
 
-                        builder.RegisterType(r).AsSelf().InstancePerDependency();//.PropertiesAutowired(new AutowiredPropertySelector());
+                        if (null != keyed) 
+                        {
+                            if (r.BaseType?.IsAbstract ?? false)
+                            {
+                                builder.RegisterType(r).Keyed(keyed.ServiceName,r.BaseType!).InstancePerDependency();
+                            }
+                            foreach (var i in r.GetInterfaces().Where(t => !ignore.Contains(t) && typeof(ITransientDependency) != t))
+                            {
+                                builder.RegisterType(r).Keyed(keyed.ServiceName,i).InstancePerDependency();
+                            }
+
+                            builder.RegisterType(r).Keyed(keyed.ServiceName, r).InstancePerDependency();
+                        }
                     }
                     else if (typeof(ISingletonDependency).IsAssignableFrom(r))
                     {
-                        if (r.BaseType?.IsAbstract ?? false)
+                        if (null == keyed) 
                         {
-                            builder.RegisterType(r).As(r.BaseType!).SingleInstance();
-                        }
-                        foreach (var i in r.GetInterfaces().Where(t => !ignore.Contains(t) && typeof(ISingletonDependency) != t))
-                        {
-                            builder.RegisterType(r).As(i).SingleInstance();
+                            if (r.BaseType?.IsAbstract ?? false)
+                            {
+                                builder.RegisterType(r).As(r.BaseType!).SingleInstance();
+                            }
+                            foreach (var i in r.GetInterfaces().Where(t => !ignore.Contains(t) && typeof(ISingletonDependency) != t))
+                            {
+                                builder.RegisterType(r).As(i).SingleInstance();
+                            }
+
+                            builder.RegisterType(r).AsSelf().SingleInstance();
                         }
 
-                        builder.RegisterType(r).AsSelf().SingleInstance();
+                        if (null != keyed) 
+                        {
+                            if (r.BaseType?.IsAbstract ?? false)
+                            {
+                                builder.RegisterType(r).Keyed(keyed.ServiceName, r.BaseType!).SingleInstance();
+                            }
+                            foreach (var i in r.GetInterfaces().Where(t => !ignore.Contains(t) && typeof(ISingletonDependency) != t))
+                            {
+                                builder.RegisterType(r).Keyed(keyed.ServiceName, i).SingleInstance();
+                            }
+
+                            builder.RegisterType(r).Keyed(keyed.ServiceName, r).SingleInstance();
+                        }
                     }
                     else if (typeof(IScopedDependency).IsAssignableFrom(r))
                     {
-                        if (r.BaseType?.IsAbstract ?? false)
+                        if (null == keyed) 
                         {
-                            builder.RegisterType(r).As(r.BaseType!).InstancePerLifetimeScope();
-                        }
-                        foreach (var i in r.GetInterfaces().Where(t => !ignore.Contains(t) && typeof(IScopedDependency) != t))
-                        {
-                            builder.RegisterType(r).As(i).InstancePerLifetimeScope();
+                            if (r.BaseType?.IsAbstract ?? false)
+                            {
+                                builder.RegisterType(r).As(r.BaseType!).InstancePerLifetimeScope();
+                            }
+                            foreach (var i in r.GetInterfaces().Where(t => !ignore.Contains(t) && typeof(IScopedDependency) != t))
+                            {
+                                builder.RegisterType(r).As(i).InstancePerLifetimeScope();
+                            }
+
+                            builder.RegisterType(r).AsSelf().InstancePerLifetimeScope();
                         }
 
-                        builder.RegisterType(r).AsSelf().InstancePerLifetimeScope();
+                        if (null != keyed) 
+                        {
+                            if (r.BaseType?.IsAbstract ?? false)
+                            {
+                                builder.RegisterType(r).Keyed(keyed.ServiceName, r.BaseType!).InstancePerLifetimeScope();
+                            }
+                            foreach (var i in r.GetInterfaces().Where(t => !ignore.Contains(t) && typeof(IScopedDependency) != t))
+                            {
+                                builder.RegisterType(r).Keyed(keyed.ServiceName, i).InstancePerLifetimeScope();
+                            }
+
+                            builder.RegisterType(r).Keyed(keyed.ServiceName, r).InstancePerLifetimeScope();
+                        }
                     }
                 });
         }
