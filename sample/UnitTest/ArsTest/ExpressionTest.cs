@@ -12,9 +12,10 @@ namespace ArsTest
     public class ExpressionTest
     {
         [Fact]
-        public void TestUnaryExpression() 
+        public void TestUnaryExpression()
         {
             Expression a = Expression.TypeAs(Expression.Constant(123,typeof(int)),typeof(Object));
+
             var t = a.ToString();
         }
 

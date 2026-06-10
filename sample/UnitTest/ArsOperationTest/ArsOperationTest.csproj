@@ -8,6 +8,7 @@
 
     <IsPackable>false</IsPackable>
     <IsTestProject>true</IsTestProject>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
   <ItemGroup>
@@ -52,12 +53,27 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="CppTool\NativeMethods.cs">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="Configs\arslog4net.Config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Configs\CppFunctions.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Configs\log4net.Config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Windows.CsWin32" PrivateAssets="all" Version="0.3.106" />
+		<!-- NativeMethods.txt 必须作为 AdditionalFiles 包含 -->
+		<AdditionalFiles Include="NativeMethods.txt" />
+	</ItemGroup>
 
 </Project>

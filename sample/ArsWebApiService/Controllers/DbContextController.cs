@@ -431,13 +431,13 @@ namespace MyApiWithIdentityServer4.Controllers
                 {
                     new Model.Enrollment
                     {
-                        Id = 6,
-                        CourseID = 6,
+                        Id = 100,
+                        CourseID = 100,
                         StudentID = id,
                         Grade = Model.Grade.A,
                         Course = new Model.Course
                         {
-                            CourseID = 6,
+                            CourseID = 100,
                             Title = "2023.03.06.002",
                             Credits = 100.11m,
                             Name = "2023.03.06.002"

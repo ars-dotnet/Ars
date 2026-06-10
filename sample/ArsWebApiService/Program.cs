@@ -45,15 +45,6 @@ using ArsWebApiService.DiagnosticListeners;
 using Ars.Common.Core.Diagnostic;
 using Microsoft.Extensions.Hosting;
 
-DiagnosticListener.AllListeners.Subscribe(new Observer<DiagnosticListener>(
-    listener =>
-    {
-        if (listener.Name == ArsDiagnosticNames.ListenerName)
-        {
-            listener.SubscribeWithAdapter(new DatabaseSourceCollector());
-        }
-    }));
-
 var builder = WebApplication.CreateBuilder(args);
 
 // add apollo service
@@ -152,10 +143,17 @@ builder.Services.AddScoped<IWebServices, WebServices>();
 //Ìí¼Ó°æ±¾¿ØÖÆ
 builder.Services.AddApiVersioning().AddApiExplorer();
 
-
-
 // Configure the HTTP request pipeline.
 var app = builder.Build();
+
+DiagnosticListener.AllListeners.Subscribe(new Observer<DiagnosticListener>(
+    listener =>
+    {
+        if (listener.Name == ArsDiagnosticNames.ListenerName)
+        {
+            listener.SubscribeWithAdapter(new DatabaseSourceCollector(app.Services));
+        }
+    }));
 
 app.UsArsExceptionMiddleware();
 

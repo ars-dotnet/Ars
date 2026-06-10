@@ -91,7 +91,7 @@ namespace ArsWebApiService.Controllers
 
             await ArsHCacheProvider.GetArsCache("HCache").HMSetAsync("peopel1", new Dictionary<string, object> { { "name", "李白" }, { "top", 181 } });
 
-            await ArsHCacheProvider.GetArsCache("HCache").HSetAsync("peopel2", "p1", new People("杜甫", 182));
+            await ArsHCacheProvider.GetArsCache("HCache").HSetAsync("peopel2", "杜甫", new People("杜甫", 182));
         }
 
         [HttpGet]
@@ -103,7 +103,7 @@ namespace ArsWebApiService.Controllers
             var b = await ArsHCacheProvider.GetArsCache("HCache").HGetAllAsync<string>("peopel");
             var c = await ArsHCacheProvider.GetArsCache("HCache").HMGetAsync<string>("peopel1", "name", "top");
 
-            var d = await ArsHCacheProvider.GetArsCache("HCache").HGetAsync<People>("peopel2", "p1");
+            var d = await ArsHCacheProvider.GetArsCache("HCache").HGetAsync<People>("peopel2", "杜甫");
 
             return Ok();
         }

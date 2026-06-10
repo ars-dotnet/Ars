@@ -59,7 +59,6 @@ namespace ArsOperationTest
             //"ns=2;Devices/WorkFactory01/WorkShop02/ModbusTcpTest/error17", //D107
 
             //"ns=2;Devices/WorkFactory01/WorkShop02/ModbusTcpTest/errorAll", //D107
-            "ns=2;Devices/WorkFactory01/WorkShop02/ModbusTcpTest/Int16", //D107
         };
 
         /// <summary>
@@ -75,12 +74,11 @@ namespace ArsOperationTest
             //添加订阅
             //第一次读取会订阅到
             //PLC值发生变化会订阅到
-            opcUaClient.AddSubscription("Comb", combTags, SubCallback);
+            //opcUaClient.AddSubscription("Comb", combTags, SubCallback);
 
             opcUaClient.AddSubscription("RetLine", RetLineTags, SubCallback);
 
             Console.ReadLine();
-            Console.ReadKey();
 
             opcUaClient.Disconnect();
         }

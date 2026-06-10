@@ -2,7 +2,7 @@
 
 namespace ArsWebApiService.StartupHostServices
 {
-    //public class Host2Service : ArsHostStartupExecutingService
+    //public class Host2Service : ArsBaseHostStartupExecutingService
     //{
     //    private int i;
     //    public Host2Service(ILoggerFactory loggerFactory) : base(loggerFactory)

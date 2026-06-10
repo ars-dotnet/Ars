@@ -1,9 +1,11 @@
 ﻿using Ars.Common.Core.AspNetCore.HostService;
 using Ars.Common.Core.IDependency;
 using Ars.Common.Core.Uow;
+using Ars.Common.EFCore.Repository;
+using MyApiWithIdentityServer4.Model;
 using System.Transactions;
 
-namespace ArsWebApiService.Services
+namespace ArsWebApiService.StartupHostServices
 {
     public class HostService : ArsBaseHostStartupExecutingService
     {
@@ -13,10 +15,13 @@ namespace ArsWebApiService.Services
 
         protected override TimeSpan DueTime => TimeSpan.FromSeconds(10);
 
-        protected override TimeSpan Period => TimeSpan.FromSeconds(10);
+        protected override TimeSpan Period => Timeout.InfiniteTimeSpan;
 
         [Autowired]
         protected IServiceScopeFactory ServiceScopeFactory { get; set; }
+
+        [Autowired]
+        protected IRepository<Student, Guid> Repo { get; set; }
 
         protected override async Task ExecutingAsync(CancellationToken cancellationToken)
         {
@@ -31,6 +36,10 @@ namespace ArsWebApiService.Services
             //var data = await service.GetAsync();
 
             //await scope.CompleteAsync();
+
+            var info = await Repo.FirstOrDefaultAsync();
+
+            
         }
     }
 }
