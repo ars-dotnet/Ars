@@ -12,5 +12,7 @@ namespace ArsWebApiService.Services
     {
         [ExportAction]
         Task<ArsOutput<PageOutput<Student>>> GetList([FromQuery] Search<TestInput> input);
+
+        Task<ArsOutput<Student>> GetOne();
     }
 }

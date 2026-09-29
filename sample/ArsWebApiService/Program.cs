@@ -47,6 +47,22 @@ using Microsoft.Extensions.Hosting;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// 关键步骤：注册 AgileConfig
+builder.Configuration.AddAgileConfig(options =>
+{
+    options.AppId = builder.Configuration["AgileConfig:appId"];
+    options.Secret = builder.Configuration["AgileConfig:secret"];
+    options.Nodes = builder.Configuration["AgileConfig:nodes"];
+    options.ENV = builder.Configuration["AgileConfig:env"];
+});
+
+// 显式将 RcsAreaInfos 节绑定到 ConfigOptions
+builder.Services.Configure<ConfigOptions>(
+    builder.Configuration.GetSection("arsconfig"));
+
+// 2. 注册 IConfigClient 到 DI 容器（让构造函数能注入）
+builder.Services.AddAgileConfig();
+
 // add apollo service
 //builder.WebHost.ConfigureAppConfiguration((hostBuilderContext, configurationBuilder) =>
 //{
@@ -142,6 +158,7 @@ builder.Services.AddScoped<IWebServices, WebServices>();
 
 //添加版本控制
 builder.Services.AddApiVersioning().AddApiExplorer();
+
 
 // Configure the HTTP request pipeline.
 var app = builder.Build();

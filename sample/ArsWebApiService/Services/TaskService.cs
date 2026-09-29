@@ -16,6 +16,9 @@ namespace ArsWebApiService.Services
         [Autowired]
         public IRepository<Student, Guid> Repo { get; set; }
 
+        [Autowired]
+        public IRepository<Enrollment> EnRepo { get; set; }
+
         public async Task<ArsOutput<PageOutput<Student>>> GetList([FromQuery] Search<TestInput> input)
         {
             var count = await Repo.CountAsync();
@@ -27,6 +30,18 @@ namespace ArsWebApiService.Services
                 .Take(input.PageSize).ToListAsync();
 
             return new ArsOutput<PageOutput<Student>>(new PageOutput<Student>(count, list));
+        }
+
+        public async Task<ArsOutput<Student>> GetOne() 
+        {
+            var query = from a in Repo.GetAll()
+            join b in EnRepo.GetAll()
+            on a.Id equals b.StudentID
+            select a;
+
+            var data = await query.FirstOrDefaultAsync();
+
+            return new ArsOutput<Student>(data);
         }
     }
 }
